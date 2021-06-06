@@ -73,8 +73,8 @@
 + Wellington NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + tot NOUN_HUMAN 
 + bear posdefault:NOUN 
-+ anybody NOUN_HUMAN 
-+ anyone NOUN_HUMAN 
++ anybody NOUN_HUMAN INDEFINITE_PRONOUN 
++ anyone NOUN_HUMAN INDEFINITE_PRONOUN 
 + Baltimore ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Bangkok NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Barcelona ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
@@ -204,7 +204,7 @@
 + ward NOUN_HUMAN 
 + CN_Tower ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + coronoid ADJECTIVE ADJECTIVE_NORMAL 
-+ nobody NOUN_HUMAN 
++ nobody NOUN_HUMAN INDEFINITE_PRONOUN 
 + kin NOUN_HUMAN 
 + Caribbean_Sea ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + cows VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
@@ -453,6 +453,7 @@
 + Jerusalem NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Jamaica ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + je FOREIGN_WORD 
++ jews PATTERN_WORD 
 + Kingston NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Japan ALWAYS_PROPER_NAME_MERGE LOCATIONWORD OF_PROPER 
 + Tokyo NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
@@ -465,6 +466,7 @@
 + Jupiter ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Madison NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Rhine ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
++ jap PATTERN_WORD 
 + Kansas ALWAYS_PROPER_NAME_MERGE LOCATIONWORD OF_PROPER 
 + Qatar ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Kentucky ALWAYS_PROPER_NAME_MERGE LOCATIONWORD OF_PROPER 
@@ -711,7 +713,7 @@
 + queen_bee posdefault:NOUN 
 + Quito NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Victoria NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
-+ quaking VERB_PRESENT_PARTICIPLE VERB 
++ quaking VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + Zimbabwe ALWAYS_PROPER_NAME_MERGE 
 + Rio_de_Janeiro ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Riyadh NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
@@ -773,7 +775,7 @@
 + Seattle ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + sports VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + Space_Needle ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
-+ stamping VERB_PRESENT_PARTICIPLE VERB KINDERGARTEN 
++ stamping VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
 + Statue_of_Liberty ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Shanghai ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Slovak ADJECTIVE ADJECTIVE_NORMAL 
@@ -822,6 +824,7 @@
 + stepchild NOUN_HUMAN 
 + stepparent NOUN_HUMAN 
 + wooer NOUN_HUMAN 
++ stat PATTERN_WORD 
 + Surinamese ADJECTIVE ADJECTIVE_NORMAL 
 + Slovakian NOUN_HUMAN NOUN_THEY NOUN_TITLE_OF_WORK NOUN NOUN_PROPER_SINGULAR 
 + spirits VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE1_2 
@@ -867,7 +870,7 @@
 + Venice ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Vermont ALWAYS_PROPER_NAME_MERGE LOCATIONWORD OF_PROPER 
 + Vietnam ALWAYS_PROPER_NAME_MERGE LOCATIONWORD OF_PROPER 
-+ vibrating VERB_PRESENT_PARTICIPLE VERB KINDERGARTEN 
++ vibrating VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
 + Vatican ADJECTIVE ADJECTIVE_NORMAL 
 + Vaduz NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Valletta NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
@@ -887,8 +890,18 @@
 + Will NOUN_HUMAN NOUN_FIRSTNAME NOUN_PROPER_SINGULAR 
 + Yaounde NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
 + Zagreb NO_PROPER_MERGE ALWAYS_PROPER_NAME_MERGE LOCATIONWORD 
++ bro PATTERN_WORD 
++ childrens PATTERN_WORD 
++ int PATTERN_WORD 
++ shant PATTERN_WORD 
++ sportscar PATTERN_WORD 
++ ai PATTERN_WORD 
++ dessicated PATTERN_WORD 
 + killed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
-+ snorkelling VERB_PRESENT_PARTICIPLE VERB 
++ opthamologist PATTERN_WORD 
++ pharoh PATTERN_WORD 
++ snorkelling VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ th PATTERN_WORD 
 + ancistroid ADJECTIVE ADJECTIVE_NORMAL 
 + ancoral ADJECTIVE ADJECTIVE_NORMAL 
 + ankyroid ADJECTIVE ADJECTIVE_NORMAL 
@@ -929,8 +942,13 @@
 + ophiomorphic ADJECTIVE ADJECTIVE_NORMAL 
 + palaceous ADJECTIVE ADJECTIVE_NORMAL 
 + mildewed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
-+ squirming VERB_PRESENT_PARTICIPLE VERB GRADE1_2 
-+ shimmering VERB_PRESENT_PARTICIPLE VERB 
++ spikey PATTERN_WORD 
++ squirming VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE1_2 
++ squirmy PATTERN_WORD 
++ shimmering VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ simpleminded PATTERN_WORD 
++ thick-headed PATTERN_WORD 
++ fun-loving PATTERN_WORD 
 + power_adjectives 
 + muscled VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
 + enabled VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE3_4 
@@ -938,8 +956,10 @@
 + attractive_looking 
 + good_looking 
 + great_looking 
++ eggheaded PATTERN_WORD 
 + lousy_with 
 + no_end_of 
++ tingly PATTERN_WORD 
 + as_a_result_of 
 + due_to_the_fact_that 
 + on_condition_that 
@@ -953,13 +973,14 @@
 + in_order_to 
 + and_therefore 
 + not_until 
-+ clinging VERB_PRESENT_PARTICIPLE VERB 
++ hinkey PATTERN_WORD 
++ clinging VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + contraindicated VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
-+ fuming VERB_PRESENT_PARTICIPLE VERB 
++ fuming VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + grieved VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + in_debt 
 + mentally_challenged 
-+ moping VERB_PRESENT_PARTICIPLE VERB 
++ moping VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + narrow_minded 
 + overwhelmed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE5_6 
 + petered_out 
@@ -969,18 +990,24 @@
 + screwed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE1_2 
 + witches'_brew 
 + witch's_brew 
++ fraudster PATTERN_WORD 
++ greenwash PATTERN_WORD 
++ ashame PATTERN_WORD 
++ n00b SINGULAR_PERSON PATTERN_WORD 
 + at_ease 
 + grounded VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
 + home_cooked 
 + hunky_dory 
 + jazzed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + keenest MOST_FORM ADJECTIVE ADJECTIVE_NORMAL GRADE3_4 
-+ pioneering VERB_PRESENT_PARTICIPLE VERB GRADE3_4 
++ manners PATTERN_WORD 
++ multi PATTERN_WORD 
++ pioneering VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 
 + psyched VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + reinvented VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + reposed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + riveted VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE 
-+ scores VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL NOUN_NUMBER 
++ scores VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + stout_hearted 
 + tender_hearted 
 + the_yoke_of 
@@ -1018,7 +1045,13 @@
 + the_field_of 
 + the_study_of 
 + media_studies 
++ asshat PATTERN_WORD 
++ clusterfuck PATTERN_WORD 
++ cockfucker PATTERN_WORD 
 + dumb_ass 
++ dumbfuck PATTERN_WORD 
++ dumbshit PATTERN_WORD 
++ goddamnit PATTERN_WORD 
 + pastry_shop 
 + currency_conversion 
 + Angels NOUN NOUN_PROPER_SINGULAR 
@@ -1044,12 +1077,29 @@
 + be_from 
 + born_in 
 + born_near 
++ melanic PATTERN_WORD 
++ nigrine PATTERN_WORD 
++ piceous PATTERN_WORD 
++ bayonnet PATTERN_WORD 
 + butterfly_knife 
++ azuline PATTERN_WORD 
++ cyaneous PATTERN_WORD 
++ mazarine PATTERN_WORD 
++ pavonated PATTERN_WORD 
++ porceline PATTERN_WORD 
++ watchet PATTERN_WORD 
++ blu PATTERN_WORD 
++ blu-ray PATTERN_WORD 
 + blu_ray 
++ blue-ray PATTERN_WORD 
 + blue_ray 
++ blueray PATTERN_WORD 
++ bluray PATTERN_WORD 
 + tic_tac_toe 
++ battledress PATTERN_WORD 
 + bullet_proof_vest 
 + jousting_mail 
++ kevlar PATTERN_WORD 
 + kevlar_jacket 
 + kevlar_vest 
 + non_fiction 
@@ -1095,9 +1145,13 @@
 + moving_truck 
 + rally_car 
 + tank_truck 
++ vehiclewrecker PATTERN_WORD 
 + clubs VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + diamonds NOUN NOUN_PLURAL GRADE3_4 
 + spades VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE5_6 
++ foxhawk PATTERN_WORD 
++ polar-bear PATTERN_WORD 
++ maine PATTERN_WORD 
 + breed_of 
 + class_of 
 + flavor_of 
@@ -1111,10 +1165,20 @@
 + chat_bot 
 + chat_box 
 + talk_bot 
++ feta PATTERN_WORD 
++ havarti PATTERN_WORD 
++ munster PATTERN_WORD 
 + pepper_jack 
++ provolone PATTERN_WORD 
++ fromage PATTERN_WORD 
++ muenster PATTERN_WORD 
++ bitter-clinger PATTERN_WORD 
 + chink_a_billy 
++ hoosier PATTERN_WORD 
++ hoser PATTERN_WORD 
 + shit_kicker 
 + stump_jumper 
++ teabagger PATTERN_WORD 
 + trailer_park_trash 
 + trailer_trash 
 + tree_jumper 
@@ -1137,12 +1201,18 @@
 + panty_hose 
 + faux_fur 
 + vegan_leather 
++ dropped-shoulder PATTERN_WORD 
 + full_length 
++ one-shoulder PATTERN_WORD 
 + pleated VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE5_6 
 + straight_fit 
 + Cosmopolitan NOUN NOUN_PROPER_SINGULAR 
++ marguerita PATTERN_WORD 
 + cup_of_jo 
 + cup_of_joe 
++ macchiato PATTERN_WORD 
++ moccachino PATTERN_WORD 
++ moccacino PATTERN_WORD 
 + coin_shop 
 + bachelors VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + electrical_plug 
@@ -1177,17 +1247,35 @@
 + drug_addition 
 + child_molestation 
 + forcible_rape 
++ can-can PATTERN_WORD 
 + cha_cha_cha 
 + hip_hop 
 + hokey_pokey 
 + hully_gully 
++ swingsquare PATTERN_WORD 
 + two_step 
++ bomb-disposal PATTERN_WORD 
 + racecar_driver 
++ stuntperson PATTERN_WORD 
++ bool PATTERN_WORD 
 + character_string 
 + long_int 
 + short_integer 
 + unsigned_int 
++ ex-partner PATTERN_WORD 
++ fri PATTERN_WORD 
++ fr PATTERN_WORD 
++ mon PATTERN_WORD 
++ sa PATTERN_WORD 
++ su PATTERN_WORD 
++ thu PATTERN_WORD 
++ thur PATTERN_WORD 
++ tue PATTERN_WORD 
++ tues PATTERN_WORD 
++ tu PATTERN_WORD 
 + popcorn_string 
++ mong PATTERN_WORD 
++ sperg PATTERN_WORD 
 + avian_flu 
 + bird_flu 
 + broken_bone 
@@ -1195,11 +1283,19 @@
 + black_death 
 + quotient_of 
 + ratio_of 
++ ob/gyn PATTERN_WORD 
 + medical_doctor 
++ barbituate PATTERN_WORD 
++ ludes PATTERN_WORD 
++ mesc PATTERN_WORD 
++ gamja PATTERN_WORD 
 + magic_mushrooms 
++ shroom PATTERN_WORD 
++ acetaminephin PATTERN_WORD 
 + downers NOUN NOUN_PLURAL KINDERGARTEN 
 + uppers NOUN NOUN_PLURAL KINDERGARTEN 
 + diet_pill 
++ freebase PATTERN_WORD 
 + cold_remedy 
 + cosmetics NOUN NOUN_PLURAL 
 + cough_syrup 
@@ -1212,24 +1308,38 @@
 + above_ground 
 + wireless_set 
 + headphones NOUN NOUN_PLURAL 
++ **itch PATTERN_WORD 
 + ass_hole 
++ b**tch PATTERN_WORD 
 + eat_shit 
++ f#*k PATTERN_WORD 
++ f*#k PATTERN_WORD 
++ f*** PATTERN_WORD 
++ f**k PATTERN_WORD 
++ f*ck PATTERN_WORD 
 + f_u_c_k 
 + fet_fucked 
++ fu PATTERN_WORD 
++ fu*k PATTERN_WORD 
 + fuck_my 
 + fuck_out 
 + fuck_you 
 + get_the_fuck_out 
++ gfy PATTERN_WORD 
++ gtfo PATTERN_WORD 
 + kiss_my_ass 
 + shit_head 
 + shut_the_fuck_up 
 + shut_the_hell_up 
 + butt_face 
 + butt_head 
++ buttface PATTERN_WORD 
++ butthead PATTERN_WORD 
 + dick_head 
 + go_to_hell 
 + my_ass 
 + screw_yourself 
++ stfu PATTERN_WORD 
 + be_sad 
 + broke_up 
 + died VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
@@ -1242,10 +1352,13 @@
 + sold_for 
 + will_be 
 + yields VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE5_6 
++ abbo PATTERN_WORD 
 + border_hopper 
 + border_jumper 
 + border_nigger 
 + bug_eater 
++ bunga PATTERN_WORD 
++ burrhead PATTERN_WORD 
 + cab_nigger 
 + camel_cowboy 
 + camel_humper 
@@ -1257,59 +1370,154 @@
 + chi_chi 
 + chili_shitter 
 + ching_chong 
++ chinig PATTERN_WORD 
++ chonky PATTERN_WORD 
++ cocolo PATTERN_WORD 
 + coon_ass 
 + cotton_picker 
 + cowboy_killer 
 + curry_muncher 
 + curry_slurper 
 + curry_stinker 
++ dego PATTERN_WORD 
 + diaper_head 
 + dot_head 
 + dune_coon 
 + dune_nigger 
++ eurotrash PATTERN_WORD 
++ eyetie PATTERN_WORD 
 + fog_nigger 
 + gator_bait 
++ gew PATTERN_WORD 
 + ghetto_hamster 
 + gin_jockey 
++ gipp PATTERN_WORD 
 + house_nigger 
 + ice_nigger 
++ ikey PATTERN_WORD 
 + ikey_mo 
++ iky PATTERN_WORD 
++ injun PATTERN_WORD 
 + island_nigger 
++ japie PATTERN_WORD 
++ jigarooni PATTERN_WORD 
++ jigg PATTERN_WORD 
++ jigga PATTERN_WORD 
++ jiggabo PATTERN_WORD 
++ jijjiboo PATTERN_WORD 
 + jungle_bunny 
++ khazar PATTERN_WORD 
++ kotiya PATTERN_WORD 
++ kyke PATTERN_WORD 
++ latrino PATTERN_WORD 
 + lawn_jockey 
++ lemonhead PATTERN_WORD 
 + ling_ling 
 + mangia_cake 
++ moch PATTERN_WORD 
++ mockey PATTERN_WORD 
++ mockie PATTERN_WORD 
++ mocky PATTERN_WORD 
++ moky PATTERN_WORD 
 + moss_eater 
++ mosshead PATTERN_WORD 
++ moulie PATTERN_WORD 
++ moulignon PATTERN_WORD 
++ moulinyan PATTERN_WORD 
 + mud_duck 
 + mud_person 
++ muk PATTERN_WORD 
++ muktuk PATTERN_WORD 
++ mulato PATTERN_WORD 
++ mulignan PATTERN_WORD 
++ munt PATTERN_WORD 
++ munter PATTERN_WORD 
++ neche PATTERN_WORD 
++ neechee PATTERN_WORD 
++ neejee PATTERN_WORD 
 + net_head 
++ nidge PATTERN_WORD 
++ nig PATTERN_WORD 
 + nig_nog 
++ nigar PATTERN_WORD 
++ niger PATTERN_WORD 
++ nigette PATTERN_WORD 
++ niggah PATTERN_WORD 
++ niggar PATTERN_WORD 
++ nigglet PATTERN_WORD 
++ niggor PATTERN_WORD 
++ niggress PATTERN_WORD 
 + pointy_head 
 + slant_eye 
 + slanty_eye 
++ slopehead PATTERN_WORD 
++ slopey PATTERN_WORD 
++ slopy PATTERN_WORD 
 + spear_chucker 
++ spickaboo PATTERN_WORD 
++ spig PATTERN_WORD 
++ spigger PATTERN_WORD 
++ spigotty PATTERN_WORD 
++ spink PATTERN_WORD 
++ squarehead PATTERN_WORD 
 + sub_human 
 + sucker_fish 
 + tar_baby 
++ tenker PATTERN_WORD 
++ thicklips PATTERN_WORD 
 + timber_nigger 
++ tincker PATTERN_WORD 
++ tinkar PATTERN_WORD 
++ tinkard PATTERN_WORD 
++ tinkere PATTERN_WORD 
 + touch_of_the_tar_brush 
 + towel_head 
 + tunnel_digger 
++ tyncar PATTERN_WORD 
++ tynekere PATTERN_WORD 
++ tynkard PATTERN_WORD 
++ tynkare PATTERN_WORD 
++ tynker PATTERN_WORD 
++ tynkere PATTERN_WORD 
 + uncircumcised_baboon 
 + wagon_burner 
++ zigabo PATTERN_WORD 
++ zipperhead PATTERN_WORD 
++ zippohead PATTERN_WORD 
++ assnigger PATTERN_WORD 
 + camel_jockies 
++ chinc PATTERN_WORD 
++ deggo PATTERN_WORD 
 + faggits NOUN NOUN_PLURAL 
 + fags VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL 
++ guido PATTERN_WORD 
++ heeb PATTERN_WORD 
 + honkies NOUN NOUN_PLURAL 
++ junglebunny PATTERN_WORD 
 + kikes NOUN NOUN_PLURAL 
++ kraut PATTERN_WORD 
++ mick PATTERN_WORD 
++ n1gr SINGULAR_PERSON PATTERN_WORD 
 + nazis NOUN NOUN_PLURAL 
++ nigaboo PATTERN_WORD 
 + niggas NOUN NOUN_PLURAL 
 + niggers NOUN NOUN_PLURAL 
 + nigguhs NOUN NOUN_PLURAL 
++ niglet PATTERN_WORD 
++ nigur PATTERN_WORD 
++ niiger PATTERN_WORD 
++ niigr PATTERN_WORD 
++ paki PATTERN_WORD 
 + polacks NOUN NOUN_PLURAL 
++ porchmonkey PATTERN_WORD 
++ raghead PATTERN_WORD 
++ ragheads PATTERN_WORD 
++ ruski PATTERN_WORD 
 + sand_nigger 
++ sandnigger PATTERN_WORD 
 + spics NOUN NOUN_PLURAL 
 + towel_heads 
++ w0p SINGULAR_PERSON PATTERN_WORD 
 + wetbacks NOUN NOUN_PLURAL 
 + wops NOUN NOUN_PLURAL 
 + yids NOUN NOUN_PLURAL 
@@ -1326,6 +1534,7 @@
 + shiz NOUN 
 + shiznit NOUN 
 + smeg NOUN 
++ abs PATTERN_WORD 
 + rowing_machine 
 + to_jog 
 + antipersonnel_mine 
@@ -1333,6 +1542,9 @@
 + grenade_launcher 
 + fabric_store 
 + elders NOUN_HUMAN NOUN NOUN_PLURAL KINDERGARTEN 
++ folks NOUN_HUMAN PATTERN_WORD 
++ grandkid NOUN_HUMAN PATTERN_WORD 
++ nephling NOUN_HUMAN PATTERN_WORD 
 + fried_chicken 
 + coolest MOST_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
 + like_most 
@@ -1392,16 +1604,18 @@
 + out_of_control 
 + beaten_down 
 + worn_down 
-+ calumniating VERB_PRESENT_PARTICIPLE VERB 
-+ castigating VERB_PRESENT_PARTICIPLE VERB 
-+ maligning VERB_PRESENT_PARTICIPLE VERB GRADE5_6 
-+ reviling VERB_PRESENT_PARTICIPLE VERB 
++ calumniating VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ castigating VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ maligning VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE5_6 
++ reviling VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ disspirited PATTERN_WORD 
 + feel_blue 
 + in_despair 
 + in_pain 
 + in_the_dumps 
 + out_of_sorts 
 + affronted VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE5_6 
++ cross-examined PATTERN_WORD 
 + interrogated VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + judged VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
 + rated VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE3_4 
@@ -1413,28 +1627,36 @@
 + asbestos_suit 
 + fire_fighter_suit 
 + fire_suit 
++ ebi PATTERN_WORD 
 + silversides NOUN NOUN_PLURAL 
++ toro PATTERN_WORD 
 + flame_cartridge_weapon 
 + incendiary_grenade 
 + incendiary_rocket 
 + napalm_missle 
 + chocolate_chip 
++ star-fruit PATTERN_WORD 
 + roses NOUN NOUN_PLURAL KINDERGARTEN 
 + acai_berry 
 + acorn_jelly 
++ aduki PATTERN_WORD 
 + amazon_tree_grape 
 + apple_chips 
 + apple_gourd 
 + argan_oil 
 + ash_gourd 
 + asparagus_lettuce 
++ azuki PATTERN_WORD 
 + azuki_bean 
 + green_beans 
 + grits VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ mansef PATTERN_WORD 
 + moo_goo_guy_pan 
 + pie_ala_mode 
 + spotted_duck 
 + tarte_flambe 
++ xiaolong PATTERN_WORD 
++ xingal PATTERN_WORD 
 + xiu_cai 
 + lunch_pail 
 + tin_box 
@@ -1452,6 +1674,7 @@
 + close_friend 
 + onions NOUN NOUN_PLURAL KINDERGARTEN 
 + furniture_store 
++ 7-up PATTERN_WORD 
 + blind_man_'s_bluff 
 + capture_the_flag 
 + dodge_ball 
@@ -1480,6 +1703,16 @@
 + warum FOREIGN_WORD 
 + wie FOREIGN_WORD 
 + graphic_arts 
++ caesious PATTERN_WORD 
++ chlorochrous PATTERN_WORD 
++ olivaceous PATTERN_WORD 
++ porraceous PATTERN_WORD 
++ prasinous PATTERN_WORD 
++ smaragdine PATTERN_WORD 
++ virescent PATTERN_WORD 
++ virid PATTERN_WORD 
++ viridian PATTERN_WORD 
++ zinnober PATTERN_WORD 
 + acrobatic_gymnastics 
 + aerobic_gymnastics 
 + floor_exercise 
@@ -1527,17 +1760,25 @@
 + low_fat_food 
 + sugar_free_food 
 + african_buffalo 
++ ceratops PATTERN_WORD 
 + earthworms NOUN NOUN_PLURAL 
++ ajwain PATTERN_WORD 
++ akudjura PATTERN_WORD 
++ anardana PATTERN_WORD 
 + aniseed_myrtle 
++ annatto PATTERN_WORD 
 + avocado_leaf 
 + black_cardamom 
 + blue_fenugreek 
 + blue_melilot 
++ boldo PATTERN_WORD 
 + brow_mustard 
 + camphor_laurel 
 + candle_nut 
++ charoli PATTERN_WORD 
 + chives NOUN NOUN_PLURAL 
 + curry_leaf 
++ elderflower PATTERN_WORD 
 + elephant_garlic 
 + hops VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + kaffir_lime 
@@ -1545,6 +1786,8 @@
 + lemon_ironbark 
 + lemon_myrtle 
 + orris_root 
++ paracress PATTERN_WORD 
++ wattleseed PATTERN_WORD 
 + knuckles VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL 
 + nun_chuck 
 + sledge_hammer 
@@ -1580,11 +1823,12 @@
 + jewellery_making 
 + jewelry_making 
 + jigsaw_puzzles 
-+ knotting VERB_PRESENT_PARTICIPLE VERB GRADE3_4 
++ knotting VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 
 + leather_craft 
 + leather_crafting 
 + matchstick_modeling 
 + painting_and_drawing 
++ paper-making PATTERN_WORD 
 + paper_crafts 
 + paper_making 
 + radio_controlled_cars 
@@ -1592,7 +1836,7 @@
 + restoring_antiques 
 + sand_craft 
 + sand_sculpting 
-+ sculpting VERB_PRESENT_PARTICIPLE VERB 
++ sculpting VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + shadow_boxes 
 + soap_making 
 + splatter_painting 
@@ -1660,7 +1904,7 @@
 + tarot_card_reading 
 + aircraft_spotting 
 + amateur_astronomy 
-+ birding VERB_PRESENT_PARTICIPLE VERB KINDERGARTEN 
++ birding VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
 + bus_spotting 
 + butterfly_watching 
 + cloud_watching 
@@ -1675,7 +1919,7 @@
 + amateur_theater 
 + ballet_dancing 
 + bhangra_dancing 
-+ breakdancing VERB_PRESENT_PARTICIPLE VERB 
++ breakdancing VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + hip_hop_dancing 
 + latin_dances 
 + line_dancing 
@@ -1723,14 +1967,15 @@
 + church_activities 
 + radios VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + volunteer_work 
-+ blogging VERB_PRESENT_PARTICIPLE VERB 
++ blogging VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + butterfly_collecting 
-+ caving VERB_PRESENT_PARTICIPLE VERB KINDERGARTEN 
++ caving VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
 + flying_kites 
 + ghost_hunting 
 + hacky_sack 
 + handwriting_analysis 
 + hula_hooping 
++ kite-flying PATTERN_WORD 
 + laser_skirmish 
 + nature_walking 
 + organic_gardening 
@@ -1772,6 +2017,7 @@
 + bean_bag 
 + chaise_lounge 
 + ice_cream_store 
++ 4chan PATTERN_WORD 
 + Flickr NOUN_PROPER_SINGULAR 
 + Instagram NOUN_PROPER_SINGULAR 
 + straight_away 
@@ -1812,6 +2058,7 @@
 + wash_basin 
 + furniture_polish 
 + lighter_fluid 
++ pt PATTERN_WORD 
 + a_looker 
 + lost_item 
 + flight_bag 
@@ -1845,7 +2092,7 @@
 + Redbook NOUN NOUN_PROPER_SINGULAR 
 + Teen_Vogue NOUN NOUN_PROPER_SINGULAR 
 + Town_and_Country NOUN NOUN_PROPER_SINGULAR 
-+ hexing VERB_PRESENT_PARTICIPLE VERB 
++ hexing VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + magic_orb 
 + magic_wand 
 + spell_book 
@@ -1854,6 +2101,7 @@
 + indris NOUN NOUN_PLURAL 
 + keyboard_cat 
 + long_cat 
++ puss PATTERN_WORD 
 + scottish_fold 
 + tiffany_cat 
 + war_horse 
@@ -1866,6 +2114,7 @@
 + Encyclopedia_Dramatica NOUN_PROPER_SINGULAR 
 + Google_Maps NOUN_PROPER_SINGULAR 
 + IRC NOUN_PROPER_SINGULAR 
++ match.com NOUN_PROPER_SINGULAR PATTERN_WORD 
 + Netflix NOUN_PROPER_SINGULAR 
 + Thesaurus.com NOUN_PROPER_SINGULAR 
 + Ticketmaster NOUN_PROPER_SINGULAR 
@@ -1895,23 +2144,56 @@
 + pop_music 
 + kettle_drum 
 + clarinet_player 
++ ettin PATTERN_WORD 
++ hippogriff PATTERN_WORD 
++ jackalope PATTERN_WORD 
 + sand_worm 
++ shambler PATTERN_WORD 
++ shoggoth PATTERN_WORD 
++ wurm PATTERN_WORD 
++ xenomorph PATTERN_WORD 
 + ghost_hunter 
++ kobold PATTERN_WORD 
 + vampire_hunter 
 + bans_and_cans 
++ bhrempti PATTERN_WORD 
 + black_dago 
 + bog_trotter 
++ bogan PATTERN_WORD 
 + book_book 
++ boxhead PATTERN_WORD 
++ bozgor PATTERN_WORD 
++ buckethead PATTERN_WORD 
 + cheese_eating_surrender_monkey 
 + cow_kisser 
++ dogan PATTERN_WORD 
++ dogun PATTERN_WORD 
 + dyke_jumper 
++ lowlander PATTERN_WORD 
++ lugan PATTERN_WORD 
++ ocker PATTERN_WORD 
++ pikey PATTERN_WORD 
++ piky PATTERN_WORD 
 + plastic_paddy 
++ pogue PATTERN_WORD 
++ pohm PATTERN_WORD 
++ pommie PATTERN_WORD 
 + pommie_grant 
++ roofucker PATTERN_WORD 
++ sawney PATTERN_WORD 
++ seppo PATTERN_WORD 
++ sheepfucker PATTERN_WORD 
 + sideways_cooter 
 + sideways_pussy 
 + sideways_vagina 
 + soup_taker 
++ wexican PATTERN_WORD 
++ whigger PATTERN_WORD 
 + white_nigger 
++ wigga PATTERN_WORD 
++ wigger PATTERN_WORD 
++ wiggerette PATTERN_WORD 
++ zambo PATTERN_WORD 
 + networked VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + virtual_world 
 + bed_time 
@@ -1920,6 +2202,7 @@
 + end_table 
 + folding_table 
 + tv_stand 
++ roadie PATTERN_WORD 
 + air_force_pilot 
 + air_host 
 + air_traffic_controller 
@@ -1958,11 +2241,16 @@
 + database_administrator 
 + architectural_technologist 
 + assistant_draughtsman 
++ blockmason PATTERN_WORD 
++ brickmason PATTERN_WORD 
 + construction_manager 
 + crane_operator 
 + earth_moving_equipment_mechanic 
++ installer PATTERN_WORD 
++ phytogrammetrist PATTERN_WORD 
 + urban_planner 
 + instrument_maker 
++ woodmachinist PATTERN_WORD 
 + scholastic_philosopher 
 + teaching_assistant 
 + ceramics_technologist 
@@ -1995,6 +2283,7 @@
 + spray_painter 
 + armature_winder 
 + assembly_line_worker 
++ boilermaker PATTERN_WORD 
 + industrial_designer 
 + machine_operator 
 + machine_worker 
@@ -2024,6 +2313,7 @@
 + gravure_machine_minder 
 + home_economist 
 + lift_mechanic 
++ meter-reader PATTERN_WORD 
 + optical_dispenser 
 + saw_operator 
 + scale_fitter 
@@ -2054,6 +2344,7 @@
 + veterinary_nurse 
 + social_psychologist 
 + military_commander 
++ singer-songwriter PATTERN_WORD 
 + soundtrack_composer 
 + lion_tamer 
 + make-up_artist 
@@ -2069,6 +2360,7 @@
 + committee_clerk 
 + political_theorist 
 + environmental_health_officer 
++ firewoman PATTERN_WORD 
 + radiation_protectionist 
 + land_surveyor 
 + mine_surveyor 
@@ -2079,6 +2371,7 @@
 + merchandise_planner 
 + public_relations_practitioner 
 + purchasing_manager 
++ shopfitter PATTERN_WORD 
 + store_manager 
 + agricultural_engineer 
 + agricultural_extension_officer 
@@ -2097,6 +2390,7 @@
 + data_capturer 
 + operations_researcher 
 + figure_skater 
++ life-guard PATTERN_WORD 
 + professional_wrestler 
 + sport_manager 
 + swimming_pool_superintendent 
@@ -2125,6 +2419,7 @@
 + science_fiction_writer 
 + technical_illustrator 
 + technical_writer 
++ bluejay PATTERN_WORD 
 + attitude_toward 
 + belief_about 
 + feel_about 
@@ -2173,6 +2468,7 @@
 + maximum_strength 
 + super_strength 
 + whole_bean 
++ petanque PATTERN_WORD 
 + pistol_shooting 
 + rifle_shooting 
 + shotgun_shooting 
@@ -2184,12 +2480,20 @@
 + in_a_pickle 
 + in_trouble 
 + troubling_me 
++ dartgun PATTERN_WORD 
 + exploding_barrel_gun 
 + hand_cannon 
++ minigun PATTERN_WORD 
++ railgun PATTERN_WORD 
 + siege_engine 
 + sling_shot 
 + super_gun 
 + tranquilizer_gun 
++ hyacinthine PATTERN_WORD 
++ ianthine PATTERN_WORD 
++ porphyrous PATTERN_WORD 
++ purpure PATTERN_WORD 
++ purpureal PATTERN_WORD 
 + Ferengi NOUN NOUN_PROPER_SINGULAR 
 + Klingon NOUN NOUN_PROPER_SINGULAR 
 + Romulan NOUN NOUN_PROPER_SINGULAR 
@@ -2197,10 +2501,35 @@
 + just_published 
 + most_recent 
 + like_to_do 
++ coccineous PATTERN_WORD 
++ coquelicot PATTERN_WORD 
++ cramoisy PATTERN_WORD 
++ erythraean PATTERN_WORD 
++ flammeous PATTERN_WORD 
++ kermes PATTERN_WORD 
++ lateritious PATTERN_WORD 
++ miniaceous PATTERN_WORD 
++ modena PATTERN_WORD 
++ nacarat PATTERN_WORD 
++ phoeniceous PATTERN_WORD 
++ ponceau PATTERN_WORD 
++ puniceous PATTERN_WORD 
++ vermeil PATTERN_WORD 
 + steppes NOUN NOUN_PLURAL 
 + descended_from 
++ clamhead PATTERN_WORD 
++ hebro PATTERN_WORD 
++ higger PATTERN_WORD 
++ muzzie PATTERN_WORD 
 + proddy_dog 
++ proddywhoddy PATTERN_WORD 
++ proddywoddy PATTERN_WORD 
 + rock_shop 
++ suitemate PATTERN_WORD 
++ sensei PATTERN_WORD 
++ vice-president PATTERN_WORD 
++ fiancé PATTERN_WORD 
++ fiancée PATTERN_WORD 
 + laundry_room 
 + cross_country_running 
 + mountain_running 
@@ -2210,6 +2539,7 @@
 + dancing_devil 
 + dust_whirl 
 + lightning_storm 
++ moonbow PATTERN_WORD 
 + north_polar_lights 
 + northern_polar_lights 
 + polar_lights 
@@ -2218,19 +2548,33 @@
 + snow_storm 
 + south_polar_lights 
 + spray_bow 
++ supercell PATTERN_WORD 
 + thunder_cloud 
 + winter_storm 
 + bascule_bridge 
 + beam_bridge 
 + cable-stayed_bridge 
++ fisure PATTERN_WORD 
++ pumarole PATTERN_WORD 
++ ait PATTERN_WORD 
 + arid_region 
++ eyot PATTERN_WORD 
 + lava_flow 
 + lava_spout 
 + molten_rock 
++ portrero PATTERN_WORD 
++ sabbulonarium PATTERN_WORD 
 + sink_hole 
++ skerry PATTERN_WORD 
 + steel_rock 
++ swarth PATTERN_WORD 
 + tectonic_plate 
++ thujas PATTERN_WORD 
 + top_soil 
++ wildwood PATTERN_WORD 
++ woodlot PATTERN_WORD 
++ crawlway PATTERN_WORD 
++ dragway PATTERN_WORD 
 + road_hump 
 + rumble_strip 
 + sleeping_policeman 
@@ -2242,11 +2586,18 @@
 + brown_dwarf 
 + crescent_moon 
 + dwarf_star 
++ exoplanet PATTERN_WORD 
 + extrasolar_planet 
++ hypergiant PATTERN_WORD 
++ magnetar PATTERN_WORD 
++ meteroid PATTERN_WORD 
++ protostar PATTERN_WORD 
 + worm_hole 
 + fish_steps 
++ fishway PATTERN_WORD 
 + ice_berg 
 + mineral_spring 
++ muskeg PATTERN_WORD 
 + polar_cap 
 + rapids NOUN NOUN_PLURAL KINDERGARTEN 
 + river_bed 
@@ -2254,10 +2605,13 @@
 + water_spout 
 + bounding_main 
 + briny_deep 
++ drave PATTERN_WORD 
 + lily_pond 
++ rindle PATTERN_WORD 
 + subglacial_pond 
 + tide_pool 
 + vernal_pool 
++ waterhole PATTERN_WORD 
 + scent_free 
 + classics NOUN NOUN_PLURAL GRADE5_6 
 + phys_ed 
@@ -2283,28 +2637,53 @@
 + sex_shop 
 + anal_bead 
 + butt_plug 
++ buttplug PATTERN_WORD 
 + cock_ring 
++ dild0 PATTERN_WORD 
++ dild0s SINGULAR_PERSON PATTERN_WORD 
++ dilld0 PATTERN_WORD 
 + sex_toy 
 + a_bj 
++ assfuck PATTERN_WORD 
 + blow_job 
++ boffing PATTERN_WORD 
++ clitfuck PATTERN_WORD 
++ felching PATTERN_WORD 
 + finger_in_you 
 + finger_you 
 + fist_you 
 + fucked VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
++ fuckin PATTERN_WORD 
 + fucks VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL 
 + get_dirty_with 
-+ humping VERB_PRESENT_PARTICIPLE VERB GRADE1_2 
++ humping VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE1_2 
++ massterbait PATTERN_WORD 
++ masstrbait PATTERN_WORD 
++ masstrbate PATTERN_WORD 
++ masterbate PATTERN_WORD 
++ masterbates PATTERN_WORD 
++ masturbatory PATTERN_WORD 
++ munging PATTERN_WORD 
++ pussylicking PATTERN_WORD 
 + rim_job 
-+ rimming VERB_PRESENT_PARTICIPLE VERB GRADE1_2 
++ rimjob PATTERN_WORD 
++ rimming VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE1_2 
++ titfuck PATTERN_WORD 
++ tittyfuck PATTERN_WORD 
 + to_cyber 
 + touching_yourself 
 + tug_job 
++ wankjob PATTERN_WORD 
 + chains VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + gang_bang 
 + golden_shower 
 + lick_my 
 + roped VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
 + s_and_m 
++ jisim PATTERN_WORD 
++ jiss PATTERN_WORD 
++ jizm PATTERN_WORD 
++ jizz PATTERN_WORD 
 + jugs VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE1_2 
 + love_muscle 
 + my_dick 
@@ -2329,6 +2708,7 @@
 + coming_on_to 
 + get_hard 
 + getting_hard 
++ hardon PATTERN_WORD 
 + hot_body 
 + my_panties 
 + phone_sex 
@@ -2338,16 +2718,25 @@
 + turn_me_on 
 + turn_you_on 
 + your_panties 
++ buttfucker PATTERN_WORD 
 + cis_male 
++ lezzie PATTERN_WORD 
++ muffdiver PATTERN_WORD 
++ tranny PATTERN_WORD 
 + screw_you 
 + you_cunt 
 + you_dick 
 + you_dickhead 
 + you_whore 
++ dickface PATTERN_WORD 
 + dick_face 
 + up_your_ass 
 + up_yours 
 + sanding_block 
++ enneagon PATTERN_WORD 
++ hendecagon PATTERN_WORD 
++ septagon PATTERN_WORD 
++ septahedron PATTERN_WORD 
 + western_boot 
 + work_boo 
 + shoe_horn 
@@ -2357,6 +2746,7 @@
 + Nordstrom_Rack NOUN NOUN_PROPER_SINGULAR 
 + Target NOUN NOUN_PROPER_SINGULAR 
 + Walmart NOUN NOUN_PROPER_SINGULAR 
++ fibromyalgia PATTERN_WORD 
 + much_the_same 
 + the_same 
 + choral_group 
@@ -2392,7 +2782,7 @@
 + Classmates.com NOUN_PROPER_SINGULAR 
 + Cyworld NOUN_PROPER_SINGULAR 
 + deviantArt NOUN_PROPER_SINGULAR 
-+ douban NOUN NOUN_PROPER_SINGULAR 
++ douban NOUN_PROPER_SINGULAR PATTERN_WORD 
 + eGenki NOUN_PROPER_SINGULAR 
 + Flixster NOUN_PROPER_SINGULAR 
 + Formspring NOUN_PROPER_SINGULAR 
@@ -2404,6 +2794,7 @@
 + Geni.com NOUN_PROPER_SINGULAR 
 + Google+ NOUN_PROPER_SINGULAR 
 + Habbo NOUN_PROPER_SINGULAR 
++ hi5 NOUN_PROPER_SINGULAR PATTERN_WORD 
 + Hyves NOUN_PROPER_SINGULAR 
 + Ibibo NOUN_PROPER_SINGULAR 
 + Itsmy NOUN_PROPER_SINGULAR 
@@ -2449,9 +2840,9 @@
 + sand_box 
 + body_building 
 + bungee_jumping 
-+ canoeing VERB_PRESENT_PARTICIPLE VERB 
++ canoeing VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + cave_diving 
-+ cheerleading VERB_PRESENT_PARTICIPLE VERB 
++ cheerleading VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + fly_fishing 
 + fly_tying 
 + four_wheeling 
@@ -2461,25 +2852,25 @@
 + go_kart_racing 
 + gold_panning 
 + hot_air_ballooning 
-+ kayaking VERB_PRESENT_PARTICIPLE VERB 
++ kayaking VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + kite_boarding 
 + kite_flying 
 + martial_arts 
 + motorcycles VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
 + playing_team_sports 
-+ rafting VERB_PRESENT_PARTICIPLE VERB 
++ rafting VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + river_rafting 
 + saltwater_fishing 
 + sight_seeing 
 + sky_diving 
 + snow_skiing 
-+ spelunking VERB_PRESENT_PARTICIPLE VERB 
++ spelunking VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + stone_skipping 
 + sumo_wrestling 
 + survival_camping 
 + team_sports 
-+ trekking VERB_PRESENT_PARTICIPLE VERB 
-+ unicycling VERB_PRESENT_PARTICIPLE VERB 
++ trekking VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ unicycling VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + urban_climbing 
 + weight_lifting 
 + whitewater_rafting 
@@ -2540,8 +2931,25 @@
 + beings NOUN NOUN_PLURAL KINDERGARTEN 
 + humans NOUN NOUN_PLURAL KINDERGARTEN 
 + thrift_shop 
++ a.d. PATTERN_WORD 
++ b.c. PATTERN_WORD 
++ bicennial PATTERN_WORD 
++ biennium PATTERN_WORD 
++ bimonthy PATTERN_WORD 
++ decennial PATTERN_WORD 
 + lunch_time 
++ mid-afternoon PATTERN_WORD 
++ mid-evening PATTERN_WORD 
++ mid-morning PATTERN_WORD 
 + noon_time 
++ quadrennnimum PATTERN_WORD 
++ quadricentennial PATTERN_WORD 
++ semidiurnal PATTERN_WORD 
++ sexcentenary PATTERN_WORD 
++ sexennial PATTERN_WORD 
++ trimonthly PATTERN_WORD 
++ triweekly PATTERN_WORD 
++ twinight PATTERN_WORD 
 + year_end 
 + day_after_tomorrow 
 + day_before_yesterday 
@@ -2550,12 +2958,14 @@
 + eat_lunch 
 + go_to_class 
 + week_day 
++ bc PATTERN_WORD 
 + last_month 
 + last_week 
 + last_year 
 + next_month 
 + next_week 
 + next_year 
++ noontime PATTERN_WORD 
 + this_month 
 + this_week 
 + this_year 
@@ -2584,10 +2994,13 @@
 + tv_network 
 + brussel_sprout 
 + fighter_jet 
++ coleopter PATTERN_WORD 
 + flying_broom 
 + lunar_rover 
 + magic_carpet 
 + military_aircraft 
++ paraglider PATTERN_WORD 
++ roflcopter PATTERN_WORD 
 + cherry_picker 
 + clown_car 
 + double_decker_bus 
@@ -2595,6 +3008,7 @@
 + golf_car 
 + mini_bike 
 + mobility_scooter 
++ quadcycle PATTERN_WORD 
 + race_bike 
 + roller_skates 
 + snow_melter 
@@ -2604,13 +3018,16 @@
 + tobaggan PATTERN_WORD 
 + train_car 
 + wood_chipper 
++ cogship PATTERN_WORD 
 + ghost_ship 
++ longship PATTERN_WORD 
 + passenger_liner 
 + speed_boat 
 + rocket_ship 
 + meters_per_second 
 + Hulu NOUN NOUN_PROPER_SINGULAR 
 + Truveo NOUN NOUN_PROPER_SINGULAR 
++ action-adventure PATTERN_WORD 
 + first-person_shooter 
 + real-time_strategy 
 + side_scroller 
@@ -2679,7 +3096,9 @@
 + how_come 
 + how_do_you_mean 
 + how_so 
++ gewurztrauminer PATTERN_WORD 
 + pinot_grigio 
++ viognier PATTERN_WORD 
 + alpine_skiing 
 + freestyle_skiing 
 + ice_hocket 
@@ -2688,6 +3107,7 @@
 + body_care 
 + its_ok 
 + it_is_ok 
++ ys PATTERN_WORD 
 + ^ 
 + devel 
 + defense_lawyers 
@@ -2748,15 +3168,16 @@
 + to_the_tune_of 
 + under_the_heel_of 
 + with_the_exception_of 
-+ bewildering VERB_PRESENT_PARTICIPLE VERB GRADE5_6 
++ bewildering VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE5_6 
 + flattered VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE KINDERGARTEN 
-+ fulfilling VERB_PRESENT_PARTICIPLE VERB 
++ fulfilling VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + sickened VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE 
 + soothed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
 + tempted VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE 
-+ unsettling VERB_PRESENT_PARTICIPLE VERB 
++ unsettling VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
 + looks_like 
 + becomes 
++ sign-up PATTERN_WORD 
 + go_to 
 + be_you_aware_of 
 + be_you_familiar_with 
@@ -2805,7 +3226,7 @@
 + bang_you 
 + bone_you 
 + butt_fuck 
-+ fisting VERB_PRESENT_PARTICIPLE VERB KINDERGARTEN 
++ fisting VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
 + get_into_your_pants 
 + give_head 
 + had_sex 

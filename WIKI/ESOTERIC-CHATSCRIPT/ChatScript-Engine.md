@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 6/6/2021 cs11.4
 
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
@@ -81,7 +81,9 @@ The system is divided into the code zones shown below. All code is in SRC.
 # Character set
 CS expects UTF8 both internally and in user data shipped to it. It may attempt to 
 convert some user and script extended ascii or utf16 data to UTF8 on the fly, mostly
-related to funny quotes and doublequotes.
+related to funny quotes and doublequotes. Input which has \uxxxx characters
+will be converted to utf8, except for m-dash and n-dash. CS also transcodes
+some html constants
 
 CS disallows use of the backtick in any user input or script so it can be dedicate to internal use. 
 Such use includes:
@@ -1194,6 +1196,8 @@ There are some hooks you can define to tap into execution of the engine. Use
 	b) SignalHandler on linux exception
 	c) MongoQueryParams adjustments for document query
 	d) MongoUpsertKeyvalues adds additional params for upsert
+	e) MongoUpsertKeyvalues adds additional params for upsert
+    f) PerformChatArguments is called on starting user volley processing
 
     Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a 
     hook name.

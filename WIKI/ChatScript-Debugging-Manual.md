@@ -1,11 +1,19 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/6/2021 cs11.4
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
 recompile it. Debugging is mostly a matter of tracing what the system does and
-finding out where it doesn't do what you expected. 
+finding out where it doesn't do what you expected.  
+
+Sometimes debugging involves changes to the cs_init.txt and
+cs_initmore.txt files. In stand-alone mode you can just type
+`:restart` after editing those files and cs will reboot. In a live
+running cs however, if you have not authorized debug commands
+then you can't type restart. But you can add a top level file named
+`restart.txt` which will force cs to reboot itself as it starts to process
+the next user input (and it erases the file after doing that).
 
 If you don't have Windows, then debugging mostly done by issuing
 debug commands to the engine, as opposed to chatting. If you have
@@ -505,6 +513,10 @@ Also you can do :serverlog 1 to turn on server logging  and :serverlog 0 to turn
 You can even force server logging without restarting a server by merely adding the file "serverlogging.txt" with
 arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.
 
+Creating the top level file `prelogging.txt` turns on prelogging into server and user files (when logging into 
+those files).
+
+
 ### Understanding a pattern trace
 
 ```
@@ -929,6 +941,14 @@ Dynamically alter logging behavior from whatever current settings are.
     :logging servertrace {on, off} 
     :logging server {file,none,stdout,stderr,prelog} 
 ```
+Serverlogging is a location for the log file. It does not
+matter if CS is acting as a server or not. Server log files go in LOGS/serverlogxxxx.txt
+where xxx is the port number.
+
+Userlogging is stored in USERS folder, in files named by the bot and user.
+And userlogging is needed if you want to trace user processing, which
+goes into that user's file.
+
 
 ### `:testpos`
 This switches input to the named file (if not named defaults to `REGRESS/posttest.txt`)

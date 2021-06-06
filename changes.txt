@@ -1,5 +1,64 @@
+Customer Survey:  If you are willing, please answer questions below and email your answers to gowilcox@gmail.com
+1. Are you using CS privately or commercialy?
+2. How long have you been using CS?
+3. What human language are you using cs for?
+4. What additional features do you wish CS had?
+5. What are you using your chatbot for - (eg, ordinary conversation, help bot, faq bot, real estate bot, etc)?
+6. How did you hear about CS?
+
+Version 11.4 6/6/2021
 BEAR IN MIND THAT THE MAC version in BINARIES is obsolete 
 until someone supplies me with a new compiled Mac version.
+
+1. if $tokenControl has been set to include JSON_DIRECT_FROM_OOB
+	then a user input that contains the word "json" followed immediately by an
+	obvious json structure (start with [ or { and ending with }]), the
+	tokenizer will convert all the json into a transient structure consisting of facts with
+	universal bot access and all that json will instead become a single token of the JSON name
+	of the structure. This allows you to bypass the normal 254 token limit on an input
+	sentence and provide lots of data in a single sentence.
+
+2. if $cs_token has #TOKENIZE_BY_CHARACTER 
+	good for ideographic languages (chinese, etc). Automatically sets canonical to same as original
+?3.  "exist" in fact
+4. %trace_on and %trace_off - these can be used in a pattern of ^testpattern
+	or an output of ^testouput to enable tracing data be returned from the call
+	in the range between those tokens.
+5. command line param blockapitrace - disables any tracing in ^testpattern and ^testouput that
+	might have accidentally been left in the code
+6. cheat cs info - if given in input to ^testpattern,  it will return newglobal variable
+	$cs_info, and any subsequent ^testoutput call will append that to its normal output.
+7. ^msqlinit($_params)  ^msqlclose() 
+	^msqlread($_username) ^msqlwrite($_username $_value)
+	These routines allow you to access a Microsoft SQL Db from script.
+	Init Params are the same as for using such a db for a filesystem.
+8. ^jsonmerge({transient/permanent} key/key-value $_arg1 $_arg2) take two json structures and perform a top level merge.
+	The result is a copy of the first argument, with top level fields augmented with fields
+	from arg2 not found in arg1. Optional first argument is the standard one for
+	many Json creation functions.
+9. incoming messages containing \uxxxx characters (utf16 representations)
+	are to utf8 (or regular ascii) except m-dashes and n-dashes, which are left unchanged.
+10. some html& constants are converted to utf8 except underscores, since
+	CS often changes underscores to spaces on output.
+11 param noretrybackup disables cs saving prior volley data
+	for :retry when in standalone mode
+12 param traceboot - turn on tracing when cs boot starts up
+13. serverlog and userlog used to refer to logging done when in 
+	acting as a server or when running standalone. No more. Now it
+	refers to where the log is saved. serverlogging is saved in the LOGS folder
+	in a file named by the port id (serverlog1024.txt). User logging is
+	saved in the USER folder in files named by user and bot involved.
+14 restart.txt - when added to the top level folder, will force cs to
+	reload itself on the next volley (and it erases the file)
+15. prelogging.txt - when added to the top level folder, will turn on 
+	prelogging (message in log before cs begins processing). This is 
+	usually only useful to show what input crashed a server and thus you
+	don't get a normal Respond log entry.
+15. PerformChatArguments engine hook function
+16 %forkcount - number of forks requested in linux evserver environment
+17 %servertype  - parent or fork in linux evserver environment, server or null otherwise
+18 %dbparams - copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)
+19 %botid - bot id number in use
 
 Version 11.3 4/18/2021
 1. Uniform conversion of inputs and jsonopen results into simple ascii for important

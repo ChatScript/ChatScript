@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1066,10 +1066,23 @@
 </tr>
 <tr class="odd">
 <td><code>%logging</code></td>
-<td>bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog);</td>
+<td>bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog)</td>
 </tr>
 <tr class="even">
-<td></td>
+<td><code>%forkcount</code></td>
+<td>number of forks requested in linux evserver environment</td>
+</tr>
+<tr class="odd">
+<td><code>%servertype</code></td>
+<td>parent or fork in linux evserver environment, server or null otherwise</td>
+</tr>
+<tr class="even">
+<td><code>%dbparams</code></td>
+<td>copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)</td>
+</tr>
+<tr class="odd">
+<td><code>%botid</code></td>
+<td>bot id number in use</td>
 </tr>
 </tbody>
 </table>
@@ -1162,34 +1175,12 @@
 <td><code>#DO_SUBSTITUTE_SYSTEM</code></td>
 <td>do all LIVEDATA file expansions</td>
 </tr>
-<tr class="odd">
-<td><code>#DO_INTERJECTION_SPLITTING</code></td>
-<td>break off leading interjections into own sentence</td>
-</tr>
-<tr class="even">
-<td><code>#$DO_NUMBER_MERGE</code></td>
-<td>merge multiple word numbers into one (<em>four and twenty</em>)</td>
-</tr>
-<tr class="odd">
-<td><code>#$DO_PROPERNAME_MERGE</code></td>
-<td>merge multiple proper name into one (<em>George Harrison</em>)</td>
-</tr>
-<tr class="even">
-<td><code>#DO_DATE_MERGE</code></td>
-<td>merge month day and/or year sequences (<em>January 2, 1993</em>)</td>
-</tr>
-<tr class="odd">
-<td><code>#JSON_DIRECT_FROM_OOB</code></td>
-<td>asking the tokenizer to directly process OOB data. See <code>^jsonparse</code> in JSON manual.</td>
-</tr>
-<tr class="even">
-<td><code>#NO_FIX_UTF</code></td>
-<td>do not adjust inputs with html or utf8 encodings to simple ascii.</td>
-</tr>
 </tbody>
 </table>
-<p>The contents of the files are pairs of tokens per line. Left is the word to replace and right is the replacement. When multiple words are involved, the left side uses underscores to represent this and the right side uses <code>+</code>. If the right side is missing, it means just delete.</p>
-<p>If any of the above items affect the input, they will be echoed as values into <code>%tokenFlags</code> so you can detect they happened. The next changes do not echo into %tokenFlags and relate to grammar of input:</p>
+<p>The contents of the files above are pairs of tokens per line. Left is the word to replace and right is the replacement. When multiple words are involved, the left side uses underscores to represent this and the right side uses <code>+</code>. If the right side is missing, it means just delete. | <code>#DO_INTERJECTION_SPLITTING</code> | break off leading interjections into own sentence | <code>#$DO_NUMBER_MERGE</code> | merge multiple word numbers into one (<em>four and twenty</em>)<br />
+| <code>#$DO_PROPERNAME_MERGE</code> | merge multiple proper name into one (<em>George Harrison</em>) | <code>#DO_DATE_MERGE</code> | merge month day and/or year sequences (<em>January 2, 1993</em>) | <code>#JSON_DIRECT_FROM_OOB</code> | asking the tokenizer to directly process OOB data. See <code>^jsonparse</code> in JSON manual. | <code>#NO_FIX_UTF</code> | do not adjust inputs with html or utf8 encodings to simple ascii.<br />
+| <code>#TOKENIZE_BY_CHARACTER</code> | Every non-whitespace character becomes its own token and canonical form. (good for Japanese)</p>
+<p>If any of the above items affect the input (except TOKENIZE_BY_CHARACTER), they will be echoed as values into <code>%tokenFlags</code> so you can detect they happened. The next changes do not echo into %tokenFlags and relate to grammar of input:</p>
 <table>
 <colgroup>
 <col width="29%" />
@@ -1595,27 +1586,24 @@ canon: faster fast</code></pre>
 <td>provides a function name hook onto the output q to the user. See below.</td>
 </tr>
 <tr class="even">
-<td><code>$cs_tracepattern_on</code></td>
-<td>Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
+<td><code>%trace_on and %trace_off</code></td>
+<td>Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_tracepattern_off</code></td>
-<td>Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.</td>
-</tr>
-<tr class="even">
 <td><code>$cs_indentlevel</code></td>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput| |</code>$cs_sentences_limit</td>
 <td>after this many sentences in volley, cs ignores the rest (default 50)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user<code>| set to 1, treat user as always new (don't try to read topic file)  | |</code>$cs_mongoqueryparams`</td>
 <td>set as a json structure of move its fields to a mongo query</td>
 </tr>
 </tbody>
 </table>
+<p>Note for %trace_on and %trace_off - you can use the command line parameter <code>blockapitrace</code> to prevent tracing in any code you accidentally leave in place.</p>
 <p><code>$cs_saveusedJson</code> exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some other non-JSON fact.</p>
 <p><code>$cs_inputlimit=x:y</code> for excessively long user input (excluding oob portion), the input will be truncated by keeping the first x characters and the last y characters.</p>
 <p><code>$cs_crash</code> - This topic can generate an appropriate dummy output and CS completes that volley but does not save an updated user file. The NEXT volley coming in will force cs to completely reload itself before processing. Making a dummy output hopefully means the same fatal input will not be sent back into CS to crash it again (due to external retry when no answer is received from CS). E.g.,</p>

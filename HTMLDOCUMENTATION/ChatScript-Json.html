@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -55,7 +55,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 [1] = 2 
 [2] = an array of 2 values 
 [3] = an empty array</code></pre>
-<p>Note that arrays can hold values of different types. Array values are ordered and always retain that order. A JSON object is a list of key-value pairs separated by commas and placed within curly braces <code>{}</code>, e.g.,</p>
+<p>Note that arrays can hold values of different types. Arrays have no hole in indexing and usually ordered and retain that order, but they work out of order as well (^Jsonmerge can alter the order). A JSON object is a list of key-value pairs separated by commas and placed within curly braces <code>{}</code>, e.g.,</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span> 
     <span class="dt">&quot;key1&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span> 
     <span class="dt">&quot;bob&quot;</span><span class="fu">:</span> <span class="st">&quot;help&quot;</span><span class="fu">,</span> 
@@ -158,7 +158,7 @@ $_header = ^&quot; ~Accept: application/json
                   ~Content-Type: application/json &quot;
 $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code></pre>
 <h2 id="jsonflags---optional-1st-arg-to-some-json-routines">JSONFLAGS - Optional 1st arg to some JSON routines</h2>
-<p>Routines that will create facts for JSON will by default create them as transients (they die at end of volley unless you work to save them). You can override this default by saying <code>permanent</code> or <code>transient</code> or <code>boot</code>. This applies to <code>^jsonopen</code>, <code>^jsonparse</code>, <code>^jsoncreate</code>, <code>^jsonobjectinsert</code>, <code>^jsonarrayinsert</code>, <code>^jsoncopy</code>.</p>
+<p>Routines that will create facts for JSON will by default create them as transients (they die at end of volley unless you work to save them). You can override this default by saying <code>permanent</code> or <code>transient</code> or <code>boot</code>. This applies to <code>^jsonopen</code>, <code>^jsonparse</code>, <code>^jsoncreate</code>, <code>^jsonobjectinsert</code>, <code>^jsonarrayinsert</code>, <code>^jsoncopy</code>, <code>jsonmerge</code>.</p>
 <p>Json arrays all start with the name 'ja-' and json objects all start with the name 'jo-'. The next letter indicates the storage media. 't' means transient and the structure dies at the end of the volley. 'b' means boot and the data moves to the boot later at the end of the volley. Anything else (e.g. an immediate digit) means the structure is permanent and is stored in the user's topic file.</p>
 <p>You can also add a flag <code>safe</code> (described later) to <code>^jsonparse</code>, <code>^jsonobjectinsert</code>, <code>^jsonarraydelete</code>. You can also add a flag <code>unique</code> to <code>^jsonarrayinsert</code>. You can also add <code>duplicate</code> to ^jsonobjectinsert.</p>
 <p>When multiple flags are desired, put them into a simple string, <code>&quot;DUPLICATE PERMANENT&quot;</code>. Case doesn't matter.</p>
@@ -203,7 +203,7 @@ $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code><
 <pre><code>u: GIVEN_JSON(&lt; \[  _* \] ^JsonKind(&#39;_0)) $$json = &#39;_0 </code></pre>
 <p>then you can do $$json.field directly.</p>
 <p>Note: <code>^jsonparse</code> autoconverts backslash-unnnn into corresponding the utf8 characters.</p>
-<p>Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. To be able to pass complex JSON data as part of the user message (because the oob is often controlled by host system so not available per user message), you can now put in user input the word JSON and follow that with a JSON structure of arbitrary size. That structure will be completely converted to the corresponding JSON internal fact structures and the simple JSON structure name returned. So</p>
+<p>Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. To be able to pass complex JSON data as part of the user message (because the oob is often controlled by host system so not available per user message), you can now put in user input the word <code>json</code> and follow that with a JSON structure of arbitrary size. That structure will be completely converted to the corresponding JSON internal fact structures and the simple JSON structure name returned. So</p>
 <pre><code>my input value is JSON {x:y,b:z} here  </code></pre>
 <p>will become</p>
 <pre><code>my input value is JSON jo-3 here</code></pre>
@@ -353,6 +353,9 @@ $x.field = null</code></pre>
 <p>CS represents json text as ordinary unquoted text, but text that looks like float numbers would be subject to possible float truncations or expansion of digits. This preserves it as text.</p>
 <h3 id="jsoncopy-name"><code>^jsoncopy</code>( name )</h3>
 <p>Given the name of a json structure, makes a duplicate of it. If it is not the name of a json structure, it merely returns what you pass it.</p>
+<h3 id="jsonmerge-creation_arg-control-arg1-arg2"><code>^jsonmerge</code>( {creation_arg} control arg1 arg2 )</h3>
+<p>^jsonmerge take two json structures and perform a top level merge. The result is a copy of the first argument, with top level fields augmented with fields from arg2 not found in arg1. Optional first argument is the standard one for many Json creation functions.</p>
+<p>Control describes how to merge fields of json objects. <code>key</code> means if arg1 already has this key, ignore the corresponding field from arg2. <code>key-value</code> means add in the field and value unless they are the same.</p>
 <h3 id="jsonobjectinsert-jsonflags-objectname-key-value"><code>^jsonobjectinsert</code>( {JSONFLAGS} objectname key value )</h3>
 <p>inserts the key value pair into the object named. The key does not require quoting. Inserting a json string as value requires a quoted string. Duplicate keys are ignored unless the optional 1st argument <code>DUPLICATE</code> is given. See writeup earlier about optional json flags.</p>
 <p>If the key has an existing value and <code>DUPLICATE</code> is not a factor, then if the value is a json object it will be recursively deleted provided its data is not referenced by some other fact (not by any variables). You can suppress this with the <code>SAFE</code> flag. <code>jsonobjectinsert(SAFE $obj $key null)</code>.</p>

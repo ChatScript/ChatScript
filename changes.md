@@ -1,7 +1,24 @@
+# Customer Survey:  If you are willing, please answer questions below and email your answers to gowilcox@gmail.com
+1. Are you using CS privately or commercialy?
+2. How long have you been using CS?
+3. What human language are you using cs for?
+4. What additional features do you wish CS had?
+5. What are you using your chatbot for - (eg, ordinary conversation, help bot, faq bot, real estate bot, etc)?
+6. How did you hear about CS?
 
-# Version 11.3 4/18/2021
+# Version 11.4 6/6/2021
 BEAR IN MIND THAT THE MAC version in BINARIES is obsolete 
 until someone supplies me with a new compiled Mac version.
+
+1. if $tokenControl has been set to include JSON_DIRECT_FROM_OOB
+	then a user input that contains the word "json" followed immediately by an
+	obvious json structure (start with [ or { and ending with }]), the
+	tokenizer will convert all the json into a transient structure consisting of facts with
+	universal bot access and all that json will instead become a single token of the JSON name
+	of the structure. This allows you to bypass the normal 254 token limit on an input
+	sentence and provide lots of data in a single sentence.
+
+# Version 11.3 4/18/2021
 
 1. Uniform conversion of inputs and jsonopen results into simple ascii for important
 	characters (quotes, double quotes, hyphens, etc) from \unnnn unicode, html 

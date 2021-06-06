@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/6/2021 cs11.4
 
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
@@ -1469,6 +1469,13 @@ be returned as "newglobals". You can perform an assignment inside the pattern us
 like $answer:=_0  (see Variable assignment in Advanced patterns). 
 The "newglobals will  be omitted if there are no changes.
 
+Use of %trace_on and %trace_off in a pattern can also be used
+to trigger and return tracing data.
+
+Use of  "cheat cs info" as part of the user input will save onto the newglobal
+$cs_info the datestamps of the engine and scripts, and they will
+be appended to any output from ^testoutput that occurs subsequently.
+
 ### ~replace_spelling
 The variables and concepts fields are optional and provide context. A concept named "~replace_spelling" is treated not as a concept
 but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.  A concept can contain values that look like:
@@ -1503,8 +1510,10 @@ pattern (0-based). If there are return values from matching one or more patterns
 be listed in `newglobals`, which is omitted if there are none. Values of null are never returned.
 
 You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.  
-Just prepend to your input ":tracepattern 1". Or in a pattern use $cs_tracepattern_on and $cs_tracepattern_off (they dont need values assigned)
-and that reference will turn on and off tracing within that call to CS. They can be used in any pattern without damaging it.
+Just prepend to your input ":tracepattern 1". Or in a pattern or ^testoutput code use %tracepattern_on  and %tracepattern_off 
+and that reference will turn on and off tracing within that call to CS. They can be used in any pattern or output without damaging it.
+And you can block this behavior on a server by using the command line parameter
+`blockapitrace`.
 
 ## CS External API- ^CompileOutput
 The external API functions allow execution of rule behaviors from outside of ChatScript.

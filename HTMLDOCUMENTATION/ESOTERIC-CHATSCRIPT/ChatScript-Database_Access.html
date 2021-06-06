@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-database-access">ChatScript Database Access</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
 <h1 id="overview">Overview</h1>
 <p>By default, a CS server records the current state of a user in a file stored in the local filesystem under the name topic_username_botname.txt. This works fine for single-server systems. In a world where one uses a second server as a hot backup and transfer users to it while redeploying the primary server, user information gets lost. The solution to this (and the ability to scale CS with an arbitrary number of servers) is to have some kind of networked file server.</p>
 <p>CS directly supports use of Mongo, Postgres, MySQL,and MsSQL databases as file servers. Instead of writing the users's state record to the local file system, it writes it as a record in the database. That record will be overwritten each volley with the changed state. There is no accumulation of prior state data. Nor are user logs ever written there. If user logging is on, such logs are written to the machine performing the chat (which may scatter them over many machines). Likewise server logging is kept per machine.</p>
@@ -44,7 +44,7 @@ CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, file MEDIUMBLOB, when D
 <h4 id="sample-bot">Sample Bot</h4>
 <p>There is a sample bot compilable with :build mysql.</p>
 <h2 id="mssql-fileserver">MsSQL Fileserver</h2>
-<p>Currently Microsoft SQL can only be used as a file server and not as a database (someday, probably soon). As a file server, this allows infinite scaling of CS.</p>
+<p>Currently Microsoft SQL can be used as a file server or as a database. As a file server, this allows infinite scaling of CS.</p>
 <h3 id="fileserver-setup-1">Fileserver Setup</h3>
 <p>For Linux you need to install a Microsoft ODBC driver to your machine. Instructions are here: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15</p>
 <p>To run CS MsSQL you need two things. First, you need to run an executable that has been compiled with MySQL enabled.<br />
@@ -60,6 +60,7 @@ CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, [file] VARBINARY(max), 
 <p>The table name &quot;userfiles&quot; and the field names are fixed. ChatScript assumes them. userid: a limit of 64 is more than enough file: in our world we are going to have less than 500K bytes of data stored: CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.</p>
 <h3 id="mssql-termination">MsSQL Termination:</h3>
 <p>If at any time a call to utilize MsSQL fails, the CS server will abort itself. If you have an automatic restart and retry mechanism, then maybe things will just work next time, or a different CS server will get invoked. Such a mechanism is done automatically by CS.</p>
+<p>From user script one can open a database with ^msqlinit(<span class="math inline"><em></em><sub><em>p</em></sub><em>a</em><em>r</em><em>a</em><em>m</em><em>s</em>)<em>a</em><em>n</em><em>d</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em><em>i</em><em>t</em><em>w</em><em>i</em><em>t</em><em>h</em><sup><em>m</em></sup><em>s</em><em>q</em><em>l</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>().<sup><em>m</em></sup><em>s</em><em>q</em><em>l</em><em>r</em><em>e</em><em>a</em><em>d</em>(</span>_username) and ^msqlwrite($_username $_value) perform db operations. Init Params are the same as for using such a db for a filesystem.</p>
 <h2 id="mongo-fileserver-and-database">Mongo Fileserver and Database</h2>
 <p>Aside from using Mongo to store data for a chatbot to look up, one can also use Mongo as a replacement for the local file system of the USERS directory. Log files will remain local but the <code>USERS/topicxxxxx</code> will be rerouted, as will any <code>^export</code> or <code>^import</code> request. If you name your file <code>USERS/ltm-xxxxx</code> then that will be routed to its own collection, otherwise it will go into the same collection as the topic file.</p>
 <p>To set collections, on the command line use:</p>

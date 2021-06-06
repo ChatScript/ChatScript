@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/6/2021 cs11.4
 
 
 # Real World JSON
@@ -21,7 +21,8 @@ Indices of an array start at 0, so the above has as values:
 	[2] = an array of 2 values 
 	[3] = an empty array
 
-Note that arrays can hold values of different types.  Array values are ordered and always retain that order.
+Note that arrays can hold values of different types.  Arrays have no hole in indexing and usually  ordered and  retain that order, but they
+work out of order as well (^Jsonmerge can alter the order).
 A JSON object is a list of key-value pairs separated by commas and placed within curly braces `{}`, e.g.,
 
 ```json
@@ -227,7 +228,7 @@ $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent)
 Routines that will create facts for JSON will by default create them as transients (they die at end of
 volley unless you work to save them). You can override this default by saying
 `permanent` or `transient` or `boot`. This applies to `^jsonopen`, `^jsonparse`, `^jsoncreate`,
-`^jsonobjectinsert`, `^jsonarrayinsert`, `^jsoncopy`.
+`^jsonobjectinsert`, `^jsonarrayinsert`, `^jsoncopy`, `jsonmerge`.
 
 Json arrays all start with the name 'ja-' and json objects all start with the name 
 'jo-'.  The next letter indicates the storage media. 't' means transient and the
@@ -351,7 +352,7 @@ Note: `^jsonparse` autoconverts backslash-unnnn into corresponding the utf8 char
 Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. 
 To be able to pass complex JSON data as part of the user 
 	message (because the oob is often controlled by host system so not available per user message), you can now put
-	in user input the word  JSON and follow that with a JSON structure of arbitrary size. That structure will be completely converted to
+	in user input the word  `json` and follow that with a JSON structure of arbitrary size. That structure will be completely converted to
 	the corresponding JSON internal fact structures and the simple JSON structure name returned. So
 ```
 my input value is JSON {x:y,b:z} here  
@@ -692,6 +693,18 @@ subject to possible float truncations or expansion of digits. This preserves it 
 ### `^jsoncopy`( name ) 
 
 Given the name of a json structure, makes a duplicate of it. If it is not the name of a json structure, it merely returns what you pass it.
+
+### `^jsonmerge`( {creation_arg} control arg1 arg2 ) 
+^jsonmerge take two json structures and perform a top level merge.
+The result is a copy of the first argument, with top level fields augmented with fields
+from arg2 not found in arg1. Optional first argument is the standard one for
+many Json creation functions.
+
+Control describes how to merge fields of json objects. `key` means
+if arg1 already has this key, ignore the corresponding field from arg2.
+`key-value` means add in the field and value unless they are the same.
+
+
 
 
 ### `^jsonobjectinsert`( {JSONFLAGS} objectname key value ) 

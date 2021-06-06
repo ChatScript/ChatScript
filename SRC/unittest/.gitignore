@@ -9,4 +9,9 @@ CMakeCache.txt
 it
 imp/timed_data.csv
 imp/Debug/*.obj
+imp/Debug/*.exe*
+imp/Debug/imp.tlog
+imp/Release/*.obj
+imp/Release/*.exe*
+imp/Release/imp.tlog
 *.png

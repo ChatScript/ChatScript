@@ -11,14 +11,17 @@ else
 endif
 
 all: imp_test
+	$(info Starting test)
 	./imp_test
+
+CFLAGS := -DDISCARDMONGO=1
 
 SRC := ../zif.cpp test_zif.cpp \
 	../mssql.cpp test_mssql.cpp \
 	test_main.cpp timer.cpp 
 
 imp_test: $(SRC) Makefile
-	g++ -o imp_test $(SRC) -DDISCARD_MSSQL_INTERFACE_FOR_TEST -g \
+	g++ -o imp_test $(SRC) $(CFLAGS) -DDISCARD_MSSQL_INTERFACE_FOR_TEST -g \
 	$(ODBCLIB) -lz -Wno-write-strings -Wdeprecated -fpermissive --std=c++11
 
 clean:

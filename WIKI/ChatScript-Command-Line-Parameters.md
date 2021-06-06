@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/6/2021 cs11.4
 
 
 
@@ -113,6 +113,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`serverlog=1`      | alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout   4 means stderr - you may combine
 |`serverlogging=file`      | primary form of request, you can use none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
 |`noserverlog`    | Don't store a server log
+|`noretrybackup`    | Don't save volley backup files for :retry  when in standalone mode
 |`tmp=xxx`     | name relative or absolute path to where you want the TMP folder to be. Do not add trailing `/`
 |`crashpath=xxx`     | file to write about fatal Linux signals that will be outside of the cs folder `/`
 |`windowsbuglog=xxx` | names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area
@@ -141,8 +142,9 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`syslogstr=xxx` | In linux will output this as part of Microsoft sql trace data to the syslog
 |`buildflags=xxx` | this data will be used to control :build  (quiet and nomixedcase are xxx values)
 |`autorestartdelay=n`	| in event of cs engine internal restart, delay n milliseconds before accepts users
-|`crnl_safe`	| tells system it does not need to search for cr or nl to remove from inputs.
-crnl_safe
+|`crnl_safe`	| tells system it does not need to search for cr or nl to remove from inputs. 
+|`blockapitrace`	| disables any %trace_on in ^testpattern and ^testoutput. Used for production servers.
+|`traceboot`	| turns on tracing while cs_boot is running at startup
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
@@ -333,6 +335,9 @@ The bugs log is in the same directory under bugs.txt (all ports).
 
 The server log records all transactions by all users in order of arrival. Whereas the user log
 records transactions by user/bot.
+
+The server log can be written regardless of whether CS is running in
+server mode or not.
 
 ```
 Noserverprelog

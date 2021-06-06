@@ -1,7 +1,7 @@
 # ChatScript Database Access
 
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 6/6/2021 cs11.4
 
 # Overview
 By default, a CS server records the current state of a user in a file stored in the local 
@@ -85,7 +85,7 @@ There is a sample bot compilable with :build mysql.
 
 ## MsSQL Fileserver 
 
-Currently Microsoft SQL can only be used as a  file server and not as a database (someday, probably soon).
+Currently Microsoft SQL can be used as a  file server or as a database.
 As a file server, this allows infinite scaling of CS.
 
 ### Fileserver Setup
@@ -119,6 +119,10 @@ If at any time a call to utilize MsSQL fails, the CS server will abort itself. I
 automatic restart and retry mechanism, then maybe things will just work next time, or a different
 CS server will get invoked. Such a mechanism is done automatically by CS.
 
+From user script one can open a database with ^msqlinit($_params)  
+and close it with ^msqlclose().
+^msqlread($_username) and ^msqlwrite($_username $_value) perform db operations.
+Init Params are the same as for using such a db for a filesystem.
 
 ##  Mongo Fileserver and Database
 

@@ -9,8 +9,9 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/18/2021 cs11.3</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/6/2021 cs11.4</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
+<p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
 <p>Debugging generally requires use of some :xxxx commands. I don't always remember them all, so at times I might simply say</p>
@@ -398,6 +399,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <h3 id="tracing-a-server">Tracing a server</h3>
 <p>Sometimes you do not control the user account, so you cannot do :trace from it. You can do <code>:trace universal</code> from any account to force the server to trace all users. Turn it off with <code>:trace none</code>. Obviously not a good thing to do on a highly active server as it slows everyone and generates large logs potentially.</p>
 <p>Also you can do :serverlog 1 to turn on server logging and :serverlog 0 to turn off serverlogging. You can even force server logging without restarting a server by merely adding the file &quot;serverlogging.txt&quot; with arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.</p>
+<p>Creating the top level file <code>prelogging.txt</code> turns on prelogging into server and user files (when logging into those files).</p>
 <h3 id="understanding-a-pattern-trace">Understanding a pattern trace</h3>
 <pre><code>    try 3.0: ( ! %response=0 !%lastquestion !%outputrejoinder )   
             ( !%response(0)=0- Remaining pattern: !%lastquestion ! %outputrejoinder )
@@ -599,6 +601,8 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <pre><code>    :logging user {file,none,stdout,stderr,prelog}  
     :logging servertrace {on, off} 
     :logging server {file,none,stdout,stderr,prelog} </code></pre>
+<p>Serverlogging is a location for the log file. It does not matter if CS is acting as a server or not. Server log files go in LOGS/serverlogxxxx.txt where xxx is the port number.</p>
+<p>Userlogging is stored in USERS folder, in files named by the bot and user. And userlogging is needed if you want to trace user processing, which goes into that user's file.</p>
 <h3 id="testpos"><code>:testpos</code></h3>
 <p>This switches input to the named file (if not named defaults to <code>REGRESS/posttest.txt</code>) and running regression POS testing. If the result of processing an input deviates from that listed in the test file, the system presents this as an error.</p>
 <h3 id="verifysubstitutes"><code>:verifysubstitutes</code></h3>

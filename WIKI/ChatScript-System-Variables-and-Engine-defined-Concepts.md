@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/6/2021 cs11.4
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -284,8 +284,6 @@ Time and date information are normally local, relative to the system clock of th
 CS is running on. See $cs_utcoffset for adjusting time based on relationship to utc (e.g
 your server is in Virginia and you are in Colorado).
 
-
-
 ## User Input
 
 | variable            | description 
@@ -321,7 +319,6 @@ your server is in Virginia and you are in Colorado).
 
 | %inputsize |  gives how many characters were passed in input
 | %inputlimited |   1 if too many characters were given (relative to fullinputlimit)
-
 
 ## Chatbot Output
 
@@ -360,8 +357,11 @@ your server is in Virginia and you are in Colorado).
 | `%lastcurltime`		| Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer: | 
 | `%crosstalk`		| 4k buffer in server visible between users to pass data back and forth | 
 | `%crosstalk1`		| 4k buffer in server visible between users to pass data back and forth | 
-| `%logging`		| bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog);
- | 
+| `%logging`		| bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog) | 
+ | `%forkcount` |  number of forks requested in linux evserver environment | 
+ | `%servertype`  |  parent or fork in linux evserver environment, server or null otherwise | 
+ | `%dbparams` |  copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)|  
+ | `%botid` |  bot id number in use | 
 
 ## Build data
 
@@ -419,18 +419,19 @@ These enable various LIVEDATA files to perform substitutions on input:
 | `#DO_SPELLING`               |  performs the `LIVEDATA/spelling` file (manual spell correction)
 | `#DO_TEXTING`                |  performs the `LIVEDATA/texting` file (expand texting notation)
 | `#DO_SUBSTITUTE_SYSTEM`      |  do all LIVEDATA file expansions
+The contents of the files above are pairs of tokens per line.
+Left is the word to replace and right is the replacement. When multiple words are
+involved, the left side uses underscores to represent this and the right side uses `+`. 
+If the right side is missing, it means just delete.
 | `#DO_INTERJECTION_SPLITTING` |  break off leading interjections into own sentence
 | `#$DO_NUMBER_MERGE`          |  merge multiple word numbers into one (_four and twenty_)  
 | `#$DO_PROPERNAME_MERGE`      |  merge multiple proper name into one (_George Harrison_) 
 | `#DO_DATE_MERGE`             |  merge month day and/or year sequences (_January 2, 1993_) 
 | `#JSON_DIRECT_FROM_OOB`      |  asking the tokenizer to directly process OOB data. See `^jsonparse` in JSON manual.
 | `#NO_FIX_UTF`      |  do not adjust inputs with html or utf8 encodings to simple ascii.  
-The contents of the files are pairs of tokens per line.
-Left is the word to replace and right is the replacement. When multiple words are
-involved, the left side uses underscores to represent this and the right side uses `+`. 
-If the right side is missing, it means just delete.
+| `#TOKENIZE_BY_CHARACTER`      |  Every non-whitespace character becomes its own token and canonical form. (good for Japanese)
 
-If any of the above items affect the input, they will be echoed as values into
+If any of the above items affect the input (except TOKENIZE_BY_CHARACTER), they will be echoed as values into
 `%tokenFlags` so you can detect they happened. 
 The next changes do not echo into %tokenFlags and relate to grammar of input:
 
@@ -675,8 +676,7 @@ contents.
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
 | `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
-| `$cs_tracepattern_on`    | Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
-| `$cs_tracepattern_off`    | Pseudo variable (needs no value) used by the ^testpattern call to let pattern code request a trace of pattern matching be returned.| 
+| `%trace_on and %trace_off`    | Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.| 
 |`$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
 | `$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput|
 | `$cs_sentences_limit  | after this many sentences in volley, cs ignores the rest (default 50) |
@@ -686,6 +686,10 @@ contents.
 | `$cs_inputlimit` | Restrict user input size (excluding oob) |
 | `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
 | `$cs_mongoqueryparams` | set as a json structure of move its fields to a mongo query |
+
+Note for %trace_on and %trace_off - you can use the command line
+parameter `blockapitrace` to prevent tracing in any code you 
+accidentally leave in place.
 
 `$cs_saveusedJson` exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping
 on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON
