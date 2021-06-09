@@ -7,8 +7,8 @@ Customer Survey:  If you are willing, please answer questions below and email yo
 6. How did you hear about CS?
 
 Version 11.4 6/6/2021
-BEAR IN MIND THAT THE MAC version in BINARIES is obsolete 
-until someone supplies me with a new compiled Mac version.
+ MAC version in BINARIES is up-to-date
+
 
 1. if $tokenControl has been set to include JSON_DIRECT_FROM_OOB
 	then a user input that contains the word "json" followed immediately by an
