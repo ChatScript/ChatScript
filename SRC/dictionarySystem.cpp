@@ -68,7 +68,6 @@ HEAPREF propertyRedefines = NULL;	// property changes on locked dictionary entri
 HEAPREF flagsRedefines = NULL;		// systemflags changes on locked dictionary entries
 HEAPREF ongoingDictChanges = NULL;  // ability to revert dynamic changes
 bool monitorDictChanges = false;
-static int freeTriedList = 0;
 bool xbuildDictionary = false;				// indicate when building a dictionary
 char dictionaryTimeStamp[20];		// indicate when dictionary was built
 const char* mini = ""; // what language
@@ -95,7 +94,6 @@ std::map <WORDP, WORDP> irregularAdjectives;
 std::map <WORDP, WORDP> canonicalWords;
 std::map <WORDP, int> wordValues; // per volley
 std::map <WORDP, MEANING> backtracks; // per volley
-std::map <WORDP, int> triedData; // per volley index into heap space
 std::map <WORDP, int> countData;
 
 HEAPREF concepts[MAX_SENTENCE_LENGTH];  // concept chains per word
@@ -147,6 +145,7 @@ void RemoveConceptTopic(HEAPREF list[256], WORDP D, int index)
 
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D, int start, int end, bool unique)
 {
+	int index = Word2Index(D);
 	if (unique)
 	{
 		HEAPREF at = list[start];
@@ -154,10 +153,11 @@ void Add2ConceptTopicList(HEAPREF list[256], WORDP D, int start, int end, bool u
 		{
 			uint64 D1;
 			at = UnpackHeapval(at, D1, discard, discard);
-			if (D1 == (uint64)D) return;	// already on list
+			if (D1 == (uint64)index) return;	// already on list
 		}
 	}
-	list[start] = AllocateHeapval(list[start], (uint64)D, 0, 0);
+	// concepts[] and topics[]
+	list[start] = AllocateHeapval(list[start], (uint64)index, 0, 0);
 }
 
 void ClearHeapThreads()
@@ -288,30 +288,6 @@ void ClearWordWhere(WORDP D, int at)
 		}
 	}
 }
-
-void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
-{
-	memset(concepts, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
-	memset(topics, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
-
-	// be able to reuse memory
-	if (documentMode) for (std::map<WORDP, int>::iterator it = triedData.begin(); it != triedData.end(); ++it)
-	{
-		MEANING* data = (MEANING*)Index2Heap(it->second);
-		*data = freeTriedList;
-		freeTriedList = it->second;
-	}
-
-	triedData.clear();
-	memset(unmarked, 0, MAX_SENTENCE_LENGTH);
-}
-
-void ClearTriedData() // erases  the WHEREINSENTENCE and the TRIEDBITS
-{
-	triedData.clear();
-	freeTriedList = 0;
-}
-
 void SetFactBack(WORDP D, MEANING M)
 {
 	if (GetFactBack(D) == 0)
@@ -330,85 +306,6 @@ MEANING GetFactBack(WORDP D)
 void ClearBacktracks()
 {
 	backtracks.clear();
-}
-
-unsigned int GetAccess(WORDP D)
-{
-	std::map<WORDP, int>::iterator it;
-	it = triedData.find(D);
-	if (it == triedData.end()) return 0;
-	int access = it->second;
-	return access;
-}
-
-unsigned char* GetWhereInSentence(WORDP D) // [0] is the meanings bits,  the rest are start/end/case bytes for 8 locations
-{
-	if (!D) return NULL;
-	int access = GetAccess(D);
-	return (!access) ? NULL : (unsigned char*)Index2Heap(access) + 8; // skip over 64bit tried by meaning field
-}
-
-int CopyWhereInSentence(int oldindex)
-{
-	unsigned int* olddata = (unsigned int*)Index2Heap(oldindex); // original location
-	if (!olddata) return 0;
-
-	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
-	//  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
-	if (data) memcpy((char*)data, olddata, len * 4);
-	return Heap2Index((char*)data);
-}
-
-unsigned int* AllocateWhereInSentence(WORDP D)
-{
-	if (documentMode && freeTriedList) // reuse memory
-	{
-		MEANING* d = (MEANING*)Index2Heap(freeTriedList);
-		freeTriedList = *d;
-	}
-	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
-	//  64bit tried by meaning field (aligned) + sentencerefs (3 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
-	if (!data) return NULL;
-
-	memset((char*)data, 0xff, len * 4); // clears sentence xref start/end bits and casing byte
-	data[0] = 0; // clears the tried meanings list
-	data[1] = 0;
-	// store where in the temps data
-	int index = Heap2Index((char*)data); // original index!
-	triedData[D] = index;
-	return data + 2; // analogous to GetWhereInSentence
-}
-
-void SetTriedMeaningWithData(uint64 bits, unsigned int* data)
-{
-	*(data - 2) = (unsigned int)(bits >> 32);
-	*(data - 1) = (unsigned int)(bits & 0xffffffff);	// back up to the tried meaning area
-}
-
-void SetTriedMeaning(WORDP D, uint64 bits)
-{
-	unsigned int* data = (unsigned int*)GetWhereInSentence(D);
-	if (!data)
-	{
-		data = AllocateWhereInSentence(D);
-		if (!data) return; // failed to allocate
-	}
-	*(data - 2) = (unsigned int)(bits >> 32);
-	*(data - 1) = (unsigned int)(bits & 0xffffffff);	// back up to the tried meaning area
-}
-
-uint64 GetTriedMeaning(WORDP D) // which meanings have been used (up to 64)
-{
-	std::map<WORDP, int>::iterator it;
-	it = triedData.find(D);
-	if (it == triedData.end())	return 0;
-	unsigned int* data = (unsigned int*)Index2Heap(it->second); // original location
-	if (!data) return 0;
-	uint64 value = ((uint64)(data[0])) << 32;
-	value |= (uint64)data[1];
-	return value; // back up to the correct meaning zone
 }
 
 void SetPlural(WORDP D, MEANING M)
@@ -1142,7 +1039,6 @@ WORDP StoreWord(const char* word, uint64 properties, uint64 flags)
 WORDP StoreWord(const char* word, uint64 properties)
 {
 	if (!dictionaryBase) return NULL;
-	
 	if (strchr(word, '\n') || strchr(word, '\r') || strchr(word, '\t')) // force backslash format on these characters
 	{ // THIS SHOULD NEVER HAPPEN, not allowed these inside data
 		char* buf = AllocateBuffer(); // jsmn fact creation may be using INFINITIE stack space.
@@ -1326,8 +1222,8 @@ void ShowStats(bool reset)
 		double time = (double)(tokenCount / fract);
 		Log(ECHOUSERLOG, (char*)"\r\nRead: %d sentences (%d tokens) in %d ms = %d ms/l or %f token/s\r\n", inputSentenceCount, tokenCount, diff, mspl, time);
 
-		Log(ECHOUSERLOG, (char*)"used: rules=%d dict=%d fact=%d text=%d mark=%d\r\n", ruleCount, dictUsed, factUsed, textUsed, xrefCount);
-		Log(ECHOUSERLOG, (char*)"      maxrules=%d  maxdict=%d maxfact=%d  maxtext=%d\r\n", maxRules, maxDict, maxFact, maxText);
+		Log(ECHOUSERLOG, (char*)"used: rules=%d dict=%d words fact=%d facts text=%d mark=%d\r\n", ruleCount, dictUsed, factUsed, textUsed, xrefCount);
+		Log(ECHOUSERLOG, (char*)"      maxrules=%d  maxdict=%d words maxfact=%d facts maxtext=%d\r\n", maxRules, maxDict, maxFact, maxText);
 		ruleCount = 0;
 		xrefCount = 0;
 	}
@@ -2706,7 +2602,6 @@ HEAPREF SetSubstitute(const char* name, char* originalx, char* replacementx, uns
 		size_t len = strlen(replacement) - 1;
 		if (replacement[len] == '"') replacement[len] = 0;
 		++replacement;
-
 	}
 	at = replacement;
 	if (*at != '\'') while ((at = strchr(at, ' '))) *at = '+';	// change spaces to plus - leave _ to be single token
@@ -3996,7 +3891,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	uint64 xflags = 0;
 	WORDP revise;
 	uint64 inferredProperties = (name[0] != '~' && name[0] != '^') ? GetPosData(-1, name, revise, entry, canonical, xflags, cansysflags) : 0;
-	if (D && D->systemFlags & HAS_SUBSTITUTE) Log(USERLOG, "SUBSTITUTION SOURCE\r\n");
+	if (D && D->systemFlags & HAS_SUBSTITUTE) Log(USERLOG, "SUBSTITUTION SOURCE-> %s\r\n", GetSubstitute(D)->word );
 	if (entry && D != entry) Log(USERLOG, "\r\n  Changed to %s\r\n", entry->word);
 	sysflags |= xflags;
 	bit = START_BIT;

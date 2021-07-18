@@ -4,6 +4,8 @@
 #include <mutex>
 static std::mutex mtx;
 #endif 
+bool authorize = false;
+bool pseudoServer = false;
 int loglimit = 0;
 bool prelog = false;
 FILE* userlogFile = NULL;
@@ -29,6 +31,7 @@ char* stackStart = NULL;
 char* heapEnd = NULL;
 uint64 discard;
 bool infiniteStack = false;
+bool infiniteHeap = false; 
 bool userEncrypt = false;
 bool ltmEncrypt = false;
 unsigned long minHeapAvailable;
@@ -403,9 +406,14 @@ void CloseBuffers()
 	buffers = 0;
 }
 
+FunctionResult AuthorizedCode(char* buffer)
+{
+	if ((server || pseudoServer ) && !hadAuthCode  && !VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt"))) return FAILRULE_BIT; // authorizedIP
+	return NOPROBLEM_BIT;
+}
+
 void LoggingCheats(char* incoming)
 {
-	
 	// logging overrides 
 	FILE* in = fopen("serverlogging.txt", (char*)"rb"); // per external file created, enable server log
 	if (in)
@@ -431,6 +439,7 @@ void LoggingCheats(char* incoming)
 	if (in)
 	{
 		trace = (unsigned int)-1;
+		userLog |= FILE_LOG;
 		fclose(in);
 	}
 	char* authcode = NULL;
@@ -615,17 +624,18 @@ char** RestoreStackSlot(char* variable,char** slot)
 	return ++slot;
 }
 
-char* InfiniteStack(char*& limit,const char* caller)
+char* InfiniteHeap(const char* caller)
 {
-	if (infiniteStack) ReportBug("FATAL: Allocating InfiniteStack from %s while one already in progress from %s\r\n",caller, infiniteCaller);
+	if (infiniteHeap) ReportBug("FATAL: Allocating InfiniteHeap from %s while one already in progress from %s\r\n", caller, infiniteHeap);
 	infiniteCaller = caller;
-	infiniteStack = true;
-	limit = heapFree - 5000; // leave safe margin of error
-	*stackFree = 0;
-	return stackFree;
+	infiniteHeap = true;
+	uint64 base = (uint64)(heapFree);
+	base &= 0xFFFFFFFFFFFFFFF8ULL;
+	heapFree = (char*)base;
+	return heapFree;
 }
 
-char* InfiniteStack64(char*& limit,const char* caller)
+char* InfiniteStack(char*& limit,const char* caller)
 {
 	if (infiniteStack) ReportBug("FATAL: Allocating InfiniteStack from %s while one already in progress from %s\r\n",caller, infiniteCaller);
 	infiniteCaller = caller;
@@ -716,6 +726,9 @@ HEAPREF Index2Heap(HEAPINDEX offset)
 
 bool PreallocateHeap(size_t len) // do we have the space
 {
+	if (infiniteHeap)
+		ReportBug("FATAL: Allocating heap while InfiniteHeap in progress from %s\r\n", infiniteCaller);
+
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000)) 
 	{
@@ -745,6 +758,20 @@ char* AllocateConstHeap(char* word, size_t len, int bytes, bool clear, bool pure
 	return AllocateHeap(word, len, bytes, clear, purelocal);
 }
 
+void CompleteInfiniteHeap(char* base)
+{
+	infiniteHeap = false;
+	infiniteCaller = "";
+	if (base >= lastheapfree) ReportBug("Heap growing backwards")
+	size_t len = (heapFree - base);
+	lastheapfree = heapFree = (char*)base;
+	int nominalLeft = maxHeapBytes - (heapBase - heapFree);
+	if ((unsigned long)nominalLeft < minHeapAvailable) minHeapAvailable = nominalLeft;
+	char* used = heapFree - len;
+	if (used <= ((char*)stackFree + 2000) || nominalLeft < 0)
+	ReportBug((char*)"FATAL: Out of permanent heap space\r\n")
+}
+
 char* AllocateHeap(const char* word,size_t len,int bytes,bool clear, bool purelocal) // BYTES means size of unit
 { //   string allocation moves BACKWARDS from end of dictionary space (as do meanings)
 /* Allocations during setup as :
@@ -764,6 +791,8 @@ Allocations happen during volley processing as
 7. assignment onto user variables
 8. JSON reading
 */
+	if (infiniteHeap)
+		ReportBug("FATAL: Allocating stack while InfiniteHeap in progress from %s\r\n", infiniteCaller);
 	len *= bytes; // this many units of this size
 	if (len == 0)
 	{
@@ -778,10 +807,7 @@ Allocations happen during volley processing as
 	unsigned int allocate = ((allocationSize + 3) / 4) * 4;
 	char* oldHeapFree = heapFree;
 	heapFree -= allocate; // heap grows lower, stack grows higher til they collide
-	if (heapFree >= lastheapfree) 
-	{
- 		ReportBug("Heap growing backwards")
-	}
+	
 	uint64 base = (uint64)heapFree;
  	if (bytes > 4) // force 64bit alignment alignment
 	{
@@ -797,8 +823,12 @@ Allocations happen during volley processing as
 	}
 	else if (bytes != 1) 
 		ReportBug((char*)"Allocation of bytes is not std unit %d", bytes);
-	 lastheapfree =  heapFree = (char*)base;
-
+	
+	if (heapFree >= lastheapfree)
+	{
+		ReportBug("Heap growing backwards")
+	}
+	lastheapfree =  heapFree = (char*)base;
 	char* newword =  heapFree;
 	int nominalLeft = maxHeapBytes - (heapBase - heapFree);
 	if ((unsigned long) nominalLeft < minHeapAvailable) minHeapAvailable = nominalLeft;
@@ -1166,7 +1196,8 @@ FILE* FopenStaticReadOnly(const char* name) // static data file read path, never
 {
 	StartFile(name);
 	char path[MAX_WORD_SIZE];
-	if (*readPath) sprintf(path,(char*)"%s/%s",staticPath,name);
+	if (name[1] == ':' || *name == '/') strcpy(path, name); // windows absolute path drive c:
+	else if (*readPath) sprintf(path,(char*)"%s/%s",staticPath,name);
 	else strcpy(path,name);
 	return fopen(path,(char*)"rb");
 }
@@ -1175,7 +1206,8 @@ FILE* FopenReadOnly(const char* name) // read-only potentially changed data file
 {
 	StartFile(name);
 	char path[MAX_WORD_SIZE];
-	if (*readPath) sprintf(path,(char*)"%s/%s",readPath,name);
+	if (name[1] == ':' || *name == '/') strcpy(path, name); // windows absolute path drive c:
+	else if (*readPath) sprintf(path,(char*)"%s/%s",readPath,name);
 	else strcpy(path,name);
 	return fopen(path,(char*)"rb");
 }
@@ -1201,7 +1233,8 @@ int FileSize(FILE* in, char* buffer, size_t allowedSize)
 FILE* FopenBinaryWrite(const char* name) // writeable file path
 {
 	char path[MAX_WORD_SIZE];
-	if (*writePath) sprintf(path,(char*)"%s/%s",writePath,name);
+	if (name[1] == ':' || *name == '/') strcpy(path, name); // windows absolute path drive c:
+	else if (*writePath) sprintf(path,(char*)"%s/%s",writePath,name);
 	else strcpy(path,name);
 	FILE* out = fopen(path,(char*)"wb");
 	if (out == NULL && !inLog) 
@@ -1213,7 +1246,8 @@ FILE* FopenReadWritten(const char* name) // read from files that have been writt
 {
 	StartFile(name);
 	char path[MAX_WORD_SIZE];
-	if (*writePath) sprintf(path,(char*)"%s/%s",writePath,name);
+	if (name[1] == ':' || *name == '/') strcpy(path, name); // windows absolute path drive c:
+	else if (*writePath) sprintf(path,(char*)"%s/%s",writePath,name);
 	else strcpy(path,name);
 	return fopen(path,(char*)"rb");
 }
@@ -1221,7 +1255,8 @@ FILE* FopenReadWritten(const char* name) // read from files that have been writt
 FILE* FopenUTF8Write(const char* filename) // insure file has BOM for UTF8
 {
 	char path[MAX_WORD_SIZE];
-	if (*writePath) sprintf(path,(char*)"%s/%s",writePath,filename);
+	if (filename[1] == ':' || *filename == '/') strcpy(path, filename); // windows absolute path drive c:
+	else if (*writePath) sprintf(path,(char*)"%s/%s",writePath,filename);
 	else strcpy(path,filename);
 
 	FILE* out = fopen(path,(char*)"wb");
@@ -1240,7 +1275,8 @@ FILE* FopenUTF8Write(const char* filename) // insure file has BOM for UTF8
 FILE* FopenUTF8WriteAppend(const char* filename,const char* flags) 
 {
 	char path[MAX_WORD_SIZE];
-	if (*writePath) sprintf(path,(char*)"%s/%s",writePath,filename);
+	if (filename[1] == ':' || *filename == '/') strcpy(path, filename); // windows absolute path drive c:
+	else if (*writePath) sprintf(path,(char*)"%s/%s",writePath,filename);
 	else strcpy(path,filename);
 
 	FILE* in = fopen(path,(char*)"rb"); // see if file already exists
@@ -1727,6 +1763,7 @@ HookInfo hookSet[] =
 #ifndef DISCARDMONGO
     { (char*)"MongoQueryParams",0,(char*)"Add query parameters to Mongo query" },
     { (char*)"MongoUpsertKeyValues",0,(char*)"Add key values to Mongo upsert" },
+    { (char*)"MongoGotDocument",0,(char*)"Process document results from Mongo query" },
 #endif
 
     { 0,0,(char*)"" }
@@ -2119,7 +2156,12 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
 #else
 		result = rename(fname, newname);
 #endif
-		if (result != 0) perror("Error renaming file");
+		if (result != 0)
+		{
+			char msg[1000];
+			sprintf(msg,"Error %d renaming file from %s to %s  ", errno, fname, newname);
+			perror(msg);
+		}
 #ifdef WIN32
 		SetCurrentDirectory((char*)"..");
 #endif
@@ -2322,6 +2364,8 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 void Prelog(char* user, char* usee, char* incoming)
 {
 	if (!userLog && !serverLog) return;
+	if (serverLog & FILE_LOG) serverLog |= PRE_LOG;
+	if (userLog & FILE_LOG) userLog |= PRE_LOG;
 
 	if ((serverLog & PRE_LOG) || (userLog & PRE_LOG) || prelog)
 	{
@@ -2348,8 +2392,8 @@ void Prelog(char* user, char* usee, char* incoming)
             GetTimeMS(ElapsedMilliseconds(), startdate);
             char buffer[MAX_WORD_SIZE];
 			sprintf(buffer,"\r\n%s ServerPre: pid: %d %s (%s) size=%u `*`\r\n", startdate, id, user, usee, len);
-			if (serverLog || prelog) Log(PASSTHRUSERVERLOG, buffer);
-			if (userLog || prelog) Log(PASSTHRUUSERLOG, buffer);
+			if (serverLog & PRE_LOG || prelog) Log(PASSTHRUSERVERLOG, buffer);
+			if (userLog & PRE_LOG || prelog) Log(PASSTHRUUSERLOG, buffer);
 		}
 		if (userInput) *userInput = endInput; // restore user message if hidden
 	}
@@ -2638,7 +2682,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		{
 			struct tm ptm;
 			if (*currentFilename) fprintf(stdout, (char*)"\r\n   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
-			else if (!compiling && !commandLineCompile && *currentInput) fprintf(stdout, (char*)"\r\n%u %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
+			else if (!compiling && !commandLineCompile && currentInput && *currentInput) fprintf(stdout, (char*)"\r\n%u %s in sentence: %s \r\n    ", volleyCount, GetTimeInfo(&ptm, true), currentInput);
 		}
 
 		strcpy(at, (char*)"\r\n");	//   end it

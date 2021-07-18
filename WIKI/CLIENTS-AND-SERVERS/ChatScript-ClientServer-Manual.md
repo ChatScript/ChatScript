@@ -1,7 +1,7 @@
 # ChatScript Client/Server Manual
 
 > Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com
-<br> Revision 2/8/2021 cs11.1
+<br>Revision 7/18/2021 cs11.5
 
 * [Running the server](ChatScript-ClientServer-Manual.md#running-the-server)
 * [Unique User Names](ChatScript-ClientServer-Manual.md#unique-user-names)
@@ -528,6 +528,8 @@ A line is an entire conversation (a la JMETER std format), with what is expected
 return. An output file of TMP/jmeter.txt is generated which labels inputs with they passed 
 (the output from bot matched expectation) or FAILED (and what oob data was shipped is shown along
 with what was expected and what was received).
+
+Currently this only works for TCP, not api or integration which have different formats.
 
 ## :jaraw file 
 Send the message under a [category: legal] header and the file only consists of input lines from

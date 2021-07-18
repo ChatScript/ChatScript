@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -258,6 +258,8 @@ $x.field = null</code></pre>
 <h4 id="using-a-word-as-a-field-name-rather-than-as-indirection">using a $word as a field name rather than as indirection</h4>
 <p>Just escape the $.</p>
 <pre><code>$data.\$varname = hello </code></pre>
+<h3 id="jsonkinditem"><code>^jsonkind</code>(item)</h3>
+<p>If item is the name of a json array, it returns <code>array</code>. If item is the name of a json object, it returns <code>object</code>. Otherwise it fails.</p>
 <h3 id="jsonmergestruct1-struct2"><code>^jsonmerge</code>(struct1 struct2)</h3>
 <p>Takes two json arrays or two json objects and adds unique elements of struct2 into struct1 recursively.</p>
 <h3 id="jsoncountstruct-depth"><code>^jsoncount</code>(struct depth)</h3>

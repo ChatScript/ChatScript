@@ -100,9 +100,15 @@ extern char tmpWord[MAX_WORD_SIZE];
 extern bool singleSource;
 extern bool echoDocument;
 extern char* documentBuffer;
-extern char toHex[16];
+extern unsigned char toHex[16];
 extern int docSampleRate, docSample;
 extern uint64 docVolleyStartTime;
+
+#define JAPANESE_PUNCTUATION 1
+#define JAPANESE_HIRAGANA 2
+#define JAPANESE_KATAKANA 3
+#define JAPANESE_KANJI 4
+
 #define IsPunctuation(c) (punctuation[(unsigned char)c])
 #define IsRealPunctuation(c) (realPunctuation[(unsigned char)c])
 #define GetLowercaseData(c) (toLowercaseData[(unsigned char)c])
@@ -144,6 +150,7 @@ uint64 FindPropertyValueByName(char* name);
 FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
 void ClearSupplementalInput();
+int IsJapanese(unsigned char* utf8letter, unsigned char* utf16letter,int& kind);
 char* GetNextInput();
 void MoreToCome();
 void ClearNumbers();
@@ -170,9 +177,10 @@ size_t OutputLimit(unsigned char* data);
 void ConvertQuotes(char* ptr);
 extern int startSentence;
 extern int endSentence;
+extern unsigned char toHex[16];
 extern bool hasHighChar;
 bool IsFraction(char* token);
-char* UTF16_2_UTF8(char* in);
+char* UTF16_2_UTF8(char* in,bool withinquote);
 
 // boolean style tests
 bool AdjustUTF8(char* start, char* buffer);

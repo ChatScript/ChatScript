@@ -9,10 +9,36 @@
 </head>
 <body>
 <h1 id="foreign-language-support">Foreign Language Support</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/04/2017 cs7.61</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
 <h1 id="foreign-language-overview">Foreign Language Overview</h1>
 <p>ChatScript comes natively with full English support. If you want to use a different language you need a variety of things. * Pos-tagging support (optional if you don't use pos-based keywords) * Spell check support * Concepts in the language (that you use) * LIVEDATA substitutions appropriate to the language * Patterns in the language * Output in the language * Lemmas (comes with foreign pos-taggers or available from ^pos(canonical))</p>
-<p>ChatScript has a command line parameter <code>language=</code> that tells CS the language you intend. It defaults to <code>ENGLISH</code>. The effects of this parameter are several. * If not ENGLISH, internal pos-tagging (other than marking possible english tags and numbers and dates and such) and parsing are disabled. * If treetagger is licensed and has that language, it will pos tag. * The system will use DICT/<code>language</code>. * The system will use LIVEDATA/<code>language</code> * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments). * The system will store the user's topic file suffixed by language as well.</p>
+<p>ChatScript has a command line parameter <code>language=</code> that tells CS the language you intend. It defaults to <code>ENGLISH</code>. The effects of this parameter are generically these, unless special information is given below about the language: * If not ENGLISH, internal pos-tagging (other than marking possible english tags and numbers and dates and such) and parsing are disabled. * If treetagger is licensed and has that language, it will pos tag. * The system will use DICT/<code>language</code>. * The system will use LIVEDATA/<code>language</code> * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments). * The system will store the user's topic file suffixed by language as well.</p>
+<h1 id="embedded-foreign-language-support">Embedded Foreign Language Support</h1>
+<h2 id="japanese">Japanese</h2>
+<p>ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. It knows something is japanese because either the a command line parameter has &quot;language=japanese&quot;, or because japanese characters are being used in compiling a pattern (^compilepattern), or because a global variable is passed in via ^testpattern &quot;$language = japanese&quot;.</p>
+<h3 id="compilepattern">CompilePattern</h3>
+<p>ChatScript directly supports Japanese coding in ^compilepattern. A &quot;word&quot; is a sequence of characters with no spaces in it (except for double quoted strings). Note in the texts below, ? stands for some japanese character.</p>
+<p>Scripters are expected to keep japanese &quot;words&quot; separate. E.g. ?????? would in script be: ?? ?? ?? .<br />
+Of course if they actually want to match the sentence exactly anyway, they can keep them all together.</p>
+<p>Either way, patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. Each character thus becomes a word internally.</p>
+<p>So this, ( _??? $var:=_0 ), which a scripter writes as a single word to be found and memorized, internally is sent to cs as this:</p>
+<p>[{&quot;dse&quot;: {&quot;compilepattern&quot;: &quot;( _??? $var:=_0 )&quot; }} ]</p>
+<p>and CS returns this for internal use, where each character is now a separate word: [{ &quot;dse&quot;: { &quot;testpattern&quot;: {input: &quot; ???? ??&quot;, &quot;patterns&quot;: [{ &quot;pattern&quot;: &quot;^( _( ? ? ? ) :6$var:=_0 ) &quot; }] } } }]</p>
+<p>This pattern says that the given character sequence MUST be detected as a contiguous sequence. You can use the usual exclusion and memorization operators on such words, and they will be applied to the sequence.</p>
+<h3 id="testpattern">^testpattern</h3>
+<p>Correspondingly, if you set a global variable &quot;language&quot; to &quot;japanese&quot;, then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:</p>
+<p>Normal character clusters are separated into discrete characters. These can match the patterns that have been compiled. English AND Japanese terminal punctuation marks corresponding to period, question , and exclamation are internally converted to English (because they will be stripped off the sentence as per usual). If the pattern matcher is required to memorize a &quot;word&quot;, it will find the separated characters and join them back together to return the value. Thus the above testpattern call will return:&quot;output&quot;: {&quot;newglobals&quot;: {&quot;$var&quot;: &quot;???&quot;} , &quot;match&quot;: 0} } ]<br />
+Concepts are written per usual, using Japanese words (characters without spaces).</p>
+<h3 id="sentence-limit">Sentence Limit</h3>
+<p>CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. Where terminal punctuation is detected, that ends a sentence. Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. Ryan ran some numbers on about 100,000 user inputs from our jp bots. The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.</p>
+<h3 id="numbers">Numbers</h3>
+<p>For english numbers as digits residing adjacent to japanese characters, the english number is broken off intact. Thus ??72????? becomes ? ? 72 ? ? ? ? ? on inputs</p>
+<h2 id="german">GERMAN</h2>
+<p>The spell checker has code to break apart an unknown compound word into its separate recognizable pieces, based on https://www.dartmouth.edu/~deutsch/Grammatik/Wortbildung/Komposita.html . So &quot;Esszimmer&quot; (dining room) becomes Ess Zimmer.</p>
+<p>CS comes with a german dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>
+<h2 id="spanish">SPANISH</h2>
+<p>The tokenizer will simply delete any upside down question or exclamation marks.</p>
+<p>CS comes with a spanish dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>
 <h1 id="input-and-output">INPUT and OUTPUT</h1>
 <p>ChatScript supports UTF8, so making output or patterns in the language is entirely up to you. Ditto for LIVEDATA.</p>
 <p>ChatScript supports two kinds of conditional compile comments. Single line comments look like this:</p>

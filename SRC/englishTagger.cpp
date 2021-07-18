@@ -1,5 +1,4 @@
 #include "common.h"
-
 extern unsigned int tagRuleCount;
 unsigned int ambiguousWords;
 bool reverseWords = false;
@@ -185,6 +184,7 @@ unsigned char quotationInProgress = 0;
 // TreeTagger is something you must license for pos-tagging a collection of foreign languages
 // Buying a license will get the the library you need to load with this code
 // http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/
+bool treetaggerfail = true;
 
 #ifdef WIN32
 #pragma comment(lib, "../BINARIES/treetagger.lib") // where windows library is
@@ -646,6 +646,7 @@ static void BlendWithTreetagger(bool &changed)
 
 void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 {
+	treetaggerfail = true;
 	if (!*params) return;
 
 	// load each foreign postag and its correspondence to english postags
@@ -654,6 +655,7 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 	MakeLowerCopy(lang, language);
 	sprintf(name, "DICT/%s_tags.txt", lang);
 	if (!ReadForeignPosTags(name)) return; //failed 
+	treetaggerfail = false;
 
 	externalTagger = 2;	// using external tagging
 	char langfile[MAX_WORD_SIZE];
@@ -672,6 +674,7 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 	else
 	{
 		(*printer)("Unable to load %s\r\n", langfile);
+		treetaggerfail = true;
 		return;
 	}
 
@@ -796,7 +799,7 @@ static void SetCanonicalValue(int start,int end)
 				}
 			}
 			if (canonicalLower[i] && canonicalLower[i]->properties & (DETERMINER|NUMBER_BITS));
-			else if (IsAlphaUTF8(*original) &&  canonicalLower[i] && !strcmp(canonicalLower[i]->word,(char*)"unknown-word"));	// keep unknown-ness
+			else if (IsAlphaUTF8(*original) &&  canonicalLower[i] == DunknownWord);	// keep unknown-ness
  			else if (csEnglish && pos & NOUN_BITS && !canonicalUpper[i])
 			{
 				char* noun = GetSingularNoun(original,false,true);
@@ -887,7 +890,7 @@ static void SetCanonicalValue(int start,int end)
 		if (canonicalLower[i] && IsDigit(*canonicalLower[i]->word)) wordCanonical[i] = canonicalLower[i]->word; // leave numbers alone
 		else if (csEnglish && canonicalLower[i] && originalLower[i])
 		{
-			if (!GetCanonical(originalLower[i]) && posValues[i] & NOUN_SINGULAR && !(allOriginalWordBits[i] & NOUN_GERUND) && stricmp(canonicalLower[i]->word,(char*)"unknown-word")) // saw does not become see, it stays original - but singing should still be sing and "what do you think of dafatgat" should remain
+			if (!GetCanonical(originalLower[i]) && posValues[i] & NOUN_SINGULAR && !(allOriginalWordBits[i] & NOUN_GERUND) && canonicalLower[i] != DunknownWord) // saw does not become see, it stays original - but singing should still be sing and "what do you think of dafatgat" should remain
 			{
 				canonicalLower[i] = originalLower[i];
 				wordCanonical[i] = originalLower[i]->word; 
@@ -1338,7 +1341,6 @@ void TagInit()
     InitRoleSentence(1,wordCount);
 }
 
-
 void TagIt() // get the set of all possible tags. Parse if one can to reduce this set and determine word roles
 {
 	// AssignRoles manages:  posValues+bitCounts, roles+needRoles+rolelevel, crossreference  (can we remove coordinates or complementref or objectref or indorectobjecref?), phrasal_verb?
@@ -1347,6 +1349,8 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 
 	wordStarts[wordCount+1] = AllocateHeap((char*)"");
 	knownWords = 0;
+	if (!stricmp(language, "japanese") || !stricmp(language, "ideographic")) return; // we know nothing of them
+	
 	int i;
 
 	// count words beginning lowercase and note which ones - also init wordcanonical, in case it never goes to postag
@@ -1394,6 +1398,8 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 	}
 
 	if (externalPostagger && stricmp(language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
+
+	if (wordCount == 1) return; // no point in trying to analyze
 
 	// handle regular area
 	for (i = 1; i <= wordCount; ++i)
@@ -1513,7 +1519,7 @@ bool IsDualNoun(int i)
     if (posValues[i] & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL)) canonical = canonicalUpper[i];
     else canonical = canonicalLower[i];
 
-    if (canonical && stricmp(canonical->word,(char*)"unknown-word")) strcat(word, canonical->word);
+    if (canonical && canonical != DunknownWord) strcat(word, canonical->word);
     else strcat(word, wordStarts[i]);
     
     WORDP Z = FindWord(word);
@@ -3180,7 +3186,7 @@ char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const ch
 			else if (canonicalUpper[i] && originalUpper[i] && !strcmp(canonicalUpper[i]->word,originalUpper[i]->word)); // same
 			else 
 			{
-				if (D && !(D->properties & PART_OF_SPEECH) && D->properties & FOREIGN_WORD && canonicalLower[i] && !stricmp(canonicalLower[i]->word,(char*)"unknown-word"))  strcat(buffer,(char*)"/foreign");
+				if (D && !(D->properties & PART_OF_SPEECH) && D->properties & FOREIGN_WORD && canonicalLower[i] && canonicalLower[i] == DunknownWord)  strcat(buffer,(char*)"/foreign");
 				else if (canonicalLower[i]) 
 				{
 					strcat(buffer,(char*)"/");

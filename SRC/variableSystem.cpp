@@ -94,8 +94,16 @@ void JoinMatch(int start, int end, int index, bool inpattern)
         if (!word) continue;
         if (started)
         {
-            strcat(wildcardOriginalText[index], wildcardSeparator);
-            strcat(wildcardCanonicalText[index], wildcardSeparator);
+            // no separator on japanese words in japanese
+            unsigned char japanletter[8];
+            int kind = 0;
+            bool japanese = false;
+            if (!japanese) japanese = csapicall == TEST_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
+            if (!kind)
+            {
+                strcat(wildcardOriginalText[index], wildcardSeparator);
+                strcat(wildcardCanonicalText[index], wildcardSeparator);
+            }
         }
         else started = true;
         if (IsUpperCase(*word) && word[1]) proper = true; // may be proper name
@@ -854,7 +862,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
         {
             char* limit;
             FACT* F = GetSubjectNondeadHead(FindWord(moreValue));
-            FACT** stack = (FACT**)InfiniteStack64(limit, "array merge");
+            FACT** stack = (FACT**)InfiniteStack(limit, "array merge");
             int index = 0;
             while (F) // stack object key data
             {
@@ -918,7 +926,9 @@ static void SetBotVars(HEAPREF varthread)
         uint64 D;
         uint64 value;
         varthread = UnpackHeapval(varthread, D, value, discard);
-        ((WORDP)D)->w.userValue = (char*) value;
+        if (!releaseBotVar || stricmp(releaseBotVar, ((WORDP)D)->word))
+            ((WORDP)D)->w.userValue = (char*) value;
+        else releaseBotVar = NULL; // we have allowed it to not restore
     }
 }
 

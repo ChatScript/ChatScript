@@ -350,7 +350,7 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult &result,bool json)
   
         // move onto stack so we can walk either way the elements
         char* limited;
-        stack = (FACT**)InfiniteStack64(limited, "handleloop");
+        stack = (FACT**)InfiniteStack(limited, "handleloop");
         while (F) // stack object key data
         {
             stack[indexsize++] = F;

@@ -1,4 +1,4 @@
-#include "common.h"
+﻿#include "common.h"
 char* currentInput = NULL; // latest input we are processing from GetNextInput for error reporting
 static HEAPREF startSupplementalInput = NULL;
 int startSentence;
@@ -23,7 +23,7 @@ char numberPeriod = '.';
 
 char tmpWord[MAX_WORD_SIZE];					// globally visible scratch word
 char* userRecordSourceBuffer = 0;				// input source for reading is this text stream of user file
-static unsigned char hexcodes[16] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+unsigned char toHex[16] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
 int BOM = NOBOM;								// current ByteOrderMark
 static char holdc = 0;		//   holds extra character from readahead
 
@@ -53,9 +53,6 @@ typedef struct CURRENCYDECODE
 static CURRENCYDECODE* currencies;
 static int* monthnames;
 static int* topleveldomains;
-
-char toHex[16] = {
-	'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
 
 unsigned char toLowercaseData[256] = // convert upper to lower case
 {
@@ -307,7 +304,7 @@ void InitTextUtilities()
 	}
 }
 
-char* UTF16_2_UTF8(char* in)
+char* UTF16_2_UTF8(char* in,bool withinquote)
 { // u0000 notation
 	static char answer[20];
 	*answer = 'x'; //default
@@ -318,7 +315,11 @@ char* UTF16_2_UTF8(char* in)
 	int n = atoi(in + 1);
 	if (n == 2019 || n == 2018)  return "\'";// left and right curly ' to normal '
 	char d = in[4];
-	if (n == 201 && (d == 'c' || d == 'd' || d == 'C' || d == 'D'))  return "\""; // left and right curly dq to normal dq
+	if (n == 201 && (d == 'c' || d == 'd' || d == 'C' || d == 'D'))
+	{
+		if (withinquote) return "\\\""; // escape it
+		return "\""; // left and right curly dq to normal dq
+	}
 	if (n == 22)  return "\\\""; // std ascii
 	if (n == 27)  return "\\'"; // std quote	if (n == 27)  return "'"; // std quote	if (n == 27)  return "\\'"; // std quote	if (n == 27)  return "'"; // std quote
 	if (n == 2013 || n == 2014)  // preserve m and n dash for now for regression test
@@ -347,6 +348,10 @@ char* UTF16_2_UTF8(char* in)
 	if (c < 'a' && c >= 'A') c -= 'A' + 'a';
 	unsigned char hex4 = (IsDigit(c)) ? (c - '0') : (10 + c - 'a');
 
+	// private use codepoints
+	// The main range in the BMP is U + E000..U + F8FF, containing 6, 400 private - use characters.That range is often referred to as the Private Use Area(PUA).But there are also two large ranges of supplementary private - use characters, consisting of most of the code points on Planes 15 and 16: U + F0000..U + FFFFD and U + 100000..U + 10FFFD.Together those ranges allocate another 131, 068 private - use characters.Altogether, then, there are 137, 468 private - use characters in Unicode.
+	if (hex1 == 0x0d || hex1 == 0x0e) return NULL; // utf16 emoji which may be considered unallocated for utf8
+	if (hex1 == 0x0f && hex2 < 0x09) return NULL; // private utf16
 	if (hex1 == 0 && hex2 == 0 && hex3 <= 7) //	U + 00 00 00 7F		0xxxxxxx
 	{// 1 byte utf (normal ascii)
 		*answer = (hex3 << 4) + hex4;
@@ -418,7 +423,7 @@ void InitTextUtilities1()
 	FILE* in = FopenStaticReadOnly(file); // LIVEDATA substitutes or from script TOPIC world
 	if (in)
 	{
-		stack = InfiniteStack64(limit, "initnumbers");
+		stack = InfiniteStack(limit, "initnumbers");
 		data = (int*)stack;
 
 		while (ReadALine(readBuffer, in) >= 0) // once 1 REALNUMBER
@@ -456,7 +461,7 @@ void InitTextUtilities1()
 	in = FopenStaticReadOnly(file);
 	if (in)
 	{
-		stack = InfiniteStack64(limit, "initcurrency");
+		stack = InfiniteStack(limit, "initcurrency");
 		data = (int*)stack;
 
 		while (ReadALine(readBuffer, in) >= 0) // $ ~dollar
@@ -486,7 +491,7 @@ void InitTextUtilities1()
 	in = FopenStaticReadOnly(file);
 	if (in)
 	{
-		stack = InfiniteStack64(limit, "initmonths");
+		stack = InfiniteStack(limit, "initmonths");
 		data = (int*)stack;
 
 		while (ReadALine(readBuffer, in) >= 0) // month name or abbrev
@@ -510,7 +515,7 @@ void InitTextUtilities1()
 	in = FopenStaticReadOnly(file);
 	if (in)
 	{
-		stack = InfiniteStack64(limit, "inittlds");
+		stack = InfiniteStack(limit, "inittlds");
 		data = (int*)stack;
 
 		while (ReadALine(readBuffer, in) >= 0) // top level domain
@@ -727,8 +732,9 @@ void ChangeSpecial(char* buffer)
 	ReleaseInfiniteStack();
 }
 
-static void UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
+static int UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
 {
+	int size = 1;
 	//U + 0000	U + 007F					0xxxxxxx
 	//U + 0080	U + 07FF					110xxxxx	10xxxxxx
 	//U + 0800	U + FFFF				1110xxxx	10xxxxxx	10xxxxxx
@@ -743,12 +749,14 @@ static void UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
 		unsigned char c0 = *from++ & 0x1f;
 		unsigned char c1 = *from & 0x3f;
 		unsigned int u16 = (c0 << 6) | c1;
-		*to++ = hexcodes[u16 >> 4];
-		*to++ = hexcodes[u16 & 0x0f];
+		*to++ = toHex[u16 >> 4];
+		*to++ = toHex[u16 & 0x0f];
+		*to = 0;
+		size = 2;
 	}
 	else if ((*from & 0xf0) == 0xe0)  // 1110xxxx	  10xxxxxx	10xxxxxx
 	{
-		//The Unicode code point for "�" is U + 20AC.
+		//The Unicode code point for "€" is U + 20AC.
 		// The three bytes 11100010 10000010 10101100 => E2 82 AC.
 		*to++ = '\\';
 		*to++ = 'u';
@@ -760,10 +768,12 @@ static void UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
 		unsigned char c2 = (utf16 >> 8) & 0x0f;
 		unsigned char c3 = (utf16 >> 4) & 0x0f;
 		unsigned char c4 = utf16 & 0x0f;
-		*to++ = hexcodes[c1];
-		*to++ = hexcodes[c2];
-		*to++ = hexcodes[c3];
-		*to++ = hexcodes[c4];
+		*to++ = toHex[c1];
+		*to++ = toHex[c2];
+		*to++ = toHex[c3];
+		*to++ = toHex[c4];
+		*to = 0;
+		size = 3;
 	}
 	else if ((*from & 0xf8) == 0xf0) // 11110xxx	10xxxxxx	10xxxxxx	10xxxxxx
 	{
@@ -774,15 +784,60 @@ static void UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
 		unsigned char c2 = *from++ & 0x3f;
 		unsigned char c3 = *from & 0x3f;
 		unsigned int u16 = (c0 << 12) | (c1 << 6) | c2;
-		*to++ = hexcodes[u16 >> 12];
-		*to++ = hexcodes[(u16 >> 8) & 0x0f];
-		*to++ = hexcodes[(u16 >> 4) & 0x0f];
-		*to++ = hexcodes[u16 & 0x0f];
+		*to++ = toHex[u16 >> 12];
+		*to++ = toHex[(u16 >> 8) & 0x0f];
+		*to++ = toHex[(u16 >> 4) & 0x0f];
+		*to++ = toHex[u16 & 0x0f];
+		*to = 0;
+		size = 4;
 	}
 	else // illegal
 	{
 		*to++ = 'x';
 	}
+	return size;
+}
+
+int IsJapanese(unsigned char* utf8letter,unsigned char* utf16letter,int& kind)
+{ // 3 or 4 bytes
+	kind = 0;
+	if (!(*utf8letter & 0x80)) return 0; // not utf8 but extended ascii could be mistaken
+	unsigned char* utfbase = utf16letter;
+	int size = UTF8_2_UTF16(utf8letter, utf16letter);
+	
+	if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] < '4') kind = JAPANESE_PUNCTUATION;
+	// Japanese - style punctuation(3000 - 303f)
+		//3000   　  、  。  〃  〄  々  〆  〇  〈  〉  《  》  「  」  『  』
+		//3010   【  】  〒  〓  〔  〕  〖  〗  〘  〙  〚  〛  〜  〝  〞  〟
+		//3020   〠  〡  〢  〣  〤  〥  〦  〧  〨  〩  〪  〫  〬  〭  〮  〯
+		//3030   〰  〱  〲  〳  〴  〵  〶  〷  〸  〹  〺  〻  〼  〽  〾  〿
+	else if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] <= '9') kind = JAPANESE_HIRAGANA;
+	// Hiragana(3040 - 309f)
+		//3040   ぀  ぁ  あ  ぃ  い  ぅ  う  ぇ  え  ぉ  お  か  が  き  ぎ  く
+		//3050   ぐ  け  げ  こ  ご  さ  ざ  し  じ  す  ず  せ  ぜ  そ  ぞ  た
+		//3060   だ  ち  ぢ  っ  つ  づ  て  で  と  ど  な  に  ぬ  ね  の  は
+		//3070   ば  ぱ  ひ  び  ぴ  ふ  ぶ  ぷ  へ  べ  ぺ  ほ  ぼ  ぽ  ま  み
+		//3080   む  め  も  ゃ  や  ゅ  ゆ  ょ  よ  ら  り  る  れ  ろ  ゎ  わ
+		//3090   ゐ  ゑ  を  ん  ゔ  ゕ  ゖ  ゗  ゘  ゙  ゚  ゛  ゜  ゝ  ゞ  ゟ
+	else if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] > '9') kind = JAPANESE_KATAKANA;
+	// Katakana ( 30a0 - 30ff)
+		//30a0   ゠  ァ  ア  ィ  イ  ゥ  ウ  ェ  エ  ォ  オ  カ  ガ  キ  ギ  ク
+		//30b0   グ  ケ  ゲ  コ  ゴ  サ  ザ  シ  ジ  ス  ズ  セ  ゼ  ソ  ゾ  タ
+		//30c0   ダ  チ  ヂ  ッ  ツ  ヅ  テ  デ  ト  ド  ナ  ニ  ヌ  ネ  ノ  ハ
+		//30d0   バ  パ  ヒ  ビ  ピ  フ  ブ  プ  ヘ  ベ  ペ  ホ  ボ  ポ  マ  ミ
+		//30e0   ム  メ  モ  ャ  ヤ  ュ  ユ  ョ  ヨ  ラ  リ  ル  レ  ロ  ヮ  ワ
+		//30f0   ヰ  ヱ  ヲ  ン  ヴ  ヵ  ヶ  ヷ  ヸ  ヹ  ヺ  ・  ー  ヽ  ヾ  ヿ
+	else if (utfbase[2] < '4') return 0;
+	else if (utfbase[2] == '4' && utfbase[3] < 'E') return 0;
+	else if (utfbase[2] == '9' && utfbase[4] > 'A') return 0;
+	else if (utfbase[2] >= '4' && utfbase[2] <= '9' ) kind = JAPANESE_KANJI;
+	// CJK unifed ideographs - Common and uncommon kanji ( 4e00 - 9faf)
+	else if (utfbase[2] == '3' && utfbase[3] >= '4') kind = JAPANESE_KANJI;
+	else if (utfbase[2] == '4' && utfbase[3] <= 'D') kind = JAPANESE_KANJI;
+	else if (utfbase[2] == '4' && utfbase[3] == 'D' && utfbase[4] <= 'B') kind = JAPANESE_KANJI;
+	// CJK unified ideographs Extension A - Rare kanji ( 3400 - 4dbf)	
+	else return 0;
+	return size; // the found letter and size
 }
 
 char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addescapes, bool convert2utf16) // normal true means dont flag with extra markers
@@ -813,7 +868,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 		else if (*at == '\\')
 		{
 			const char* at1 = at + 1;
-			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == '"' || *at1 == 'u' || *at1 == '\\'))  // just pass it along
+			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == 'u' ))  // just pass it along
 			{
 				*to++ = *at;
 				*to++ = *++at;
@@ -1919,9 +1974,9 @@ void MoreToCome()
 	{
 		uint64* ref = (uint64*)links;
 		links = (HEAPREF)ref[0];
-		moreToCome = true;
 		ReadCompiledWord((char*)ref[1], nextWord);
 		WORDP next = FindWord(nextWord);
+        if (next || strlen(SkipWhitespace(nextWord)) > 0) moreToCome = true;
 		if (next && next->properties & QWORD) moreToComeQuestion = true; // assume it will be a question (misses later ones in same input)
 		else moreToComeQuestion = (strchr((char*)ref[1], '?') != 0);
 		if (moreToComeQuestion) break; // know everything of importance now
@@ -2806,7 +2861,7 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 		// convert utf16 \unnnn encode from JSON to our std utf8
 		if ( c == '\\' && read[1] == 'u' && IsHexDigit(read[2]) && IsHexDigit(read[3]) && IsHexDigit(read[4]) && IsHexDigit(read[5]))
 		{
-			char* utf8 = UTF16_2_UTF8(read + 1);
+			char* utf8 = UTF16_2_UTF8(read + 1, withinquote);
 			if (utf8)
 			{
 				read += 5; // skip what we read

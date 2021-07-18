@@ -663,13 +663,7 @@ static char* SystemCall(char* buffer, char* ptr, CALLFRAME* frame, FunctionResul
 	fnOutput = start; // for text debugger
 	adjustIndent++;
 	if (result & ENDCODES); // failed during argument processing
-	else
-	{
-		char* parenx = strchr(frame->label, '(');
-		*parenx = '{';
-		parenx[1] = '}';
-		result = (*info->fn)(buffer);
-	}
+	else result = (*info->fn)(buffer);
 	return ptr;
 }
 
@@ -3205,6 +3199,51 @@ static FunctionResult SetTagCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+static FunctionResult WordInfoCode(char* buffer)
+{
+	char* word = ARGUMENT(1);
+	WORDP D = FindWord(word);
+	if (!D) return FAILRULE_BIT;
+
+	WORDP entry = NULL;
+	WORDP canonical = NULL;
+	uint64 xflags = 0;
+	WORDP revise;
+	uint64 cansysflags = 0;
+	uint64 inferredProperties =  GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags);
+	char* revised = (entry) ? entry->word : (char*)"";
+	if (D->systemFlags & HAS_SUBSTITUTE) sprintf(buffer, "SUBSTITUTION->%s ", GetSubstitute(D)->word);
+
+	strcat(buffer, "properties:");
+	buffer += strlen(buffer);
+	uint64 bit = START_BIT ;
+	while (bit)
+	{
+		if (D->properties & bit)
+		{
+			sprintf(buffer, "%s ", FindNameByValue(bit));
+			buffer += strlen(buffer);
+		}
+		bit >>= 1;
+	}
+	sprintf(buffer, "  systemflags:");
+	buffer += strlen(buffer);
+	bit = START_BIT ;
+	while (bit)
+	{
+		if (D->systemFlags & bit)
+		{
+			sprintf(buffer, "%s ", FindNameByValue(bit));
+			buffer += strlen(buffer);
+		}
+		bit >>= 1;
+	}
+	sprintf(buffer, "   InternalBits: 0x%x\r\n", D->internalBits);
+	buffer += strlen(buffer);
+	
+	return NOPROBLEM_BIT;
+}
+
 static FunctionResult SetRoleCode(char* buffer)
 {
 	char* arg1 = ARGUMENT(1);
@@ -3954,8 +3993,8 @@ static FunctionResult StatsCode(char* buffer)
     {
         int index = Word2Index(dictionaryFree);
         int dictfree = (int)(maxDictEntries - index);
-        sprintf(buffer, "%d", dictfree);
-		if (echo) Log(ECHOUSERLOG, "dict: %s\r\n", buffer);
+        sprintf(buffer, "%d words", dictfree);
+		if (echo) Log(ECHOUSERLOG, "dict: %s words\r\n", buffer);
 		return NOPROBLEM_BIT;
     }
 	else if (!stricmp(arg1, "hashbuckets"))
@@ -5020,178 +5059,235 @@ static FunctionResult NoTraceCode(char* buffer)
 	return result; 
 }
 
-static int saveCount = 0;
+static char* Encodeit(int x, unsigned char* buffer)
+{
+	*buffer++ = toHex[x >> 4];
+	*buffer++ = toHex[x & 0x0f];
+}
+
+static void EncodeSentenceData(char* id)
+{
+	HEAPREF list = savedSentencesThreadList;
+	uint64 start = 0;
+	uint64 endit = 0;
+	uint64 E = 0;
+	while (list) // find the sentence referred to
+	{
+		list = UnpackHeapval(list, E, start,endit);
+		if (!stricmp(((WORDP)E)->word,id)) break; // found it
+	}
+	if (!list) return;
+
+	unsigned int* memory = (unsigned int*)start;
+	int size = memory[1] * sizeof(int); // limit of data before concepts/topics
+	unsigned char* data = (unsigned char*)memory;
+	unsigned char* buffer = (unsigned char*) AllocateBuffer();
+	
+	// need to first save all words that are new, along with their info
+	WORDP D = dictionaryPreBuild[LAYER_BOOT];
+	while (D < dictionaryFree) // new words
+	{
+		sprintf((char*)buffer, "%s`",D->word);
+		buffer += D->length + 1;
+		// do we need to write out properties and systemflags?
+	}
+	
+	while (size--) // now write out the binary save info mostly
+	{
+		*buffer++ =  toHex[data[0] >> 4];
+		*buffer++ = toHex[data[0] & 0x0f];
+		++data;
+	}
+	// ConceptList access is not supported yet
+	FreeBuffer();
+}
+
+void DecodeSentenceData(char* data)
+{}
 
 static FunctionResult SaveSentenceCode(char* buffer)
 {
- 	if (documentMode) return FAILRULE_BIT;
+	if (documentMode) return FAILRULE_BIT;
 	char* arg1 = ARGUMENT(1);
 	if (!*arg1) return FAILRULE_BIT;	// need an id
-    if (wordCount && !wordStarts[1]) return FAILRULE_BIT;
-    WORDP D = StoreWord(arg1,AS_IS);
-
-	// compute words (4byte int) needed
-	int size = 3; // basic list reserve for future use
-	size += 2;	// tokenflags
-	size += 1;	// preparation count
-	++size; // wordcount
-	size += 6 * wordCount;	// wordStarts + wordCanonical + finalpos(2) + topics and concepts
-
-	size += 1 + derivationLength + MAX_SENTENCE_LENGTH / sizeof( int) + MAX_SENTENCE_LENGTH / sizeof(short int);
-	++size;  // map counter
-	for (std::map<WORDP,int>::iterator it=triedData.begin(); it!=triedData.end(); ++it) size += 2; // key and stringspace reference
-	size += MAX_SENTENCE_LENGTH/4;
-	int total = size;
-	if (total & 1) ++total; // round to even set of words, for int64 align
-	total += 1; // save bits for moretocome and moretocomequestion
-
-	// allocate as 64bit aligned memory
-	unsigned int* memory = (unsigned int*) AllocateHeap(NULL,total/2,8,false); // int64 aligned pairs of ints
-    savedSentencesThreadList = AllocateHeapval(savedSentencesThreadList, (uint64)D , (uint64)memory);
-	memory[0] = memory[1] = memory[2] =  0; // unused
-	unsigned int x = tokenFlags >> 32;
-	unsigned int y = tokenFlags & 0x00000000ffffffff;
-	memory[3] = x;
-	memory[4] = y;
-	memory[5] = wordCount;
-	memory[6] = (moreToCome) ? 1 : 0;
-	if (moreToComeQuestion) memory[6] |= 2;
-
-	int n = 7; // store from here
-    char* buf = AllocateBuffer("savesentence");
-    char* ptr = buf;
-	for (int i = 1; i <= wordCount; ++i)
-	{
-        if (trace & TRACE_FLOW)
-        {
-            strcpy(ptr, wordStarts[i]);
-            ptr += strlen(ptr);
-            *ptr++ = ' ';
-            *ptr = 0;
-        }
-
-		D = StoreWord(wordStarts[i],AS_IS);
-		MEANING M = MakeMeaning(D);
-		memory[n++] = M;
-
-		D = StoreWord(wordCanonical[i],AS_IS);
-		M = MakeMeaning(D);
-		memory[n++] = M;
-
-		memory[n++] = finalPosValues[i] >> 32;
-		memory[n++] = finalPosValues[i] & 0x00000000ffffffff;
-
-		// concepts and topics lists are threaded links in heap space. [0] is the concept/topic, [1] is next link
-		// that list will be valid later on restore
-		memory[n++] = Heap2Index(concepts[i]);
-		memory[n++] = Heap2Index(topics[i]);
-
-        // BUG WARNING concepts and topics are not safe in GC if sentence saved
-        // after mark
-	}
-    FreeBuffer();
-    if (trace & TRACE_FLOW) Log(USERLOG, "Savesentence: %s\r\n", buf);
-
-	// store derivation data
-	memory[n++] = derivationLength; // int
-    MEANING M;
+	if (wordCount && !wordStarts[1]) return FAILRULE_BIT;
+	WORDP D;
 	for (int i = 1; i <= derivationLength; ++i)
 	{
-		D = StoreWord(derivationSentence[i], AS_IS);
-		M = MakeMeaning(D);
-		memory[n++] = M; // int
+		StoreWord(derivationSentence[i], AS_IS); // derivation capitalization may differ from wordstarts, force allocation before we begin
 	}
-	memmove(memory + n, derivationSeparator, MAX_SENTENCE_LENGTH);
-	n += MAX_SENTENCE_LENGTH / sizeof(int);
-	memmove(memory + n, derivationIndex, sizeof(int) * (MAX_SENTENCE_LENGTH / sizeof(short int)));  // short int
-	n += MAX_SENTENCE_LENGTH / sizeof(short int);
 
-    // save tried data
-	unsigned int* counterLocation = memory + n++;
+	unsigned int* memory = (unsigned int*)InfiniteHeap("savesentence");
+	char* endit = (char*)memory;
+	unsigned int x = tokenFlags >> 32;
+	unsigned int y = tokenFlags & 0x00000000ffffffff;
+	*--memory = x;
+	*--memory = y;
+	*--memory = wordCount;
+	*--memory = (moreToCome) ? 1 : 0;
+	if (moreToComeQuestion) *memory |= 2;
+	for (int i = 1; i <= wordCount; ++i)
+	{
+		*--memory = Word2Index(StoreWord(wordStarts[i],AS_IS));
+		*--memory = Word2Index(StoreWord(wordCanonical[i]));
+		// note we have not saved any properties or systemflags set by script
+		*--memory = finalPosValues[i] >> 32;
+		*--memory = finalPosValues[i] & 0x00000000ffffffff;
+		// BUG WARNING concepts and topics are not safe in GC if sentence saved
+		// after mark
+	}
+
+	// store derivation data
+	*--memory = derivationLength; // int
+	for (int i = 1; i <= derivationLength; ++i)
+	{
+		*--memory = Word2Index(StoreWord(derivationSentence[i],AS_IS)); // derivation capitalization may differ from wordstarts
+	}
+	memory -= MAX_SENTENCE_LENGTH;
+	memmove(memory, derivationSeparator, MAX_SENTENCE_LENGTH); 
+	memory -=  MAX_SENTENCE_LENGTH * sizeof(short int);
+	memmove(memory, derivationIndex, (MAX_SENTENCE_LENGTH * sizeof(short int)));  
+
+	int xx = (wordCount + 1) * sizeof(int);
+	memory -= xx;
+	memcpy(memory,phrases, xx);
+	memory -= xx;
+	memcpy(memory, verbals, xx);
+	memory -= xx;
+	memcpy(memory, clauses, xx);
+
+	memory -= (wordCount + 1);
+	memmove(memory, unmarked, (wordCount + 1)); // clear all mark suppression
+	memory = (unsigned int*) ((uint64)memory & 0xFFFFFFFFFFFFFFFCULL);
+	
+	// save tried data
+	unsigned int* counterLocation = --memory; // reserve counter
 	int counter = 0;
-	for (std::map<WORDP,int>::iterator it=triedData.begin(); it!=triedData.end(); ++it)
+	for (std::map<WORDP, int>::iterator it = triedData.begin(); it != triedData.end(); ++it)
 	{
 		++counter;
-		memory[n++] = MakeMeaning(it->first); // key
-		memory[n++] = it->second; // data ptr
+		*--memory = Word2Index(it->first); // key
+		*--memory = it->second; // heap data index
 	}
 	*counterLocation = counter; // backfill with number to do
-
-	memmove(memory+n,unmarked,sizeof(char) * MAX_SENTENCE_LENGTH); // clear all mark suppression
-	n += MAX_SENTENCE_LENGTH/4;
-
-	if (n != size)
+	unsigned int* basic = memory; // hereafter is not simple
+	for (int i = 1; i <= wordCount; ++i)
 	{
-		Bug();
+		// concepts and topics lists are threaded links in heap space. [0] is the concept/topic, [1] is next link
+		// that list will be valid later on restore
+		*--memory = Heap2Index(concepts[i]);
+		*--memory = Heap2Index(topics[i]);
 	}
-	saveCount = n;
-	sprintf(buffer,"%d-words",n); // words of memory
+	*--memory = ((unsigned int*) endit) - basic;
+	*--memory = 123;
+
+	int size = (heapFree - (char*)memory);
+	sprintf(buffer, "%d-words", size); // words of memory
+	CompleteInfiniteHeap((char*)memory); 
+	D = StoreWord(arg1, AS_IS);
+	savedSentencesThreadList = AllocateHeapval(savedSentencesThreadList, (uint64)D, (uint64)memory, (uint64)endit);
+
+	if (trace & TRACE_FLOW)
+	{
+		char* buf = AllocateBuffer("savesentence");
+		char* ptr = buf;
+		for (int i = 1; i <= wordCount; ++i)
+		{
+			strcpy(ptr, wordStarts[i]);
+			ptr += strlen(ptr);
+			*ptr++ = ' ';
+			*ptr = 0;
+		}
+		Log(USERLOG, "Savesentence: %s\r\n", buf);
+		FreeBuffer();
+	}
+
 	return NOPROBLEM_BIT;
 }
 
 static FunctionResult RestoreSentenceCode(char* buffer)
 {
-    if (documentMode) return FAILRULE_BIT;
-    char* arg1 = ARGUMENT(1);
-    if (!*arg1) return FAILRULE_BIT;	// need an id
-    WORDP D = FindWord(arg1);
-    if (!D) return FAILRULE_BIT;
+	if (documentMode) return FAILRULE_BIT;
+	char* arg1 = ARGUMENT(1);
+	if (!*arg1) return FAILRULE_BIT;	// need an id
+	WORDP D = FindWord(arg1);
+	if (!D) return FAILRULE_BIT;
 
-    HEAPREF list = savedSentencesThreadList;
-    uint64 data = 0;
-    uint64 E = 0;
-    while (list) // find the sentence referred to
-    {
-        list = UnpackHeapval(list, E, data);
-        if (E == (uint64)D) break; // found it
-    }
-    if (E != (uint64)D) return FAILRULE_BIT;
-    unsigned int* memory = (unsigned int*)data;
-    ClearWhereInSentence();
-    tokenFlags = ((uint64)memory[3] << 32) | (uint64)memory[4];
-    wordCount = memory[5];
-    moreToCome = (memory[6] & 1) ? true : false;
-    moreToComeQuestion = (memory[6] & 2) ? true : false;
+	HEAPREF list = savedSentencesThreadList;
+	uint64 data = 0;
+	uint64 endit = 0;
+	uint64 E = 0;
+	while (list) // find the sentence referred to
+	{
+		list = UnpackHeapval(list, E, data,endit);
+		if (E == (uint64)D) break; // found it
+	}
+	if (E != (uint64)D) return FAILRULE_BIT;
+	ClearWhereInSentence();
 
-    int n = 7;
-    MEANING M;
-    for (int i = 1; i <= wordCount; ++i)
-    {
-        M = memory[n++];
-        D = Meaning2Word(M);
-        wordStarts[i] = D->word;
-        M = memory[n++];
-        D = Meaning2Word(M);
-        wordCanonical[i] = D->word;
-        finalPosValues[i] = memory[n++];
-        finalPosValues[i] <<= 32;
-        finalPosValues[i] |= memory[n++];
-        concepts[i] = Index2Heap(memory[n++]); // contain heap space indices that are still valid
-        topics[i] = Index2Heap(memory[n++]);
-    }
+	unsigned int* memory = (unsigned int*)endit;
+	uint64 x = *--memory;
+	uint64 y = *--memory;
+	tokenFlags = (x << 32) | y;
+	wordCount = *--memory;
+	unsigned int val = *--memory;
+	moreToCome = val & 1;
+	moreToComeQuestion = val & 2;
+	for (int i = 1; i <= wordCount; ++i)
+	{
+		wordStarts[i] = Index2Word(*--memory)->word;
+		wordCanonical[i] = Index2Word(*--memory)->word;
+		x = *--memory;
+		y = *--memory;
+		finalPosValues[i] = (x << 32) | y;
+	}
 
-    // get derivation data
-    derivationLength = memory[n++];
-    for (int i = 1; i <= derivationLength; ++i)
-    {
-        M = memory[n++];
-        derivationSentence[i] = Meaning2Word(M)->word;
-    }
-	
-	memmove(derivationSeparator, memory + n, MAX_SENTENCE_LENGTH);
-	n += MAX_SENTENCE_LENGTH / sizeof(int);
-	memmove(derivationIndex, memory + n, sizeof(int) * (MAX_SENTENCE_LENGTH / sizeof(short int)));  // short int
-	n += MAX_SENTENCE_LENGTH / sizeof(short int);
+	// store derivation data
+	derivationLength = *--memory;
+	for (int i = 1; i <= derivationLength; ++i)
+	{
+		derivationSentence[i]  = Index2Word(*--memory)->word; 
+	}
+	memory -= MAX_SENTENCE_LENGTH;
+	memmove(derivationSeparator, memory, MAX_SENTENCE_LENGTH);
+	memory -= MAX_SENTENCE_LENGTH * sizeof(short int);
+	memmove(derivationIndex,memory, (MAX_SENTENCE_LENGTH * sizeof(short int)));
 
-    // fill in WHERE data on recorded words
-    ClearTriedData();
-    int counter = memory[n++];
-    for (int i = 0; i < counter; ++i)
-    {
-        WORDP key = Meaning2Word(memory[n++]);
-        triedData[key] = memory[n++];
-    }
-    memmove(unmarked, memory + n, sizeof(char) * MAX_SENTENCE_LENGTH);
+	int xx = (wordCount + 1) * sizeof(int);
+	memory -= xx;
+	memcpy(phrases, memory,  xx);
+	memory -= xx;
+	memcpy(verbals, memory, xx);
+	memory -= xx;
+	memcpy(clauses, memory, xx);
+
+	memory -= (wordCount + 1);
+	memmove(unmarked, memory,  (wordCount + 1)); // clear all mark suppression
+	memory = (unsigned int*)((uint64)memory & 0xFFFFFFFFFFFFFFFCULL);
+
+	// save tried data
+	ClearTriedData();
+	int counter = *--memory;
+	for (int i = 0; i < counter; ++i)
+	{
+		WORDP key = Index2Word(*--memory);
+		triedData[key] = *--memory; // heap data index
+	}
+
+	for (int i = 1; i <= wordCount; ++i)
+	{
+		// concepts and topics lists are threaded links in heap space. [0] is the concept/topic, [1] is next link
+		// that list will be valid later on restore
+		concepts[i]  = Index2Heap(*--memory);
+		topics[i] = Index2Heap(*--memory);
+	}
+	unsigned int basic = *--memory;
+	uint64 check = *--memory;
+	if (check != 123)
+	{
+		ReportBug("RestoreSentence mismatch")
+		return FAILRULE_BIT; // ran out
+	}
 
     if (trace & TRACE_FLOW)
     {
@@ -5491,11 +5587,6 @@ FunctionResult ClearContextCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-FunctionResult AuthorizedCode(char* buffer)
-{
-	if (server && !VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt"))) return FAILRULE_BIT; // authorizedIP
-	return NOPROBLEM_BIT;
-}
 	
 FunctionResult AddContextCode(char* buffer)
 {
@@ -6752,8 +6843,9 @@ static FunctionResult POSCode(char* buffer)
 		}
 
 		char* singularnoun =  GetSingularNoun(arg2,true,false);
+		if (!singularnoun) singularnoun = arg2; // nonworld like baronne
 		char wo[MAX_WORD_SIZE];
-		char* plural = GetPluralNoun(arg2,wo);
+		char* plural = GetPluralNoun(singularnoun,wo);
 		if (!singularnoun && !plural) return FAILRULE_BIT; // not a noun at all?
 
 		if (!stricmp(arg3,(char*)"singular") || (atoi(arg3) == 1 && !strchr(arg3,'.')) || !stricmp(arg3,(char*)"-1") || !stricmp(arg3,(char*)"one")) // allow number 1 but not float
@@ -8300,13 +8392,9 @@ static FunctionResult GetRemoteFileCode(char* buffer)
 		if (filesystemOverride != MONGOFILES) MongoClose(NULL); // close filesys collection
 
 		// write to local filesystem
-		FILE* out = FopenBinaryWrite(name);
+		FILE* out = FopenUTF8Write(name);
 		if (out)
 		{
-			fprintf(out,"%s",ARGUMENT(1));	 // write out the user header (calling mongo removed .xxx)
-			char one[3];
-			*one = 0;
-			fwrite(one,1,1,out); // write out the string end.
 			fwrite(buffer,1,strlen(buffer),out); // write out the actual data.
 			FClose(out);
 		}
@@ -8986,7 +9074,7 @@ static void GenerateConceptList(bool tracing,HEAPREF list, int set,char* filter,
 	while (list)
 	{
         list = UnpackHeapval(list, val, discard, discard);
-		WORDP X = (WORDP)val;
+		WORDP X = Index2Word(val);
 		if (X && !(X->systemFlags & NOCONCEPTLIST) && (!len || !strnicmp(X->word,filter,len))) 
 		{
 			// found at this word index, get its correct range
@@ -9094,8 +9182,11 @@ static HEAPREF MakeVariables(MEANING array) // array of objects describing a var
 	char buffer[MAX_WORD_SIZE];
 	WORDP V = FindWord(Meaning2Word(array)->word); // array of objects (variable name and value)
 	FACT* F = GetSubjectNondeadHead(V);
+	char* holderjson = NULL;
+	char* holderoriginal = NULL;
 	while (F) // save old values and assign new ones to variables
 	{
+		FACT* G = GetSubjectNondeadNext(F);
 		WORDP D = Meaning2Word(F->verb);
 		char* varname = D->word;
 		char* text = Meaning2Word(F->object)->word;
@@ -9112,16 +9203,24 @@ static HEAPREF MakeVariables(MEANING array) // array of objects describing a var
 			{
 				ParseJson(buffer, base, len, true);
 				text = AllocateHeap(buffer);
-				if (trace & TRACE_VARIABLE) Log(USERLOG, "Incoming JSON variable %s \r\n", base);
+				if (jabugpatch)
+				{
+					if (!stricmp(varname, "$holder"))
+					{
+						holderoriginal = base;
+						holderjson = text;
+					}
+					if (!stricmp(varname, "$data") && holderoriginal == base ) text = holderjson;
+				}
 			}
 		}
+		if (trace & TRACE_VARIABLE) Log(USERLOG, "Incoming variable %s = %s \r\n", varname, text);
 		if (*varname == '$')
 		{
 			char name[MAX_WORD_SIZE];
 			MakeLowerCopy(name, varname); // variables must be lower case
-			if (strcmp(name, varname)) D = StoreWord(name, AS_IS);
-			if (trace & TRACE_VARIABLE) Log(USERLOG, "Incoming variable %s => %s\r\n", varname, text);
-			SetVariable(D, text); // require it be variable or ignore it
+			SetVariable(StoreWord(name, AS_IS), text); // require it be variable or ignore it
+			if (!stricmp(name, "language")) strcpy(language, text); // change language (eg japanese)
 		}
 		F = GetSubjectNondeadNext(F);
 	}
@@ -9176,7 +9275,68 @@ static FunctionResult MakeConceptPattern(char* pattern,MEANING concept,MEANING c
 	return result;
 }
 
-static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
+static HEAPREF AddPOSConcept(char* posname,FACT* members, HEAPREF& protectPOS)
+{
+	while (members) //  xxx member ~concept
+	{
+		MEANING m = members->object;
+		WORDP MEMBER = Meaning2Word(m);
+		uint64 bit = 0;
+		if (!stricmp(posname, "~noun"))
+		{
+			char* split = strchr(MEMBER->word, '|');
+			if (split) *split = 0;
+			WORDP D = StoreWord(MEMBER->word, AS_IS);
+			if (!(D->properties & NOUN)) bit |= NOUN;
+			if (!(D->properties & NOUN_SINGULAR)) bit |= NOUN_SINGULAR;
+			if (bit)
+			{
+				AddProperty(D, bit);
+				protectPOS = AllocateHeapval(protectPOS, (uint64)D, bit);
+			}
+			if (split)
+			{
+				D = StoreWord(split + 1, AS_IS);
+				if (!(D->properties & NOUN)) bit |= NOUN;
+				if (!(D->properties & NOUN_PLURAL)) bit |= NOUN_SINGULAR;
+				if (bit)
+				{
+					AddProperty(D, bit);
+					protectPOS = AllocateHeapval(protectPOS, (uint64)D, bit);
+				}
+				*split = '|';
+			}
+		}
+		else
+		{
+			if (!stricmp(posname, "~verb")) bit |= VERB;
+			else if (!stricmp(posname, "~adjective")) bit |= ADJECTIVE;
+			else if (!stricmp(posname, "~adverb")) bit |= ADVERB;
+			char* word = MEMBER->word;
+			while (1)
+			{
+				char* split = strchr(word + 1, '|');
+				if (split) *split = 0;
+				WORDP D = StoreWord(word, AS_IS);
+				if (!(D->properties & bit)) 
+				{
+					AddProperty(D, bit);
+					protectPOS = AllocateHeapval(protectPOS, (uint64)D, bit);
+				}
+				if (*split)
+				{
+					*split = '|';
+					word = split + 1;
+				}
+				else break; // finished all forms
+			}
+		}
+		members = GetSubjectNondeadNext(members);
+	}
+	return protectPOS;
+}
+
+static FunctionResult MakeConcepts(bool needNL,MEANING array,HEAPREF& list, HEAPREF& protectPOS)
 {
     /*
     "concepts": [  <<- array is this.
@@ -9214,6 +9374,16 @@ static FunctionResult MakeConcepts(MEANING array,HEAPREF& list)
 			char name[MAX_WORD_SIZE];
 			MakeLowerCopy(name, conceptName->word); // require concept name be lower case
 			conceptName = StoreWord(name, AS_IS);
+			
+			// augment pos attributes instead of create a concept
+			if (!stricmp(name, "~noun") || !stricmp(name, "~verb") ||
+				!stricmp(name, "~adjective") || !stricmp(name, "~adverb"))
+			{
+				if (needNL) protectPOS = AddPOSConcept(name, members, protectPOS);
+				conceptObject = GetObjectNondeadNext(conceptObject);
+				continue;
+			}
+
 			MEANING remapfact = 0;
 			bool spellfix = !stricmp(conceptName->word, "~replace_spelling"); // replace: equivalent
             conceptName->internalBits |= OVERRIDE_CONCEPT;
@@ -9438,6 +9608,16 @@ static bool TestPatternAgainstSentence(char* label,char* pattern, char* buffer)
     return match || retried;
 }
 
+static void UndoPOS(HEAPREF list)
+{
+	uint64 E;
+	uint64 pos;
+	while (list)
+	{
+		list = UnpackHeapval(list, E, pos);
+		RemoveProperty((WORDP)E, pos); // undo changed pos marks
+	}
+}
 
 static HEAPREF ProtectKeywords(char* pattern, HEAPREF protectedList)
 {
@@ -9532,6 +9712,13 @@ static void HandleChangedVariables(MEANING resultobject)
 static void ChangeJsonOwner(FACT* F, uint64 data)
 {
     F->botBits = data;
+	if (trace & TRACE_JSON)
+	{
+		char* buffer = AllocateBuffer();
+		WriteFact(F, false, buffer);
+		Log(USERLOG, "purge %s\r\n", buffer);
+		FreeBuffer();
+	}
 }
 
 static FunctionResult PurgeBootCode(char* buffer)
@@ -9557,6 +9744,7 @@ static FunctionResult PurgeBootCode(char* buffer)
         if (!D) return FAILRULE_BIT;
         id = dieSign;
         WalkJsonHierarchy(D, ChangeJsonOwner, id);
+		releaseBotVar = D->word; // allow to be overridden
     }
     else if (IsDigit(*arg1)) id = atoi64(ARGUMENT(1)); //entire bot
     if (!id) return FAILRULE_BIT;
@@ -9758,6 +9946,9 @@ static FunctionResult TestPatternCode(char* buffer)
 	int olduserlog = userLog;
 	traceTestPatternBuffer = NULL;
 	traceIndex = globalDepth;
+	char oldlanguage[50];
+	strcpy(oldlanguage, language);
+
 	// patterns can have concept and variable references, no FUNCTION calls
 	// { input: xxx, patterns: [ ], variables: {name: x, value: y }, style: best/first, concepts: {cname: x, values: [a,b]}}
 	// how do we handle gleaning
@@ -9820,10 +10011,15 @@ static FunctionResult TestPatternCode(char* buffer)
 	csapicall = TEST_PATTERN;
 
 	// meaningful user input
-	char* usermsg = AllocateBuffer();
 	WORDP X = Meaning2Word(input);
-	if (stricmp(X->word,"null"))  strcpy(usermsg, SkipWhitespace(X->word)); // json null string
-
+	char* usermsg = AllocateBuffer();
+	if (stricmp(X->word, "null")) strcpy(usermsg, SkipWhitespace(X->word));
+	AdjustUTF8(usermsg, usermsg - 1);
+	if (parseLimit && strlen(usermsg) > parseLimit)
+	{
+		parseLimited = true;
+		tokenControl &= -1 ^ (DO_POSTAG | DO_PARSE | DO_SPELLCHECK);
+	}
 	SAVESYSTEMSTATE()
 
 	// define concepts -  [  {name: [] } ]
@@ -9831,9 +10027,10 @@ static FunctionResult TestPatternCode(char* buffer)
 	// dont trace fact creation for concepts
 	FACT* oldfact = lastFactUsed;
 	HEAPREF substitutes = NULL;
+	HEAPREF protectPOS = NULL;
 	int otrace = trace;
 	trace = 0;
-	if (conceptlist && needNL)  result = MakeConcepts(conceptlist, substitutes);
+	if (conceptlist && needNL)  result = MakeConcepts(needNL,conceptlist, substitutes,protectPOS);
 	FACT* newfact = lastFactUsed; // end of concept zone
 	trace = otrace;
 
@@ -9965,7 +10162,7 @@ static FunctionResult TestPatternCode(char* buffer)
 	int loopcount = 0;
 	bool tryone = true;
 	char* startx = SkipWhitespace(usermsg);
-	if (!stricmp(startx, "cheat cs info"))
+	if (!strnicmp(usermsg, "cheat cs info", 13))
 	{
 		usermsg += 13;
 		char buf[MAX_WORD_SIZE];
@@ -9996,6 +10193,7 @@ static FunctionResult TestPatternCode(char* buffer)
 		{
 			*usermsg = 0;
 			tryone = false;
+			wordCount = 0; // dont use any
 		}
 
 		usermsg = SkipWhitespace(usermsg);
@@ -10009,6 +10207,7 @@ static FunctionResult TestPatternCode(char* buffer)
 		int frameindex = globalDepth;
 		if (setjmp(scriptJump[++jumpIndex])) // return on BADSCRIPT call
 		{
+			--jumpIndex; 
 			bufferIndex = buffercount;
 			*buffer = 0;
 			result = NOPROBLEM_BIT;
@@ -10047,6 +10246,7 @@ static FunctionResult TestPatternCode(char* buffer)
 			}
 			++index;
 		}
+		--jumpIndex;
 
 		if (!styleoncall) // style named in pattern itself
 		{
@@ -10058,9 +10258,8 @@ static FunctionResult TestPatternCode(char* buffer)
 		loopcount += 1;
 	}
 	indentBasis = oldindex;
-	--jumpIndex;
 
-	if (hadAuthCode) SetUserVariable("$bwtrace", serverlogauthcode); // force testoutputs to also be traced
+	if (hadAuthCode) SetUserVariable("$bwtrace", serverlogauthcode); // force testoutputs to also be traced or authorized
 
 	if (tracepatterndata)
 	{
@@ -10079,7 +10278,11 @@ static FunctionResult TestPatternCode(char* buffer)
 
 					  // we dont want to trace killing facts
 	trace = 0;
-	if (needNL) ProtectKeywords(NULL, protectedKey); // unprotects as need be
+	if (needNL)
+	{
+		ProtectKeywords(NULL, protectedKey); // unprotects as need be
+		UndoPOS(protectPOS);
+	}
 	if (conceptlist && needNL) UnbindConcepts(conceptlist, newfact, oldfact, substitutes); // kill these facts
 	trace = otrace;
 
@@ -10113,6 +10316,7 @@ static FunctionResult TestPatternCode(char* buffer)
 	tracepatterndata = 0;
 	currentFact = NULL; // dont pass up changes in facts
 	csapicall = NO_API_CALL;
+	strcpy(language, oldlanguage);
 	return result;
 }
 
@@ -10125,6 +10329,8 @@ static FunctionResult TestOutputCode(char* buffer)
 	if (!D) return FAILRULE_BIT;
 	heapPatternThread = NULL;
 	errorIndex = warnIndex =   0;
+	char oldlanguage[50];
+	strcpy(oldlanguage, language);
 
 	// output can have variable references
 	// { output: "", variables: [ {name: x, value: y} }
@@ -10171,7 +10377,8 @@ static FunctionResult TestOutputCode(char* buffer)
 	variableChangedThreadlist = NULL;
 	FACT* oldfact = lastFactUsed;
 	FACT* newfact = lastFactUsed; // end of concept zone
-	if (conceptlist) result = MakeConcepts(conceptlist, substitutes);
+	HEAPREF junk = NULL;
+	if (conceptlist) result = MakeConcepts(false,conceptlist, substitutes, junk);
 
 							 // allow tracing in authorized environments by request
 							 // process each sentence in turn against the patterns
@@ -10264,6 +10471,7 @@ static FunctionResult TestOutputCode(char* buffer)
 	trace = oldtrace;
 	userLog = olduserlog;
 	csapicall = NO_API_CALL;
+	strcpy(language, oldlanguage);
 
 	return NOPROBLEM_BIT;
 }
@@ -11585,6 +11793,7 @@ SystemFunctionInfo systemFunctionSet[] =
 	{ (char*)"^settag",SetTagCode,2,SAMELINE,(char*)"for word n, set its postag concept"}, 
 	{ (char*)"^setoriginal",SetOriginalCode,2,SAMELINE,(char*)"for word n, set its original value"}, 
 	{ (char*)"^setrole",SetRoleCode,2,SAMELINE,(char*)"for word n, set its parse role value"}, 
+	{ (char*)"^wordinfo",WordInfoCode,1,SAMELINE,(char*)"for word, give info about it"},
 
 	{ (char*)"\r\n---- Input",0,0,0,(char*)""},
 	{ (char*)"^tokenize",TokenizeCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"generate facts from sentences of arguments"},

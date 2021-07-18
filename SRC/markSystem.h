@@ -14,7 +14,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
 typedef void (*ExternalTaggerFunction)();
-#define SEQUENCE_LIMIT 5		// max number of words in a row to hit on as an entry
+#define SEQUENCE_LIMIT 5		// max number of add-on words in a row to hit on as an entry
 #define MAX_XREF_SENTENCE 50	// number of places a word can hit to in sentence
 #define REF_ELEMENT_SIZE 8 // bytes per reference start+end+ exactdata:4 + extra + unused
 #define  MAXREFSENTENCE_BYTES (MAX_XREF_SENTENCE * REF_ELEMENT_SIZE) 
@@ -33,6 +33,8 @@ extern int verbwordx;
 extern int marklimit;
 extern ExternalTaggerFunction externalPostagger;
 extern char respondLevel;
+extern std::map <WORDP, int> triedData; // per volley index into heap space
+
 extern char unmarked[MAX_SENTENCE_LENGTH];
 extern bool showMark;
 extern int uppercaseFind;

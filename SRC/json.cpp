@@ -230,7 +230,7 @@ static bool ConvertUnicode(char* from) // convert \uxxxx to utf8  and escaped ch
 		else
 		{
 			// convert utf16 \unnnn encode from JSON to our std utf8
-			char* utf8 = UTF16_2_UTF8(at );
+			char* utf8 = UTF16_2_UTF8(at,false );
 			if (utf8)
 			{
 				unsigned int len = strlen(utf8); // how many chars (\uxxxx vs 
@@ -897,9 +897,13 @@ FunctionResult JSONOpenCode(char* buffer)
 					wild = EncodingValue((char*)"*", value, wild);
 				}
 			}
+            
+			// Trim trailing spaces from header key and value, https://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html
+            char* name = TrimSpaces(fieldName, true);
+            char* value = TrimSpaces(fieldValue, true);
+            
 			// Build the REQUEST header line for CURL.
-
-			SAFE_SPRINTF(headerLine, sizeof(headerLine), "%s: %s", fieldName, fieldValue);
+			SAFE_SPRINTF(headerLine, sizeof(headerLine), "%s: %s", name, value);
 
 			// Add the new REQUEST header to the headers list for this request.
 			header = curl_slist_append(header, headerLine);
@@ -1244,7 +1248,7 @@ static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer
 	int indexsize = 0;
 	bool invert = false;
 	char* limit;
-	FACT** stack = (FACT**)InfiniteStack64(limit, "jwritehierarchy");
+	FACT** stack = (FACT**)InfiniteStack(limit, "jwritehierarchy");
 	if (F && F->flags & JSON_ARRAY_FACT)
 	{
 		indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
@@ -1500,7 +1504,7 @@ static MEANING jcopy(MEANING M)
 	int indexsize = 0;
 	FACT* F = GetSubjectNondeadHead(D);
 	char* limit;
-	FACT** stack = (FACT**)InfiniteStack64(limit, "jcopy");
+	FACT** stack = (FACT**)InfiniteStack(limit, "jcopy");
 	if (F && F->flags & JSON_ARRAY_FACT) indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
 	else
 	{
@@ -1604,7 +1608,7 @@ char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigne
 	int indexsize = 0;
 	FACT* F = GetSubjectNondeadHead(D);
 	char* xlimit;
-	FACT** stack = (FACT**)InfiniteStack64(xlimit, "jwrite");
+	FACT** stack = (FACT**)InfiniteStack(xlimit, "jwrite");
 	if (F && F->flags & JSON_ARRAY_FACT)
 	{
 		indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
@@ -2166,10 +2170,12 @@ FunctionResult JSONFormatCode(char* buffer)
 
 MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 {
-	char* val = value;
+    // Don't need to modify the incoming value as this function may be called again with the same pointer (when need to update the flags)
+	char* val = AllocateBuffer();
+    strcpy(val, value);
 
-	bool number = IsDigitWord(value, AMERICAN_NUMBERS, true);
-	if (*val == '+' || *val == '#') number = false; // JSON does not allow + sign
+	bool number = IsDigitWord(value, AMERICAN_NUMBERS, false, true); // to be a primitive number then must strictly be numeric
+	if (*val == '+' || *val == '#' || (*val == '0' && strlen(val) > 1 && IsInteger(val, false, AMERICAN_NUMBERS))) number = false; // JSON does not allow + sign or leading zero in a multi-digit integer
 	if (number) // cs considers currency as numbers, json doesnt
 	{
 		char* digits;
@@ -2177,7 +2183,11 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 	}
 
 	if (number) flags |= JSON_PRIMITIVE_VALUE;
-	else if (!*value || !strcmp(value, (char*)"null") ) return 0; // to delete
+	else if (!*value || !strcmp(value, (char*)"null") )
+    {
+        FreeBuffer();
+        return 0; // to delete
+    }
 	else if (!strcmp(value, (char*)"json_null") || !strcmp(value, (char*)"json-null"))
 	{
 		flags |= JSON_PRIMITIVE_VALUE;
@@ -2202,7 +2212,9 @@ MEANING jsonValue(char* value, unsigned int& flags, bool stripQuotes)
 		}
 	}
 
-	return MakeMeaning(StoreWord(val, AS_IS)); // adjusted value
+    MEANING w = MakeMeaning(StoreWord(val, AS_IS)); // adjusted value
+    FreeBuffer();
+    return w;
 }
 
 static void  DoJSONAssign(WORDP base,bool changedBase,WORDP leftside, WORDP keyname, char* value, bool stripQuotes, char* fullpath, unsigned int flags)
@@ -2338,6 +2350,15 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 		if (keyname[len - 1] == '"') keyname[--len] = 0;
 		++keyname;
 	}
+	
+	// adding escape sequences to keyname
+	char* limit;
+	char* objectKeyname = InfiniteStack(limit, "SafeLine");
+	AddEscapes(objectKeyname, keyname, true, MAX_BUFFER_SIZE, false);
+	ReleaseInfiniteStack();
+	strcpy(keyname, objectKeyname);
+	*objectKeyname = 0;
+
 
 	WORDP keyvalue = StoreWord(keyname, AS_IS); // new key - can be ANYTHING
 	char* val = ARGUMENT(index);
@@ -2749,7 +2770,7 @@ void JsonRenumber(FACT * G) // given array fact dying, renumber around it
 	WORDP D = Meaning2Word(G->subject);
 	int index = atoi(Meaning2Word(G->verb)->word); // this one is dying, above it must go?
 	char* limit;
-	FACT** stack = (FACT**)InfiniteStack64(limit, "JsonRenumber");
+	FACT** stack = (FACT**)InfiniteStack(limit, "JsonRenumber");
 	int indexsize = orderJsonArrayMembers(D, stack);
 	CompleteBindStack64(indexsize, (char*)stack);
 	int downindex = 0;

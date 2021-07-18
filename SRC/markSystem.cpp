@@ -1,5 +1,4 @@
 // markSystem.cpp - annotates the dictionary with what words/concepts are active in the current sentence
-
 #include "common.h"
 
 #ifdef INFORMATION
@@ -35,7 +34,7 @@ In a pattern, an author can request:
 		Thereafter the system chases up the synset hierarchy fanning out to sets marked from synset nodes.
 
 #endif
-
+#define END_OF_REFERENCES 0xff
 #define GENERIC_MEANING 0  // not a specific meaning of the word
 int verbwordx = -1;
 
@@ -43,6 +42,8 @@ int uppercaseFind = -1; // unknown
 static bool failFired = false;
 bool trustpos = false;
 int marklimit = 0;
+static int freeTriedList = 0;
+std::map <WORDP, int> triedData; // per volley index into heap space
 static STACKREF wordlist = NULL;
 static HEAPREF pendingConceptList = NULL;
 static int MarkSetPath(int depth, int exactWord, MEANING M, int start, int end, unsigned int level, int kind); //   walks set hierarchy
@@ -53,6 +54,23 @@ static unsigned int markLength = 0; // prevent long lines in mark listing trace
 int upperCount, lowerCount;
 ExternalTaggerFunction externalPostagger = NULL;
 char unmarked[MAX_SENTENCE_LENGTH]; // can completely disable a word from mark recognition
+
+/**************************************/
+/* Word Reference in Sentence system				*/
+/**************************************/
+// Wheredata is a  64bit tried by meaning field (aligned) 
+// + Sentence references for the word. 
+// Each dictionary word can have up thru 63 different addressable meanings
+// as well as the generic word as a whole. These are the "tried" bits, used
+// when marking meanings to avoid redundant sweeps.
+// Sentence references are where the word/concept is found in the sentence and
+// is used by pattern matching.
+// Each reference is 4 bytes  
+// byte0:  start index into sentence
+// byte1:  end index into sentence
+// byte2: if fundamental meaning this is where start of subject in sentence is (fundamental start/end is on the verb)
+// byte3: which exact dictionary index (capitalization) matched if exact match is involved
+// bytes4-7:  int index of dictionary word
 
 bool RemoveMatchValue(WORDP D, int position)
 {
@@ -85,10 +103,10 @@ static int WhereWordHitWithData(WORDP D, int start,unsigned char* data)
 {
 	if (data) for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
 	{
-		if (data[i] >= start)
+		if (data[i] >= start) 
 		{
 			if (data[i] == start) return data[i + 1]; // return end of it
-			else break; // cannot match later - end of data will be 0xff for all
+			else break; // cannot match later - end of data will be END_OF_REFERENCES (0xff) for all
 		}
 	}
 	return 0;
@@ -208,6 +226,108 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
     return added;
 }
 
+unsigned int GetAccess(WORDP D)
+{
+	std::map<WORDP, int>::iterator it;
+	it = triedData.find(D);
+	if (it == triedData.end()) return 0;
+	int access = it->second; // heap index
+	return access;
+}
+
+unsigned char* GetWhereInSentence(WORDP D) // [0] is the meanings bits,  the rest are start/end/case bytes for 8 locations
+{
+	if (!D) return NULL;
+	int access = GetAccess(D);
+	return (!access) ? NULL : (unsigned char*)Index2Heap(access) + 8; // skip over 64bit tried by meaning field
+}
+
+int CopyWhereInSentence(int oldindex)
+{
+	unsigned int* olddata = (unsigned int*)Index2Heap(oldindex); // original location
+	if (!olddata) return 0;
+
+	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
+	//  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
+	if (data) memcpy((char*)data, olddata, len * 4);
+	return Heap2Index((char*)data);
+}
+
+void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
+{
+	memset(concepts, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
+	memset(topics, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
+
+	// be able to reuse memory
+	if (documentMode) for (std::map<WORDP, int>::iterator it = triedData.begin(); it != triedData.end(); ++it)
+	{
+		MEANING* data = (MEANING*)Index2Heap(it->second);
+		*data = freeTriedList;
+		freeTriedList = it->second;
+	}
+
+	triedData.clear();
+	memset(unmarked, 0, MAX_SENTENCE_LENGTH);
+}
+
+void ClearTriedData() // erases  the WHEREINSENTENCE and the TRIEDBITS
+{
+	triedData.clear();
+	freeTriedList = 0;
+}
+
+unsigned int* AllocateWhereInSentence(WORDP D)
+{
+	if (documentMode && freeTriedList) // reuse memory
+	{
+		MEANING* d = (MEANING*)Index2Heap(freeTriedList);
+		freeTriedList = *d;
+	}
+	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
+	//  64bit tried by meaning field (aligned) + sentencerefs (3 bytes each + a byte for uppercase index)
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
+	if (!data) return NULL;
+
+	memset((char*)data, END_OF_REFERENCES, len * 4); // clears sentence xref start/end bits and casing byte
+	data[0] = 0; // clears the tried meanings list
+	data[1] = 0;
+	// store where in the temps data
+	int index = Heap2Index((char*)data); // original index!
+	triedData[D] = index;
+	return data + 2; // analogous to GetWhereInSentence
+}
+
+void SetTriedMeaningWithData(uint64 bits, unsigned int* data)
+{
+	*(data - 2) = (unsigned int)(bits >> 32);
+	*(data - 1) = (unsigned int)(bits & 0xffffffff);	// back up to the tried meaning area
+}
+
+void SetTriedMeaning(WORDP D, uint64 bits)
+{
+	unsigned int* data = (unsigned int*)GetWhereInSentence(D);
+	if (!data)
+	{
+		data = AllocateWhereInSentence(D); // returns past the tried bits of chunk
+		if (!data) return; // failed to allocate
+	}
+	*(data - 2) = (unsigned int)(bits >> 32);
+	*(data - 1) = (unsigned int)(bits & 0xffffffff);	// back up to the tried meaning area
+}
+
+uint64 GetTriedMeaning(WORDP D) // which meanings have been used (up to 64)
+{
+	std::map<WORDP, int>::iterator it;
+	it = triedData.find(D);
+	if (it == triedData.end())	return 0;
+	unsigned int* data = (unsigned int*)Index2Heap(it->second); // original location
+	if (!data) return 0;
+	uint64 value = ((uint64)(data[0])) << 32;
+	value |= (uint64)data[1];
+	return value; // back up to the correct meaning zone
+}
+
 unsigned int GetIthSpot(WORDP D, int i, int& start, int& end)
 {
 	if (!D) return 0; //   not in sentence
@@ -216,7 +336,7 @@ unsigned int GetIthSpot(WORDP D, int i, int& start, int& end)
 	i *= REF_ELEMENT_SIZE;
 	if (i >= MAXREFSENTENCE_BYTES) return 0; // at end
 	start = (unsigned char) data[i];
-	if (start == 0xff) return 0;
+	if (start == END_OF_REFERENCES) return 0;
 	end = (unsigned char) data[i + 1];
     if (end > wordCount)
     {
@@ -262,12 +382,12 @@ static unsigned char* DataIntersect(WORDP D)
 		// keep common positions of this second word (and optionally third) with existing first
 		for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE) // walk commondata
 		{
-			if (commonData[i] == 0xff) break; // no more data in base
+			if (commonData[i] == END_OF_REFERENCES) break; // no more data in base
 			bool found1 = false;
 			bool found2 = false;
 			for (int j = 0; j < MAXREFSENTENCE_BYTES; j += REF_ELEMENT_SIZE)
 			{
-				if (seconddata[j] == 0xff) break; // end of this piece
+				if (seconddata[j] == END_OF_REFERENCES) break; // end of this piece
 				if (seconddata[j] == commonData[i]) // found here
 				{
 					found1 = true;
@@ -276,7 +396,7 @@ static unsigned char* DataIntersect(WORDP D)
 			}
 			if (thirddata) for (int j = 0; j < MAXREFSENTENCE_BYTES; j += REF_ELEMENT_SIZE)
 			{
-				if (thirddata[j] == 0xff) break; // end of this piece
+				if (thirddata[j] == END_OF_REFERENCES) break; // end of this piece
 				if (thirddata[j] == commonData[i]) // found here
 				{
 					found2 = true;
@@ -291,16 +411,17 @@ static unsigned char* DataIntersect(WORDP D)
 				i -= REF_ELEMENT_SIZE;
 			}
 		}
-		if (commonData[0] == 0xff) return 0; // nothing in common
+		if (commonData[0] == END_OF_REFERENCES) return 0; // nothing in common
 
 		data = commonData; // the common data of word and concept
 	}
 	return data;
 }
+
 unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPosition, bool reverse, int legalgap)
 {//   spot can be 1-31,  range can be 0-7 -- 7 means its a string, set last marker back before start so can rescan
     //   BUG - we should note if match is literal or canonical, so can handle that easily during match eg
-    //   '~shapes matches square but not squares (whereas currently literal fails because it is not ~shapes
+    //   '~shapes matches square but not squares (whereas currently literal fails because it is not ~shapes)
     if (!D) return 0; //   not in sentence
     unsigned char* data = GetWhereInSentence(D);
     char* ptr = D->word;
@@ -314,7 +435,7 @@ unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPositio
     for (i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE) // each 8 byte ref is start,end,extra,unused, 4byte exact,
     {
         unsigned char at = data[i];
-		if (at == 0xff) // end of unit marker
+		if (at == END_OF_REFERENCES) // end of unit marker
 		{
 			if (!reverse) 	return 0;
 			else break; // cannot back further
@@ -349,6 +470,10 @@ unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPositio
     }
     return  startPosition; // we have a closest or we dont
 }
+
+/**************************************/
+/* End of Word Reference in Sentence system */
+/**************************************/
 
 static void TraceHierarchy(FACT* F,char* msg)
 {
@@ -519,7 +644,6 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 	// check for any repeated accesses of this synset or set or word
 	uint64 offset = 1ull << index;
 	int result = NOPROBLEM_BIT;
-
 	FACT* H = GetSubjectNondeadHead(D);  // thisword/concept member y
 	while (H)
 	{
@@ -861,6 +985,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 	wordlist = NULL;
     char* limit = GetUserVariable("$cs_sequence", false, true);
     int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
+	if (parseLimited && sequenceLimit > 2) sequenceLimit = 2;
 	unsigned int oldtrace = trace;
 	unsigned int usetrace = trace;
 	if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) 
@@ -870,6 +995,8 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		if (oldtrace && !(oldtrace & TRACE_ECHO)) usetrace ^= TRACE_ECHO;
 	}
 	//   consider all sets of up to 5-in-a-row 
+	if (endSentence > wordCount) 
+		endSentence = wordCount;
 	for (int i = startSentence; i <= (int)endSentence; ++i)
 	{
 		marklimit = 0; // per word scan limit
@@ -976,7 +1103,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 			HuntMatch(FIXED,fixedbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i+k,usetrace);
 			HuntMatch(CANONICAL, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + k, usetrace);
 
-			if (++index >= sequenceLimit) break; //   up thru 5 words in a phrase
+			if (++index >= sequenceLimit) break; //   up thru n additional words in a phrase
 		}
 	}
 	
@@ -1296,7 +1423,7 @@ void MarkAllImpliedWords(bool limitnlp)
 		if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) Log(USERLOG,"%d: %s (raw):\r\n", i, original);
 		uint64 flags = posValues[i];
 		WORDP D = originalLower[i] ? originalLower[i] : originalUpper[i]; // one of them MUST have been set
-		if (!D) D = StoreWord(original); // just so we can't fail later
+		if (!D) D = StoreWord(original,AS_IS); // just so we can't fail later
 
 										 // put back non-tagger generalized forms of bits
 		if (flags & NOUN_BITS) flags |= NOUN;

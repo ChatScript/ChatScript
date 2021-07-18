@@ -148,7 +148,7 @@ static void DecodeAssignment(char* word, char* lhs, char* op, char* rhs)
     char* assign = word + Decode(word + 1, 1); // use accelerator to point to op in the middle
     strncpy(lhs, word + 2, assign - word - 2);
     lhs[assign - word - 2] = 0;
-   assign++; // :
+    assign++; // :
     op[0] = *assign++;
 	op[1] = 0;
 	op[2] = 0;
@@ -337,7 +337,7 @@ static bool FindPhrase(char* word, int start, bool reverse, int & actualStart, i
 static char* PushMatch(int used)
 {
     char* limit;
-    char* base = InfiniteStack64(limit, "PushMatch");
+    char* base = InfiniteStack(limit, "PushMatch");
     int* vals = (int*)base;
     for (int i = 0; i < used; ++i) *vals++ = wildcardPosition[i];
     char* rest = (char*)vals;
@@ -1192,12 +1192,20 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             }
 			else if (!stricmp(word, "%trace_on"))
 			{
-				if (!blockapitrace) trace = TRACE_PATTERN;
+                if (!blockapitrace)
+                {
+                    trace = TRACE_PATTERN;
+                    if (!strnicmp(ptr, "all", 3))
+                    {
+                        trace = (unsigned int)-1;
+                        ptr += 4;
+                    }
+                }
 				continue;
 			}
 			else if (!stricmp(word, "%trace_off"))
 			{
-                if (!blockapitrace) trace = 0;
+                trace = 0;
 				continue;
 			}
             else matched = SysVarExists(word);
@@ -1229,10 +1237,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 				char* ptr = AllocateBuffer("patternmatchassign");
 				sprintf(ptr, " %s ", op);
 				strcat(ptr, rhs);
-                int oldtrace = trace;
-                trace = 0;
 				PerformAssignment(lhs, ptr, buffer, result);
-                trace = oldtrace;
 				FreeBuffer("patternmatchassign");
 
 				if (result == NOPROBLEM_BIT) matched = true;
@@ -1664,11 +1669,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         if (*lhs == '$')
                         {
                             char* val = GetUserVariable(lhs, false, true);
-                            if (stricmp(rhs,val))Log(USERLOG, "%s%s%s`%s`", lhs, op, rhs, val);
-                            else Log(USERLOG, "%s%s%s", lhs, op, rhs);
+                            if (stricmp(rhs,val))Log(USERLOG, "%s:%s%s`%s`", lhs, op, rhs, val);
+                            else Log(USERLOG, "%s:%s%s", lhs, op, rhs);
                         }
-						else if (*lhs == '_') Log(USERLOG,"%s%s%s `%s`", lhs, op, rhs, wildcardOriginalText[GetWildcardID(lhs)]);
-						else Log(USERLOG,"%s%s%s", lhs, op, rhs);
+						else if (*lhs == '_') Log(USERLOG,"%s:%s%s `%s`", lhs, op, rhs, wildcardOriginalText[GetWildcardID(lhs)]);
+						else Log(USERLOG,"%s:%s%s", lhs, op, rhs);
 					}
 					else if (*word == '=' && word[1]) // comparison
 					{ 

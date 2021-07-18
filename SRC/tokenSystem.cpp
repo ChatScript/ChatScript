@@ -451,18 +451,22 @@ static WORDP UnitSubstitution(char* buffer,int i)
 	return NULL;
 }
 
-static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, bool& oobStart, bool& oobJson)
+static char spawnWord[100];
+
+static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, bool& oobStart, bool& oobJson)
 {
 	char* start = ptr;
 	char c = *ptr;
 	unsigned char kind = IsPunctuation(c);
 	char* end = NULL;
 	static bool quotepending = false;
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
-    bool isFrench = (!stricmp(language, "french") ? true : false);
+	bool isEnglish = (!stricmp(language, "english") ? true : false);
+	bool isFrench = (!stricmp(language, "french") ? true : false);
+	bool isJapanese = (!stricmp(language, "japanese") ? true : false);
+	bool isSpanish = (!stricmp(language, "spanish") ? true : false);
 
 	// OOB which has { or [ inside starter, must swallow all as one string lest reading JSON blow token limit on sentence. And we can do jsonparse.
-	if ( oobJson) // support JSON parsing
+	if (oobJson) // support JSON parsing
 	{
 		if (count == 0 && (*ptr == '[' || *ptr == '{')) return ptr + 1;	// start of oob [ token
 		int level = 0;
@@ -478,12 +482,12 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				ptr += 1;
 				continue;
 			}
-			if (*ptr == '"') 
+			if (*ptr == '"')
 				quote = !quote;
-			if (quote) 
+			if (quote)
 				continue; // ignore content for level counting
 
-			if (*ptr == '{' || *ptr == '[') 
+			if (*ptr == '{' || *ptr == '[')
 				++level;
 			else if (*ptr == '}' || *ptr == ']')
 			{
@@ -491,21 +495,21 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 				{
 					if (tokenControl & JSON_DIRECT_FROM_OOB) // allow full json
 					{
-                        // don't let parser be confused by user utterance, e.g. if ends in a quote
-                        char* closer = ptr + 1;
-                        char close = *closer;
-                        *closer = 0;
+						// don't let parser be confused by user utterance, e.g. if ends in a quote
+						char* closer = ptr + 1;
+						char close = *closer;
+						*closer = 0;
 						char word[MAX_WORD_SIZE];
-                        uint64 oldbot = myBot;
-                        myBot = 0; // universal access to this transient json
+						uint64 oldbot = myBot;
+						myBot = 0; // universal access to this transient json
 						FunctionResult result = InternalCall("^JSONParseCode", JSONParseCode, (char*)"TRANSIENT SAFE", jsonStart, NULL, word);
-                        myBot = oldbot;
+						myBot = oldbot;
 						++count;
-                        *closer = close;
+						*closer = close;
 						if (result == NOPROBLEM_BIT) words[count] = AllocateHeap(word); // insert json object
 						else words[count] = AllocateHeap((char*)"bad-json");
 					}
-					oobJson = false; 
+					oobJson = false;
 					return ptr + 1;
 				}
 			}
@@ -527,25 +531,53 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		{
 			if (*ptr == '"' && *(ptr - 1) != '\\') quote = !quote;
 			if (quote) continue;
-			if (*ptr != ' ' &&  *ptr != '(' && *ptr != ')' && *ptr != '[' && *ptr != ']'  && *ptr != '{' && *ptr != '}') continue;
+			if (*ptr != ' ' && *ptr != '(' && *ptr != ')' && *ptr != '[' && *ptr != ']' && *ptr != '{' && *ptr != '}') continue;
 			break;
 		}
 		return ptr;
 	}
 
-	if (!stricmp(language, "ideographic") || tokenControl & TOKENIZE_BY_CHARACTER) return ptr + 1;
-
-    
 #ifdef PRIVATE_CODE
-    // Check for private hook function to find the end of the next word
-    static HOOKPTR fnTokenize = FindHookFunction((char*)"TokenizeWord");
-    if (fnTokenize)
-    {
-        char* end = ((TokenizeWordHOOKFN) fnTokenize)(ptr, words, count);
-        if (end && end > ptr) return end;
-    }
+	// Check for private hook function to find the end of the next word
+	static HOOKPTR fnTokenize = FindHookFunction((char*)"TokenizeWord");
+	if (fnTokenize)
+	{
+		char* end = ((TokenizeWordHOOKFN)fnTokenize)(ptr, words, count);
+		if (end && end > ptr) return end;
+	}
 #endif
 
+	char utfcharacter[10];
+	char* x = IsUTF8(ptr, utfcharacter); // return after this character if it is valid.
+	if (isSpanish && utfcharacter[0] == 0xC2 && (utfcharacter[1] == 0xBF|| utfcharacter[1] == 0xA1)) // invert question or exclamation
+	{
+		ptr += 2; // ignore it, we only want trailing ? or !
+		x = IsUTF8(ptr, utfcharacter);
+	}
+
+	if (isJapanese || !stricmp(language, "ideographic") || tokenControl & TOKENIZE_BY_CHARACTER)
+	{
+	// swap terminal punctuation to english
+		if (utfcharacter[0] == 0xef && utfcharacter[1] == 0xbc && utfcharacter[2] == 0x9f) //japan ？efbc9f 
+		{
+			strcpy(spawnWord, "?");
+			return ptr + 3;
+		}
+		if (utfcharacter[0] == 0xe3 && utfcharacter[1] == 0x80 && utfcharacter[2] == 0x82) //japan 。e38082
+		{
+			strcpy(spawnWord, ".");
+			return ptr + 3;
+		}
+		if (utfcharacter[0] == 0xef && utfcharacter[1] == 0xbc && utfcharacter[2] == 0x82) //japan ！efbc81
+		{
+			strcpy(spawnWord, "!");
+			return ptr + 3;
+		}
+
+		if (utfcharacter[1]) return ptr + strlen(utfcharacter); // rewrite some utf8 characters to std ascii
+		// we should return normal length for english words used direct
+		}
+	
 	// large repeat punctuation
 	if (*ptr == ptr[1] && ptr[1] == ptr[2] && ptr[2] == ptr[3] && IsPunctuation(*ptr))
 	{
@@ -637,7 +669,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	// serial no.
 	if (!stricmp(token, "no.") && !stricmp(priorToken, "serial"))
 	{
-		words[++count] = AllocateHeap("number"); 
+		strcpy(spawnWord, "number");
 		return ptr + 3;
 	}
 
@@ -693,7 +725,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
     {
         if (!strcmp(token, ".?")) // some people type both
         {
-            words[++count] = AllocateHeap("?"); // insert json object
+			strcpy(spawnWord, "?"); // insert json object
             return ptr + 2;
         }
         if (l > 1) token[--l] = 0; // remove it from token
@@ -756,8 +788,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	if (*token == '.' && !IsInteger(token + 1, false, numberStyle) && FindWord(token + 1))
 	{
 		if (token[1] != '?') return ptr + 1; // sentence end then word we know
-		++count;
-		words[count] = AllocateHeap((char*)"?");
+		strcpy(spawnWord, "?"); 
 		return ptr+2; // delete the period
 	}
 	
@@ -1082,8 +1113,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 		{
 			if (IsDigit(*priorToken))
 			{
-				++count;
-				words[count] = AllocateHeap((char*)"foot"); 
+				strcpy(spawnWord, "foot");
 				return end;
 			}
 		}
@@ -1161,9 +1191,16 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int &count, 
 	int len = end - ptr;
 	char next2;
 	if (*ptr == '/') return ptr+1; // split of things separated
-
 	while (++ptr && !IsWordTerminator(*ptr)) // now scan to find end of token one by one, stopping where appropriate
     {
+		if (isJapanese) // break off anything like 7xxx
+		{
+			unsigned char japanletter[8];
+			int kind = 0;
+			IsJapanese((unsigned char*)ptr, (unsigned char*)&japanletter, kind);
+			if (kind) 
+				break;
+		}
 		c = *ptr;
         if (c == '|') break;
 		kind = IsPunctuation(c);
@@ -1356,6 +1393,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		// find end of word 
 		int oldCount = count;
 		if (!*ptr) break; 
+		*spawnWord = 0;
 		char* end = FindWordEnd(ptr,priorToken,words,count,oobStart,oobJson);
  		if (count != oldCount)	// FindWordEnd performed allocation already 
 		{
@@ -1386,8 +1424,12 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 
 		// get the token
 		size_t len = end - ptr;
-		strncpy(priorToken,ptr,len);
-		priorToken[len] = 0;
+		if (*spawnWord) strcpy(priorToken, spawnWord);
+		else
+		{
+			strncpy(priorToken, ptr, len);
+			priorToken[len] = 0;
+		}
         if (oobJson && priorToken[0] == priorToken[1] && priorToken[0] == '"' && !priorToken[2])
         { // change empty string to null when in oob
             strcpy(priorToken, "null");

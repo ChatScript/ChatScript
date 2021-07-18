@@ -6,9 +6,31 @@ Customer Survey:  If you are willing, please answer questions below and email yo
 5. What are you using your chatbot for - (eg, ordinary conversation, help bot, faq bot, real estate bot, etc)?
 6. How did you hear about CS?
 
+Version 11.5 7/18/2021
+
+1. Documented existing ^JsonKind(item) function, which returns object, array or fails, depending on what is passed to it.
+2. ^wordinfo(word) provides dictionary data about word properties, system flags, and substitution values.
+3. ^testpattern now accepts concepts named ~noun, ~verb, ~adjective and ~adverb,
+allowing you to augment the dictionary remotely.
+4. if ^purgeboot is called to remove the contents of a json variable,
+then if that variable is not a user variable, it will be allowed to be reassigned to
+later, without it automatically reverting to pre-user values (which is normally what
+happens to changes to bot variables)
+5. command line param 'pseudoserver' tells cs that this DLL or sharedobject
+version of CS is actually incorporated into a server and should require the same
+authorizations as a server before allowing debug commands.
+6. :source now accepts a line :exit to abort executing more lines from it
+And :source can accept a log file and will execute the log entry data
+appropriate (and skip non-useful lines).
+7. command line parameter parselimit=n  if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed
+8. privatecode handler: 	MongoGotDocument invoked if mongo successfully retrieves document
+9. in ^testpattern  %trace_on normally enables tracing data to be sent back that only does pattern trace.
+  but `%trace_on all` turns on full tracing.
+10. ESOTERIC-CHATSCRIPT/ChatScript-Foreign-languages doc updated to give info on
+inbuilt support for Japanese, German, and Spanish.
+
 Version 11.4 6/6/2021
  MAC version in BINARIES is up-to-date
-
 
 1. if $tokenControl has been set to include JSON_DIRECT_FROM_OOB
 	then a user input that contains the word "json" followed immediately by an

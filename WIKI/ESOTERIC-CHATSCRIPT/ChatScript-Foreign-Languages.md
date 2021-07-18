@@ -1,6 +1,7 @@
 # Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/04/2017 cs7.61
+<br>Revision 7/18/2021 cs11.5
+
 
 # Foreign Language Overview
 
@@ -14,13 +15,72 @@ ChatScript comes natively with full English support. If you want to use a differ
 * Lemmas (comes with foreign pos-taggers or available from ^pos(canonical))
 
 ChatScript has a command line parameter `language=` that tells CS the language you intend. It defaults to `ENGLISH`.
-The effects of this parameter are several.
+The effects of this parameter are generically these, unless special information is given below about the language:
 * If not ENGLISH, internal pos-tagging (other than marking possible english tags and numbers and dates and such) and parsing are disabled.
 * If treetagger is licensed and has that language, it will pos tag.
 * The system will use DICT/`language`. 
 * The system will use LIVEDATA/`language`
 * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments).
 * The system will store the user's topic file suffixed by language as well.
+
+# Embedded Foreign Language Support
+
+## Japanese
+ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. 
+It knows something is japanese because either the a command line parameter has "language=japanese",
+or because japanese characters are being used in compiling a pattern (^compilepattern), or because a global variable is passed in via ^testpattern  "$language = japanese".
+
+### CompilePattern   
+ChatScript directly supports Japanese coding in ^compilepattern. A "word" is a sequence of characters with no spaces in it (except for double quoted strings). 
+Note in the texts below, ? stands for some japanese character. 
+
+Scripters are expected to keep japanese "words" separate. E.g.  ?????? would in script be:   ??  ?? ?? .  
+Of course if they actually want to match the sentence exactly anyway, they can keep them all together. 
+
+Either way, patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. 
+Each character thus becomes a word internally.
+
+So this, ( _??? $var:=_0 ), which a scripter writes as a single word to be found and memorized, internally is sent to cs as this:
+
+[{"dse": {"compilepattern": "( _??? $var:=_0 )"  }} ] 
+
+and CS returns this for internal use, where each character is now a separate word:
+[{ "dse": { "testpattern": {input: " ???? ??", "patterns": [{ "pattern": "^( _( ? ? ? ) :6$var:=_0 ) " }] } } }]
+
+This pattern says that the given character sequence MUST be detected as a contiguous sequence. You can use the usual exclusion and memorization operators on such words, and they will be applied to the sequence.
+
+### ^testpattern
+Correspondingly, if you set a global variable "language" to "japanese", then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:
+
+Normal character clusters are separated into discrete characters. These can match the patterns that have been compiled.
+English AND Japanese terminal punctuation marks corresponding to period, question , and exclamation are internally converted to English (because they will be stripped off the sentence as per usual).
+If the pattern matcher is required to memorize a "word", it will find the separated characters and join them back together to return the value.  Thus the above testpattern call will return:"output": {"newglobals": {"$var": "???"} , "match": 0}  }  ]  
+Concepts are written per usual, using Japanese words (characters without spaces).
+
+###Sentence Limit
+
+CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. Where terminal punctuation is detected, that ends a sentence. Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. Ryan ran some numbers on about 100,000 user inputs from our jp bots. The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.
+
+###Numbers
+
+For english numbers as digits residing adjacent to japanese characters, the english number is broken off intact. Thus ??72?????  becomes ? ? 72 ? ? ? ? ? on inputs
+
+## GERMAN
+The spell checker has code to break apart an unknown compound word into its separate
+recognizable pieces, based on https://www.dartmouth.edu/~deutsch/Grammatik/Wortbildung/Komposita.html .
+So "Esszimmer" (dining room) becomes  Ess Zimmer.
+
+CS comes with a german dictionary, and spell checking will use it.
+In particular, if the input lacks appropriate accent marks, CS will
+likely fill them in for you.
+
+## SPANISH
+The tokenizer will simply delete any upside down question or
+exclamation marks. 
+
+CS comes with a spanish dictionary, and spell checking will use it.
+In particular, if the input lacks appropriate accent marks, CS will
+likely fill them in for you.
 
 # INPUT and OUTPUT
 

@@ -228,7 +228,9 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
     while (input && *input)
     {
         if (*input == '"' && prior != '\\') str = !str; // toggle string status
-        prior = *input;
+        //  underscore in middle of word will not be considered as match var
+        if (*input == '_' && IsAlphaUTF8OrDigit(prior)) {}
+        else prior = *input;
         if (prior == '^' && input[1] == USERVAR_PREFIX && (IsAlphaUTF8(input[2]) || input[2] == '$')) // ^ user variable
         {
             var[0] = '^';
@@ -613,7 +615,7 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
         
         if (!stricmp(word, "%trace_on"))
         {
-            if (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))    trace = (unsigned int)-1;
+            if (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))   trace = (unsigned int)-1;
         }
         else if (!stricmp(word, "%trace_off")) trace = 0;
         else strcpy(buffer, SystemVariable(word, NULL));

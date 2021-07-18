@@ -297,6 +297,14 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
                         retrievedDataSize = strlen(mongoKeyValue);
     				}
             	}
+#ifdef PRIVATE_CODE
+                // Check for private hook function to process the document results
+                static HOOKPTR fnqG = FindHookFunction((char*)"MongoGotDocument");
+                if (fnqG)
+                {
+                    ((MongoGotDocumentHOOKFN) fnqG)(pDoc);
+                }
+#endif
             }
         }
 		uint64 endtime = ElapsedMilliseconds();

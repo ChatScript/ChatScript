@@ -353,6 +353,7 @@ void CloseFacts()
 
 void FreeFact(FACT* F)
 { //   most recent facts are always at the top of any xref list. Can only free facts sequentially backwards.
+	if (!F) return;
 	if (!F->subject) // unindexed fact recording a fact delete that must be undeleted
 	{
 		if (!F->object) // death of fact fact (verb but no object)
@@ -781,8 +782,7 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	currentFact = CreateFastFact(subject,verb,object,properties);
 	if (trace & TRACE_FACT && currentFact && CheckTopicTrace())  
 	{
-        if (trace & TRACE_JSON && !(trace & TRACE_OUTPUT)) 
-            TraceFact(currentFact, false); // precise trace for JSON
+        TraceFact(currentFact, false); // precise trace for JSON
 		Log(FORCESTAYUSERLOG,(char*)" Fact# %d\r\n", Fact2Index(currentFact));
 	}
 
@@ -1106,14 +1106,6 @@ bool ImportFacts(char* buffer,char* name, char* set, char* erase, char* transien
 	else in = FopenReadWritten(name);
 	if (!in) return false;
 
-    // allow for simple existence check
-    if (!stricmp(erase,(char*)"exist") || !stricmp(transient,(char*)"exist"))
-    {
-        if (strstr(name,"ltm")) userFileSystem.userClose(in);
-        else fclose(in);
-        return true;
-    }
-
 	char* filebuffer = GetFreeCache();
 	size_t readit;
 	if (strstr(name,"ltm"))
@@ -1129,6 +1121,14 @@ bool ImportFacts(char* buffer,char* name, char* set, char* erase, char* transien
 	filebuffer[readit] = 0;
 	filebuffer[readit+1] = 0; // insure fully closed off
 
+    // allow for simple existence check
+    if (!stricmp(erase,(char*)"exist") || !stricmp(transient,(char*)"exist"))
+    {
+        FreeUserCache();
+        if (readit > 0) return true;
+        return false;
+    }
+    
 	// set bom
 	maxFileLine = currentFileLine = 0;
 	BOM = BOMSET; // will be utf8

@@ -1,8 +1,11 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "11.4";
+char* version = "11.5";
 char sourceInput[200];
+char* releaseBotVar = NULL;
 FILE* userInitFile;
+unsigned int parseLimit = 0;
+bool jabugpatch = false;
 bool fastload = true;
 bool hadAuthCode;
 bool blockapitrace = false;
@@ -102,6 +105,7 @@ uint64 volleyStartTime = 0;
 char forkCount[10];
 int timerCheckInstance = 0;
 char hostname[100];
+bool logline = false;
 bool nosuchbotrestart = false; // restart if no such bot
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 char derivationSeparator[MAX_SENTENCE_LENGTH];
@@ -122,7 +126,7 @@ char *evsrv_arg = NULL;
 
 unsigned short int derivationIndex[MAX_SENTENCE_LENGTH];
 
-bool overrideAuthorization = false;
+bool scriptOverrideAuthorization = false;
 
 clock_t  startSystem;						// time chatscript started
 unsigned int choiceCount = 0;
@@ -209,8 +213,6 @@ char botPrefix[MAX_WORD_SIZE];			// label prefix for bot output
 
 bool unusedRejoinder = true;							// inputRejoinder has been executed, blocking further calls to ^Rejoinder
 	
-char* inputCopy; // the original input we were given, we will work on this
-
 // outputs generated
 RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
@@ -234,7 +236,6 @@ static void HandlePermanentBuffers(bool init)
 		rawSentenceCopy = (char*)malloc(maxBufferSize);
 		revertBuffer = (char*)malloc(maxBufferSize);
 
-		inputCopy = (char*)malloc(fullInputLimit);
 		ourMainInputBuffer = (char*)malloc(fullInputLimit);  // precaution for overflow
 
 		currentOutputLimit = outputsize;
@@ -257,7 +258,6 @@ static void HandlePermanentBuffers(bool init)
 	{
 		free(readBuffer);
 		free(lastInputSubstitution);
-		free(inputCopy);
 		free(rawSentenceCopy);
 		free(revertBuffer);
 		free(ourMainInputBuffer);
@@ -423,7 +423,7 @@ void CreateSystem()
 	uint64 starttime = ElapsedMilliseconds();
 
     tableinput = NULL;
-	overrideAuthorization = false;	// always start safe
+	scriptOverrideAuthorization = false;	// always start safe
 	loading = true;
 	char* os;
 	mystart("createsystem");
@@ -475,7 +475,7 @@ void CreateSystem()
 	trace = 0;
 	*oktest = 0;
 
-	sprintf(data,(char*)"Params:   dict:%lu fact:%lu text:%lukb hash:%lu \r\n",(unsigned long )maxDictEntries,(unsigned long)maxFacts,(unsigned long)(maxHeapBytes/1000),(unsigned long)maxHashBuckets);
+	sprintf(data,(char*)"Params:   dict:%lu words fact:%lu facts text:%lukb hash:%lu \r\n",(unsigned long )maxDictEntries,(unsigned long)maxFacts,(unsigned long)(maxHeapBytes/1000),(unsigned long)maxHashBuckets);
 	if (server) Log(SERVERLOG,"%s",data);
 	else (*printer)((char*)"%s",data);
 	sprintf(data,(char*)"          buffer:%ux%ukb cache:%ux%ukb userfacts:%u outputlimit:%u loglimit:%u\r\n",(unsigned int)maxBufferLimit,(unsigned int)(maxBufferSize/1000),(unsigned int)userCacheCount,(unsigned int)(userCacheSize/1000),(unsigned int)userFactCount,
@@ -517,6 +517,18 @@ void CreateSystem()
 	botVariableThreadList = NULL;
 	UnlockLayer(LAYER_BOOT); // unlock it to add stuff
 	trace = oldtrace; // allow boot tracing
+#ifndef DISCARDMONGO
+	strcpy(dbparams, mongodbparams);
+#endif
+#ifndef DISCARDPOSTGRES
+	strcpy(dbparams, postgresparams);
+#endif
+#ifndef DISCARDMYSQL
+	strcpy(dbparams, mysqlparams);
+#endif
+#ifndef DISCARDMICROSOFTSQL
+	strcpy(dbparams, mssqlparams);
+#endif
 	HandleReBoot(FindWord((char*)"^csboot"),false);// run script on startup of system. data it generates will also be layer 1 data
 	LockLayer(true);
     currentBeforeLayer = LAYER_BOOT;
@@ -608,9 +620,12 @@ void CreateSystem()
 	else (*printer)(route);
 #endif
 #ifdef TREETAGGER
-	sprintf(route, (char*)"    TreeTagger access enabled: %s\r\n",language);
-	if (server) Log(SERVERLOG, route);
-	else (*printer)(route);
+	if (!treetaggerfail)
+	{
+		sprintf(route, (char*)"    TreeTagger access enabled: %s\r\n", language);
+		if (server) Log(SERVERLOG, route);
+		else (*printer)(route);
+	}
 #endif
 #ifndef DISCARDMICROSOFTSQL
 	if (gzip)
@@ -793,31 +808,20 @@ static void ProcessArgument(char* arg)
 		if (!stricmp(arg+17,"true")) nosuchbotrestart = true;
 		else nosuchbotrestart = false;
 	}
+	else if (!strnicmp(arg, (char*)"parseLimit=", 11))  parseLimit = atoi(arg+11);
 	else if (!strnicmp(arg,(char*)"system=",7) )  CopyParam(systemFolder,arg+7);
 	else if (!strnicmp(arg,(char*)"english=",8) )  CopyParam(languageFolder,arg+8);
 	else if (!strnicmp(arg, (char*)"db=", 3))  db = atoi(arg + 3);
 	else if (!strnicmp(arg, (char*)"gzip=", 5))  gzip = atoi(arg + 5);
 	else if (!strnicmp(arg, (char*)"syslogstr=", 10)) CopyParam(syslogstr, arg + 10);
 #ifndef DISCARDMYSQL
-	else if (!strnicmp(arg, (char*)"mysql=", 6))
-	{
-		CopyParam(mysqlparams, arg + 6, 300);
-		strcpy(dbparams, mysqlparams);
-	}
+	else if (!strnicmp(arg, (char*)"mysql=", 6)) CopyParam(mysqlparams, arg + 6, 300);
 #endif
 #ifndef DISCARDMICROSOFTSQL
-	else if (!strnicmp(arg, (char*)"mssql=", 6))
-	{
-		CopyParam(mssqlparams, arg + 6, 300);
-		strcpy(dbparams, mssqlparams);
-	}
+	else if (!strnicmp(arg, (char*)"mssql=", 6)) CopyParam(mssqlparams, arg + 6, 300);
 #endif
 #ifndef DISCARDPOSTGRES
-	else if (!strnicmp(arg, (char*)"pguser=", 7))
-	{
-		CopyParam(postgresparams, arg + 7, 300);
-		strcpy(dbparams, postgresparams);
-	}
+	else if (!strnicmp(arg, (char*)"pguser=", 7)) CopyParam(postgresparams, arg + 7, 300);
 	// Postgres Override SQL
 	else if (!strnicmp(arg,(char*)"pguserread=",11) )
 	{
@@ -847,7 +851,6 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg, (char*)"mongo=", 6))
 	{
 		CopyParam(mongodbparams, arg + 6, 300);
-		strcpy(dbparams, mongodbparams);
 	}
 #endif
 #ifndef DISCARDCLIENT
@@ -895,6 +898,7 @@ static void ProcessArgument(char* arg)
 			else  userLog = NO_LOG;
 		}
 	}
+	else if (!stricmp(arg, "jabugpatch")) jabugpatch = true;
 	else if (!strnicmp(arg, "autorestartdelay=", 17)) autorestartdelay = atoi( arg + 17);
 	else if (!strnicmp(arg, "jmeter=", 7)) CopyParam(jmeter, arg + 7);
 	else if (!stricmp(arg, (char*)"dieonwritefail")) dieonwritefail = true;
@@ -906,6 +910,7 @@ static void ProcessArgument(char* arg)
 	else if (!stricmp(arg,"local")) server = false; // local standalone
 	else if (!strnicmp(arg, "serverlogauthcode=", 18))  CopyParam(serverlogauthcode,arg + 18);
 	else if (!stricmp(arg, "noserverlog")) serverLog = NO_LOG;
+	else if (!stricmp(arg, "pseudoserver")) pseudoServer = true;
 	else if (!strnicmp(arg, "serverlogging=", 14))
 	{
 			serverLog = NO_LOG;
@@ -1641,9 +1646,24 @@ bool GetInput()
 			 < 0) return true; // end of input
         }
         // file based input
-		else if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100, false, true, true) < 0)
+		else
 		{
-			return true; // end of input
+		REREAD:
+			if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100, false, true, true) < 0) return true; // end of input
+			if (strstr(ourMainInputBuffer + 1, ":exit")) return true;
+			// see if respond log entry and trim
+			if (strstr(ourMainInputBuffer + 1, "Serverpre:")) logline = true;
+			else if (strstr(ourMainInputBuffer + 1, "Respond:"))
+			{
+				logline = true;
+				char* output = strstr(ourMainInputBuffer + 1, "==>");
+				if (output) *output = 0; // discard 2nd half
+				char* paren = strchr(ourMainInputBuffer + 1, ')');
+				char word[MAX_WORD_SIZE];
+				char* ptr = ReadCompiledWord(paren + 1, word); // eat turn count
+				memmove(ourMainInputBuffer+1, ptr, strlen(ptr) + 1);
+			}
+			else if (logline || ourMainInputBuffer[1] == '#') goto REREAD; // ignore junk lines
 		}
     }
 	if (ourMainInputBuffer[1] && !*ourMainInputBuffer) ourMainInputBuffer[0] = ' ';
@@ -2384,6 +2404,9 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 		incoming += 7;
 	}
 	
+	uint64 oldtoken = tokenControl; 
+	parseLimited = false;
+
 	GetUserData(buildReset, originalUserInput); // load user data to have $cs_token control over purifyinput
 
 	// prelog before purify, to know what we got exactly 
@@ -2393,9 +2416,13 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	char* oobSkipped = PurifyInput(incoming, safeInput, size, INPUT_PURIFY); // change out special or illegal characters
 	CompleteBindStack(size);
 	incoming = safeInput;
-
 	if (!oobSkipped) oobSkipped = safeInput; // all user message
-	 char* at = (tokenControl & JSON_DIRECT_FROM_OOB) ? oobSkipped : safeInput;
+	if (parseLimit && strlen(oobSkipped) > parseLimit)
+	{
+		parseLimited = true;
+		tokenControl &= -1 ^ (DO_POSTAG | DO_PARSE | DO_SPELLCHECK);
+	}
+	char* at = (tokenControl & JSON_DIRECT_FROM_OOB) ? oobSkipped : safeInput;
 	LimitUserInput(at);
 	mainOutputBuffer = output;
 
@@ -2451,6 +2478,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 	}
 
 	AddInput(safeInput,0, true);
+	
 	ok = ProcessInput();
 	if (ok <= 0)
 	{
@@ -2476,6 +2504,7 @@ int PerformChat(char* user, char* usee, char* incoming,char* ip,char* output) //
 
 	LogChat(startNLTime, user, usee, ip, volleyCount, ourMainInputBuffer, output, 0);
 
+	if (parseLimited) tokenControl = oldtoken;
 
 #ifndef DISCARDJAVASCRIPT
 	DeleteTransientJavaScript(); // unload context if there
@@ -2609,7 +2638,6 @@ int ProcessInput()
 
 #ifndef DISCARDTESTING
 	char* at = GetNextInput(); // was set via addinput from outside
-	strcpy(inputCopy, at);
 	at = SkipOOB(at);
 	if (at && *at == ':' && IsAlphaUTF8(at[1]) && IsAlphaUTF8(at[2]) && !documentMode && !readingDocument) // avoid reacting to :P and other texting idioms
 	{
@@ -3200,7 +3228,6 @@ void NLPipeline(int mytrace)
 		}
 	}	
 
-
 	// spell check unless 1st word is already a known interjection. Will become standalone sentence
 	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~' )
 	{
@@ -3359,8 +3386,11 @@ void PrepareSentence(char* input,bool mark,bool user, bool analyze,bool oobstart
 
 	// set derivation data on original words of user before we do substitution
     // separators might use the first character when there is a single quoted word
-	for (int i = 1; i <= wordCount; ++i) derivationIndex[i] = (unsigned short)((i << 8) | i); // track where substitutions come from
-	memcpy(derivationSentence+1,wordStarts+1,wordCount * sizeof(char*));
+	for (int i = 1; i <= wordCount; ++i)
+	{
+		derivationIndex[i] = (unsigned short)((i << 8) | i); // track where substitutions come from
+		derivationSentence[i] = wordStarts[i]; 
+	}
     memcpy(derivationSeparator,separators,(wordCount+1) * sizeof(char));
 	derivationLength = wordCount;
 	derivationSentence[wordCount+1] = NULL;

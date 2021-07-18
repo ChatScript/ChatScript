@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 7/18/2021 cs11.5
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -283,6 +283,10 @@ setting them.
 Time and date information are normally local, relative to the system clock of the machine
 CS is running on. See $cs_utcoffset for adjusting time based on relationship to utc (e.g
 your server is in Virginia and you are in Colorado).
+
+%rand is only pseudo-random. A specific username is assigned a seed based on their name.
+Thereafter the seed evolves by the dialog but it is repeatable when the same
+user starts over again. If you want truly random, use  %fullmstime % $howmany to get range 0 .. $howmany-1
 
 ## User Input
 

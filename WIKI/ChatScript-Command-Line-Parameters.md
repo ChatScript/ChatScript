@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 7/18/2021 cs11.5
 
 
 
@@ -145,6 +145,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`crnl_safe`	| tells system it does not need to search for cr or nl to remove from inputs. 
 |`blockapitrace`	| disables any %trace_on in ^testpattern and ^testoutput. Used for production servers.
 |`traceboot`	| turns on tracing while cs_boot is running at startup
+|`parselimit=n`	| if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
@@ -367,6 +368,11 @@ Serverctrlz
 Have server terminate its output with 0x00 0xfe 0xff as a verification the client received
 the entire message, since without sending to server, client cannot be positive the
 connection wasn't broken somewhere and await more input forever.
+```
+pseudoserver
+```
+This asserts that cs in DLL/sharedobject form is being used as a server (though its caller is doing all the server work).
+This enables the required authorizations from CS before using debug commands.
 
 ```
 Noserverlog

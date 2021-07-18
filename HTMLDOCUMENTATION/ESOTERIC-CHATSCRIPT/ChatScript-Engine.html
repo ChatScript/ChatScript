@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 6/6/2021 cs11.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
 <ul>
 <li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
@@ -466,7 +466,7 @@ void PrivateShutdown();   called when CS is exiting.
 privatetestingtable.cpp  listing of :debug functions made visible to CS</code></pre>
 <p>Debug table entries like this:</p>
 <pre><code>{(char*) &quot;:endinfo&quot;, EndInfo,(char*)&quot;Display all end information&quot;},</code></pre>
-<p>There are some hooks you can define to tap into execution of the engine. Use a) PerformChatArguments call at start of PerformChat b) SignalHandler on linux exception c) MongoQueryParams adjustments for document query d) MongoUpsertKeyvalues adds additional params for upsert e) MongoUpsertKeyvalues adds additional params for upsert f) PerformChatArguments is called on starting user volley processing</p>
+<p>There are some hooks you can define to tap into execution of the engine. Use a) PerformChatArguments call at start of PerformChat b) SignalHandler on linux exception c) MongoQueryParams adjustments for document query d) MongoUpsertKeyvalues adds additional params for upsert e) MongoGotDocument invoked if mongo successfully retrieves document f) PerformChatArguments is called on starting user volley processing</p>
 <pre><code>Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a 
 hook name.</code></pre>
 <h1 id="documentation">Documentation</h1>

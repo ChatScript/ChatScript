@@ -1730,7 +1730,7 @@ FunctionResult PerformTopic(int active,char* buffer,char* rule, unsigned int id)
     int diff = (int)(ElapsedMilliseconds() - start_time);
     TrackTime(topicName,diff);
 	if (timing & TIME_TOPIC && CheckTopicTime()) {
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Topic %s time: %d ms\r\n", topicfolder,diff);
+		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"%s Topic time: %d ms\r\n", topicName,diff);
 	}
 
 	WORDP E = FindWord((char*)"^cs_topic_exit");
@@ -3054,7 +3054,7 @@ static int ReadFastDictionary(char* name, const char* layer, unsigned int build)
 	unsigned long size = ftell(in);
 	fseek(in, 0, SEEK_SET);
 	char* limit;
-	char* buffer = InfiniteStack64(limit, "Readfastdictionary");
+	char* buffer = InfiniteStack(limit, "Readfastdictionary");
 	unsigned long read = fread(buffer, 1, size, in);
 	fclose(in);
 	ReleaseInfiniteStack(); // we can keep using that space since we dont use stack more
@@ -3356,7 +3356,7 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 		printf("TOPIC %s raw format read\r\n",name );
 		monitorChange = true;
 		char* limit;
-		WORDP* basewords = (WORDP*)InfiniteStack64(limit, "initkeywords"); // for tracking changes to old words
+		WORDP* basewords = (WORDP*)InfiniteStack(limit, "initkeywords"); // for tracking changes to old words
 		preexistingwords = basewords--; //decrement basewords for later loop
 		sprintf(filename, (char*)"patternWords%s.txt", name);
 		ReadPatternData(filename, name, build); // sets the PATTERN_WORD flag on a dictionary entry

@@ -1615,7 +1615,14 @@ static void DownHierarchy(MEANING T, FILE* out, int depth)
 static void WriteKey(char* word)
 {
     if (!compiling || spellCheck != NOTE_KEYWORDS || *word == '_' || *word == '\'' || *word == USERVAR_PREFIX || *word == SYSVAR_PREFIX || *word == '@') return;
-    StoreWord(word);
+
+	unsigned char japanletter[8];
+	int kind;
+	bool japanese = false;
+	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
+	if (japanese) return;
+	
+	StoreWord(word);
     if (livecall)
     {
         return;
@@ -1633,6 +1640,12 @@ static void WriteKey(char* word)
 static void WritePatternWord(char* word)
 {
     if (*word == '~' || *word == USERVAR_PREFIX || *word == '^') return; // not normal words
+	
+	bool japanese = !stricmp(language, "japanese");
+	unsigned char japanletter[8];
+	int kind;
+	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
+	if (japanese) return;
 
 	if (IsDigit(*word)) // any non-number stuff
 	{
@@ -2311,6 +2324,10 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
 {
 	if (!stricmp(input,(char*)"null")) return; // assignment clears
     if (nospellcheck) return;
+	int kind = 0;
+	bool japanese = !stricmp(language, "japanese");
+	unsigned char japanletter[8];
+	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)input, (unsigned char*)&japanletter, kind);
 
 	// remove any trailing punctuation
 	char word[MAX_WORD_SIZE];
@@ -3181,7 +3198,7 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 						++n;
 						++ptr;
 					}
-					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"PATTERN-? Too many  words in string %s, may never match\r\n",word)
+					if (n >= SEQUENCE_LIMIT) WARNSCRIPT((char*)"PATTERN-? Too many  words in string %s, may never match unless you set $cs_sequence high enough\r\n",word)
 				}
 				goto DEFLT;
 			case SYSVAR_PREFIX: //   system data
@@ -3550,11 +3567,35 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 		}
 
 		strcpy(data,word);
-        if (*word)
-        {
-            data += strlen(data);
-            *data++ = ' ';
+		size_t len = strlen(data);
+		if (len > 1)
+		{
+			int kind = 0;
+			unsigned char japanletter[8];
+			bool hasjapanese =  IsJapanese((unsigned char*)&word, (unsigned char*)&japanletter, kind);
+			bool allowjapanese = !stricmp(language, "japanese");
+			if (!allowjapanese) allowjapanese = csapicall == COMPILE_PATTERN && hasjapanese;
+			// break up japanese into characters to match
+			if (hasjapanese && allowjapanese)
+			{
+				unsigned char* ptr = (unsigned char*)word;
+				*data++ = '('; // force a memorizable sequence
+				*data++ = ' ';
+				while(*ptr)
+				{
+					int l = IsJapanese(ptr, (unsigned char*)&japanletter,kind);  // return \uxxxx
+					strncpy(data, (char*) ptr, l);
+					ptr += l;
+					data += l;
+					*data++ = ' ';
+				}
+				*data++ = ')';
+				len = 0;
+			} // end japanese
         }
+		data += len;
+		*data++ = ' ';
+
         bidirectionalSeen = false;
 		if (nestIndex == 0) break; //   we completed this level
         if (*word == '*' && word[1] == '~' && word[3] && word[3] == 'b') bidirectionalSeen = true;
@@ -6369,7 +6410,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 					WARNSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n",conceptName)
                 if (HasBotMember(D, myBot) && (D->internalBits & CONCEPT))
                 {
-                    BADSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n", conceptName)
+					WARNSCRIPT((char*)"CONCEPT-3 Concept/topic already defined %s\r\n", conceptName)
                 }
             }
 			AddInternalFlag(D,(unsigned int)(build|CONCEPT));

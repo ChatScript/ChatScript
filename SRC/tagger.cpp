@@ -31,9 +31,9 @@ static int describedPhrases;
 static int describedClauses;
 
 // dynamic cumulative data across assignroles calls
-int phrases[MAX_SENTENCE_LENGTH];
-int clauses[MAX_SENTENCE_LENGTH];
-int verbals[MAX_SENTENCE_LENGTH];
+int phrases[MAX_SENTENCE_LENGTH]; // limit of 16 phrases in sentence
+int clauses[MAX_SENTENCE_LENGTH]; // limit of 16 clauses in sentence
+int verbals[MAX_SENTENCE_LENGTH]; // limit of 16 verbals in sentence
 unsigned char ignoreWord[MAX_SENTENCE_LENGTH];
 unsigned char coordinates[MAX_SENTENCE_LENGTH]; // for conjunctions
 unsigned char crossReference[MAX_SENTENCE_LENGTH]; // object back to spawner,  particle back to verb

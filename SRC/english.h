@@ -20,6 +20,7 @@ void InitTreeTagger(char* params);
 void MarkChunk();
 bool MatchTag(char* tag,int i);
 char* GetTag(int i);
+extern bool treetaggerfail;
 #endif
 
 #define MAINLEVEL 1
@@ -27,6 +28,7 @@ char* GetTag(int i);
 #define MAX_CLAUSES 50
 extern unsigned int ambiguousWords;
 extern uint64 posTiming;
+extern bool parseLimited;
 extern unsigned char quotationInProgress;
 extern unsigned int roleIndex;
 extern unsigned int needRoles[MAX_CLAUSES]; 

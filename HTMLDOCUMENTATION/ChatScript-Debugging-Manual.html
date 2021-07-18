@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/6/2021 cs11.4</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
@@ -589,7 +589,8 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>Switch the system to reading input from the named file. Good for regression testing.</p>
 <p>The system normally prints out just the output, while the log file contains both the input and the output. You can say <code>:source filename echo</code> to have input echoed to the console.</p>
 <p>If you say <code>:source filename internal</code> the system will echo the input, then echo the tokenized sentences it handled.</p>
-<p>An input sentence that is merely <code>:quit</code> will stop source reading before the file ends, and return to normal source input.</p>
+<p>An input sentence that is merely <code>:quit</code> or <code>:exit</code> will stop source reading before the file ends, and return to normal source input.</p>
+<p>:source can accept a log file and will execute the log entry data appropriate (and skip non-useful lines).</p>
 <h3 id="pos"><code>:pos</code></h3>
 <p>This is a subset of :prepare that just runs the POS-tagger parser on the input you supply. I use it to debug the system. It either is given a sentence or toggles a mode if not (just like <code>:prepare</code>). It also displays pronoun data gathered from the input.</p>
 <h3 id="tokenize"><code>:tokenize</code></h3>

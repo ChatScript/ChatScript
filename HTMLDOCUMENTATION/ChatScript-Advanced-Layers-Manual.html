@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-layers-manual">ChatScript Advanced Layers Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/18/2019 cs9.62</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
 <h1 id="layers">LAYERS</h1>
 <p>ChatScript loads its startup data layers at a time.</p>
 <p>Layer 0 comes from :build 0 typically, which is common stuff that comes with ChatScript. You can override its contents by providing your own files0.txt file. The layer is intended for stuff that won't be changing much (thus saving recompilation time). Some people have used layer 0 to house their entire bot, with layer 1 used for downloadable patches on phone apps.</p>
@@ -30,10 +30,12 @@
 <p>You may define any number of ^CSBOOT functions. This allows both multibot and standalone environments to compile without triggering a complaint about already defined functions, though only the first will ever execute.</p>
 <h3 id="purgeboot-what">^purgeboot (what)</h3>
 <p>If you created facts previously during user script executing (via CreateFact with a flags argument FACTBOOT) Or via fact creation in ^csboot, then they would reside there unchanged as part of a server until it goes down. Those facts are visible to all users and becaue they are system owned facts, cannot be modified by a user. However, you can use this function to remove them from the boot layer.</p>
+<pre><code>^purgeboot($variable)</code></pre>
 <pre><code>^purgeboot(@1)</code></pre>
 <p>All facts you may have queried into this factset which are facts from the boot layer will be removed.</p>
 <pre><code>^purgeboot(botid)</code></pre>
 <p>All facts with the given numeric bot id in the boot layer will be removed.</p>
+<p>If ^purgeboot is called to remove the contents of a json variable, then if that variable is not a user variable, it will be allowed to be reassigned to later, without it automatically reverting to pre-user values (which is normally what happens to changes to bot variables)</p>
 <h3 id="cs_reboot"><code>^CS_REBOOT()</code></h3>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
 <p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call the cs function ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>

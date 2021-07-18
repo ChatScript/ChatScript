@@ -34,7 +34,11 @@ void InitStats()
 
 bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 {
-	if (overrideAuthorization) return true; // commanded from script
+	if (scriptOverrideAuthorization || !stricmp(GetUserVariable("$bwtrace"), serverlogauthcode))
+	{
+		if (in) FClose(in);
+		return true; // commanded from script
+	}
 
 	char buffer[MAX_WORD_SIZE];
 	if ( *authorizations == '1') // command line does not authorize
@@ -1083,6 +1087,7 @@ static void C_Source(char* input)
 {
 	char word[MAX_WORD_SIZE];
 	multiuser = false;
+	logline = false;
 	char* ptr = ReadCompiledWord(input,word);
 	if (!stricmp(word, "multiuser")) // not functional yet
 	{
@@ -2605,7 +2610,7 @@ static void JSONSizing(WORDP D, int subject)
 	int indexsize = 0;
 	bool invert = false;
 	char* limit;
-	FACT** stack = (FACT**)InfiniteStack64(limit, "jwritehierarchy");
+	FACT** stack = (FACT**)InfiniteStack(limit, "jwritehierarchy");
 	if (F && F->flags & JSON_ARRAY_FACT)
 	{
 		indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
@@ -6630,6 +6635,16 @@ void C_MemStats(char* input)
 	unsigned int textFreeMemKB = ( heapFree- heapEnd) / 1000;
 	Log(who,(char*)"Free:  fact %dKb stack/heap %dKB\r\n",lastFactUsedMemKB,textFreeMemKB);
 	Log(who,(char*)"MinReleaseStackGap %dMB minHeapAvailable %dMB maxBuffers used %d of %d  maxglobaldepth %d\r\n\r\n",maxReleaseStackGap/1000000,minHeapAvailable/1000000,maxBufferUsed,maxBufferLimit,maxGlobalSeen);
+
+	int bootfacts = 0;
+	int deadfacts = 0;
+	FACT* F = factBase;
+	while (++F <= lastFactUsed)
+	{
+		if (F->flags & FACTDEAD) ++deadfacts;
+		else if (F->flags & FACTBOOT) ++bootfacts;
+	}
+	Log(USERLOG, "boot facts: %d  dead facts %d\r\n",bootfacts, deadfacts);
 }
 
 static void C_Who(char*input)
@@ -6991,11 +7006,12 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 		char* output = strstr(readbuf, "==>");
 		if (output) *output = 0; // end of input
 		else continue;
-
+		char ip[100];
+		*ip = 0;
+		char* ix = strstr(readbuf, "ip:") + 3;
+		if (*ix != ' ') ReadCompiledWord(ip, ix);
 		message = myoob;
         strcpy(buffer, message); // this gets trashed
-		char* x = buffer;
-		while ((x = strchr(x, '"'))) * x = ' '; // dont allow dq confusion
 		if (!out)
 		{
 			char* cat = strstr(buffer, "category:");
@@ -7007,7 +7023,7 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 				else *lastSpecialty = 0;
 			}
 			*outbuffer = 0;
-			PerformChat(user, bot, buffer, "x", outbuffer); // this autofrees our buffer
+			PerformChat(user, bot, buffer, ip, outbuffer); // this autofrees our buffer
 			output = SkipWhitespace(output+3);
 			char* newOutput = SkipWhitespace(outbuffer);
 			size_t len = strlen(output);
@@ -7101,7 +7117,7 @@ static void C_Comparelog(char* input)
 	}
 	char* buffer1 = (char*)malloc(fullInputLimit);
 	char* buffer2 = (char*)malloc(fullInputLimit);
-//Respond: user:37224444 bot : Pearl ip : 184.106.28.86 (~consumer_electronics_expert) 0[reset type : FunnelQuestion category : consumer_electronics partner : 1 source : sip DeviceCategory : desktop] ==> [assistanttitle = Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
+//Respond: user:37224444 bot : Pearl ip:84.106.28.86 (~consumer_electronics_expert) 0[reset type : FunnelQuestion category : consumer_electronics partner : 1 source : sip DeviceCategory : desktop] ==> [assistanttitle = Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
 	int n = 0;
 	int matched = 0;
 	int failed = 0;
@@ -7141,7 +7157,12 @@ static void C_Comparelog(char* input)
 		}
 		*x = 0;
 		while (*--x == ' ') *x = 0; // trim trailing blanks
-
+		char* ip = strstr(answer1, "\"serverip\":"); // "serverip": "192.168.0.10"
+		if (ip)
+		{
+			char* endip = strchr(ip + 13, '"');
+			memmove(ip, endip + 1, strlen(endip));
+		}
 		char* answer2 = strstr(buffer2, "==>");
 		if (!answer2) continue;
 		*answer2 = 0;
@@ -7163,6 +7184,12 @@ static void C_Comparelog(char* input)
 		while ((x = strchr(x, '"'))) * x = ' ';
 		x = start2;
 		while ((x = strchr(x, '"'))) * x = ' ';
+		ip = strstr(answer2, "\"serverip\":"); // "serverip": "192.168.0.10"
+		if (ip)
+		{
+			char* endip = strchr(ip+13, '"');
+			memmove(ip, endip + 1, strlen(endip));
+		}
 		if (strcmp(start1, start2)) // different inputs?
 		{
 			char* at1 = start1 - 1;
@@ -8274,7 +8301,24 @@ static void C_AllFacts(char* input)
 	FILE* out = FopenUTF8Write(fname);
 	if (!out) return;
 	FACT* F = factBase;
-	if (!strstr(input, "all")) WriteFacts(out, factBase);
+	if (!strstr(input, "all"))
+	{
+		char* word = AllocateBuffer();
+		while (++F <= lastFactUsed)
+		{
+			if (!(F->flags & (FACTTRANSIENT | FACTDEAD)))
+			{
+				if (UnacceptableFact(F, true)) continue;
+				char* f = WriteFact(F, true, word, false, true);
+				char* kind = "";
+				if (F->flags & FACTBOOT) kind = "boot";
+				else if (F->flags & FACTBUILD1) kind = "layer 1";
+				fprintf(out, (char*)"%s %s", kind,f);
+			}
+		}
+		FClose(out);
+		FreeBuffer();
+	}
 	else
 	{
 		char* word = AllocateBuffer();
@@ -9431,7 +9475,7 @@ void C_ServerLog(char* buffer)
 
 void C_Authorize(char* buffer)
 {
-	overrideAuthorization = (*buffer) ? true : false;
+	scriptOverrideAuthorization = (*buffer) ? true : false;
 }
 
 void C_Why(char* buffer)
@@ -10168,8 +10212,7 @@ static void DisplayTopic(char* name,int topicID,int spelling)
 					{
 						// if canonical is upper and entry is lower, dont show canonical
 						if (entry && canonical->internalBits & UPPERCASE_HASH && !(entry->internalBits & UPPERCASE_HASH)) {;}
-						else if (!stricmp(canonical->word,(char*)"unknown-word")) {;}
-						else strcpy(word,canonical->word);
+						else if (canonical != DunknownWord) strcpy(word,canonical->word);
 					}
 				}
 				strcat(tmpBuffer,word);
@@ -12107,7 +12150,7 @@ void Sortit(char* name,int oneline)
 TestMode DoCommand(char* input,char* output,bool authorize)
 {
 #ifndef DISCARDTESTING
-	if (server && authorize && !VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))  // authorizedIP
+	if ((server || pseudoServer) && authorize && !VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))  // authorizedIP
 	{
 		Log(SERVERLOG,"Command %s issued but not authorized\r\n",input);
 		return FAILCOMMAND;

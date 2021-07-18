@@ -2,6 +2,7 @@
 #include "common.h"
 
 uint64 posTiming;
+bool parseLimited = false;
 
 typedef struct EndingInfo 
 {
@@ -2662,6 +2663,9 @@ char* GetPluralNoun(char* noun,char* plu)
     if (D && D->properties & (NOUN_PLURAL | NOUN_PROPER_PLURAL)) return D->word; 
     WORDP plural = GetPlural(D);
      if (plural) return plural->word;
+
+	 char* nounbase = GetSingularNoun(noun, false, true);
+	 if (nounbase && stricmp(noun,nounbase)) return noun; // already is plural
 
 	 char* underscore = strrchr(noun, '_');
 	 if (underscore)

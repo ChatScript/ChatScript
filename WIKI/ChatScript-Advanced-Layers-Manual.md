@@ -1,6 +1,6 @@
 # ChatScript Advanced Layers Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/18/2019 cs9.62
+<br>Revision 7/18/2021 cs11.5
 
 
 # LAYERS
@@ -67,6 +67,10 @@ are visible to all users and becaue they are system owned facts, cannot be modif
 However, you can use this function to remove them from the boot layer.
 
 ```
+^purgeboot($variable)
+```
+
+```
 ^purgeboot(@1)
 ```
 All facts you may have queried into this factset which are facts from the boot layer
@@ -78,6 +82,10 @@ will be removed.
 All facts with the given numeric bot id in the boot layer
 will be removed.
 
+If ^purgeboot is called to remove the contents of a json variable,
+then if that variable is not a user variable, it will be allowed to be reassigned to
+later, without it automatically reverting to pre-user values (which is normally what
+happens to changes to bot variables)
 
 ### `^CS_REBOOT()`
 

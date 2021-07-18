@@ -44,6 +44,7 @@ extern DEBUGAPI debugOutput; // CS output to windows
 extern DEBUGAPI debugEndTurn; // about to save user file marker
 extern DEBUGLOOPAPI debugCall;
 extern DEBUGVARAPI debugVar;
+extern unsigned int parseLimit;
 extern DEBUGVARAPI debugMark;
 extern char myip[100];
 extern DEBUGAPI debugAction;
@@ -52,6 +53,7 @@ extern bool dieonwritefail;
 extern bool blockapitrace;
 extern unsigned int timeLog;
 extern int outputlevel;
+extern char* releaseBotVar;
 extern bool hadAuthCode;
 extern bool crashset;
 extern bool crashBack;
@@ -110,14 +112,15 @@ extern int inputRetryRejoinderTopic;
 extern bool newuser;
 extern int inputRetryRejoinderRuleID;
 extern bool build0Requested;
+extern bool jabugpatch;
 extern bool build1Requested;
 extern char traceuser[500];
 extern bool callback;
-extern char* inputCopy; 
 extern int sentenceLimit;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern char language[40];
+extern bool logline;
 extern char livedataFolder[500];
 extern int  stdlogging;
 extern char languageFolder[500];
@@ -200,7 +203,7 @@ extern char buildfiles[100];
 extern ResetMode buildReset;
 extern bool quitting;
 extern bool unusedRejoinder;
-extern bool overrideAuthorization;
+extern bool scriptOverrideAuthorization;
 extern bool noReact;
 
 // server

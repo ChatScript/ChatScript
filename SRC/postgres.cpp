@@ -108,8 +108,6 @@ FunctionResult DBInitCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
-char hexbytes[] =  {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
-
 static void AdjustQuotes(char* fix,bool nocloser)
 {
 	char* start = fix;
@@ -240,8 +238,8 @@ static void convert2Hex(unsigned char* ptr, size_t len, unsigned char* buffer)
 	{
 		unsigned char first = (*ptr) >> 4;
 		unsigned char second = *ptr++ & 0x0f;
-		*buffer++ = hexbytes[first];
-		*buffer++ = hexbytes[second];
+		*buffer++ = toHex[first];
+		*buffer++ = toHex[second];
 	}
 	*buffer++ = '\'';
 	*buffer++ = 0;

@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 7/18/2021 cs11.5
 
 
 # Real World JSON
@@ -482,6 +482,12 @@ Just escape the $.
 ```
 $data.\$varname = hello 
 ```
+
+
+
+### `^jsonkind`(item)
+If item is the name of a json array, it returns `array`. If item is the name of a json object, it returns `object`. Otherwise
+it fails.
 
 ### `^jsonmerge`(struct1 struct2)
 Takes two json arrays or two json objects and adds unique elements of struct2 into 

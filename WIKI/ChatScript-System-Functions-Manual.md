@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 7/18/2021 cs11.5
 
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
@@ -709,6 +709,9 @@ Basic operations can be done directly in assignment statements like:
 
     $var = $x + 43 - 28
 
+The random function is only pseudo-random. A specific username is assigned a seed based on their name.
+Thereafter the seed evolves by the dialog but it is repeatable when the same
+user starts over again. If you want truly random, use  %fullmstime % $howmany to get range 0 .. $howmany-1
 
 ### `^timefromseconds ( seconds {offset} )`
 
@@ -1470,11 +1473,19 @@ like $answer:=_0  (see Variable assignment in Advanced patterns).
 The "newglobals will  be omitted if there are no changes.
 
 Use of %trace_on and %trace_off in a pattern can also be used
-to trigger and return tracing data.
+to trigger and return tracing data. %trace_on normally just does pattern tracing
+but `%trace_on all` turns on full tracing.
 
 Use of  "cheat cs info" as part of the user input will save onto the newglobal
 $cs_info the datestamps of the engine and scripts, and they will
 be appended to any output from ^testoutput that occurs subsequently.
+
+If you pass in a variable $language=xxxx then cs will change to that 
+language for the call. This only works for languages not requiring
+their own dictionaries (like Japanese and ideographic).
+
+If the user input you pass in is "null", then the current input is not altered and will be used.
+This is only useful if you are calling this function from a normal bot and not an external one.
 
 ### ~replace_spelling
 The variables and concepts fields are optional and provide context. A concept named "~replace_spelling" is treated not as a concept

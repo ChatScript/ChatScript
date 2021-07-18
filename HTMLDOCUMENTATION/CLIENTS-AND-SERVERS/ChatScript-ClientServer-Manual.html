@@ -10,7 +10,7 @@
 <body>
 <h1 id="chatscript-clientserver-manual">ChatScript Client/Server Manual</h1>
 <blockquote>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com <br> Revision 2/8/2021 cs11.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
 </blockquote>
 <ul>
 <li><a href="ChatScript-ClientServer-Manual.html#running-the-server">Running the server</a></li>
@@ -189,6 +189,7 @@ The server app, on receiving the ChatScript output, may need to send it over to 
 <h3 id="jajmeter-file-count-skip">:jajmeter file {count {skip}}</h3>
 <p>In addition to file, if your file ends with /, that means use that as a directory and do all files within it (recursive).</p>
 <p>A line is an entire conversation (a la JMETER std format), with what is expected from the bot and what the user says in return. An output file of TMP/jmeter.txt is generated which labels inputs with they passed (the output from bot matched expectation) or FAILED (and what oob data was shipped is shown along with what was expected and what was received).</p>
+<p>Currently this only works for TCP, not api or integration which have different formats.</p>
 <h2 id="jaraw-file">:jaraw file</h2>
 <p>Send the message under a [category: legal] header and the file only consists of input lines from user with no other data.</p>
 </body>

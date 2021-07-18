@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -304,6 +304,7 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 </table>
 <p>Basic operations can be done directly in assignment statements like:</p>
 <pre><code>$var = $x + 43 - 28</code></pre>
+<p>The random function is only pseudo-random. A specific username is assigned a seed based on their name. Thereafter the seed evolves by the dialog but it is repeatable when the same user starts over again. If you want truly random, use %fullmstime % $howmany to get range 0 .. $howmany-1</p>
 <h3 id="timefromseconds-seconds-offset"><code>^timefromseconds ( seconds {offset} )</code></h3>
 <p>This converts time in seconds (Unix epoch time) from the given time in whatever timezone, to a string like <code>%time</code> returns. You can compute a difference in times by merely doing a subtraction of the two times. <code>%fulltime</code> will give you the current time that you could plug in here. The optional second argument will displace that time by the hours offset (can be plus or minus).</p>
 <h3 id="timeinfofromseconds-seconds"><code>^timeinfofromseconds ( seconds )</code></h3>
@@ -842,8 +843,10 @@ else { $$tcpopen_error }</code></pre>
 <p>Input is the user input (one or more sentences) to be matched against.</p>
 <p>Patterns is an array of pattern strings as returned by CompilePattern. Alternatively, patterns is an array of json pattern objects, which has a field called <code>pattern</code> and optionally a field called <code>label</code> that will be displayed when tracing execution.</p>
 <p>Patterns can use memorization and they can assign values. If they use memorization, you can assign those onto normal variables, which if permanent variables will be returned as &quot;newglobals&quot;. You can perform an assignment inside the pattern using something like $answer:=_0 (see Variable assignment in Advanced patterns). The &quot;newglobals will be omitted if there are no changes.</p>
-<p>Use of %trace_on and %trace_off in a pattern can also be used to trigger and return tracing data.</p>
+<p>Use of %trace_on and %trace_off in a pattern can also be used to trigger and return tracing data. %trace_on normally just does pattern tracing but <code>%trace_on all</code> turns on full tracing.</p>
 <p>Use of &quot;cheat cs info&quot; as part of the user input will save onto the newglobal $cs_info the datestamps of the engine and scripts, and they will be appended to any output from ^testoutput that occurs subsequently.</p>
+<p>If you pass in a variable $language=xxxx then cs will change to that language for the call. This only works for languages not requiring their own dictionaries (like Japanese and ideographic).</p>
+<p>If the user input you pass in is &quot;null&quot;, then the current input is not altered and will be used. This is only useful if you are calling this function from a normal bot and not an external one.</p>
 <h3 id="replace_spelling">~replace_spelling</h3>
 <p>The variables and concepts fields are optional and provide context. A concept named &quot;~replace_spelling&quot; is treated not as a concept but as a list of paired words analogous to &quot;replace:&quot;, but is only a transient replace series for this call. A concept can contain values that look like: <code>&quot;(...)&quot;</code> or <code>(xxx)</code> which are CS patterns. These patterns can match user input just like an ordinary concept word can.<br />
 A concept can contain entries that are pairs, separated by |. This is preferred over supplying separate pairs of words. The left side is stored as the concept member and a fact is created ( left-side api-remap right-side) which allows you to write scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.</p>

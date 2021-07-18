@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 7/18/2021 cs11.5
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -919,8 +919,11 @@ and the output. You can say `:source filename echo` to have input echoed to the 
 If you say `:source filename internal` the system will echo the input, then echo the tokenized
 sentences it handled. 
 
-An input sentence that is merely `:quit` will stop source reading
+An input sentence that is merely `:quit` or `:exit` will stop source reading
 before the file ends, and return to normal source input.
+
+:source can accept a log file and will execute the log entry data
+appropriate (and skip non-useful lines).
 
 ### `:pos`
 This is a subset of :prepare that just runs the POS-tagger parser on the input you supply. I

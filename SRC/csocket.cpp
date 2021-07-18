@@ -339,7 +339,7 @@ static char* FindJMSeparator(char* ptr, char c)
 	return NULL;
 }
 
-static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response, char* data, size_t baselen, FILE* sourcefile, FILE* out, int& passcnt, int& failcnt)
+static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, char* data, size_t baselen, FILE* sourcefile, FILE* out, int& passcnt, int& failcnt)
 {
 	int line = 1;
 	char* at;
@@ -395,36 +395,50 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 		ptr = ReadTabField(ptr, comment);
 		char name[100];
 		ptr = ReadTabField(ptr, name);
-		//TCP:RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
+		// integration(api==2): RunTest,Suite,Comment,Name,Input,Response
+		//API(api==1):RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
+		//TCP (api==0):RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
 		char cat[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr, cat);
-		MakeLowerCase(cat); // there are no upper case cats
 		char spec[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr, spec);
-		if (!stricmp(spec, "all") || !stricmp(spec, "general") || !stricmp(spec, "none")) *spec = 0; // none
 		char loc[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr, loc);
-		if (!*cat) continue;
 		char sippivot[100];
-		if (api) ptr = ReadTabField(ptr, sippivot);
 		char chattype[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr, chattype);
 		char source[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr, source);
+		char specialtydata[MAX_WORD_SIZE];
+		char locationdata[MAX_WORD_SIZE];
+		char chattypedata[MAX_WORD_SIZE];
+		char sourcedata[MAX_WORD_SIZE];
+		if (api == 0)
+		{
+			ptr = ReadTabField(ptr, cat);
+			MakeLowerCase(cat); // there are no upper case cats
+			ptr = ReadTabField(ptr, spec);
+			if (!stricmp(spec, "all") || !stricmp(spec, "general") || !stricmp(spec, "none")) *spec = 0; // none
+			ptr = ReadTabField(ptr, loc);
+			if (!*cat) continue;
+			if (api) ptr = ReadTabField(ptr, sippivot);
+			ptr = ReadTabField(ptr, chattype);
+			ptr = ReadTabField(ptr, source);
+
+			if (*spec) sprintf(specialtydata, " specialty: %s ", spec);
+			else  *specialtydata = 0;
+			if (*loc) sprintf(locationdata, " location: %s ", loc);
+			else *locationdata = 0;
+			if (*chattype) sprintf(chattypedata, " type: %s ", chattype);
+			else *chattypedata = 0;
+			if (*source) sprintf(sourcedata, " source: %s ", source);
+			else *sourcedata = 0;
+			if (!*spec) strcpy(spec, "all");
+		}
 		ptr = ReadTabField(ptr, oobmessage);
-		
-			//API:RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		   //TCP:RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		//no,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for the first message,WelcomeMessage,1st Message,1st Response,2nd Message,2nd Response,3rd Message,3rd Response,4th Message,5th Response,PROBLEM PATTERN,
-		if (*oobmessage == '"') memmove(oobmessage,oobmessage+1,strlen(oobmessage));
+		if (*oobmessage == '"') memmove(oobmessage, oobmessage + 1, strlen(oobmessage));
 		at = oobmessage - 1;
 		while (*++at)
 		{
 			if (*at == '"' && at[1] == '"') memmove(at, at + 1, strlen(at)); // doubled from dq of csv
 		}
 		size_t x = strlen(oobmessage);
-		if (x && oobmessage[x-1] == '"') oobmessage[x - 1] = 0; // remove closing quote
-
+		if (x && oobmessage[x - 1] == '"') oobmessage[x - 1] = 0; // remove closing quote
 		ptr = ReadTabField(ptr, expect);
 		if (*expect == '[')
 		{
@@ -435,26 +449,19 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 			end += strlen(end);
 			if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote removed
 		}
-					   // set up base message
-
+		
 		char init[MAX_WORD_SIZE];
-		char specialtydata[MAX_WORD_SIZE];
-		if (*spec) sprintf(specialtydata, " specialty: %s ", spec);
-		else  *specialtydata = 0;
-		char locationdata[MAX_WORD_SIZE];
-		if (*loc) sprintf(locationdata, " location: %s ", loc);
-		else *locationdata = 0;
-		char chattypedata[MAX_WORD_SIZE];
-		if (*chattype) sprintf(chattypedata, " type: %s ", chattype);
-		else *chattypedata = 0;
-		char sourcedata[MAX_WORD_SIZE];
-		if (*source) sprintf(sourcedata, " source: %s ", source);
-		else *sourcedata = 0;
-
-		sprintf(init, ":reset: [ category: %s %s %s %s %s id: %s]", cat, specialtydata, locationdata, sourcedata, chattypedata,loginID);
 		char* input = init;
-		if (!*spec) strcpy(spec, "all");
 
+		if (api == 2) // integration
+		{
+			sprintf(init, "[%s]", oobmessage);
+			input = init;
+		}
+
+		// set up base tcp or api message
+		else sprintf(init, ":reset: [ category: %s %s %s %s %s id: %s]", cat, specialtydata, locationdata, sourcedata, chattypedata,loginID);
+		
 		// now execute conversation
 		while (*input)
 		{
@@ -554,11 +561,12 @@ static void Jmetertestfile(bool api,char* bot, char* sendbuffer, char* response,
 
 static void ReadNextJmeter(char* name, uint64 value)
 {
-	bool api = false;
+	int api = 0;
 	if (strstr(name, "/API/")) {
-		api = true;
+		api = 1;
 		return; // we cant access api from local
 	}// need api connection for this
+	if (strstr(name, "Integration/")) api = 2;
 
 	FILE* out = (FILE*)value;
 	printf("At: %s\r\n", name);

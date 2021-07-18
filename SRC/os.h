@@ -138,6 +138,8 @@ extern bool idekey;
 #define RECORD_SIZE 4000
 extern char externalBugLog[1000];
 extern FILE* userlogFile;
+extern bool pseudoServer;
+extern bool authorize;
 
 // MEMORY SYSTEM
 extern char logLastCharacter;
@@ -145,6 +147,7 @@ extern int inputSize;
 extern bool inputLimitHit;
 extern bool convertTabs;
 extern bool infiniteStack;
+extern bool infiniteHeap;
 extern CALLFRAME* releaseStackDepth[MAX_GLOBAL];
 extern unsigned int maxBufferLimit;
 extern unsigned int maxReleaseStackGap;
@@ -174,9 +177,10 @@ void FreeBuffer(char*name = (char*) "");
 void CloseBuffers();
 char* AllocateStack(const char* word, size_t len = 0, bool localvar = false, int align = 0);
 void ReleaseInfiniteStack();
+void CompleteInfiniteHeap(char* base);
 void ReleaseStack(char* word);
-char* InfiniteStack(char*& limit,const char* caller);
-char* InfiniteStack64(char*& limit,const char* caller);
+char* InfiniteHeap(const char* caller);
+char* InfiniteStack(char*& limit, const char* caller);
 void CompleteBindStack64(int n,char* base);
 void CompleteBindStack(int used = 0);
 bool AllocateStackSlot(char* variable);
@@ -198,7 +202,7 @@ bool KeyReady();
 bool InHeap(char* ptr);
 bool InStack(char* ptr);
 void CloseDatabases(bool restart = false);
-
+FunctionResult AuthorizedCode(char* buffer);
 // FILE SYSTEM
 int MakeDirectory(const char* directory);
 void EncryptInit(char* params);
@@ -366,6 +370,7 @@ typedef char* (*SpellCheckWordHOOKFN)(char* word, int i);
 #ifndef DISCARDMONGO
 typedef void (*MongoQueryParamsHOOKFN)(bson_t *query);
 typedef void (*MongoUpsertKeyValuesHOOKFN)(bson_t *doc);
+typedef void (*MongoGotDocumentHOOKFN)(bson_t *doc);
 #endif
 
 typedef struct HookInfo
