@@ -172,7 +172,7 @@ bool IsValidJSONName(char* word, char type)
 		strchr(word, '\\') || strchr(word, '"') || strchr(word, '\'') || strchr(word, 0x7f) || strchr(word, '\n') // refuse illegal content
 		|| strchr(word, '\r') || strchr(word, '\t')) return false;    // must be legal unescaped json content and safe CS content
 
-	// jo-anne.van.der.ende@signify.com is not a valid JSON name
+	// jo-anne.bing.det.blot@semi.com is not a valid JSON name
 	// last part must be numbers
 	char* end = word + n - 1;
 	char* at = end;
