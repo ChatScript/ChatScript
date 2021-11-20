@@ -1,4 +1,5 @@
-﻿#`end variables
+﻿$cs_language=ENGLISH
+#`end variables
 ( add inverse remainder )
 ( add inverse mod )
 ( add inverse modulo )

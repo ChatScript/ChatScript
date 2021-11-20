@@ -300,9 +300,9 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // flags on facts  FACT FLAGS
 
 #define FACTATTRIBUTE	    0x10000000  // fact is an attribute fact, object can vary while subject/verb should be fixed 
-// unused 0x20000000 
-// unused 0x40000000 
-// unused 0x80000000 
+// unused 0x80000000  
+#define RAWCASE_ONLY 0x40000000 // user MUST type in this case
+#define END_ONLY    		0x20000000	
 // DO NOT MOVE FLAGS AROUND, since user topic files assume them as they are
 // transient flags
 #define MARKED_FACT         0x08000000  //   TRANSIENT : used during inferencing sometimes to see if fact is marked, also in user save to avoid repeated save
@@ -342,10 +342,11 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTOBJECT		    0x00000020  //   does not apply to canonical forms of words, only the original form - for classes and sets, means dont chase the set
 #define FACTDUPLICATE		0x00000010	//   allow repeats of this fact
 
-#define RAWCASE_ONLY 0x00000008 // user MUST type in this case
-//unused		0x00000004	
-//unused		0x00000002	
-#define END_ONLY    		0x00000001	
+//  0x00000008 
+//  0x00000004	
+#define FACTLANGUAGE 0x00000003 // what language is fact in
+#define FACTLANGUAGE_1 0x00000001
+// matches DICT's use of LANGUAGE_SHIFT on opposite end
 
 // end of fact flags
 
@@ -688,6 +689,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 
 typedef void (*DICTIONARY_FUNCTION)(WORDP D, uint64 data);
+typedef void (*LANGUAGE_FUNCTION)(char* language);
 
 #include "dictionaryMore.h"
 

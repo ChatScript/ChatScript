@@ -1,4 +1,13 @@
-﻿ `NOUN ( ) 
+﻿abandonar ( VERB ) lemma=`abandonar` 
+abandono ( VERB ) lemma=`abandonar` 
+abandonas ( VERB ) lemma=`abandonar` 
+abandona ( VERB ) lemma=`abandonar` 
+abandonamos ( VERB ) lemma=`abandonar` 
+abandonáis ( VERB ) lemma=`abandonar` 
+abandonan ( VERB ) lemma=`abandonar` 
+abandonando ( NOUN NOUN_GERUND ) lemma=`abandonar` 
+abandonado ( VERB_PAST_PARTICIPLE VERB ) lemma=`abandonar` 
+ `NOUN ( ) 
  `2147483648 ( ) 
  `VERB ( ) 
  `1073741824 ( ) 

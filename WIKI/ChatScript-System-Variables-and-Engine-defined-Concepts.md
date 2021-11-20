@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
@@ -358,14 +358,25 @@ user starts over again. If you want truly random, use  %fullmstime % $howmany to
 | `%pid`              |  Linux process id or 0 for other systems 
 | `%restart`          |  You can set and retrieve a value here across a system restart. 
 | `%timeout`          |  Boolean tells if a timeout has happened, based on the timelimit command line parameter
-| `%lastcurltime`		| Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer: | 
-| `%crosstalk`		| 4k buffer in server visible between users to pass data back and forth | 
-| `%crosstalk1`		| 4k buffer in server visible between users to pass data back and forth | 
-| `%logging`		| bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog) | 
- | `%forkcount` |  number of forks requested in linux evserver environment | 
- | `%servertype`  |  parent or fork in linux evserver environment, server or null otherwise | 
- | `%dbparams` |  copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)|  
- | `%botid` |  bot id number in use | 
+| `%lastcurltime`     |  Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer:  
+| `%crosstalk`        |  4k buffer in server visible between users to pass data back and forth  
+| `%crosstalk1`       |  4k buffer in server visible between users to pass data back and forth  
+| `%crosstalk2`       |  4k buffer in server visible between users to pass data back and forth  
+| `%crosstalk3`       |  4k buffer in server visible between users to pass data back and forth  
+| `%logging`          |  bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog) 
+| `%forkcount`        |  number of forks requested in linux evserver environment 
+| `%dbparams`         |  copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)
+| `%botid`            |  bot id number in use 
+| `%curlversion`      |  curl version information  
+| `%dbversion`        |  db version information
+| `%testpattern`      |  The index number in the array of patterns of current pattern being matched in ^testpattern 
+
+## ^testpattern control variables
+| `%testpattern-nosave` | blocks saving NL from ^testpattern if nlsave=1 was set in command line params
+| `%testpattern-prescan` | execute this pattern on all sentences before doing other patterns one-by-one
+| `%trace_on`      |  starting here, do :trace pattern  in ^testpattern 
+| `%trace_on all`      |  starting here, do :trace all  in ^testpattern 
+| `%trace_off`      |  turn off tracing (also turns off at end of cs call)
 
 ## Build data
 
@@ -681,10 +692,10 @@ contents.
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
 | `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
 | `%trace_on and %trace_off`    | Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.| 
-|`$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
-| `$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput|
-| `$cs_sentences_limit  | after this many sentences in volley, cs ignores the rest (default 50) |
-| `$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt |
+| `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
+| `$cs_tracetestoutput`  | set to 1 to force tracing in ^testoutput|
+| `$cs_sentences_limit`  | after this many sentences in volley, cs ignores the rest (default 50) |
+| `$cs_outputlimit`  | Generating more output than this will report a bug into LOGS/bugs.txt |
 | `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
 | `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
 | `$cs_inputlimit` | Restrict user input size (excluding oob) |

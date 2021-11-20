@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_ERROR_H
 #define BSON_ERROR_H
@@ -27,20 +29,19 @@
 BSON_BEGIN_DECLS
 
 
-#define BSON_ERROR_JSON   1
+#define BSON_ERROR_JSON 1
 #define BSON_ERROR_READER 2
+#define BSON_ERROR_INVALID 3
 
-#define BSON_ERROR_BUFFER_SIZE      64
 
-
-void  bson_set_error  (bson_error_t *error,
-                       uint32_t      domain,
-                       uint32_t      code,
-                       const char   *format,
-                       ...) BSON_GNUC_PRINTF (4, 5);
-char *bson_strerror_r (int           err_code,
-                       char         *buf,
-                       size_t        buflen);
+BSON_EXPORT (void)
+bson_set_error (bson_error_t *error,
+                uint32_t domain,
+                uint32_t code,
+                const char *format,
+                ...) BSON_GNUC_PRINTF (4, 5);
+BSON_EXPORT (char *)
+bson_strerror_r (int err_code, char *buf, size_t buflen);
 
 
 BSON_END_DECLS

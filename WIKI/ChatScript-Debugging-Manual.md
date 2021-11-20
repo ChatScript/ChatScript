@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -63,7 +63,7 @@ the above : statement show the list:
 :comparelog - given path/names of 2 log files, show entries that are different
 
 ---- Fact info -
-:allfacts  - Write all facts to TMP/facts.tmp for current bot.  :allfacts all does all bots.
+:allfacts  - Write all facts to TMP/facts.tmp for current bot current language.  :allfacts all does all bots and all languages.
 :facts     - Display all facts with given word or meaning or fact set
 :userfacts - Display current user facts
 
@@ -209,6 +209,10 @@ didn't intend it. Words it doesn't recognize arise either because you made a typ
 Words in upper case are again words it knows as lower case, 
 but you used it as upper case. Maybe right or wrong.
 
+### echorule
+When you add this after the build name, the system will show what rule pattern is has most recently compiled in the log.
+If build crashes in a topic or you are not clear where you are when things go wrong, this trace can help identify the rule in question.
+
 ### ignorespell: ... ###
 You can disable case spelling warnings for specific words by
 naming them in lower case like this:
@@ -257,6 +261,10 @@ When build is complete, it will pick up where it left off with the user (his dat
 unchanged). If you want to automatically clear the user and start afresh, use
 
     :build xxx reset
+
+### Tracing during compilation
+You can put :trace commands interspersed with table arguments or between top level commands in script files.
+You can put :debug commands interspersed with table arguments.
 
 
 **After it goes wrong during execution**
@@ -512,6 +520,9 @@ as it slows everyone and generates large logs potentially.
 Also you can do :serverlog 1 to turn on server logging  and :serverlog 0 to turn off serverlogging.
 You can even force server logging without restarting a server by merely adding the file "serverlogging.txt" with
 arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.
+
+Similarly, if file `traceboot.txt` exists at the top level of CS when the server executes any boot code, that
+will be traced (same as adding `traceboot` in command line params).
 
 Creating the top level file `prelogging.txt` turns on prelogging into server and user files (when logging into 
 those files).
@@ -992,6 +1003,10 @@ startup behavior. E.g., from script:
 ```
 ^eval(:restart erase Vserver=app.john.com/api/1.1 )
 ```
+
+:restart redo_boot will, at end of volley, unwind the boot layer and reexecute boot functions to repopulate the server
+	with new boot data visible to all bots and users.
+
 
 ### `:autoreply xxx`
 

@@ -1,10 +1,54 @@
-Customer Survey:  If you are willing, please answer questions below and email your answers to gowilcox@gmail.com
-1. Are you using CS privately or commercialy?
-2. How long have you been using CS?
-3. What human language are you using cs for?
-4. What additional features do you wish CS had?
-5. What are you using your chatbot for - (eg, ordinary conversation, help bot, faq bot, real estate bot, etc)?
-6. How did you hear about CS?
+
+Version 11.6 11/21/2021 THANKSGIVING SPECIAL
+
+1. Support for multiple language dictionaries at once (+ japanese)
+	a. command line parameter  - eg - "language=english,german"
+	b. :language to change language in local mode during conversation
+	c. :word(word) lists what language dictionaries word is in
+	d. top level "language: german" to scriptcompiler
+    e. $cs_language when set will change to that language
+	f. ^Setlanguage(spanish) to change from script
+	g. API top level field "language" whose value is the language to use for ^testpattern, ^testoutput, ^compilepattern, ^compileoutput
+	h. Special spellchecking support exists for german, spanish, french
+   i.  tokenization- Japanese major sentence end punctuation converts to US std
+
+2. topic flag TOPIC_SAFE documented (when topic revision is "safe" so any saved state of user in topic is not destroyed)
+3.  :build flag echorule -- displays what rule you are currently compiling (useful if you dont know where you were if you died)
+4.  %curlversion %dbversion - version information for curl and current database connection
+5. %crosstalk2 and %crosstalk3 - additionaly crosstalk variables (used to communicate across users via server)
+6 :trace to scriptcompiler  - see debugging manual "Tracing during compilation"
+7. serverlog entry shows linux pending requests q size at time of entry into q when using evserver mode
+8. TOPRULE param for use when inside rejoinder areas (a:, b: etc)  ^fail(TOPRULE)  ^end(toprule)  ^nofail(toprule)
+9 ^setposition modified to accept ^setposition ( _var1 _var2 original ) which sets range from original user input
+10 ^spellcheck accepts 3rd argument, tolerance for number changes that can be made or % of changes
+11 jsonmerge optional 3rd argument 
+	SUM When the keys in the two objects are the same then the values are added together. 
+	SUMIF will only do that if the key actually exists in both objects being merged.
+12 :restart redo_boot will, at end of volley, unwind the boot layer and reexecute boot functions to repopulate the server
+	with new boot data visible to all bots and users.
+13  parselimit tells the system to not bother parsing, postagging or spellchecking inputs greater than this limit (speed optimization).
+
+14 command line params
+	a. stdlogging and noserverprelog removed   
+	b. deployloggingdelay - enable serverlogging on deploy automatically for n minutes  (when normally logging would be off)
+	c.  nl_save=1 -- caches nl processing on $cs_nldata for api calls to ^testpattern to pass along to future calls. saves processing time
+			`nl-save` in user input will override to force nl saving (sets $bwnlsave to do the same thing)
+	d. file traceboot.txt to set param trace_boot dynamically on startup
+
+15. ^compilepattern/testpattern/testoutput  support for script function definitions assigned to variables  
+	see ^compilepattern ""Compiling script functions"
+16. ^testpattern changes
+	a. style=tfdif  in patterns for ^testpattern to match patterns in a manner to tf/dif
+	b. testpatterninput  cheat cs info  - returns variable $cs_info with when scripts and engine were compiled
+	c. if ^testpattern pattern calls ^jsonopen and fails (eg timeout or bad url), and extra field will be returned  jsonopen-status field
+	d. $$cs_sentencecount- the number of the current sentence being used in ^testpattern  - can be used with ^restoresentence
+	e. ^testpattern accepts a label field on each pattern, and using ^getrule(~ label) will retrieve this
+	f.  %testpattern-prescan in the first n patterns to ^testpattern will cause all input sentences to be run against those patterns
+			before running the rest of the patterns in unison against each sentence sequentially
+	g. %testpattern - the index of the current pattern being testsed by ^testpattern
+	h. %originalinput - in testpattern its the input to it, otherwises its the non-oob input per normal
+	i.  %testpattern-nosave in pattern will override any nlsave=1 command line parameter for this call to cs
+
 
 Version 11.5 7/18/2021
 

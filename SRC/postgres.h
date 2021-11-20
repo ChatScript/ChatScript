@@ -15,6 +15,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #ifndef DISCARDPOSTGRES
+const char* PostgresVersion();
 void PostgresScriptShutDown();
 void PGInitUserFilesCode(char* postgresparams);
 void PGUserFilesCloseCode();

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 11/21/2021 cs11.6</p>
 <ul>
 <li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
@@ -25,6 +25,7 @@
 <li><a href="ChatScript-Engine-md#messaging">Messaging</a></li>
 <li><a href="ChatScript-Engine-md#error-handling">Error Handling</a></li>
 <li><a href="ChatScript-Engine-md#multiple-bots">Multiple Bots</a></li>
+<li><a href="ChatScript-Engine-md#multiple-languages">Multiple Languages</a></li>
 <li><a href="ChatScript-Engine-md#private-code">Private Code</a></li>
 <li><a href="ChatScript-Engine-md#documentation">Documentation</a></li>
 </ul>
@@ -92,7 +93,7 @@
 <li><code>zlib</code> (text compression for databases - used for mssql at present)</li>
 </ul>
 <h1 id="character-set">Character set</h1>
-<p>CS expects UTF8 both internally and in user data shipped to it. It may attempt to convert some user and script extended ascii or utf16 data to UTF8 on the fly, mostly related to funny quotes and doublequotes. Input which has characters will be converted to utf8, except for m-dash and n-dash. CS also transcodes some html constants</p>
+<p>CS expects UTF8 both internally and in user data shipped to it. It may attempt to convert some user and script extended ascii or utf16 data to UTF8 on the fly, mostly related to funny quotes and doublequotes. Input which has escaped uxxxx characters will be converted to utf8, except for m-dash and n-dash. CS also transcodes some html constants</p>
 <p>CS disallows use of the backtick in any user input or script so it can be dedicate to internal use. Such use includes: * <code>fact fields</code> - read and write fact fields that need escaping with back ticks instead of individual escapes, faster since don't have to interpret each character * <code>rules</code> - all compiled rules terminate with backtick to support fast scan to next rule * <code>transient variables</code> - values of transient variables have a hidden prefix of 2 backticks to support not allowing visibility of or changing of the value outside local ownership region * <code>dictionary words</code> - internal system words from dictionarysystem.h may have 1 or more backticks at start so no user word lookup could find them. the number of preceeding backticks indicates the kind of value the word has (property, sysstemflag, parsevalue, misc) * <code>user function definitions</code> - multiple bots redefining the same function have their definitions all concatenated together, separated with backticks and indictor of bot ownership * <code>keywords file</code> - multiple bots may use the same keywords in various concepts, each word is separated by a bot id using backtick</p>
 <h1 id="user-data-representatino">User Data Representatino</h1>
 <p>First you need to understand the basic data available to the user and CS and how it is represented and allocated.</p>
@@ -449,6 +450,31 @@ $cs_botid = 1</code></pre>
 <p><code>0</code> are any flags on the arguments that specify special processing of incoming values.</p>
 <p><code>B</code> is the argument count as the number added to 'A' (i.e. 1 argument). If arguments exceed 15, the base will be 'a' instead with 15 deducted from the index.</p>
 <p>The list in parens are the function arguments and any local variables that need to be saved and restored across the call. Following that is the actual compiled script code, ending with a backtick which completes this definition.</p>
+<h1 id="multiple-languages">Multiple Languages</h1>
+<p>ChatScript leans heavily on its dictionary, which normally is in a single language. But you can support up to 3 languages in the dictionary simultanously as well as the &quot;universal&quot; language as well as Japanese, which is not treated as needing a dictionary. Words and facts are segregated by language.</p>
+<p>The command line parameter <code>language=</code> can consist of a series of languages separated by commas. This enables multi-dictionary behavior and with it, the ability to change the current language on the fly. E.g., <code>language=english,spanish,german,japanese</code> Note that japanese involves no dictionary at all, so it can be listed without compromising the 3-language limit.</p>
+<p>Words in different languages in the real world are listed in separate dictionaries by language (with some foreign words listed also in a language's dictionary as imported). Aside from that reason, words are segregated by language because the parts of speech data may vary as may its meanings (concept sets it belongs to, etc). and facts (which depend on words) may be language specific. One cannot have a fact consisting of words from different languages. All words must come from the same language or from universal language.</p>
+<p>Words that ChatScript depends upon, like &quot;member&quot; and &quot;is&quot; are part of the universal language, visible no matter what language you are currently in. Variables, concept and topic names, numbers, operators and punctuation are also language agnostic and always visible.</p>
+<h2 id="internal-data-representations">Internal data representations</h2>
+<p>WORDENTRY has 2 bits in internal bits, which represent which of 4 languages the word is associated with (universal and up to 3 others). All dictionary lookup routines only return answers from the current or univeral language.</p>
+<p>FACT also has 2 bits in its flags, representing the same thing. This is needed because when facts are written out in pure ascii, any association of a word and its language would be lost. Again, code that retrieves facts only finds facts from the current language or universal. When facts are created after loading, they are automatically assigned the current language. They can then only be seen by that language or &quot;universal&quot; if that language gets set in script using ^setlanguage.</p>
+<p>LIVEDATA like monthnames, numbers, currency are now arrays of that data by languageIndex. Treetagger data is also arrays by languageIndex.</p>
+<p>The internal variables involved in language representation are:</p>
+<pre><code>Always used:
+    language - current language
+    multidict-  boolean true if using multiple dictionaries
+Used when multidict is true:
+    language_list - list of available languages separated by commas
+    languageIndex -  0..3 index of language for array indexing and fact bits
+    languageBits - high end bits for dictionary word
+    $cs_language - user variable that can change language</code></pre>
+<h2 id="external-representation">EXTERNAL REPRESENTATION</h2>
+<p>Dictionaries are read in under control of a specific language, so there is no special annotation on the dictionary data externally.</p>
+<p>External fact representation writes the fact's flags, which contain any language restriction on it. A word that is not previously known in the universal language will be found or created in the language designated by the fact.</p>
+<p>Other data created in TOPIC folders resulting from compilation also need to have words annotated with language modifiers. For example, concepts are read in from &quot;keywordsn.txt&quot; and are not normal fact lists. Concepts are listed by name, followed by a list of members, from which facts are generated at load time. This requires that words are annotated with optional restrictions of bot id and language. Words with such restrictions have a suffix that begins with backtick, and are the bot id (if any) and a hyphen and a language index (if any). Concepts can thus mix members from different languages but those members are only visible while in that language.</p>
+<p>Similarly words in CANON, PRIVATE, KEYWORDS, DICT, and dictionary entries in FACT must also be annotated with a backtick and language restriction.</p>
+<p>Words in PATTERNWORDS and SCRIPT do not need annotation. Scripts/Topics are not language specific and only look for the spelled forms and not their language meanings, and enforce language restrictions on the fly. They are not language specific because that would require control script topics be duplicated per language, which would be a maintenance nightmare. You can make a topic refuse to process a language with rules at the start of the topic.</p>
+<p>The system loads multiple dictionaries, storing the binaries at the top level of DICT. It reads the language-specific sections of LIVEDATA under its appropriate language and the universal system data under universal language. Language adjunct data like monthnames, currency, and numbers are read into arrays by languageIndex.</p>
 <h1 id="private-code">Private Code</h1>
 <p>You can add code to the engine without modifying its source files directly. To do this, you create a directory called privatecode at the top level of ChatScript. You must enable the <code>PRIVATE_CODE</code> define.</p>
 <p>Inside it you place files:</p>

@@ -15,8 +15,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #ifndef DISCARDMONGO
-extern char mongodbparams[1000];
+extern char mongodbparams[MAX_WORD_SIZE * 4];  // 4 parts: url database topic ltm
 
+const char* MongoVersion();
 void MongoSystemInit(char* params);
 void MongoShutdown();
 void MongoUserFilesClose();

@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/21/2021 cs11.6</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -211,7 +211,7 @@ $_response = ^jsonopen(transient POST $_url $_var $_header $_userAgent) </code><
 <h2 id="jsonformatstring"><code>jsonformat</code>(string)</h2>
 <p>Because technically JSON requires you put quotes around field names (though various places ignore that requirement) and because CS doesn't, the function takes in a slack json text string and outputs a strict one.</p>
 <h2 id="accessing-json-structures">Accessing JSON structures</h2>
-<h2 id="direct-access-via-json-variables-myvar.field-and-myvar">Direct access via JSON variables <code>$myvar.field</code> and `$myvar[]</h2>
+<h2 id="direct-access-via-json-variables-myvar.field-and-myvar">Direct access via JSON variables <code>$myvar.field</code> and <code>$myvar[]</code></h2>
 <p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted): <code>$myvar.$myfield</code> is legal, as is <code>$myvar._0</code> or <code>$myvar.'_0</code>.</p>
 <p>Dotted notation is cleaner and faster than <code>^jsonpath</code> and <code>jsonobjectinsert</code> and for get, has the advantage that it never fails, it only returns null if it can't find the field. If the path does not contain a json object at a level below the top, one will automatically be created if trying to do assignment, and have the same transient/permanent property as the immediately containing object. If the top level variable is not currently an object, assignment will fail. CS will not create an object for you because it doesn't know if it should be transient or permanent.</p>
 <pre><code>$x = $$obj.name.value.data.side 
@@ -260,8 +260,9 @@ $x.field = null</code></pre>
 <pre><code>$data.\$varname = hello </code></pre>
 <h3 id="jsonkinditem"><code>^jsonkind</code>(item)</h3>
 <p>If item is the name of a json array, it returns <code>array</code>. If item is the name of a json object, it returns <code>object</code>. Otherwise it fails.</p>
-<h3 id="jsonmergestruct1-struct2"><code>^jsonmerge</code>(struct1 struct2)</h3>
+<h3 id="jsonmerge-kind-struct1-struct2"><code>^jsonmerge</code>( {kind} struct1 struct2)</h3>
 <p>Takes two json arrays or two json objects and adds unique elements of struct2 into struct1 recursively.</p>
+<p>If <code>kind</code> is <code>key</code> and the two structs are arrays of objects, then unique objects from the second array are added to the first array (this is the default). Unique meaning that the first property from the object does not exist. If <code>kind</code> is <code>key-value</code> is like <code>key</code> but the uniqueness test is extended to the property value as well. If <code>kind</code> is <code>sum</code> and the two structs are objects, then the values for the same property name in the two objects are added together. If <code>kind</code> is <code>sumif</code> is like <code>sum</code> but items in <code>struct1</code> are only kept if they are also in <code>struct2</code>.</p>
 <h3 id="jsoncountstruct-depth"><code>^jsoncount</code>(struct depth)</h3>
 <p>Walks the given JSON structure, displaying it, except that for arrays arising after depth, just the count of elements is shown</p>
 <h3 id="jsonpath-string-id"><code>^jsonpath</code>( string id )</h3>
@@ -350,7 +351,7 @@ $x.field = null</code></pre>
 <p>If the key has an existing value then if the value is a json object it will be recursively deleted provided its data is not referenced by some other fact (not by any variables). You can suppress this with the <code>SAFE</code> flag. <code>^jsonarraydelete(SAFE $obj $key)</code>.</p>
 <h3 id="jsonarraysize-name"><code>^jsonarraysize</code>( name )</h3>
 <p>deprecated in favor of ^length</p>
-<h3 id="jsontextfactid">`^jsontext(factid)</h3>
+<h3 id="jsontextfactid"><code>^jsontext</code>(factid)</h3>
 <p>^jsontext adds quotes if object of fact is a json text and FAILS if object is not a json fact.</p>
 <p>CS represents json text as ordinary unquoted text, but text that looks like float numbers would be subject to possible float truncations or expansion of digits. This preserves it as text.</p>
 <h3 id="jsoncopy-name"><code>^jsoncopy</code>( name )</h3>
@@ -358,6 +359,7 @@ $x.field = null</code></pre>
 <h3 id="jsonmerge-creation_arg-control-arg1-arg2"><code>^jsonmerge</code>( {creation_arg} control arg1 arg2 )</h3>
 <p>^jsonmerge take two json structures and perform a top level merge. The result is a copy of the first argument, with top level fields augmented with fields from arg2 not found in arg1. Optional first argument is the standard one for many Json creation functions.</p>
 <p>Control describes how to merge fields of json objects. <code>key</code> means if arg1 already has this key, ignore the corresponding field from arg2. <code>key-value</code> means add in the field and value unless they are the same.</p>
+<p>You can also request the system to sum values of fields of objects with control values of <code>sum</code> or <code>sumif</code>.</p>
 <h3 id="jsonobjectinsert-jsonflags-objectname-key-value"><code>^jsonobjectinsert</code>( {JSONFLAGS} objectname key value )</h3>
 <p>inserts the key value pair into the object named. The key does not require quoting. Inserting a json string as value requires a quoted string. Duplicate keys are ignored unless the optional 1st argument <code>DUPLICATE</code> is given. See writeup earlier about optional json flags.</p>
 <p>If the key has an existing value and <code>DUPLICATE</code> is not a factor, then if the value is a json object it will be recursively deleted provided its data is not referenced by some other fact (not by any variables). You can suppress this with the <code>SAFE</code> flag. <code>jsonobjectinsert(SAFE $obj $key null)</code>.</p>

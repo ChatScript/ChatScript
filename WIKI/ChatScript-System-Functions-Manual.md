@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
@@ -112,6 +112,8 @@ The type will be `t`, `?`, `s`, `a`, etc.
 If a rule label is involved, optional third argument if given means only find enabled rules with that label. 
 For usable, returns 1 if is can be used or null if it has been erased. The label `~` means the current rule. 
 The label `0` means the top level rule above us  (if we are a rejoinder, otherwise it is the same as `~`).
+
+If ^getrule(label) is called from ^testpattern, then the label associated with the pattern will be used, if it has one.
 
 
 ### `^hasgambit ( topic )`
@@ -431,7 +433,7 @@ If you end up calling ^unmark with a 2nd argument of null, it will just return w
 This can happen if you pass null to an outputmacro: ^myfn(^var) and then ^unmark(xxx ^var).
 
 
-^Unmark can remove either the single thing, or ^unmark(* _0) removes ALL marks and makes the word completely invisible (not seen in a wildcard match), whereas ^unmark(@ _0) removes all marks but leaves the word occupying space in the sentence and will be seen in a wildcard match.
+^Unmark can remove either the single thing, or ^unmark(* \_0) removes ALL marks and makes the word completely invisible (not seen in a wildcard match), whereas ^unmark(@ \_0) removes all marks but leaves the word occupying space in the sentence and will be seen in a wildcard match.
 
 When you call unmark, the analysis of the sentence HAS ALREADY HAPPENED.  
 If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~noun mark, it has NO impact on other marks made.
@@ -469,7 +471,7 @@ This unmark will also block subsequent specific marking using `^mark` at their l
 
 Turns off ALL matches on this location range but keep the word visible. It cannot be matched by 
 anything but a wildcard and takes up its space in the sentence. Often this is used before something
-like `mark(~city _0) where you are taking something with ambiguous meanings, like "nice",
+like `mark(~city _0)` where you are taking something with ambiguous meanings, like "nice",
 and removing all wrong meanings (and right ones) and putting back just right ones. This is a way
 for the rest of processing to only see the correct interpretation of a word.
 
@@ -477,7 +479,7 @@ Turns off matching on all words of the sentence.
 
 ### `^mark ( * _0 )`
 
-To restore all marks to some location after having used ^unmark(* _0)
+To restore all marks to some location after having used ^unmark(* \_0)
 
 ### `^unmark ( * )`
 
@@ -485,7 +487,7 @@ Turn off all words of the sentence. Probably not that useful.
 
 ### `^mark ( * )` 
 
-Restores all marks of the sentence, for words that had ^unmark(* _0) performed.
+Restores all marks of the sentence, for words that had ^unmark(* \_0) performed.
 
 Reminder: 
 If you do a generic unmark from within a pattern, it is transient and will be
@@ -532,8 +534,20 @@ word is not currently marked from the current sentence.
 
 Sets the match location data of a match var to the number values given.
 
-Alternatively you can do `^setposition ( _var _var1 )`, which is redundant with
-just doing `_var = _var1`.
+Alternatively you can do `^setposition ( _var _var1 )`, which is redundant with just doing `_var = _var1`.
+
+Another alternative is `^setposition ( _var1 _var2 original )`, which will set the position of `_var1` to the actual positions that the original word `_var2` was expanded to. This is equivalent to using 
+```
+$_start = ^position( START _var2 )
+$_end = ^position( END _var2 )
+$_original = ^originalinputrange( $_start $_end )
+$_originalStart = $_original >> 8
+$_originalEnd = $_original & 255
+$_actual = ^actualinputrange( $_originalStart $_originalEnd )
+$_actualStart = $_actual >> 8
+$_actualEnd = $_actual & 255
+^setposition( _var1 $_actualStart $_actualEnd )
+```
 
 ### `^setcanon ( wordindex value )`
 
@@ -915,7 +929,7 @@ useful in a loop instead of having to access by variable name.
 
 If _n_ is `0`, the system merely tests whether the caller exists and fails if the caller is not in the path of this call.
 
-### `^Bug(msg)
+### `^Bug(msg)`
 
 Generates a run-time bug. If you are compiling script at the time, it generates a std script
 bug trap. If you are not, it forces an error message into the bug log.
@@ -948,6 +962,7 @@ other codes propagate past the loop. The codes are:
 | ---------- | ------------| 
 | `CALL`     | stops the current outputmacro w/o failing it. See also ^return |
 | `RULE`     | stops the current rule. Whether the next rule triggers depends upon whether or not output was generated |
+| `TOPRULE`     | stops the current rule (top level if in rejoinder). Whether the next rule triggers depends upon whether or not output was generated |
 | `LOOP`     | stops the current loop but not the rule containing it. Can pass up through topics to find the loop. If there is no loop, it will fail you all the way to the top |
 | `TOPIC`    | stops the current topic |
 | `SENTENCE` |  stops the current rule, topic, and sentence |
@@ -985,6 +1000,7 @@ The failure codes are:
 | code       | description |
 | ---------- | ------------| 
 | `RULE`     | stops the current rule and cancels pending output |
+| `TOPRULE`   | stops the toplevel rule given we are executing in a rejoinder |
 | `LOOP`     | stops a containing loop and fails the rule calling it. If you have no containing loop, this can crawl up through all enclosing topics and make no output |
 | `TOPIC`    | stops not only the current rule also the current topic and cancels pending output. Rule processing stops for the topic, but as it exits, it passes up to the caller a downgraded fail(rule), so the caller can just continue executing other rules |
 | `SENTENCE` | stops the current rule, the current topic, and the current sentence and cancels pending output |
@@ -1087,6 +1103,7 @@ The nofail codes are:
 | code         | description                                                           |
 | ------------ | --------------------------------------------------------------------  |
 | `RULE`       | a rule failure within the script does not propagate outside of nofail |
+| `TOPRULE`   | a rule failure within the script does not propagate outside of nofail |
 | `LOOP`       | a loop failure or end within the script does not propagate outside of nofail |
 | `TOPIC`      | a topic or rule failure within the script does not propagate outside of nofail |
 | `SENTENCE`   | a topic or rule or sentence failure within the script does not propogate outside of nofail |
@@ -1434,6 +1451,16 @@ The code returned may have additional data at the start. This is used to inform 
 to protect words occurring in the pattern. For best results you  should compile patterns in the same bot environment
 you expect to execute them in. The pattern won't explictly protect words it thinks the bot will already be protecting.
 
+### Compiling script functions
+You can create script function definitions in compilepattern can be passed around and used in ^testpattern and ^testoutput.
+This is done by assigning a function definition to a variable appropriately named with a $^ prefix.
+```
+    $^myvar:=^"^dp_myfun($_a $_b) ..... "
+```
+The above variable assignment will compile the assignment into an appropriate representation as a function definition.
+That variable value can be passed into ^testpattern and ^testouput in the variables list and used. The function name
+must start with the prefix ^dp_ .  The ..... are a set of normal output code, but omit any { } around it.
+
 ## CS External API- ^TestPattern
 The external API functions allow execution of rule behaviors from outside of ChatScript.
 ^testpattern will execute a list of patterns and tell you which one (if any) matched and possibly return match variables.
@@ -1463,14 +1490,17 @@ Input is the user input (one or more sentences) to be matched against.
 
 Patterns is an array of pattern strings as returned by CompilePattern. Alternatively, patterns is an
 array of json pattern objects, which has a field called `pattern` and optionally a field called `label`
-that will be displayed when tracing execution.
+that will be displayed when tracing execution and is retrievable using ^getrule(~ label)
 
 Patterns can use memorization
 and they can assign values. If they use memorization,
 you can assign those onto normal variables, which if permanent variables will
 be returned as "newglobals". You can perform an assignment inside the pattern using something
-like $answer:=_0  (see Variable assignment in Advanced patterns). 
+like $answer:=\_0  (see Variable assignment in Advanced patterns). 
 The "newglobals will  be omitted if there are no changes.
+
+Patterns can also define functions that can be used there or in later invoked patterns.  They should be compiled using
+^compilepattern
 
 Use of %trace_on and %trace_off in a pattern can also be used
 to trigger and return tracing data. %trace_on normally just does pattern tracing
@@ -1480,12 +1510,29 @@ Use of  "cheat cs info" as part of the user input will save onto the newglobal
 $cs_info the datestamps of the engine and scripts, and they will
 be appended to any output from ^testoutput that occurs subsequently.
 
-If you pass in a variable $language=xxxx then cs will change to that 
+If you pass in a variable { $language : xxxx } then cs will change to that 
 language for the call. This only works for languages not requiring
 their own dictionaries (like Japanese and ideographic).
 
 If the user input you pass in is "null", then the current input is not altered and will be used.
 This is only useful if you are calling this function from a normal bot and not an external one.
+
+`$$cs_sentencecount` will be set as the number of the current sentence being used and can be used with ^restoresentence.
+`%originalinput` is the input field.
+`%testpattern` will be the index number in the array of patterns of current pattern being matched in ^testpattern 
+
+Normally all patterns are executed in sequence against a sentence, then all again against the next sentence, and so on.
+If the initial patterns have %testpattern-prescan in them (usually at the start), then those will all be executed in sequence
+against all sentences in sequence. Then the remaining patterns will revert to the usual all patterns against each 
+sentence in succession.
+
+Normally every ^testpatterncall to CS will have to have NL done on its input. Patterns that imply no need for NL will
+not trigger it. But if only one needs it, CS will have to do it.  But with command line paramter `nlsave=1` the results
+of NL analysis can be written out in newglobals and passed along to the next ^testpattern call to CS, saving time.
+On the other hand, if you know there will be no next call, you can add to your pattern `%testpattern-nosave` to present
+saving the nl data to newglobals. You can manually force saving from user input by saying `nl-save` or passing in a variable 
+of `$bwnlsave`.
+
 
 ### ~replace_spelling
 The variables and concepts fields are optional and provide context. A concept named "~replace_spelling" is treated not as a concept
@@ -1496,8 +1543,8 @@ as the concept member and a fact is created ( left-side  api-remap   right-side)
 scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.
 
 Style is also optional
-and defaults to `earliest`. Other choices are all, best, and latest. Earliest means stop running
-patterns and sentences as soon as you get a match. The makes the call faster and if your 
+and defaults to `earliest`. Other choices are all, best, latest and tfidf. Earliest means stop running
+patterns and sentences as soon as you get a match. This makes the call faster and if your 
 patterns are ordered best first, there is no incentive to try lower priority patterns or more
 sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition,
 last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result).
@@ -1505,11 +1552,7 @@ All runs all patterns on all sentences. It is good for gleaning data. Best presu
 are ordered best first, but once a match has been found it will move on to additional sentences
 to see if a better match can be found. 
 
-The optional `trace` field if set, will have the patterns involved traced (:trace pattern) and the results
-returned in a field named `trace` as a text string with crlf. Or a pattern can set the variable `$$cs_testpattern_style`
-to be a value and the system will enable trace until it is set off or the call completes.
-
-Result is ordinary user output JSON object: 
+Result of ^testpattern is ordinary user output JSON object: 
 ```
 { 
     "match": 1,  -- index of matching pattern
@@ -1525,6 +1568,185 @@ Just prepend to your input ":tracepattern 1". Or in a pattern or ^testoutput cod
 and that reference will turn on and off tracing within that call to CS. They can be used in any pattern or output without damaging it.
 And you can block this behavior on a server by using the command line parameter
 `blockapitrace`.
+
+If you add  `cheat cs info` to the user input, it will return a newglobal $cs_info which tells when scripts and engine were
+compiled.
+
+If you call ^jsonopen from a pattern and it times out or has a bad url, ^testpattern will return an extra field ` jsonopen-status`
+with value of timeout.
+
+The optional `trace` field if set, will have the patterns involved traced (:trace pattern) and the results
+returned in a field named `trace` as a text string with crlf. Or a pattern can set the variable `$$cs_testpattern_style`
+to be a value and the system will enable trace until it is set off or the call completes.
+
+### Style=tfdif
+
+`tfidf` calculates a similarity score for each pattern using a TF/IDF 
+statistical process (term frequency/interdocument frequency) . 
+The scores are returned in a `scores` array in the result object.
+The input JSON structure requires an `idf` object where the property names represent tokens, typically concept names,
+used in the patterns and a value representing an inverse document frequency score (between 0 and 1) for that token - rarer and hence more
+selective tokens will have a higher score than common terms. 
+It is preferred that the members of each concept are mutually exclusive.
+For a pattern, the similarity score is calculated from the `idf` terms that were actually matched from the input.
+```
+{
+    "patterns" : [
+        "( ~concept1 { ~concept2 } )",
+        "( ~concept3 ~concept1 { ~concept4 } )",
+        "( << { ~concept1 } { ~concept2 } { ~concept5 } >> )",
+        ...
+    ],
+    "idf" : {
+        "~concept1" : 0.43723,
+        "~concept2" : 0.66096,
+        "~concept3" : 0.99923
+        ...
+    }
+}
+```
+
+An extended example is this:
+```
+For reference, here is a sample input document we create where we are trying to pick the best choice from the following:
+1 GB 3G for 28 days @ 155 Rs.
+1 GB 3G for 28 days 147 Rs
+1 GB 2G for 28 days 147 Rs
+Special Packs
+The current sentence is "2G @ 147 Rs."
+
+^testpattern data is: 
+{    # jo-t4484
+  "style": "tfidf",
+  "patterns": [    # ja-t4485
+    "^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists002 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists006 ~choicelists007 ~choicelists008 ) ( << { ~choicelists000 } { ~choicelists001 } { ~choicelists002 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists006 } { ~choicelists007 } { ~choicelists008 } >> :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) ",
+    "^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists002 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists009 ~choicelists008 ) ( << { ~choicelists000 } { ~choicelists001 } { ~choicelists002 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists009 } { ~choicelists008 } >> :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) ",
+    "^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists010 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists009 ~choicelists008 ) ( << { ~choicelists000 } { ~choicelists001 } { ~choicelists010 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists009 } { ~choicelists008 } >> :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) ",
+    "^( ( [ ( ~choicelists011 ~choicelists012 ) ( << { ~choicelists011 } { ~choicelists012 } >> :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) "
+  ],
+  "concepts": [    # ja-t4486
+    {    # jo-t4497
+      "name": "~choicelists000",
+      "values": [    # ja-t4498
+        1
+      ]
+    },
+    {    # jo-t4499
+      "name": "~choicelists001",
+      "values": [    # ja-t4500
+        "GB"
+      ]
+    },
+    {    # jo-t4501
+      "name": "~choicelists002",
+      "values": [    # ja-t4502
+        "3g",
+        "3G"
+      ]
+    },
+    {    # jo-t4503
+      "name": "~choicelists003",
+      "values": [    # ja-t4504
+        "for"
+      ]
+    },
+    {    # jo-t4505
+      "name": "~choicelists004",
+      "values": [    # ja-t4506
+        28
+      ]
+    },
+    {    # jo-t4507
+      "name": "~choicelists005",
+      "values": [    # ja-t4508
+        "day",
+        "days"
+      ]
+    },
+    {    # jo-t4509
+      "name": "~choicelists006",
+      "values": [    # ja-t4510
+        "at",
+        "@"
+      ]
+    },
+    {    # jo-t4511
+      "name": "~choicelists007",
+      "values": [    # ja-t4512
+        155
+      ]
+    },
+    {    # jo-t4513
+      "name": "~choicelists008",
+      "values": [    # ja-t4514
+        "rs",
+        "Rs."
+      ]
+    },
+    {    # jo-t4524
+      "name": "~choicelists009",
+      "values": [    # ja-t4525
+        147
+      ]
+    },
+    {    # jo-t4532
+      "name": "~choicelists010",
+      "values": [    # ja-t4533
+        "2g",
+        "2G"
+      ]
+    },
+    {    # jo-t4540
+      "name": "~choicelists011",
+      "values": [    # ja-t4541
+        "special",
+        "Special"
+      ]
+    },
+    {    # jo-t4542
+      "name": "~choicelists012",
+      "values": [    # ja-t4543
+        "pack",
+        "Packs"
+      ]
+    },
+    {    # jo-t4551
+      "name": "~choicelistsall",
+      "values": [    # ja-t4552
+        "( ^testLoVSpell( ) )"
+      ]
+    }
+  ],
+  "idf": {    # jo-t4487
+    "~choicelists000": 0.4372345589580705,
+    "~choicelists001": 0.4372345589580705,
+    "~choicelists002": 0.6609640474436812,
+    "~choicelists003": 0.0017079474959299629187314817357901119976304471492767,
+    "~choicelists004": 0.4372345589580705,
+    "~choicelists005": 0.4372345589580705,
+    "~choicelists006": 0.34328891624380336589084095066937152296304702758789,
+    "~choicelists007": 1.0849625007211563,
+    "~choicelists008": 0.4372345589580705,
+    "~choicelists009": 0.6609640474436812,
+    "~choicelists010": 1.0849625007211563,
+    "~choicelists011": 1.0849625007211563,
+    "~choicelists012": 1.0849625007211563
+  }
+}
+
+And this produces an output of 
+
+{    # jo-t4559
+  "match": 2,
+  "scores": [    # ja-t4560
+    0.400867,
+    0.571482,
+    0.968875,
+    0.000000
+  ]
+}
+```
+
 
 ## CS External API- ^CompileOutput
 The external API functions allow execution of rule behaviors from outside of ChatScript.
@@ -1649,7 +1871,7 @@ Multiple calls to memory mark stack up the data, so each call to ^memoryfree wil
 
 ### `^memoryfree ( {$data})`
 
-This releases memory back to the most recent ^memorymark()`. It is best
+This releases memory back to the most recent `^memorymark()`. It is best
 done after your main control of the document bot has finished processing a sentence.
 Partly because the analysis of the sentence is lost and so no later rules can pattern 
 match to it (though you can call ^analyze to reacquire your sentence).
@@ -2027,6 +2249,20 @@ match the rest of your given pattern. It will keep trying as needed. Eg.
     ^spell(h.l.o @1) will find hello
 
 
+### `^spellcheck ( input dictionary {tolerance} )`
+
+Input is tokenized words separated by spaces, dictionary is json array of words.
+Outputs the input words adjusted by any spelling correction.
+
+Useful if you read dynamic menus from an API endpoint and then want
+to match user input against that menu, whose elements may not be
+in the main CS dictionary.
+
+By default up to two characters in a word can be changed. The tolerance argument can be either an integer 
+specifying the number of characters that can be changed, or a floating point percentage to indicate 
+the proportion of characters in each word that can be changed.
+
+
 ### `^sexed ( word he-choice she-choice it-choice )`
 
 Given a word, depending on its sex the system outputs one of the three sex choices given. 
@@ -2216,8 +2452,8 @@ as either the original word  or as a  canonical word (as a match variable sees i
 
 `^wordAtIndex ( canonical n n1)` gathers a range from n thru n1. 
 
-`^wordAtIndex ( original "_0")` gathers a range from that which _0 represents (but uses the
-original data so it is not like merely saying _0, which may not have real data if you did an arbitrary assignment to it setting its position). 
+`^wordAtIndex ( original "_0")` gathers a range from that which \_0 represents (but uses the
+original data so it is not like merely saying \_0, which may not have real data if you did an arbitrary assignment to it setting its position). 
 
 
 # Multipurpose Functions
@@ -2459,7 +2695,7 @@ You can also delete an individual fact who's id is sitting on some variable
 If you pass something that is not deleteable, the system will do nothing and does not fail.
 
 
-### `^length ( factset or `~set` or jsonid or word )`
+### `^length ( factset or ~set or jsonid or word )`
 
 If you want to know how many facts a fact-set has, you can do this:
 
@@ -2517,7 +2753,7 @@ discarded across inputs. You can force a set to be saved by saying:
 
 If you give this a factset, it will convert any transient facts in that set into permanent.
 If you give this a factid, it will convert all transient facts created after that id into permanent. This
-might allow you, for example, to call `^jsonopen and get back a transient JSON structure and after inspection
+might allow you, for example, to call `^jsonopen` and get back a transient JSON structure and after inspection
 you could convert it to permanent if you wanted to. 
 
 ### `^setFactOwner ( {set , factid} idbits )`
@@ -2647,7 +2883,7 @@ If the fieldname starts uppercase, the system gives you the printout of that fac
 `^field( $$f object)` returns a number `(the fact index)`
 and `^field($$f Object)` returns `(he eats beer)` as the translation of the fact into text.
 
-Fields include: `subject`, `verb`, `object`, `flagsv, `all` (spread onto 3 match variables, raw
+Fields include: `subject`, `verb`, `object`, `flagsv`, `all` (spread onto 3 match variables, raw
 (spread onto 3 match variables). 
 
 `all` just displays a human normal dictionary word, so if

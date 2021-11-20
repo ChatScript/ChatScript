@@ -403,6 +403,12 @@ KEEP
 	IS PRONOUN_POSSESSIVE
 DISCARD
 
+# preposition vs proper noun followed by possessive pronoun - on (Noun_proper_singular +Preposition)  my (Pronoun_possessive)  statement (Noun_singular) "on" for Ontario
+0	INCLUDE * NOUN_PROPER_SINGULAR
+	STAY HASPROPERTY PREPOSITION
+	IS PRONOUN_POSSESSIVE
+DISCARD
+
  # noun at end of coord conjunction requires noun before  style (+Noun_singular Verb_present)  and (Conjunction_coordinate)  dedication (Noun_singular)  
 0	INCLUDE * NORMAL_NOUN_BITS
 	IS CONJUNCTION_COORDINATE

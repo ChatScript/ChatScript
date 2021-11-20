@@ -235,12 +235,7 @@ static char* WriteUserFacts(char* ptr,bool sharefile,unsigned int limit,char* sa
 		{
 			++counter;
 			WriteFact(F,true,ptr,false,true); // facts are escaped safe for JSON
-            if (trace & TRACE_USERFACT)
-            {
-                char data[MAX_WORD_SIZE];
-                WriteFact(F, true, data, false, true,true);
-                Log(USERLOG,"Saved %s", data);
-            }
+            if (trace & TRACE_USERFACT) Log(USERLOG,"Saved %s\r\n", ptr);
 			ptr += strlen(ptr);
 			if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) 
 			{
@@ -365,8 +360,10 @@ static bool ReadRecentMessages()
 	char* buffer = AllocateStack(NULL,maxBufferSize); // messages are limited in size so are safe
 	char* recover = AllocateStack(NULL, maxBufferSize); // messages are limited in size so are safe
 	char* original = buffer;
+	backupMessages = NULL;
 	*buffer = 0;
 	buffer[1] = 0;
+	backupMessages = NULL;
     for (humanSaidIndex = 0; humanSaidIndex <= MAX_USED; ++humanSaidIndex) 
     {
         ReadALine(recover, 0);
@@ -379,6 +376,8 @@ static bool ReadRecentMessages()
 	{
 		humanSaidIndex = 0;
 		chatbotSaidIndex = 0;
+		backupMessages = NULL;
+		ReleaseStack(buffer);
 		ReportBug((char*)"bad humansaid")
 		return false;
 	}
@@ -396,7 +395,9 @@ static bool ReadRecentMessages()
 	if (chatbotSaidIndex > MAX_USED || strcmp(chatbotSaid[chatbotSaidIndex],(char*)"#`end chatbot")) // failure to end right
 	{
 		chatbotSaidIndex = 0;
+		backupMessages = NULL;
 		ReleaseStack(buffer);
+		backupMessages = NULL;
 		ReportBug((char*)"Bad message alignment\r\n")
 		return false;
 	}
@@ -460,6 +461,8 @@ static void SaveJSON(WORDP D) // json structure head
 char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 {
 	if (!ptr) return NULL;
+	sprintf(ptr, "$cs_language=%s\r\n", language); // where we left off
+	ptr += strlen(ptr);
 
     HEAPREF varthread = userVariableThreadList;
 	bool traceseen = false;
@@ -480,8 +483,8 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 			char* val = D->w.userValue;
 			// track json structures referred to
 			if (val && val[0] == 'j' && (val[1] == 'o' || val[1] == 'a') && val[2] == '-' && val[3] != 't' && saveJSON) SaveJSON(FindWord(val));
-
-			if (!stricmp(D->word,"$cs_trace")) 
+			if (!stricmp(D->word, "$cs_language")) continue; // already done by engine
+			else if (!stricmp(D->word,"$cs_trace")) 
 			{
 				if (traceUniversal) continue; // dont touch this
 				traceseen = true;
@@ -656,7 +659,7 @@ void WriteUserData(time_t curr, bool nobackup)
 	char filename[SMALL_WORD_SIZE];
 	// NOTE mongo does not allow . in a filename
 	sprintf(name, (char*)"%s/%stopic_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID);
-	if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID, language);
+	if (!multidict && stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID, language);
 	strcpy(filename, name);
 	strcat(filename, "\r\n");
 	userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
@@ -721,11 +724,11 @@ void WriteUserData(time_t curr, bool nobackup)
 }
 
 static  bool ReadFileData(char* bot) // passed  buffer with file content (where feasible)
-{	
+{
 	strcpy(timePrior, (char*)"0");
 	strcpy(timeturn15, (char*)"0");
 	strcpy(timeturn0, (char*)"0");
-	
+
 	if (newuser) // dont load user, generate anew
 	{
 		newuser = false; // only good for this volley
@@ -734,70 +737,77 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 		return true;
 	}
 
-    loadingUser = true;
-	char* buffer = GetFileRead(loginID,bot);
+	loadingUser = true;
+	char* buffer = GetFileRead(loginID, bot);
 	char junk[MAX_WORD_SIZE];
 	*junk = 0;
 
 	// set bom
 	if (buffer && *buffer != 0) // readable data
-	{ 
+	{
 		maxFileLine = currentFileLine = 0;
 		BOM = BOMSET;
-		char* at = strchr(buffer,'\r');
-        if (at)
-        {
-            userRecordSourceBuffer = at + 2; // skip \r\n
-            ReadALine(readBuffer,0);
+		char* at = strchr(buffer, '\r');
+		if (at)
+		{
+			userRecordSourceBuffer = at + 2; // skip \r\n
+			ReadALine(readBuffer, 0);
 
-            char* x = ReadCompiledWord(readBuffer,junk);
-            x = ReadCompiledWord(x,timeturn0); // the start stamp id if there
-            x = ReadCompiledWord(x,timePrior); // the prior stamp id if there
-            ReadCompiledWord(x,timeturn15); // the timeturn id if there
-            if (stricmp(junk,saveVersion)) *buffer = 0;// obsolete format
-        }
-        else *buffer = 0;
+			char* x = ReadCompiledWord(readBuffer, junk);
+			x = ReadCompiledWord(x, timeturn0); // the start stamp id if there
+			x = ReadCompiledWord(x, timePrior); // the prior stamp id if there
+			ReadCompiledWord(x, timeturn15); // the timeturn id if there
+			if (stricmp(junk, saveVersion)) *buffer = 0;// obsolete format
+		}
+		else *buffer = 0;
 	}
-    if (!buffer || !*buffer  ) 
+	if (!buffer || !*buffer)
 	{
 		// if shared file exists, we dont have to kill it. If one does exist, we merely want to use it to add to existing bots
 		ReadNewUser();
-		strcpy(timeturn0,GetMyTime(time(0))); // startup time
+		strcpy(timeturn0, GetMyTime(time(0))); // startup time
 	}
 	else
 	{
 		if (trace & TRACE_USER) Log(USERLOG,"\r\nLoading user: %s bot: %s\r\n",loginID, bot);
-		if (!ReadUserTopics()) 
+		char* start = buffer;
+		size_t len = strlen(start);
+		if (!ReadUserTopics())
 		{
-			ReportBug((char*)"User data file TOPICS inconsistent\r\n");
+			if (len < 40000) { ReportBug("User data file TOPICS inconsistent %d %s \r\n", len, start) }
+			else { ReportBug("User data file %d TOPICS inconsistent\r\n", len) }
             loadingUser = false;
             return false;
 		}
-		if (!ReadUserVariables()) 
+		if (!ReadUserVariables())
 		{
-			ReportBug((char*)"User data file VARIABLES inconsistent\r\n");
+			if (len < 40000) ReportBug((char*)"User data file VARIABLES inconsistent %d %s \r\n",len,start)
+			else ReportBug((char*)"User data file %d VARIABLES inconsistent\r\n", len)
             loadingUser = false;
             return false;
 		}
-		if (!ReadUserFacts()) 
+		if (!ReadUserFacts())
 		{
-			ReportBug((char*)"User data file FACTS inconsistent\r\n");
+			if (len < 40000) ReportBug((char*)"User data file FACTS inconsistent %d %s \r\n", len, start)
+			else ReportBug((char*)"User data file %d FACTS inconsistent\r\n", len)
             loadingUser = false;
             return false;
 		}
-		if (!ReadUserContext()) 
+		if (!ReadUserContext())
 		{
-			ReportBug((char*)"User data file CONTEXT inconsistent\r\n");
+			if (len < 40000) ReportBug((char*)"User data file CONTEXT inconsistent %d %s \r\n", len,start)
+			else ReportBug((char*)"User data file %d CONTEXT inconsistent\r\n", len)
             loadingUser = false;
-            return false;
+            return true; // accept failure
 		}
-		if (!ReadRecentMessages()) 
+		if (!ReadRecentMessages())
 		{
-			ReportBug((char*)"User data file MESSAGES inconsistent\r\n");
+			if (len < 40000) ReportBug((char*)"User data file MESSAGES inconsistent %d %s \r\n", len,start)
+			else ReportBug((char*)"User data file %d MESSAGES inconsistent\r\n", len)
             loadingUser = false;
-            return false;
+            return true;
 		}
-		if (trace & TRACE_USER) Log(USERLOG,"user loaded normally\r\n");
+		if (trace & TRACE_USER) Log(USERLOG, "user loaded normally\r\n");
 		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex", false, true)) + (volleyCount % MAXRAND);	// rand base assigned to user
 	}
 	userRecordSourceBuffer = NULL;
@@ -810,12 +820,13 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 		if (at == traceuser || at[len] == ',' || !at[len]) trace = (unsigned int)-1;
 		at += 1;
 	}
-    loadingUser = false;
-    return true;
+	loadingUser = false;
+	return true;
 }
 
 void GetUserData(ResetMode& buildReset,char* incoming)
 {
+	loading = true;
 	// accept a user topic file erase command
 	char* x = NULL;
 	if (*erasename && incoming) x = strstr(incoming, erasename);
@@ -855,10 +866,12 @@ void GetUserData(ResetMode& buildReset,char* incoming)
 		ReadUserData();		//   now bring in user state, uses readbuffer
 		BOMAccess(BOMvalue, oldc, oldCurrentLine); // restore old BOM values
 	}
+	loading = false;
 }
 
 void ReadUserData() // passed  buffer with file content (where feasible)
 {	
+	loading = true;
     myBot = 0;	// drop ownership of facts
 	if (globalDepth == 0) currentRule = NULL;
 
@@ -877,6 +890,9 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 	if (!ReadFileData(computerID))// read user file, if any, or get it from cache
 	{
 		(*printer)((char*)"%s",(char*)"User file inconsistent\r\n");
+		shared = false;
+		ResetToPreUser();
+		ReadNewUser(); // abandon this user
 	}
 	if (shared) ReadFileData((char*)"share");  // read shared file, if any, or get it from cache
 
@@ -885,6 +901,7 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Read user data time: %d ms\r\n", diff);
 	}
+	loading = false;
 }
 
 void KillShare()

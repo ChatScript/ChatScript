@@ -18,9 +18,11 @@
 #include "mongoc-bulk-operation.h"
 #include "mongoc-bulk-operation-private.h"
 #include "mongoc-client-private.h"
-#include "mongoc-error.h"
-#include "mongoc-trace.h"
+#include "mongoc-trace-private.h"
 #include "mongoc-write-concern-private.h"
+#include "mongoc-util-private.h"
+#include "mongoc-opts-private.h"
+#include "mongoc-write-command-private.h"
 
 
 /*
@@ -47,23 +49,25 @@ mongoc_bulk_operation_new (bool ordered)
 {
    mongoc_bulk_operation_t *bulk;
 
-   bulk = (mongoc_bulk_operation_t *)bson_malloc0 (sizeof *bulk);
-   bulk->flags.bypass_document_validation = MONGOC_BYPASS_DOCUMENT_VALIDATION_DEFAULT;
+   bulk = (mongoc_bulk_operation_t *) bson_malloc0 (sizeof *bulk);
+   bulk->flags.bypass_document_validation = false;
    bulk->flags.ordered = ordered;
    bulk->server_id = 0;
 
    _mongoc_array_init (&bulk->commands, sizeof (mongoc_write_command_t));
+   _mongoc_write_result_init (&bulk->result);
 
    return bulk;
 }
 
 
 mongoc_bulk_operation_t *
-_mongoc_bulk_operation_new (mongoc_client_t              *client,        /* IN */
-                            const char                   *database,      /* IN */
-                            const char                   *collection,    /* IN */
-                            mongoc_bulk_write_flags_t     flags,         /* IN */
-                            const mongoc_write_concern_t *write_concern) /* IN */
+_mongoc_bulk_operation_new (
+   mongoc_client_t *client,                     /* IN */
+   const char *database,                        /* IN */
+   const char *collection,                      /* IN */
+   mongoc_bulk_write_flags_t flags,             /* IN */
+   const mongoc_write_concern_t *write_concern) /* IN */
 {
    mongoc_bulk_operation_t *bulk;
 
@@ -91,8 +95,8 @@ mongoc_bulk_operation_destroy (mongoc_bulk_operation_t *bulk) /* IN */
 
    if (bulk) {
       for (i = 0; i < bulk->commands.len; i++) {
-         command = &_mongoc_array_index (&bulk->commands,
-                                         mongoc_write_command_t, i);
+         command =
+            &_mongoc_array_index (&bulk->commands, mongoc_write_command_t, i);
          _mongoc_write_command_destroy (command);
       }
 
@@ -101,82 +105,212 @@ mongoc_bulk_operation_destroy (mongoc_bulk_operation_t *bulk) /* IN */
       mongoc_write_concern_destroy (bulk->write_concern);
       _mongoc_array_destroy (&bulk->commands);
 
-      if (bulk->executed) {
-         _mongoc_write_result_destroy (&bulk->result);
-      }
+      _mongoc_write_result_destroy (&bulk->result);
 
       bson_free (bulk);
    }
 }
 
 
-void
-mongoc_bulk_operation_remove (mongoc_bulk_operation_t *bulk,     /* IN */
-                              const bson_t            *selector) /* IN */
+/* already failed, e.g. a bad call to mongoc_bulk_operation_insert? */
+#define BULK_EXIT_IF_PRIOR_ERROR       \
+   do {                                \
+      if (bulk->result.error.domain) { \
+         EXIT;                         \
+      }                                \
+   } while (0)
+
+#define BULK_RETURN_IF_PRIOR_ERROR                                            \
+   do {                                                                       \
+      if (bulk->result.error.domain) {                                        \
+         if (error != &bulk->result.error) {                                  \
+            bson_set_error (error,                                            \
+                            MONGOC_ERROR_COMMAND,                             \
+                            MONGOC_ERROR_COMMAND_INVALID_ARG,                 \
+                            "Bulk operation is invalid from prior error: %s", \
+                            bulk->result.error.message);                      \
+         };                                                                   \
+         return false;                                                        \
+      };                                                                      \
+   } while (0)
+
+
+bool
+_mongoc_bulk_operation_remove_with_opts (
+   mongoc_bulk_operation_t *bulk,
+   const bson_t *selector,
+   const mongoc_bulk_remove_opts_t *remove_opts,
+   int32_t limit,
+   bson_error_t *error) /* OUT */
 {
-   mongoc_write_command_t command = { 0 };
+   mongoc_write_command_t command = {0};
    mongoc_write_command_t *last;
+   bson_t opts;
+   bool has_collation;
+   bool ret = false;
+   bool has_delete_hint;
 
    ENTRY;
 
    BSON_ASSERT (bulk);
    BSON_ASSERT (selector);
 
+   bson_init (&opts);
+
+   /* allow "limit" in opts, but it must be the correct limit */
+   if (remove_opts->limit != limit) {
+      bson_set_error (error,
+                      MONGOC_ERROR_COMMAND,
+                      MONGOC_ERROR_COMMAND_INVALID_ARG,
+                      "Invalid \"limit\" in opts: %" PRId32 "."
+                      " The value must be %" PRId32 ", or omitted.",
+                      remove_opts->limit,
+                      limit);
+      GOTO (done);
+   }
+
+   bson_append_int32 (&opts, "limit", 5, limit);
+   has_collation = !bson_empty (&remove_opts->collation);
+   if (has_collation) {
+      bson_append_document (&opts, "collation", 9, &remove_opts->collation);
+   }
+
+   has_delete_hint = !!(remove_opts->hint.value_type);
+   if (has_delete_hint) {
+      bson_append_value (&opts, "hint", 4, &remove_opts->hint);
+   }
+
    if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
-      if ((last->type == MONGOC_WRITE_COMMAND_DELETE) &&
-          last->u.delete_.multi) {
-         _mongoc_write_command_delete_append (last, selector);
-         EXIT;
+      last = &_mongoc_array_index (
+         &bulk->commands, mongoc_write_command_t, bulk->commands.len - 1);
+      if (last->type == MONGOC_WRITE_COMMAND_DELETE) {
+         last->flags.has_collation |= has_collation;
+         last->flags.has_delete_hint |= has_delete_hint;
+         last->flags.has_multi_write |= (remove_opts->limit == 0);
+         _mongoc_write_command_delete_append (last, selector, &opts);
+         ret = true;
+         GOTO (done);
       }
    }
 
-   _mongoc_write_command_init_delete (&command, selector, true, bulk->flags,
-                                      bulk->operation_id);
+   _mongoc_write_command_init_delete (
+      &command, selector, NULL, &opts, bulk->flags, bulk->operation_id);
+
+   command.flags.has_collation = has_collation;
+   command.flags.has_delete_hint = has_delete_hint;
+   command.flags.has_multi_write = (remove_opts->limit == 0);
 
    _mongoc_array_append_val (&bulk->commands, command);
+   ret = true;
+
+done:
+   bson_destroy (&opts);
+   RETURN (ret);
+}
+
+
+bool
+mongoc_bulk_operation_remove_one_with_opts (mongoc_bulk_operation_t *bulk,
+                                            const bson_t *selector,
+                                            const bson_t *opts,
+                                            bson_error_t *error) /* OUT */
+{
+   mongoc_bulk_remove_one_opts_t remove_opts;
+   bool ret;
+
+   ENTRY;
+
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_remove_one_opts_parse (
+          bulk->client, opts, &remove_opts, error)) {
+      _mongoc_bulk_remove_one_opts_cleanup (&remove_opts);
+      RETURN (false);
+   }
+
+   ret = _mongoc_bulk_operation_remove_with_opts (
+      bulk, selector, &remove_opts.remove, 1, error);
+
+   _mongoc_bulk_remove_one_opts_cleanup (&remove_opts);
+   RETURN (ret);
+}
+
+
+bool
+mongoc_bulk_operation_remove_many_with_opts (mongoc_bulk_operation_t *bulk,
+                                             const bson_t *selector,
+                                             const bson_t *opts,
+                                             bson_error_t *error) /* OUT */
+{
+   mongoc_bulk_remove_many_opts_t remove_opts;
+   bool ret;
+
+   ENTRY;
+
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_remove_many_opts_parse (
+          bulk->client, opts, &remove_opts, error)) {
+      _mongoc_bulk_remove_many_opts_cleanup (&remove_opts);
+      RETURN (false);
+   }
+
+   ret = _mongoc_bulk_operation_remove_with_opts (
+      bulk, selector, &remove_opts.remove, 0, error);
+
+   _mongoc_bulk_remove_many_opts_cleanup (&remove_opts);
+   RETURN (ret);
+}
+
+
+void
+mongoc_bulk_operation_remove (mongoc_bulk_operation_t *bulk, /* IN */
+                              const bson_t *selector)        /* IN */
+{
+   bson_error_t *error = &bulk->result.error;
+
+   ENTRY;
+
+   BULK_EXIT_IF_PRIOR_ERROR;
+
+   if (!mongoc_bulk_operation_remove_many_with_opts (
+          bulk, selector, NULL, error)) {
+      MONGOC_WARNING ("%s", error->message);
+   }
+
+   if (error->domain) {
+      MONGOC_WARNING ("%s", error->message);
+   }
 
    EXIT;
 }
 
 
 void
-mongoc_bulk_operation_remove_one (mongoc_bulk_operation_t *bulk,     /* IN */
-                                  const bson_t            *selector) /* IN */
+mongoc_bulk_operation_remove_one (mongoc_bulk_operation_t *bulk, /* IN */
+                                  const bson_t *selector)        /* IN */
 {
-   mongoc_write_command_t command = { 0 };
-   mongoc_write_command_t *last;
+   bson_error_t *error = &bulk->result.error;
 
    ENTRY;
 
-   BSON_ASSERT (bulk);
-   BSON_ASSERT (selector);
+   BULK_EXIT_IF_PRIOR_ERROR;
 
-   if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
-      if ((last->type == MONGOC_WRITE_COMMAND_DELETE) &&
-          !last->u.delete_.multi) {
-         _mongoc_write_command_delete_append (last, selector);
-         EXIT;
-      }
+   if (!mongoc_bulk_operation_remove_one_with_opts (
+          bulk, selector, NULL, error)) {
+      MONGOC_WARNING ("%s", error->message);
    }
 
-   _mongoc_write_command_init_delete (&command, selector, false, bulk->flags,
-                                      bulk->operation_id);
-
-   _mongoc_array_append_val (&bulk->commands, command);
+   if (error->domain) {
+      MONGOC_WARNING ("%s", error->message);
+   }
 
    EXIT;
 }
-
 
 void
 mongoc_bulk_operation_delete (mongoc_bulk_operation_t *bulk,
-                              const bson_t            *selector)
+                              const bson_t *selector)
 {
    ENTRY;
 
@@ -185,10 +319,9 @@ mongoc_bulk_operation_delete (mongoc_bulk_operation_t *bulk,
    EXIT;
 }
 
-
 void
 mongoc_bulk_operation_delete_one (mongoc_bulk_operation_t *bulk,
-                                  const bson_t            *selector)
+                                  const bson_t *selector)
 {
    ENTRY;
 
@@ -197,173 +330,380 @@ mongoc_bulk_operation_delete_one (mongoc_bulk_operation_t *bulk,
    EXIT;
 }
 
-
 void
 mongoc_bulk_operation_insert (mongoc_bulk_operation_t *bulk,
-                              const bson_t            *document)
+                              const bson_t *document)
 {
-   mongoc_write_command_t command = { 0 };
+   ENTRY;
+
+   BSON_ASSERT (bulk);
+   BSON_ASSERT (document);
+
+   if (!mongoc_bulk_operation_insert_with_opts (
+          bulk, document, NULL /* opts */, &bulk->result.error)) {
+      MONGOC_WARNING ("%s", bulk->result.error.message);
+   }
+
+   EXIT;
+}
+
+bool
+mongoc_bulk_operation_insert_with_opts (mongoc_bulk_operation_t *bulk,
+                                        const bson_t *document,
+                                        const bson_t *opts,
+                                        bson_error_t *error)
+{
+   mongoc_bulk_insert_opts_t insert_opts;
+   mongoc_write_command_t command = {0};
    mongoc_write_command_t *last;
+   bool ret = false;
 
    ENTRY;
 
    BSON_ASSERT (bulk);
    BSON_ASSERT (document);
 
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_insert_opts_parse (
+          bulk->client, opts, &insert_opts, error)) {
+      GOTO (done);
+   }
+
+   if (!_mongoc_validate_new_document (document, insert_opts.validate, error)) {
+      GOTO (done);
+   }
+
    if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
+      last = &_mongoc_array_index (
+         &bulk->commands, mongoc_write_command_t, bulk->commands.len - 1);
 
       if (last->type == MONGOC_WRITE_COMMAND_INSERT) {
          _mongoc_write_command_insert_append (last, document);
-         EXIT;
+         ret = true;
+         GOTO (done);
       }
    }
 
    _mongoc_write_command_init_insert (
-      &command, document, bulk->flags, bulk->operation_id,
-      !mongoc_write_concern_is_acknowledged (bulk->write_concern));
+      &command, document, &insert_opts.extra, bulk->flags, bulk->operation_id);
 
    _mongoc_array_append_val (&bulk->commands, command);
 
-   EXIT;
+   ret = true;
+
+done:
+   _mongoc_bulk_insert_opts_cleanup (&insert_opts);
+   RETURN (ret);
 }
 
-
-void
-mongoc_bulk_operation_replace_one (mongoc_bulk_operation_t *bulk,
-                                   const bson_t            *selector,
-                                   const bson_t            *document,
-                                   bool                     upsert)
+static void
+_mongoc_bulk_operation_update_append (
+   mongoc_bulk_operation_t *bulk,
+   const bson_t *selector,
+   const bson_t *document,
+   const mongoc_bulk_update_opts_t *update_opts,
+   const bson_t *array_filters,
+   const bson_t *extra_opts)
 {
-   mongoc_write_command_t command = { 0 };
-   size_t err_off;
+   mongoc_write_command_t command = {0};
    mongoc_write_command_t *last;
-   int flags = BSON_VALIDATE_DOT_KEYS|BSON_VALIDATE_DOLLAR_KEYS;
+   bson_t opts;
+   bool has_collation;
+   bool has_array_filters;
+   bool has_update_hint;
+
+   bson_init (&opts);
+   bson_append_bool (&opts, "upsert", 6, update_opts->upsert);
+   bson_append_bool (&opts, "multi", 5, update_opts->multi);
+
+   has_array_filters = !bson_empty0 (array_filters);
+   if (has_array_filters) {
+      bson_append_array (&opts, "arrayFilters", 12, array_filters);
+   }
+
+   has_collation = !bson_empty (&update_opts->collation);
+   if (has_collation) {
+      bson_append_document (&opts, "collation", 9, &update_opts->collation);
+   }
+
+   has_update_hint = !!(update_opts->hint.value_type);
+   if (has_update_hint) {
+      bson_append_value (&opts, "hint", 4, &update_opts->hint);
+   }
+
+   if (extra_opts) {
+      bson_concat (&opts, extra_opts);
+   }
+
+   if (bulk->commands.len) {
+      last = &_mongoc_array_index (
+         &bulk->commands, mongoc_write_command_t, bulk->commands.len - 1);
+      if (last->type == MONGOC_WRITE_COMMAND_UPDATE) {
+         last->flags.has_array_filters |= has_array_filters;
+         last->flags.has_collation |= has_collation;
+         last->flags.has_update_hint |= has_update_hint;
+         last->flags.has_multi_write |= update_opts->multi;
+         _mongoc_write_command_update_append (last, selector, document, &opts);
+         bson_destroy (&opts);
+         return;
+      }
+   }
+
+   _mongoc_write_command_init_update (
+      &command, selector, document, &opts, bulk->flags, bulk->operation_id);
+
+   command.flags.has_array_filters = has_array_filters;
+   command.flags.has_collation = has_collation;
+   command.flags.has_update_hint = has_update_hint;
+   command.flags.has_multi_write = update_opts->multi;
+
+   _mongoc_array_append_val (&bulk->commands, command);
+   bson_destroy (&opts);
+}
+
+static bool
+_mongoc_bulk_operation_update_with_opts (
+   mongoc_bulk_operation_t *bulk,
+   const bson_t *selector,
+   const bson_t *document,
+   const mongoc_bulk_update_opts_t *update_opts,
+   const bson_t *array_filters,
+   const bson_t *extra_opts,
+   bool multi,
+   bson_error_t *error) /* OUT */
+{
+   ENTRY;
 
    BSON_ASSERT (bulk);
    BSON_ASSERT (selector);
    BSON_ASSERT (document);
 
-   ENTRY;
-
-   if (!bson_validate (document, (bson_validate_flags_t)flags, &err_off)) {
-      MONGOC_WARNING ("%s(): replacement document may not contain "
-                      "$ or . in keys. Ignoring document.",
-                      BSON_FUNC);
-      EXIT;
+   if (!_mongoc_validate_update (document, update_opts->validate, error)) {
+      RETURN (false);
    }
 
-   if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
-      if (last->type == MONGOC_WRITE_COMMAND_UPDATE) {
-         _mongoc_write_command_update_append (last, selector, document, upsert, false);
-         EXIT;
-      }
+   /* allow "multi" in opts, but it must be the correct multi */
+   if (update_opts->multi != multi) {
+      bson_set_error (error,
+                      MONGOC_ERROR_COMMAND,
+                      MONGOC_ERROR_COMMAND_INVALID_ARG,
+                      "Invalid \"multi\" in opts: %s."
+                      " The value must be %s, or omitted.",
+                      update_opts->multi ? "true" : "false",
+                      multi ? "true" : "false");
+      RETURN (false);
    }
 
-   _mongoc_write_command_init_update (&command, selector, document, upsert,
-                                      false, bulk->flags, bulk->operation_id);
-   _mongoc_array_append_val (&bulk->commands, command);
+   _mongoc_bulk_operation_update_append (
+      bulk, selector, document, update_opts, array_filters, extra_opts);
 
-   EXIT;
+   RETURN (true);
 }
 
+bool
+mongoc_bulk_operation_update_one_with_opts (mongoc_bulk_operation_t *bulk,
+                                            const bson_t *selector,
+                                            const bson_t *document,
+                                            const bson_t *opts,
+                                            bson_error_t *error) /* OUT */
+{
+   mongoc_bulk_update_one_opts_t update_opts;
+   bool ret;
+
+   ENTRY;
+
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_update_one_opts_parse (
+          bulk->client, opts, &update_opts, error)) {
+      _mongoc_bulk_update_one_opts_cleanup (&update_opts);
+      RETURN (false);
+   }
+
+   ret = _mongoc_bulk_operation_update_with_opts (bulk,
+                                                  selector,
+                                                  document,
+                                                  &update_opts.update,
+                                                  &update_opts.arrayFilters,
+                                                  &update_opts.extra,
+                                                  false /* multi */,
+                                                  error);
+
+   _mongoc_bulk_update_one_opts_cleanup (&update_opts);
+   RETURN (ret);
+}
+
+bool
+mongoc_bulk_operation_update_many_with_opts (mongoc_bulk_operation_t *bulk,
+                                             const bson_t *selector,
+                                             const bson_t *document,
+                                             const bson_t *opts,
+                                             bson_error_t *error) /* OUT */
+{
+   mongoc_bulk_update_many_opts_t update_opts;
+   bool ret;
+
+   ENTRY;
+
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_update_many_opts_parse (
+          bulk->client, opts, &update_opts, error)) {
+      _mongoc_bulk_update_many_opts_cleanup (&update_opts);
+      RETURN (false);
+   }
+
+   ret = _mongoc_bulk_operation_update_with_opts (bulk,
+                                                  selector,
+                                                  document,
+                                                  &update_opts.update,
+                                                  &update_opts.arrayFilters,
+                                                  &update_opts.extra,
+                                                  true /* multi */,
+                                                  error);
+
+   _mongoc_bulk_update_many_opts_cleanup (&update_opts);
+   RETURN (ret);
+}
 
 void
 mongoc_bulk_operation_update (mongoc_bulk_operation_t *bulk,
-                              const bson_t            *selector,
-                              const bson_t            *document,
-                              bool                     upsert)
+                              const bson_t *selector,
+                              const bson_t *document,
+                              bool upsert)
 {
-   bool multi = true;
-   mongoc_write_command_t command = { 0 };
-   bson_iter_t iter;
-   mongoc_write_command_t *last;
-
-   BSON_ASSERT (bulk);
-   BSON_ASSERT (selector);
-   BSON_ASSERT (document);
+   bson_t opts;
+   bson_error_t *error = &bulk->result.error;
 
    ENTRY;
 
-   if (bson_iter_init (&iter, document)) {
-      while (bson_iter_next (&iter)) {
-         if (!strchr (bson_iter_key (&iter), '$')) {
-            MONGOC_WARNING ("%s(): update only works with $ operators.",
-                            BSON_FUNC);
-            EXIT;
-         }
-      }
+   BULK_EXIT_IF_PRIOR_ERROR;
+
+   bson_init (&opts);
+   if (upsert) {
+      BSON_APPEND_BOOL (&opts, "upsert", upsert);
    }
 
-   if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
-      if (last->type == MONGOC_WRITE_COMMAND_UPDATE) {
-         _mongoc_write_command_update_append (last, selector, document, upsert, multi);
-         EXIT;
-      }
+   if (!mongoc_bulk_operation_update_many_with_opts (
+          bulk, selector, document, &opts, error)) {
+      MONGOC_WARNING ("%s", error->message);
    }
 
-   _mongoc_write_command_init_update (&command, selector, document, upsert,
-                                      multi, bulk->flags, bulk->operation_id);
-   _mongoc_array_append_val (&bulk->commands, command);
+   bson_destroy (&opts);
+
+   if (error->domain) {
+      MONGOC_WARNING ("%s", error->message);
+   }
+
    EXIT;
 }
-
 
 void
 mongoc_bulk_operation_update_one (mongoc_bulk_operation_t *bulk,
-                                  const bson_t            *selector,
-                                  const bson_t            *document,
-                                  bool                     upsert)
+                                  const bson_t *selector,
+                                  const bson_t *document,
+                                  bool upsert)
 {
-   mongoc_write_command_t command = { 0 };
-   bson_iter_t iter;
-   mongoc_write_command_t *last;
+   bson_t opts;
+   bson_error_t *error = &bulk->result.error;
+
+   ENTRY;
+
+   BULK_EXIT_IF_PRIOR_ERROR;
+
+   bson_init (&opts);
+   BSON_APPEND_BOOL (&opts, "upsert", upsert);
+
+   if (!mongoc_bulk_operation_update_one_with_opts (
+          bulk, selector, document, &opts, error)) {
+      MONGOC_WARNING ("%s", error->message);
+   }
+
+   bson_destroy (&opts);
+
+   if (error->domain) {
+      MONGOC_WARNING ("%s", error->message);
+   }
+
+   EXIT;
+}
+
+bool
+mongoc_bulk_operation_replace_one_with_opts (mongoc_bulk_operation_t *bulk,
+                                             const bson_t *selector,
+                                             const bson_t *document,
+                                             const bson_t *opts,
+                                             bson_error_t *error) /* OUT */
+{
+   mongoc_bulk_replace_one_opts_t repl_opts;
+   mongoc_bulk_update_opts_t *update_opts = &repl_opts.update;
+   bool ret = false;
+
+   ENTRY;
 
    BSON_ASSERT (bulk);
    BSON_ASSERT (selector);
    BSON_ASSERT (document);
 
+   BULK_RETURN_IF_PRIOR_ERROR;
+
+   if (!_mongoc_bulk_replace_one_opts_parse (
+          bulk->client, opts, &repl_opts, error)) {
+      GOTO (done);
+   }
+
+   if (!_mongoc_validate_replace (document, update_opts->validate, error)) {
+      GOTO (done);
+   }
+
+   /* allow "multi" in opts, but it must be the correct multi */
+   if (update_opts->multi) {
+      bson_set_error (error,
+                      MONGOC_ERROR_COMMAND,
+                      MONGOC_ERROR_COMMAND_INVALID_ARG,
+                      "Invalid \"multi\": true in opts for"
+                      " mongoc_bulk_operation_replace_one_with_opts."
+                      " The value must be true, or omitted.");
+      GOTO (done);
+   }
+
+   _mongoc_bulk_operation_update_append (
+      bulk, selector, document, update_opts, NULL, &repl_opts.extra);
+   ret = true;
+
+done:
+   _mongoc_bulk_replace_one_opts_cleanup (&repl_opts);
+   RETURN (ret);
+}
+
+void
+mongoc_bulk_operation_replace_one (mongoc_bulk_operation_t *bulk,
+                                   const bson_t *selector,
+                                   const bson_t *document,
+                                   bool upsert)
+{
+   bson_t opts = BSON_INITIALIZER;
+   bson_error_t *error = &bulk->result.error;
+
    ENTRY;
 
-   if (bson_iter_init (&iter, document)) {
-      while (bson_iter_next (&iter)) {
-         if (!strchr (bson_iter_key (&iter), '$')) {
-            MONGOC_WARNING ("%s(): update_one only works with $ operators.",
-                            BSON_FUNC);
-            EXIT;
-         }
-      }
+   BSON_APPEND_BOOL (&opts, "upsert", upsert);
+
+   if (!mongoc_bulk_operation_replace_one_with_opts (
+          bulk, selector, document, &opts, error)) {
+      MONGOC_WARNING ("%s", error->message);
    }
 
-   if (bulk->commands.len) {
-      last = &_mongoc_array_index (&bulk->commands,
-                                   mongoc_write_command_t,
-                                   bulk->commands.len - 1);
-      if (last->type == MONGOC_WRITE_COMMAND_UPDATE) {
-         _mongoc_write_command_update_append (last, selector, document, upsert, false);
-         EXIT;
-      }
-   }
+   bson_destroy (&opts);
 
-   _mongoc_write_command_init_update (&command, selector, document, upsert,
-                                      false, bulk->flags, bulk->operation_id);
-   _mongoc_array_append_val (&bulk->commands, command);
    EXIT;
 }
 
-
 uint32_t
-mongoc_bulk_operation_execute (mongoc_bulk_operation_t *bulk,  /* IN */
-                               bson_t                  *reply, /* OUT */
-                               bson_error_t            *error) /* OUT */
+mongoc_bulk_operation_execute (mongoc_bulk_operation_t *bulk, /* IN */
+                               bson_t *reply,                 /* OUT */
+                               bson_error_t *error)           /* OUT */
 {
    mongoc_cluster_t *cluster;
    mongoc_write_command_t *command;
@@ -376,41 +716,47 @@ mongoc_bulk_operation_execute (mongoc_bulk_operation_t *bulk,  /* IN */
 
    BSON_ASSERT (bulk);
 
-   cluster = &bulk->client->cluster;
-
-   if (bulk->executed) {
-      _mongoc_write_result_destroy (&bulk->result);
-   }
-
-   _mongoc_write_result_init (&bulk->result);
-
-   bulk->executed = true;
-
    if (!bulk->client) {
       bson_set_error (error,
                       MONGOC_ERROR_COMMAND,
                       MONGOC_ERROR_COMMAND_INVALID_ARG,
                       "mongoc_bulk_operation_execute() requires a client "
                       "and one has not been set.");
-      RETURN (false);
-   } else if (!bulk->database) {
+      GOTO (err);
+   }
+   cluster = &bulk->client->cluster;
+
+   if (bulk->executed) {
+      _mongoc_write_result_destroy (&bulk->result);
+      _mongoc_write_result_init (&bulk->result);
+   }
+
+   bulk->executed = true;
+
+   if (!bulk->database) {
       bson_set_error (error,
                       MONGOC_ERROR_COMMAND,
                       MONGOC_ERROR_COMMAND_INVALID_ARG,
                       "mongoc_bulk_operation_execute() requires a database "
                       "and one has not been set.");
-      RETURN (false);
+      GOTO (err);
    } else if (!bulk->collection) {
       bson_set_error (error,
                       MONGOC_ERROR_COMMAND,
                       MONGOC_ERROR_COMMAND_INVALID_ARG,
                       "mongoc_bulk_operation_execute() requires a collection "
                       "and one has not been set.");
-      RETURN (false);
+      GOTO (err);
    }
 
-   if (reply) {
-      bson_init (reply);
+   /* error stored by functions like mongoc_bulk_operation_insert that
+    * can't report errors immediately */
+   if (bulk->result.error.domain) {
+      if (error) {
+         memcpy (error, &bulk->result.error, sizeof (bson_error_t));
+      }
+
+      GOTO (err);
    }
 
    if (!bulk->commands.len) {
@@ -418,50 +764,77 @@ mongoc_bulk_operation_execute (mongoc_bulk_operation_t *bulk,  /* IN */
                       MONGOC_ERROR_COMMAND,
                       MONGOC_ERROR_COMMAND_INVALID_ARG,
                       "Cannot do an empty bulk write");
-      RETURN (false);
-   }
-
-   if (bulk->server_id) {
-      server_stream = mongoc_cluster_stream_for_server (cluster,
-                                                        bulk->server_id,
-                                                        true /* reconnect_ok */,
-                                                        error);
-   } else {
-      server_stream = mongoc_cluster_stream_for_writes (cluster, error);
-   }
-
-   if (!server_stream) {
-      RETURN (false);
+      GOTO (err);
    }
 
    for (i = 0; i < bulk->commands.len; i++) {
-      command = &_mongoc_array_index (&bulk->commands,
-                                      mongoc_write_command_t, i);
+      if (bulk->server_id) {
+         server_stream =
+            mongoc_cluster_stream_for_server (cluster,
+                                              bulk->server_id,
+                                              true /* reconnect_ok */,
+                                              bulk->session,
+                                              reply,
+                                              error);
+      } else {
+         server_stream = mongoc_cluster_stream_for_writes (
+            cluster, bulk->session, reply, error);
+      }
 
-      _mongoc_write_command_execute (command, bulk->client, server_stream,
-                                     bulk->database, bulk->collection,
-                                     bulk->write_concern, offset,
+      if (!server_stream) {
+         /* stream_for_server and stream_for_writes initialize reply on error */
+         RETURN (false);
+      }
+
+      command =
+         &_mongoc_array_index (&bulk->commands, mongoc_write_command_t, i);
+
+      _mongoc_write_command_execute (command,
+                                     bulk->client,
+                                     server_stream,
+                                     bulk->database,
+                                     bulk->collection,
+                                     bulk->write_concern,
+                                     offset,
+                                     bulk->session,
                                      &bulk->result);
 
-      bulk->server_id = command->server_id;
+      bulk->server_id = server_stream->sd->id;
+      /* If a retryable error occurred and a new primary was selected, use it in
+       * subsequent commands. */
+      if (bulk->result.retry_server_id) {
+         bulk->server_id = bulk->result.retry_server_id;
+      }
 
-      if (bulk->result.failed && bulk->flags.ordered) {
+      if (bulk->result.failed &&
+          (bulk->flags.ordered || bulk->result.must_stop)) {
+         mongoc_server_stream_cleanup (server_stream);
          GOTO (cleanup);
       }
 
       offset += command->n_documents;
+      mongoc_server_stream_cleanup (server_stream);
    }
 
 cleanup:
-   ret = _mongoc_write_result_complete (&bulk->result, reply, error);
-   mongoc_server_stream_cleanup (server_stream);
+   _mongoc_bson_init_if_set (reply);
+   ret = MONGOC_WRITE_RESULT_COMPLETE (&bulk->result,
+                                       bulk->client->error_api_version,
+                                       bulk->write_concern,
+                                       MONGOC_ERROR_COMMAND /* err domain */,
+                                       reply,
+                                       error);
 
    RETURN (ret ? bulk->server_id : 0);
+
+err:
+   _mongoc_bson_init_if_set (reply);
+   RETURN (false);
 }
 
 void
-mongoc_bulk_operation_set_write_concern (mongoc_bulk_operation_t      *bulk,
-                                         const mongoc_write_concern_t *write_concern)
+mongoc_bulk_operation_set_write_concern (
+   mongoc_bulk_operation_t *bulk, const mongoc_write_concern_t *write_concern)
 {
    BSON_ASSERT (bulk);
 
@@ -487,7 +860,7 @@ mongoc_bulk_operation_get_write_concern (const mongoc_bulk_operation_t *bulk)
 
 void
 mongoc_bulk_operation_set_database (mongoc_bulk_operation_t *bulk,
-                                    const char              *database)
+                                    const char *database)
 {
    BSON_ASSERT (bulk);
 
@@ -501,7 +874,7 @@ mongoc_bulk_operation_set_database (mongoc_bulk_operation_t *bulk,
 
 void
 mongoc_bulk_operation_set_collection (mongoc_bulk_operation_t *bulk,
-                                      const char              *collection)
+                                      const char *collection)
 {
    BSON_ASSERT (bulk);
 
@@ -514,12 +887,39 @@ mongoc_bulk_operation_set_collection (mongoc_bulk_operation_t *bulk,
 
 
 void
-mongoc_bulk_operation_set_client (mongoc_bulk_operation_t *bulk,
-                                  void                    *client)
+mongoc_bulk_operation_set_client (mongoc_bulk_operation_t *bulk, void *client)
 {
    BSON_ASSERT (bulk);
+   BSON_ASSERT (client);
 
-   bulk->client = (mongoc_client_t *)client;
+   if (bulk->session) {
+      BSON_ASSERT (bulk->session->client == client);
+   }
+
+   bulk->client = (mongoc_client_t *) client;
+
+   /* if you call set_client, bulk was likely made by mongoc_bulk_operation_new,
+    * not mongoc_collection_create_bulk_operation_with_opts(), so operation_id
+    * is 0. */
+   if (!bulk->operation_id) {
+      bulk->operation_id = ++bulk->client->cluster.operation_id;
+   }
+}
+
+
+void
+mongoc_bulk_operation_set_client_session (
+   mongoc_bulk_operation_t *bulk,
+   struct _mongoc_client_session_t *client_session)
+{
+   BSON_ASSERT (bulk);
+   BSON_ASSERT (client_session);
+
+   if (bulk->client) {
+      BSON_ASSERT (bulk->client == client_session->client);
+   }
+
+   bulk->session = client_session;
 }
 
 
@@ -534,7 +934,7 @@ mongoc_bulk_operation_get_hint (const mongoc_bulk_operation_t *bulk)
 
 void
 mongoc_bulk_operation_set_hint (mongoc_bulk_operation_t *bulk,
-                                uint32_t                 server_id)
+                                uint32_t server_id)
 {
    BSON_ASSERT (bulk);
 
@@ -543,12 +943,10 @@ mongoc_bulk_operation_set_hint (mongoc_bulk_operation_t *bulk,
 
 
 void
-mongoc_bulk_operation_set_bypass_document_validation (mongoc_bulk_operation_t *bulk,
-                                                      bool                     bypass)
+mongoc_bulk_operation_set_bypass_document_validation (
+   mongoc_bulk_operation_t *bulk, bool bypass)
 {
    BSON_ASSERT (bulk);
 
-   bulk->flags.bypass_document_validation = bypass ?
-      MONGOC_BYPASS_DOCUMENT_VALIDATION_TRUE :
-      MONGOC_BYPASS_DOCUMENT_VALIDATION_FALSE;
+   bulk->flags.bypass_document_validation = bypass;
 }

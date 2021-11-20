@@ -14,43 +14,36 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_DATABASE_PRIVATE_H
 #define MONGOC_DATABASE_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 
 #include "mongoc-client.h"
 #include "mongoc-read-prefs.h"
 #include "mongoc-read-concern.h"
 #include "mongoc-write-concern.h"
 
-
 BSON_BEGIN_DECLS
 
 
-struct _mongoc_database_t
-{
-   mongoc_client_t        *client;
-   char                    name [128];
-   mongoc_read_prefs_t    *read_prefs;
-   mongoc_read_concern_t  *read_concern;
+struct _mongoc_database_t {
+   mongoc_client_t *client;
+   char *name;
+   mongoc_read_prefs_t *read_prefs;
+   mongoc_read_concern_t *read_concern;
    mongoc_write_concern_t *write_concern;
 };
 
 
-mongoc_database_t *_mongoc_database_new                         (mongoc_client_t              *client,
-                                                                 const char                   *name,
-                                                                 const mongoc_read_prefs_t    *read_prefs,
-                                                                 const mongoc_read_concern_t  *read_concern,
-                                                                 const mongoc_write_concern_t *write_concern);
-mongoc_cursor_t   *_mongoc_database_find_collections_legacy     (mongoc_database_t            *database,
-                                                                 const bson_t                 *filter,
-                                                                 bson_error_t                 *error);
-
+mongoc_database_t *
+_mongoc_database_new (mongoc_client_t *client,
+                      const char *name,
+                      const mongoc_read_prefs_t *read_prefs,
+                      const mongoc_read_concern_t *read_concern,
+                      const mongoc_write_concern_t *write_concern);
 
 BSON_END_DECLS
 

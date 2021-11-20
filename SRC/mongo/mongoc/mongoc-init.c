@@ -15,88 +15,107 @@
  */
 
 
-#include <bson.h>
+#include <bson/bson.h>
 
 #include "mongoc-config.h"
 #include "mongoc-counters-private.h"
 #include "mongoc-init.h"
-#ifdef MONGOC_ENABLE_SSL
-# include "mongoc-scram-private.h"
-# include "mongoc-ssl.h"
-# ifdef MONGOC_ENABLE_OPENSSL
-#  include "mongoc-openssl-private.h"
-# endif
+
+#include "mongoc-handshake-private.h"
+
+#ifdef MONGOC_ENABLE_SSL_OPENSSL
+#include "mongoc-openssl-private.h"
+#elif defined(MONGOC_ENABLE_SSL_LIBRESSL)
+#include "tls.h"
 #endif
 #include "mongoc-thread-private.h"
-#include "mongoc-trace.h"
+#include "common-b64-private.h"
+#if defined(MONGOC_ENABLE_CRYPTO_CNG)
+#include "mongoc-crypto-private.h"
+#include "mongoc-crypto-cng-private.h"
+#endif
 
+#ifdef MONGOC_ENABLE_MONGODB_AWS_AUTH
+#include "kms_message/kms_message.h"
+#endif
 
-#ifdef MONGOC_ENABLE_SASL
+#ifdef MONGOC_ENABLE_OCSP_OPENSSL
+#include "mongoc-ocsp-cache-private.h"
+#endif
+
+#ifndef MONGOC_NO_AUTOMATIC_GLOBALS
+#pragma message( \
+   "Configure the driver with ENABLE_AUTOMATIC_INIT_AND_CLEANUP=OFF.\
+ Automatic cleanup is deprecated and will be removed in version 2.0.")
+#endif
+
+#ifdef MONGOC_ENABLE_SASL_CYRUS
 #include <sasl/sasl.h>
 
 static void *
-mongoc_sasl_mutex_alloc (void)
+mongoc_cyrus_mutex_alloc (void)
 {
-   mongoc_mutex_t *mutex;
+   bson_mutex_t *mutex;
 
-   mutex = (mongoc_mutex_t *)bson_malloc0 (sizeof (mongoc_mutex_t));
-   mongoc_mutex_init (mutex);
+   mutex = (bson_mutex_t *) bson_malloc0 (sizeof (bson_mutex_t));
+   bson_mutex_init (mutex);
 
    return (void *) mutex;
 }
 
 
 static int
-mongoc_sasl_mutex_lock (void *mutex)
+mongoc_cyrus_mutex_lock (void *mutex)
 {
-   mongoc_mutex_lock ((mongoc_mutex_t *) mutex);
+   bson_mutex_lock ((bson_mutex_t *) mutex);
 
    return SASL_OK;
 }
 
 
 static int
-mongoc_sasl_mutex_unlock (void *mutex)
+mongoc_cyrus_mutex_unlock (void *mutex)
 {
-   mongoc_mutex_unlock ((mongoc_mutex_t *) mutex);
+   bson_mutex_unlock ((bson_mutex_t *) mutex);
 
    return SASL_OK;
 }
 
 
 static void
-mongoc_sasl_mutex_free (void *mutex)
+mongoc_cyrus_mutex_free (void *mutex)
 {
-   mongoc_mutex_destroy ((mongoc_mutex_t *) mutex);
+   bson_mutex_destroy ((bson_mutex_t *) mutex);
    bson_free (mutex);
 }
 
-#endif//MONGOC_ENABLE_SASL
+#endif /* MONGOC_ENABLE_SASL_CYRUS */
 
 
-static MONGOC_ONCE_FUN( _mongoc_do_init)
+static BSON_ONCE_FUN (_mongoc_do_init)
 {
-#ifdef MONGOC_ENABLE_OPENSSL
-   _mongoc_openssl_init();
+#ifdef MONGOC_ENABLE_SASL_CYRUS
+   int status;
+#endif
+#ifdef MONGOC_ENABLE_SSL_OPENSSL
+   _mongoc_openssl_init ();
+#elif defined(MONGOC_ENABLE_SSL_LIBRESSL)
+   tls_init ();
 #endif
 
-#ifdef MONGOC_ENABLE_SSL
-   _mongoc_scram_startup();
-#endif
-
-#ifdef MONGOC_ENABLE_SASL
+#ifdef MONGOC_ENABLE_SASL_CYRUS
    /* The following functions should not use tracing, as they may be invoked
     * before mongoc_log_set_handler() can complete. */
-   sasl_set_mutex (mongoc_sasl_mutex_alloc,
-                   mongoc_sasl_mutex_lock,
-                   mongoc_sasl_mutex_unlock,
-                   mongoc_sasl_mutex_free);
+   sasl_set_mutex (mongoc_cyrus_mutex_alloc,
+                   mongoc_cyrus_mutex_lock,
+                   mongoc_cyrus_mutex_unlock,
+                   mongoc_cyrus_mutex_free);
 
-   /* TODO: logging callback? */
-   sasl_client_init (NULL);
+   status = sasl_client_init (NULL);
+   BSON_ASSERT (status == SASL_OK);
 #endif
 
-   _mongoc_counters_init();
+   _mongoc_counters_init ();
 
 #ifdef _WIN32
    {
@@ -114,23 +133,37 @@ static MONGOC_ONCE_FUN( _mongoc_do_init)
    }
 #endif
 
-   MONGOC_ONCE_RETURN;
+#if defined(MONGOC_ENABLE_CRYPTO_CNG)
+   mongoc_crypto_cng_init ();
+#endif
+
+   _mongoc_handshake_init ();
+
+#if defined(MONGOC_ENABLE_MONGODB_AWS_AUTH)
+   kms_message_init ();
+#endif
+
+#if defined(MONGOC_ENABLE_OCSP_OPENSSL)
+  _mongoc_ocsp_cache_init ();
+#endif
+
+   BSON_ONCE_RETURN;
 }
 
 void
 mongoc_init (void)
 {
-   static mongoc_once_t once = MONGOC_ONCE_INIT;
-   mongoc_once (&once, _mongoc_do_init);
+   static bson_once_t once = BSON_ONCE_INIT;
+   bson_once (&once, _mongoc_do_init);
 }
 
-static MONGOC_ONCE_FUN( _mongoc_do_cleanup)
+static BSON_ONCE_FUN (_mongoc_do_cleanup)
 {
-#ifdef MONGOC_ENABLE_OPENSSL
-   _mongoc_openssl_cleanup();
+#ifdef MONGOC_ENABLE_SSL_OPENSSL
+   _mongoc_openssl_cleanup ();
 #endif
 
-#ifdef MONGOC_ENABLE_SASL
+#ifdef MONGOC_ENABLE_SASL_CYRUS
 #ifdef MONGOC_HAVE_SASL_CLIENT_DONE
    sasl_client_done ();
 #else
@@ -143,31 +176,47 @@ static MONGOC_ONCE_FUN( _mongoc_do_cleanup)
    WSACleanup ();
 #endif
 
+#if defined(MONGOC_ENABLE_CRYPTO_CNG)
+   mongoc_crypto_cng_cleanup ();
+#endif
+
    _mongoc_counters_cleanup ();
 
-   MONGOC_ONCE_RETURN;
+   _mongoc_handshake_cleanup ();
+
+#if defined(MONGOC_ENABLE_MONGODB_AWS_AUTH)
+   kms_message_cleanup ();
+#endif
+
+#if defined(MONGOC_ENABLE_OCSP_OPENSSL)
+   _mongoc_ocsp_cache_cleanup ();
+#endif
+
+   BSON_ONCE_RETURN;
 }
 
 void
 mongoc_cleanup (void)
 {
-   static mongoc_once_t once = MONGOC_ONCE_INIT;
-   mongoc_once (&once, _mongoc_do_cleanup);
+   static bson_once_t once = BSON_ONCE_INIT;
+   bson_once (&once, _mongoc_do_cleanup);
 }
 
 /*
  * On GCC, just use __attribute__((constructor)) to perform initialization
  * automatically for the application.
  */
-#if defined(__GNUC__) && ! defined(MONGOC_NO_AUTOMATIC_GLOBALS)
-static void _mongoc_init_ctor (void) __attribute__((constructor));
+#if defined(__GNUC__) && !defined(MONGOC_NO_AUTOMATIC_GLOBALS)
+static void
+_mongoc_init_ctor (void) __attribute__ ((constructor));
 static void
 _mongoc_init_ctor (void)
 {
    mongoc_init ();
 }
 
-static void _mongoc_init_dtor (void) __attribute__((destructor));
+static void
+_mongoc_init_dtor (void) __attribute__ ((destructor));
 static void
 _mongoc_init_dtor (void)
 {

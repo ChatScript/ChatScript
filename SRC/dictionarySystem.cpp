@@ -61,9 +61,16 @@ We mark sysnet entries with the word& meaning number& POS of word in the diction
 but is needed when seeing the dictionary definitions(:word) and if one wants to use pos - restricted meanings in a match or in keywords.
 
 #endif
+char language[40];							// indicate current language used
+char language_list[200];				// indicate legal languages- comma separated
+unsigned int language_bits = 0; // current language used to mark/filter WORDP items
+unsigned int languageIndex; // current language used to mark facts and index data by language
+unsigned int max_language = LANGUAGE_1;
+unsigned int max_fact_language = FACTLANGUAGE_1;
 
 int worstDictAvail = 1000000;
 bool dictionaryBitsChanged = false;
+bool multidict = false;
 HEAPREF propertyRedefines = NULL;	// property changes on locked dictionary entries
 HEAPREF flagsRedefines = NULL;		// systemflags changes on locked dictionary entries
 HEAPREF ongoingDictChanges = NULL;  // ability to revert dynamic changes
@@ -96,6 +103,8 @@ std::map <WORDP, int> wordValues; // per volley
 std::map <WORDP, MEANING> backtracks; // per volley
 std::map <WORDP, int> countData;
 
+static void ReadAsciiDictionary();
+
 HEAPREF concepts[MAX_SENTENCE_LENGTH];  // concept chains per word
 HEAPREF topics[MAX_SENTENCE_LENGTH];  // topics chains per word
 
@@ -118,14 +127,50 @@ MEANING GetMeaning(WORDP D, int index)
 	else return MakeMeaning(D); // switch to generic non null meaning
 }
 
+bool LanguageRestrict(char* word)
+{
+	char* restrict = strchr(word, '`');
+	if (restrict)
+	{
+		*restrict = 0;
+		unsigned int bits = (restrict[1] - '0') << LANGUAGE_SHIFT;
+		if (!multidict && bits > max_language) 
+			return false;
+		language_bits = bits;
+	}
+	return true;
+}
+
 void SetTried(WORDP D, int value)
 {
 	triedData[D] = value;
 }
 
-void RemoveConceptTopic(HEAPREF list[256], WORDP D, int index)
+static bool IsUniversal(char* word, uint64 properties)
 {
-	MEANING M = MakeMeaning(D);
+	char c = *word;
+	if (IsDigit(c) || c == '~' || c == '$' || c == '^' || c == '%'
+		|| c == '+' || c == '-' || c == '.') return true;
+	if (IsValidJSONName(word)) return true;
+	if (properties & PUNCTUATION_BITS) return true;
+	return false;
+}
+
+bool IsValidLanguage(WORDP D)
+{
+	if (!D || !multidict) return true;
+
+	// language independent ideas (numbers, concepts, variables, functions, systemvars )
+	// should do international currencies but not doing yet
+	if (IsUniversal(D->word, 0)) return true;
+	unsigned int bits = D->internalBits & LANGUAGE_BITS;
+	if (!bits) return true; // universal cs words
+	// matches language or we match ALL!
+	return (bits == language_bits || language_bits == 0);
+}
+
+void RemoveConceptTopic(HEAPREF list[256], WORDP D, int index)
+{ // these lists are only for script to easily access, engine doesnt use them itself
 	HEAPREF at = list[index];
 	HEAPREF  prior = NULL;
 	while (at)
@@ -133,7 +178,7 @@ void RemoveConceptTopic(HEAPREF list[256], WORDP D, int index)
 		uint64 m;
 		uint64* currentEntry = (uint64*)at;
 		at = UnpackHeapval(at, m, discard);
-		if ((uint64)M == m)
+		if (((uint64)D) == m)
 		{
 			if (prior == NULL) list[index] = at; // list head
 			else ((uint64*)prior)[0] = currentEntry[0]; // splice this out
@@ -145,7 +190,6 @@ void RemoveConceptTopic(HEAPREF list[256], WORDP D, int index)
 
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D, int start, int end, bool unique)
 {
-	int index = Word2Index(D);
 	if (unique)
 	{
 		HEAPREF at = list[start];
@@ -153,11 +197,11 @@ void Add2ConceptTopicList(HEAPREF list[256], WORDP D, int start, int end, bool u
 		{
 			uint64 D1;
 			at = UnpackHeapval(at, D1, discard, discard);
-			if (D1 == (uint64)index) return;	// already on list
+			if (D1 == (uint64)D) return;	// already on list
 		}
 	}
 	// concepts[] and topics[]
-	list[start] = AllocateHeapval(list[start], (uint64)index, 0, 0);
+	list[start] = AllocateHeapval(list[start], (uint64)D, 0, 0); // concepts[i] and topics[i] lists of word indices
 }
 
 void ClearHeapThreads()
@@ -202,25 +246,25 @@ void ClearWhereAt(int where) // remove all concepts and markings at this slot in
 	concepts[where] = NULL; // drop memory list at this slot
 	topics[where] = NULL; // drop memory list
 	WORDP holdlist[10000];
-	int holdint[10000];
+	HEAPINDEX holdint[10000];
 	int mark[10000];
 	memset(mark, 0, sizeof(mark));
 	unsigned int index = 0;
 	bool changed = false;
 
 	// copy because we will rewrite triedData.
-	map<WORDP, int>::iterator it1;
+	map<WORDP, HEAPINDEX>::iterator it1;
 	for (it1 = triedData.begin(); it1 != triedData.end(); ++it1)
 	{
 		D = it1->first;
-		int x = it1->second;
+		unsigned int x = it1->second;
 		holdint[index] = x;
 		holdlist[index++] = D;
 	}
 
 	for (unsigned int item = 0; item < index; ++item)
 	{
-		int access = holdint[item]; // heap access
+		HEAPINDEX access = holdint[item]; // heap access
 		char* data = Index2Heap(access);
 		if (data == 0) continue;
 
@@ -268,7 +312,7 @@ void ClearWhereAt(int where) // remove all concepts and markings at this slot in
 		{
 			if (!mark[item]) continue;
 			D = holdlist[item];
-			int access = holdint[item]; // heap access
+			HEAPINDEX access = holdint[item]; // heap access
 			triedData[D] = access;   // replace now
 		}
 	}
@@ -476,12 +520,13 @@ void DictionaryRelease(WORDP until, char* stringUsed)
 	lastheapfree = heapFree = stringUsed;
 }
 
-char* UseDictionaryFile(const char* name)
+char* UseDictionaryFile(const char* name,const char* list)
 {
 	static char junk[100];
 	if (*mini) sprintf(junk, (char*)"DICT/%s", mini);
 	else if (!*language) sprintf(junk, (char*)"%s", (char*)"DICT");
 	else if (!name) sprintf(junk, (char*)"DICT/%s", language);
+	else if (list && strchr(list, ',')) sprintf(junk, (char*)"DICT"); // use global conglomerate
 	else sprintf(junk, (char*)"DICT/%s", language);
 	MakeDirectory(junk); // if it doesnt exist
 	if (name && *name)
@@ -590,6 +635,77 @@ void ClearDictionaryFiles()
 	}
 }
 
+static const char* GetLanguage(WORDP D)
+{
+	char* comma = strchr(language_list, ','); 
+	int n = (D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT;
+	if (!n)
+	{
+		return (comma) ? "UNIVERSAL" : language;
+	}
+	static char languages[5][100];
+	// set lang 1
+	*comma = 0;
+	strcpy(languages[1], language_list);
+	*comma = ',';
+	// set lang 2
+	char* start = comma + 1;
+	comma = strchr(start, ',');
+	if (comma) *comma = 0;
+	strcpy(languages[2], start);
+	if (comma)
+	{
+		*comma = ',';
+
+		// set lang 3
+		start = comma + 1;
+		comma = strchr(start, ',');
+		if (comma) *comma = 0;
+		strcpy(languages[3], start);
+		if (comma) *comma = ',';
+	}
+	if (n == 1) return languages[1];
+	else if (n == 2)  return languages[2];
+	else if (n == 3)  return languages[3];
+	else return "unknown language";
+}
+
+bool SetLanguage(char* arg1)
+{
+	if (!*arg1) return false;
+	
+	char lang[100];
+	arg1 = TrimSpaces(arg1);
+	MakeUpperCopy(lang, arg1);
+	
+	char copy[200];
+	strcpy(copy, language_list);
+	char* which = strstr(copy, lang);
+	if (!which && stricmp(lang,"JAPANESE") && stricmp(lang, "UNIVERSAL"))
+	{
+		if (compiling) BADSCRIPT("Illegal set language %s",arg1)
+		return false;
+	}
+	// language=english,spanish,german,japanese, universal
+	strcpy(language, lang);
+	if (!stricmp(language,"GERMAN") || !stricmp(language, "SPANISH") || !stricmp(language, "FRENCH")) numberStyle = FRENCH_NUMBERS;
+	else numberStyle = AMERICAN_NUMBERS; // ignores idian
+
+	if (!multidict) {}
+	else if (!stricmp(lang, "universal") || !stricmp(lang, "japanese")) languageIndex = language_bits = 0; // use default language
+	else
+	{
+		languageIndex = 1;
+		*which = 0; // hide all language at and after
+		which = copy - 1;
+		// language=english,spanish,german,japanese
+		while ((which = strchr(++which, ','))) 
+			++languageIndex; // how many commas before
+		language_bits = languageIndex << LANGUAGE_SHIFT;
+	}
+	return true;
+} 
+
 void BuildDictionary(char* label)
 {
 	xbuildDictionary = true;
@@ -632,9 +748,9 @@ void BuildDictionary(char* label)
 
 	InitStackHeap();
 	InitFacts(); // must do facts before dict since dict defines system facts
-	InitTextUtilities(); // also part of basic system before a build
+	InitUniversalTextUtilities(); // also part of basic system before a build
 	InitDictionary();
-	InitTextUtilities1(); // also part of basic system before a build
+	WalkLanguages(InitTextUtilitiesByLanguage); // also part of basic system before a build
 	InitUserCache();
 
 	LoadRawDictionary(miniDict);
@@ -799,6 +915,12 @@ void AddProperty(WORDP D, uint64 flag)
 			}
 		}
 		D->properties |= flag;
+		// remove any language marker for punctuation
+		if (flag & PUNCTUATION_BITS) 
+		{ 
+			D->internalBits &= -1 ^ LANGUAGE_BITS;
+		}
+
 		if (monitorChange) D->internalBits |= BIT_CHANGED;
 	}
 }
@@ -886,7 +1008,8 @@ int GetWords(char* word, WORDP * set, bool strictcase)
 	while (D != dictionaryBase && --limit)
 	{
         ++bucketDepthCount;
-		if (fullhash == D->hash && D->length == len)
+		if (language_bits && !IsValidLanguage(D)) {;} 
+		else if (fullhash == D->hash && D->length == len)
 		{
 			strcpy(word1, D->word);
 			at = word1;
@@ -904,7 +1027,8 @@ int GetWords(char* word, WORDP * set, bool strictcase)
 	while (D != dictionaryBase && --limitx)
 	{
         ++bucketDepthCount;
-		if (fullhash == D->hash && D->length == len)
+		if (language_bits && !IsValidLanguage(D)) { ; }
+		else if (fullhash == D->hash && D->length == len)
 		{
 			strcpy(word1, D->word);
 			at = word1;
@@ -963,7 +1087,8 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed)
 		while (D != dictionaryBase && --limit)
 		{
             ++bucketDepthCount;
-			if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len)) // they match independent of case- 
+			if (!IsValidLanguage(D)) { ; }
+			else if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len)) // they match independent of case- 
 			{
 				if (caseAllowed == LOWERCASE_LOOKUP) return D; // incoming word MIGHT have uppercase letters but we will be in lower bucket
 				else if (hasUpperCharacters) // we are looking for uppercase or primary case and are in uppercase bucket
@@ -996,7 +1121,8 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed)
 		while (D != dictionaryBase && --limit)
 		{
             ++bucketDepthCount;
-			if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len))
+			if (!IsValidLanguage(D)) { ; }
+			else if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len))
 			{
 				if (hasUpperCharacters) return D; // lowercase form
 				if (D->internalBits & PREFER_THIS_UPPERCASE) preferred = D;
@@ -1036,10 +1162,12 @@ WORDP StoreWord(const char* word, uint64 properties, uint64 flags)
 	AddSystemFlag(D, flags);
 	return D;
 }
+
 WORDP StoreWord(const char* word, uint64 properties)
 {
 	if (!dictionaryBase) return NULL;
-	if (strchr(word, '\n') || strchr(word, '\r') || strchr(word, '\t')) // force backslash format on these characters
+	if (properties & AS_IS) {}
+	else if (strchr(word, '\n') || strchr(word, '\r') || strchr(word, '\t')) // force backslash format on these characters
 	{ // THIS SHOULD NEVER HAPPEN, not allowed these inside data
 		char* buf = AllocateBuffer(); // jsmn fact creation may be using INFINITIE stack space.
 		AddEscapes(buf, word, true, maxBufferSize);
@@ -1051,16 +1179,16 @@ WORDP StoreWord(const char* word, uint64 properties)
 	bool lowercase = false;
 	//   make all words normalized with no blanks in them.
 	char wordx[MAX_WORD_SIZE];
-	if (*word == '"' || *word == '_' || *word == '`') { ; } // dont change any quoted things or things beginning with _ (we use them in facts for a "missing" value) or user var names
-	else if (properties & (PUNCTUATION_BITS | AS_IS)) {}
-	else if (*word == USERVAR_PREFIX && word[1] == '_' && word[2] == '_' && IsDigit(word[3])) {} // internal parameter names for jsonreadcsv are not legal names
-	else if ((*word == SYSVAR_PREFIX || *word == USERVAR_PREFIX || *word == '~' || *word == '^') &&
+	if ((*word == SYSVAR_PREFIX || *word == USERVAR_PREFIX || *word == '~' || *word == '^') &&
 		IsLegalName(word + 1))  // dont change something that looks like json reference off of variable
 	{
 		lowercase = true; // these are always lower case
 		MakeLowerCopy(wordx, word); // JUST IN CASE HE SYNTHESIZED it with upper case
 		word = wordx;
 	}
+	else if (properties & (PUNCTUATION_BITS | AS_IS)) {}
+	else if (*word == '"' || *word == '_' || *word == '`') { ; } // dont change any quoted things or things beginning with _ (we use them in facts for a "missing" value) or user var names
+	else if (*word == USERVAR_PREFIX && word[1] == '_' && word[2] == '_' && IsDigit(word[3])) {} // internal parameter names for jsonreadcsv are not legal names
 	else
 	{
 		n = BurstWord(word, 0);
@@ -1088,11 +1216,12 @@ WORDP StoreWord(const char* word, uint64 properties)
 	while (D != dictionaryBase && --limit)
 	{
         ++bucketDepthCount;
-		if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len)) // find EXACT match
+		if (!IsValidLanguage(D)) { ; }
+		else if (fullhash == D->hash && D->length == len && !StricmpUTF(D->word, (char*)word, len)) // find EXACT match
 		{
 			if (!hasUpperCharacters)
 			{
-				AddProperty(D, properties);
+				if (properties) AddProperty(D, properties);
 				if (buffer) FreeBuffer();
 				return D;
 			}
@@ -1104,7 +1233,7 @@ WORDP StoreWord(const char* word, uint64 properties)
 	if (!preferred && exact) preferred = exact;
 	if (preferred)
 	{
-		AddProperty(preferred, properties);
+		if (properties) AddProperty(preferred, properties);
 		if (buffer) FreeBuffer();
 		return preferred;
 	}
@@ -1120,13 +1249,18 @@ WORDP StoreWord(const char* word, uint64 properties)
 
 	// fill in data on word
 	D->word = wordy;
-	if (hasUTF8Characters) AddInternalFlag(D, UTF8);
-	const char* at = strchr(word + 1, '~');
-	if ( at && at[2]) AddInternalFlag(D, HAS_CASEMARKING); // word with ~casemarking data added, has no data on its own, not trial~n or trial~1
-	if (hasUpperCharacters) AddInternalFlag(D, UPPERCASE_HASH); // dont label it NOUN or NOUN_UPPERCASE
 	D->hash = fullhash;
 	D->length = (unsigned short)len;
-	AddProperty(D, properties);
+
+	// incoming json to cs from api should be universal
+	// so make all json universal access
+	unsigned int flags = (IsUniversal(D->word, properties)) ? LANGUAGE_UNIVERSAL : language_bits;
+	if (hasUTF8Characters) flags |= UTF8;
+	if (hasUpperCharacters) flags |= UPPERCASE_HASH; // dont label it NOUN or NOUN_UPPERCASE
+	const char* at = strchr(word + 1, '~');
+	if (at && at[2]) flags |= HAS_CASEMARKING; // word with ~casemarking data added, has no data on its own, not trial~n or trial~1
+	if (flags) AddInternalFlag(D, flags); 
+	if (properties) AddProperty(D, properties);
 	if (buffer) FreeBuffer();
 	return D;
 }
@@ -1178,12 +1312,51 @@ void AddCircularEntry(WORDP base, unsigned int field, WORDP entry)
 	}
 }
 
+static void ReadLanguage(char* language)
+{
+	max_fact_language = languageIndex; // track highest index we see
+	max_language = languageIndex << LANGUAGE_SHIFT;
+	ReadAsciiDictionary();
+	ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL, 0);
+}
+
+static char* GetNextLanguage(char*& data)
+{
+	if (!data || !*data) return NULL;
+
+	static char language[100];
+	char* comma = strchr(data, ',');
+	if (comma) *comma = 0;
+	strcpy(language, data);
+	if (comma)
+	{
+		*comma = ',';
+		data = comma + 1;
+	}
+	else data = NULL;
+	return language;
+}
+
+void WalkLanguages(LANGUAGE_FUNCTION func)
+{
+	char oldlang[100];
+	strcpy(oldlang, language);
+	char* lang;
+	char* data = language_list;
+	while ((lang = GetNextLanguage(data)))
+	{
+		SetLanguage(lang);
+		if (language_bits || !multidict) (func)(language);
+	}
+	strcpy(language, oldlang);
+}
+
 void WalkDictionary(DICTIONARY_FUNCTION func, uint64 data)
 {
 	for (WORDP D = dictionaryBase + 1; D < dictionaryFree; ++D)
 	{
 		// allowed to see concepts and variables
-		if (D->word && *D->word)
+		if (D->word && *D->word && IsValidLanguage(D))
 		{
 			(func)(D, data);
 		}
@@ -1305,7 +1478,7 @@ void WordnetLockDictionary() // dictionary and facts before build0 layer
 
 void ReturnDictionaryToWordNet() // drop all memory allocated after the wordnet freeze
 {
-	ReturnBeforeLayer(0, true); // unlock it to add stuff
+	ReturnBeforeLayer(LAYER_0, true); // unlock it to add stuff
 }
 
 void LockLevel()
@@ -1339,7 +1512,9 @@ void LockLayer(bool boot)
 	}
 
 #ifndef DISCARDSCRIPTCOMPILER
+#ifndef NOMAIN
 	if (!boot) WriteDictDetailsBeforeLayer(currentBeforeLayer + 1);
+#endif
 #endif
 
 	LockLevel();
@@ -1372,10 +1547,14 @@ void ReturnBeforeLayer(int layer, bool unlocked)
 	UnwindUserLayerProtect();
 	while (lastFactUsed > factsPreBuild[layer]) FreeFact(lastFactUsed--); //   restore back to facts alone
 	DictionaryRelease(dictionaryPreBuild[layer], heapPreBuild[layer]);
+	if (layer <= LAYER_BOOT)  botVariableThreadList = NULL; // this layer is gone
 
 #ifndef DISCARDSCRIPTCOMPILER
+#ifndef NOMAIN // dll and shared object dont bother as we dont expect them to compile anything
 	if (!server) ReadDictDetailsBeforeLayer(layer);// on server we assume scripts will not damage level0 or earlier data of dictionary but user doing :trace might
 #endif
+#endif
+
 	dictionaryBitsChanged = false;
 	LockLayer(true);	// dont write data to file
 	numberOfTopics = (layer) ? numberOfTopicsInLayer[layer] : 0;
@@ -1573,7 +1752,7 @@ static void WriteBinaryEntry(WORDP D, FILE * out)
 
 void WriteBinaryDictionary()
 {
-	FILE* out = FopenBinaryWrite(UseDictionaryFile((char*)"dict.bin")); // binary file, no BOM
+	FILE* out = FopenBinaryWrite(UseDictionaryFile((char*)"dict.bin",language_list)); // binary file, no BOM
 	if (!out) return;
 	Write32(CHECKSTAMP, out); // version stamp
 
@@ -1821,7 +2000,8 @@ static WORDP ReadBinaryEntry(FILE * in)
 
 bool ReadBinaryDictionary()
 {
-	FILE* in = FopenStaticReadOnly(UseDictionaryFile((char*)"dict.bin"));  // DICT
+	char* file = UseDictionaryFile((char*)"dict.bin",language_list);
+	FILE* in = FopenStaticReadOnly(file);  // DICT
 	if (!in) return false;
 	unsigned int check = Read32(in); // version stamp
 	if (check != CHECKSTAMP)
@@ -1841,7 +2021,6 @@ bool ReadBinaryDictionary()
 	{
 		hashbuckets[i] = Read32(in);
 	}
-
 	dictionaryFree = dictionaryBase + 1;
 	WORDP end;
 	while ((end = ReadBinaryEntry(in)))
@@ -2337,7 +2516,7 @@ bool ReadDictionary(char* file)
 		if (lemma) *lemma = 'l';
 		WORDP D = StoreWord(word, AS_IS);
 		if (stricmp(D->word, word)) ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word)
-			unsigned int meaningCount = 0;
+		unsigned int meaningCount = 0;
 		unsigned int glossCount = 0;
 		ptr = ReadDictionaryFlags(D, end + 2, &meaningCount, &glossCount);
 
@@ -2725,26 +2904,33 @@ void ReadSubstitutes(const char* name, unsigned int build, const char* layer, un
 	}
 	if (!in)
 	{
-		if (!strstr(file,"private")) Log(USERLOG, "** Missing substitutes file %s\r\n", file); // not required of builds
+		if (strstr(file, "british") && stricmp(language, "english")) {}
+		else if (!strstr(file,"private")) Log(SERVERLOG, "** Missing substitutes file %s\r\n", file); // not required of builds
 		return;
 	}
+	
 	WORDP D;
 	WORDP interjections = StoreWord("~interjections", AS_IS);
-	FACT* F = GetObjectNondeadHead(interjections); // mark all concepts listed as interjects
+	
+	// mark all concepts listed as interjections (only place we subsitute to a concept name)
+	FACT* F = GetObjectHead(interjections); 
 	while (F)
 	{
 		D = Meaning2Word(F->subject);
 		if (F->verb == Mmember && *D->word == '~')     D->internalBits |= BEEN_HERE;
-		F = GetObjectNondeadNext(F);
+		F = GetObjectNext(F);
 	}
-
+	int oldlanguage = language_bits;
 	while (ReadALine(readBuffer, in) >= 0)
 	{
 		if (*readBuffer == '#' || *readBuffer == 0) continue;
-		char* ptr = ReadCompiledWord(readBuffer, original); //   original phrase
+		char* ptr = ReadToken(readBuffer, original); //   original phrase
 		if (original[0] == 0 || original[0] == '#') continue;
-		ptr = ReadCompiledWord(ptr, replacement);    //   replacement phrase
+		ptr = ReadToken(ptr, replacement);    //   replacement phrase
 		unsigned int flag = fileFlag;
+		language_bits = oldlanguage;
+		LanguageRestrict(original);
+		LanguageRestrict(replacement);
 		if (fileFlag == DO_PRIVATE && *replacement == '~')// private interjections will list as interjections file, instead of private file so you can disable privates or interjectsions appropriately
 		{
 			D = StoreWord(replacement, AS_IS);
@@ -2755,13 +2941,15 @@ void ReadSubstitutes(const char* name, unsigned int build, const char* layer, un
 	}
 	// just ignore wasted heapref memory (compiling doesnt matter, data is small enough to ignore in private)
 	FClose(in);
+	language_bits = oldlanguage;
 
-	F = GetObjectNondeadHead(interjections); // unmark all interjections
+	// unmark all interjections
+	F = GetObjectHead(interjections); 
 	while (F)
 	{
 		D = Meaning2Word(F->subject);
 		D->internalBits &= -1 ^ BEEN_HERE;
-		F = GetObjectNondeadNext(F);
+		F = GetObjectNext(F);
 	}
 }
 
@@ -2807,13 +2995,17 @@ void ReadCanonicals(const char* file, const char* layer)
 		if (!strstr(word,"BUILD")) Log(USERLOG, "** Missing canonicals file %s\r\n", word);
 		return;
 	}
+	int oldlanguage = language_bits;
 	while (ReadALine(readBuffer, in) >= 0)
 	{
 		if (*readBuffer == '#' || *readBuffer == 0) continue;
+		char* ptr = ReadToken(readBuffer, original); //   original phrase
+		ptr = ReadToken(ptr, replacement);    //   replacement word
+		
+		language_bits = oldlanguage;
+		LanguageRestrict(original);
+		LanguageRestrict(replacement);
 
-		char* ptr = ReadCompiledWord(readBuffer, original); //   original phrase
-		if (*original == 0 || *original == '#') continue;
-		ptr = ReadCompiledWord(ptr, replacement);    //   replacement word
 		WORDP D = StoreWord(original);
 		WORDP R = StoreWord(replacement);
 		SetCanonical(D, MakeMeaning(R));
@@ -2824,14 +3016,16 @@ void ReadCanonicals(const char* file, const char* layer)
 		else if (!stricmp(form, "MOST_FORM")) AddProperty(D, MOST_FORM);
 	}
 	FClose(in);
+	language_bits = oldlanguage;
+
 }
 
 void ReadAbbreviations(char* name)
 {
 	char file[SMALL_WORD_SIZE];
-	sprintf(file, (char*)"%s/%s", livedataFolder, name);
+	sprintf(file, (char*)"%s/%s/SUBSTITUTES/%s", livedataFolder, language, name);
 	char word[MAX_WORD_SIZE];
-	FILE* in = FopenStaticReadOnly(file); // LIVEDATA abbreviations
+	FILE* in = FopenStaticReadOnly(file); // LIVEDATA/LANGUAGE/SUBSTITUTES/ abbreviations
 	if (!in) return;
 	while (ReadALine(readBuffer, in) >= 0)
 	{
@@ -3335,16 +3529,12 @@ static void ReadPlurals(char* file)
 	FClose(in);
 }
 
-void ReadLiveData() // occurs after all topic data loaded, so dictionary entries are not disturbed
+void ReadLiveData(char* language) // language-specific - if live changes, may have to rebuild topic data due to dict index changes
 {
-	// system livedata
 	char word[MAX_WORD_SIZE];
 	sprintf(word, (char*)"%s/%s/plurals.txt", livedataFolder, language);
 	ReadPlurals(word);
-	sprintf(word, (char*)"%s/systemessentials.txt", systemFolder);
-	ReadSubstitutes(word, 0, NULL, DO_ESSENTIALS, true);
-	sprintf(word, (char*)"%s/queries.txt", systemFolder);
-	ReadQueryLabels(word);
+
 	if (!noboot) // command line parameter
 	{
 		sprintf(word, (char*)"%s/%s/canonical.txt", livedataFolder, language);
@@ -3362,6 +3552,7 @@ void ReadLiveData() // occurs after all topic data loaded, so dictionary entries
 
 static void ReadAsciiDictionary()
 {
+	printf("Reading ascii %s dictionary\r\n", language);
 	char buffer[50];
 	unsigned int n = 0;
 	for (char i = '0'; i <= '9'; ++i)
@@ -3376,6 +3567,16 @@ static void ReadAsciiDictionary()
 	}
 	if (!ReadDictionary(UseDictionaryFile((char*)"other.txt"))) ++n;
 	if (n) (*printer)((char*)"Missing %d word files\r\n", n);
+	ReadDictionary(UseDictionaryFile((char*)"extra.txt"));
+
+	ReadAbbreviations((char*)"abbreviations.txt"); // needed for burst/tokenizing
+}
+
+static void ReadAsciiDictionaries()
+{
+	if (!strchr(language_list, ',')) ReadAsciiDictionary();
+	else WalkLanguages(ReadLanguage);
+	language_bits = LANGUAGE_UNIVERSAL;
 }
 
 void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and major kinds have subkinds
@@ -3610,10 +3811,15 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 void LoadDictionary(char* heapstart)
 {
 	int invalid = 0;
+	language_bits = LANGUAGE_UNIVERSAL;
+	char* heapbase = heapFree;
+	WORDP dictbase = dictionaryFree;
+	FACT* factbase = lastFactUsed;
+	
 	if (!ReadBinaryDictionary()) invalid = 1; //   if binary form not there or wrong hash, use text form (slower)
 	else
 	{
-		if (!ReadBinaryFacts(FopenStaticReadOnly(UseDictionaryFile((char*)"facts.bin")), true)) invalid |= 2;
+		if (!ReadBinaryFacts(FopenStaticReadOnly(UseDictionaryFile((char*)"facts.bin", language_list)), true)) invalid |= 2;
 		else
 		{
 			//WalkDictionary(VerifyEntries);
@@ -3646,27 +3852,22 @@ void LoadDictionary(char* heapstart)
 		ClearWordMaps();
 		InitFactWords(); // define MMember, Mexclude, Mis
 		AcquireDefines((char*)"SRC/dictionarySystem.h"); //   get dictionary defines (must occur before loop that decodes properties into sets (below)
-		ReadAsciiDictionary();
+		ReadAsciiDictionaries();
 		if (Word2Index(dictionaryFree) == 1) myexit("Ascii dictionary not read");
 		*currentFilename = 0;
 
-		ReadAbbreviations((char*)"abbreviations.txt"); // needed for burst/tokenizing
 		AcquirePosMeanings(true); // add to vocab, store in tables, AND build pos facts
 		ExtendDictionary(); // also sets global variables
 		char name[MAX_WORD_SIZE];
 		sprintf(name, (char*)"%s/%s/systemfacts.txt", livedataFolder, language);
 		ReadFacts(name, NULL, 0); // part of wordnet, not level 0 build, just list of names, not really facts 
 
-		WORDP oldd = dictionaryFree;
-		ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL, 0);
-		if (dictionaryFree != oldd) ReportBug("Reading dict facts added to dictionary") // word added to dictionary?
-
 //		WalkDictionary(VerifyEntries); // prove good before writeout
 //		VerifyFacts();				// prove good before writeout
 //		printf("Verified dict and facts\r\n");
 
 		WriteBinaryDictionary(); //   store the faster read form of dictionary
-		WriteBinaryFacts(FopenBinaryWrite(UseDictionaryFile((char*)"facts.bin")), factBase);
+		WriteBinaryFacts(FopenBinaryWrite(UseDictionaryFile((char*)"facts.bin",language_list)), factBase);
 	}
 	else
 	{
@@ -3676,6 +3877,12 @@ void LoadDictionary(char* heapstart)
 		if (dictionaryFree != oldd) ReportBug("Adding pos facts changed dictionary") // word added to dictionary?
 	}
 	*currentFilename = 0;
+
+	unsigned int memdiff = heapFree - heapbase;
+	memdiff += (dictionaryFree - dictbase) / sizeof(WORDENTRY);
+	memdiff += (lastFactUsed - factbase) / sizeof(FACT);
+	memdiff /= 1048576;
+	//printf("Dict heap load %d\r\n", memdiff);
 
 	fullDictionary = (!stricmp(language, (char*)"ENGLISH")) || (dictionaryFree - dictionaryBase) > 170000; // a lot of words are defined, must be a full dictionary.
 }
@@ -3705,6 +3912,18 @@ void ExtendDictionary()
 	MadjectiveNoun = MakeMeaning(BUILDCONCEPT((char*)"~adjective_noun"));
 	Mpending = MakeMeaning(StoreWord((char*)"^pending"));
 	DunknownWord = StoreWord((char*)"unknown-word");
+
+	StoreWord("~shout");
+	StoreWord("~twitter_name");	
+	StoreWord("~hashtag_label");
+	StoreWord("~filename");
+	StoreWord("~emoji");
+	StoreWord("~capacronym");
+	StoreWord("~fahrenheit");
+	StoreWord("~celsius");
+	StoreWord("~kelvin");
+	StoreWord("~utf8");
+	StoreWord("~noun_phrase");
 
 	// generic concepts the engine marks automatically
 	Dadult = BUILDCONCEPT((char*)"~adultword");
@@ -4181,6 +4400,23 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	}
 	Log(USERLOG, "\r\n");
 	ReleaseInfiniteStack();
+
+	// multi forms and languages?
+	WORDP set[20];
+	unsigned int oldbits = language_bits;
+	language_bits = 0; // see all
+	int i = GetWords(word, set, false); // words in any case and with mixed underscore and spaces
+	if (i > 1)
+	{
+		Log(USERLOG, "similar forms: \r\n");
+		while (i)
+		{
+			WORDP E = set[--i];
+			const char* lang = GetLanguage(E);
+			if (E != D) Log(USERLOG, "         %s: %s\r\n", lang, E->word);
+		}
+	}
+	language_bits = oldbits;
 }
 
 #include <map>
@@ -7030,16 +7266,16 @@ static void DeleteAllWords(WORDP D, uint64 junk)
 	else if (!(D->systemFlags & (KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6))) // delete advanced words unless its irregular and base is vital
 	{
 		char* noun = GetSingularNoun(D->word, false, true);
-		WORDP G = FindWord(noun, LOWERCASE_LOOKUP);
+		WORDP G = FindWord(noun, 0,LOWERCASE_LOOKUP);
 		if (G && G->systemFlags & (KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6)) return; // base is known
 		char* verb = GetInfinitive(D->word, true);
-		G = FindWord(verb, LOWERCASE_LOOKUP);
+		G = FindWord(verb, 0,LOWERCASE_LOOKUP);
 		if (G && G->systemFlags & (KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6)) return; // base is known
 		char* adjective = GetAdjectiveBase(D->word, true);
-		G = FindWord(adjective, LOWERCASE_LOOKUP);
+		G = FindWord(adjective, 0,LOWERCASE_LOOKUP);
 		if (G && G->systemFlags & (KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6)) return; // base is known
 		char* adverb = GetAdverbBase(D->word, true);
-		G = FindWord(adverb, LOWERCASE_LOOKUP);
+		G = FindWord(adverb,0, LOWERCASE_LOOKUP);
 		if (G && G->systemFlags & (KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6)) return; // base is known
 	}
 	else if (D->properties & NORMAL_WORD) return;
@@ -7807,7 +8043,7 @@ void LoadRawDictionary(int minid) // 6 == foreign
 	if (minid != 6)
 	{
 		CheckShortDictionary(aux, false); // vocabulary specific to this app
-		ReadAbbreviations("LIVEDATA/abbreviations.txt"); // needed for burst/tokenizing
+		ReadAbbreviations("abbreviations.txt"); // needed for burst/tokenizing
 		ReadTitles("RAWDICT/titles.txt"); //   forms of address like Mr. (before readData so things like potage_St._Germain are correctly handled - burst needs to know them...
 		WalkDictionary(DefineShortCanonicals, 0); // all more and most forms as needed
 		ReadWordFrequency("RAWDICT/500kwords.txt", 20000, minid > 0); // add most frequent words NOT already known or until dict is 20K

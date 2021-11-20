@@ -97,10 +97,13 @@ resume:
 
 			if (trace & TRACE_OUTPUT && CheckTopicTrace()) 
 			{
-				char* label = AllocateStack(NULL, maxBufferSize);
+				char* label = AllocateBuffer();
 				strcpy(label,word1);
 				if (*remap == '^') sprintf(label,"%s->%s",remap,word1);
-				if (!*found) 
+				const char* didfind = found;
+				if (didfind == nullGlobal) didfind = NULL;
+				else if (didfind == (nullLocal + 2)) didfind = NULL;
+				if (!didfind) // true null (not empty string)
 				{
 					if (invert) id = Log(USERLOG,"!%s`null` ",label);
 					else id = Log(USERLOG,"%s`null` ",label);
@@ -110,10 +113,10 @@ resume:
 					if (invert) id = Log(USERLOG,"!%s`%s` ",label,found);
 					else id = Log(USERLOG,"%s`%s` ",label,found);
 				}
-				ReleaseStack(label);
+				FreeBuffer();
 			}
 			ReleaseStack(remap);
-			if (!*found) result = FAILRULE_BIT;
+			if (!found || !*found) result = FAILRULE_BIT;
 			else result = NOPROBLEM_BIT;
 		}
 		else  //  its a constant of some kind 

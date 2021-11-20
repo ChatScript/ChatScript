@@ -15,6 +15,8 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
 
+
+
 #ifndef DISCARDSERVER
 #ifdef EVSERVER
 
@@ -57,6 +59,7 @@ Handling client:
 extern char serverLogfileName[1000];
 extern char dbTimeLogfileName[1000];
 extern bool serverctrlz;
+extern int cs_qsize;
 #define CLIENT_CHUNK_LENGTH 4*1024
 #define HIDDEN_OVERLAP 103	// possible concealed data
 #define HIDDEN_OFFSET 3 // past 2 ctrl z's
@@ -65,7 +68,7 @@ extern bool serverctrlz;
 string interface_g;
 int port_g;
 int listen_queue_length_g = 16*1024; // 16 k
-
+int qsize = 0;
 int srv_socket_g = -1;
 
 // EV stuff
@@ -99,6 +102,7 @@ struct Client_t
 {
     char magic[9];
     int fd;
+    int q; // how many in q ahead of this
     ev_io ev_r;
     ev_io ev_w;
     struct ev_loop *l;
@@ -121,7 +125,7 @@ struct Client_t
         delete this;
     }
 
-    Client_t(int fd, struct ev_loop *l_p) : fd(fd), l(l_p), requestValid(false)
+    Client_t(int fd, struct ev_loop *l_p, int queue) : fd(fd), l(l_p), q(queue),requestValid(false)
     {
         strcpy(this->magic, "deadbeef");
         ev_io_init(&this->ev_r, client_read, this->fd, EV_READ);
@@ -552,7 +556,7 @@ static void evsrv_accept(EV_P_ ev_io *w, int revents)
 
         if (setnonblocking(fd) == -1 || setnonblocking(fd) == -1)  return;
 
-        new Client_t(fd, l_g);
+        new Client_t(fd, l_g, ++qsize);
         ++ev_pending;
         if (ev_pending > ev_max) ev_max = ev_pending;
     }
@@ -568,11 +572,13 @@ static void client_read(EV_P_ ev_io *w, int revents)
 
         ReportBug( "evserver: got error on read (errno: %s) dropping client %d\r\n", strerror(errno), w->fd);
         client-> Qdown();
+        --qsize;
         return;
     }
     else if (r == 0) {
         // client closed connection, lets close ours
         client->Qdown();
+        --qsize;
         return;
     }
 
@@ -583,6 +589,7 @@ static void client_read(EV_P_ ev_io *w, int revents)
         // invalid request
         ReportBug( "evserver: received invalid request from %d, ignoring\r\n", w->fd);
         client->Qdown();
+        --qsize;
         return;
     }
 
@@ -591,6 +598,7 @@ static void client_read(EV_P_ ev_io *w, int revents)
     if (r < 0) {
         // could not process it
         client->Qdown();
+        --qsize;
         return;
     }
 
@@ -606,6 +614,7 @@ static void client_read(EV_P_ ev_io *w, int revents)
 	if (r < 0) ReportBug( "evserver: could not sent data to client: %d\r\n", client->fd);
 	// else if (r == 1)  // client handling finished
     client->Qdown();
+    --qsize;
 }
 
 static void client_write(EV_P_ ev_io *w, int revents)
@@ -627,11 +636,6 @@ static void client_write(EV_P_ ev_io *w, int revents)
     // if r = 0, it means there is still some data to be sent, which will be done next time this watcher is woken-up by ev_loop
 }
 
-void Overflow()
-{
-    int xx = 0;
-}
-
 int evsrv_do_chat(Client_t *client)
 {
  	uint64 starttime = ElapsedMilliseconds(); 
@@ -648,7 +652,7 @@ int evsrv_do_chat(Client_t *client)
     }
 
 RESTART_RETRY:
-
+    cs_qsize = client->q;
 	int turn = PerformChat(
         client->user,
         client->bot,

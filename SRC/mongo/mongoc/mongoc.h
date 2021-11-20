@@ -19,13 +19,16 @@
 #define MONGOC_H
 
 
-#include <bson.h>
+#include <bson/bson.h>
 
 #define MONGOC_INSIDE
+#include "mongoc-macros.h"
 #include "mongoc-apm.h"
 #include "mongoc-bulk-operation.h"
+#include "mongoc-change-stream.h"
 #include "mongoc-client.h"
 #include "mongoc-client-pool.h"
+#include "mongoc-client-side-encryption.h"
 #include "mongoc-collection.h"
 #include "mongoc-config.h"
 #include "mongoc-cursor.h"
@@ -34,15 +37,18 @@
 #include "mongoc-error.h"
 #include "mongoc-flags.h"
 #include "mongoc-gridfs.h"
+#include "mongoc-gridfs-bucket.h"
 #include "mongoc-gridfs-file.h"
 #include "mongoc-gridfs-file-list.h"
 #include "mongoc-gridfs-file-page.h"
 #include "mongoc-host-list.h"
 #include "mongoc-init.h"
 #include "mongoc-matcher.h"
+#include "mongoc-handshake.h"
 #include "mongoc-opcode.h"
 #include "mongoc-log.h"
 #include "mongoc-socket.h"
+#include "mongoc-client-session.h"
 #include "mongoc-stream.h"
 #include "mongoc-stream-buffered.h"
 #include "mongoc-stream-file.h"

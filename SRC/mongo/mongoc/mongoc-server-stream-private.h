@@ -14,16 +14,14 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_SERVER_STREAM_H
 #define MONGOC_SERVER_STREAM_H
 
 #include "mongoc-config.h"
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 
 #include "mongoc-topology-description-private.h"
 #include "mongoc-server-description-private.h"
@@ -31,16 +29,16 @@
 
 BSON_BEGIN_DECLS
 
-typedef struct _mongoc_server_stream_t
-{
-   mongoc_topology_description_type_t  topology_type;
-   mongoc_server_description_t        *sd;            /* owned */
-   mongoc_stream_t                    *stream;        /* borrowed */
+typedef struct _mongoc_server_stream_t {
+   mongoc_topology_description_type_t topology_type;
+   mongoc_server_description_t *sd; /* owned */
+   bson_t cluster_time;             /* owned */
+   mongoc_stream_t *stream;         /* borrowed */
 } mongoc_server_stream_t;
 
 
 mongoc_server_stream_t *
-mongoc_server_stream_new (mongoc_topology_description_type_t topology_type,
+mongoc_server_stream_new (const mongoc_topology_description_t *td,
                           mongoc_server_description_t *sd,
                           mongoc_stream_t *stream);
 
@@ -51,7 +49,8 @@ int32_t
 mongoc_server_stream_max_msg_size (mongoc_server_stream_t *server_stream);
 
 int32_t
-mongoc_server_stream_max_write_batch_size (mongoc_server_stream_t *server_stream);
+mongoc_server_stream_max_write_batch_size (
+   mongoc_server_stream_t *server_stream);
 
 void
 mongoc_server_stream_cleanup (mongoc_server_stream_t *server_stream);

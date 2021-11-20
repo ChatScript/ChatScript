@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/21/2021 cs11.6</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -59,6 +59,7 @@ t: () name(xxx) # explicitly add an empty pattern</code></pre>
 <p><em>what</em> can be <code>tag</code>, <code>type</code>,<code>label</code>, <code>pattern</code>, <code>output</code>,<code>topic</code>, and <code>usable</code>.</p>
 <p>The type will be <code>t</code>, <code>?</code>, <code>s</code>, <code>a</code>, etc.</p>
 <p>If a rule label is involved, optional third argument if given means only find enabled rules with that label. For usable, returns 1 if is can be used or null if it has been erased. The label <code>~</code> means the current rule. The label <code>0</code> means the top level rule above us (if we are a rejoinder, otherwise it is the same as <code>~</code>).</p>
+<p>If ^getrule(label) is called from ^testpattern, then the label associated with the pattern will be used, if it has one.</p>
 <h3 id="hasgambit-topic"><code>^hasgambit ( topic )</code></h3>
 <p>fails if topic does not have any gambits left unexecuted.</p>
 <p>Even it if does, they may not execute if they have patterns and they don't match. Optional second argument, if <code>any</code> will return normally if topic has any gambits (executed or not) and will failrule if topic has no gambits (a reactor topic).</p>
@@ -178,7 +179,7 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <h3 id="unmark-_0"><code>^unmark ( * _0 )</code></h3>
 <p>Turns off ALL matches on this location temporarily. The word becomes invisible and takes up no space in the sentence. It disables matching at any of the words spanned by the match variable. This unmark will also block subsequent specific marking using <code>^mark</code> at their locations.</p>
 <h3 id="unmark-_0-1"><code>^unmark ( @ _0 )</code></h3>
-<p>Turns off ALL matches on this location range but keep the word visible. It cannot be matched by anything but a wildcard and takes up its space in the sentence. Often this is used before something like `mark(~city _0) where you are taking something with ambiguous meanings, like &quot;nice&quot;, and removing all wrong meanings (and right ones) and putting back just right ones. This is a way for the rest of processing to only see the correct interpretation of a word.</p>
+<p>Turns off ALL matches on this location range but keep the word visible. It cannot be matched by anything but a wildcard and takes up its space in the sentence. Often this is used before something like <code>mark(~city _0)</code> where you are taking something with ambiguous meanings, like &quot;nice&quot;, and removing all wrong meanings (and right ones) and putting back just right ones. This is a way for the rest of processing to only see the correct interpretation of a word.</p>
 <p>Turns off matching on all words of the sentence.</p>
 <h3 id="mark-_0"><code>^mark ( * _0 )</code></h3>
 <p>To restore all marks to some location after having used ^unmark(* _0)</p>
@@ -201,6 +202,16 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <h3 id="setposition-_var-start-end"><code>^setposition ( _var start end )</code></h3>
 <p>Sets the match location data of a match var to the number values given.</p>
 <p>Alternatively you can do <code>^setposition ( _var _var1 )</code>, which is redundant with just doing <code>_var = _var1</code>.</p>
+<p>Another alternative is <code>^setposition ( _var1 _var2 original )</code>, which will set the position of <code>_var1</code> to the actual positions that the original word <code>_var2</code> was expanded to. This is equivalent to using</p>
+<pre><code>$_start = ^position( START _var2 )
+$_end = ^position( END _var2 )
+$_original = ^originalinputrange( $_start $_end )
+$_originalStart = $_original &gt;&gt; 8
+$_originalEnd = $_original &amp; 255
+$_actual = ^actualinputrange( $_originalStart $_originalEnd )
+$_actualStart = $_actual &gt;&gt; 8
+$_actualEnd = $_actual &amp; 255
+^setposition( _var1 $_actualStart $_actualEnd )</code></pre>
 <h3 id="setcanon-wordindex-value"><code>^setcanon ( wordindex value )</code></h3>
 <p>Changes the canonical value for this word.</p>
 <h3 id="settag-wordindex-value"><code>^settag ( wordindex value )</code></h3>
@@ -490,7 +501,7 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <p>Looks backward in the callstack for the named outputmacro, and if found returns the nth argument passed to it. Failure will be reported for n out of range or <code>^fn</code> not in the call path.</p>
 <p>This is an alterative access to function variable arguments, useful in a loop instead of having to access by variable name.</p>
 <p>If <em>n</em> is <code>0</code>, the system merely tests whether the caller exists and fails if the caller is not in the path of this call.</p>
-<h3 id="bugmsg">`^Bug(msg)</h3>
+<h3 id="bugmsg"><code>^Bug(msg)</code></h3>
 <p>Generates a run-time bug. If you are compiling script at the time, it generates a std script bug trap. If you are not, it forces an error message into the bug log.</p>
 <h3 id="callstack-n"><code>^callstack ( @n )</code></h3>
 <p>Generates a list of transient facts into the named factset. The facts represent the callstack and have as subject the critical value (the verb is <code>callstack</code> and the object is the rule tag responsible for this entry). Items include function calls (^xxxx) and topic calls (~xxxx) and internal calls (no prefix).</p>
@@ -521,22 +532,26 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <td>stops the current rule. Whether the next rule triggers depends upon whether or not output was generated</td>
 </tr>
 <tr class="odd">
+<td><code>TOPRULE</code></td>
+<td>stops the current rule (top level if in rejoinder). Whether the next rule triggers depends upon whether or not output was generated</td>
+</tr>
+<tr class="even">
 <td><code>LOOP</code></td>
 <td>stops the current loop but not the rule containing it. Can pass up through topics to find the loop. If there is no loop, it will fail you all the way to the top</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>TOPIC</code></td>
 <td>stops the current topic</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>SENTENCE</code></td>
 <td>stops the current rule, topic, and sentence</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>INPUT</code></td>
 <td>stops all the way through all sentences of the current input</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>PLAN</code></td>
 <td>succeeds a plan - (only usable within a plan)</td>
 </tr>
@@ -570,18 +585,22 @@ $$val = eval($$tmp) # $$val = 1</code></pre>
 <td>stops the current rule and cancels pending output</td>
 </tr>
 <tr class="even">
+<td><code>TOPRULE</code></td>
+<td>stops the toplevel rule given we are executing in a rejoinder</td>
+</tr>
+<tr class="odd">
 <td><code>LOOP</code></td>
 <td>stops a containing loop and fails the rule calling it. If you have no containing loop, this can crawl up through all enclosing topics and make no output</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>TOPIC</code></td>
 <td>stops not only the current rule also the current topic and cancels pending output. Rule processing stops for the topic, but as it exits, it passes up to the caller a downgraded fail(rule), so the caller can just continue executing other rules</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>SENTENCE</code></td>
 <td>stops the current rule, the current topic, and the current sentence and cancels pending output</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>INPUT</code></td>
 <td>stops processing anything more from this user's volley. Does not cancel pending output. It's the same as END(INPUT)</td>
 </tr>
@@ -639,18 +658,22 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <td>a rule failure within the script does not propagate outside of nofail</td>
 </tr>
 <tr class="even">
+<td><code>TOPRULE</code></td>
+<td>a rule failure within the script does not propagate outside of nofail</td>
+</tr>
+<tr class="odd">
 <td><code>LOOP</code></td>
 <td>a loop failure or end within the script does not propagate outside of nofail</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>TOPIC</code></td>
 <td>a topic or rule failure within the script does not propagate outside of nofail</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>SENTENCE</code></td>
 <td>a topic or rule or sentence failure within the script does not propogate outside of nofail</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>INPUT</code></td>
 <td>no failure propagates outside of the script</td>
 </tr>
@@ -819,6 +842,10 @@ else { $$tcpopen_error }</code></pre>
 <pre><code>{&quot;warnings&quot;: [ xxx yyy ] } </code></pre>
 <p>where xxx and yyy are warning messages.</p>
 <p>The code returned may have additional data at the start. This is used to inform spelling correction to protect words occurring in the pattern. For best results you should compile patterns in the same bot environment you expect to execute them in. The pattern won't explictly protect words it thinks the bot will already be protecting.</p>
+<h3 id="compiling-script-functions">Compiling script functions</h3>
+<p>You can create script function definitions in compilepattern can be passed around and used in ^testpattern and ^testoutput. This is done by assigning a function definition to a variable appropriately named with a $^ prefix.</p>
+<pre><code>    $^myvar:=^&quot;^dp_myfun($_a $_b) ..... &quot;</code></pre>
+<p>The above variable assignment will compile the assignment into an appropriate representation as a function definition. That variable value can be passed into ^testpattern and ^testouput in the variables list and used. The function name must start with the prefix ^dp_ . The ..... are a set of normal output code, but omit any { } around it.</p>
 <h2 id="cs-external-api--testpattern">CS External API- ^TestPattern</h2>
 <p>The external API functions allow execution of rule behaviors from outside of ChatScript. ^testpattern will execute a list of patterns and tell you which one (if any) matched and possibly return match variables. The argument is a JSON object as follows</p>
 <pre><code>{ 
@@ -841,18 +868,21 @@ else { $$tcpopen_error }</code></pre>
     &quot;values&quot;: [ &#39;leak&quot;, &quot;drip&quot;, &quot;spill&quot; ] } ] 
 }</code></pre>
 <p>Input is the user input (one or more sentences) to be matched against.</p>
-<p>Patterns is an array of pattern strings as returned by CompilePattern. Alternatively, patterns is an array of json pattern objects, which has a field called <code>pattern</code> and optionally a field called <code>label</code> that will be displayed when tracing execution.</p>
+<p>Patterns is an array of pattern strings as returned by CompilePattern. Alternatively, patterns is an array of json pattern objects, which has a field called <code>pattern</code> and optionally a field called <code>label</code> that will be displayed when tracing execution and is retrievable using ^getrule(~ label)</p>
 <p>Patterns can use memorization and they can assign values. If they use memorization, you can assign those onto normal variables, which if permanent variables will be returned as &quot;newglobals&quot;. You can perform an assignment inside the pattern using something like $answer:=_0 (see Variable assignment in Advanced patterns). The &quot;newglobals will be omitted if there are no changes.</p>
+<p>Patterns can also define functions that can be used there or in later invoked patterns. They should be compiled using ^compilepattern</p>
 <p>Use of %trace_on and %trace_off in a pattern can also be used to trigger and return tracing data. %trace_on normally just does pattern tracing but <code>%trace_on all</code> turns on full tracing.</p>
 <p>Use of &quot;cheat cs info&quot; as part of the user input will save onto the newglobal $cs_info the datestamps of the engine and scripts, and they will be appended to any output from ^testoutput that occurs subsequently.</p>
-<p>If you pass in a variable $language=xxxx then cs will change to that language for the call. This only works for languages not requiring their own dictionaries (like Japanese and ideographic).</p>
+<p>If you pass in a variable { $language : xxxx } then cs will change to that language for the call. This only works for languages not requiring their own dictionaries (like Japanese and ideographic).</p>
 <p>If the user input you pass in is &quot;null&quot;, then the current input is not altered and will be used. This is only useful if you are calling this function from a normal bot and not an external one.</p>
+<p><code>$$cs_sentencecount</code> will be set as the number of the current sentence being used and can be used with ^restoresentence. <code>%originalinput</code> is the input field. <code>%testpattern</code> will be the index number in the array of patterns of current pattern being matched in ^testpattern</p>
+<p>Normally all patterns are executed in sequence against a sentence, then all again against the next sentence, and so on. If the initial patterns have %testpattern-prescan in them (usually at the start), then those will all be executed in sequence against all sentences in sequence. Then the remaining patterns will revert to the usual all patterns against each sentence in succession.</p>
+<p>Normally every ^testpatterncall to CS will have to have NL done on its input. Patterns that imply no need for NL will not trigger it. But if only one needs it, CS will have to do it. But with command line paramter <code>nlsave=1</code> the results of NL analysis can be written out in newglobals and passed along to the next ^testpattern call to CS, saving time. On the other hand, if you know there will be no next call, you can add to your pattern <code>%testpattern-nosave</code> to present saving the nl data to newglobals. You can manually force saving from user input by saying <code>nl-save</code> or passing in a variable of <code>$bwnlsave</code>.</p>
 <h3 id="replace_spelling">~replace_spelling</h3>
 <p>The variables and concepts fields are optional and provide context. A concept named &quot;~replace_spelling&quot; is treated not as a concept but as a list of paired words analogous to &quot;replace:&quot;, but is only a transient replace series for this call. A concept can contain values that look like: <code>&quot;(...)&quot;</code> or <code>(xxx)</code> which are CS patterns. These patterns can match user input just like an ordinary concept word can.<br />
 A concept can contain entries that are pairs, separated by |. This is preferred over supplying separate pairs of words. The left side is stored as the concept member and a fact is created ( left-side api-remap right-side) which allows you to write scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.</p>
-<p>Style is also optional and defaults to <code>earliest</code>. Other choices are all, best, and latest. Earliest means stop running patterns and sentences as soon as you get a match. The makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
-<p>The optional <code>trace</code> field if set, will have the patterns involved traced (:trace pattern) and the results returned in a field named <code>trace</code> as a text string with crlf. Or a pattern can set the variable <code>$$cs_testpattern_style</code> to be a value and the system will enable trace until it is set off or the call completes.</p>
-<p>Result is ordinary user output JSON object:</p>
+<p>Style is also optional and defaults to <code>earliest</code>. Other choices are all, best, latest and tfidf. Earliest means stop running patterns and sentences as soon as you get a match. This makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
+<p>Result of ^testpattern is ordinary user output JSON object:</p>
 <pre><code>{ 
     &quot;match&quot;: 1,  -- index of matching pattern
     &quot;newglobals&quot;: { &quot;$stovetype&quot;: &quot;range&quot;, &quot;$leaktype&quot;: &quot;leak&quot; }  
@@ -860,6 +890,163 @@ A concept can contain entries that are pairs, separated by |. This is preferred 
 <p>If nothing matched, the value of <code>match</code> is false. Otherwise it is the index of the matching pattern (0-based). If there are return values from matching one or more patterns, those will be listed in <code>newglobals</code>, which is omitted if there are none. Values of null are never returned.</p>
 <p>You can force ^testpattern to trace user regardless of whether tracing is on or not or whether nouserlog is set.<br />
 Just prepend to your input &quot;:tracepattern 1&quot;. Or in a pattern or ^testoutput code use %tracepattern_on and %tracepattern_off and that reference will turn on and off tracing within that call to CS. They can be used in any pattern or output without damaging it. And you can block this behavior on a server by using the command line parameter <code>blockapitrace</code>.</p>
+<p>If you add <code>cheat cs info</code> to the user input, it will return a newglobal $cs_info which tells when scripts and engine were compiled.</p>
+<p>If you call ^jsonopen from a pattern and it times out or has a bad url, ^testpattern will return an extra field <code>jsonopen-status</code> with value of timeout.</p>
+<p>The optional <code>trace</code> field if set, will have the patterns involved traced (:trace pattern) and the results returned in a field named <code>trace</code> as a text string with crlf. Or a pattern can set the variable <code>$$cs_testpattern_style</code> to be a value and the system will enable trace until it is set off or the call completes.</p>
+<h3 id="styletfdif">Style=tfdif</h3>
+<p><code>tfidf</code> calculates a similarity score for each pattern using a TF/IDF statistical process (term frequency/interdocument frequency) . The scores are returned in a <code>scores</code> array in the result object. The input JSON structure requires an <code>idf</code> object where the property names represent tokens, typically concept names, used in the patterns and a value representing an inverse document frequency score (between 0 and 1) for that token - rarer and hence more selective tokens will have a higher score than common terms. It is preferred that the members of each concept are mutually exclusive. For a pattern, the similarity score is calculated from the <code>idf</code> terms that were actually matched from the input.</p>
+<pre><code>{
+    &quot;patterns&quot; : [
+        &quot;( ~concept1 { ~concept2 } )&quot;,
+        &quot;( ~concept3 ~concept1 { ~concept4 } )&quot;,
+        &quot;( &lt;&lt; { ~concept1 } { ~concept2 } { ~concept5 } &gt;&gt; )&quot;,
+        ...
+    ],
+    &quot;idf&quot; : {
+        &quot;~concept1&quot; : 0.43723,
+        &quot;~concept2&quot; : 0.66096,
+        &quot;~concept3&quot; : 0.99923
+        ...
+    }
+}</code></pre>
+<p>An extended example is this:</p>
+<pre><code>For reference, here is a sample input document we create where we are trying to pick the best choice from the following:
+1 GB 3G for 28 days @ 155 Rs.
+1 GB 3G for 28 days 147 Rs
+1 GB 2G for 28 days 147 Rs
+Special Packs
+The current sentence is &quot;2G @ 147 Rs.&quot;
+
+^testpattern data is: 
+{    # jo-t4484
+  &quot;style&quot;: &quot;tfidf&quot;,
+  &quot;patterns&quot;: [    # ja-t4485
+    &quot;^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists002 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists006 ~choicelists007 ~choicelists008 ) ( &lt;&lt; { ~choicelists000 } { ~choicelists001 } { ~choicelists002 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists006 } { ~choicelists007 } { ~choicelists008 } &gt;&gt; :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) &quot;,
+    &quot;^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists002 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists009 ~choicelists008 ) ( &lt;&lt; { ~choicelists000 } { ~choicelists001 } { ~choicelists002 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists009 } { ~choicelists008 } &gt;&gt; :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) &quot;,
+    &quot;^( ( [ ( ~choicelists000 ~choicelists001 ~choicelists010 ~choicelists003 ~choicelists004 ~choicelists005 ~choicelists009 ~choicelists008 ) ( &lt;&lt; { ~choicelists000 } { ~choicelists001 } { ~choicelists010 } { ~choicelists003 } { ~choicelists004 } { ~choicelists005 } { ~choicelists009 } { ~choicelists008 } &gt;&gt; :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) &quot;,
+    &quot;^( ( [ ( ~choicelists011 ~choicelists012 ) ( &lt;&lt; { ~choicelists011 } { ~choicelists012 } &gt;&gt; :m$$lovvariablepattern:=%testpattern ) ] ) ^recordlovpatternmatch ( ) ) &quot;
+  ],
+  &quot;concepts&quot;: [    # ja-t4486
+    {    # jo-t4497
+      &quot;name&quot;: &quot;~choicelists000&quot;,
+      &quot;values&quot;: [    # ja-t4498
+        1
+      ]
+    },
+    {    # jo-t4499
+      &quot;name&quot;: &quot;~choicelists001&quot;,
+      &quot;values&quot;: [    # ja-t4500
+        &quot;GB&quot;
+      ]
+    },
+    {    # jo-t4501
+      &quot;name&quot;: &quot;~choicelists002&quot;,
+      &quot;values&quot;: [    # ja-t4502
+        &quot;3g&quot;,
+        &quot;3G&quot;
+      ]
+    },
+    {    # jo-t4503
+      &quot;name&quot;: &quot;~choicelists003&quot;,
+      &quot;values&quot;: [    # ja-t4504
+        &quot;for&quot;
+      ]
+    },
+    {    # jo-t4505
+      &quot;name&quot;: &quot;~choicelists004&quot;,
+      &quot;values&quot;: [    # ja-t4506
+        28
+      ]
+    },
+    {    # jo-t4507
+      &quot;name&quot;: &quot;~choicelists005&quot;,
+      &quot;values&quot;: [    # ja-t4508
+        &quot;day&quot;,
+        &quot;days&quot;
+      ]
+    },
+    {    # jo-t4509
+      &quot;name&quot;: &quot;~choicelists006&quot;,
+      &quot;values&quot;: [    # ja-t4510
+        &quot;at&quot;,
+        &quot;@&quot;
+      ]
+    },
+    {    # jo-t4511
+      &quot;name&quot;: &quot;~choicelists007&quot;,
+      &quot;values&quot;: [    # ja-t4512
+        155
+      ]
+    },
+    {    # jo-t4513
+      &quot;name&quot;: &quot;~choicelists008&quot;,
+      &quot;values&quot;: [    # ja-t4514
+        &quot;rs&quot;,
+        &quot;Rs.&quot;
+      ]
+    },
+    {    # jo-t4524
+      &quot;name&quot;: &quot;~choicelists009&quot;,
+      &quot;values&quot;: [    # ja-t4525
+        147
+      ]
+    },
+    {    # jo-t4532
+      &quot;name&quot;: &quot;~choicelists010&quot;,
+      &quot;values&quot;: [    # ja-t4533
+        &quot;2g&quot;,
+        &quot;2G&quot;
+      ]
+    },
+    {    # jo-t4540
+      &quot;name&quot;: &quot;~choicelists011&quot;,
+      &quot;values&quot;: [    # ja-t4541
+        &quot;special&quot;,
+        &quot;Special&quot;
+      ]
+    },
+    {    # jo-t4542
+      &quot;name&quot;: &quot;~choicelists012&quot;,
+      &quot;values&quot;: [    # ja-t4543
+        &quot;pack&quot;,
+        &quot;Packs&quot;
+      ]
+    },
+    {    # jo-t4551
+      &quot;name&quot;: &quot;~choicelistsall&quot;,
+      &quot;values&quot;: [    # ja-t4552
+        &quot;( ^testLoVSpell( ) )&quot;
+      ]
+    }
+  ],
+  &quot;idf&quot;: {    # jo-t4487
+    &quot;~choicelists000&quot;: 0.4372345589580705,
+    &quot;~choicelists001&quot;: 0.4372345589580705,
+    &quot;~choicelists002&quot;: 0.6609640474436812,
+    &quot;~choicelists003&quot;: 0.0017079474959299629187314817357901119976304471492767,
+    &quot;~choicelists004&quot;: 0.4372345589580705,
+    &quot;~choicelists005&quot;: 0.4372345589580705,
+    &quot;~choicelists006&quot;: 0.34328891624380336589084095066937152296304702758789,
+    &quot;~choicelists007&quot;: 1.0849625007211563,
+    &quot;~choicelists008&quot;: 0.4372345589580705,
+    &quot;~choicelists009&quot;: 0.6609640474436812,
+    &quot;~choicelists010&quot;: 1.0849625007211563,
+    &quot;~choicelists011&quot;: 1.0849625007211563,
+    &quot;~choicelists012&quot;: 1.0849625007211563
+  }
+}
+
+And this produces an output of 
+
+{    # jo-t4559
+  &quot;match&quot;: 2,
+  &quot;scores&quot;: [    # ja-t4560
+    0.400867,
+    0.571482,
+    0.968875,
+    0.000000
+  ]
+}</code></pre>
 <h2 id="cs-external-api--compileoutput">CS External API- ^CompileOutput</h2>
 <p>The external API functions allow execution of rule behaviors from outside of ChatScript. This function takes in an output string like</p>
 <pre><code>if ($test) {test me}
@@ -918,7 +1105,7 @@ Just prepend to your input &quot;:tracepattern 1&quot;. Or in a pattern or ^test
 <p>Reading a document consists of performing a single volley of the entire document. This can tie up a lot of memory in keeping facts, dictionary entries, user variables, etc. If you are careful in what you do, you can make the memory burden go away. <code>^memoryMark()</code> notes where memory is currently at, and is best done within the document_pre topic. Then you can release memory after every sentence of the document, so it doesn't accumulate.</p>
 <p>Multiple calls to memory mark stack up the data, so each call to ^memoryfree will undo one mark.</p>
 <h3 id="memoryfree-data"><code>^memoryfree ( {$data})</code></h3>
-<p>This releases memory back to the most recent ^memorymark()`. It is best done after your main control of the document bot has finished processing a sentence. Partly because the analysis of the sentence is lost and so no later rules can pattern match to it (though you can call ^analyze to reacquire your sentence). E.g.,</p>
+<p>This releases memory back to the most recent <code>^memorymark()</code>. It is best done after your main control of the document bot has finished processing a sentence. Partly because the analysis of the sentence is lost and so no later rules can pattern match to it (though you can call ^analyze to reacquire your sentence). E.g.,</p>
 <pre><code>topic: ~document_pre system repeat()
 
 t: ^memorymark() # note start
@@ -1277,6 +1464,10 @@ u: what&#39;s your first name?
 ^spell(am*ic @1) will find American
 ^spell(a*ent @1) will find abasement
 ^spell(h.l.o @1) will find hello</code></pre>
+<h3 id="spellcheck-input-dictionary-tolerance"><code>^spellcheck ( input dictionary {tolerance} )</code></h3>
+<p>Input is tokenized words separated by spaces, dictionary is json array of words. Outputs the input words adjusted by any spelling correction.</p>
+<p>Useful if you read dynamic menus from an API endpoint and then want to match user input against that menu, whose elements may not be in the main CS dictionary.</p>
+<p>By default up to two characters in a word can be changed. The tolerance argument can be either an integer specifying the number of characters that can be changed, or a floating point percentage to indicate the proportion of characters in each word that can be changed.</p>
 <h3 id="sexed-word-he-choice-she-choice-it-choice"><code>^sexed ( word he-choice she-choice it-choice )</code></h3>
 <p>Given a word, depending on its sex the system outputs one of the three sex choices given. An unrecognized word uses it.</p>
 <pre><code>^sexed(Georgina he she it) </code></pre>
@@ -1472,7 +1663,7 @@ concept: ~canine (dog)</code></pre>
 <p><code>^delete(@1)</code> And all facts in <code>@1</code> will be deleted and the set erased You can also delete an individual fact who's id is sitting on some variable</p>
 <p><code>^delete($$f)</code> And you can delete a json array or object, including all of its substructure the same way.</p>
 <p>If you pass something that is not deleteable, the system will do nothing and does not fail.</p>
-<h3 id="length-factset-orsetor-jsonid-or-word"><code>^length ( factset or</code>~set<code>or jsonid or word )</code></h3>
+<h3 id="length-factset-or-set-or-jsonid-or-word"><code>^length ( factset or ~set or jsonid or word )</code></h3>
 <p>If you want to know how many facts a fact-set has, you can do this:</p>
 <p><code>^length(@1)</code> - outputs the count of facts</p>
 <p>Likewise how many top level members of a concept (not recursive). Or how many fields in a json object or elements in a json array. Or how many characters in a word. A Null value for the argument is legal, and is of length 0.</p>
@@ -1496,7 +1687,7 @@ concept: ~canine (dog)</code></pre>
 <pre><code>^save(@9 true) # force set to save thereafter
 ^save(@9 false) # turn off saving thereafter</code></pre>
 <h3 id="makereal-set-factid"><code>^makereal ( {set , factid} )</code></h3>
-<p>If you give this a factset, it will convert any transient facts in that set into permanent. If you give this a factid, it will convert all transient facts created after that id into permanent. This might allow you, for example, to call `^jsonopen and get back a transient JSON structure and after inspection you could convert it to permanent if you wanted to.</p>
+<p>If you give this a factset, it will convert any transient facts in that set into permanent. If you give this a factid, it will convert all transient facts created after that id into permanent. This might allow you, for example, to call <code>^jsonopen</code> and get back a transient JSON structure and after inspection you could convert it to permanent if you wanted to.</p>
 <h3 id="setfactowner-set-factid-idbits"><code>^setFactOwner ( {set , factid} idbits )</code></h3>
 <p>In multibot deploys, allows you to change which bot owns this set of facts. Useful if you want to allow a bot to share facts owned by another bot.</p>
 <h3 id="addproperty-set-flag"><code>^addproperty ( set flag )</code></h3>
@@ -1538,7 +1729,7 @@ concept: ~canine (dog)</code></pre>
 <p>given a reference to a fact, pull out a named field. If the fieldname is in lower case and the field is a fact reference, you get that number. If the fieldname starts uppercase, the system gives you the printout of that fact. Eg for a fact:</p>
 <pre><code>$$f = createfact (I eat (he eats beer))</code></pre>
 <p><code>^field( $$f object)</code> returns a number <code>(the fact index)</code> and <code>^field($$f Object)</code> returns <code>(he eats beer)</code> as the translation of the fact into text.</p>
-<p>Fields include: <code>subject</code>, <code>verb</code>, <code>object</code>, <code>flagsv,</code>all` (spread onto 3 match variables, raw (spread onto 3 match variables).</p>
+<p>Fields include: <code>subject</code>, <code>verb</code>, <code>object</code>, <code>flagsv</code>, <code>all</code> (spread onto 3 match variables, raw (spread onto 3 match variables).</p>
 <p><code>all</code> just displays a human normal dictionary word, so if the value were actually <code>plants~1</code> you'd get just plants whereas raw would return what was actually there <code>plants~1</code>.</p>
 <p>You can also retrieve a field via <code>$$f.subject</code> or <code>$$f.verb</code> or <code>$$f.object</code> or <code>$$f.flags</code>.</p>
 <h3 id="find-setname-itemname"><code>^find ( setname itemname )</code></h3>

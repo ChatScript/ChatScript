@@ -434,7 +434,7 @@
 		  ~sexualhate **itch arsehole ass_hole asshole b**tch bitch butt_face butt_head buttface butthead crap cunt dick_head dickhead douche dumb_ass dumbass eat_shit f#*k 
           f*#k f*** f**k f*ck f_u_c_k fet_fucked freak fu fu*k fuck fuck_my fuck_off fuck_out fuck_you fucker fuckwit get_the_fuck_out gfy go_to_hell gtfo jerk kiss_my_ass mother_fucker 
           my_ass retard screw_yourself shit shit_head shithead shut_the_fuck_up shut_the_hell_up smartass stfu ) ##>>
-##<<ENGLISH concept: ~emosadevent (be_sad broke_up catastrophe death depressed despondent died disaster divorce famine feel_bad killed left_me loss_of_my lost_my mourn murdered raped tragedy ) ##>>
+##<<ENGLISH concept: ~emosadevent (be_sad broke_up catastrophe death depressed despondent died disaster divorce famine feel_bad killed left_me loss_of_my lost_my mourn murdered raped tragedy  "is dead") ##>>
 ##<<ENGLISH concept: ~emosurpriseevent (amazing engagement fantastic incredible magnanimous magnificent marriage_proposal reunion shocked surprise ) ##>>
 ##<<ENGLISH concept: ~emotions (~feeling_words afraid alarm amaze amazement amuse anger angrily annoy appreciate arrogance attitude aware bore bother care charm concentrate concern confuse confusion content contempt contemptuous
           curious curiosity desire desperate disappoint disbelief disgust disrespect disturb doubt ease embarrass emotion enjoy envy excite excitement fear feel frighten frustrate frustration fun happily happy happiness hate hope 
@@ -517,7 +517,392 @@
           wrought_up acrimonious angry annoyed appalled bitter boiling cross devastated disgusted enraged frustrated fuming furious hostile in_a_huff in_a_stew incensed indignant 
           inflamed infuriated irate irritated livid mad offended outraged pique provoked rageful resentful sullen up_in_arms virulent worked_up wrathful wrought_up 
 		 anger  fed_up loathing mad rancor temper ) ##>>
-##<<ENGLISH concept: ~feeling_apathetic (apathetic complacent full_of_ennui immobilized lazy lethargic numb passive quiescent unconcerned unmotivated ) ##>>
+##<<ENGLISH concept: ~feeling_good_misc (
+~feeling_adequate
+~feeling_admiration
+~feeling_attached
+~feeling_attracted
+~feeling_esteem
+~feeling_fearless
+~feeling_focused
+~feeling_free
+~feeling_grateful
+~feeling_happy
+~feeling_independent
+~feeling_irrisistable
+~feeling_justified
+~feeling_loved
+~feeling_lustful
+~feeling_save
+~feeling_sympathy
+wistful
+smart
+okay
+indescribable
+hot
+high
+full
+amorous
+candid
+contemplative
+dispassionate
+dreamy
+expectant
+impassive
+nostalgic
+philosophical
+purposeful
+rational
+reflective
+remorseful
+sensitive
+sentimental
+serious
+whimsical
+wistful
+awe
+enlightened
+enthralled
+flirty
+friendly
+good
+harmonious
+hyper
+inclusive
+liberating
+light-hearted
+rejuvenated
+romantic
+silly
+trustful
+welcoming
+accepting
+affable
+agreeable
+altruistic
+amenable
+amiable
+appreciative
+approachable
+attentive
+benevolent
+bouncy
+breezy
+bubbly
+chipper
+chummy
+companionable
+compliant
+conciliatory
+congenial
+considerate
+cordial
+courteous
+delightful
+dignified
+diplomatic
+easygoing
+ebullient
+effervescent
+electrified
+elevated
+empowered
+energetic
+energized
+euphoric
+fearless
+forgiving
+forthright
+friendly
+fulfilled
+generous
+giddy
+good-natured
+gregarious
+gutsy
+holiday
+honest
+hospitable
+humble
+idyllic
+imaginative
+imperturbable
+impressed
+indomitable
+intrepid
+jocund
+kind
+laidback
+levelheaded
+liberated
+longsuffering
+mellow
+neighborly
+patient
+peaceable
+peppy
+perky
+placid
+pleasant
+plucky
+polite
+positive
+receptive
+refreshed
+relaxed
+respectful
+responsive
+rested
+reverent
+reverential
+revitalized
+romantic
+sanguine
+sedate
+self-effacing
+selfless
+sensible
+sharing
+sociable
+solicitous
+sparky
+splendid
+spunky
+steadfast
+supportive
+sympathetic
+tender
+thoughtful
+thrilled
+tolerant
+touched
+unassuming
+understanding
+unflappable
+unruffled
+unselfish
+unshakeable
+unshaken
+upbeat
+uplifted
+vibrant
+warm
+flirtatious
+mischievous
+accomplished
+
+) ##>>
+
+##<<ENGLISH concept: ~feeling_depressed (
+~feeling_apathetic ~feeling_bored 
+~feeling_demoralized ~emosadevent
+) ##>>
+##<<ENGLISH concept: ~feeling_mixed_misc (
+recumbent
+nerdy
+maughty
+geeky
+blank
+analytical
+chatty
+mysterious
+neutral
+prayerful
+shy
+talkative
+ ) ##>>
+##<<ENGLISH concept: ~feeling_bad_misc (
+~feeling_alone
+~feeling_angry
+~feeling_apathetic
+~feeling_belittle
+~feeling_bored
+~feeling_burden
+~feeling_cheated
+~feeling_codependent
+~feeling_demoralized
+~feeling_derailed
+~feeling_disgust
+~feeling_embarrass
+~feeling_entitled
+~feeling_fearful
+~feeling_hated
+~feeling_lost
+~feeling_obsessed
+~feeling_outofcontrol
+~feeling_powerless
+~feeling_reproachful
+~feeling_singledout
+~feeling_sad
+~feeling_trapped
+blunt
+rushed
+groggy
+ditzy
+tired
+subdued
+sleepy
+sick
+giggly
+hungry
+dorky
+discontent
+drunk
+dirty
+devious
+crazy
+crappy
+changeable
+fierce
+impulsive
+lovesick
+naughty
+rambunctious
+submissive
+aggravated
+bad
+barren
+cold
+confining
+fatalistic
+foreboding
+gloomy
+haunting
+insidious
+madness
+merciless
+moody
+painful
+predatory
+sombre
+suspenseful
+terrifying
+threatening
+weird
+abashed
+aloof
+argumentative
+belligerent
+bizarre
+black
+blue
+boisterous
+bossy
+brooding
+brutish
+bullish
+callous
+cantankerous
+capricious
+close-mouthed
+cold
+combative
+concessionary
+confined
+confrontational
+contentious
+contradictory
+contrary
+cranky
+critical
+crusty
+cynical
+dangerous
+defiant
+desolate
+disbelieving
+disconcerted
+disdainful
+distant
+disturbed
+domineering
+drained
+edgy
+empty
+enervated
+envious
+erratic
+exasperated
+expansive
+fickle
+flippant
+forlorn
+foul
+grim
+grouchy
+grumpy
+haughty
+haunted
+heavy
+helpless
+hypercritical
+imperious
+implacable
+inadequate
+incendiary
+indolent
+inferior
+inflammatory
+insubordinate
+intimidated
+irascible
+irreverent
+irritable
+judgmental
+malicious
+mercurial
+morose
+nauseated
+nightmarish
+offensive
+ominous
+ornery
+overbearing
+overpowered
+pained
+pessimistic
+presumptuous
+provocative
+puzzled
+quixotic
+rebellious
+reluctant
+restless
+rigid
+riotous
+rowdy
+self-important
+selfish
+smug
+solemn
+sour
+stressed
+stubborn
+surly
+taciturn
+tepid
+terror-stricken
+troubled
+turbulent
+ugly
+uncaring
+uneasy
+ungrateful
+unpleasant
+unpredictable
+unruly
+unsettled
+unyielding
+uppity
+vengeful
+vile
+violent
+volatile
+wary
+wild
+) ##>>
+
+##<<ENGLISH concept: ~feeling_apathetic (apathetic complacent full_of_ennui immobilized lazy lethargic numb passive quiescent weary unconcerned unmotivated ) ##>>
 ##<<ENGLISH concept: ~feeling_attached (affectionate attached belonging captivated cherished compassionate connected empathetic included liked loved loving understood ) ##>>
 ##<<ENGLISH concept: ~feeling_attracted (absorbed affected agog anxious attracted avid challenged concerned confident craving curious dedicated desirous eager earnest enchanted engrossed enthusiastic 
           excited fascinated fervent fervid full_of_anticipation hopeful inquisitive inspiring intent interested intrigued keen motivated needed nosey snoopy zealous ) ##>>
@@ -539,7 +924,7 @@
           terrorized threatened timid timorous trembling tremulous unbelieving uncertain uncomfortable upset wavering worried ) ##>>
 ##<<ENGLISH concept: ~feeling_fearless (audacious bold brave certain confident courageous daring dauntless determined encouraged enterprising gallant hardy heroic reassured resolute secure self-reliant 
           spirited stout ) ##>>
-##<<ENGLISH concept: ~feeling_focused (committed complacent determined focused in_the_zone ) ##>>
+##<<ENGLISH concept: ~feeling_focused (committed  determined focused in_the_zone ) ##>>
 ##<<ENGLISH concept: ~feeling_free (autonomous free independent released unshackled ) ##>>
 ##<<ENGLISH concept: ~feeling_grateful (grateful gratitude ) ##>>
 ##<<ENGLISH concept: ~feeling_happy (affection airy amused animated beatific blissful blithe bright brisk buoyant cheerful cheery comfortable compassion contented convivial debonair delight delighted 
@@ -562,10 +947,10 @@
 ##<<ENGLISH concept: ~feeling_reproachful (calumniating castigating censorious contumelious defamatory derisive disparaging invective libelous maligning opprobrious reproachful reviling sarcastic 
           scathing scolding scurrilous ) ##>>
 ##<<ENGLISH concept: ~feeling_sad (aching afflicted agonized anguished bereaved cheerless clouded crestfallen crushed dark dejected depress depressed depressing despair despairing despondent disappointing 
-          disconsolate discontented discouraged disheartened dismal displeased disspirited distress distressed dolorous down downcast downhearted dreadful dreary dull embarrassed feel_blue 
+          wretched disconsolate discontented discouraged disheartened dismal displeased disspirited distress distressed dolorous down downcast downhearted dreadful dreary dull embarrassed feel_blue 
           flat frowning funereal gloomy glum grief grief-stricken grieved guilt hapless heartbroken heavyhearted hopelessness humiliated hurt in_despair in_pain in_the_dumps injured 
           joyless listless listlessness lonely low lugubrious melancholy miserable moody moping mournful offended oppressed out_of_sorts pathetic pessimism piteous regretful remorse 
-          rueful sad sadness shamed shocked somber sorrow sorrowful spiritless suffering sulky sullen tortured tragic unhappy victimized withdrawn woebegone woeful worried ) ##>>
+          rueful sad sadness shamed  somber sorrow sorrowful spiritless suffering sulky sullen tortured tragic unhappy victimized withdrawn woebegone woeful worried ) ##>>
 ##<<ENGLISH concept: ~feeling_safe (at_ease calm comfortable composed peaceful relieved secure ) ##>>
 ##<<ENGLISH concept: ~feeling_singledout (affronted categorized cross-examined guilty interrogated judged labeled rated singled_out stereotyped wronged ) ##>>
 ##<<ENGLISH concept: ~feeling_surprise (astonished bewildered confused shock shocked startled surprise surprised ) ##>>

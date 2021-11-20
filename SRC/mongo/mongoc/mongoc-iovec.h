@@ -14,32 +14,38 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 
 #ifndef MONGOC_IOVEC_H
 #define MONGOC_IOVEC_H
 
 
-#include <bson.h>
+#include <bson/bson.h>
 
 #ifdef _WIN32
-# include <stddef.h>
+#include <stddef.h>
 #else
-# include <sys/uio.h>
+#include <sys/uio.h>
 #endif
 
 BSON_BEGIN_DECLS
 
 
 #ifdef _WIN32
-typedef struct
-{
-   u_long  iov_len;
-   char   *iov_base;
+typedef struct {
+   size_t iov_len;
+   char *iov_base;
 } mongoc_iovec_t;
 
-BSON_STATIC_ASSERT(sizeof(mongoc_iovec_t) == sizeof(WSABUF));
-BSON_STATIC_ASSERT(offsetof(mongoc_iovec_t, iov_base) == offsetof(WSABUF, buf));
-BSON_STATIC_ASSERT(offsetof(mongoc_iovec_t, iov_len) == offsetof(WSABUF, len));
+BSON_STATIC_ASSERT2 (sizeof_iovect_t,
+                     sizeof (mongoc_iovec_t) == sizeof (WSABUF));
+BSON_STATIC_ASSERT2 (offsetof_iovec_base,
+                     offsetof (mongoc_iovec_t, iov_base) ==
+                        offsetof (WSABUF, buf));
+BSON_STATIC_ASSERT2 (offsetof_iovec_len,
+                     offsetof (mongoc_iovec_t, iov_len) ==
+                        offsetof (WSABUF, len));
 
 #else
 typedef struct iovec mongoc_iovec_t;

@@ -11,7 +11,7 @@
 
   1. The origin of this software must not be misrepresented; you must not
      claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
+     in a product, an acknowledgement in the product documentation would be
      appreciated but is not required.
   2. Altered source versions must be plainly marked as such, and must not be
      misrepresented as being the original software.
@@ -53,14 +53,11 @@
  * specified in libbson.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_MD5_H
 #define BSON_MD5_H
-
-
-#if !defined (BSON_INSIDE) && !defined (BSON_COMPILATION)
-#  error "Only <bson.h> can be included directly."
-#endif
 
 
 #include "bson-endian.h"
@@ -69,20 +66,21 @@
 BSON_BEGIN_DECLS
 
 
-typedef struct
-{
+typedef struct {
    uint32_t count[2]; /* message length in bits, lsw first */
    uint32_t abcd[4];  /* digest buffer */
-   uint8_t  buf[64];  /* accumulate block */
+   uint8_t buf[64];   /* accumulate block */
 } bson_md5_t;
 
 
-void bson_md5_init   (bson_md5_t         *pms);
-void bson_md5_append (bson_md5_t         *pms,
-                      const uint8_t *data,
-                      uint32_t       nbytes);
-void bson_md5_finish (bson_md5_t         *pms,
-                      uint8_t        digest[16]);
+BSON_EXPORT (void)
+bson_md5_init (bson_md5_t *pms) BSON_GNUC_DEPRECATED;
+BSON_EXPORT (void)
+bson_md5_append (bson_md5_t *pms,
+                 const uint8_t *data,
+                 uint32_t nbytes) BSON_GNUC_DEPRECATED;
+BSON_EXPORT (void)
+bson_md5_finish (bson_md5_t *pms, uint8_t digest[16]) BSON_GNUC_DEPRECATED;
 
 
 BSON_END_DECLS

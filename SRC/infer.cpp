@@ -874,7 +874,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					if (flags & ORIGINALWORD) Log(USERLOG," don't expand ");
 				}
 				qMark = saveMark;	//   if we q more later, use this mark by default
-				if (*choice) AddWordOnly(flags,choice,0); //   mark and queue item
+ 				if (*choice) AddWordOnly(flags,choice,0); //   mark and queue item
 			}
 			else  if (*control == 'e') 
 			{
@@ -1238,6 +1238,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			MEANING INCOMING;
 			MEANING OUTGOING;
 			// what fields do we process by default
+
 			if (baseOffset == 0) 
 			{
 				F = GetSubjectNondeadNext(F);
@@ -1291,7 +1292,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			bool match = true;
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 			{
-				Log(USERLOG,"(%d %d %d) => (%d %d %d)\r\n", marks, markv, marko, S->inferMark, V->inferMark, O->inferMark);
+				Log(USERLOG,"    marks wanted(%d %d %d) => marks has(%d %d %d)\r\n", marks, markv, marko, S->inferMark, V->inferMark, O->inferMark);
 				Log(USERLOG,"");
 			}
 			// follow dictionary path?
@@ -1468,10 +1469,11 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	factSetNext[store] = 0;
     if (trace & TRACE_QUERY) 
 	{
-		char word[MAX_WORD_SIZE];
+		char* word = AllocateBuffer();
 		if (counter) Log(USERLOG," result: @%d[%d] e.g. %s\r\n",whichset,counter,WriteFact(factSet[whichset][1],false,word));
 		else Log(USERLOG," result: @%d none found \r\n",whichset);
 		Log(USERLOG,"");
+        FreeBuffer();
 	}
 	ClearBacktracks();
 

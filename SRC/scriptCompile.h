@@ -31,6 +31,7 @@ extern CompileStatus compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
 extern bool patternContext;
 extern uint64 grade;
+extern bool echorulepattern;
 extern char* lastDeprecation;
 extern const char* linestartpoint;
 extern unsigned int buildId;
@@ -41,10 +42,11 @@ extern unsigned int warnIndex;
 extern char* tableinput;
 extern char* patternStarter;
 extern char* patternEnder;
+extern unsigned int supplementalColumn;
 void ScriptError();
 void EraseTopicFiles(unsigned int build,char* name);
 void InitScriptSystem();
-void SaveCanon(char* word, char* canon,char* form = NULL);
+void WriteCanon(char* word, char* canon,char* form = NULL);
 
 char* ReadDisplayOutput(char* ptr,char* buffer);
 void EndScriptCompiler();

@@ -1,6 +1,6 @@
 # Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 # Foreign Language Overview
@@ -9,7 +9,7 @@ ChatScript comes natively with full English support. If you want to use a differ
 * Pos-tagging support (optional if you don't use pos-based keywords)
 * Spell check support
 * Concepts in the language (that you use)
-* LIVEDATA substitutions appropriate to the language
+* LIVEDATA substitutions appropriate to the language (including month names, number names, currencies, plurals
 * Patterns in the language
 * Output in the language
 * Lemmas (comes with foreign pos-taggers or available from ^pos(canonical))
@@ -25,6 +25,29 @@ The effects of this parameter are generically these, unless special information 
 
 # Embedded Foreign Language Support
 
+Using a language generally means using the dictionary of that language and spell-checking in that language. It may also control recognition
+of the numeric value of words (like dozen == 12), knowing the names of the months and currencies. ChatScript is told what languages to
+make available using the command line parameter "language=" . If you don't supply this, the default language is English. But you can for example
+say "language=german".  
+
+You can name up to three different languages (for which you have dictionaries) by listing them on that parameter
+"language=english,german,spanish". You need to use the same language sequence for all compilations and normal execution (hence its a parameter typically
+listed in cs_init.txt).  You can even add "japanese" at the end of your list (not earlier) because that requires no dictionary. The first language listed
+is always the default language.
+
+All API external functions( ^compilepattern, ^testpattern, ^compileoutput, ^testoutput ) accept a top-level "language" parameter
+which sets the language for the duration of the call. The script compiler can be told "language: spanish" at the top level of a file, to change language for compilation
+for future script. During local execution you can type the debug command ":language german" to change the language recognized by the bot.
+You can use ^setlanguage(english) from script to change language. At the end of every volley, the server returns to the default language. But
+for any conversation, the language it was last in is memorized and that user's conversation will resume next volley in that language.
+
+The current language implies using the dictionary corresponding to that language and using spell-checking rules devoted to that language as well
+as numeric conversions of words in that language.
+
+If `language=ideographic` is used, then spell check is disabled and tokenization will make each character be a token.
+This is useful for languages like Korean and Chinese. 
+
+
 ## Japanese
 ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. 
 It knows something is japanese because either the a command line parameter has "language=japanese",
@@ -34,10 +57,7 @@ or because japanese characters are being used in compiling a pattern (^compilepa
 ChatScript directly supports Japanese coding in ^compilepattern. A "word" is a sequence of characters with no spaces in it (except for double quoted strings). 
 Note in the texts below, ? stands for some japanese character. 
 
-Scripters are expected to keep japanese "words" separate. E.g.  ?????? would in script be:   ??  ?? ?? .  
-Of course if they actually want to match the sentence exactly anyway, they can keep them all together. 
-
-Either way, patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. 
+Patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. 
 Each character thus becomes a word internally.
 
 So this, ( _??? $var:=_0 ), which a scripter writes as a single word to be found and memorized, internally is sent to cs as this:
@@ -50,7 +70,7 @@ and CS returns this for internal use, where each character is now a separate wor
 This pattern says that the given character sequence MUST be detected as a contiguous sequence. You can use the usual exclusion and memorization operators on such words, and they will be applied to the sequence.
 
 ### ^testpattern
-Correspondingly, if you set a global variable "language" to "japanese", then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:
+If you set a global variable "language" to "japanese", then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:
 
 Normal character clusters are separated into discrete characters. These can match the patterns that have been compiled.
 English AND Japanese terminal punctuation marks corresponding to period, question , and exclamation are internally converted to English (because they will be stripped off the sentence as per usual).
@@ -59,11 +79,19 @@ Concepts are written per usual, using Japanese words (characters without spaces)
 
 ###Sentence Limit
 
-CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. Where terminal punctuation is detected, that ends a sentence. Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. Ryan ran some numbers on about 100,000 user inputs from our jp bots. The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.
+CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. 
+Where terminal punctuation is detected, that ends a sentence. 
+Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. 
+Ryan ran some numbers on about 100,000 user inputs from our jp bots. 
+The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.
 
 ###Numbers
 
 For english numbers as digits residing adjacent to japanese characters, the english number is broken off intact. Thus ??72?????  becomes ? ? 72 ? ? ? ? ? on inputs
+
+### Sentence Terminators
+The major japanese characters acting as sentence terminators (the equivalent of ?, ! and .) in user inputs are automatically converted to their 
+ascii equivalents so that CS rules regarding that punctuation will be maintained for pattern matching or rule invocation.
 
 ## GERMAN
 The spell checker has code to break apart an unknown compound word into its separate
@@ -81,6 +109,40 @@ exclamation marks.
 CS comes with a spanish dictionary, and spell checking will use it.
 In particular, if the input lacks appropriate accent marks, CS will
 likely fill them in for you.
+
+## MULTIPLE LANGUAGE DICTIONARY
+ChatScript leans heavily on its dictionary, which normally 
+is in a single language. But you can support up to 3 languages in the
+dictionary simultanously as well as the "universal" language. Words and
+facts are segregated by language and are only visible to a matching current language. 
+
+The command line parameter `language=` can consist of a series of 
+languages separated by commas. This enables multi-dictionary behavior
+and with it, the ability to change the current language on the fly.
+E.g., `language=english,spanish,german,japanese`
+Note that japanese involves no dictionary at all, so it can be listed last
+without compromising the 3-language limit.
+
+Variables, concept and topic names, numbers, operators and punctuation are
+language agnostic and always visible.
+
+The script compiler has `language: xxx` as a construct to allow you to mix
+compilation of data in various languages. One can write the files0.txt file
+to provide data for multiple languages like this:
+```
+RAWDATA/ONTOLOGY/ENGLISH//
+RAWDATA/WORLDDATA/
+
+language: GERMAN
+RAWDATA/ONTOLOGY/GERMAN//
+
+language: SPANISH
+RAWDATA/ONTOLOGY/SPANISH//
+```
+
+Scripts can change language on the fly using ^language and
+testing supports the :language command to change language on the fly from
+user input. These changes only apply to the current volley.
 
 # INPUT and OUTPUT
 
@@ -128,14 +190,6 @@ does not. A license (per language) is about $1000 for universal life-time use. Y
 CS ships with a Spanish and some other dictionaries that provides spelling of words (for spell correction) and parts of speech of words.
 It also ships with some ontologies like LIVEDATA/ONTOLOGY/SPANISH which you can do :build 0 if you have set language=SPANISH in cs_init.txt file.
 
-# Running CS in a foreign language
-
-To run in a language, use the command line parameter `language=`. For any CS instance, you can only support one language at a time (because CS cannot load multiple dictionaries or autodetect a language).  So if you want to have servers for multiple languages, you need multiple servers, each routed to appropriately.
-
-The user's topic file is named by username-botname-language (which english just omitting the -language component). This means that a user chatting with a german CS server is having an independent conversation to any conversation he had with the english server.  If you use LTM files to store long-term data about the user, you can choose whether such data is unique per language or shared, since the name of the file is written in script.
-
-If `language=ideographic` is used, then spell check is disabled and tokenization will make each character be a token.
-This is useful for languages like Korean and Chinese.
 
 # Translating concepts
 

@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_LIST_H
 #define MONGOC_LIST_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 
 
 BSON_BEGIN_DECLS
@@ -30,23 +28,24 @@ BSON_BEGIN_DECLS
 typedef struct _mongoc_list_t mongoc_list_t;
 
 
-struct _mongoc_list_t
-{
+struct _mongoc_list_t {
    mongoc_list_t *next;
-   void          *data;
+   void *data;
 };
 
 
-mongoc_list_t *_mongoc_list_append  (mongoc_list_t *list,
-                                     void          *data);
-mongoc_list_t *_mongoc_list_prepend (mongoc_list_t *list,
-                                     void          *data);
-mongoc_list_t *_mongoc_list_remove  (mongoc_list_t *list,
-                                     void          *data);
-void           _mongoc_list_foreach (mongoc_list_t *list,
-                                     void (*func) (void *data, void *user_data),
-                                     void *         user_data);
-void           _mongoc_list_destroy (mongoc_list_t *list);
+mongoc_list_t *
+_mongoc_list_append (mongoc_list_t *list, void *data);
+mongoc_list_t *
+_mongoc_list_prepend (mongoc_list_t *list, void *data);
+mongoc_list_t *
+_mongoc_list_remove (mongoc_list_t *list, void *data);
+void
+_mongoc_list_foreach (mongoc_list_t *list,
+                      void (*func) (void *data, void *user_data),
+                      void *user_data);
+void
+_mongoc_list_destroy (mongoc_list_t *list);
 
 
 BSON_END_DECLS

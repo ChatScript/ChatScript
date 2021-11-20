@@ -24,7 +24,7 @@ typedef struct SYSTEMVARIABLE
     const char* comment;		// description
 } SYSTEMVARIABLE;
 extern SYSTEMVARIABLE sysvars[];
-extern char dbparams[1000];
+extern char dbparams[MAX_WORD_SIZE*4];
 char* SFullTime(char* value);
 char* Slogging(char* value);
 void InitSystemVariables();

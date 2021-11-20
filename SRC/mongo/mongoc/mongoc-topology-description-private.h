@@ -14,85 +14,130 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_TOPOLOGY_DESCRIPTION_PRIVATE_H
 #define MONGOC_TOPOLOGY_DESCRIPTION_PRIVATE_H
 
 #include "mongoc-set-private.h"
 #include "mongoc-server-description.h"
 #include "mongoc-array-private.h"
+#include "mongoc-topology-description.h"
+#include "mongoc-apm-private.h"
 
 
-typedef enum
-   {
-      MONGOC_TOPOLOGY_UNKNOWN,
-      MONGOC_TOPOLOGY_SHARDED,
-      MONGOC_TOPOLOGY_RS_NO_PRIMARY,
-      MONGOC_TOPOLOGY_RS_WITH_PRIMARY,
-      MONGOC_TOPOLOGY_SINGLE,
-      MONGOC_TOPOLOGY_DESCRIPTION_TYPES
-   } mongoc_topology_description_type_t;
+typedef enum {
+   MONGOC_TOPOLOGY_UNKNOWN,
+   MONGOC_TOPOLOGY_SHARDED,
+   MONGOC_TOPOLOGY_RS_NO_PRIMARY,
+   MONGOC_TOPOLOGY_RS_WITH_PRIMARY,
+   MONGOC_TOPOLOGY_SINGLE,
+   MONGOC_TOPOLOGY_LOAD_BALANCED,
+   MONGOC_TOPOLOGY_DESCRIPTION_TYPES
+} mongoc_topology_description_type_t;
 
-typedef struct _mongoc_topology_description_t
-{
+struct _mongoc_topology_description_t {
+   bson_oid_t topology_id;
+   bool opened;
    mongoc_topology_description_type_t type;
-   mongoc_set_t                      *servers;
-   char                              *set_name;
-   int64_t                            max_set_version;
-   bson_oid_t                         max_election_id;
-   bool                               compatible;
-   char                              *compatibility_error;
-   uint32_t                           max_server_id;
-   bool                               stale;
-} mongoc_topology_description_t;
+   int64_t heartbeat_msec;
+   mongoc_set_t *servers;
+   char *set_name;
+   int64_t max_set_version;
+   bson_oid_t max_election_id;
+   bson_error_t compatibility_error;
+   uint32_t max_server_id;
+   bool stale;
+   unsigned int rand_seed;
 
-typedef enum
-   {
-      MONGOC_SS_READ,
-      MONGOC_SS_WRITE
-   } mongoc_ss_optype_t;
+   /* the greatest seen cluster time, for a MongoDB 3.6+ sharded cluster.
+    * see Driver Sessions Spec. */
+   bson_t cluster_time;
+
+   /* smallest seen logicalSessionTimeoutMinutes, or -1 if any server has no
+    * logicalSessionTimeoutMinutes. see Server Discovery and Monitoring Spec */
+   int64_t session_timeout_minutes;
+
+   mongoc_apm_callbacks_t apm_callbacks;
+   void *apm_context;
+};
+
+typedef enum { MONGOC_SS_READ, MONGOC_SS_WRITE } mongoc_ss_optype_t;
 
 void
-mongoc_topology_description_init (mongoc_topology_description_t     *description,
-                                  mongoc_topology_description_type_t type);
+mongoc_topology_description_init (mongoc_topology_description_t *description,
+                                  int64_t heartbeat_msec);
 
 void
-mongoc_topology_description_destroy (mongoc_topology_description_t *description);
+_mongoc_topology_description_copy_to (const mongoc_topology_description_t *src,
+                                      mongoc_topology_description_t *dst);
 
 void
-mongoc_topology_description_handle_ismaster (
+mongoc_topology_description_destroy (
+   mongoc_topology_description_t *description);
+
+void
+mongoc_topology_description_handle_hello (
    mongoc_topology_description_t *topology,
-   mongoc_server_description_t   *sd,
-   const bson_t                  *reply,
-   int64_t                        rtt_msec,
-   bson_error_t                  *error);
+   uint32_t server_id,
+   const bson_t *hello_response,
+   int64_t rtt_msec,
+   const bson_error_t *error /* IN */);
 
 mongoc_server_description_t *
 mongoc_topology_description_select (mongoc_topology_description_t *description,
-                                    mongoc_ss_optype_t             optype,
-                                    const mongoc_read_prefs_t     *read_pref,
-                                    int64_t                        local_threshold_ms);
+                                    mongoc_ss_optype_t optype,
+                                    const mongoc_read_prefs_t *read_pref,
+                                    int64_t local_threshold_ms);
 
 mongoc_server_description_t *
-mongoc_topology_description_server_by_id (mongoc_topology_description_t *description,
-                                          uint32_t                       id,
-                                          bson_error_t                  *error);
+mongoc_topology_description_server_by_id (
+   mongoc_topology_description_t *description,
+   uint32_t id,
+   bson_error_t *error);
+
+int32_t
+mongoc_topology_description_lowest_max_wire_version (
+   const mongoc_topology_description_t *td);
+
+bool
+mongoc_topology_description_all_sds_have_write_date (
+   const mongoc_topology_description_t *td);
+
+bool
+_mongoc_topology_description_validate_max_staleness (
+   const mongoc_topology_description_t *td,
+   int64_t max_staleness_seconds,
+   bson_error_t *error);
 
 void
 mongoc_topology_description_suitable_servers (
-   mongoc_array_t                *set, /* OUT */
-   mongoc_ss_optype_t             optype,
+   mongoc_array_t *set, /* OUT */
+   mongoc_ss_optype_t optype,
    mongoc_topology_description_t *topology,
-   const mongoc_read_prefs_t     *read_pref,
-   size_t                         local_threshold_ms);
+   const mongoc_read_prefs_t *read_pref,
+   size_t local_threshold_ms);
+
+bool
+mongoc_topology_description_has_data_node (mongoc_topology_description_t *td);
 
 void
-mongoc_topology_description_invalidate_server (mongoc_topology_description_t *topology,
-                                               uint32_t                       id,
-                                               const bson_error_t            *error);
+mongoc_topology_description_invalidate_server (
+   mongoc_topology_description_t *topology,
+   uint32_t id,
+   const bson_error_t *error /* IN */);
 
 bool
 mongoc_topology_description_add_server (mongoc_topology_description_t *topology,
-                                        const char                    *server,
-                                        uint32_t                      *id /* OUT */);
+                                        const char *server,
+                                        uint32_t *id /* OUT */);
 
-#endif /* MONGOC_TOPOLOGY_DESCRIPTION_H */
+void
+mongoc_topology_description_update_cluster_time (
+   mongoc_topology_description_t *td, const bson_t *reply);
+
+void
+mongoc_topology_description_reconcile (mongoc_topology_description_t *td,
+                                       mongoc_host_list_t *host_list);
+
+#endif /* MONGOC_TOPOLOGY_DESCRIPTION_PRIVATE_H */

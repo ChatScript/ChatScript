@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 7/18/2021 cs11.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/21/2021 cs11.6</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1066,6 +1066,14 @@
 <td>4k buffer in server visible between users to pass data back and forth</td>
 </tr>
 <tr class="odd">
+<td><code>%crosstalk2</code></td>
+<td>4k buffer in server visible between users to pass data back and forth</td>
+</tr>
+<tr class="even">
+<td><code>%crosstalk3</code></td>
+<td>4k buffer in server visible between users to pass data back and forth</td>
+</tr>
+<tr class="odd">
 <td><code>%logging</code></td>
 <td>bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog)</td>
 </tr>
@@ -1074,19 +1082,33 @@
 <td>number of forks requested in linux evserver environment</td>
 </tr>
 <tr class="odd">
-<td><code>%servertype</code></td>
-<td>parent or fork in linux evserver environment, server or null otherwise</td>
-</tr>
-<tr class="even">
 <td><code>%dbparams</code></td>
 <td>copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%botid</code></td>
 <td>bot id number in use</td>
 </tr>
+<tr class="odd">
+<td><code>%curlversion</code></td>
+<td>curl version information</td>
+</tr>
+<tr class="even">
+<td><code>%dbversion</code></td>
+<td>db version information</td>
+</tr>
+<tr class="odd">
+<td><code>%testpattern</code></td>
+<td>The index number in the array of patterns of current pattern being matched in ^testpattern</td>
+</tr>
 </tbody>
 </table>
+<h2 id="testpattern-control-variables">^testpattern control variables</h2>
+<div style="white-space: pre-line;"><code>%testpattern-nosave</code> | blocks saving NL from ^testpattern if nlsave=1 was set in command line params
+<code>%testpattern-prescan</code> | execute this pattern on all sentences before doing other patterns one-by-one
+<code>%trace_on</code> | starting here, do :trace pattern in ^testpattern
+<code>%trace_on all</code> | starting here, do :trace all in ^testpattern
+<code>%trace_off</code> | turn off tracing (also turns off at end of cs call)</div>
 <h2 id="build-data">Build data</h2>
 <table>
 <thead>
@@ -1595,11 +1617,35 @@ canon: faster fast</code></pre>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
 </tr>
 <tr class="even">
-<td><code>$cs_tracetestoutput  | set to 1 to force tracing in ^testoutput| |</code>$cs_sentences_limit</td>
-<td>after this many sentences in volley, cs ignores the rest (default 50)</td>
+<td><code>$cs_tracetestoutput</code></td>
+<td>set to 1 to force tracing in ^testoutput</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_outputlimit  | Generating more output than this will report a bug into LOGS/bugs.txt | |</code><span class="math inline">$cs_summary` | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | | `$</span>cs_showtime<code>| After volley prints to terminal milliseconds of time used | |</code><span class="math inline">$cs_inputlimit` | Restrict user input size (excluding oob) | | `$</span>cs_new_user<code>| set to 1, treat user as always new (don't try to read topic file)  | |</code>$cs_mongoqueryparams`</td>
+<td><code>$cs_sentences_limit</code></td>
+<td>after this many sentences in volley, cs ignores the rest (default 50)</td>
+</tr>
+<tr class="even">
+<td><code>$cs_outputlimit</code></td>
+<td>Generating more output than this will report a bug into LOGS/bugs.txt</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_summary</code></td>
+<td>After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing</td>
+</tr>
+<tr class="even">
+<td><code>$cs_showtime</code></td>
+<td>After volley prints to terminal milliseconds of time used</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_inputlimit</code></td>
+<td>Restrict user input size (excluding oob)</td>
+</tr>
+<tr class="even">
+<td><code>$cs_new_user</code></td>
+<td>set to 1, treat user as always new (don't try to read topic file)</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_mongoqueryparams</code></td>
 <td>set as a json structure of move its fields to a mongo query</td>
 </tr>
 </tbody>

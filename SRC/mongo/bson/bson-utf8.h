@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_UTF8_H
 #define BSON_UTF8_H
-
-
-#if !defined (BSON_INSIDE) && !defined (BSON_COMPILATION)
-# error "Only <bson.h> can be included directly."
-#endif
 
 
 #include "bson-macros.h"
@@ -31,16 +28,16 @@
 BSON_BEGIN_DECLS
 
 
-bool            bson_utf8_validate        (const char     *utf8,
-                                           size_t          utf8_len,
-                                           bool            allow_null);
-char           *bson_utf8_escape_for_json (const char     *utf8,
-                                           ssize_t         utf8_len);
-bson_unichar_t  bson_utf8_get_char        (const char     *utf8);
-const char     *bson_utf8_next_char       (const char     *utf8);
-void            bson_utf8_from_unichar    (bson_unichar_t  unichar,
-                                           char            utf8[6],
-                                           uint32_t       *len);
+BSON_EXPORT (bool)
+bson_utf8_validate (const char *utf8, size_t utf8_len, bool allow_null);
+BSON_EXPORT (char *)
+bson_utf8_escape_for_json (const char *utf8, ssize_t utf8_len);
+BSON_EXPORT (bson_unichar_t)
+bson_utf8_get_char (const char *utf8);
+BSON_EXPORT (const char *)
+bson_utf8_next_char (const char *utf8);
+BSON_EXPORT (void)
+bson_utf8_from_unichar (bson_unichar_t unichar, char utf8[6], uint32_t *len);
 
 
 BSON_END_DECLS

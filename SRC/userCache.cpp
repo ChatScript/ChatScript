@@ -220,7 +220,7 @@ char* GetFileRead(char* user,char* computer)
 {
 	char word[MAX_WORD_SIZE];
 	sprintf(word,(char*)"%s/%stopic_%s_%s.txt",usersfolder,GetUserPath(loginID),user,computer);
-	if (stricmp(language,"english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), user, computer,language);
+	if (!multidict && stricmp(language, "english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), user, computer, language);
 	char* buffer;
 	if ( filesystemOverride == NORMALFILES) // local files
 	{

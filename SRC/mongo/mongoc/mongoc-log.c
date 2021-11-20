@@ -16,11 +16,17 @@
 
 
 #if defined(__linux__)
-# include <sys/syscall.h>
+#include <sys/syscall.h>
 #elif defined(_WIN32)
-# include <process.h>
+#include <process.h>
+#elif defined(__APPLE__)
+#include <pthread.h>
+#elif defined(__FreeBSD__)
+#include <sys/thr.h>
+#elif defined(__NetBSD__)
+#include <lwp.h>
 #else
-# include <unistd.h>
+#include <unistd.h>
 #endif
 #include <stdarg.h>
 #include <time.h>
@@ -30,38 +36,36 @@
 #include "mongoc-thread-private.h"
 
 
-static mongoc_mutex_t     gLogMutex;
-static mongoc_log_func_t  gLogFunc = mongoc_log_default_handler;
+static bson_once_t once = BSON_ONCE_INIT;
+static bson_mutex_t gLogMutex;
+static mongoc_log_func_t gLogFunc = mongoc_log_default_handler;
 #ifdef MONGOC_TRACE
-static bool               gLogTrace = true;
+static bool gLogTrace = true;
 #endif
-static void              *gLogData;
+static void *gLogData;
 
-static MONGOC_ONCE_FUN( _mongoc_ensure_mutex_once)
+static BSON_ONCE_FUN (_mongoc_ensure_mutex_once)
 {
-   mongoc_mutex_init(&gLogMutex);
+   bson_mutex_init (&gLogMutex);
 
-   MONGOC_ONCE_RETURN;
+   BSON_ONCE_RETURN;
 }
 
 void
-mongoc_log_set_handler (mongoc_log_func_t  log_func,
-                        void              *user_data)
+mongoc_log_set_handler (mongoc_log_func_t log_func, void *user_data)
 {
-   static mongoc_once_t once = MONGOC_ONCE_INIT;
-   mongoc_once(&once, &_mongoc_ensure_mutex_once);
+   bson_once (&once, &_mongoc_ensure_mutex_once);
 
-   mongoc_mutex_lock(&gLogMutex);
+   bson_mutex_lock (&gLogMutex);
    gLogFunc = log_func;
    gLogData = user_data;
-   mongoc_mutex_unlock(&gLogMutex);
+   bson_mutex_unlock (&gLogMutex);
 }
 
 
 /* just for testing */
 void
-_mongoc_log_get_handler (mongoc_log_func_t  *log_func,
-                         void              **user_data)
+_mongoc_log_get_handler (mongoc_log_func_t *log_func, void **user_data)
 {
    *log_func = gLogFunc;
    *user_data = gLogData;
@@ -69,21 +73,21 @@ _mongoc_log_get_handler (mongoc_log_func_t  *log_func,
 
 
 void
-mongoc_log (mongoc_log_level_t  log_level,
-            const char         *log_domain,
-            const char         *format,
+mongoc_log (mongoc_log_level_t log_level,
+            const char *log_domain,
+            const char *format,
             ...)
 {
    va_list args;
    char *message;
-   static mongoc_once_t once = MONGOC_ONCE_INIT;
    int stop_logging;
 
-   mongoc_once(&once, &_mongoc_ensure_mutex_once);
+   bson_once (&once, &_mongoc_ensure_mutex_once);
 
    stop_logging = !gLogFunc;
 #ifdef MONGOC_TRACE
-   stop_logging = stop_logging || (log_level == MONGOC_LOG_LEVEL_TRACE && !gLogTrace);
+   stop_logging =
+      stop_logging || (log_level == MONGOC_LOG_LEVEL_TRACE && !gLogTrace);
 #endif
    if (stop_logging) {
       return;
@@ -91,15 +95,15 @@ mongoc_log (mongoc_log_level_t  log_level,
 
    BSON_ASSERT (format);
 
-   va_start(args, format);
-   message = bson_strdupv_printf(format, args);
-   va_end(args);
+   va_start (args, format);
+   message = bson_strdupv_printf (format, args);
+   va_end (args);
 
-   mongoc_mutex_lock(&gLogMutex);
-   gLogFunc(log_level, log_domain, message, gLogData);
-   mongoc_mutex_unlock(&gLogMutex);
+   bson_mutex_lock (&gLogMutex);
+   gLogFunc (log_level, log_domain, message, gLogData);
+   bson_mutex_unlock (&gLogMutex);
 
-   bson_free(message);
+   bson_free (message);
 }
 
 
@@ -128,10 +132,10 @@ mongoc_log_level_str (mongoc_log_level_t log_level)
 
 
 void
-mongoc_log_default_handler (mongoc_log_level_t  log_level,
-                            const char         *log_domain,
-                            const char         *message,
-                            void               *user_data)
+mongoc_log_default_handler (mongoc_log_level_t log_level,
+                            const char *log_domain,
+                            const char *message,
+                            void *user_data)
 {
    struct timeval tv;
    struct tm tt;
@@ -140,17 +144,17 @@ mongoc_log_default_handler (mongoc_log_level_t  log_level,
    char nowstr[32];
    int pid;
 
-   bson_gettimeofday(&tv);
+   bson_gettimeofday (&tv);
    t = tv.tv_sec;
 
 #ifdef _WIN32
-#  ifdef _MSC_VER
-     localtime_s(&tt, &t);
-#  else
-     tt = *(localtime(&t));
-#  endif
+#ifdef _MSC_VER
+   localtime_s (&tt, &t);
 #else
-   localtime_r(&t, &tt);
+   tt = *(localtime (&t));
+#endif
+#else
+   localtime_r (&t, &tt);
 #endif
 
    strftime (nowstr, sizeof nowstr, "%Y/%m/%d %H:%M:%S", &tt);
@@ -172,9 +176,21 @@ mongoc_log_default_handler (mongoc_log_level_t  log_level,
 #ifdef __linux__
    pid = syscall (SYS_gettid);
 #elif defined(_WIN32)
-   pid = (int)_getpid ();
+   pid = (int) _getpid ();
+#elif defined(__FreeBSD__)
+   long tid;
+   thr_self (&tid);
+   pid = (int) tid;
+#elif defined(__OpenBSD__)
+   pid = (int) getthrid ();
+#elif defined(__NetBSD__)
+   pid = (int) _lwp_self ();
+#elif defined(__APPLE__)
+   uint64_t tid;
+   pthread_threadid_np (0, &tid);
+   pid = (int) tid;
 #else
-   pid = (int)getpid ();
+   pid = (int) getpid ();
 #endif
 
    fprintf (stream,
@@ -182,7 +198,7 @@ mongoc_log_default_handler (mongoc_log_level_t  log_level,
             nowstr,
             tv.tv_usec / 1000L,
             pid,
-            mongoc_log_level_str(log_level),
+            mongoc_log_level_str (log_level),
             log_domain,
             message);
 }
@@ -226,44 +242,46 @@ mongoc_log_trace_bytes (const char *domain, const uint8_t *_b, size_t _l)
    }
 #endif
 
-   str = bson_string_new(NULL);
-   astr = bson_string_new(NULL);
+   str = bson_string_new (NULL);
+   astr = bson_string_new (NULL);
    for (_i = 0; _i < _l; _i++) {
       _v = *(_b + _i);
 
       if ((_i % 16) == 0) {
-         bson_string_append_printf(str, "%05x: ", _i);
+         bson_string_append_printf (str, "%05x: ", _i);
       }
 
-      bson_string_append_printf(str, " %02x", _v);
-      if (isprint(_v)) {
-         bson_string_append_printf(astr, " %c", _v);
+      bson_string_append_printf (str, " %02x", _v);
+      if (isprint (_v)) {
+         bson_string_append_printf (astr, " %c", _v);
       } else {
-         bson_string_append(astr, " .");
+         bson_string_append (astr, " .");
       }
 
       if ((_i % 16) == 15) {
-         mongoc_log(MONGOC_LOG_LEVEL_TRACE, domain,
-                    "%s %s", str->str, astr->str);
-         bson_string_truncate(str, 0);
-         bson_string_truncate(astr, 0);
+         mongoc_log (
+            MONGOC_LOG_LEVEL_TRACE, domain, "%s %s", str->str, astr->str);
+         bson_string_truncate (str, 0);
+         bson_string_truncate (astr, 0);
       } else if ((_i % 16) == 7) {
-         bson_string_append(str, " ");
-         bson_string_append(astr, " ");
+         bson_string_append (str, " ");
+         bson_string_append (astr, " ");
       }
    }
 
    if (_i != 16) {
-      mongoc_log(MONGOC_LOG_LEVEL_TRACE, domain,
-                 "%-56s %s", str->str, astr->str);
+      mongoc_log (
+         MONGOC_LOG_LEVEL_TRACE, domain, "%-56s %s", str->str, astr->str);
    }
 
-   bson_string_free(str, true);
-   bson_string_free(astr, true);
+   bson_string_free (str, true);
+   bson_string_free (astr, true);
 }
 
 void
-mongoc_log_trace_iovec (const char *domain, const mongoc_iovec_t *_iov, size_t _iovcnt)
+mongoc_log_trace_iovec (const char *domain,
+                        const mongoc_iovec_t *_iov,
+                        size_t _iovcnt)
 {
    bson_string_t *str, *astr;
    const char *_b;
@@ -284,44 +302,43 @@ mongoc_log_trace_iovec (const char *domain, const mongoc_iovec_t *_iov, size_t _
    }
 
    _i = 0;
-   str = bson_string_new(NULL);
-   astr = bson_string_new(NULL);
+   str = bson_string_new (NULL);
+   astr = bson_string_new (NULL);
 
    for (_j = 0; _j < _iovcnt; _j++) {
-      _b = (char *)_iov[_j].iov_base;
+      _b = (char *) _iov[_j].iov_base;
       _l = _iov[_j].iov_len;
 
       for (_k = 0; _k < _l; _k++, _i++) {
          _v = *(_b + _k);
          if ((_i % 16) == 0) {
-            bson_string_append_printf(str, "%05x: ", _i);
+            bson_string_append_printf (str, "%05x: ", _i);
          }
 
-         bson_string_append_printf(str, " %02x", _v);
-         if (isprint(_v)) {
-            bson_string_append_printf(astr, " %c", _v);
+         bson_string_append_printf (str, " %02x", _v);
+         if (isprint (_v)) {
+            bson_string_append_printf (astr, " %c", _v);
          } else {
-            bson_string_append(astr, " .");
+            bson_string_append (astr, " .");
          }
 
          if ((_i % 16) == 15) {
-            mongoc_log(MONGOC_LOG_LEVEL_TRACE, domain,
-                       "%s %s", str->str, astr->str);
-            bson_string_truncate(str, 0);
-            bson_string_truncate(astr, 0);
+            mongoc_log (
+               MONGOC_LOG_LEVEL_TRACE, domain, "%s %s", str->str, astr->str);
+            bson_string_truncate (str, 0);
+            bson_string_truncate (astr, 0);
          } else if ((_i % 16) == 7) {
-            bson_string_append(str, " ");
-            bson_string_append(astr, " ");
+            bson_string_append (str, " ");
+            bson_string_append (astr, " ");
          }
       }
    }
 
    if (_i != 16) {
-      mongoc_log(MONGOC_LOG_LEVEL_TRACE, domain,
-                 "%-56s %s", str->str, astr->str);
+      mongoc_log (
+         MONGOC_LOG_LEVEL_TRACE, domain, "%-56s %s", str->str, astr->str);
    }
 
-   bson_string_free(str, true);
-   bson_string_free(astr, true);
+   bson_string_free (str, true);
+   bson_string_free (astr, true);
 }
-

@@ -90,7 +90,10 @@ enum CompileStatus {
 	UNDEFINED_FUNCTION = 0x00010000, //   potential function call has no definition so isnt
 	ENDCALL_BIT  =		0x00020000,
 	NEXTLOOP_BIT =		0x00040000,
-	RESTART_BIT =	0x00080000
+	RESTART_BIT =	0x00080000,
+	FAILTOPRULE_BIT = 0x00100000,
+	ENDTOPRULE_BIT = 0x00200000
+
 };
  FunctionResult JavascriptArgEval(unsigned int index, char* buffer);
 #endif

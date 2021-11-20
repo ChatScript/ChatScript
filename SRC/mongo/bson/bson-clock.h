@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_CLOCK_H
 #define BSON_CLOCK_H
-
-
-#if !defined (BSON_INSIDE) && !defined (BSON_COMPILATION)
-# error "Only <bson.h> can be included directly."
-#endif
 
 
 #include "bson-compat.h"
@@ -32,8 +29,10 @@
 BSON_BEGIN_DECLS
 
 
-int64_t bson_get_monotonic_time (void);
-int     bson_gettimeofday       (struct timeval *tv);
+BSON_EXPORT (int64_t)
+bson_get_monotonic_time (void);
+BSON_EXPORT (int)
+bson_gettimeofday (struct timeval *tv);
 
 
 BSON_END_DECLS

@@ -16,14 +16,14 @@
 
 
 #ifdef _WIN32
-# include <io.h>
-# include <share.h>
+#include <io.h>
+#include <share.h>
 #endif
 
 #include "mongoc-stream-private.h"
 #include "mongoc-stream-file.h"
-#include "mongoc-trace.h"
-
+#include "mongoc-trace-private.h"
+#include "mongoc-counters-private.h"
 
 /*
  * TODO: This does not respect timeouts or set O_NONBLOCK.
@@ -31,17 +31,16 @@
  */
 
 
-struct _mongoc_stream_file_t
-{
+struct _mongoc_stream_file_t {
    mongoc_stream_t vtable;
-   int             fd;
+   int fd;
 };
 
 
 static int
 _mongoc_stream_file_close (mongoc_stream_t *stream)
 {
-   mongoc_stream_file_t *file = (mongoc_stream_file_t *)stream;
+   mongoc_stream_file_t *file = (mongoc_stream_file_t *) stream;
    int ret;
 
    ENTRY;
@@ -65,7 +64,7 @@ _mongoc_stream_file_close (mongoc_stream_t *stream)
 static void
 _mongoc_stream_file_destroy (mongoc_stream_t *stream)
 {
-   mongoc_stream_file_t *file = (mongoc_stream_file_t *)stream;
+   mongoc_stream_file_t *file = (mongoc_stream_file_t *) stream;
 
    ENTRY;
 
@@ -76,6 +75,9 @@ _mongoc_stream_file_destroy (mongoc_stream_t *stream)
    }
 
    bson_free (file);
+
+   mongoc_counter_streams_active_dec ();
+   mongoc_counter_streams_disposed_inc ();
 
    EXIT;
 }
@@ -95,7 +97,7 @@ _mongoc_stream_file_failed (mongoc_stream_t *stream)
 static int
 _mongoc_stream_file_flush (mongoc_stream_t *stream) /* IN */
 {
-   mongoc_stream_file_t *file = (mongoc_stream_file_t *)stream;
+   mongoc_stream_file_t *file = (mongoc_stream_file_t *) stream;
 
    BSON_ASSERT (file);
 
@@ -112,13 +114,13 @@ _mongoc_stream_file_flush (mongoc_stream_t *stream) /* IN */
 
 
 static ssize_t
-_mongoc_stream_file_readv (mongoc_stream_t *stream,       /* IN */
-                           mongoc_iovec_t  *iov,          /* IN */
-                           size_t           iovcnt,       /* IN */
-                           size_t           min_bytes,    /* IN */
-                           int32_t          timeout_msec) /* IN */
+_mongoc_stream_file_readv (mongoc_stream_t *stream, /* IN */
+                           mongoc_iovec_t *iov,     /* IN */
+                           size_t iovcnt,           /* IN */
+                           size_t min_bytes,        /* IN */
+                           int32_t timeout_msec)    /* IN */
 {
-   mongoc_stream_file_t *file = (mongoc_stream_file_t *)stream;
+   mongoc_stream_file_t *file = (mongoc_stream_file_t *) stream;
    ssize_t ret = 0;
 
 #ifdef _WIN32
@@ -128,53 +130,67 @@ _mongoc_stream_file_readv (mongoc_stream_t *stream,       /* IN */
    ENTRY;
 
    for (i = 0; i < iovcnt; i++) {
-      nread = _read (file->fd, iov [i].iov_base, iov [i].iov_len);
+      nread = _read (file->fd, iov[i].iov_base, iov[i].iov_len);
       if (nread < 0) {
-         RETURN (ret ? ret : -1);
+         ret = ret ? ret : -1;
+         GOTO (done);
       } else if (nread == 0) {
-         RETURN (ret ? ret : 0);
+         ret = ret ? ret : 0;
+         GOTO (done);
       } else {
          ret += nread;
          if (nread != iov[i].iov_len) {
-            RETURN (ret ? ret : -1);
+            ret = ret ? ret : -1;
+            GOTO (done);
          }
       }
    }
 
-   RETURN (ret);
+   GOTO (done);
 #else
    ENTRY;
    ret = readv (file->fd, iov, (int) iovcnt);
-   RETURN (ret);
+   GOTO (done);
 #endif
+done:
+   if (ret > 0) {
+      mongoc_counter_streams_ingress_add (ret);
+   }
+   return ret;
 }
 
 
 static ssize_t
-_mongoc_stream_file_writev (mongoc_stream_t *stream,       /* IN */
-                            mongoc_iovec_t  *iov,          /* IN */
-                            size_t           iovcnt,       /* IN */
-                            int32_t          timeout_msec) /* IN */
+_mongoc_stream_file_writev (mongoc_stream_t *stream, /* IN */
+                            mongoc_iovec_t *iov,     /* IN */
+                            size_t iovcnt,           /* IN */
+                            int32_t timeout_msec)    /* IN */
 {
-   mongoc_stream_file_t *file = (mongoc_stream_file_t *)stream;
+   mongoc_stream_file_t *file = (mongoc_stream_file_t *) stream;
+   ssize_t ret = 0;
 
 #ifdef _WIN32
-   ssize_t ret = 0;
    ssize_t nwrite;
    size_t i;
 
    for (i = 0; i < iovcnt; i++) {
-      nwrite = _write (file->fd, iov [i].iov_base, iov [i].iov_len);
-      if (nwrite != iov [i].iov_len) {
-         return ret ? ret : -1;
+      nwrite = _write (file->fd, iov[i].iov_base, iov[i].iov_len);
+      if (nwrite != iov[i].iov_len) {
+         ret = ret ? ret : -1;
+         goto done;
       }
       ret += nwrite;
    }
-
-   return ret;
+   goto done;
 #else
-   return writev (file->fd, iov, (int) iovcnt);
+   ret = writev (file->fd, iov, (int) iovcnt);
+   goto done;
 #endif
+done:
+   if (ret > 0) {
+      mongoc_counter_streams_egress_add (ret);
+   }
+   return ret;
 }
 
 
@@ -192,7 +208,7 @@ mongoc_stream_file_new (int fd) /* IN */
 
    BSON_ASSERT (fd != -1);
 
-   stream = (mongoc_stream_file_t *)bson_malloc0 (sizeof *stream);
+   stream = (mongoc_stream_file_t *) bson_malloc0 (sizeof *stream);
    stream->vtable.type = MONGOC_STREAM_FILE;
    stream->vtable.close = _mongoc_stream_file_close;
    stream->vtable.destroy = _mongoc_stream_file_destroy;
@@ -203,14 +219,15 @@ mongoc_stream_file_new (int fd) /* IN */
    stream->vtable.check_closed = _mongoc_stream_file_check_closed;
    stream->fd = fd;
 
-   return (mongoc_stream_t *)stream;
+   mongoc_counter_streams_active_inc ();
+   return (mongoc_stream_t *) stream;
 }
 
 
 mongoc_stream_t *
-mongoc_stream_file_new_for_path (const char *path,  /* IN */
-                                 int         flags, /* IN */
-                                 int         mode)  /* IN */
+mongoc_stream_file_new_for_path (const char *path, /* IN */
+                                 int flags,        /* IN */
+                                 int mode)         /* IN */
 {
    int fd = -1;
 

@@ -46,6 +46,7 @@ char* GetAdverbBase(char* word,bool nonew);
 char* GetPastTense(char* word);
 char* GetPastParticiple(char* word);
 char* GetPresentParticiple(char* word);
+void CheckParseLimit(char* input);
 char* GetThirdPerson(char* word);
 char* GetPresent(char* word);
 char* GetInfinitive(char* word,bool nonew);

@@ -818,6 +818,7 @@ char* GetOutputCopy(char* ptr)
 char* GetLabel(char* rule,char* label)
 {
 	if (label) *label = 0;
+	
 	if (!rule || !*rule) return NULL;
     rule += 3; // skip kind and space
  	char c = *rule;
@@ -2378,8 +2379,19 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 	}
 	if (!in) return;
 	maxFileLine = currentFileLine = 0;
+	int oldlanguage = language_bits;
 	while (ReadALine(readBuffer,in) >= 0) 
 	{
+		language_bits = oldlanguage;
+		char* tick = strchr(readBuffer, '`');
+		if (tick) // language bit
+		{
+			*tick = 0;
+			unsigned int bits =  (tick[1] - '0') << LANGUAGE_SHIFT;
+			if (!multidict && bits > max_language) 
+				continue;
+			language_bits = bits;
+		}
 		ReadCompiledWord(readBuffer,word); //   skip over double quote or QUOTE
 		if (!*word) continue;
 		char* name;
@@ -2398,6 +2410,7 @@ static void ReadPatternData(const char* fname,const char* layer,unsigned int bui
 		if (old) unwindUserLayer = AllocateHeapval(unwindUserLayer,(uint64)old,(uint64) 0,(uint64) 0);
 		FreeBuffer();
 	}
+	language_bits = oldlanguage;
     FClose(in);
 }
 
@@ -2732,6 +2745,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 	bool endseen = true;
 	MEANING T = 0;
 	WORDP set = NULL;
+	int oldlanguage = language_bits;
+	
 	while (ReadALine(readBuffer, in)>= 0) //~hate (~dislikeverb )
 	{// T~tax_expert~2  is a multibot reference  vx'801 is a bot referenced member on basic concept
 		*word = 0;
@@ -2829,30 +2844,34 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
         // now read the keywords
         char keyword[MAX_WORD_SIZE];
 		*keyword = 0;
-        while (ALWAYS)
+        while (*ptr)
         {
-            // may have ` after it as bot id separator so simulate ReadCompiledWord which wont tolerate it
-            char* at = keyword; // place to write into
-            if (!*ptr) break;
-            ptr = SkipWhitespace(ptr);
-            while (*ptr && *ptr != ' ')
-            {
-                *at++ = *ptr++;
-            }
-            *at = 0; 
+			 // may have ` after it as bot id and/or language separator so simulate ReadCompiledWord which wont tolerate it
+			ptr = ReadToken(ptr, keyword);
             if (*ptr) ++ptr;	// skip over space for next time
 
             if (*keyword == ')' || !*keyword) break; // til end of keywords or end of line
             MEANING U;
             myBot = 0;
 
-			char* botflag = strchr(keyword, '`');
-            if (botflag)
+			// similar to LanguageRestrict() but broader
+			char* restriction = strchr(keyword, '`');
+			unsigned int fact_language = 0;
+            if (restriction)
             {
-                *botflag = 0;
-                myBot = atoi64(botflag + 1);
+                *restriction++ = 0;
+				char* end = strchr(restriction, '-'); 
+				if (end)
+				{
+					fact_language = end[1] - '0';
+					if (!multidict && fact_language > max_fact_language)
+						continue; // ignore other languages when not using multi
+					*end = ' '; // hid this so atoi64 doesnt complain
+				}
+				if (*restriction != ' ') myBot = atoi64(restriction);
             }
-            char* p1 = keyword;
+			language_bits = fact_language << LANGUAGE_SHIFT;
+			char* p1 = keyword;
             bool original = false;
 			bool casesensitive = false;
 			if (*p1 == '\'' && p1[1] == '\'' && p1[2]) // 2x quoted value but not standalone ''   
@@ -2929,9 +2948,9 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     type1 ^= NOUN_SINGULAR;
                     type1 |= NOUN_PROPER_SINGULAR;
                 }
-                AddProperty(D, type1);
-                AddSystemFlag(D, sys);
-                AddInternalFlag(D, intbits);
+                if (type1)AddProperty(D, type1);
+                if (sys) AddSystemFlag(D, sys);
+                if (intbits) AddInternalFlag(D, intbits);
                 U |= (type | required)  & (NOUN | VERB | ADJECTIVE | ADVERB); // add any pos restriction as well
 
                 // if word is proper name, allow it to be substituted
@@ -2942,7 +2961,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     if (underscore)
                     {
                         unsigned int n = 1;
-                        at = underscore - 1;
+                        char* at = underscore - 1;
                         while ((at = strchr(at + 1, '_'))) ++n;
                         if (n > 1 && n > GETMULTIWORDHEADER(D))
                         {
@@ -2967,7 +2986,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 {
                     char wordcopy[MAX_WORD_SIZE];
                     strcpy(wordcopy, D->word);
-                    at = wordcopy;
+                    char* at = wordcopy;
                     char* old = wordcopy;
                     while ((at = strchr(at, sep))) // break apart into pieces.
                     {
@@ -2994,7 +3013,7 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             }
 
             MEANING verb = (*keyword == '!') ? Mexclude : Mmember;
-			int flags = FACTDUPLICATE;
+			int flags = FACTDUPLICATE | fact_language;
 			if (original) flags |=  ORIGINAL_ONLY;
 			if (casesensitive) flags |= RAWCASE_ONLY;
 			if (startOnly) flags |= START_ONLY;
@@ -3008,6 +3027,8 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
         }
 		if (*keyword == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
 	}
+	language_bits = oldlanguage;
+
 	while (holdindex--) // now all local set defines shall have happened- wont work CROSS build zones
 	{
 		WORDP D = holdset[holdindex];
@@ -3182,28 +3203,29 @@ char* WriteUserContext(char* ptr,bool sharefile )
 		ptr += strlen(ptr);
 		if ((unsigned int)(ptr - userDataBase) >= (userCacheSize - OVERFLOW_SAFETY_MARGIN)) return NULL;
 	}
-	strcpy(ptr,(char*)"\r\n");
+	strcpy(ptr,(char*)"\r\n"); // context is all on  a single line
 	return ptr + strlen(ptr);
 }
 
 bool ReadUserContext()
 {
 	char word[MAX_WORD_SIZE];
-    ReadALine(readBuffer, 0); 
+	ReadALine(readBuffer, 0); // context is all on a single line
 	char* ptr = readBuffer;
-	ptr = ReadCompiledWord(ptr,word);
-	if (stricmp(word,(char*)"#context")) return false; // cant handle it
-	memset(topicContext,0,sizeof(topicContext));
+	ptr = ReadCompiledWord(ptr, word);
+	memset(topicContext, 0, sizeof(topicContext));
 	contextIndex = 0;
+	// #context ~anythingelse~4 3 ANYTHINGELSE ~tech_symptomreact~4 1 EMAIL-BAD_PASSWORD_1KB_RL ~computer_expert~7 0 GENERAL_START ~tech_symptomreact~4 2 EMAIL-BAD_PASSWORD_2_1KB_C_RL 
+	if (stricmp(word, (char*)"#context")) return false; // cant handle it
 	while (ptr && *ptr)
 	{
-		ptr = ReadCompiledWord(ptr,word);
+		ptr = ReadCompiledWord(ptr, word);
 		if (!*word) break;
-		topicContext[contextIndex] = (unsigned short) FindTopicIDByName(word,true); // exact match
-		if (!topicContext[contextIndex]) return false;
-		ptr = ReadCompiledWord(ptr,word);
-		inputContext[contextIndex] = atoi(word);
-		ptr = ReadCompiledWord(ptr,(char*) &labelContext[contextIndex]);
+		topicContext[contextIndex] = (unsigned short)FindTopicIDByName(word, true); // exact match
+		if (!topicContext[contextIndex]) return false; // didnt find this topic
+		ptr = ReadCompiledWord(ptr, word);
+		inputContext[contextIndex] = atoi(word); // 
+		ptr = ReadCompiledWord(ptr, (char*)&labelContext[contextIndex]);
 		++contextIndex;
 	}
 	return true;
@@ -3306,6 +3328,7 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 	char filename[SMALL_WORD_SIZE];
 	InitLayerMemory(name,layer);
 	numberOfTopics = originalTopicCount;
+	
 	sprintf(filename, (char*)"macros%s.txt", name);
 	InitMacros(filename, name, build);
 	sprintf(filename, (char*)"private%s.txt", name);
@@ -3329,9 +3352,10 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 		FACT* F = baseFacts;
 		while (++F <= lastFactUsed)
 		{
-			char word[MAX_WORD_SIZE];
+			char* word = AllocateBuffer();
 			WriteFact(F, false,word, false);
 			Log(USERLOG, "%s\r\n", word);
+            FreeBuffer();
 		}
 	}
     keywordBase = dictionaryFree - 1; // 1 before next available  for tracking new words
@@ -3399,8 +3423,7 @@ FunctionResult LoadLayer(int layer,const char* name,unsigned int build)
 			(long int)(lastFactUsed-factsPreBuild[layer]),
 			(long int)(heapPreBuild[layer]-heapFree),
 			timeStamp[layer],compileVersion[layer],buildStamp[layer]);
-		if (server)  Log(SERVERLOG, "%s",data);
-		if (!stdlogging) (*printer)((char*)"%s",data);
+		Log(ECHOSERVERLOG, "%s",data);
 	}
 	
 	LockLayer(false);

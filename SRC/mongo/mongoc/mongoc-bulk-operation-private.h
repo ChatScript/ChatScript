@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_BULK_OPERATION_PRIVATE_H
 #define MONGOC_BULK_OPERATION_PRIVATE_H
-
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
 
 #include "mongoc-array-private.h"
 #include "mongoc-client.h"
@@ -28,26 +26,27 @@
 
 BSON_BEGIN_DECLS
 
-struct _mongoc_bulk_operation_t
-{
-   char                          *database;
-   char                          *collection;
-   mongoc_client_t               *client;
-   mongoc_write_concern_t        *write_concern;
-   mongoc_bulk_write_flags_t      flags;
-   uint32_t                       server_id;
-   mongoc_array_t                 commands;
-   mongoc_write_result_t          result;
-   bool                           executed;
-   int64_t                        operation_id;
+struct _mongoc_bulk_operation_t {
+   char *database;
+   char *collection;
+   mongoc_client_t *client;
+   mongoc_client_session_t *session;
+   mongoc_write_concern_t *write_concern;
+   mongoc_bulk_write_flags_t flags;
+   uint32_t server_id;
+   mongoc_array_t commands;
+   mongoc_write_result_t result;
+   bool executed;
+   int64_t operation_id;
 };
 
 
-mongoc_bulk_operation_t *_mongoc_bulk_operation_new (mongoc_client_t               *client,
-                                                     const char                    *database,
-                                                     const char                    *collection,
-                                                     mongoc_bulk_write_flags_t      flags,
-                                                     const mongoc_write_concern_t  *write_concern);
+mongoc_bulk_operation_t *
+_mongoc_bulk_operation_new (mongoc_client_t *client,
+                            const char *database,
+                            const char *collection,
+                            mongoc_bulk_write_flags_t flags,
+                            const mongoc_write_concern_t *write_concern);
 
 
 BSON_END_DECLS

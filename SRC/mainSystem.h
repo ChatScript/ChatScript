@@ -47,6 +47,9 @@ extern DEBUGVARAPI debugVar;
 extern unsigned int parseLimit;
 extern DEBUGVARAPI debugMark;
 extern char myip[100];
+extern uint64 timedeployed;
+extern unsigned long startLogDelay;
+extern int cs_qsize;
 extern DEBUGAPI debugAction;
 extern unsigned int idetrace;
 extern bool dieonwritefail;
@@ -117,12 +120,13 @@ extern bool build1Requested;
 extern char traceuser[500];
 extern bool callback;
 extern int sentenceLimit;
+extern char rootdir[MAX_WORD_SIZE];
+extern char incomingDir[MAX_WORD_SIZE];
+
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
-extern char language[40];
 extern bool logline;
 extern char livedataFolder[500];
-extern int  stdlogging;
 extern char languageFolder[500];
 extern char systemFolder[500];
 extern bool rebooting;
@@ -279,7 +283,7 @@ unsigned int CountWordsInBuckets(unsigned int& unused, unsigned int* depthcount,
 void MainLoop();
 void FinishVolley(char* output,char* summary,int limit = outputsize);
 int ProcessInput();
-FunctionResult DoSentence(char* incoming,char* prepassTopic,bool atlimit);
+FunctionResult DoOneSentence(char* incoming,char* prepassTopic,bool atlimit);
 
 #ifdef DLL
 #ifdef __linux__

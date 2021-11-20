@@ -3,7 +3,7 @@
 // ALWAYS AVAILABLE
 //------------------------
 #define PATTERNDEPTH 1000
-
+unsigned int supplementalColumn = 0;
 static HEAPREF undefinedCallThreadList = NULL;
 static bool nospellcheck = false;
 bool disablePatternOptimization = true;
@@ -16,6 +16,7 @@ static WORDP currentFunctionDefinition;			// current macro defining or executing
 
 static unsigned int complexity = 0;
 static bool livecall = false;
+bool echorulepattern = false;
 static unsigned int priorLine = 0;
 static char* currentTopicBots = NULL;
 bool autoset = false;
@@ -84,6 +85,7 @@ static char* topicFiles[] = //   files created by a topic refresh from scratch
 static void WriteKey(char* word);
 static FILE* mapFile = NULL;					// for IDE
 static FILE* patternFile = NULL; // where to store pattern words
+static char* ReadMacro(char* ptr, FILE* in, char* kind, unsigned int build,char* data);
 
 void EraseTopicBin(unsigned int build, char* name)
 {
@@ -171,8 +173,8 @@ void ScriptError()
     {
 		++hasErrors;
         patternContext = false;
-        if (*scopeBotName) Log(USERLOG,"*** Error- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn, currentFilename, scopeBotName);
-        else Log(USERLOG,"*** Error- line %d col %d of %s: ", currentFileLine, currentLineColumn, currentFilename);
+        if (*scopeBotName) Log(USERLOG,"*** Error- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn + supplementalColumn, currentFilename, scopeBotName);
+        else Log(USERLOG,"*** Error- line %d col %d of %s: ", currentFileLine, currentLineColumn + supplementalColumn, currentFilename);
     }
 #endif
 }
@@ -186,8 +188,8 @@ void ScriptWarn()
 		++hasWarnings; 
 		if (*currentFilename)
 		{
-			if (*scopeBotName) Log(USERLOG,"*** Warning- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn,currentFilename, scopeBotName);
-			else Log(USERLOG,"*** Warning- line %d col %d of %s: ", currentFileLine, currentLineColumn,currentFilename);
+			if (*scopeBotName) Log(USERLOG,"*** Warning- line %d col %d of %s bot:%s : ", currentFileLine, currentLineColumn + supplementalColumn,currentFilename, scopeBotName);
+			else Log(USERLOG,"*** Warning- line %d col %d of %s: ", currentFileLine, currentLineColumn+supplementalColumn,currentFilename);
 		}
 		else Log(USERLOG,"*** Warning-  ");
 	}
@@ -242,10 +244,10 @@ void AddError(char* buffer)
 	if (strlen(buffer) > (MAX_WORD_SIZE - 300)) buffer[MAX_WORD_SIZE - 300] = 0;
 	if (!*currentFilename) // dse compilepattern
 	{
-		sprintf(message, "%s ended %s line %u col %u ", buffer, seen, currentFileLine, currentLineColumn);
+		sprintf(message, "%s ended %s line %u col %u ", buffer, seen, currentFileLine, currentLineColumn+supplementalColumn);
 		strcat(message, "\r\n");
 	}
-	else sprintf(message, "%s ended line %u col %u of %s %s\r\n", buffer, currentFileLine, currentLineColumn, currentFilename, scopeBotName);
+	else sprintf(message, "%s ended line %u col %u of %s %s\r\n", buffer, currentFileLine, currentLineColumn+supplementalColumn, currentFilename, scopeBotName);
 	buffer[MAX_WORD_SIZE - 300] = c;
 	sprintf(errors[errorIndex++], (char*)"%s\r\n", message);
 	if (errorIndex >= MAX_ERRORS) --errorIndex;
@@ -512,6 +514,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                     hat = word - 1;
                     while ((hat = strchr(hat + 1,'_'))) // rename _var? 
                     {
+						if (*(hat - 1) == '$') continue;
                         if (IsAlphaUTF8OrDigit(*(hat - 1)) || *(hat - 1) == '_' || *(hat - 1) == '-') continue; // not a starter
                         if (IsDigit(hat[1])) continue; // normal _ var
                         if (*(hat - 1) == '\\' || *(hat - 1) == '"') continue;	// escaped or quoted
@@ -939,7 +942,8 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     // when seeing ^, see if it remaps as a function argument
     // check for internal ^ also...
     char* hat = word - 1;
-    while ((hat = strchr(hat + 1,'^'))) // find a hat within
+	if (*word == '$' && word[1] == '^' && strstr(word, ":=")) { return ptr; } // fn define
+	else while ((hat = strchr(hat + 1,'^'))) // find a hat within
     {
         char* at = hat;
         while (*++at && (IsAlphaUTF8(*at) || *at == '_' || IsDigit(*at))) { ; }
@@ -1235,6 +1239,7 @@ char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscor
 
 	return result; // ptr into READBUFFER or 1 if from peek zone
 }
+
 char* ReadDisplayOutput(char* ptr,char* buffer) // locate next output fragment to display (that will be executed)
 {
 	char next[MAX_WORD_SIZE];
@@ -1429,7 +1434,7 @@ bool TopLevelUnit(char* word) // major headers (not kinds of rules)
 {
 	return (!stricmp(word,(char*)":quit") || !stricmp(word,(char*)"canon:")  || !stricmp(word,(char*)"replace:") || !stricmp(word, (char*)"ignorespell:") || !stricmp(word, (char*)"prefer:") || !stricmp(word,(char*)"query:") || !stricmp(word, (char*)"word:") || !stricmp(word,(char*)"concept:") || !stricmp(word,(char*)"data:") || !stricmp(word,(char*)"plan:")
 		|| !stricmp(word,(char*)"outputMacro:") || !stricmp(word,(char*)"patternMacro:") || !stricmp(word,(char*)"dualMacro:")  || !stricmp(word,(char*)"table:") || !stricmp(word,(char*)"tableMacro:") || !stricmp(word,(char*)"rename:") || 
-		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word,(char*)"topic:") || (*word == ':' && IsAlphaUTF8(word[1]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
+		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word, (char*)"language:")  || !stricmp(word,(char*)"topic:") || (*word == ':' && IsAlphaUTF8(word[1]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
 }
 
 static char* FlushToTopLevel(FILE* in,unsigned int depth,char* data)
@@ -1615,12 +1620,12 @@ static void DownHierarchy(MEANING T, FILE* out, int depth)
 static void WriteKey(char* word)
 {
     if (!compiling || spellCheck != NOTE_KEYWORDS || *word == '_' || *word == '\'' || *word == USERVAR_PREFIX || *word == SYSVAR_PREFIX || *word == '@') return;
+	if (!stricmp(language, "Japanese")) return; // no spellcheck happens
 
+	// cheap test when not using Language param yet
 	unsigned char japanletter[8];
 	int kind;
-	bool japanese = false;
-	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
-	if (japanese) return;
+	if (csapicall == COMPILE_PATTERN && IsJapanese(word, (unsigned char*)&japanletter, kind)) return;
 	
 	StoreWord(word);
     if (livecall)
@@ -1640,12 +1645,10 @@ static void WriteKey(char* word)
 static void WritePatternWord(char* word)
 {
     if (*word == '~' || *word == USERVAR_PREFIX || *word == '^') return; // not normal words
-	
-	bool japanese = !stricmp(language, "japanese");
+	if (!stricmp(language, "japanese")) return; // no spell check
 	unsigned char japanletter[8];
 	int kind;
-	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
-	if (japanese) return;
+	if (csapicall == COMPILE_PATTERN && IsJapanese(word, (unsigned char*)&japanletter, kind)) return;
 
 	if (IsDigit(*word)) // any non-number stuff
 	{
@@ -1692,7 +1695,11 @@ static void WritePatternWord(char* word)
 	if (D->properties & NORMAL_WORD) return;	// already a known word
 	if (D->internalBits & BEEN_HERE) return;	//   already written to pattern file or doublecheck topic ref file
     if (compiling != CONCEPTSTRING_COMPILE) AddBeenHere(D);
-    if (patternFile) fprintf(patternFile,(char*)"%s\r\n",word);
+	if (patternFile)
+	{
+		if (multidict && language_bits) fprintf(patternFile, (char*)"%s`%d`\r\n", word, languageIndex);
+		else fprintf(patternFile, (char*)"%s\r\n", word);
+	}
     else if (livecall ) // has to be livecall if we dont have patternfile from build
     {
         patternwordthread = AllocateHeapval(patternwordthread, (uint64)D, 0, 0);// save name
@@ -1837,8 +1844,8 @@ static void ValidateCallArgs(WORDP D,char* arg1, char* arg2,char* argset[ARGSETL
 	}
 	else if (!stricmp(D->word,(char*)"^fail"))
 	{
-		if (stricmp(arg1,(char*)"RULE") && stricmp(arg1,(char*)"CALL") && stricmp(arg1,(char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP") && stricmp(arg1,(char*)"TOPIC") && stricmp(arg1,(char*)"SENTENCE") && stricmp(arg1,(char*)"INPUT"))
- 			BADSCRIPT((char*)"CALL- 16 1st argument to ^fail must be RULE or LOOP or JSONLOOP or TOPIC or SENTENCE or INPUT - %s\r\n",arg1)
+		if (stricmp(arg1, (char*)"TOPRULE") && stricmp(arg1, (char*)"RULE") && stricmp(arg1, (char*)"CALL") && stricmp(arg1, (char*)"LOOP") && stricmp(arg1, (char*)"JSONLOOP") && stricmp(arg1, (char*)"TOPIC") && stricmp(arg1, (char*)"SENTENCE") && stricmp(arg1, (char*)"INPUT"))
+			BADSCRIPT((char*)"CALL- 16 1st argument to ^fail must be RULE or TOPRULE or LOOP or JSONLOOP or TOPIC or SENTENCE or INPUT - %s\r\n", arg1)
 	}
 	else if (!stricmp(D->word,(char*)"^nofail"))
 	{
@@ -1976,7 +1983,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 			*data = 0;
 			return ptr;
 		}
-		if (csapicall != NO_API_CALL && call) // compile or execute are both bad
+		if (csapicall != NO_API_CALL && call && strnicmp(name,"^dp_",4)) // compile or execute are both bad
 		{
 			BADSCRIPT("Undefined function: %s", name)
 		}
@@ -2219,7 +2226,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
     if (parenLevel != 0)
     {
         char* value = (D) ? D->word : (char*)"unknown";
-        BADSCRIPT((char*)"CALL-59 Failed to properly close (or [ in call to %s started at line %d col %d\r\n", value, callline, callcolumn)
+        BADSCRIPT((char*)"CALL-59 Failed to properly close (or [ in call to %s started at line %d col %d\r\n", value, callline, callcolumn + supplementalColumn)
     }
 
 	FunctionResult result;
@@ -2234,7 +2241,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 		if (argumentCount != (int)D->w.planArgCount)
 			BADSCRIPT((char*)"CALL-60 Incorrect argument count to plan %s- given %d instead of required %d\r\n",name,argumentCount,D->w.planArgCount)
 	}
-	else if (!D || !FindAppropriateDefinition(D, result, true))
+	else if ((!D || !FindAppropriateDefinition(D, result, true)) && strnicmp(name,"^dp_",4))
 	{
 		// generate crosscheck data
 		int lsize = (strlen(name) + 2 + 8 + strlen(scopeBotName) + 1 + 7) / 8;
@@ -2247,7 +2254,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 		char* filename = AllocateHeap(currentFilename, 0, 1);
         undefinedCallThreadList = AllocateHeapval(undefinedCallThreadList, (uint64)nameData,(uint64) filename, (uint64)currentFileLine);
 	}
-	else // std macro (input, output table)
+	else if (strnicmp(name, "^dp_", 4))// std macro (input, output table)
 	{
 		unsigned char* defn = GetDefinition(D);
 		if (defn && argumentCount != (int)MACRO_ARGUMENT_COUNT(defn) && !(D->internalBits & VARIABLE_ARGS_TABLE)) 
@@ -2324,10 +2331,11 @@ static void SpellCheckScriptWord(char* input,int startSeen,bool checkGrade)
 {
 	if (!stricmp(input,(char*)"null")) return; // assignment clears
     if (nospellcheck) return;
+	if (!stricmp(language, "japanese")) return;
 	int kind = 0;
 	bool japanese = !stricmp(language, "japanese");
 	unsigned char japanletter[8];
-	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese((unsigned char*)input, (unsigned char*)&japanletter, kind);
+	if (!japanese) japanese = csapicall == COMPILE_PATTERN && IsJapanese(input, (unsigned char*)&japanletter, kind);
 
 	// remove any trailing punctuation
 	char word[MAX_WORD_SIZE];
@@ -2465,7 +2473,9 @@ static char* ReadDescribe(char* ptr, FILE* in,unsigned int build)
 static void OverCover(char* laterword, STACKREF keywordList[PATTERNDEPTH],
     char nestKind[PATTERNDEPTH], int nestIndex)
 { //  [ your  "your own"] has your blocking detection of your_own and we want the longer match
-    if (nestKind[nestIndex - 1] != '[' && nestKind[nestIndex - 1] != '{') return;
+	if (!stricmp(language, "japanese")) return;
+
+	if (nestKind[nestIndex - 1] != '[' && nestKind[nestIndex - 1] != '{') return;
     char word1[MAX_WORD_SIZE];
     strcpy(word1, laterword);
     char* underscore = strchr(word1, '_');
@@ -2528,14 +2538,15 @@ labels on responders
 responder types s: u: t: r: 
 name of topic or concept
 
-x : = y(do assignment and do not fail)
-x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
-
+$x : = y(do assignment and do not fail)
+$x:+=y, $x : -= y, $x : *= y, $x : /= y, $x : %= y, $x : ^= y,
+$^x:=.... define function
 #endif
 
 	patternStarter = data; // for bug messages
-
-	char word[MAX_WORD_SIZE];
+	int oldsupplementalColumn = supplementalColumn;
+	supplementalColumn = 0;
+	char word[MAX_WORD_SIZE * 10];
 	char nestKind[PATTERNDEPTH];
 	char* nestData[PATTERNDEPTH];
     STACKREF keywordList[PATTERNDEPTH];
@@ -2584,6 +2595,7 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 	while (ALWAYS) //   read as many tokens as needed to complete the definition
 	{
 		backup = ptr;
+		unsigned int priorColumn = currentLineColumn;
 		ptr = ReadNextSystemToken(in,ptr,word);
 		if (!*word) break; //   end of file
 		if (!strcmp(word, "==") || !strcmp(word, "=")) WARNSCRIPT((char*)"== or = used standalone in pattern. Shouldn't it be attached to left and right tokens?\r\n")
@@ -3209,7 +3221,7 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 					BADSCRIPT((char*)"PATTERN-60 Cannot use _ before system variable - %s\r\n", word)
 				}
 				if (!word[1]); //   simple %
-				else if (!FindWord(word) && stricmp(word,"%trace_on") && stricmp(word,"%trace_off"))
+				else if (!FindWord(word) && stricmp(word, "%trace_on") && stricmp(word, "%trace_off") && stricmp(word, "%testpattern-prescan") && stricmp(word, "%testpattern-nosave"))
 				{
 					patternEnder = data;
 					BADSCRIPT((char*)"PATTERN-61 %s is not a system variable\r\n", word)
@@ -3312,7 +3324,7 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 			}
 			if (variableGapSeen) BADSCRIPT((char*)"PATTERN-16 Cannot use * before assignment since memorization will be incomplete\r\n")
             //   rebuild token
-            char tmp[MAX_WORD_SIZE];
+            char tmp[MAX_WORD_SIZE * 4];
             *tmp = ':';		//   assignment header
             int len = (assignment - word) + 2; //   include the : and jump code in length
 			if (len > 70)
@@ -3322,7 +3334,36 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 			}
 			char* x = tmp + 1;
             Encode(len, x, 1);
-            strcpy(tmp + 2, word); //   copy left side over
+
+			// function definition
+			if (*word == '$' && word[1] == '^' && *assignment == ':' && assignment[1] == '=')
+			{
+				char* fn = assignment + 4; // the function definition code
+				size_t len = strlen(fn);
+				if (fn[len - 1] == '"') fn[len - 1] = 0;
+				char* data = AllocateBuffer();
+				char* holdstart = (char*)linestartpoint;
+				linestartpoint = fn; // lie about where data came from to get accurate column data
+				supplementalColumn = priorColumn + fn - word;
+				currentLineColumn = 0;
+				fn = ReadMacro(fn, NULL, "apimacro:", 0,data);
+				linestartpoint = holdstart;
+				currentLineColumn = supplementalColumn;
+				supplementalColumn = 0;
+				char* end = strchr(fn, '`');
+				*end = 0;
+				char* aftername = strchr(assignment + 4, ' ^');
+				char* paren = strchr(aftername, '(');
+				char* space = strchr(aftername, ' ');
+				if (space && space < paren) paren = space;
+				*paren = ' ';
+				strcpy(paren +1, fn);
+				strcpy(tmp + 2, word); //   copy left side over
+				strcat(tmp,"\"");
+				FreeBuffer();
+				patternContext = true;
+			}
+			else strcpy(tmp + 2, word); //   copy left side over
 			char* end = word + strlen(word);
 			if (*(end - 1) == '=' ) BADSCRIPT("PATTERN-57x pattern assignment missing right hand side- %s\r\n",word)
             strcpy(word, tmp);	//   replace original token
@@ -3546,14 +3587,17 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 					word[lenx] = 0;
 					ignore = 2;
 				}
-				strcpy(word,JoinWords(BurstWord(word,CONTRACTIONS))); // change to std token
-				if (!livecall && spellCheck && !(spellCheck & NO_SPELL)) SpellCheckScriptWord(word,startSeen ? 1 : 0,false);
-				else if (livecall && compiling == PIECE_COMPILE) SpellCheckScriptWord(word, startSeen ? 1 : 0, false);
-				if (strcmp(word,"PATTERN"))
+				if (stricmp(language, "japanese"))
 				{
-                    OverCover(word, keywordList, nestKind, nestIndex);
-					WriteKey(word); 
-					WritePatternWord(word); //   memorize it to know its important
+					strcpy(word, JoinWords(BurstWord(word, CONTRACTIONS))); // change to std token
+					if (!livecall && spellCheck && !(spellCheck & NO_SPELL)) SpellCheckScriptWord(word, startSeen ? 1 : 0, false);
+					else if (livecall && compiling == PIECE_COMPILE) SpellCheckScriptWord(word, startSeen ? 1 : 0, false);
+					if (strcmp(word, "PATTERN") )
+					{
+						OverCover(word, keywordList, nestKind, nestIndex);
+						WriteKey(word); 
+						WritePatternWord(word); //   memorize it to know its important
+					}
 				}
 				if (ignore)
 				{
@@ -3566,28 +3610,50 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 			}
 		}
 
-		strcpy(data,word);
+		strcpy(data,word); // default unchanged (but not updated yet to accept)
 		size_t len = strlen(data);
-		if (len > 1)
+
+		// check for japanese
+		
+		int kind = 0;
+		unsigned char japanletter[8];
+		unsigned int japaneseSize = 0;
+		char* atj = data - 1;
+		if (assignment || comparison) {}
+		else while (*++atj) // does it contain japanese
 		{
-			int kind = 0;
-			unsigned char japanletter[8];
-			bool hasjapanese =  IsJapanese((unsigned char*)&word, (unsigned char*)&japanletter, kind);
-			bool allowjapanese = !stricmp(language, "japanese");
-			if (!allowjapanese) allowjapanese = csapicall == COMPILE_PATTERN && hasjapanese;
+			japaneseSize = IsJapanese(atj, (unsigned char*)&japanletter, kind);
+			if (japaneseSize) break;
+		}
+		if (japaneseSize && japaneseSize != len) //  japanese and more than 1 character
+		{
 			// break up japanese into characters to match
-			if (hasjapanese && allowjapanese)
+			if (!stricmp(language, "japanese"))
 			{
-				unsigned char* ptr = (unsigned char*)word;
+				char* ptr = word;
 				*data++ = '('; // force a memorizable sequence
 				*data++ = ' ';
+				bool nonjapanese = false;
 				while(*ptr)
 				{
 					int l = IsJapanese(ptr, (unsigned char*)&japanletter,kind);  // return \uxxxx
-					strncpy(data, (char*) ptr, l);
-					ptr += l;
-					data += l;
-					*data++ = ' ';
+					if (l)
+					{
+						if (nonjapanese)
+						{
+							*data++ = ' ';
+							nonjapanese = false;
+						}
+						strncpy(data, (char*)ptr, l);
+						ptr += l;
+						data += l;
+						*data++ = ' ';
+					}
+					else // western frag inside
+					{
+						nonjapanese = true;
+						*data++ = *ptr++;
+					}
 				}
 				*data++ = ')';
 				len = 0;
@@ -3651,6 +3717,7 @@ x:+=y, x : -= y, x : *= y, x : /= y, x : %= y, x : ^= y,
 
 	patternStarter = NULL;
 	patternEnder = NULL;
+	supplementalColumn = oldsupplementalColumn;
 	return ptr;
 }
 
@@ -4672,9 +4739,11 @@ Then one of 3 kinds of character:
 			{
 				sprintf(info,"        rule: %s.%u.%u %s",currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),kind);
 				AddMap(info,NULL); // rule
+				char* pstart = data;
 				ptr = ReadPattern(ptr-1,in,data,false,false); //   back up and pass in the paren for pattern
 				patternDone = true;
 				*word = 0;
+				if (echorulepattern) Log(ECHOUSERLOG, "rule %s\r\n", pstart);
 				break;
 			}
 			else //   label or start of output
@@ -4728,9 +4797,11 @@ Then one of 3 kinds of character:
 					data += fulllen;
 					*data++ = ' ';
 					ReadNextSystemToken(NULL,NULL,NULL); // drop lookahead token
+					char* pstart = data;
 					ptr = ReadPattern(ptr,in,data,false,false); //   read ( for real in the paren for pattern
 					patternDone = true;
 					*word = 0;
+					if (echorulepattern) Log(ECHOUSERLOG, "rule %s\r\n", pstart);
 				}
 				else //   we were seeing start of output (no label and no pattern) for gambit, proceed to output
 				{
@@ -4813,21 +4884,21 @@ static void ErasePendingFunction(WORDP D,int functionArgumentCount)
 	}
 }
 
-static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
+static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build,char* data)
 {
 	bool table = !stricmp(kind,(char*)"table:"); // create as a transient notwrittentofile 
-	*currentTopicName = 0;
+	bool apimacro = !stricmp(kind, (char*)"apimacro:"); // create as a transient notwrittentofile 
+	if (!apimacro) *currentTopicName = 0;
 	displayIndex = 0;
 	complexity = 1;
 	uint64 typeFlags = 0;
 	if (!stricmp(kind,(char*)"tableMacro:") || table) typeFlags = IS_TABLE_MACRO;
-	else if (!stricmp(kind,(char*)"outputMacro:")) typeFlags = IS_OUTPUT_MACRO;
+	else if (!stricmp(kind,(char*)"outputMacro:") || apimacro) typeFlags = IS_OUTPUT_MACRO;
 	else if (!stricmp(kind,(char*)"patternMacro:")) typeFlags = IS_PATTERN_MACRO;
 	else if (!stricmp(kind,(char*)"dualMacro:")) typeFlags = IS_PATTERN_MACRO | IS_OUTPUT_MACRO;
 	*macroName = 0;
     macroid = 0;
 	functionArgumentCount = 0;
-	char* data = AllocateBuffer();
     char* d = AllocateBuffer();
     char* revised = AllocateBuffer();
 	char* pack = data;
@@ -4845,7 +4916,9 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 		{
 			if (*word == '^' || *word == '~') memmove(word,word+1,strlen(word)); //   remove his ^
 			MakeLowerCase(word);
-			if (!table && !IsAlphaUTF8(*word) ) BADSCRIPT((char*)"MACRO-1 Macro name must start alpha %s\r\n",word)
+			if (!table && !IsAlphaUTF8(*word) ) BADSCRIPT((char*)"MACRO-1 Macro name must start alpha ^%s\r\n",word)
+			if (apimacro && strncmp(word, "dp_", 3)) 
+				BADSCRIPT((char*)"MACRO-1 Macro name must start with ^dp_  - ^%s\r\n", word)
 			if (table)
 			{
 				strcpy(macroName,(char*)"^tbl:");
@@ -4857,10 +4930,14 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 				if (!IsLegalName(word)) BADSCRIPT((char*)"MACRO-2 Illegal characters in function name %s\r\n",word)
 				*macroName = '^';
 				strcpy(macroName+1,word);
-				Log(USERLOG,"Reading %s %s\r\n",kind,macroName);
-				AddMap((char*)"    macro:", macroName);
+				if (!apimacro)
+				{
+					Log(USERLOG, "Reading %s %s\r\n", kind, macroName);
+					AddMap((char*)"    macro:", macroName);
+				}
 			}
 			D = StoreWord(macroName);
+			if (D->x.codeIndex) BADSCRIPT((char*)"MACRO-3 may not redefine system function %s\r\n", word)
 			if (D->w.fndefinition && D->internalBits & FUNCTION_NAME && !table) // must be different BOT ID
 			{
 				int64 bid;
@@ -5046,13 +5123,14 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 
 	//   record that it is a macro, with appropriate validation information
 	char botid[MAX_WORD_SIZE];
+	strcpy(botid, "0"); // default universal for api compilations
 #ifdef WIN32
-	sprintf(botid, (char*)"%I64u", myBot);
+	if (!apimacro) sprintf(botid, (char*)"%I64u", myBot);
 #else
-	sprintf(botid, (char*)"%llu", myBot);
+	if (!apimacro)  sprintf(botid, (char*)"%llu", myBot);
 #endif
-    revised[0] = revised[1] = revised[2] = revised[3] = 0;
-	revised += 4;
+	revised[0] = revised[1] = revised[2] = revised[3] = 0;
+	revised += 4; // empty link
 #ifdef WIN32
 	sprintf(revised, (char*)"%s %I64d ", botid, macroFlags);
 #else
@@ -5069,8 +5147,20 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
 		revised[2] = (heapIndex >> 8) & 0xff;
 		revised[3] = heapIndex & 0xff;
 	}
-	D->w.fndefinition = (unsigned char*)AllocateHeap(revised - 4, strlen(revised) + 4);
+
+	if (!apimacro) D->w.fndefinition = (unsigned char*)AllocateHeap(revised - 4, strlen(revised) + 4);
 	ErasePendingFunction(D,functionArgumentCount);
+	if (apimacro)
+	{
+		revised -= 2;
+		*revised = (D->internalBits & VARIABLE_ARGS_TABLE) ? 'O' : 'o';
+		revised[1] = ' ';
+		*macroName = 0;
+		dataBase = NULL;
+		FreeBuffer();
+		FreeBuffer();
+		return revised;
+	}
 
 	if (!table) // tables are not real macros, they are temporary
 	{
@@ -5107,7 +5197,6 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build)
     dataBase = NULL;
     FreeBuffer();
     FreeBuffer();
-    FreeBuffer();
     return ptr;
 }
 
@@ -5140,9 +5229,11 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 	bool tableMacro = false;
 	if (!currentFunctionDefinition) // go define a temporary tablemacro function since this is a spontaneous table  Table:
 	{
-		if (fromtopic) BADSCRIPT((char*)"datum: from topic must use predefined table %s",name)
-		ptr = ReadMacro(ptr,in,(char*)"table:",build); //   defines the name,argumentList, and script
-		ptr = ReadNextSystemToken(in,ptr,word,false,false); //   the DATA: separator
+		if (fromtopic) BADSCRIPT((char*)"datum: from topic must use predefined table %s", name)
+		char* data = AllocateBuffer();
+		ptr = ReadMacro(ptr,in,(char*)"table:",build,data); //   defines the name,argumentList, and script
+		FreeBuffer();
+		ptr = ReadNextSystemToken(in, ptr, word, false, false); //   the DATA: separator
 		if (stricmp(word,(char*)"DATA:")) 	BADSCRIPT((char*)"TABLE-1 missing DATA separator for table or corresponding tablemacro not yet defined- %s\r\n",word)
 		sharedArgs = 0;
 	}
@@ -5244,6 +5335,11 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			if (!stricmp(word,(char*)":debug")) 
 			{
 				DebugCode(word);
+				continue;
+			}
+			if (!stricmp(word, (char*)":trace"))
+			{
+				trace = (unsigned int) -1;
 				continue;
 			}
             startup = false;
@@ -6070,7 +6166,7 @@ static char* ReadWord(char* ptr, FILE* in, unsigned int build) // readquery: nam
 	if (form1)  E = StoreWord(word1, AS_IS);
 	if (form2) F = StoreWord(word2, AS_IS);
 
-	while (!TopLevelUnit(tmp))
+	while (*tmp && !TopLevelUnit(tmp))
 	{
 		if (*tmp != '"') // not a gloss (currently gloss not supported)
 		{
@@ -6174,6 +6270,13 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 		char filename[SMALL_WORD_SIZE];
 		sprintf(filename,(char*)"%s/BUILD%s/private%s.txt", topicfolder,baseName,baseName);
 		FILE* out = FopenUTF8WriteAppend(filename);
+		char restrict[MAX_WORD_SIZE];
+		if (multidict && languageIndex)
+		{
+			sprintf(restrict, "`%d", languageIndex);
+			strcat(word, restrict);
+			strcat(replace, restrict);
+		}
 		fprintf(out,(char*)" %s %s\r\n",word,replace);
 		fclose(out); // dont use FClose
 	}
@@ -6232,16 +6335,27 @@ static char* ReadPrefer(char* ptr, FILE* in, unsigned int build)
 	return ptr;
 }
 
-void SaveCanon(char* word, char* canon,char* form)
+void WriteCanon(char* word, char* canon, char* form)
 {
+	WritePatternWord(word);		// must recognize this word for spell check
+	WritePatternWord(canon);	// must recognize this word for spell check
+	
+	// handle multiple language restrictions
+	char restrict[MAX_WORD_SIZE];
+	*restrict = 0;
+	if (multidict && languageIndex)
+	{
+		sprintf(restrict, "`%d", languageIndex);
+		strcat(word, restrict);
+		strcat(canon, restrict);
+	}
+
 	char filename[SMALL_WORD_SIZE];
 	sprintf(filename,(char*)"%s/BUILD%s/canon%s.txt", topicfolder,baseName,baseName);
 	FILE* out = FopenUTF8WriteAppend(filename);
 	if (!form) form = "";
 	fprintf(out,(char*)" %s %s %s\r\n",word,canon,form);
 	fclose(out); // dont use FClose
-	WritePatternWord(word);		// must recognize this word for spell check
-	WritePatternWord(canon);	// must recognize this word for spell check
 }
 
 static char* ReadCanon(char* ptr, FILE* in, unsigned int build)
@@ -6268,7 +6382,7 @@ static char* ReadCanon(char* ptr, FILE* in, unsigned int build)
 			ptr = ReadNextSystemToken(in, ptr, form, false);
 		}
 		else *form = 0;
-		SaveCanon(word,canon,form);
+		WriteCanon(word,canon,form);
 	}
 	return ptr;
 }
@@ -6314,6 +6428,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			if (!IsLegalName(conceptName)) BADSCRIPT((char*)"CONCEPT-2 Illegal characters in concept name %s\r\n",conceptName)
 			// create concept header
 			D = StoreWord(conceptName);
+			
 			// note we have seen definition
 			char cumulate[MAX_WORD_SIZE];
 			strcpy(cumulate, conceptName);
@@ -6511,6 +6626,15 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 		else if (!stricmp(word,(char*)"canon:")) ptr = ReadCanon(ptr,in,build);
 		else if (!stricmp(word,(char*)"topic:"))  ptr = ReadTopic(ptr,in,build);
 		else if (!stricmp(word,(char*)"plan:"))  ptr = ReadPlan(ptr,in,build);
+		else if (!stricmp(word, (char*)"language:"))
+		{
+			ptr = ReadNextSystemToken(in, ptr, word, false);
+			if (multidict)
+			{
+				SetLanguage(word);
+				Log(USERLOG, "\r\n>>Setting language %s\r\n", word);
+			}
+		}
 		else if (!stricmp(word,(char*)"bot:")) 
 		{
 			globalBotScope = false; // lasts for this file
@@ -6519,7 +6643,12 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 		else if (!stricmp(word,(char*)"table:")) ptr = ReadTable(ptr,in,build,false);
 		else if (!stricmp(word,(char*)"rename:")) ptr = ReadRename(ptr,in,build);
 		else if (!stricmp(word,(char*)"describe:")) ptr = ReadDescribe(ptr,in,build);
-		else if (!stricmp(word,(char*)"patternMacro:") || !stricmp(word,(char*)"outputMacro:") || !stricmp(word,(char*)"dualMacro:") || !stricmp(word,(char*)"tableMacro:")) ptr = ReadMacro(ptr,in,word,build);
+		else if (!stricmp(word, (char*)"patternMacro:") || !stricmp(word, (char*)"outputMacro:") || !stricmp(word, (char*)"dualMacro:") || !stricmp(word, (char*)"tableMacro:"))
+		{
+			char* data = AllocateBuffer();
+			ptr = ReadMacro(ptr, in, word, build,data);
+			FreeBuffer();
+		}
 		else BADSCRIPT((char*)"FILE-1 Unknown top-level declaration %s in %s\r\n",word,name)
 	}
 	FClose(in); // this should be the only such, not fclose.
@@ -6605,23 +6734,38 @@ static void DoubleCheckReuse()
 
 static void WriteCMore(FACT* F, char*&word,FILE* out,size_t& lineSize)
 {
-    // write it out- this INVERTS the order now and when read back in, will be reestablished correctly 
+	// incoming word always has space after it, for separation
+    
+	// write it out- this INVERTS the order now and when read back in, will be reestablished correctly 
     // but dictionary storage locations will be inverted
-    size_t wlen = strlen(word);
-    if (F->botBits) // add restrictor 
+	int lang = F->flags & FACTLANGUAGE;
+	char restrict[MAX_WORD_SIZE];
+	*restrict = 0;
+	if (F->botBits) // add bot restrictor 
     {
 #ifdef WIN32
-        sprintf(word + wlen - 1, (char*)"`%I64u ", F->botBits);
+        sprintf(restrict, (char*)"`%I64u", F->botBits);
 #else
-        sprintf(word + wlen - 1, (char*)"`%llu ", F->botBits);
+        sprintf(restrict, (char*)"`%llu", F->botBits);
 #endif
-        wlen = strlen(word);
     }
-    fwrite(word, 1, wlen, out);
+	// write out language restriction
+	if (multidict && lang)
+	{
+		if (*restrict) sprintf(restrict + strlen(restrict), "-%d", lang);
+		else sprintf(restrict, "`-%d", lang);
+	}
+	size_t wlen = strlen(word);
+	if (*restrict)
+	{
+		sprintf(word + wlen - 1,"%s ", restrict); // overwrite tailing space
+		wlen = strlen(word);
+	}
+	fwrite(word, 1, wlen, out);
     lineSize += wlen;
     if (lineSize > 500) // avoid long lines
     {
-        fprintf(out, (char*)"%s", (char*)"\r\n    ");
+        fprintf(out, (char*)" %s", (char*)"\r\n    ");
         lineSize = 0;
     }
     *word = 0;
@@ -6629,7 +6773,6 @@ static void WriteCMore(FACT* F, char*&word,FILE* out,size_t& lineSize)
 
 static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words max already named for *.bin form
 {
-    seeAllFacts = true; // do for all bots at once
     char* name = D->word;
 	if (*name != '~' || !(D->internalBits & build)) return; // not a topic or concept or not defined this build
 	RemoveInternalFlag(D,(BUILD0|BUILD1));
@@ -6668,6 +6811,9 @@ static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words
 	if (D->internalBits & FAKE_NOCONCEPTLIST) fprintf(out,(char*)"%s",(char*)"NOCONCEPTLIST ");
 	if (D->internalBits & UPPERCASE_MATCH) fprintf(out,(char*)"%s",(char*)"UPPERCASE_MATCH ");
     int n = 10;
+
+	seeAllFacts = true; // do for all bots at once in all languages
+
     FACT* E = GetObjectNondeadHead(D);
     while (E)
     {
@@ -6912,7 +7058,11 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		if (!D->properties && !D->systemFlags && D->internalBits & CONCEPT && D <= dictionaryPreBuild[LAYER_0] ) {;}  // preexisting word a concept
 		else if (D->properties || D->systemFlags || notPrior ||  ((*D->word == '_' || *D->word == '@' || *D->word == '#') && D->internalBits & RENAMED))  // there were changes
 		{
-			fprintf(dictout,(char*)"+ %s ",D->word);
+			if (D->internalBits & LANGUAGE_BITS)
+			{
+				fprintf(dictout, (char*)"+ %s`%d ", D->word,(D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT);
+			}
+			else fprintf(dictout,(char*)"+ %s ",D->word);
 			if ((*D->word == '_' || (*D->word == '@')) && D->internalBits & RENAMED) fprintf(dictout,(char*)"%u",(unsigned int)D->properties); // rename value
 			else if (*D->word == '#' &&  D->internalBits & RENAMED)
 			{
@@ -7046,7 +7196,6 @@ static int CompileCleanup(char* output,uint64 oldtokenControl, unsigned int  bui
 int ReadTopicFiles(char* name,unsigned int build,int spell)
 {
     char filename[SMALL_WORD_SIZE];
-
     nospellcheck = false;
 	undefinedCallThreadList = 0;
 	isDescribe = false;
@@ -7205,6 +7354,15 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 			Log(USERLOG,"\r\n<<end folder %s\r\n",word);
 		}
 		else if (*word == ':' && word[1]) DoCommand(readBuffer,output); // testing command
+		else if (!stricmp(word, (char*)"language:"))
+		{
+			at = ReadNextSystemToken(in, at, word, false);
+			if (multidict)
+			{
+				SetLanguage(word);
+				Log(USERLOG, "\r\n>>Setting language %s\r\n", word);
+			}
+		}
 		else ReadTopicFile(word,build|FROM_FILE); // was explicitly named
 	}
 	if (in) fclose(in); 

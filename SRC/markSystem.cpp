@@ -34,7 +34,6 @@ In a pattern, an author can request:
 		Thereafter the system chases up the synset hierarchy fanning out to sets marked from synset nodes.
 
 #endif
-#define END_OF_REFERENCES 0xff
 #define GENERIC_MEANING 0  // not a specific meaning of the word
 int verbwordx = -1;
 
@@ -43,7 +42,7 @@ static bool failFired = false;
 bool trustpos = false;
 int marklimit = 0;
 static int freeTriedList = 0;
-std::map <WORDP, int> triedData; // per volley index into heap space
+std::map <WORDP, HEAPINDEX> triedData; // per volley index into heap space
 static STACKREF wordlist = NULL;
 static HEAPREF pendingConceptList = NULL;
 static int MarkSetPath(int depth, int exactWord, MEANING M, int start, int end, unsigned int level, int kind); //   walks set hierarchy
@@ -74,7 +73,7 @@ char unmarked[MAX_SENTENCE_LENGTH]; // can completely disable a word from mark r
 
 bool RemoveMatchValue(WORDP D, int position)
 {
-    int access = GetAccess(D);
+	HEAPINDEX access = GetAccess(D);
     if (!access) return false;
     bool changed = false;
     unsigned char* data = (unsigned char*)  (Index2Heap(access) + 8);	// skip over 64bit tried by meaning field
@@ -87,12 +86,15 @@ bool RemoveMatchValue(WORDP D, int position)
             didmod = true;
             if (!changed)// protect by moving data to new area so restoresentence is safe
             {
-                int newaccess = CopyWhereInSentence(access);
+				HEAPINDEX newaccess = CopyWhereInSentence(access);
                 tried = (unsigned char*)(Index2Heap(newaccess) + 8);
                 changed = true;
                 SetTried(D, newaccess);
             }
 			memmove(tried +i, tried +i+ REF_ELEMENT_SIZE,(MAXREFSENTENCE_BYTES - i - REF_ELEMENT_SIZE));
+
+			// end will not have marker now if we deleted last reference, so insert insurance
+			tried[MAXREFSENTENCE_BYTES - REF_ELEMENT_SIZE] = 0xff;
 			break;
 		}
 	}
@@ -201,6 +203,7 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 	{
 		if (*D->word == '~')// track the actual sets done matching start word location (good for verbs, not so good for nouns)
 		{
+			// concepts[i] and topics[i] are lists of word indices
 			if (!(D->internalBits & TOPIC)) Add2ConceptTopicList(concepts, D, start, end, false); // DOESNT need to be be marked as concept
 			else Add2ConceptTopicList(topics, D, start, end, false);
 		}
@@ -226,31 +229,31 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
     return added;
 }
 
-unsigned int GetAccess(WORDP D)
+HEAPINDEX GetAccess(WORDP D)
 {
-	std::map<WORDP, int>::iterator it;
+	std::map<WORDP, HEAPINDEX>::iterator it;
 	it = triedData.find(D);
 	if (it == triedData.end()) return 0;
-	int access = it->second; // heap index
+	HEAPINDEX access = it->second; // heap index
 	return access;
 }
 
 unsigned char* GetWhereInSentence(WORDP D) // [0] is the meanings bits,  the rest are start/end/case bytes for 8 locations
 {
 	if (!D) return NULL;
-	int access = GetAccess(D);
+	HEAPINDEX access = GetAccess(D);
 	return (!access) ? NULL : (unsigned char*)Index2Heap(access) + 8; // skip over 64bit tried by meaning field
 }
 
-int CopyWhereInSentence(int oldindex)
+HEAPINDEX CopyWhereInSentence(int oldindex)
 {
 	unsigned int* olddata = (unsigned int*)Index2Heap(oldindex); // original location
 	if (!olddata) return 0;
 
-	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
+	size_t len = TRIEDDATA_WORDSIZE;
 	//  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
 	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
-	if (data) memcpy((char*)data, olddata, len * 4);
+	if (data) memcpy((char*)data, olddata, len * sizeof(int));
 	return Heap2Index((char*)data);
 }
 
@@ -260,7 +263,7 @@ void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
 	memset(topics, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
 
 	// be able to reuse memory
-	if (documentMode) for (std::map<WORDP, int>::iterator it = triedData.begin(); it != triedData.end(); ++it)
+	if (documentMode) for (std::map<WORDP, HEAPINDEX>::iterator it = triedData.begin(); it != triedData.end(); ++it)
 	{
 		MEANING* data = (MEANING*)Index2Heap(it->second);
 		*data = freeTriedList;
@@ -284,12 +287,12 @@ unsigned int* AllocateWhereInSentence(WORDP D)
 		MEANING* d = (MEANING*)Index2Heap(freeTriedList);
 		freeTriedList = *d;
 	}
-	size_t len = (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4;
+	size_t len = TRIEDDATA_WORDSIZE;
 	//  64bit tried by meaning field (aligned) + sentencerefs (3 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); 
 	if (!data) return NULL;
 
-	memset((char*)data, END_OF_REFERENCES, len * 4); // clears sentence xref start/end bits and casing byte
+	memset((char*)data, END_OF_REFERENCES, len * sizeof(int)); // clears sentence xref start/end bits and casing byte
 	data[0] = 0; // clears the tried meanings list
 	data[1] = 0;
 	// store where in the temps data
@@ -318,7 +321,7 @@ void SetTriedMeaning(WORDP D, uint64 bits)
 
 uint64 GetTriedMeaning(WORDP D) // which meanings have been used (up to 64)
 {
-	std::map<WORDP, int>::iterator it;
+	std::map<WORDP, HEAPINDEX>::iterator it;
 	it = triedData.find(D);
 	if (it == triedData.end())	return 0;
 	unsigned int* data = (unsigned int*)Index2Heap(it->second); // original location
@@ -377,7 +380,7 @@ static unsigned char* DataIntersect(WORDP D)
 
 		unsigned char* commonData = (unsigned char*)AllocateWhereInSentence(D);
 		if (!commonData) return 0; // allocate failure
-		memcpy(commonData, data, (sizeof(uint64) + MAXREFSENTENCE_BYTES + 3) / 4); // starts with the base
+		memcpy(commonData, data, TRIEDDATA_WORDSIZE * sizeof(int)); // starts with the base
 
 		// keep common positions of this second word (and optionally third) with existing first
 		for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE) // walk commondata
@@ -479,13 +482,14 @@ static void TraceHierarchy(FACT* F,char* msg)
 {
     if (TraceHierarchyTest(trace))
     {
-        char word[MAX_WORD_SIZE];
+        char* word = AllocateBuffer();
         char* fact = WriteFact(F, false, word); // just so we can see it
         unsigned int hold = globalDepth;
         globalDepth = 4 + 1;
         if (!msg) Log(USERLOG,"%s\r\n", fact); // \r\n
         else Log(USERLOG,"%s (%s)\r\n", fact,msg); // \r\n
         globalDepth = hold;
+        FreeBuffer();
     }
 }
 
@@ -793,7 +797,8 @@ static void MarkAllMeaningAndImplications(int depth, MEANING M, int start, int e
 	WORDP X = dictionaryBase + hashbuckets[hash + 1]; // look in uppercase bucket for this word
 	while (X != dictionaryBase) // all entries matching in upper case bucket
 	{
-		if (D->hash == X->hash && X->length == len && !StricmpUTF(D->word, X->word, len))
+		if (!IsValidLanguage(X)) { ; }
+		else if (D->hash == X->hash && X->length == len && !StricmpUTF(D->word, X->word, len))
 		{
 			MEANING M1 = M;
 			MEANING windex = MakeMeaning(X);
@@ -920,7 +925,7 @@ void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start
 
 static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsigned int& usetrace)
 {
-	WORDP set[20];
+	
 	WORDP D;
 	int oldtrace = trace;
     // if user typed upper case specifically, trust him
@@ -928,7 +933,8 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
     {
         if (!IsUpperCase(word[1])) strict = true;
     }
-    int i = GetWords(word,set,strict); // words in any case and with mixed underscore and spaces
+	WORDP set[20]; 
+	int i = GetWords(word,set,strict); // words in any case and with mixed underscore and spaces
 	while (i) 
 	{
 		D = set[--i];
@@ -979,14 +985,35 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
 static void SetSequenceStamp() //   mark words in sequence, original and canonical (but not mixed) - detects proper name potential up to 5 words  - and does discontiguous phrasal verbs
 {// words are always fully generic, never restricted by meaning or postag
 	// these use underscores
-	char* rawbuffer = AllocateStack(NULL, maxBufferSize); // includes typos
 	char* fixedbuffer = AllocateStack(NULL, maxBufferSize);
-	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
-	wordlist = NULL;
-    char* limit = GetUserVariable("$cs_sequence", false, true);
-    int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
+	char* limit = GetUserVariable("$cs_sequence", false, true);
+	int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
+
+	if (!stricmp(language, "japanese"))
+	{
+		for (int i = 1; i <= wordCount; ++i)
+		{
+			strcpy(fixedbuffer, wordStarts[i]);
+			int limit = i + sequenceLimit + 10; // japanese sentences can be long words
+			if (limit > wordCount) limit = wordCount;
+			for (int j = i + 1; j <= limit; ++j)
+			{
+				strcat(fixedbuffer, " ");
+				strcat(fixedbuffer, wordStarts[j]);
+				WORDP D = FindWord(fixedbuffer, 0, PRIMARY_CASE_ALLOWED);
+				if (D) MarkMeaningAndImplications(0, 0, MakeMeaning(D), i, j, CANONICAL, true);
+			}
+			ReleaseStack(fixedbuffer); // short term
+			return;
+		}
+	}
 	if (parseLimited && sequenceLimit > 2) sequenceLimit = 2;
-	unsigned int oldtrace = trace;
+
+	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
+	char* rawbuffer = AllocateStack(NULL, maxBufferSize); // includes typos
+
+	wordlist = NULL;
+   	unsigned int oldtrace = trace;
 	unsigned int usetrace = trace;
 	if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) 
 	{
@@ -1389,7 +1416,7 @@ static void MarkFundamentalMeaning()
 
 void MarkAllImpliedWords(bool limitnlp)
 {
-	int i;
+	int i;	
 	pendingConceptList = NULL;
 	for (i = 1; i <= wordCount; ++i)  capState[i] = IsUpperCase(*wordStarts[i]); // note cap state
 	failFired = false;
@@ -1403,7 +1430,7 @@ void MarkAllImpliedWords(bool limitnlp)
 	{
 		char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
 		if (*bad) Log(USERLOG,"\r\nNLP Suppressed by spellcheck.\r\n");
-		else Log(USERLOG,"\r\nConcepts: \r\n");
+		else Log(USERLOG,"\r\nConcepts %s: \r\n",language);
 	}
 	if (showMark)  Log(ECHOUSERLOG, (char*)"----------------\r\n");
 	markLength = 0;
@@ -1552,12 +1579,12 @@ void MarkAllImpliedWords(bool limitnlp)
 			MarkMeaningAndImplications(0, 0, Mnumber, i, i);
 
 			// let's mark kind of number also
-			if (strchr(wordCanonical[i], '.')) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~float")), i, i, CANONICAL);
+			if (strchr(wordCanonical[i], '.')) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~float")), i, i, CANONICAL);
 			else
 			{
-				MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~integer")), i, i, CANONICAL);
-				if (*wordStarts[i] != '-') MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~positiveInteger")), i, i, CANONICAL);
-				else MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~negativeinteger")), i, i, CANONICAL);
+				MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~integer")), i, i, CANONICAL);
+				if (*wordStarts[i] != '-') MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~positiveInteger")), i, i, CANONICAL);
+				else MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~negativeinteger")), i, i, CANONICAL);
 			}
 
 			//   handle finding fractions as 3 token sequence  mark as placenumber 

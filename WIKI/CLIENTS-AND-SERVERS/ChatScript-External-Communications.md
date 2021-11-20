@@ -11,6 +11,64 @@ which will do the machine-specific actions, calling programs on the OS from Chat
 ChatScript remains in control, and getting services via the Interet from ChatScript.
 
 
+## OOB Communication
+
+ChatScript can actually run 2 distinct message channels at the same time, one with the user and
+one with the application. Communications with the application are called out-of-band (oob) communication
+and consists of placing such data inside of [ ] before the user's input or output.
+```
+[category: legal source: ios]  I have a problem. -- input oob + user
+[video: thinking audio: humming] What kind of problem do you have? -- output oob + user
+```
+The format of things inside the leading [] in those messages is entirely
+up to you. The above examples show tagged pairs. They could equally be
+massive JSON data blobs.
+
+The oob messaging conventions are directly supported by ChatScript.
+It will not  apply NL processing (spell-correct, pos-tagging, parsing) to data within inbound oob.
+Additionally, normally inbound data is limited to 254 tokens per sentence (a volley may have any number of sentences).
+But if your oob data is a JSON structure, that is able to bypass the limitation (returning just
+a single token representing all the JSON).
+
+### OOB UI Conventions
+While not required, many applications that embed ChatScript are well served by implementing the
+standard out-of-band (oob) communication mechanisms that CS supports on its webpage interface.
+The standard UI ones are:
+```
+[callback=1000]
+[loopback=3000]
+[alarm=10000]
+```
+Each message specifies a time in milliseconds.
+Callback says, if the user doesn't start typing within the time limit, automatically call ChatScript back,
+passing in as input:
+```
+[callback]
+```
+This request only applies a single volley and gives the chatbot control to keep going if the user
+doesn't start to reply. If the user starts a reply, the timer is cancelled and callback will not happen.
+
+Loopback does the same thing, but automatically for every volley. So whenever CS sends output, a
+timer begins and if the user does not start replying within the time, the application calls CS with the
+message
+```
+[loopback]
+```
+If the user does start typing, it will not cause a loopback on the current output, but the next output starts
+the timer again.
+
+Alarm says let the specified time elapse and then as soon as the application has control, call cs with
+the input
+```
+[alarm]
+```
+It is a one-shot alarm.
+Receiving a time of 0 cancels the corresponding timer, e.g., [loopback=0] or [alarm=0] or [callback=0]
+
+Implementing these features require simple scripting in your bot.
+And then client-side creation of timers based on seeing the messages
+in outbound oob (eg in JavaScript webpage).
+
 ## Calling Outside Routines from ChatScript
 
 ChatScript has several routines for calling out synchronously to the operating system that are fully
@@ -66,6 +124,13 @@ If you use the param websocket=url the system on startup will become a websocket
 as its input/output loop channel. If you also supply parameter websocketmessage="send this first" then that
 message will be sent when the socket is opened.
 
+## Tracking User Data
+
+Normally ChatScript tracks user data in a topic file in USERS. If you want to maintain your own state
+and not use CS tracking, then set the startup command line paramater to
+```
+cache=0x0
+```
 
 ## Embedding ChatScript within another program
 
@@ -210,55 +275,6 @@ The third call is when you want to release CS and shutdown...
 ```
 void CloseSystem();
 ```
-
-
-
-## OOB Communication
-
-While not required, many applications that embed ChatScript are well served by implementing the
-standard out-of-band communication mechanisms that CS supports on its webpage interface.
-Whenever CS sends back a message for the user, it has the option of prefixing that output with oob data
-contained in `[ ]`. 
-What messages you send your app are entirely your own choice, describing animations
-and sounds to play or whatever. The standard UI ones are:
-```
-[callback=1000]
-[loopback=3000]
-[alarm=10000]
-```
-Each message specifies a time in milliseconds.
-Callback says, if the user doesn't start typing within the time limit, automatically call ChatScript back,
-passing in as input:
-```
-[callback]
-```
-This request only applies a single volley and gives the chatbot control to keep going if the user
-doesn't start to reply. If the user starts a reply, the timer is cancelled and callback will not happen.
-Loopback does the same thing, but automatically for every volley. So whenever CS sends output, a
-timer begins and if the user does not start replying within the time, the application calls CS with the
-message
-```
-[loopback]
-```
-If the user does start typing, it will not cause a loopback on the current output, but the next output starts
-the timer again.
-Alarm says let the specified time elapse and then as soon as the application has control, call cs with
-the input
-```
-[alarm]
-```
-It is a one-shot alarm.
-Receiving a time of 0 cancels the corresponding timer, e.g., [loopback=0] or [alarm=0] or [callback=0]
-
-
-## Tracking User Data
-
-Normally ChatScript tracks user data in a topic file in USERS. If you want to maintain your own state
-and not use CS tracking, then set the startup command line paramater to
-```
-cache=0x0
-```
-
 ## Memory Issues
 
 Depending on what your platform is, you may need to reduce memory. The full dictionary, for

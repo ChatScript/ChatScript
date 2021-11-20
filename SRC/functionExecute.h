@@ -21,8 +21,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define MAX_DISPLAY 2500
 #define LCLVARDATA_PREFIX '`'
 
-#define FAILCODES ( RESTART_BIT | FAILINPUT_BIT | FAILTOPIC_BIT | FAILLOOP_BIT | FAILRULE_BIT | FAILSENTENCE_BIT | RETRYSENTENCE_BIT | RETRYTOPIC_BIT | UNDEFINED_FUNCTION | RETRYINPUT_BIT )
-#define SUCCESSCODES ( ENDINPUT_BIT | ENDSENTENCE_BIT | NEXTLOOP_BIT | ENDTOPIC_BIT | ENDRULE_BIT | ENDCALL_BIT | ENDLOOP_BIT)
+#define FAILCODES ( FAILTOPRULE_BIT | RESTART_BIT | FAILINPUT_BIT | FAILTOPIC_BIT | FAILLOOP_BIT | FAILRULE_BIT | FAILSENTENCE_BIT | RETRYSENTENCE_BIT | RETRYTOPIC_BIT | UNDEFINED_FUNCTION | RETRYINPUT_BIT )
+#define SUCCESSCODES ( ENDTOPRULE_BIT |  ENDINPUT_BIT | ENDSENTENCE_BIT | NEXTLOOP_BIT | ENDTOPIC_BIT | ENDRULE_BIT | ENDCALL_BIT | ENDLOOP_BIT)
 #define ENDCODES ( FAILCODES | SUCCESSCODES )
 #define RESULTBEYONDTOPIC ( RESTART_BIT | FAILSENTENCE_BIT | ENDSENTENCE_BIT | RETRYSENTENCE_BIT | ENDINPUT_BIT | FAILINPUT_BIT | RETRYINPUT_BIT )
 #define RETRYCODES (RETRYRULE_BIT | RETRYTOPRULE_BIT | RETRYTOPIC_BIT | RETRYSENTENCE_BIT | RETRYINPUT_BIT)
@@ -54,7 +54,7 @@ typedef struct SystemFunctionInfo
 // bits 0x100 and above are to specify specific args not to eval
 			
 // codes returned from :command
-enum TestMode { 
+enum TestMode {
 	FAILCOMMAND = 0,
 	COMMANDED = 1,
 	NOPROCESS = 2,
@@ -62,6 +62,7 @@ enum TestMode {
 	OUTPUTASGIVEN = 4,
 	RESTART = 5,
 	TRACECMD = 6,
+	LANGUAGECMD = 7
 };
 
 //   argument data for system calls
@@ -76,11 +77,16 @@ extern HEAPREF memoryVariableChangesThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
 extern char* codeStart;
+extern char* rawtestpatterninput;
+extern char testpatternlabel[100];
+extern bool softRestart;
 extern APICall csapicall;
 extern char* style;
 extern int rulesExecuted;
 extern char* traceTestPattern;
+extern bool testpatternblocksave;
 extern char* realCode;
+extern int do_nl_save;
 extern unsigned int callIndex;
 extern WORDP callStack[MAX_CALL_DEPTH];
 extern int callArgumentBases[MAX_CALL_DEPTH];    // arguments to functions
@@ -90,6 +96,9 @@ extern long http_response;
 extern char lastcurltime[100];
 extern char* currentFunctionName;
 extern HEAPREF savedSentencesThreadList;
+extern HEAPREF savedSentencesBinaryList;
+extern char* testpatterninput;
+extern int testPatternIndex;
 
 #define MAX_ARG_LIMIT 31 // max args to a call -- limit using 2 bit (COMPILE/KEEP_QUOTES) per arg for table mapping behavior
 extern unsigned int currentIterator;
@@ -110,6 +119,7 @@ FunctionResult InitWinsock();
 FunctionResult RunJavaScript(char* definition, char* buffer,unsigned int args);
 void DeletePermanentJavaScript();
 void DeleteTransientJavaScript();
+HEAPREF MakeFunctionDefinition(char* data);
 unsigned int MACRO_ARGUMENT_COUNT(unsigned char* defn);
 void DebugConcepts(HEAPREF list, int wordindex);
 FunctionResult FindRuleCode1(char* buffer, char* word);

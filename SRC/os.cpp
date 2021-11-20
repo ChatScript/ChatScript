@@ -44,13 +44,12 @@ char logFilename[MAX_WORD_SIZE];			// file to user log to
 bool logUpdated = false;					// has logging happened
 int holdUserLog;
 int holdServerLog;
-int userLog = FILE_LOG;				// where do we log user
-int serverLog = FILE_LOG;			// where do we log server
+int userLog = NO_LOG;				// where do we log user
+int serverLog = NO_LOG;			// where do we log server
 int bugLog = FILE_LOG;				// where do we log bugs
 char hide[4000];							// dont log these json fields 
 unsigned int logsize = MAX_BUFFER_SIZE;              // default
 static char* logmainbuffer = NULL;					// where we build a log line
-bool serverPreLog = true;					// show what server got BEFORE it works on it
 
 unsigned int outputsize = MAX_BUFFER_SIZE;           // default
 bool serverctrlz = false;					// close communication with \0 and ctrlz
@@ -120,6 +119,13 @@ char syslogstr[300] = "chatscript"; // header for syslog messages
 #ifdef LINUX
 #include <syslog.h>
 #endif
+
+void Bug0()
+{
+	char word[MAX_WORD_SIZE];
+	GetCurrentDir(word, MAX_WORD_SIZE);
+	int xx = 0;
+}
 
 void Bug()
 {
@@ -251,17 +257,20 @@ void myexit(const char* msg, int code)
 			syslogstr, loginID, computerID, msg);
 	}
 #endif 
-	ReportBug("myexit called with %s  ", msg); // since this does not say FATAL at start, it will not loop back here
+	if (code)
+	{
+		printf("%s\r\n", msg);
+		ReportBug("myexit called with %s  ", msg); // since this does not say FATAL at start, it will not loop back here
+	}
 	char name[MAX_WORD_SIZE];
 	sprintf(name, (char*)"%s/exitlog.txt", logsfolder);
 	FILE* out;
-	if (stdlogging) out = stderr;
-	else out = FopenUTF8WriteAppend(name);
+	out = FopenUTF8WriteAppend(name);
 	struct tm ptm;
 	if (out)
 	{
 		fprintf(out, (char*)"%s %d - called myexit at %s\r\n", msg, code, GetTimeInfo(&ptm, true));
-		if (!stdlogging) FClose(out);
+		FClose(out);
 	}
 
 	if (code != 0 && crashset && !crashBack) // try to recover
@@ -275,10 +284,9 @@ void myexit(const char* msg, int code)
 
 	// non recoverable
 	out = NULL;
-	if (!oldcompiling && !oldloading)
+	if (code && !oldcompiling && !oldloading)
 	{
-		if (stdlogging) out = stderr;
-		else out = FopenUTF8WriteAppend(name);
+		out = FopenUTF8WriteAppend(name);
 		if (out)
 		{
 			struct tm ptm;
@@ -290,28 +298,28 @@ void myexit(const char* msg, int code)
 
 	if (code == 0 && out) fprintf(out, (char*)"CS exited at %s\r\n", GetTimeInfo(&ptm, true));
 	else if (out) fprintf(out, (char*)"CS terminated at %s\r\n", GetTimeInfo(&ptm, true));
-	if (!stdlogging && out) FClose(out);
-	if (!client) CloseSystem();
+	if (out) FClose(out);
+	//if (!client) CloseSystem(true);
 	exit((code == 0) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 
 void mystart(char* msg)
 {
 	char name[MAX_WORD_SIZE];
-    MakeDirectory(logsfolder);
+	MakeDirectory(usersfolder);
+	MakeDirectory(logsfolder);
 	sprintf(name, (char*)"%s/startlog.txt", logsfolder);
 	FILE* out;
-	if (stdlogging) out = stdout;
-	else out = FopenUTF8WriteAppend(name);
+	out = FopenUTF8WriteAppend(name);
 	char word[MAX_WORD_SIZE];
 	struct tm ptm;
 	sprintf(word, (char*)"System startup %s %s\r\n", msg, GetTimeInfo(&ptm, true));
-	if (out && !stdlogging)
+	if (out )
 	{
 		fprintf(out, (char*)"%s", word);
 		FClose(out);
 	}
-	if (server) Log(SERVERLOG, "%s",word);
+	if (server || pseudoServer) Log(SERVERLOG, "%s",word);
 }
 
 
@@ -414,14 +422,19 @@ FunctionResult AuthorizedCode(char* buffer)
 
 void LoggingCheats(char* incoming)
 {
+	// startup logging
+	uint64 now = ElapsedMilliseconds();
+	unsigned long delayMinutes= (unsigned long) ( (now - timedeployed) / 60000  );
+	if (delayMinutes < startLogDelay) serverLog |= FILE_LOG | PRE_LOG;
+
 	// logging overrides 
-	FILE* in = fopen("serverlogging.txt", (char*)"rb"); // per external file created, enable server log
+	FILE* in = FopenReadOnly("serverlogging.txt"); // per external file created, enable server log
 	if (in)
 	{
 		serverLog |= FILE_LOG | PRE_LOG;
 		fclose(in);
 	}
-	in = fopen("prelogging.txt", (char*)"rb"); // per external file created, enable prelogging
+	in = FopenReadOnly("prelogging.txt"); // per external file created, enable prelogging
 	if (in)
 	{
 		serverLog |= PRE_LOG;
@@ -429,13 +442,13 @@ void LoggingCheats(char* incoming)
 		prelog = true;
 		fclose(in);
 	}
-	in = fopen("userlogging.txt", (char*)"rb"); // per external file created, enable user log
+	in = FopenReadOnly("userlogging.txt"); // per external file created, enable user log
 	if (in)
 	{
 		userLog |= FILE_LOG | PRE_LOG;
 		fclose(in);
 	}
-	in = fopen("tracelogging.txt", (char*)"rb"); // per external file created, enable user log
+	in = FopenReadOnly("tracelogging.txt"); // per external file created, enable user log
 	if (in)
 	{
 		trace = (unsigned int)-1;
@@ -490,8 +503,6 @@ char* AllocateBuffer(char* name)
 	}
 	else if (bufferIndex > maxBufferUsed) maxBufferUsed = bufferIndex;
 	if (showmem) Log(USERLOG,"%d Buffer alloc %d %s %s\r\n",globalDepth,bufferIndex,name, releaseStackDepth[globalDepth]->name);
-	*buffer++ = 0;	//   prior value
-	*buffer++ = 0;	//   prior value
 	*buffer = 0;	//   empty string
 
 	return buffer;
@@ -541,8 +552,11 @@ char* AllocateStack(const char* word, size_t len,bool localvar,int align) // cal
 	if (!stackFree) 
 		return NULL; // shouldnt happen
 
-	if (infiniteStack) 
-		ReportBug("FATAL: Allocating stack while InfiniteStack in progress from %s\r\n",infiniteCaller);
+	if (infiniteStack)
+	{
+		infiniteStack = false;
+		ReportBug("FATAL: Allocating stack while InfiniteStack in progress from %s\r\n", infiniteCaller);
+	}
 	if (len == 0)
 	{
 		if (!word ) return NULL;
@@ -612,6 +626,21 @@ bool AllocateStackSlot(char* variable)
 	return true;
 }
 
+unsigned int Vmemory()
+{
+	uint64 vmemory = 0;
+#ifdef WIN32
+	MEMORYSTATUSEX memInfo;
+	memInfo.dwLength = sizeof(MEMORYSTATUSEX);
+	GlobalMemoryStatusEx(&memInfo);
+	vmemory = memInfo.ullTotalVirtual - memInfo.ullAvailVirtual;
+	//vmemory = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
+#elif LINUX
+#endif
+	vmemory /= 1048576;
+	return (unsigned int) vmemory;
+}
+
 char** RestoreStackSlot(char* variable,char** slot)
 {
 	WORDP D = FindWord(variable);
@@ -626,7 +655,11 @@ char** RestoreStackSlot(char* variable,char** slot)
 
 char* InfiniteHeap(const char* caller)
 {
-	if (infiniteHeap) ReportBug("FATAL: Allocating InfiniteHeap from %s while one already in progress from %s\r\n", caller, infiniteHeap);
+	if (infiniteHeap)
+	{
+		infiniteHeap = false;
+		ReportBug("FATAL: Allocating InfiniteHeap from %s while one already in progress from %s\r\n", caller, infiniteHeap);
+	}
 	infiniteCaller = caller;
 	infiniteHeap = true;
 	uint64 base = (uint64)(heapFree);
@@ -637,13 +670,18 @@ char* InfiniteHeap(const char* caller)
 
 char* InfiniteStack(char*& limit,const char* caller)
 {
-	if (infiniteStack) ReportBug("FATAL: Allocating InfiniteStack from %s while one already in progress from %s\r\n",caller, infiniteCaller);
+	if (infiniteStack)
+	{
+		infiniteStack = false;
+		ReportBug("FATAL: Allocating InfiniteStack from %s while one already in progress from %s\r\n", caller, infiniteCaller);
+	}
 	infiniteCaller = caller;
 	infiniteStack = true;
 	limit = heapFree - 5000; // leave safe margin of error
 	uint64 base = (uint64) (stackFree+7);
 	base &= 0xFFFFFFFFFFFFFFF8ULL;
-	return (char*) base; // slop may be lost when allocated finally, but it can be reclaimed later
+	stackFree = (char*)base;  // slop may be lost when allocated finally, but it can be reclaimed later
+	return stackFree;
 }
 
 void ReleaseInfiniteStack()
@@ -654,7 +692,7 @@ void ReleaseInfiniteStack()
 
 HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
 {
-    uint64* heapval = (uint64*)AllocateHeap(NULL, 5, sizeof(uint64), false);
+    uint64* heapval = (uint64*)AllocateHeap(NULL, 4, sizeof(uint64), false);
     heapval[0] = (uint64)linkval;
     heapval[1] = val1;
     heapval[2] = val2;
@@ -669,6 +707,11 @@ HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & va
     val2 = data[2];
     val3 = data[3];
     return (HEAPREF)data[0];
+}
+
+void RestoreCallingDirectory()
+{
+	SetDirectory(incomingDir); // restore any outside caller
 }
 
 STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2, uint64 val3)
@@ -727,8 +770,10 @@ HEAPREF Index2Heap(HEAPINDEX offset)
 bool PreallocateHeap(size_t len) // do we have the space
 {
 	if (infiniteHeap)
-		ReportBug("FATAL: Allocating heap while InfiniteHeap in progress from %s\r\n", infiniteCaller);
-
+	{
+		infiniteHeap = false;
+		ReportBug("FATAL: Preallocating heap while InfiniteHeap in progress from %s\r\n", infiniteCaller);
+	}
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000)) 
 	{
@@ -780,6 +825,7 @@ char* AllocateHeap(const char* word,size_t len,int bytes,bool clear, bool purelo
 4 reading strings during dictionary setup
 5 assigning meanings or glosses or posconditionsfor the dictionary
 6 reading in postag information
+7 reading treetagger par files
 ---
 Allocations happen during volley processing as
 1 adding a new dictionary word - all the time on user input
@@ -792,7 +838,10 @@ Allocations happen during volley processing as
 8. JSON reading
 */
 	if (infiniteHeap)
-		ReportBug("FATAL: Allocating stack while InfiniteHeap in progress from %s\r\n", infiniteCaller);
+	{
+		infiniteHeap = false;
+		ReportBug("FATAL: Allocating heap while InfiniteHeap in progress from %s\r\n", infiniteCaller);
+	}
 	len *= bytes; // this many units of this size
 	if (len == 0)
 	{
@@ -1122,14 +1171,21 @@ void CopyFile2File(const char* newname,const char* oldname, bool automaticNumber
 	fclose(out);
 	fclose(in);
 }
-
+int SetDirectory(const char* directory)
+{
+#ifdef WINDOWS
+	return SetCurrentDirectory(directory); // an outside caller cant be trusted
+#else
+	return chdir(directory) != -1;
+#endif
+}
 int MakeDirectory(const char* directory)
 {
 	int result;
 
 #ifdef WIN32
 	char word[MAX_WORD_SIZE];
-	char* path = _getcwd(word,MAX_WORD_SIZE);
+	char* path = GetCurrentDir(word,MAX_WORD_SIZE);
 	strcat(word,(char*)"/");
 	strcat(word,directory);
     if( _access( path, 0 ) == 0 ){ // does directory exist, yes
@@ -1275,7 +1331,7 @@ FILE* FopenUTF8Write(const char* filename) // insure file has BOM for UTF8
 FILE* FopenUTF8WriteAppend(const char* filename,const char* flags) 
 {
 	char path[MAX_WORD_SIZE];
-	if (filename[1] == ':' || *filename == '/') strcpy(path, filename); // windows absolute path drive c:
+	if (filename[1] == ':' || *filename == '/') strcpy(path, filename); // windows/linux absolute path drive c:
 	else if (*writePath) sprintf(path,(char*)"%s/%s",writePath,filename);
 	else strcpy(path,filename);
 
@@ -1910,7 +1966,8 @@ void BugBacktrace(FILE* out)
 		if (priorframe && !TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
-	while ( i && --i > 1) 
+	int limit = 3;
+	while ( i && --i > 1 && --limit >= 0) 
 	{
         frame = GetCallFrame(i);
         if (frame && frame->rule) strncpy(rule,frame->rule,50);
@@ -1920,7 +1977,7 @@ void BugBacktrace(FILE* out)
 			i,frame->heapDepth,GetCallFrame(i)->memindex,
             (unsigned int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
         CALLFRAME* priorFrame = GetCallFrame(i - 1);
-		if (!TraceFunctionArgs(out, frame->label, priorFrame->argumentStartIndex, priorFrame->argumentStartIndex)) fprintf(out, " - %s", rule);
+		if (priorFrame && !TraceFunctionArgs(out, frame->label, priorFrame->argumentStartIndex, priorFrame->argumentStartIndex)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
 }
@@ -2108,7 +2165,7 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
     {
         MakeDirectory(directory);
         out = userFileSystem.userCreate(fname);
-        if (!out && !inLog) ReportBug((char*)"unable to create logfile %s", fname);
+        if (!out && !inLog)  ReportBug((char*)"unable to create logfile %s", fname);
 #ifdef WIN32
 		int check_write = _access(fname, 02);
 #else
@@ -2161,6 +2218,12 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
 			char msg[1000];
 			sprintf(msg,"Error %d renaming file from %s to %s  ", errno, fname, newname);
 			perror(msg);
+			FILE* x = FopenBinaryWrite("junk.txt");
+			if (x)
+			{
+				fprintf(x, "%s", msg);
+				fclose(x);
+			}
 		}
 #ifdef WIN32
 		SetCurrentDirectory((char*)"..");
@@ -2276,15 +2339,9 @@ static void HideFromLog(char*& at)
 
 static void LogInput(char* input, FILE* out)
 {
-	size_t len = strlen(input+3);
-	fwrite(logmainbuffer, 1, strlen(logmainbuffer), out);
+	fwrite(logmainbuffer, 1, input - logmainbuffer, out);
 	fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
-	char ms[250000];
-	strcpy(ms, input + 3);
-	char* x = strchr(ms, '`');
-	if (x) *x = 0; // protect from something strange
-	size_t y = strlen(ms);
-	fwrite(ms, 1, strlen(ms), out);
+	fwrite(input + 3, 1, strlen(input + 3), out);
 }
 
 static void NormalLog(const char* name, const char* folder, FILE* out, int channel,int bufLen,bool dobugLog)
@@ -2335,7 +2392,7 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 {
 	bool isFile =  bug == NULL ;  // bug is either existing std channel or null and we have to go get it
 	if (isFile) bug = rotateLogOnLimit(name, folder);
-	if (!compiling && !loading && bug)
+	if (!compiling && bug)
 	{
 		struct tm ptm;
 		char data[10000];
@@ -2433,7 +2490,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 	// hide user input from log (except oob)
 	char* hideUserInput = NULL;
 	char endInput = 0;
-	if (*originalUserInput)
+	if (originalUserInput  && *originalUserInput)
 	{
 		if (strstr(hide, "usermessage"))
 		{
@@ -2452,7 +2509,10 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 		if (serverLog || userLog)
 		{
 			char* buffer = AllocateBuffer();
-			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%u ip:%s (%s) %d `*`  ==> %s  When:%s %dms %dwait %s JOpen:%d/%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), (int)qtime, why, (int)json_open_time, (int)json_open_counter);
+			char wait[100];
+			*wait = 0;
+			if (cs_qsize) sprintf(wait, "%dq", cs_qsize);
+			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%u ip:%s (%s) %d `*`  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();
@@ -2487,7 +2547,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 unsigned int Log(unsigned int channel, const char * fmt, ...)
 {
 	static unsigned int id = 1000;
-	if (!compiling && serverLog == NO_LOG && userLog == NO_LOG && !stdlogging &&
+	if (!compiling && serverLog == NO_LOG && userLog == NO_LOG &&
 		channel != BUGLOG && channel != DBTIMELOG && channel != STDDEBUGLOG &&
 		csapicall == NO_API_CALL) return id;
 	if (quitting) return id;
@@ -2538,17 +2598,10 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		logLastCharacter = ' ';
 		localecho = true;
 	}
-	if (channel == SERVERLOG && server && (!serverLog && !stdlogging))  return id; // not logging server data
+	if (channel == SERVERLOG && server && (!serverLog))  return id; // not logging server data
 
 	// allow user logging if trace is on.
 	if (!fmt)  return id; // no format or no buffer to use
-
-	if (stdlogging) // will be outputting via stdout so no need to echo
-	{
-		localecho = false;
-		noecho = true;
-		serverLog |= STDOUT_LOG; // server log must go out to stdout in addition to anywhere else
-	}
 
 	static int priordepth = 0;
 
@@ -2645,7 +2698,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if (!trace) return id; // API calls need not continue as they dont get logged in files
 		if (server) return id; // server does not trace
 #ifdef DLL
-		if (!server) return id;	 // dll never displays trace
+		if (!server && !pseudoServer) return id;	 // dll never displays trace
 #endif
 	}
 	if (!userLog && (channel == USERLOG || channel > 1000 || channel == id) && !testOutput && !trace) return id;
@@ -2661,7 +2714,6 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		
 		char name[MAX_WORD_SIZE];
 		sprintf(name, (char*)"%s/bugs.txt", logsfolder);
-		if (stdlogging) bugLog |= 4;
 		if (bugLog & FILE_LOG)
 		{
 			BugLog(name, logsfolder, NULL, located);
@@ -2678,7 +2730,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 		if (bugLog & STDOUT_LOG) BugLog(name, logsfolder, stdout, located);
 		if (bugLog & STDERR_LOG) BugLog(name, logsfolder, stderr, located);
 
-		if ((echo || localecho) && !silent && !server)
+		if ((echo || localecho) && !silent )
 		{
 			struct tm ptm;
 			if (*currentFilename) fprintf(stdout, (char*)"\r\n   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
@@ -2694,11 +2746,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 				myexit(logmainbuffer); // never returns normally, exit or longjump
 		}
 	}
-	if (server && trace && !userLog) channel = SERVERLOG;	// force traced server to go to server log since no user log
+	if ((server || pseudoServer) && trace && !userLog) channel = SERVERLOG;	// force traced server to go to server log since no user log
 	
 	if (channel == USERLOG)
 	{	
-		if (!server && !noecho && (echo || localecho || trace & TRACE_ECHO) && !(userLog & STDOUT_LOG))
+		if (!noecho && (echo || localecho || trace & TRACE_ECHO) && !(userLog & STDOUT_LOG))
 		{
 			if (!debugOutput) fwrite(logmainbuffer, 1, bufLen, stdout);
 			else (*debugOutput)(logmainbuffer);
@@ -2736,6 +2788,11 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	}
 	else // SERVERLOG
 	{
+		if (!noecho && (echo || localecho) && !(serverLog & STDOUT_LOG))
+		{
+			if (!debugOutput) fwrite(logmainbuffer, 1, bufLen, stdout);
+			else (*debugOutput)(logmainbuffer);
+		}
 		if (serverLog & FILE_LOG)	NormalLog(serverLogfileName, logsfolder, NULL, channel, at - logmainbuffer, dobugLog);
 		if (serverLog & STDOUT_LOG)	NormalLog("", "", stdout, channel, at - logmainbuffer, dobugLog);
 		if (serverLog & STDERR_LOG)	NormalLog("", "", stderr, channel, at - logmainbuffer, dobugLog);

@@ -20,10 +20,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 extern unsigned int patternEvaluationCount;    // number of patterns evaluated in this volley
 
-void ExecuteConceptPatterns();
+void ExecuteConceptPatterns(FACT* specificPattern = NULL);
 bool MatchesPattern(char* word, char* pattern);
 void GetPatternData(char* buffer);
-bool Match(char* buffer,char* ptr, int depth, int startposition,char* kind,int rebindable,unsigned int wildcardSelector, 
+void GetPatternMatchedWords(char* buffer);
+bool Match(char* buffer,char* ptr, int depth, int startposition,char* kind,int rebindable,unsigned int wildcardSelector,
 	int &returnStart,int& returnEnd,int& uppercasem , int& firstmatched,int positionStart,int positionEnd,
 	bool reverse = false);
 extern bool matching;

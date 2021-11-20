@@ -42,11 +42,11 @@
  */
 
 static BSON_INLINE void
-_bson_utf8_get_sequence (const char *utf8,       /* IN */
-                         uint8_t    *seq_length, /* OUT */
-                         uint8_t    *first_mask) /* OUT */
+_bson_utf8_get_sequence (const char *utf8,    /* IN */
+                         uint8_t *seq_length, /* OUT */
+                         uint8_t *first_mask) /* OUT */
 {
-   unsigned char c = *(const unsigned char *)utf8;
+   unsigned char c = *(const unsigned char *) utf8;
    uint8_t m;
    uint8_t n;
 
@@ -71,12 +71,6 @@ _bson_utf8_get_sequence (const char *utf8,       /* IN */
    } else if ((c & 0xF8) == 0xF0) {
       n = 4;
       m = 0x07;
-   } else if ((c & 0xFC) == 0xF8) {
-      n = 5;
-      m = 0x03;
-   } else if ((c & 0xFE) == 0xFC) {
-      n = 6;
-      m = 0x01;
    } else {
       n = 0;
       m = 0;
@@ -92,7 +86,9 @@ _bson_utf8_get_sequence (const char *utf8,       /* IN */
  *
  * bson_utf8_validate --
  *
- *       Validates that @utf8 is a valid UTF-8 string.
+ *       Validates that @utf8 is a valid UTF-8 string. Note that we only
+ *       support UTF-8 characters which have sequence length less than or equal
+ *       to 4 bytes (RFC 3629).
  *
  *       If @allow_null is true, then \0 is allowed within @utf8_len bytes
  *       of @utf8.  Generally, this is bad practice since the main point of
@@ -103,7 +99,7 @@ _bson_utf8_get_sequence (const char *utf8,       /* IN */
  * Parameters:
  *       @utf8: A UTF-8 encoded string.
  *       @utf8_len: The length of @utf8 in bytes.
- *       @allow_null: If \0 is allowed within @utf8, exclusing trailing \0.
+ *       @allow_null: If \0 is allowed within @utf8, excluding trailing \0.
  *
  * Returns:
  *       true if @utf8 is valid UTF-8. otherwise false.
@@ -115,9 +111,9 @@ _bson_utf8_get_sequence (const char *utf8,       /* IN */
  */
 
 bool
-bson_utf8_validate (const char *utf8,       /* IN */
-                    size_t      utf8_len,   /* IN */
-                    bool        allow_null) /* IN */
+bson_utf8_validate (const char *utf8, /* IN */
+                    size_t utf8_len,  /* IN */
+                    bool allow_null)  /* IN */
 {
    bson_unichar_t c;
    uint8_t first_mask;
@@ -148,13 +144,13 @@ bson_utf8_validate (const char *utf8,       /* IN */
        * Also calculate the next char as a unichar so we can
        * check code ranges for non-shortest form.
        */
-      c = utf8 [i] & first_mask;
+      c = utf8[i] & first_mask;
 
       /*
        * Check the high-bits for each additional sequence byte.
        */
       for (j = i + 1; j < (i + seq_length); j++) {
-         c = (c << 6) | (utf8 [j] & 0x3F);
+         c = (c << 6) | (utf8[j] & 0x3F);
          if ((utf8[j] & 0xC0) != 0x80) {
             return false;
          }
@@ -177,7 +173,7 @@ bson_utf8_validate (const char *utf8,       /* IN */
       }
 
       /*
-       * Code point wont fit in utf-16, not allowed.
+       * Code point won't fit in utf-16, not allowed.
        */
       if (c > 0x0010FFFF) {
          return false;
@@ -206,6 +202,9 @@ bson_utf8_validate (const char *utf8,       /* IN */
             continue;
          } else if (c == 0) {
             /* Two-byte representation for NULL. */
+            if (!allow_null) {
+               return false;
+            }
             continue;
          }
          return false;
@@ -261,8 +260,8 @@ bson_utf8_validate (const char *utf8,       /* IN */
  */
 
 char *
-bson_utf8_escape_for_json (const char *utf8,     /* IN */
-                           ssize_t     utf8_len) /* IN */
+bson_utf8_escape_for_json (const char *utf8, /* IN */
+                           ssize_t utf8_len) /* IN */
 {
    bson_unichar_t c;
    bson_string_t *str;
@@ -286,7 +285,6 @@ bson_utf8_escape_for_json (const char *utf8,     /* IN */
       switch (c) {
       case '\\':
       case '"':
-      case '/':
          bson_string_append_c (str, '\\');
          bson_string_append_unichar (str, c);
          break;
@@ -307,7 +305,7 @@ bson_utf8_escape_for_json (const char *utf8,     /* IN */
          break;
       default:
          if (c < ' ') {
-            bson_string_append_printf (str, "\\u%04u", (unsigned)c);
+            bson_string_append_printf (str, "\\u%04x", (unsigned) c);
          } else {
             bson_string_append_unichar (str, c);
          }
@@ -430,10 +428,9 @@ bson_utf8_next_char (const char *utf8) /* IN */
  */
 
 void
-bson_utf8_from_unichar (
-      bson_unichar_t  unichar,                               /* IN */
-      char            utf8[BSON_ENSURE_ARRAY_PARAM_SIZE(6)], /* OUT */
-      uint32_t       *len)                                   /* OUT */
+bson_utf8_from_unichar (bson_unichar_t unichar,                      /* IN */
+                        char utf8[BSON_ENSURE_ARRAY_PARAM_SIZE (6)], /* OUT */
+                        uint32_t *len)                               /* OUT */
 {
    BSON_ASSERT (utf8);
    BSON_ASSERT (len);
@@ -444,33 +441,18 @@ bson_utf8_from_unichar (
    } else if (unichar <= 0x7FF) {
       *len = 2;
       utf8[0] = 0xC0 | ((unichar >> 6) & 0x3F);
-      utf8[1] = 0x80 | ((unichar) & 0x3F);
+      utf8[1] = 0x80 | ((unichar) &0x3F);
    } else if (unichar <= 0xFFFF) {
       *len = 3;
       utf8[0] = 0xE0 | ((unichar >> 12) & 0xF);
       utf8[1] = 0x80 | ((unichar >> 6) & 0x3F);
-      utf8[2] = 0x80 | ((unichar) & 0x3F);
+      utf8[2] = 0x80 | ((unichar) &0x3F);
    } else if (unichar <= 0x1FFFFF) {
       *len = 4;
       utf8[0] = 0xF0 | ((unichar >> 18) & 0x7);
       utf8[1] = 0x80 | ((unichar >> 12) & 0x3F);
       utf8[2] = 0x80 | ((unichar >> 6) & 0x3F);
-      utf8[3] = 0x80 | ((unichar) & 0x3F);
-   } else if (unichar <= 0x3FFFFFF) {
-      *len = 5;
-      utf8[0] = 0xF8 | ((unichar >> 24) & 0x3);
-      utf8[1] = 0x80 | ((unichar >> 18) & 0x3F);
-      utf8[2] = 0x80 | ((unichar >> 12) & 0x3F);
-      utf8[3] = 0x80 | ((unichar >> 6) & 0x3F);
-      utf8[4] = 0x80 | ((unichar) & 0x3F);
-   } else if (unichar <= 0x7FFFFFFF) {
-      *len = 6;
-      utf8[0] = 0xFC | ((unichar >> 31) & 0x1);
-      utf8[1] = 0x80 | ((unichar >> 25) & 0x3F);
-      utf8[2] = 0x80 | ((unichar >> 19) & 0x3F);
-      utf8[3] = 0x80 | ((unichar >> 13) & 0x3F);
-      utf8[4] = 0x80 | ((unichar >> 7) & 0x3F);
-      utf8[5] = 0x80 | ((unichar) & 0x1);
+      utf8[3] = 0x80 | ((unichar) &0x3F);
    } else {
       *len = 0;
    }

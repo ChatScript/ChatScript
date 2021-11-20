@@ -30,6 +30,7 @@
 #include "bson-atomic.h"
 #include "bson-context.h"
 #include "bson-clock.h"
+#include "bson-decimal128.h"
 #include "bson-error.h"
 #include "bson-iter.h"
 #include "bson-json.h"
@@ -79,14 +80,14 @@ BSON_BEGIN_DECLS
  *
  * bson_t *doc = bson_new();
  * bson_clear (&doc);
- * assert (doc == NULL);
+ * BSON_ASSERT (doc == NULL);
  */
-#define bson_clear(bptr) \
-   do { \
-      if (*(bptr)) { \
+#define bson_clear(bptr)         \
+   do {                          \
+      if (*(bptr)) {             \
          bson_destroy (*(bptr)); \
-         *(bptr) = NULL; \
-      } \
+         *(bptr) = NULL;         \
+      }                          \
    } while (0)
 
 
@@ -95,83 +96,85 @@ BSON_BEGIN_DECLS
  *
  * The maximum size in bytes of a BSON document.
  */
-#define BSON_MAX_SIZE ((size_t)((1U << 31) - 1))
+#define BSON_MAX_SIZE ((size_t) ((1U << 31) - 1))
 
 
-#define BSON_APPEND_ARRAY(b,key,val) \
-      bson_append_array (b, key, (int)strlen (key), val)
+#define BSON_APPEND_ARRAY(b, key, val) \
+   bson_append_array (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_ARRAY_BEGIN(b,key,child) \
-      bson_append_array_begin (b, key, (int)strlen (key), child)
+#define BSON_APPEND_ARRAY_BEGIN(b, key, child) \
+   bson_append_array_begin (b, key, (int) strlen (key), child)
 
-#define BSON_APPEND_BINARY(b,key,subtype,val,len) \
-      bson_append_binary (b, key, (int) strlen (key), subtype, val, len)
+#define BSON_APPEND_BINARY(b, key, subtype, val, len) \
+   bson_append_binary (b, key, (int) strlen (key), subtype, val, len)
 
-#define BSON_APPEND_BOOL(b,key,val) \
-      bson_append_bool (b, key, (int) strlen (key), val)
+#define BSON_APPEND_BOOL(b, key, val) \
+   bson_append_bool (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_CODE(b,key,val) \
-      bson_append_code (b, key, (int) strlen (key), val)
+#define BSON_APPEND_CODE(b, key, val) \
+   bson_append_code (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_CODE_WITH_SCOPE(b,key,val,scope) \
-      bson_append_code_with_scope (b, key, (int) strlen (key), val, scope)
+#define BSON_APPEND_CODE_WITH_SCOPE(b, key, val, scope) \
+   bson_append_code_with_scope (b, key, (int) strlen (key), val, scope)
 
-#define BSON_APPEND_DBPOINTER(b,key,coll,oid) \
-      bson_append_dbpointer (b, key, (int) strlen (key), coll, oid)
+#define BSON_APPEND_DBPOINTER(b, key, coll, oid) \
+   bson_append_dbpointer (b, key, (int) strlen (key), coll, oid)
 
-#define BSON_APPEND_DOCUMENT_BEGIN(b,key,child) \
-      bson_append_document_begin (b, key, (int)strlen (key), child)
+#define BSON_APPEND_DOCUMENT_BEGIN(b, key, child) \
+   bson_append_document_begin (b, key, (int) strlen (key), child)
 
-#define BSON_APPEND_DOUBLE(b,key,val) \
-      bson_append_double (b, key, (int) strlen (key), val)
+#define BSON_APPEND_DOUBLE(b, key, val) \
+   bson_append_double (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_DOCUMENT(b,key,val) \
-      bson_append_document (b, key, (int) strlen (key), val)
+#define BSON_APPEND_DOCUMENT(b, key, val) \
+   bson_append_document (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_INT32(b,key,val) \
-      bson_append_int32 (b, key, (int) strlen (key), val)
+#define BSON_APPEND_INT32(b, key, val) \
+   bson_append_int32 (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_INT64(b,key,val) \
-      bson_append_int64 (b, key, (int) strlen (key), val)
+#define BSON_APPEND_INT64(b, key, val) \
+   bson_append_int64 (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_MINKEY(b,key) \
-      bson_append_minkey (b, key, (int) strlen (key))
+#define BSON_APPEND_MINKEY(b, key) \
+   bson_append_minkey (b, key, (int) strlen (key))
 
-#define BSON_APPEND_MAXKEY(b,key) \
-      bson_append_maxkey (b, key, (int) strlen (key))
+#define BSON_APPEND_DECIMAL128(b, key, val) \
+   bson_append_decimal128 (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_NULL(b,key) \
-      bson_append_null (b, key, (int) strlen (key))
+#define BSON_APPEND_MAXKEY(b, key) \
+   bson_append_maxkey (b, key, (int) strlen (key))
 
-#define BSON_APPEND_OID(b,key,val) \
-      bson_append_oid (b, key, (int) strlen (key), val)
+#define BSON_APPEND_NULL(b, key) bson_append_null (b, key, (int) strlen (key))
 
-#define BSON_APPEND_REGEX(b,key,val,opt) \
-      bson_append_regex (b, key, (int) strlen (key), val, opt)
+#define BSON_APPEND_OID(b, key, val) \
+   bson_append_oid (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_UTF8(b,key,val) \
-      bson_append_utf8 (b, key, (int) strlen (key), val, (int) strlen (val))
+#define BSON_APPEND_REGEX(b, key, val, opt) \
+   bson_append_regex (b, key, (int) strlen (key), val, opt)
 
-#define BSON_APPEND_SYMBOL(b,key,val) \
-      bson_append_symbol (b, key, (int) strlen (key), val, (int) strlen (val))
+#define BSON_APPEND_UTF8(b, key, val) \
+   bson_append_utf8 (b, key, (int) strlen (key), val, (int) strlen (val))
 
-#define BSON_APPEND_TIME_T(b,key,val) \
-      bson_append_time_t (b, key, (int) strlen (key), val)
+#define BSON_APPEND_SYMBOL(b, key, val) \
+   bson_append_symbol (b, key, (int) strlen (key), val, (int) strlen (val))
 
-#define BSON_APPEND_TIMEVAL(b,key,val) \
-      bson_append_timeval (b, key, (int) strlen (key), val)
+#define BSON_APPEND_TIME_T(b, key, val) \
+   bson_append_time_t (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_DATE_TIME(b,key,val) \
-      bson_append_date_time (b, key, (int) strlen (key), val)
+#define BSON_APPEND_TIMEVAL(b, key, val) \
+   bson_append_timeval (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_TIMESTAMP(b,key,val,inc) \
-      bson_append_timestamp (b, key, (int) strlen (key), val, inc)
+#define BSON_APPEND_DATE_TIME(b, key, val) \
+   bson_append_date_time (b, key, (int) strlen (key), val)
 
-#define BSON_APPEND_UNDEFINED(b,key) \
-      bson_append_undefined (b, key, (int) strlen (key))
+#define BSON_APPEND_TIMESTAMP(b, key, val, inc) \
+   bson_append_timestamp (b, key, (int) strlen (key), val, inc)
 
-#define BSON_APPEND_VALUE(b,key,val) \
-      bson_append_value (b, key, (int) strlen (key), (val))
+#define BSON_APPEND_UNDEFINED(b, key) \
+   bson_append_undefined (b, key, (int) strlen (key))
+
+#define BSON_APPEND_VALUE(b, key, val) \
+   bson_append_value (b, key, (int) strlen (key), (val))
 
 
 /**
@@ -183,21 +186,19 @@ BSON_BEGIN_DECLS
  *
  * Returns: A newly allocated bson_t that should be freed with bson_destroy().
  */
-bson_t *
+BSON_EXPORT (bson_t *)
 bson_new (void);
 
 
-bson_t *
-bson_new_from_json (const uint8_t *data,
-                    ssize_t        len,
-                    bson_error_t  *error);
+BSON_EXPORT (bson_t *)
+bson_new_from_json (const uint8_t *data, ssize_t len, bson_error_t *error);
 
 
-bool
-bson_init_from_json (bson_t        *bson,
-                     const char    *data,
-                     ssize_t        len,
-                     bson_error_t  *error);
+BSON_EXPORT (bool)
+bson_init_from_json (bson_t *bson,
+                     const char *data,
+                     ssize_t len,
+                     bson_error_t *error);
 
 
 /**
@@ -212,10 +213,8 @@ bson_init_from_json (bson_t        *bson,
  *
  * Returns: true if initialized successfully; otherwise false.
  */
-bool
-bson_init_static (bson_t        *b,
-                  const uint8_t *data,
-                  size_t         length);
+BSON_EXPORT (bool)
+bson_init_static (bson_t *b, const uint8_t *data, size_t length);
 
 
 /**
@@ -231,7 +230,7 @@ bson_init_static (bson_t        *b,
  * You must call bson_destroy() with @b to release resources when you are done
  * using @b.
  */
-void
+BSON_EXPORT (void)
 bson_init (bson_t *b);
 
 
@@ -244,7 +243,7 @@ bson_init (bson_t *b);
  * This is useful in cases where you want to reduce malloc overhead while
  * building many documents.
  */
-void
+BSON_EXPORT (void)
 bson_reinit (bson_t *b);
 
 
@@ -260,14 +259,13 @@ bson_reinit (bson_t *b);
  *   If the first four bytes (little-endian) of data do not match @length,
  *   then NULL will be returned.
  */
-bson_t *
-bson_new_from_data (const uint8_t *data,
-                    size_t         length);
+BSON_EXPORT (bson_t *)
+bson_new_from_data (const uint8_t *data, size_t length);
 
 
 /**
  * bson_new_from_buffer:
- * @buf: A pointer to a buffer containing a serialized bson document.  Or null
+ * @buf: A pointer to a buffer containing a serialized bson document.
  * @buf_len: The length of the buffer in bytes.
  * @realloc_fun: a realloc like function
  * @realloc_fun_ctx: a context for the realloc function
@@ -278,11 +276,11 @@ bson_new_from_data (const uint8_t *data,
  * Returns: A newly allocated bson_t that should be freed with bson_destroy().
  *          The underlying buffer will be used and not be freed in destroy.
  */
-bson_t *
-bson_new_from_buffer (uint8_t           **buf,
-                      size_t             *buf_len,
-                      bson_realloc_func   realloc_func,
-                      void               *realloc_func_ctx);
+BSON_EXPORT (bson_t *)
+bson_new_from_buffer (uint8_t **buf,
+                      size_t *buf_len,
+                      bson_realloc_func realloc_func,
+                      void *realloc_func_ctx);
 
 
 /**
@@ -294,7 +292,7 @@ bson_new_from_buffer (uint8_t           **buf,
  *
  * Returns: A newly allocated bson_t that should be freed with bson_destroy().
  */
-bson_t *
+BSON_EXPORT (bson_t *)
 bson_sized_new (size_t size);
 
 
@@ -307,7 +305,7 @@ bson_sized_new (size_t size);
  *
  * Returns: A newly allocated bson_t that should be free'd with bson_destroy()
  */
-bson_t *
+BSON_EXPORT (bson_t *)
 bson_copy (const bson_t *bson);
 
 
@@ -318,9 +316,8 @@ bson_copy (const bson_t *bson);
  *
  * Initializes @dst and copies the content from @src into @dst.
  */
-void
-bson_copy_to (const bson_t *src,
-              bson_t       *dst);
+BSON_EXPORT (void)
+bson_copy_to (const bson_t *src, bson_t *dst);
 
 
 /**
@@ -334,11 +331,12 @@ bson_copy_to (const bson_t *src,
  * more fields in a bson_t. Note that bson_init() will be called
  * on dst.
  */
-void
+BSON_EXPORT (void)
 bson_copy_to_excluding (const bson_t *src,
-                        bson_t       *dst,
-                        const char   *first_exclude,
-                        ...) BSON_GNUC_NULL_TERMINATED BSON_GNUC_DEPRECATED_FOR(bson_copy_to_excluding_noinit);
+                        bson_t *dst,
+                        const char *first_exclude,
+                        ...) BSON_GNUC_NULL_TERMINATED
+   BSON_GNUC_DEPRECATED_FOR (bson_copy_to_excluding_noinit);
 
 /**
  * bson_copy_to_excluding_noinit:
@@ -350,11 +348,17 @@ bson_copy_to_excluding (const bson_t *src,
  * on the dst. This version should be preferred in new code, but the
  * old function is left for backwards compatibility.
  */
-void
+BSON_EXPORT (void)
 bson_copy_to_excluding_noinit (const bson_t *src,
-                               bson_t       *dst,
-                               const char   *first_exclude,
+                               bson_t *dst,
+                               const char *first_exclude,
                                ...) BSON_GNUC_NULL_TERMINATED;
+
+BSON_EXPORT (void)
+bson_copy_to_excluding_noinit_va (const bson_t *src,
+                                  bson_t *dst,
+                                  const char *first_exclude,
+                                  va_list args);
 
 /**
  * bson_destroy:
@@ -362,18 +366,24 @@ bson_copy_to_excluding_noinit (const bson_t *src,
  *
  * Frees the resources associated with @bson.
  */
-void
+BSON_EXPORT (void)
 bson_destroy (bson_t *bson);
+
+BSON_EXPORT (uint8_t *)
+bson_reserve_buffer (bson_t *bson, uint32_t size);
+
+BSON_EXPORT (bool)
+bson_steal (bson_t *dst, bson_t *src);
 
 
 /**
  * bson_destroy_with_steal:
  * @bson: A #bson_t.
- * @steal: If ownership of the data buffer should be transfered to caller.
+ * @steal: If ownership of the data buffer should be transferred to caller.
  * @length: (out): location for the length of the buffer.
  *
  * Destroys @bson similar to calling bson_destroy() except that the underlying
- * buffer will be returned and ownership transfered to the caller if @steal
+ * buffer will be returned and ownership transferred to the caller if @steal
  * is non-zero.
  *
  * If length is non-NULL, the length of @bson will be stored in @length.
@@ -385,10 +395,8 @@ bson_destroy (bson_t *bson);
  * Returns: a buffer owned by the caller if @steal is true. Otherwise NULL.
  *    If there was an error, NULL is returned.
  */
-uint8_t *
-bson_destroy_with_steal (bson_t   *bson,
-                         bool      steal,
-                         uint32_t *length);
+BSON_EXPORT (uint8_t *)
+bson_destroy_with_steal (bson_t *bson, bool steal, uint32_t *length);
 
 
 /**
@@ -399,7 +407,7 @@ bson_destroy_with_steal (bson_t   *bson,
  *
  * Returns: A buffer that should not be modified or freed.
  */
-const uint8_t *
+BSON_EXPORT (const uint8_t *)
 bson_get_data (const bson_t *bson);
 
 
@@ -409,7 +417,7 @@ bson_get_data (const bson_t *bson);
  *
  * Counts the number of elements found in @bson.
  */
-uint32_t
+BSON_EXPORT (uint32_t)
 bson_count_keys (const bson_t *bson);
 
 
@@ -424,9 +432,8 @@ bson_count_keys (const bson_t *bson);
  *
  * Returns: true if @key exists in @bson; otherwise false.
  */
-bool
-bson_has_field (const bson_t *bson,
-                const char   *key);
+BSON_EXPORT (bool)
+bson_has_field (const bson_t *bson, const char *key);
 
 
 /**
@@ -439,12 +446,11 @@ bson_has_field (const bson_t *bson,
  *
  * Returns: Less than zero, zero, or greater than zero.
  */
-int
-bson_compare (const bson_t *bson,
-              const bson_t *other);
+BSON_EXPORT (int)
+bson_compare (const bson_t *bson, const bson_t *other);
 
 /*
- * bson_compare:
+ * bson_equal:
  * @bson: A bson_t.
  * @other: A bson_t.
  *
@@ -452,9 +458,8 @@ bson_compare (const bson_t *bson,
  *
  * Returns: true if equal; otherwise false.
  */
-bool
-bson_equal (const bson_t *bson,
-            const bson_t *other);
+BSON_EXPORT (bool)
+bson_equal (const bson_t *bson, const bson_t *other);
 
 
 /**
@@ -467,10 +472,71 @@ bson_equal (const bson_t *bson,
  *
  * Returns: true if @bson is valid; otherwise false and @offset is set.
  */
-bool
-bson_validate (const bson_t         *bson,
-               bson_validate_flags_t flags,
-               size_t               *offset);
+BSON_EXPORT (bool)
+bson_validate (const bson_t *bson, bson_validate_flags_t flags, size_t *offset);
+
+
+/**
+ * bson_validate_with_error:
+ * @bson: A bson_t.
+ * @error: A location for the error info.
+ *
+ * Validates a BSON document by walking through the document and inspecting
+ * the fields for valid content.
+ *
+ * Returns: true if @bson is valid; otherwise false and @error is filled out.
+ */
+BSON_EXPORT (bool)
+bson_validate_with_error (const bson_t *bson,
+                          bson_validate_flags_t flags,
+                          bson_error_t *error);
+
+
+/**
+ * bson_as_json_with_opts:
+ * @bson: A bson_t.
+ * @length: A location for the string length, or NULL.
+ * @opts: A bson_t_json_opts_t defining options for the conversion
+ *
+ * Creates a new string containing @bson in the selected JSON format,
+ * conforming to the MongoDB Extended JSON Spec:
+ *
+ * github.com/mongodb/specifications/blob/master/source/extended-json.rst
+ *
+ * The caller is responsible for freeing the resulting string. If @length is
+ * non-NULL, then the length of the resulting string will be placed in @length.
+ *
+ * See http://docs.mongodb.org/manual/reference/mongodb-extended-json/ for
+ * more information on extended JSON.
+ *
+ * Returns: A newly allocated string that should be freed with bson_free().
+ */
+BSON_EXPORT (char *)
+bson_as_json_with_opts (const bson_t *bson,
+                        size_t *length,
+                        const bson_json_opts_t *opts);
+
+
+/**
+ * bson_as_canonical_extended_json:
+ * @bson: A bson_t.
+ * @length: A location for the string length, or NULL.
+ *
+ * Creates a new string containing @bson in canonical extended JSON format,
+ * conforming to the MongoDB Extended JSON Spec:
+ *
+ * github.com/mongodb/specifications/blob/master/source/extended-json.rst
+ *
+ * The caller is responsible for freeing the resulting string. If @length is
+ * non-NULL, then the length of the resulting string will be placed in @length.
+ *
+ * See http://docs.mongodb.org/manual/reference/mongodb-extended-json/ for
+ * more information on extended JSON.
+ *
+ * Returns: A newly allocated string that should be freed with bson_free().
+ */
+BSON_EXPORT (char *)
+bson_as_canonical_extended_json (const bson_t *bson, size_t *length);
 
 
 /**
@@ -478,30 +544,49 @@ bson_validate (const bson_t         *bson,
  * @bson: A bson_t.
  * @length: A location for the string length, or NULL.
  *
- * Creates a new string containing @bson in extended JSON format. The caller
- * is responsible for freeing the resulting string. If @length is non-NULL,
- * then the length of the resulting string will be placed in @length.
+ * Creates a new string containing @bson in libbson's legacy JSON format.
+ * Superseded by bson_as_canonical_extended_json and
+ * bson_as_relaxed_extended_json. The caller is
+ * responsible for freeing the resulting string. If @length is non-NULL, then
+ * the length of the resulting string will be placed in @length.
+ *
+ * Returns: A newly allocated string that should be freed with bson_free().
+ */
+BSON_EXPORT (char *)
+bson_as_json (const bson_t *bson, size_t *length);
+
+
+/**
+ * bson_as_relaxed_extended_json:
+ * @bson: A bson_t.
+ * @length: A location for the string length, or NULL.
+ *
+ * Creates a new string containing @bson in relaxed extended JSON format,
+ * conforming to the MongoDB Extended JSON Spec:
+ *
+ * github.com/mongodb/specifications/blob/master/source/extended-json.rst
+ *
+ * The caller is responsible for freeing the resulting string. If @length is
+ * non-NULL, then the length of the resulting string will be placed in @length.
  *
  * See http://docs.mongodb.org/manual/reference/mongodb-extended-json/ for
  * more information on extended JSON.
  *
  * Returns: A newly allocated string that should be freed with bson_free().
  */
-char *
-bson_as_json (const bson_t *bson,
-              size_t       *length);
+BSON_EXPORT (char *)
+bson_as_relaxed_extended_json (const bson_t *bson, size_t *length);
 
 
 /* like bson_as_json() but for outermost arrays. */
-char *
-bson_array_as_json (const bson_t *bson,
-                    size_t       *length);
+BSON_EXPORT (char *)
+bson_array_as_json (const bson_t *bson, size_t *length);
 
 
-bool
-bson_append_value (bson_t             *bson,
-                   const char         *key,
-                   int                 key_length,
+BSON_EXPORT (bool)
+bson_append_value (bson_t *bson,
+                   const char *key,
+                   int key_length,
                    const bson_value_t *value);
 
 
@@ -517,10 +602,10 @@ bson_append_value (bson_t             *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_array (bson_t       *bson,
-                   const char   *key,
-                   int           key_length,
+BSON_EXPORT (bool)
+bson_append_array (bson_t *bson,
+                   const char *key,
+                   int key_length,
                    const bson_t *array);
 
 
@@ -536,13 +621,13 @@ bson_append_array (bson_t       *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_binary (bson_t         *bson,
-                    const char     *key,
-                    int             key_length,
-                    bson_subtype_t  subtype,
-                    const uint8_t  *binary,
-                    uint32_t        length);
+BSON_EXPORT (bool)
+bson_append_binary (bson_t *bson,
+                    const char *key,
+                    int key_length,
+                    bson_subtype_t subtype,
+                    const uint8_t *binary,
+                    uint32_t length);
 
 
 /**
@@ -555,11 +640,8 @@ bson_append_binary (bson_t         *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_bool (bson_t     *bson,
-                  const char *key,
-                  int         key_length,
-                  bool value);
+BSON_EXPORT (bool)
+bson_append_bool (bson_t *bson, const char *key, int key_length, bool value);
 
 
 /**
@@ -573,10 +655,10 @@ bson_append_bool (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_code (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_code (bson_t *bson,
                   const char *key,
-                  int         key_length,
+                  int key_length,
                   const char *javascript);
 
 
@@ -592,11 +674,11 @@ bson_append_code (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_code_with_scope (bson_t       *bson,
-                             const char   *key,
-                             int           key_length,
-                             const char   *javascript,
+BSON_EXPORT (bool)
+bson_append_code_with_scope (bson_t *bson,
+                             const char *key,
+                             int key_length,
+                             const char *javascript,
                              const bson_t *scope);
 
 
@@ -612,11 +694,11 @@ bson_append_code_with_scope (bson_t       *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_dbpointer (bson_t           *bson,
-                       const char       *key,
-                       int               key_length,
-                       const char       *collection,
+BSON_EXPORT (bool)
+bson_append_dbpointer (bson_t *bson,
+                       const char *key,
+                       int key_length,
+                       const char *collection,
                        const bson_oid_t *oid);
 
 
@@ -629,11 +711,11 @@ bson_append_dbpointer (bson_t           *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_double (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_double (bson_t *bson,
                     const char *key,
-                    int         key_length,
-                    double      value);
+                    int key_length,
+                    double value);
 
 
 /**
@@ -647,10 +729,10 @@ bson_append_double (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_document (bson_t       *bson,
-                      const char   *key,
-                      int           key_length,
+BSON_EXPORT (bool)
+bson_append_document (bson_t *bson,
+                      const char *key,
+                      int key_length,
                       const bson_t *value);
 
 
@@ -671,11 +753,11 @@ bson_append_document (bson_t       *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_document_begin (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_document_begin (bson_t *bson,
                             const char *key,
-                            int         key_length,
-                            bson_t     *child);
+                            int key_length,
+                            bson_t *child);
 
 
 /**
@@ -688,9 +770,8 @@ bson_append_document_begin (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_document_end (bson_t *bson,
-                          bson_t *child);
+BSON_EXPORT (bool)
+bson_append_document_end (bson_t *bson, bson_t *child);
 
 
 /**
@@ -713,11 +794,11 @@ bson_append_document_end (bson_t *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_array_begin (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_array_begin (bson_t *bson,
                          const char *key,
-                         int         key_length,
-                         bson_t     *child);
+                         int key_length,
+                         bson_t *child);
 
 
 /**
@@ -730,9 +811,8 @@ bson_append_array_begin (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_array_end (bson_t *bson,
-                       bson_t *child);
+BSON_EXPORT (bool)
+bson_append_array_end (bson_t *bson, bson_t *child);
 
 
 /**
@@ -745,10 +825,10 @@ bson_append_array_end (bson_t *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_int32 (bson_t      *bson,
-                   const char  *key,
-                   int          key_length,
+BSON_EXPORT (bool)
+bson_append_int32 (bson_t *bson,
+                   const char *key,
+                   int key_length,
                    int32_t value);
 
 
@@ -762,11 +842,28 @@ bson_append_int32 (bson_t      *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_int64 (bson_t      *bson,
-                   const char  *key,
-                   int          key_length,
+BSON_EXPORT (bool)
+bson_append_int64 (bson_t *bson,
+                   const char *key,
+                   int key_length,
                    int64_t value);
+
+
+/**
+ * bson_append_decimal128:
+ * @bson: A bson_t.
+ * @key: The key for the field.
+ * @value: The bson_decimal128_t decimal128 value.
+ *
+ * Appends a new field of type BSON_TYPE_DECIMAL128 to @bson.
+ *
+ * Returns: true if successful; false if append would overflow max size.
+ */
+BSON_EXPORT (bool)
+bson_append_decimal128 (bson_t *bson,
+                        const char *key,
+                        int key_length,
+                        const bson_decimal128_t *value);
 
 
 /**
@@ -781,10 +878,10 @@ bson_append_int64 (bson_t      *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_iter (bson_t            *bson,
-                  const char        *key,
-                  int                key_length,
+BSON_EXPORT (bool)
+bson_append_iter (bson_t *bson,
+                  const char *key,
+                  int key_length,
                   const bson_iter_t *iter);
 
 
@@ -800,10 +897,8 @@ bson_append_iter (bson_t            *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_minkey (bson_t     *bson,
-                    const char *key,
-                    int         key_length);
+BSON_EXPORT (bool)
+bson_append_minkey (bson_t *bson, const char *key, int key_length);
 
 
 /**
@@ -818,10 +913,8 @@ bson_append_minkey (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_maxkey (bson_t     *bson,
-                    const char *key,
-                    int         key_length);
+BSON_EXPORT (bool)
+bson_append_maxkey (bson_t *bson, const char *key, int key_length);
 
 
 /**
@@ -833,10 +926,8 @@ bson_append_maxkey (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_null (bson_t     *bson,
-                  const char *key,
-                  int         key_length);
+BSON_EXPORT (bool)
+bson_append_null (bson_t *bson, const char *key, int key_length);
 
 
 /**
@@ -850,10 +941,10 @@ bson_append_null (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_oid (bson_t           *bson,
-                 const char       *key,
-                 int               key_length,
+BSON_EXPORT (bool)
+bson_append_oid (bson_t *bson,
+                 const char *key,
+                 int key_length,
                  const bson_oid_t *oid);
 
 
@@ -876,16 +967,50 @@ bson_append_oid (bson_t           *bson,
  *   's' for dotall mode ('.' matches everything)
  *   'u' to make \w and \W match unicode.
  *
- * For more information on what comprimises a BSON regex, see bsonspec.org.
+ * For more detailed information about BSON regex elements, see bsonspec.org.
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_regex (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_regex (bson_t *bson,
                    const char *key,
-                   int         key_length,
+                   int key_length,
                    const char *regex,
                    const char *options);
+
+
+/**
+ * bson_append_regex:
+ * @bson: A bson_t.
+ * @key: The key of the field.
+ * @key_length: The length of the key string.
+ * @regex: The regex to append to the bson.
+ * @regex_length: The length of the regex string.
+ * @options: Options for @regex.
+ *
+ * Appends a new field to @bson of type BSON_TYPE_REGEX. @regex should
+ * be the regex string. @options should contain the options for the regex.
+ *
+ * Valid options for @options are:
+ *
+ *   'i' for case-insensitive.
+ *   'm' for multiple matching.
+ *   'x' for verbose mode.
+ *   'l' to make \w and \W locale dependent.
+ *   's' for dotall mode ('.' matches everything)
+ *   'u' to make \w and \W match unicode.
+ *
+ * For more detailed information about BSON regex elements, see bsonspec.org.
+ *
+ * Returns: true if successful; false if append would overflow max size.
+ */
+BSON_EXPORT (bool)
+bson_append_regex_w_len (bson_t *bson,
+                         const char *key,
+                         int key_length,
+                         const char *regex,
+                         int regex_length,
+                         const char *options);
 
 
 /**
@@ -903,12 +1028,12 @@ bson_append_regex (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_utf8 (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_utf8 (bson_t *bson,
                   const char *key,
-                  int         key_length,
+                  int key_length,
                   const char *value,
-                  int         length);
+                  int length);
 
 
 /**
@@ -925,12 +1050,12 @@ bson_append_utf8 (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_symbol (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_symbol (bson_t *bson,
                     const char *key,
-                    int         key_length,
+                    int key_length,
                     const char *value,
-                    int         length);
+                    int length);
 
 
 /**
@@ -944,11 +1069,11 @@ bson_append_symbol (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_time_t (bson_t     *bson,
+BSON_EXPORT (bool)
+bson_append_time_t (bson_t *bson,
                     const char *key,
-                    int         key_length,
-                    time_t      value);
+                    int key_length,
+                    time_t value);
 
 
 /**
@@ -962,10 +1087,10 @@ bson_append_time_t (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_timeval (bson_t         *bson,
-                     const char     *key,
-                     int             key_length,
+BSON_EXPORT (bool)
+bson_append_timeval (bson_t *bson,
+                     const char *key,
+                     int key_length,
                      struct timeval *value);
 
 
@@ -978,12 +1103,12 @@ bson_append_timeval (bson_t         *bson,
  *
  * Appends a new field to @bson of type BSON_TYPE_DATE_TIME.
  *
- * Returns: true if sucessful; otherwise false.
+ * Returns: true if successful; otherwise false.
  */
-bool
-bson_append_date_time (bson_t      *bson,
-                       const char  *key,
-                       int          key_length,
+BSON_EXPORT (bool)
+bson_append_date_time (bson_t *bson,
+                       const char *key,
+                       int key_length,
                        int64_t value);
 
 
@@ -998,10 +1123,8 @@ bson_append_date_time (bson_t      *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_now_utc (bson_t     *bson,
-                     const char *key,
-                     int         key_length);
+BSON_EXPORT (bool)
+bson_append_now_utc (bson_t *bson, const char *key, int key_length);
 
 /**
  * bson_append_timestamp:
@@ -1019,10 +1142,10 @@ bson_append_now_utc (bson_t     *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_timestamp (bson_t       *bson,
-                       const char   *key,
-                       int           key_length,
+BSON_EXPORT (bool)
+bson_append_timestamp (bson_t *bson,
+                       const char *key,
+                       int key_length,
                        uint32_t timestamp,
                        uint32_t increment);
 
@@ -1038,15 +1161,12 @@ bson_append_timestamp (bson_t       *bson,
  *
  * Returns: true if successful; false if append would overflow max size.
  */
-bool
-bson_append_undefined (bson_t     *bson,
-                       const char *key,
-                       int         key_length);
+BSON_EXPORT (bool)
+bson_append_undefined (bson_t *bson, const char *key, int key_length);
 
 
-bool
-bson_concat (bson_t       *dst,
-             const bson_t *src);
+BSON_EXPORT (bool)
+bson_concat (bson_t *dst, const bson_t *src);
 
 
 BSON_END_DECLS

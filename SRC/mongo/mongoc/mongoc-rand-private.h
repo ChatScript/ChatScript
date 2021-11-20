@@ -14,23 +14,20 @@
  * limitations under the License.
  */
 
-
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
+#include "mongoc-prelude.h"
 
 
 #ifndef MONGOC_RAND_PRIVATE_H
 #define MONGOC_RAND_PRIVATE_H
 
 
-#include <bson.h>
+#include <bson/bson.h>
 
 
 BSON_BEGIN_DECLS
 
-int _mongoc_rand_bytes(uint8_t * buf, int num);
-int _mongoc_pseudo_rand_bytes(uint8_t * buf, int num);
+int
+_mongoc_rand_bytes (uint8_t *buf, int num);
 
 BSON_END_DECLS
 

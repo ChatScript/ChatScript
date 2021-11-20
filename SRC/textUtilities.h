@@ -147,10 +147,11 @@ void AcquirePosMeanings(bool facts);
 char* FindNameByValue(uint64 val); // properties
 char* PurifyInput(char* input,char* copy,size_t& size,PurifyKind kind);
 uint64 FindPropertyValueByName(char* name);
+char* ReadToken(const char* ptr, char* word);
 FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
 void ClearSupplementalInput();
-int IsJapanese(unsigned char* utf8letter, unsigned char* utf16letter,int& kind);
+int IsJapanese(char* utf8letter, unsigned char* utf16letter,int& kind);
 char* GetNextInput();
 void MoreToCome();
 void ClearNumbers();
@@ -228,8 +229,8 @@ void ChangeSpecial(char* buffer);
 void FormatFloat(char* word, char* buffer, int useNumberStyle = NOSTYLE_NUMBERS);
 
 // startup
-void InitTextUtilities();
-void InitTextUtilities1();
+void InitUniversalTextUtilities();
+void InitTextUtilitiesByLanguage(char* language);
 bool ReadDocument(char* inBuffer,FILE* sourceFile);
 
 // reading functions

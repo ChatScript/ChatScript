@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
+#include "mongoc-util-private.h"
 #include "mongoc-apm-private.h"
+#include "mongoc-cmd-private.h"
+#include "mongoc-handshake-private.h"
+
+static bson_oid_t kObjectIdZero = {{0}};
 
 /*
  * An Application Performance Management (APM) implementation, complying with
@@ -23,20 +28,57 @@
  * https://github.com/mongodb/specifications/tree/master/source/command-monitoring
  */
 
+static void
+append_documents_from_cmd (const mongoc_cmd_t *cmd,
+                           mongoc_apm_command_started_t *event)
+{
+   if (!cmd->payload || !cmd->payload_size) {
+      return;
+   }
+
+   if (!event->command_owned) {
+      event->command = bson_copy (event->command);
+      event->command_owned = true;
+   }
+
+   _mongoc_cmd_append_payload_as_array (cmd, event->command);
+}
+
+
 /*
  * Private initializer / cleanup functions.
  */
 
+static void
+mongoc_apm_redact_command (bson_t *command);
+
+static void
+mongoc_apm_redact_reply (bson_t *reply);
+
+/*--------------------------------------------------------------------------
+ *
+ * mongoc_apm_command_started_init --
+ *
+ *       Initialises the command started event.
+ *
+ * Side effects:
+ *       If provided, is_redacted indicates whether the command document was
+ *       redacted to hide sensitive information.
+ *
+ *--------------------------------------------------------------------------
+ */
 void
 mongoc_apm_command_started_init (mongoc_apm_command_started_t *event,
-                                 const bson_t                 *command,
-                                 const char                   *database_name,
-                                 const char                   *command_name,
-                                 int64_t                       request_id,
-                                 int64_t                       operation_id,
-                                 const mongoc_host_list_t     *host,
-                                 uint32_t                      server_id,
-                                 void                         *context)
+                                 const bson_t *command,
+                                 const char *database_name,
+                                 const char *command_name,
+                                 int64_t request_id,
+                                 int64_t operation_id,
+                                 const mongoc_host_list_t *host,
+                                 uint32_t server_id,
+                                 const bson_oid_t *service_id,
+                                 bool *is_redacted, /* out */
+                                 void *context)
 {
    bson_iter_t iter;
    uint32_t len;
@@ -56,16 +98,31 @@ mongoc_apm_command_started_init (mongoc_apm_command_started_t *event,
           BSON_ITER_HOLDS_DOCUMENT (&iter)) {
          bson_iter_document (&iter, &len, &data);
          event->command = bson_new_from_data (data, len);
+         event->command_owned = true;
       } else {
-         /* $query should exist, but user could provide us a misformatted doc */
-         event->command = bson_new ();
+         /* Got $readPreference without $query, probably OP_MSG */
+         event->command = (bson_t *) command;
+         event->command_owned = false;
       }
-
-      event->command_owned = true;
    } else {
       /* discard "const", we promise not to modify "command" */
       event->command = (bson_t *) command;
       event->command_owned = false;
+   }
+
+   if (mongoc_apm_is_sensitive_command (command_name, command)) {
+      if (!event->command_owned) {
+         event->command = bson_copy (event->command);
+         event->command_owned = true;
+      }
+
+      if (is_redacted) {
+         *is_redacted = true;
+      }
+
+      mongoc_apm_redact_command (event->command);
+   } else if (is_redacted) {
+      *is_redacted = false;
    }
 
    event->database_name = database_name;
@@ -75,6 +132,44 @@ mongoc_apm_command_started_init (mongoc_apm_command_started_t *event,
    event->host = host;
    event->server_id = server_id;
    event->context = context;
+
+   bson_oid_copy_unsafe (service_id, &event->service_id);
+}
+
+
+/*--------------------------------------------------------------------------
+ *
+ * mongoc_apm_command_started_init_with_cmd --
+ *
+ *       Initialises the command started event from a mongoc_cmd_t.
+ *
+ * Side effects:
+ *       If provided, is_redacted indicates whether the command document was
+ *       redacted to hide sensitive information.
+ *
+ *--------------------------------------------------------------------------
+ */
+void
+mongoc_apm_command_started_init_with_cmd (mongoc_apm_command_started_t *event,
+                                          mongoc_cmd_t *cmd,
+                                          int64_t request_id,
+                                          bool *is_redacted, /* out */
+                                          void *context)
+{
+   mongoc_apm_command_started_init (event,
+                                    cmd->command,
+                                    cmd->db_name,
+                                    cmd->command_name,
+                                    request_id,
+                                    cmd->operation_id,
+                                    &cmd->server_stream->sd->host,
+                                    cmd->server_stream->sd->id,
+                                    &cmd->server_stream->sd->service_id,
+                                    is_redacted,
+                                    context);
+
+   /* OP_MSG document sequence for insert, update, or delete? */
+   append_documents_from_cmd (cmd, event);
 }
 
 
@@ -87,48 +182,104 @@ mongoc_apm_command_started_cleanup (mongoc_apm_command_started_t *event)
 }
 
 
+/*--------------------------------------------------------------------------
+ *
+ * mongoc_apm_command_succeeded_init --
+ *
+ *       Initialises the command succeeded event.
+ *
+ * Parameters:
+ *       @force_redaction: If true, the reply document is always redacted,
+ *       regardless of whether the command contains sensitive information.
+ *
+ *--------------------------------------------------------------------------
+ */
 void
 mongoc_apm_command_succeeded_init (mongoc_apm_command_succeeded_t *event,
-                                   int64_t                         duration,
-                                   const bson_t                   *reply,
-                                   const char                     *command_name,
-                                   int64_t                         request_id,
-                                   int64_t                         operation_id,
-                                   const mongoc_host_list_t       *host,
-                                   uint32_t                        server_id,
-                                   void                           *context)
+                                   int64_t duration,
+                                   const bson_t *reply,
+                                   const char *command_name,
+                                   int64_t request_id,
+                                   int64_t operation_id,
+                                   const mongoc_host_list_t *host,
+                                   uint32_t server_id,
+                                   const bson_oid_t *service_id,
+                                   bool force_redaction,
+                                   void *context)
 {
    BSON_ASSERT (reply);
 
+   if (force_redaction || mongoc_apm_is_sensitive_reply (command_name, reply)) {
+      event->reply = bson_copy (reply);
+      event->reply_owned = true;
+
+      mongoc_apm_redact_reply (event->reply);
+   } else {
+      /* discard "const", we promise not to modify "reply" */
+      event->reply = (bson_t *) reply;
+      event->reply_owned = false;
+   }
+
    event->duration = duration;
-   event->reply = reply;
    event->command_name = command_name;
    event->request_id = request_id;
    event->operation_id = operation_id;
    event->host = host;
    event->server_id = server_id;
    event->context = context;
+
+   bson_oid_copy_unsafe (service_id, &event->service_id);
 }
 
 
 void
 mongoc_apm_command_succeeded_cleanup (mongoc_apm_command_succeeded_t *event)
 {
-   /* no-op */
+   if (event->reply_owned) {
+      bson_destroy (event->reply);
+   }
 }
 
 
+/*--------------------------------------------------------------------------
+ *
+ * mongoc_apm_command_failed_init --
+ *
+ *       Initialises the command failed event.
+ *
+ * Parameters:
+ *       @force_redaction: If true, the reply document is always redacted,
+ *       regardless of whether the command contains sensitive information.
+ *
+ *--------------------------------------------------------------------------
+ */
 void
 mongoc_apm_command_failed_init (mongoc_apm_command_failed_t *event,
-                                int64_t                      duration,
-                                const char                  *command_name,
-                                const bson_error_t          *error,
-                                int64_t                      request_id,
-                                int64_t                      operation_id,
-                                const mongoc_host_list_t    *host,
-                                uint32_t                     server_id,
-                                void                        *context)
+                                int64_t duration,
+                                const char *command_name,
+                                const bson_error_t *error,
+                                const bson_t *reply,
+                                int64_t request_id,
+                                int64_t operation_id,
+                                const mongoc_host_list_t *host,
+                                uint32_t server_id,
+                                const bson_oid_t *service_id,
+                                bool force_redaction,
+                                void *context)
 {
+   BSON_ASSERT (reply);
+
+   if (force_redaction || mongoc_apm_is_sensitive_reply (command_name, reply)) {
+      event->reply = bson_copy (reply);
+      event->reply_owned = true;
+
+      mongoc_apm_redact_reply (event->reply);
+   } else {
+      /* discard "const", we promise not to modify "reply" */
+      event->reply = (bson_t *) reply;
+      event->reply_owned = false;
+   }
+
    event->duration = duration;
    event->command_name = command_name;
    event->error = error;
@@ -137,13 +288,17 @@ mongoc_apm_command_failed_init (mongoc_apm_command_failed_t *event,
    event->host = host;
    event->server_id = server_id;
    event->context = context;
+
+   bson_oid_copy_unsafe (service_id, &event->service_id);
 }
 
 
 void
 mongoc_apm_command_failed_cleanup (mongoc_apm_command_failed_t *event)
 {
-   /* no-op */
+   if (event->reply_owned) {
+      bson_destroy (event->reply);
+   }
 }
 
 
@@ -201,9 +356,23 @@ mongoc_apm_command_started_get_host (const mongoc_apm_command_started_t *event)
 
 
 uint32_t
-mongoc_apm_command_started_get_server_id (const mongoc_apm_command_started_t *event)
+mongoc_apm_command_started_get_server_id (
+   const mongoc_apm_command_started_t *event)
 {
    return event->server_id;
+}
+
+
+const bson_oid_t *
+mongoc_apm_command_started_get_service_id (
+   const mongoc_apm_command_started_t *event)
+{
+   if (0 == bson_oid_compare (&event->service_id, &kObjectIdZero)) {
+      /* serviceId is unset. */
+      return NULL;
+   }
+
+   return &event->service_id;
 }
 
 
@@ -273,6 +442,19 @@ mongoc_apm_command_succeeded_get_server_id (
 }
 
 
+const bson_oid_t *
+mongoc_apm_command_succeeded_get_service_id (
+   const mongoc_apm_command_succeeded_t *event)
+{
+   if (0 == bson_oid_compare (&event->service_id, &kObjectIdZero)) {
+      /* serviceId is unset. */
+      return NULL;
+   }
+
+   return &event->service_id;
+}
+
+
 void *
 mongoc_apm_command_succeeded_get_context (
    const mongoc_apm_command_succeeded_t *event)
@@ -300,13 +482,17 @@ mongoc_apm_command_failed_get_command_name (
 
 
 void
-mongoc_apm_command_failed_get_error (
-   const mongoc_apm_command_failed_t *event,
-   bson_error_t                      *error)
+mongoc_apm_command_failed_get_error (const mongoc_apm_command_failed_t *event,
+                                     bson_error_t *error)
 {
    memcpy (error, event->error, sizeof *event->error);
 }
 
+const bson_t *
+mongoc_apm_command_failed_get_reply (const mongoc_apm_command_failed_t *event)
+{
+   return event->reply;
+}
 
 int64_t
 mongoc_apm_command_failed_get_request_id (
@@ -332,9 +518,23 @@ mongoc_apm_command_failed_get_host (const mongoc_apm_command_failed_t *event)
 
 
 uint32_t
-mongoc_apm_command_failed_get_server_id (const mongoc_apm_command_failed_t *event)
+mongoc_apm_command_failed_get_server_id (
+   const mongoc_apm_command_failed_t *event)
 {
    return event->server_id;
+}
+
+
+const bson_oid_t *
+mongoc_apm_command_failed_get_service_id (
+   const mongoc_apm_command_failed_t *event)
+{
+   if (0 == bson_oid_compare (&event->service_id, &kObjectIdZero)) {
+      /* serviceId is unset. */
+      return NULL;
+   }
+
+   return &event->service_id;
 }
 
 
@@ -344,6 +544,270 @@ mongoc_apm_command_failed_get_context (const mongoc_apm_command_failed_t *event)
    return event->context;
 }
 
+
+/* server-changed event fields */
+
+const mongoc_host_list_t *
+mongoc_apm_server_changed_get_host (const mongoc_apm_server_changed_t *event)
+{
+   return event->host;
+}
+
+
+void
+mongoc_apm_server_changed_get_topology_id (
+   const mongoc_apm_server_changed_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+const mongoc_server_description_t *
+mongoc_apm_server_changed_get_previous_description (
+   const mongoc_apm_server_changed_t *event)
+{
+   return event->previous_description;
+}
+
+
+const mongoc_server_description_t *
+mongoc_apm_server_changed_get_new_description (
+   const mongoc_apm_server_changed_t *event)
+{
+   return event->new_description;
+}
+
+
+void *
+mongoc_apm_server_changed_get_context (const mongoc_apm_server_changed_t *event)
+{
+   return event->context;
+}
+
+
+/* server-opening event fields */
+
+const mongoc_host_list_t *
+mongoc_apm_server_opening_get_host (const mongoc_apm_server_opening_t *event)
+{
+   return event->host;
+}
+
+
+void
+mongoc_apm_server_opening_get_topology_id (
+   const mongoc_apm_server_opening_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+void *
+mongoc_apm_server_opening_get_context (const mongoc_apm_server_opening_t *event)
+{
+   return event->context;
+}
+
+
+/* server-closed event fields */
+
+const mongoc_host_list_t *
+mongoc_apm_server_closed_get_host (const mongoc_apm_server_closed_t *event)
+{
+   return event->host;
+}
+
+
+void
+mongoc_apm_server_closed_get_topology_id (
+   const mongoc_apm_server_closed_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+void *
+mongoc_apm_server_closed_get_context (const mongoc_apm_server_closed_t *event)
+{
+   return event->context;
+}
+
+
+/* topology-changed event fields */
+
+void
+mongoc_apm_topology_changed_get_topology_id (
+   const mongoc_apm_topology_changed_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+const mongoc_topology_description_t *
+mongoc_apm_topology_changed_get_previous_description (
+   const mongoc_apm_topology_changed_t *event)
+{
+   return event->previous_description;
+}
+
+
+const mongoc_topology_description_t *
+mongoc_apm_topology_changed_get_new_description (
+   const mongoc_apm_topology_changed_t *event)
+{
+   return event->new_description;
+}
+
+
+void *
+mongoc_apm_topology_changed_get_context (
+   const mongoc_apm_topology_changed_t *event)
+{
+   return event->context;
+}
+
+
+/* topology-opening event field */
+
+void
+mongoc_apm_topology_opening_get_topology_id (
+   const mongoc_apm_topology_opening_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+void *
+mongoc_apm_topology_opening_get_context (
+   const mongoc_apm_topology_opening_t *event)
+{
+   return event->context;
+}
+
+
+/* topology-closed event field */
+
+void
+mongoc_apm_topology_closed_get_topology_id (
+   const mongoc_apm_topology_closed_t *event, bson_oid_t *topology_id)
+{
+   bson_oid_copy (&event->topology_id, topology_id);
+}
+
+
+void *
+mongoc_apm_topology_closed_get_context (
+   const mongoc_apm_topology_closed_t *event)
+{
+   return event->context;
+}
+
+
+/* heartbeat-started event field */
+
+const mongoc_host_list_t *
+mongoc_apm_server_heartbeat_started_get_host (
+   const mongoc_apm_server_heartbeat_started_t *event)
+{
+   return event->host;
+}
+
+
+void *
+mongoc_apm_server_heartbeat_started_get_context (
+   const mongoc_apm_server_heartbeat_started_t *event)
+{
+   return event->context;
+}
+
+bool
+mongoc_apm_server_heartbeat_started_get_awaited (
+   const mongoc_apm_server_heartbeat_started_t *event)
+{
+   return event->awaited;
+}
+
+
+/* heartbeat-succeeded event fields */
+
+int64_t
+mongoc_apm_server_heartbeat_succeeded_get_duration (
+   const mongoc_apm_server_heartbeat_succeeded_t *event)
+{
+   return event->duration_usec;
+}
+
+
+const bson_t *
+mongoc_apm_server_heartbeat_succeeded_get_reply (
+   const mongoc_apm_server_heartbeat_succeeded_t *event)
+{
+   return event->reply;
+}
+
+
+const mongoc_host_list_t *
+mongoc_apm_server_heartbeat_succeeded_get_host (
+   const mongoc_apm_server_heartbeat_succeeded_t *event)
+{
+   return event->host;
+}
+
+
+void *
+mongoc_apm_server_heartbeat_succeeded_get_context (
+   const mongoc_apm_server_heartbeat_succeeded_t *event)
+{
+   return event->context;
+}
+
+bool
+mongoc_apm_server_heartbeat_succeeded_get_awaited (
+   const mongoc_apm_server_heartbeat_succeeded_t *event)
+{
+   return event->awaited;
+}
+
+
+/* heartbeat-failed event fields */
+
+int64_t
+mongoc_apm_server_heartbeat_failed_get_duration (
+   const mongoc_apm_server_heartbeat_failed_t *event)
+{
+   return event->duration_usec;
+}
+
+
+void
+mongoc_apm_server_heartbeat_failed_get_error (
+   const mongoc_apm_server_heartbeat_failed_t *event, bson_error_t *error)
+{
+   memcpy (error, event->error, sizeof *event->error);
+}
+
+
+const mongoc_host_list_t *
+mongoc_apm_server_heartbeat_failed_get_host (
+   const mongoc_apm_server_heartbeat_failed_t *event)
+{
+   return event->host;
+}
+
+
+void *
+mongoc_apm_server_heartbeat_failed_get_context (
+   const mongoc_apm_server_heartbeat_failed_t *event)
+{
+   return event->context;
+}
+
+bool
+mongoc_apm_server_heartbeat_failed_get_awaited (
+   const mongoc_apm_server_heartbeat_failed_t *event)
+{
+   return event->awaited;
+}
 
 /*
  * registering callbacks
@@ -366,27 +830,165 @@ mongoc_apm_callbacks_destroy (mongoc_apm_callbacks_t *callbacks)
 
 
 void
-mongoc_apm_set_command_started_cb (
-   mongoc_apm_callbacks_t          *callbacks,
-   mongoc_apm_command_started_cb_t  cb)
+mongoc_apm_set_command_started_cb (mongoc_apm_callbacks_t *callbacks,
+                                   mongoc_apm_command_started_cb_t cb)
 {
    callbacks->started = cb;
 }
 
 
 void
-mongoc_apm_set_command_succeeded_cb (
-   mongoc_apm_callbacks_t            *callbacks,
-   mongoc_apm_command_succeeded_cb_t  cb)
+mongoc_apm_set_command_succeeded_cb (mongoc_apm_callbacks_t *callbacks,
+                                     mongoc_apm_command_succeeded_cb_t cb)
 {
    callbacks->succeeded = cb;
 }
 
 
 void
-mongoc_apm_set_command_failed_cb (
-   mongoc_apm_callbacks_t         *callbacks,
-   mongoc_apm_command_failed_cb_t  cb)
+mongoc_apm_set_command_failed_cb (mongoc_apm_callbacks_t *callbacks,
+                                  mongoc_apm_command_failed_cb_t cb)
 {
    callbacks->failed = cb;
+}
+
+void
+mongoc_apm_set_server_changed_cb (mongoc_apm_callbacks_t *callbacks,
+                                  mongoc_apm_server_changed_cb_t cb)
+{
+   callbacks->server_changed = cb;
+}
+
+
+void
+mongoc_apm_set_server_opening_cb (mongoc_apm_callbacks_t *callbacks,
+                                  mongoc_apm_server_opening_cb_t cb)
+{
+   callbacks->server_opening = cb;
+}
+
+
+void
+mongoc_apm_set_server_closed_cb (mongoc_apm_callbacks_t *callbacks,
+                                 mongoc_apm_server_closed_cb_t cb)
+{
+   callbacks->server_closed = cb;
+}
+
+
+void
+mongoc_apm_set_topology_changed_cb (mongoc_apm_callbacks_t *callbacks,
+                                    mongoc_apm_topology_changed_cb_t cb)
+{
+   callbacks->topology_changed = cb;
+}
+
+
+void
+mongoc_apm_set_topology_opening_cb (mongoc_apm_callbacks_t *callbacks,
+                                    mongoc_apm_topology_opening_cb_t cb)
+{
+   callbacks->topology_opening = cb;
+}
+
+
+void
+mongoc_apm_set_topology_closed_cb (mongoc_apm_callbacks_t *callbacks,
+                                   mongoc_apm_topology_closed_cb_t cb)
+{
+   callbacks->topology_closed = cb;
+}
+
+
+void
+mongoc_apm_set_server_heartbeat_started_cb (
+   mongoc_apm_callbacks_t *callbacks,
+   mongoc_apm_server_heartbeat_started_cb_t cb)
+{
+   callbacks->server_heartbeat_started = cb;
+}
+
+
+void
+mongoc_apm_set_server_heartbeat_succeeded_cb (
+   mongoc_apm_callbacks_t *callbacks,
+   mongoc_apm_server_heartbeat_succeeded_cb_t cb)
+{
+   callbacks->server_heartbeat_succeeded = cb;
+}
+
+
+void
+mongoc_apm_set_server_heartbeat_failed_cb (
+   mongoc_apm_callbacks_t *callbacks,
+   mongoc_apm_server_heartbeat_failed_cb_t cb)
+{
+   callbacks->server_heartbeat_failed = cb;
+}
+
+static bool
+_mongoc_apm_is_sensitive_command_name (const char *command_name)
+{
+   return 0 == strcasecmp (command_name, "authenticate") ||
+          0 == strcasecmp (command_name, "saslStart") ||
+          0 == strcasecmp (command_name, "saslContinue") ||
+          0 == strcasecmp (command_name, "getnonce") ||
+          0 == strcasecmp (command_name, "createUser") ||
+          0 == strcasecmp (command_name, "updateUser") ||
+          0 == strcasecmp (command_name, "copydbgetnonce") ||
+          0 == strcasecmp (command_name, "copydbsaslstart") ||
+          0 == strcasecmp (command_name, "copydb");
+}
+
+bool
+mongoc_apm_is_sensitive_command (const char *command_name,
+                                 const bson_t *command)
+{
+   BSON_ASSERT (command);
+
+   if (_mongoc_apm_is_sensitive_command_name (command_name)) {
+      return true;
+   }
+
+   if (0 != strcasecmp (command_name, "hello") &&
+       0 != strcasecmp (command_name, HANDSHAKE_CMD_LEGACY_HELLO)) {
+      return false;
+   }
+
+   return bson_has_field (command, "speculativeAuthenticate");
+}
+
+void
+mongoc_apm_redact_command (bson_t *command)
+{
+   BSON_ASSERT (command);
+
+   /* Reinit the command to have an empty document */
+   bson_reinit (command);
+}
+
+bool
+mongoc_apm_is_sensitive_reply (const char *command_name, const bson_t *reply)
+{
+   BSON_ASSERT (reply);
+
+   if (_mongoc_apm_is_sensitive_command_name (command_name)) {
+      return true;
+   }
+
+   if (0 != strcasecmp (command_name, "hello") &&
+       0 != strcasecmp (command_name, HANDSHAKE_CMD_LEGACY_HELLO)) {
+      return false;
+   }
+
+   return bson_has_field (reply, "speculativeAuthenticate");
+}
+
+void
+mongoc_apm_redact_reply (bson_t *reply)
+{
+   BSON_ASSERT (reply);
+
+   /* Reinit the reply to have an empty document */
+   bson_reinit (reply);
 }

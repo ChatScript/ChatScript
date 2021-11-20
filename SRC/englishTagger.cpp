@@ -2,6 +2,7 @@
 extern unsigned int tagRuleCount;
 unsigned int ambiguousWords;
 bool reverseWords = false;
+static int treetagging = 0;
 int ignoreRule = -1;
 static int ttLastChanged = 0;
 static WORDP firstAux = NULL;
@@ -200,12 +201,12 @@ typedef struct {
 } TAGGER_STRUCT;
 typedef char*(*FindIt)(char* word);
 #ifdef WIN32
-bool __declspec(dllimport)  init_treetagger(char *param_file_name, AllocatePtr allocator, FindIt getwordfn);
-double __declspec(dllimport)  tag_sentence(int index, TAGGER_STRUCT *ts);
+int __declspec(dllimport)  init_treetagger(char *param_file_name, AllocatePtr allocator, FindIt getwordfn,int language);
+double __declspec(dllimport)  tag_sentence(int index, TAGGER_STRUCT *ts,int language);
 void __declspec(dllimport)  write_treetagger();
 #else
-bool init_treetagger(char *param_file_name, AllocatePtr allocator, FindIt getwordfn);
-double  tag_sentence(int index, TAGGER_STRUCT *ts);
+int init_treetagger(char *param_file_name, AllocatePtr allocator, FindIt getwordfn,int language);
+double  tag_sentence(int index, TAGGER_STRUCT *ts,int language);
 void   write_treetagger();
 #endif
 
@@ -370,6 +371,9 @@ CD/B-NC
 
 static void TreeTagger()
 {
+	int bit = 1 << (languageIndex * 2);
+	if (multidict && !(treetagging & bit)) return; // not doing tt for this language
+
 	int i;
 	for (i = 0; i < wordCount; ++i)
 	{
@@ -377,9 +381,11 @@ static void TreeTagger()
 		ts.inputtag[i] = NULL;
 	}
 	ts.number_of_words = wordCount;
-	tag_sentence(0, &ts);
+	tag_sentence(0, &ts, languageIndex);
 	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(USERLOG, "External Tagging:\r\n");
 
+	bit = 2 << (languageIndex * 2);
+	if (multidict && !(treetagging & bit)) return; // not doing chunk for this language
 	bool chunk = strstr(treetaggerParams, "chunk") ? true : false;
 	if (chunk) // do chunking here but marking later
 	{
@@ -389,7 +395,7 @@ static void TreeTagger()
 			tschunk.inputtag[i] = NULL;
 		}
 		tschunk.number_of_words = wordCount;
-		tag_sentence(1, &tschunk);
+		tag_sentence(1, &tschunk, languageIndex);
 		int starter = -1;
 		char type[20];
 		for (i = 0; i < wordCount; ++i)
@@ -644,39 +650,58 @@ static void BlendWithTreetagger(bool &changed)
 	}
 }
 
+static void LoadTreetagger(char* language)
+{
+	char name[MAX_WORD_SIZE];
+	char lang[MAX_WORD_SIZE];
+	MakeUpperCopy(lang, language);
+	if (*treetaggerParams != '1' && !strstr(lang, treetaggerParams)) return; // dont load this
+	
+	MakeLowerCopy(lang, language);
+	sprintf(name, "DICT/%s_tags.txt", lang);
+	if (!ReadForeignPosTags(name)) return; //failed 
+	
+	externalTagger |= 2 << languageIndex;	// using external tagging for this language
+	char langfile[MAX_WORD_SIZE];
+	sprintf(langfile, "treetagger/%s.par", language);
+	MakeLowerCase(langfile);
+	char* heapstart = heapFree;
+	//write_treetagger();
+	bool result = init_treetagger(langfile, AllocateConstHeap, GetWord, languageIndex); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
+	if (!result)
+	{
+		(*printer)("    Unable to load %s\r\n",langfile);
+		treetaggerfail = true;
+		return;
+	}
+	externalPostagger = TreeTagger;
+	if (multidict) treetagging |= 1 <<  (languageIndex * 2);
+	if (strstr(treetaggerParams, "chunk") && result && !stricmp(language, "german"))
+	{
+		sprintf(langfile, "treetagger/%s_chunker.par", language);
+		MakeLowerCase(langfile);
+		result = init_treetagger(langfile, AllocateConstHeap, GetWord, languageIndex); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
+		if (!result) strcpy(treetaggerParams, "1"); // give up chunking
+		else if (multidict)
+		{
+			treetagging |= 2 << (languageIndex * 2);
+			printf("Loaded chunking %s\r\n", language);
+		}
+	}
+	unsigned int diff = heapstart - heapFree;
+	printf("Loaded treetagger %s (%dMB)", language,diff/1000000);
+	if (result) (*printer)("\r\n");
+	else (*printer)("    Unable to load chunk file\r\n");
+}
+
 void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 {
 	treetaggerfail = true;
 	if (!*params) return;
-
-	// load each foreign postag and its correspondence to english postags
-	char name[MAX_WORD_SIZE];
-	char lang[MAX_WORD_SIZE];
-	MakeLowerCopy(lang, language);
-	sprintf(name, "DICT/%s_tags.txt", lang);
-	if (!ReadForeignPosTags(name)) return; //failed 
 	treetaggerfail = false;
 
-	externalTagger = 2;	// using external tagging
-	char langfile[MAX_WORD_SIZE];
-	sprintf(langfile, "treetagger/%s.par", language);
-	MakeLowerCase(langfile);
-	//write_treetagger();
-	bool result = init_treetagger(langfile, AllocateConstHeap, GetWord); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
-	if (strstr(params, "chunk") && result)
-	{
-		sprintf(langfile, "treetagger/%s_chunker.par", language);
-		MakeLowerCase(langfile);
-		result = init_treetagger(langfile, AllocateConstHeap, GetWord); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
-		if (!result) strcpy(params, "1"); // give up chunking
-	}
-	if (result) externalPostagger = TreeTagger;
-	else
-	{
-		(*printer)("Unable to load %s\r\n", langfile);
-		treetaggerfail = true;
-		return;
-	}
+	// load each foreign postag and its correspondence to english postags
+	WalkLanguages(LoadTreetagger); // can set  treetaggerfail
 
 	/* Memory allocation (the maximal input sentence length is here 1000) */
 	ts.word = (char**)AllocateHeap(NULL, sizeof(char*) * MAX_SENTENCE_LENGTH);
@@ -712,6 +737,15 @@ static void DumpCrossReference(int start, int end)
 		Log(USERLOG,"   ");
 	}
 	Log(USERLOG,"\r\n");
+}
+
+void CheckParseLimit(char* input)
+{
+	if (parseLimit && strlen(input) > parseLimit)
+	{
+		parseLimited = true;
+		tokenControl &= -1 ^ (DO_POSTAG | DO_PARSE | DO_SPELLCHECK);
+	}
 }
 
 static void SetCanonicalValue(int start,int end)
@@ -1398,8 +1432,6 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 	}
 
 	if (externalPostagger && stricmp(language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
-
-	if (wordCount == 1) return; // no point in trying to analyze
 
 	// handle regular area
 	for (i = 1; i <= wordCount; ++i)

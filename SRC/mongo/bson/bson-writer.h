@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_WRITER_H
 #define BSON_WRITER_H
@@ -39,17 +41,22 @@ BSON_BEGIN_DECLS
 typedef struct _bson_writer_t bson_writer_t;
 
 
-bson_writer_t *bson_writer_new        (uint8_t           **buf,
-                                       size_t             *buflen,
-                                       size_t              offset,
-                                       bson_realloc_func   realloc_func,
-                                       void               *realloc_func_ctx);
-void           bson_writer_destroy    (bson_writer_t      *writer);
-size_t         bson_writer_get_length (bson_writer_t      *writer);
-bool           bson_writer_begin      (bson_writer_t      *writer,
-                                       bson_t            **bson);
-void           bson_writer_end        (bson_writer_t      *writer);
-void           bson_writer_rollback   (bson_writer_t      *writer);
+BSON_EXPORT (bson_writer_t *)
+bson_writer_new (uint8_t **buf,
+                 size_t *buflen,
+                 size_t offset,
+                 bson_realloc_func realloc_func,
+                 void *realloc_func_ctx);
+BSON_EXPORT (void)
+bson_writer_destroy (bson_writer_t *writer);
+BSON_EXPORT (size_t)
+bson_writer_get_length (bson_writer_t *writer);
+BSON_EXPORT (bool)
+bson_writer_begin (bson_writer_t *writer, bson_t **bson);
+BSON_EXPORT (void)
+bson_writer_end (bson_writer_t *writer);
+BSON_EXPORT (void)
+bson_writer_rollback (bson_writer_t *writer);
 
 
 BSON_END_DECLS

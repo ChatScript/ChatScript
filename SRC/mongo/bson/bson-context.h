@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_CONTEXT_H
 #define BSON_CONTEXT_H
-
-
-#if !defined (BSON_INSIDE) && !defined (BSON_COMPILATION)
-# error "Only <bson.h> can be included directly."
-#endif
 
 
 #include "bson-macros.h"
@@ -31,9 +28,12 @@
 BSON_BEGIN_DECLS
 
 
-bson_context_t *bson_context_new         (bson_context_flags_t flags);
-void            bson_context_destroy     (bson_context_t *context);
-bson_context_t *bson_context_get_default (void) BSON_GNUC_CONST;
+BSON_EXPORT (bson_context_t *)
+bson_context_new (bson_context_flags_t flags);
+BSON_EXPORT (void)
+bson_context_destroy (bson_context_t *context);
+BSON_EXPORT (bson_context_t *)
+bson_context_get_default (void);
 
 
 BSON_END_DECLS

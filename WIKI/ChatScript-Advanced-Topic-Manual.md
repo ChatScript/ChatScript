@@ -1,6 +1,6 @@
 # ChatScript Advanced Topic Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 8/18/2019 cs9.62
+<br>Revision 11/21/2021 cs11.6
 
 
 # ADVANCED TOPICS
@@ -55,6 +55,7 @@ The flags and their meanings are:
 |`nosamples`   |   should not perform any sample tests on this topic in `:verify`
 |`nokeys`      |   should not perform any keyword tests on this topic in `:verify`
 |`more`        |   normally if you try to redeclare a concept, you get an error. `more` tells CS you intend to extend the concept and allows additional keywords.
+|`topic_safe`        |   when you edit a topic, it clears a user's cache of it unless this flag is set, meaning edits were safe to continue conversation
 |`bot=name`    |   if this is given, only named bots are allowed to use this topic. See [ChatScript Multiple Bots](ChatScript-Multiple-Bots.md) manual.
 
 

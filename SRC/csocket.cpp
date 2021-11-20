@@ -562,9 +562,9 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 static void ReadNextJmeter(char* name, uint64 value)
 {
 	int api = 0;
-	if (strstr(name, "/API/")) {
+	if (strstr(name, "/API/") || strstr(name, "/Integration/")) {
 		api = 1;
-		return; // we cant access api from local
+		return; // we cant access api from local and format for integration and it are different
 	}// need api connection for this
 	if (strstr(name, "Integration/")) api = 2;
 
@@ -1802,7 +1802,7 @@ static void* MainChatbotServer()
 				strcpy(ourMainInputBuffer,(char*)"too much data");
 			}
 			else strcpy(ourMainInputBuffer,ptr); // xfer user message to our incoming feed
-			
+			cs_qsize = 0;
 			returnValue = PerformChat(user,bot,ourMainInputBuffer,ip,ourMainOutputBuffer);	// this takes however long it takes, exclusive control of chatbot.
 																							// special controls
 			if (returnValue == PENDING_RESTART) // special messages

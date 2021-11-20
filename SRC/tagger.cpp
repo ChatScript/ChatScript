@@ -9,15 +9,26 @@ uint64* tags = NULL;
 char** comments = NULL;
 static char* Describe(int i,char* buffer);
 
+// global continuous use (not just marking phase)
 WORDP wordTag[MAX_SENTENCE_LENGTH]; 
-WORDP wordRole[MAX_SENTENCE_LENGTH];
 char* wordCanonical[MAX_SENTENCE_LENGTH]; //   chosen canonical form
+uint64 finalPosValues[MAX_SENTENCE_LENGTH]; // needed during execution
+int phrases[MAX_SENTENCE_LENGTH]; // limit of 16 phrases in sentence
+int clauses[MAX_SENTENCE_LENGTH]; // limit of 16 clauses in sentence
+int verbals[MAX_SENTENCE_LENGTH]; // limit of 16 verbals in sentence
+uint64 allOriginalWordBits[MAX_SENTENCE_LENGTH];	// starting pos tags in this word position -- should merge some to finalpos
+unsigned char crossReference[MAX_SENTENCE_LENGTH]; // object back to spawner,  particle back to verb
+uint64 roles[MAX_SENTENCE_LENGTH];
+unsigned char objectRef[MAX_SENTENCE_LENGTH];  // link from verb to any main object ( allow use of 0 and end for holding)
+unsigned char indirectObjectRef[MAX_SENTENCE_LENGTH];  // link from verb to any indirect object
+unsigned char complementRef[MAX_SENTENCE_LENGTH];  // link from verb to any 2ndary complement
+
+// transient use during marking
+WORDP wordRole[MAX_SENTENCE_LENGTH];
 WORDP originalLower[MAX_SENTENCE_LENGTH]; // transient during marking
 WORDP originalUpper[MAX_SENTENCE_LENGTH]; // transient during marking
 WORDP canonicalLower[MAX_SENTENCE_LENGTH]; // transient during marking
 WORDP canonicalUpper[MAX_SENTENCE_LENGTH]; // transient during marking
-uint64 finalPosValues[MAX_SENTENCE_LENGTH]; // needed during execution
-uint64 allOriginalWordBits[MAX_SENTENCE_LENGTH];	// starting pos tags in this word position -- should merge some to finalpos
 uint64 lcSysFlags[MAX_SENTENCE_LENGTH];      // transient current system tags lowercase in this word position (there are no interesting uppercase flags)
 uint64 posValues[MAX_SENTENCE_LENGTH];			// current pos tags in this word position
 uint64 canSysFlags[MAX_SENTENCE_LENGTH];		// canonical sys flags lowercase in this word position 
@@ -31,19 +42,11 @@ static int describedPhrases;
 static int describedClauses;
 
 // dynamic cumulative data across assignroles calls
-int phrases[MAX_SENTENCE_LENGTH]; // limit of 16 phrases in sentence
-int clauses[MAX_SENTENCE_LENGTH]; // limit of 16 clauses in sentence
-int verbals[MAX_SENTENCE_LENGTH]; // limit of 16 verbals in sentence
 unsigned char ignoreWord[MAX_SENTENCE_LENGTH];
 unsigned char coordinates[MAX_SENTENCE_LENGTH]; // for conjunctions
-unsigned char crossReference[MAX_SENTENCE_LENGTH]; // object back to spawner,  particle back to verb
 unsigned char phrasalVerb[MAX_SENTENCE_LENGTH]; // linking verbs and particles (potential)
-uint64 roles[MAX_SENTENCE_LENGTH];
 unsigned char tried[MAX_SENTENCE_LENGTH];
 
-unsigned char objectRef[MAX_SENTENCE_LENGTH] ;  // link from verb to any main object ( allow use of 0 and end for holding)
-unsigned char indirectObjectRef[MAX_SENTENCE_LENGTH];  // link from verb to any indirect object
-unsigned char complementRef[MAX_SENTENCE_LENGTH ];  // link from verb to any 2ndary complement
 // also posValues
 
 char* GetNounPhrase(int i,const char* avoid)

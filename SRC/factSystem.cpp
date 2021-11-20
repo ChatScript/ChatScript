@@ -96,12 +96,23 @@ void VerifyFacts()
 		VerifyFact(F);
 	}
 }
+bool showit = false;
 
 bool UnacceptableFact(FACT* F,bool jsonavoid)
 {
 	if (!F || F->flags & FACTDEAD) return true;
+	if (showit) TraceFact(F);
+	if (seeAllFacts) return false;
+
 	// if ownership flags exist (layer0 or layer1) and we have different ownership.
-	return (F->botBits && !(F->botBits & myBot) && !seeAllFacts) ? true : false;
+	bool invalid = (myBot && F->botBits && !(F->botBits & myBot)) ? true : false;
+	if (invalid) return true;
+
+	// if language flags exist, confirm those
+	unsigned int language = (F->flags & FACTLANGUAGE) << LANGUAGE_SHIFT;
+	// if we are in universal language, we can see all facts
+	// if a fact is in universal language, it can be seen by any language
+	return (language && language != language_bits && language_bits);
 }
 
 FACT* GetSubjectNext(FACT* F) { return Index2Fact(F->subjectNext);}
@@ -632,6 +643,28 @@ FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_M
 	if (properties & FACTDUPLICATE) 
 		return NULL;	// can never find this since we are allowed to duplicate and we do NOT want to share any existing fact
 
+	if (multidict) // find what language the words are
+	{
+		WORDP D;
+		uint64 language = 0;
+		if (!(properties & FACTSUBJECT))
+		{
+			D = Meaning2Word(subject);
+			language |= D->internalBits & LANGUAGE_BITS;
+		}
+		if (!(properties & FACTVERB))
+		{
+			D = Meaning2Word(verb);
+			language |= D->internalBits & LANGUAGE_BITS;
+		}
+		if (!(properties & FACTOBJECT))
+		{
+			D = Meaning2Word(object);
+			language |= D->internalBits & LANGUAGE_BITS;
+		}
+		properties |= language >> LANGUAGE_SHIFT;
+	}
+
     //   see if  fact already exists. if so, just return it 
 	if (properties & FACTSUBJECT)
 	{
@@ -1053,7 +1086,7 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 	else object =  MakeMeaning(StoreWord(word2,AS_IS),0);
 
 	if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s %s %s %08x) = ",word,word1,word2,flags);
-
+	
 	FACT* F = FindFact(subject,verb,object,flags);
 	if (!attribute || (F && object == F->object)) {;}  // not making an attribute or already made
 	else // remove any facts with same subject and verb, UNlESS part of some other fact
@@ -1066,11 +1099,12 @@ char* EatFact(char* ptr,char* buffer,unsigned int flags,bool attribute)
 			{
 				if (!(F->flags & FACTATTRIBUTE)) // this is a script failure. Should ONLY be an attribute
 				{
-					char wordx[MAX_WORD_SIZE];
+					char* wordx = AllocateBuffer();
 					WriteFact(F,false,wordx,false,true);
 					Log(USERLOG,"Fact created is not an attribute. There already exists %s",wordx); 
 					(*printer)((char*)"Fact created is not an attribute. There already exists %s",wordx); 
 					currentFact = F;
+                    FreeBuffer();
 					return (*ptr) ? (ptr + 2) : ptr; 
 				}
 				KillFact(F); 
@@ -1224,16 +1258,23 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 		return NULL;
 	}
 	currentFact = lastFactUsed;
-
 	//   init the basics
 	memset(currentFact,0,sizeof(FACT));
 	currentFact->subject = subject;
 	currentFact->verb = verb; 
 	currentFact->object = object;
+
+	// when multi languages exist, all facts created on load will
+	// already be flagged with appropriate language.
+	// Any facts created after loading will be owned by current language
+	if (multidict && !loading && !(properties & FACTLANGUAGE))
+	{
+		properties |= language_bits >> LANGUAGE_SHIFT;
+	}
 	currentFact->flags = properties;
 	currentFact->botBits = myBot; // this fact is visible to these bot ids (0 or -1 means all)
-	currentFact = WeaveFact(currentFact);
-	if (!currentFact)
+	currentFact = WeaveFact(currentFact); 
+	if (!currentFact) // weave failed, why?
 	{
 		--lastFactUsed;
 		return NULL;
@@ -1519,11 +1560,29 @@ FACT* ReadFact(char* &ptr, unsigned int build)
     if (!*ptr || *ptr == ')' ); // end of fact
 	else ptr = ReadFlags(ptr,properties,bad,response,true);
 	flags |= (unsigned int) properties;
-
+	unsigned int oldlanguage = language_bits;
+	unsigned int factlang = flags & FACTLANGUAGE;
+	if (multidict && factlang) language_bits = factlang << LANGUAGE_SHIFT;
+	else if (!multidict && factlang > max_fact_language)
+	{
+		FreeBuffer();
+		FreeBuffer();
+		FreeBuffer();
+		return NULL; // not using these facts
+	}
+	unsigned int language = 0;
     if (flags & FACTSUBJECT) subject = (MEANING) atoi(subjectname);
-    else  subject = ReadMeaning(subjectname,true,true);
+	else
+	{
+		subject = ReadMeaning(subjectname, true, true);
+		language |= Meaning2Word(subject)->internalBits & LANGUAGE_BITS;
+	}
 	if (flags & FACTVERB) verb = (MEANING) atoi(verbname);
-	else  verb = ReadMeaning(verbname,true,true);
+	else
+	{
+		verb = ReadMeaning(verbname, true, true);
+		language |= Meaning2Word(verb)->internalBits & LANGUAGE_BITS;
+	}
 	if (flags & FACTOBJECT) 
 	{
 		if (flags & FACTAUTODELETE && flags & (JSON_OBJECT_FACT| JSON_ARRAY_FACT)) 
@@ -1531,9 +1590,18 @@ FACT* ReadFact(char* &ptr, unsigned int build)
 			object = ReadMeaning(objectname,true,true);
 			flags ^= FACTOBJECT;
 		}
-		else object = (MEANING) atoi(objectname);
+		else object = (MEANING)atoi(objectname);
 	}
-	else  object = ReadMeaning(objectname,true,true);
+    else if (!*objectname && flags & (JSON_OBJECT_FACT | JSON_STRING_VALUE))
+    {
+        object = MakeMeaning(StoreWord(objectname, AS_IS)); // obj.key = ""
+    }
+	else
+	{
+		object = ReadMeaning(objectname, true, true);
+		language |= Meaning2Word(object)->internalBits & LANGUAGE_BITS;
+	}
+	if (multidict && language && !(flags & FACTLANGUAGE)) flags |= language >> LANGUAGE_SHIFT;
 	FreeBuffer();
 	FreeBuffer();
 	FreeBuffer();
@@ -1547,6 +1615,7 @@ FACT* ReadFact(char* &ptr, unsigned int build)
 	if (*ptr == ')') ++ptr;	// skip over ending )
 	ptr = SkipWhitespace(ptr);
 	myBot = oldbot;
+	language_bits = oldlanguage;
     return F;
 }
 
@@ -1565,8 +1634,10 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 	if (!in) return;
 
 	StartFile(name);
+	int oldlanguage = language_bits;
     while (ReadALine(readBuffer, in) >= 0)
     {
+		language_bits = oldlanguage;
 		char* ptr = ReadCompiledWord(readBuffer,word);
 		if (*word == 0 || (*word == '#' && word[1] != '#')); //   empty or comment
 		else if (*word == '+') //   dictionary entry
@@ -1586,8 +1657,10 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 
 			char wordx[MAX_WORD_SIZE];
             bool newWord = false;
-			char* at = ReadCompiledWord(readBuffer+2,wordx); //   start at valid token past space
-			WORDP D = FindWord(wordx,0,PRIMARY_CASE_ALLOWED);
+			char* at = ReadToken(readBuffer+2,wordx); //   start at valid token past space
+			if (!LanguageRestrict(wordx)) 
+				continue;
+			WORDP D = FindWord(wordx, 0, PRIMARY_CASE_ALLOWED);
 			if (!D || strcmp(D->word,wordx)) // alternate capitalization?
 			{
 				D = StoreWord(wordx);
@@ -1631,6 +1704,7 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 		{
 			char* xptr = readBuffer;
 			FACT* F = ReadFact(xptr,build); // will write on top of ptr... must not be readBuffer variable
+			if (!F) continue; // language restrict may have killed it
 			if (monitorChange && F)
 			{
 				WORDP X;
@@ -1656,6 +1730,7 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 		}
     }
    FClose(in);
+   language_bits =  oldlanguage;
 }
 
 void SortFacts(char* set, int alpha, int setpass) //   sort low to high ^sort(@1subject) which field we sort on (subject or verb or object)
@@ -1855,27 +1930,27 @@ void RedoSystemFactFields() // see NoteBotFacts for inverse
 
 static char* PutBlob(WORDP D, char* base)
 {
-    uint64* val = (uint64*)base;
-    *val++ = D->properties;
-    *val++ = D->systemFlags;
-    base += (sizeof(uint64) * 2);
-    strcpy(base, D->word);
-    uint64 align = (uint64)(base + strlen(base) + 1 + 7);  // length + terminator + align
-    align &= 0xFFFFFFFFFFFFFFf8ULL;
-    return (char*)align;
+	uint64* val = (uint64*)base;
+	*val++ = D->properties;
+	*val++ = D->systemFlags;
+	base += (sizeof(uint64) * 2);
+	strcpy(base, D->word);
+	uint64 align = (uint64)(base + strlen(base) + 1 + 7);  // length + terminator + align
+	align &= 0xFFFFFFFFFFFFFFf8ULL;
+	return (char*)align;
 }
 
 static char* GetBlob(char* base, WORDP& D, unsigned int flags)
 {
-    uint64* val = (uint64*)base;
-    uint64 prop = *val++;
-    uint64 sys = *val++;
-    char* name = (char*)val;
-    if (flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT)) prop |= AS_IS;
-    D = StoreWord(name, prop, sys);
-    uint64 align = (uint64)(name + strlen(name) + 1 + 7);  // length + terminator + align
-    align &= 0xFFFFFFFFFFFFFFf8ULL;
-    return (char*)align;
+	uint64* val = (uint64*)base;
+	uint64 prop = *val++;
+	uint64 sys = *val++;
+	char* name = (char*)val;
+	if (flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT)) prop |= AS_IS;
+	D = StoreWord(name, prop, sys);
+	uint64 align = (uint64)(name + strlen(name) + 1 + 7);  // length + terminator + align
+	align &= 0xFFFFFFFFFFFFFFf8ULL;
+	return (char*)align;
 }
 
 void MigrateFactsToBoot(FACT* endUserFacts, FACT* endBootFacts)
@@ -1960,7 +2035,7 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* endBootFacts)
     blobs = startdictblobs;
     while (blobs < enddictblobs)
     {
-        WORDP E;
+		WORDP E;
         blobs = GetBlob(blobs, E, 0);
     }
 

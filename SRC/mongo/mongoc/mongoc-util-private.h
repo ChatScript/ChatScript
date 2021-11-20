@@ -14,43 +14,149 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_UTIL_PRIVATE_H
 #define MONGOC_UTIL_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
+#include <bson/bson.h>
+#include "mongoc.h"
 
-#include <bson.h>
+#ifdef BSON_HAVE_STRINGS_H
+#include <strings.h>
+#endif
 
 /* string comparison functions for Windows */
 #ifdef _WIN32
-# define strcasecmp  _stricmp
-# define strncasecmp _strnicmp
+#define strcasecmp _stricmp
+#define strncasecmp _strnicmp
 #endif
 
-/* Suppress CWE-252 ("Unchecked return value") warnings for things we can't deal with */
-#if defined(__GNUC__) && __GNUC__ >= 4
-# define _ignore_value(x) (({ __typeof__ (x) __x = (x); (void) __x; }))
+#if BSON_GNUC_CHECK_VERSION(4, 6)
+#define BEGIN_IGNORE_DEPRECATIONS  \
+   _Pragma ("GCC diagnostic push") \
+      _Pragma ("GCC diagnostic ignored \"-Wdeprecated-declarations\"")
+#define END_IGNORE_DEPRECATIONS _Pragma ("GCC diagnostic pop")
+#elif defined(__clang__)
+#define BEGIN_IGNORE_DEPRECATIONS    \
+   _Pragma ("clang diagnostic push") \
+      _Pragma ("clang diagnostic ignored \"-Wdeprecated-declarations\"")
+#define END_IGNORE_DEPRECATIONS _Pragma ("clang diagnostic pop")
 #else
-# define _ignore_value(x) ((void) (x))
+#define BEGIN_IGNORE_DEPRECATIONS
+#define END_IGNORE_DEPRECATIONS
 #endif
 
+#ifndef _WIN32
+#define MONGOC_PRINTF_FORMAT(a, b) __attribute__ ((format (__printf__, a, b)))
+#else
+#define MONGOC_PRINTF_FORMAT(a, b) /* no-op */
+#endif
+
+#define COALESCE(x, y) ((x == 0) ? (y) : (x))
+
+
+/* Helper macros for stringifying things */
+#define MONGOC_STR(s) #s
+#define MONGOC_EVALUATE_STR(s) MONGOC_STR (s)
 
 BSON_BEGIN_DECLS
 
+extern const bson_validate_flags_t _mongoc_default_insert_vflags;
+extern const bson_validate_flags_t _mongoc_default_replace_vflags;
+extern const bson_validate_flags_t _mongoc_default_update_vflags;
 
-char *_mongoc_hex_md5 (const char *input);
+int
+_mongoc_rand_simple (unsigned int *seed);
 
-void _mongoc_usleep (int64_t usec);
+char *
+_mongoc_hex_md5 (const char *input);
 
-const char *_mongoc_get_command_name (const bson_t *command);
+void
+_mongoc_usleep (int64_t usec);
 
-void _mongoc_get_db_name (const char *ns,
-                          char *db /* OUT */);
+/* Get the current time as a number of milliseconds since the Unix Epoch. */
+int64_t
+_mongoc_get_real_time_ms (void);
 
-void _mongoc_bson_destroy_if_set (bson_t *bson);
+const char *
+_mongoc_get_command_name (const bson_t *command);
+
+const char *
+_mongoc_get_documents_field_name (const char *command_name);
+
+bool
+_mongoc_lookup_bool (const bson_t *bson, const char *key, bool default_value);
+
+/* Returns a database name that the caller must free. */
+char *
+_mongoc_get_db_name (const char *ns);
+
+void
+_mongoc_bson_init_if_set (bson_t *bson);
+
+const char *
+_mongoc_bson_type_to_str (bson_type_t t);
+
+bool
+_mongoc_get_server_id_from_opts (const bson_t *opts,
+                                 mongoc_error_domain_t domain,
+                                 mongoc_error_code_t code,
+                                 uint32_t *server_id,
+                                 bson_error_t *error);
+
+bool
+_mongoc_validate_new_document (const bson_t *insert,
+                               bson_validate_flags_t vflags,
+                               bson_error_t *error);
+
+bool
+_mongoc_validate_replace (const bson_t *insert,
+                          bson_validate_flags_t vflags,
+                          bson_error_t *error);
+
+bool
+_mongoc_validate_update (const bson_t *update,
+                         bson_validate_flags_t vflags,
+                         bson_error_t *error);
+
+void
+mongoc_lowercase (const char *src, char *buf /* OUT */);
+
+bool
+mongoc_parse_port (uint16_t *port, const char *str);
+
+void
+_mongoc_bson_array_add_label (bson_t *bson, const char *label);
+
+void
+_mongoc_bson_array_copy_labels_to (const bson_t *reply, bson_t *dst);
+
+void
+_mongoc_bson_init_with_transient_txn_error (const mongoc_client_session_t *cs,
+                                            bson_t *reply);
+
+bool
+_mongoc_document_is_pipeline (const bson_t *document);
+
+/*
+ *--------------------------------------------------------------------------
+ *
+ * _mongoc_getenv --
+ *
+ *       Get the value of an environment variable.
+ *
+ * Returns:
+ *       A string you must bson_free, or NULL if the variable is not set.
+ *
+ * Side effects:
+ *       None.
+ *
+ *--------------------------------------------------------------------------
+ */
+char *
+_mongoc_getenv (const char *name);
+
 BSON_END_DECLS
-
 
 #endif /* MONGOC_UTIL_PRIVATE_H */

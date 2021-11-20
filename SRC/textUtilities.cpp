@@ -42,7 +42,7 @@ typedef struct NUMBERDECODE
 	int realNumber;			// the type, one two are real, third is fraction
 } NUMBERDECODE;
 
-static NUMBERDECODE* numberValues;
+static NUMBERDECODE* numberValues[MAX_MULTIDICT]; // multilanguage
 
 typedef struct CURRENCYDECODE
 {
@@ -50,8 +50,8 @@ typedef struct CURRENCYDECODE
 	int concept;	// word index of concept to mark it
 } CURRENCYDECODE;
 
-static CURRENCYDECODE* currencies;
-static int* monthnames;
+static CURRENCYDECODE* currencies[MAX_MULTIDICT];
+static int* monthnames[MAX_MULTIDICT];
 static int* topleveldomains;
 
 unsigned char toLowercaseData[256] = // convert upper to lower case
@@ -291,7 +291,7 @@ void Clear_CRNL(char* incoming)
 }
 
 
-void InitTextUtilities()
+void InitUniversalTextUtilities()
 {
 	ClearNumbers();
 	memset(utf82extendedascii, 0, 128);
@@ -301,6 +301,42 @@ void InitTextUtilities()
 		unsigned char c = extendedascii2utf8[i];
 		if (c) c -= 128;	// remove top bit
 		utf82extendedascii[c] = (unsigned char)i;
+	}
+
+	char word[MAX_WORD_SIZE];
+	char* limit;
+	char* stack;
+	int* data;
+	FILE* in;
+	size_t size;
+	char file[SMALL_WORD_SIZE];
+	// universal system livedata
+	sprintf(word, (char*)"%s/systemessentials.txt", systemFolder);
+	ReadSubstitutes(word, 0, NULL, DO_ESSENTIALS, true);
+
+	sprintf(word, (char*)"%s/queries.txt", systemFolder);
+	ReadQueryLabels(word);
+
+	// most up to date list of all TLDs at http://data.iana.org/TLD/tlds-alpha-by-domain.txt
+	sprintf(file, (char*)"%s/topleveldomains.txt", systemFolder);
+	in = FopenStaticReadOnly(file);
+	if (in)
+	{
+		stack = InfiniteStack(limit, "inittlds");
+		data = (int*)stack;
+
+		while (ReadALine(readBuffer, in) >= 0) // top level domain
+		{
+			if (*readBuffer == '#' || *readBuffer == 0) continue;
+			ReadCompiledWord(readBuffer, word);
+			*data++ = Heap2Index(AllocateHeap(word, 0));
+		}
+		*data++ = 0;     // terminal value for end detection
+		size = (char*)data - stack;
+		size /= 8;     // 64bit chunks
+		topleveldomains = (int*)AllocateHeap(stack, size + 1, 8);
+		ReleaseInfiniteStack();
+		fclose(in);
 	}
 }
 
@@ -313,7 +349,10 @@ char* UTF16_2_UTF8(char* in,bool withinquote)
 				// direct utf16 to ascii converts
 
 	int n = atoi(in + 1);
-	if (n == 2019 || n == 2018)  return "\'";// left and right curly ' to normal '
+	if (n == 2019 || n == 2018)
+	{
+		return "\'";// left and right curly ' to normal '
+	}
 	char d = in[4];
 	if (n == 201 && (d == 'c' || d == 'd' || d == 'C' || d == 'D'))
 	{
@@ -394,8 +433,8 @@ bool IsComparator(char* word)
 
 void ClearNumbers()
 {
-	numberValues = 0; // heap is discarded, need to discard this
-	currencies = 0;
+	memset(numberValues,0,sizeof(numberValues)); // heap is discarded, need to discard this
+	memset(currencies, 0, sizeof(currencies));
 }
 
 char* ReadTokenMass(char* ptr, char* word)
@@ -406,10 +445,8 @@ char* ReadTokenMass(char* ptr, char* word)
 	return ptr;
 }
 
-void InitTextUtilities1()
+void InitTextUtilitiesByLanguage(char* language)
 {
-	ClearNumbers();
-
 	char word[MAX_WORD_SIZE];
 	char value[MAX_WORD_SIZE];
 	char kind[MAX_WORD_SIZE];
@@ -452,7 +489,7 @@ void InitTextUtilities1()
 		*data++ = 0;	 // terminal value for end detection
 		size = (char*)data - stack;
 		size /= 8;	 // 64bit chunks
-		numberValues = (NUMBERDECODE*)AllocateHeap(stack, size + 1, 8);
+		numberValues[languageIndex] = (NUMBERDECODE*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
 		fclose(in);
 	}
@@ -482,7 +519,7 @@ void InitTextUtilities1()
 		*data++ = 0;	 // terminal value for end detection
 		size = (char*)data - stack;
 		size /= 8;	 // 64bit chunks
-		currencies = (CURRENCYDECODE*)AllocateHeap(stack, size + 1, 8);
+		currencies[languageIndex] = (CURRENCYDECODE*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
 		fclose(in);
 	}
@@ -505,29 +542,7 @@ void InitTextUtilities1()
 		*data++ = 0;	 // terminal value for end detection
 		size = (char*)data - stack;
 		size /= 8;	 // 64bit chunks
-		monthnames = (int*)AllocateHeap(stack, size + 1, 8);
-		ReleaseInfiniteStack();
-		fclose(in);
-	}
-
-	// most up to date list of all TLDs at http://data.iana.org/TLD/tlds-alpha-by-domain.txt
-	sprintf(file, (char*)"%s/topleveldomains.txt", systemFolder);
-	in = FopenStaticReadOnly(file);
-	if (in)
-	{
-		stack = InfiniteStack(limit, "inittlds");
-		data = (int*)stack;
-
-		while (ReadALine(readBuffer, in) >= 0) // top level domain
-		{
-			if (*readBuffer == '#' || *readBuffer == 0) continue;
-			ReadCompiledWord(readBuffer, word);
-			*data++ = Heap2Index(AllocateHeap(word, 0));
-		}
-		*data++ = 0;     // terminal value for end detection
-		size = (char*)data - stack;
-		size /= 8;     // 64bit chunks
-		topleveldomains = (int*)AllocateHeap(stack, size + 1, 8);
+		monthnames[languageIndex] = (int*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
 		fclose(in);
 	}
@@ -612,7 +627,7 @@ bool IsDate(char* original)
 	if (separatorcount < 1) return false; // 2 or 3 allowed
 
 										  // confirm its a month
-	int* name = monthnames;
+	int* name = monthnames[languageIndex];
 	for (int i = 0; i < 1000; ++i)
 	{
 		if (!name || !*name) return false;
@@ -798,12 +813,12 @@ static int UTF8_2_UTF16(unsigned char*& from, unsigned char*& to)
 	return size;
 }
 
-int IsJapanese(unsigned char* utf8letter,unsigned char* utf16letter,int& kind)
+int IsJapanese(char* utf8letter,unsigned char* utf16letter,int& kind)
 { // 3 or 4 bytes
 	kind = 0;
 	if (!(*utf8letter & 0x80)) return 0; // not utf8 but extended ascii could be mistaken
 	unsigned char* utfbase = utf16letter;
-	int size = UTF8_2_UTF16(utf8letter, utf16letter);
+	int size = UTF8_2_UTF16((unsigned char* &)utf8letter, utf16letter);
 	
 	if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] < '4') kind = JAPANESE_PUNCTUATION;
 	// Japanese - style punctuation(3000 - 303f)
@@ -811,6 +826,12 @@ int IsJapanese(unsigned char* utf8letter,unsigned char* utf16letter,int& kind)
 		//3010   【  】  〒  〓  〔  〕  〖  〗  〘  〙  〚  〛  〜  〝  〞  〟
 		//3020   〠  〡  〢  〣  〤  〥  〦  〧  〨  〩  〪  〫  〬  〭  〮  〯
 		//3030   〰  〱  〲  〳  〴  〵  〶  〷  〸  〹  〺  〻  〼  〽  〾  〿
+	else if (utfbase[2] == 'F' && utfbase[3] == 'F' && utfbase[4] == '0' && utfbase[5] == '1') kind = JAPANESE_PUNCTUATION; // full width !
+	else if (utfbase[2] == 'F' && utfbase[3] == 'F' && utfbase[4] == '0' && utfbase[5] == 'E') kind = JAPANESE_PUNCTUATION; // full width .
+	else if (utfbase[2] == 'F' && utfbase[3] == 'F' && utfbase[4] == '1' && utfbase[5] == 'F') kind = JAPANESE_PUNCTUATION; // full width ?
+	else if (utfbase[2] == 'F' && utfbase[3] == 'F' ) kind = JAPANESE_KANJI; // ff00-ffEF are half-full width chars and FFF0-FFFF are specials
+	else if (utfbase[2] == 'F' && utfbase[3] == 'E'  && (utfbase[4] == '3' || utfbase[4] == '4'))  kind = JAPANESE_KANJI; // CJK Compatibility Forms
+	else if (utfbase[2] == 'F' && utfbase[3] == '9' ||  utfbase[2] == 'A')  kind = JAPANESE_KANJI; // F900	FAFF	CJK Compatibility Ideographs
 	else if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] <= '9') kind = JAPANESE_HIRAGANA;
 	// Hiragana(3040 - 309f)
 		//3040   ぀  ぁ  あ  ぃ  い  ぅ  う  ぇ  え  ぉ  お  か  が  き  ぎ  く
@@ -828,8 +849,6 @@ int IsJapanese(unsigned char* utf8letter,unsigned char* utf16letter,int& kind)
 		//30e0   ム  メ  モ  ャ  ヤ  ュ  ユ  ョ  ヨ  ラ  リ  ル  レ  ロ  ヮ  ワ
 		//30f0   ヰ  ヱ  ヲ  ン  ヴ  ヵ  ヶ  ヷ  ヸ  ヹ  ヺ  ・  ー  ヽ  ヾ  ヿ
 	else if (utfbase[2] < '4') return 0;
-	else if (utfbase[2] == '4' && utfbase[3] < 'E') return 0;
-	else if (utfbase[2] == '9' && utfbase[4] > 'A') return 0;
 	else if (utfbase[2] >= '4' && utfbase[2] <= '9' ) kind = JAPANESE_KANJI;
 	// CJK unifed ideographs - Common and uncommon kanji ( 4e00 - 9faf)
 	else if (utfbase[2] == '3' && utfbase[3] >= '4') kind = JAPANESE_KANJI;
@@ -844,7 +863,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 {
 	limit -= 200; // dont get close to limit
 	char* start = to;
-	const char* at = from - 1;
+	char* at = (char*) (from - 1);
 	// if we NEED to add an escape, we have to mark it as such so  we know to remove them later.
 	while (*++at)
 	{
@@ -887,7 +906,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 		// translate utf8 to uxxxx notation 
 		else if (false && convert2utf16 && *at & 0x80)
 		{
-			UTF8_2_UTF16((unsigned char*&)at, (unsigned char*&)to);
+			UTF8_2_UTF16((unsigned char* &) at, (unsigned char*&)to);
 		}
 		else *to++ = *at;
 		if ((to - start) > limit && false) 	// dont overflow just abort silently
@@ -1359,15 +1378,15 @@ char* IsTextCurrency(char* ptr, char* end)
 
 	// look up direct word numbers
 	WORDP D = FindWord(ptr, (end - ptr), LOWERCASE_LOOKUP);
-	if (D && D->properties & CURRENCY && currencies) for (unsigned int i = 0; i < 10000; ++i)
+	if (D && D->properties & CURRENCY && currencies[languageIndex]) for (unsigned int i = 0; i < 10000; ++i)
 	{
 		size_t len = end - ptr;
-		int index = currencies[i].word;
+		int index = currencies[languageIndex][i].word;
 		if (!index) break;
 		char* w = Index2Heap(index);
 		if (!strnicmp(ptr, w, len))
 		{
-			if (ptr[len] == 0 || IsDigit(ptr[len]) || IsNonDigitNumberStarter(ptr[len])) return Index2Heap(currencies[i].concept);  // a match 
+			if (ptr[len] == 0 || IsDigit(ptr[len]) || IsNonDigitNumberStarter(ptr[len])) return Index2Heap(currencies[languageIndex][i].concept);  // a match 
 		}
 	}
 	return NULL;
@@ -1740,15 +1759,15 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 	// look up direct word numbers
 	D = FindWord(word);
 	len = strlen(word);
-	if (D && D->properties & (NOUN_NUMBER | ADJECTIVE_NUMBER) && numberValues) for (unsigned int i = 0; i < 1000; ++i)
+	if (D && D->properties & (NOUN_NUMBER | ADJECTIVE_NUMBER) && numberValues[languageIndex]) for (unsigned int i = 0; i < 1000; ++i)
 	{
-		int index = numberValues[i].word;
+		int index = numberValues[languageIndex][i].word;
 		if (!index) break;
 		char* w = Index2Heap(index);
 		char* numx = Index2Heap(index);
-		if (len == numberValues[i].length && !strnicmp(word, numx, len))
+		if (len == numberValues[languageIndex][i].length && !strnicmp(word, numx, len))
 		{
-			return numberValues[i].realNumber;  // a match 
+			return numberValues[languageIndex][i].realNumber;  // a match 
 		}
 	}
 
@@ -1837,7 +1856,7 @@ FunctionResult AnalyzeCode(char* buffer)
 	ClearSupplementalInput();
 	AddInput(word, 2); // analyze
 	SAVEOLDCONTEXT()
-		FunctionResult result;
+	FunctionResult result;
 	uint64 flags = OUTPUT_NOCOMMANUMBER + OUTPUT_KEEPQUERYSET;
 	if (!directAnalyze) Output(word, buffer, result, (unsigned int)flags); // need to eval the input variable to get real data
 	else strcpy(buffer, word);
@@ -1880,7 +1899,7 @@ FunctionResult AnalyzeCode(char* buffer)
 	}
 
 	RESTOREOLDCONTEXT()
-		startSupplementalInput = oldinput; // recover prior status
+	startSupplementalInput = oldinput; // recover prior status
 	MoreToCome();
 	return NOPROBLEM_BIT;
 }
@@ -1888,14 +1907,14 @@ FunctionResult AnalyzeCode(char* buffer)
 bool IsFractionNumber(char* word) // fraction numbers
 {
 	size_t len = strlen(word);
-	if (numberValues) for (unsigned int i = 0; i < 1000; ++i)
+	if (numberValues[languageIndex]) for (unsigned int i = 0; i < 1000; ++i)
 	{
-		int index = numberValues[i].word;
+		int index = numberValues[languageIndex][i].word;
 		if (!index) break;
-		if (numberValues[i].realNumber == FRACTION_NUMBER)
+		if (numberValues[languageIndex][i].realNumber == FRACTION_NUMBER)
 		{
 			char* w = Index2Heap(index);
-			if (len == numberValues[i].length && !strnicmp(word, w, len))
+			if (len == numberValues[languageIndex][i].length && !strnicmp(word, w, len))
 			{
 				return true;
 			}
@@ -1993,7 +2012,6 @@ bool AddInput(char* buffer, int kind, bool clear)
 	if (clear) ClearSupplementalInput();
 	buffer = SkipWhitespace(buffer);
 	if (!*buffer) buffer = (char*)" ";
-
 	char* item = AllocateHeap(buffer);
 	startSupplementalInput = AllocateHeapval(startSupplementalInput, (uint64)item, kind, 0);  // 1 == internal input
 	MoreToCome();
@@ -2570,16 +2588,6 @@ static bool PurifyUTF8(PurifyKind kind, char* start, char c, char*& read, char*&
 			*write++ = ' ';
 			++read;
 		}
-		else if (c == 0xE2 && read[1] == 0x80 && read[2] == 0x9c) // handle curved quote left
-		{
-			*write++ = '\'';
-			read += 2;
-		}
-		else if (c == 0xE2 && read[1] == 0x80 && read[2] == 0x9D) // handle curved quote right
-		{
-			*write++ = '\'';
-			read += 2;
-		}
 		else if (c == 0xc2 && read[1] == 0xb4) // a form of '
 		{
 			*write++ = '\'';
@@ -2625,7 +2633,7 @@ static bool PurifyUTF8(PurifyKind kind, char* start, char c, char*& read, char*&
 		else if (c == 0xe2 && read[1] == 0x80 && read[2] == 0x9c)  // open double quote
 		{
 			*write++ = '\\';
-			write++[1] = '"';
+			*write++ = '"';
 			read += 2;
 		}
 		else if (c == 0xe2 && read[1] == 0x80 && read[2] == 0x9d)  // closing double quote
@@ -2717,7 +2725,7 @@ static bool PurifyUTF8(PurifyKind kind, char* start, char c, char*& read, char*&
 	return hasbadutf;
 }
 
-static void PurifyHTML(char c, char*& read, char*& write)
+static void PurifyHTML(char c, char*& read, char*& write, bool withinquote)
 {
 	if (read[1] == '#')
 	{
@@ -2758,36 +2766,43 @@ static void PurifyHTML(char c, char*& read, char*& write)
 	}
 	else if (!strnicmp(read, (char*)"&lsquot;", 8) || !strnicmp(read, (char*)"&rsquot;", 8))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 7;
 	}
 	else if (!strnicmp(read, (char*)"&rsquo;", 7) || !strnicmp(read, (char*)"&lsquo;", 7))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 6;
 	}
 	else if (!strnicmp(read, (char*)"&rsquote;", 9) || !strnicmp(read, (char*)"&lsquote;", 9)) // not real, someones typo
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 8;
 	}
 	else if (!strnicmp(read, (char*)"&rsquor;", 8) || !strnicmp(read, (char*)"&lsquor;", 8))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 7;
 	}
 	else if (!strnicmp(read, (char*)"&quot;", 6))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 5;
 	}
 	else if (!strnicmp(read, (char*)"&ldquo;", 7) || !strnicmp(read, (char*)"&rdquo;", 7))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 6;
 	}
 	else if (!strnicmp(read, (char*)"&laquo;", 7) || !strnicmp(read, (char*)"&raquo;", 7))
 	{
+        if (withinquote) *write++ = '\\';
 		*write++ = '"';
 		read += 6;
 	}
@@ -2838,7 +2853,7 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 
 	// stream can only shrink, so we rewrite in place as we go across
 	char* write = copy;
-	char* read = input;
+	char* read = SkipWhitespace(input);
 	char* start = read--;
 	bool withinquote = false;
 	unsigned char c;
@@ -2866,7 +2881,9 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 			{
 				read += 5; // skip what we read
 				pending = read;  // transfer input to process the new utf8
-				strcpy(pendingUtf8, utf8);
+				pendingUtf8[0] = 0;
+				if (*utf8 == '"' && withinquote) strcpy(pendingUtf8, "\\");
+				strcat(pendingUtf8, utf8);
 				read = pendingUtf8 - 1;
 			}
 			else // declined to change
@@ -2915,9 +2932,11 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 			*write++ = *read; // simple ascii or last byte
 			// Find start and end of OOB
 			if (*read == ' ') {} // can be ignored
-			else if (originalc == '[')
+			else if (!withinquote && originalc == '[')
+			{
 				++oobCount;
-			else if (originalc == ']')
+			}
+			else if (!withinquote && originalc == ']')
 			{
 				--oobCount;
 				if (oobCount == 0)
@@ -2930,7 +2949,7 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 		}
 		else if (c == '&') // html?
 		{
-			PurifyHTML(c, read, write);
+			PurifyHTML(c, read, write, withinquote);
 		}
 		else if (c & 0x80) // is utf8 in theory
 		{
@@ -2942,8 +2961,11 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 
 			// Find start and end of OOB
 			if (*read == ' ') {} // can be ignored
-			else if (originalc == '[') ++oobCount;
-			else if (originalc == ']')
+			else if (!withinquote && originalc == '[')
+			{
+				++oobCount;
+			}
+			else if (!withinquote && originalc == ']')
 			{
 				--oobCount;
 				if (oobCount == 0)
@@ -2952,7 +2974,7 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 					oobAnswer = write; // start of potential user input AFTER oob
 				}
 			}
-			else if (!oobCount) oobCount = 1000000; // we arent starting with [, so block oob detect
+			else if (!oobCount)   oobCount = 1000000; // we arent starting with [, so block oob detect
 		}
 	}
 	*write++ = 0;
@@ -3169,6 +3191,7 @@ char* SkipOOB(char* buffer)
 	char* at = SkipWhitespace(buffer);
 	char* start = at;
 	bool traceskip = false; // if you need to see debugging
+	bool full = false;
 	char data[100];
 	if (*at != '[') return buffer;
 	else
@@ -3178,20 +3201,27 @@ char* SkipOOB(char* buffer)
 		bool quote = false;
 		int blocklevel = 0;
 		char c;
+		int concept = 0;
 		while ((c = *++at))
 		{
+			if (full)
+			{
+				char tmp[50];
+				strncpy(tmp, at, 40);
+				tmp[40] = 0;
+				Log(ECHOUSERLOG, "%c %s %d\r\n", c, tmp, quote);
+			}
 			if (c == '\\') // protected char
 			{
-				if (*++at == 'u' && IsDigit(at[1]))
-					at += 4; // skip past this utf16 character
+				if (*++at == 'u' && IsDigit(at[1]))  at += 4; // skip past this utf16 character uxxxx
 				continue;
 			}
 
 			if (c == '"')
 			{
-				if (traceskip && !strnicmp(at + 1, "pattern\"", 8))
+				if (!strnicmp(at+1, "pattern",7))
 				{
-					int xx = 0; // breakpoint holder
+					int xx = 0;
 				}
 				quote = !quote; // ignore within quotes
 				continue;
@@ -3200,11 +3230,31 @@ char* SkipOOB(char* buffer)
 			else if (c == '{') // only top levels, not deep in patterns
 			{
 				++curly;
-				if (traceskip && curly <= 5 && !blocklevel)
+				if (traceskip && curly == 3)
+				{
+					if (!strnicmp(at,"{\"concept", 9))
+					{
+						concept = bracket + 1; // ignore all within []
+					}
+				}
+				if (traceskip && !concept && curly <= 6 && !blocklevel)
 				{
 					strncpy(data, at, 40);
 					data[40] = 0;
-					printf("%d: %s\r\n", curly + bracket, data);
+					int n = bracket + curly;
+					for (int i = 0; i <= n; ++i) printf("  ");
+					printf("%d: %s\r\n", n, data);
+				}
+			}
+			else if (c == ',') // only top levels, not deep in patterns
+			{
+				if (traceskip &&  !concept && curly <= 6 && !blocklevel)
+				{
+					strncpy(data, at, 40);
+					data[40] = 0;
+					int n = bracket + curly;
+					for (int i = 0; i <= n; ++i) printf("  ");
+					printf("%d: %s\r\n", n, data);
 				}
 			}
 			else if (c == '}')
@@ -3215,15 +3265,18 @@ char* SkipOOB(char* buffer)
 			else if (c == '[')
 			{
 				++bracket;
-				if (traceskip && bracket <= 5 && !blocklevel)
+				if (traceskip && !concept && bracket <= 6 && !blocklevel)
 				{
 					strncpy(data, at, 40);
 					data[40] = 0;
-					printf("%d: %s\r\n", bracket + curly, data);
+					int n = bracket + curly;
+					for (int i = 0; i <= n; ++i) printf("  ");
+					printf("%d: %s\r\n", n, data);
 				}
 			}
 			else if (c == ']')
 			{
+				if (bracket == concept) concept = 0; // turn off ignore
 				--bracket;
 				if (blocklevel > (curly + bracket)) blocklevel = 0;
 				if (bracket == 0 && curly == 0)
@@ -3835,6 +3888,30 @@ static char* EatString(const char* ptr, char* word, char ender, char jsonactives
 	return (char*)ptr;
 }
 
+char* ReadToken(const char* ptr, char* word)
+{
+	*word = 0;
+	if (!ptr) return NULL;
+	char c;
+	ptr = SkipWhitespace((char*)ptr);
+	bool quote = false;
+	while ((c = *ptr))
+	{
+		if (c == '\\') // literal next
+		{
+			*word++ = *ptr++;
+			*word++ = *ptr++;
+			continue;
+		}
+		if (c == '\"') quote = !quote;
+		if (c == ' ' && !quote) break; // white space ended it
+		if (c == 0 || c == '\n') break;
+		*word++ = *ptr++;
+	}
+	*word = 0;
+	return (char*)ptr;
+}
+
 char* ReadCompiledWord(const char* ptr, char* word, bool noquote, bool var, bool nolimit)
 {//   a compiled word is either characters until a blank, or a ` quoted expression ending in blank or nul. or a double-quoted on both ends or a ^double quoted on both ends
 	*word = 0;
@@ -4283,7 +4360,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	else if (c == '#' && IsDigitWord(number + 1, useNumberStyle)) return Convert2Integer(number + 1, useNumberStyle);
 	else if (!IsAlphaUTF8DigitNumeric(c) || c == decimalMark) return NOT_A_NUMBER; // not  0-9 letters + - 
 
-	bool csEnglish = (externalTagger && stricmp(language, "english")) ? false : true;
+	bool csEnglish = !stricmp(language, "english");
 
 	size_t len = strlen(number);
 	uint64 valx;
@@ -4323,7 +4400,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	char* word = copy + 1;
 
 	// remove place suffixes
-	if (csEnglish && numberValues && len > 3 && !stricmp(word + len - 3, (char*)"ies")) // twenties?
+	if (csEnglish && numberValues[languageIndex] && len > 3 && !stricmp(word + len - 3, (char*)"ies")) // twenties?
 	{
 		char xtra[MAX_WORD_SIZE];
 		strcpy(xtra, word);
@@ -4331,11 +4408,12 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		size_t len1 = strlen(xtra);
 		for (unsigned int i = 0; i < 100000; ++i)
 		{
-			int wordIndex = numberValues[i].word;
+			int wordIndex = numberValues[languageIndex][i].word;
 			if (!wordIndex) break;
-			if (len1 == numberValues[i].length && !strnicmp(xtra, Index2Heap(wordIndex), len1))
+			if (len1 == numberValues[languageIndex][i].length && !strnicmp(xtra, Index2Heap(wordIndex), len1))
 			{
-				if (numberValues[i].realNumber == FRACTION_NUMBER || numberValues[i].realNumber == REAL_NUMBER)
+				int kind = numberValues[languageIndex][i].realNumber;
+				if (kind == FRACTION_NUMBER || kind == REAL_NUMBER)
 				{
 					strcpy(word, xtra);
 					len = len1;
@@ -4345,18 +4423,19 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		}
 	}
 
-	if (csEnglish && numberValues && len > 3 && word[len - 1] == 's') // if s attached to a fraction, remove it
+	if (csEnglish && numberValues[languageIndex] && len > 3 && word[len - 1] == 's') // if s attached to a fraction, remove it
 	{
 		size_t len1 = len - 1;
 		if (word[len1 - 1] == 'e') --len1; // es ending like zeroes
 		// look up direct word number as single
 		for (unsigned int i = 0; i < 1000; ++i)
 		{
-			int index = numberValues[i].word;
+			int index = numberValues[languageIndex][i].word;
 			if (!index) break;
-			if (len1 == numberValues[i].length && !strnicmp(word, Index2Heap(index), len1))
+			if (len1 == numberValues[languageIndex][i].length && !strnicmp(word, Index2Heap(index), len1))
 			{
-				if (numberValues[i].realNumber == FRACTION_NUMBER || numberValues[i].realNumber == REAL_NUMBER)
+				int kind = numberValues[languageIndex][i].realNumber;
+				if (kind == FRACTION_NUMBER || kind == REAL_NUMBER)
 				{
 					word[len1] = 0; //  thirds to third    quarters to quarter  fifths to fith but not ones to one
 					len = len1;
@@ -4417,14 +4496,14 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	if (hyp) *hyp = '-';
 
 	// look up direct word numbers
-	if (!hasDigit && numberValues) for (unsigned int i = 0; i < 1000; ++i)
+	if (!hasDigit && numberValues[languageIndex]) for (unsigned int i = 0; i < 1000; ++i)
 	{
-		int index = numberValues[i].word;
+		int index = numberValues[languageIndex][i].word;
 		if (!index) break;
 		char* w = Index2Heap(index);
-		if (len == numberValues[i].length && !strnicmp(word, w, len))
+		if (len == numberValues[languageIndex][i].length && !strnicmp(word, w, len))
 		{
-			return numberValues[i].value;  // a match (but may be a fraction number)
+			return numberValues[languageIndex][i].value;  // a match (but may be a fraction number)
 		}
 	}
 

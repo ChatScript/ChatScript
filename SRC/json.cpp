@@ -29,7 +29,7 @@ int jsonIdIncrement = 1;
 int jsonDefaults = 0;
 int json_open_counter = 0;
 uint64 json_open_time = 0;
-
+bool curlFail = false;
 int jsonStore = 0; // where to put json fact refs
 int jsonIndex;
 int jsonOpenSize = 0;
@@ -57,6 +57,8 @@ void InitJson()
 	json_open_counter = 0;
 	json_open_time = 0;
 	jsonDefaults = 0;
+	curlFail = false;
+	InitJSONNames();
 }
 
 static int JSONArgs()
@@ -172,7 +174,7 @@ bool IsValidJSONName(char* word, char type)
 		strchr(word, '\\') || strchr(word, '"') || strchr(word, '\'') || strchr(word, 0x7f) || strchr(word, '\n') // refuse illegal content
 		|| strchr(word, '\r') || strchr(word, '\t')) return false;    // must be legal unescaped json content and safe CS content
 
-	// jo-anne.van.der.ende@signify.com is not a valid JSON name
+	// jo-abc@def.com is not a valid JSON name
 	// last part must be numbers
 	char* end = word + n - 1;
 	char* at = end;
@@ -273,7 +275,11 @@ int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING *
 		if (!strnicmp(str, "ja-", 3)) *flags = JSON_ARRAY_VALUE;
 		else if (!strnicmp(str, "jo-", 3)) *flags = JSON_OBJECT_VALUE;
 		else *flags = JSON_PRIMITIVE_VALUE; // json primitive type
-		if (*str == USERVAR_PREFIX || *str == SYSVAR_PREFIX || *str == '_' || *str == '\'') // variable values from CS
+		if (*str == USERVAR_PREFIX && str[1] == '^')
+		{ // user function variable does not have a value we want
+			*flags = JSON_STRING_VALUE;
+		}
+		else if (*str == USERVAR_PREFIX || *str == SYSVAR_PREFIX || *str == '_' || *str == '\'') // variable values from CS
 		{
 			// get path to safety if any
 			char mainpath[MAX_WORD_SIZE];
@@ -336,8 +342,7 @@ int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING *
 		*flags = JSON_STRING_VALUE; // string null
 		CompleteBindStack();
 		if (!PreallocateHeap(size)) return 0;
-		if (size == 0)  *retMeaning = MakeMeaning(StoreWord((char*)"null", AS_IS)); // empty string replaced with null
-		else  *retMeaning = MakeMeaning(StoreWord(str, AS_IS));
+        *retMeaning = MakeMeaning(StoreWord(str, AS_IS));
 		ReleaseStack(str);
 		break;
 	}
@@ -561,6 +566,17 @@ void CurlShutdown()
 	}
 	if (curl_done_init) curl_global_cleanup();
 	curl_done_init = false;
+}
+
+const char* CurlVersion()
+{
+    static char version[MAX_WORD_SIZE] = "";
+    if (*version) return(version);
+    
+    curl_version_info_data data = *curl_version_info(CURLVERSION_NOW);
+    
+    sprintf(version,"%s, %s, libz/%s", data.version, data.ssl_version, data.libz_version);
+    return version;
 }
 
 FunctionResult InitCurl()
@@ -1006,7 +1022,8 @@ FunctionResult JSONOpenCode(char* buffer)
 			else { ReportBug((char*)"\r\nINFO: Other curl return code %d %s", (int)res, word); }
 		}
 	}
-	if (CURLE_OK == res) {
+	if (CURLE_OK == res && (http_response == 200 || http_response == 204)) 
+	{
 		double namelookuptime;
 		double proxyconnecttime;
 		double appconnecttime;
@@ -1020,6 +1037,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		//sprintf(lastcurltime,"Time Analysis:\nName Look up:%.6f\nHost/proxy connect:%.6f\nApp(SSL) connect:%.6f\nPretransfer:%.6f\nTotal Transfer:%.6f\nEND\n", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 		sprintf(lastcurltime, "%.6fs %.6fs %.6fs %.6fs %.6fs", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 	}
+	else curlFail = true;
 
 	int timediff = (int)(ElapsedMilliseconds() - start_time);
 	++json_open_counter;
@@ -1287,9 +1305,8 @@ static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer
 		else if (F->flags & JSON_OBJECT_FACT)
 		{
 			buffer = jtab(depth, buffer);
-			strcpy(buffer++, (char*)"\""); // write key in quotes
-			WriteMeaning(F->verb, NULL, buffer);
-			buffer += strlen(buffer);
+			strcpy(buffer++, (char*)"\""); // write key in quotes, might need to have escapes
+            buffer = AddEscapes(buffer, Meaning2Word(F->verb)->word, true, currentOutputLimit - (buffer - currentOutputBase), false);
 			strcpy(buffer, (char*)"\": ");
 			buffer += 3;
 		}
@@ -1639,10 +1656,9 @@ char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigne
 			size_t size = (buffer - start + 400 + D->length);  // 400 slop
 			if (size >= limit) return buffer; // too much output
 			
-			bool usequote = !plain || !NotPlain(Meaning2Word(F->verb)->word);
-			if (usequote) strcpy(buffer++, (char*)"\""); // put out key in quotes
-			WriteMeaning(F->verb, NULL, buffer);
-			buffer += strlen(buffer);
+			bool usequote = !plain || !NotPlain(D->word);
+			if (usequote) strcpy(buffer++, (char*)"\""); // put out key in quotes, possibly with escapes
+            buffer = AddEscapes(buffer, D->word, true, limit, false,true);
 			if (usequote)
 			{
 				strcpy(buffer, (char*)"\": ");
@@ -1715,7 +1731,7 @@ FunctionResult JSONUndecodeStringCode(char* buffer) // undo escapes
 	return NOPROBLEM_BIT;
 }
 
-static MEANING MergeObject(bool keyonly,MEANING obj1, MEANING obj2)
+static MEANING MergeObject(bool keyonly, int sum, MEANING obj1, MEANING obj2)
 { // prefer values of obj1 over obj2
 	if (!obj1) return jcopy(obj2);
 	if (!obj2) return jcopy(obj1); // maybe need to copy?
@@ -1735,8 +1751,40 @@ static MEANING MergeObject(bool keyonly,MEANING obj1, MEANING obj2)
 		int kind = obj2G->flags & (JSON_PRIMITIVE_VALUE | JSON_STRING_VALUE);
 		if (kind) // add primitive
 		{
-			if (!obj1F) CreateFact(M, obj2G->verb, obj2G->object, kind | JSON_OBJECT_FACT);
-			// if we already have this field, we win, ignore other
+            // if we already have this field, we win, ignore other
+			if (!obj1F && sum != 2) CreateFact(M, obj2G->verb, obj2G->object, kind | JSON_OBJECT_FACT);
+            else if (sum && obj1F)
+            {
+                // unless summing them together
+                WORDP w1 = Meaning2Word(obj1F->object);
+                WORDP w2 = Meaning2Word(obj2G->object);
+                double number1 = (strchr(w1->word,'.')) ? Convert2Double(w1->word) : (double)Convert2Integer(w1->word);
+                double number2 = (strchr(w2->word,'.')) ? Convert2Double(w2->word) :  (double)Convert2Integer(w2->word);
+                double result = number1 + number2;
+                if (result != number1)
+                {
+                    char* resultText = AllocateBuffer();
+                    long x = (long) result;
+                    if ((double)x == result)
+                    {
+#ifdef WIN32
+                        sprintf(resultText,(char*)"%I64d",(long long int) x);
+#else
+                        sprintf(resultText,(char*)"%lld",(long long int) x);
+#endif
+                    }
+                    else WriteFloat(resultText,result);
+
+                    WORDP newObject = StoreWord(resultText,AS_IS);
+                    MEANING value = MakeMeaning(newObject);
+
+                    UnweaveFactObject(obj1F);
+                    SetObjectHead(newObject, AddToList(GetObjectHead(newObject), obj1F, GetObjectNext, SetObjectNext));
+                    obj1F->object = value;
+                    ModBaseFact(obj1F);
+                    FreeBuffer();
+                }
+            }
 		}
 		else if (obj2G->flags & JSON_OBJECT_VALUE)
 		{
@@ -1825,15 +1873,18 @@ FunctionResult JSONMergeCode(char* buffer)
 	int index = JSONArgs(); // not needed but allowed
 	char* arg0 = ARGUMENT(index++); // kind of it
 	bool keyonly = true;
+    int sum = 0;
 	if (!stricmp(arg0, "key")) keyonly = true;
 	else if (!stricmp(arg0, "key-value")) keyonly = false;
+    else if (!stricmp(arg0, "sum")) sum = 1;
+    else if (!stricmp(arg0, "sumif")) sum = 2;
 	else return FAILRULE_BIT;
 	char* arg1 = ARGUMENT(index++); // names a  label
 	char* arg2 = ARGUMENT(index); // names a  label
 	WORDP answer = NULL;
 	if (IsValidJSONName(arg1, 'o') && (IsValidJSONName(arg2, 'o') || !*arg2)) 
 	{
-		answer = Meaning2Word(MergeObject(keyonly,MakeMeaning(FindWord(arg1)), 
+		answer = Meaning2Word(MergeObject(keyonly,sum,MakeMeaning(FindWord(arg1)),
 				MakeMeaning(FindWord(arg2))));
 	}
 	else if (IsValidJSONName(arg1, 'a') && (IsValidJSONName(arg2, 'a') || !*arg2)) 
@@ -2821,14 +2872,10 @@ FunctionResult JSONDeleteCode(char* buffer)
 
 static char* SetArgument(char* ptr, size_t len)
 {
-	char* limit;
-	char* data = InfiniteStack(limit, "JSONReadCSVFileCode");
-	*data = ENDUNIT;
-	data[1] = ENDUNIT;
-	data += 2;
-	strncpy(data, ptr, len);
-	data[len] = 0;
-	CompleteBindStack();
+	char* data = AllocateStack(NULL, len + 3); // include eos marker
+	*data++ = ENDUNIT;
+	*data++ = ENDUNIT;
+	strcpy(data, ptr);
 	return data;
 }
 

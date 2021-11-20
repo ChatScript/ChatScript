@@ -29,6 +29,8 @@ extern bool	modifiedTrace;
 extern unsigned int modifiedTimingVal;
 extern bool modifiedTiming;
 extern HEAPREF variableChangedThreadlist;
+extern char* nullLocal;
+extern char* nullGlobal;
 
 extern  int wildcardIndex;
 extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_MATCHVAR_SIZE+1];  //   spot wild cards can be stored

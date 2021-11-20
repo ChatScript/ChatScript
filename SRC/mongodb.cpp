@@ -21,7 +21,7 @@
 static bool mongoInited = false;		// have we inited mongo overall
 static bool mongoShutdown = false;
 char* mongoBuffer = NULL;
-char mongodbparams[1000];
+char mongodbparams[MAX_WORD_SIZE * 4];
 
 // for script use
 mongoc_client_t*		g_pClient = NULL;
@@ -33,6 +33,17 @@ mongoc_database_t*		g_filesysDatabase = NULL;
 mongoc_collection_t*	g_filesysCollectionTopic = NULL; // user topic
 mongoc_collection_t*	g_filesysCollectionLtm = NULL; // user ltm
 
+
+const char* MongoVersion()
+{
+    static char version[MAX_WORD_SIZE] = "";
+    if (*version) return(version);
+    
+    const char *data = mongoc_get_version();
+
+    sprintf(version,"Mongo %s", data);
+    return(version);
+}
 
 char* MongoCleanEscapes(char* to, char* at,int limit) 
 { // any sequence of \\\ means mongo added \\  and any freestanding \ means mongo added that
@@ -64,6 +75,20 @@ char* MongoCleanEscapes(char* to, char* at,int limit)
 	*to = 0;
 	return start;
 }
+
+void mongoLogError(bson_error_t error)
+{
+    char* msg = AllocateBuffer();
+    
+    sprintf(msg, "%d: %s", error.code, error.message);
+    SetUserVariable((char*)"$$mongo_error",msg);    // pass along the error to script
+
+    sprintf(msg, "Mongo Error: %d - %s", error.code, error.message);
+    Log(USERLOG,msg);
+
+    FreeBuffer();
+}
+
 
 // Apply additional key values from a JSON object to a document query
 void mongoAppendKeys(bson_t *doc, char* var)
@@ -398,6 +423,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
         {
             eRetVal = eReturnValue_DATABASE_DOCUMENT_DELETION_FAILED;
         }
+        else mongoLogError(sError);
         uint64 endtime = ElapsedMilliseconds();
 	    unsigned int diff = (unsigned int)endtime - (unsigned int)starttime;
 	    unsigned int limit = 100;
@@ -480,7 +506,8 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
 
     bson_append_document_end(update, &child);
     if (mongoc_collection_update (collection, MONGOC_UPDATE_UPSERT, query, update, NULL, &error)) result = NOPROBLEM_BIT;
-
+    else mongoLogError(error);
+    
     if (doc) bson_destroy (doc);
     if (query) bson_destroy (query);
     if (update) bson_destroy (update);

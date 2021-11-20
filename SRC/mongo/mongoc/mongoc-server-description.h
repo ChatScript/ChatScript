@@ -14,32 +14,58 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_SERVER_DESCRIPTION_H
 #define MONGOC_SERVER_DESCRIPTION_H
 
-#include <bson.h>
+#include <bson/bson.h>
 
+#include "mongoc-macros.h"
 #include "mongoc-read-prefs.h"
 #include "mongoc-host-list.h"
 
+BSON_BEGIN_DECLS
+
 typedef struct _mongoc_server_description_t mongoc_server_description_t;
 
-void
+MONGOC_EXPORT (void)
 mongoc_server_description_destroy (mongoc_server_description_t *description);
 
-mongoc_server_description_t *
-mongoc_server_description_new_copy (const mongoc_server_description_t *description);
+MONGOC_EXPORT (mongoc_server_description_t *)
+mongoc_server_description_new_copy (
+   const mongoc_server_description_t *description);
 
-uint32_t
-mongoc_server_description_id (mongoc_server_description_t *description);
+MONGOC_EXPORT (uint32_t)
+mongoc_server_description_id (const mongoc_server_description_t *description);
 
-mongoc_host_list_t *
-mongoc_server_description_host (mongoc_server_description_t *description);
+MONGOC_EXPORT (mongoc_host_list_t *)
+mongoc_server_description_host (const mongoc_server_description_t *description);
 
-const char *
-mongoc_server_description_type (mongoc_server_description_t *description);
+MONGOC_EXPORT (int64_t)
+mongoc_server_description_last_update_time (
+   const mongoc_server_description_t *description);
 
-const bson_t *
-mongoc_server_description_ismaster (mongoc_server_description_t *description);
+MONGOC_EXPORT (int64_t)
+mongoc_server_description_round_trip_time (
+   const mongoc_server_description_t *description);
+
+MONGOC_EXPORT (const char *)
+mongoc_server_description_type (const mongoc_server_description_t *description);
+
+MONGOC_EXPORT (const bson_t *)
+mongoc_server_description_hello_response (
+   const mongoc_server_description_t *description);
+
+MONGOC_EXPORT (const bson_t *)
+mongoc_server_description_ismaster (
+   const mongoc_server_description_t *description)
+   BSON_GNUC_DEPRECATED_FOR (mongoc_server_description_hello_response);
+
+MONGOC_EXPORT (int32_t)
+mongoc_server_description_compressor_id (
+   const mongoc_server_description_t *description);
+
+BSON_END_DECLS
 
 #endif

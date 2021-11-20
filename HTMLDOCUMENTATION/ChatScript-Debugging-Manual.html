@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/21/2021 cs11.6</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
@@ -44,7 +44,7 @@
 :comparelog - given path/names of 2 log files, show entries that are different
 
 ---- Fact info -
-:allfacts  - Write all facts to TMP/facts.tmp for current bot.  :allfacts all does all bots.
+:allfacts  - Write all facts to TMP/facts.tmp for current bot current language.  :allfacts all does all bots and all languages.
 :facts     - Display all facts with given word or meaning or fact set
 :userfacts - Display current user facts
 
@@ -163,6 +163,8 @@
 <pre><code>*** Warning- flowglow is unknown as a word in pattern</code></pre>
 <p>Warnings about words in patterns that it doesn't recognize or it recognizes in lower case but you used upper case may or may not matter. Neither of these is wrong, unless you didn't intend it. Words it doesn't recognize arise either because you made a typo (requiring you fix it) or simply because the word isn't in the dictionary.</p>
 <p>Words in upper case are again words it knows as lower case, but you used it as upper case. Maybe right or wrong.</p>
+<h3 id="echorule">echorule</h3>
+<p>When you add this after the build name, the system will show what rule pattern is has most recently compiled in the log. If build crashes in a topic or you are not clear where you are when things go wrong, this trace can help identify the rule in question.</p>
 <h3 id="ignorespell-...">ignorespell: ...</h3>
 <p>You can disable case spelling warnings for specific words by naming them in lower case like this:</p>
 <pre><code>ignorespell: me or</code></pre>
@@ -178,6 +180,8 @@
 <p>You can define concepts at level 0 and/or level 1 of the build, so you can put define new words whenever you need to.</p>
 <p>When build is complete, it will pick up where it left off with the user (his data files unchanged). If you want to automatically clear the user and start afresh, use</p>
 <pre><code>:build xxx reset</code></pre>
+<h3 id="tracing-during-compilation">Tracing during compilation</h3>
+<p>You can put :trace commands interspersed with table arguments or between top level commands in script files. You can put :debug commands interspersed with table arguments.</p>
 <p><strong>After it goes wrong during execution</strong></p>
 <p>The most common issue is that ChatScript will munge with your input in various ways so you don't submit what you think you are submitting. The substitutions files will change words or phrases.</p>
 <p>Spell correction will change words. Proper name and number merging will adjust words. And individual words of yours will be merged into single words if WordNet lists them as a multiple-word (like <code>TV_star</code>). So you really need to see what your actual input ended up being before you can tell if your pattern was correct or not. Thus the most common debug command is <code>:prepare</code>.</p>
@@ -399,6 +403,7 @@ RAWDATA/simpletopic.top # things we can chat about
 <h3 id="tracing-a-server">Tracing a server</h3>
 <p>Sometimes you do not control the user account, so you cannot do :trace from it. You can do <code>:trace universal</code> from any account to force the server to trace all users. Turn it off with <code>:trace none</code>. Obviously not a good thing to do on a highly active server as it slows everyone and generates large logs potentially.</p>
 <p>Also you can do :serverlog 1 to turn on server logging and :serverlog 0 to turn off serverlogging. You can even force server logging without restarting a server by merely adding the file &quot;serverlogging.txt&quot; with arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.</p>
+<p>Similarly, if file <code>traceboot.txt</code> exists at the top level of CS when the server executes any boot code, that will be traced (same as adding <code>traceboot</code> in command line params).</p>
 <p>Creating the top level file <code>prelogging.txt</code> turns on prelogging into server and user files (when logging into those files).</p>
 <h3 id="understanding-a-pattern-trace">Understanding a pattern trace</h3>
 <pre><code>    try 3.0: ( ! %response=0 !%lastquestion !%outputrejoinder )   
@@ -620,6 +625,7 @@ This will read in the file named, replace new lines with spaces, and write to TM
 <p>You may also say <code>:restart erase</code> to force the existing user to start with a new topic file (restarting a system might load new incompatible data if you've changed something).</p>
 <p>You may also give up to 4 parameters exactly as you would on the command line to alter startup behavior. E.g., from script:</p>
 <pre><code>^eval(:restart erase Vserver=app.john.com/api/1.1 )</code></pre>
+<p>:restart redo_boot will, at end of volley, unwind the boot layer and reexecute boot functions to repopulate the server with new boot data visible to all bots and users.</p>
 <h3 id="autoreply-xxx"><code>:autoreply xxx</code></h3>
 <p>This command causes the system to talk to itself. As the user it always says whatever you put in xxx.</p>
 <h2 id="debugging-function-debug">Debugging Function <code>^debug()</code></h2>

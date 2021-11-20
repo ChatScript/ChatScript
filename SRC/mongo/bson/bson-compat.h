@@ -14,24 +14,21 @@
  * limitations under the License.
  */
 
+#include "bson-prelude.h"
+
 
 #ifndef BSON_COMPAT_H
 #define BSON_COMPAT_H
 
 
-#if !defined (BSON_INSIDE) && !defined (BSON_COMPILATION)
-# error "Only <bson.h> can be included directly."
-#endif
-
-
 #if defined(__MINGW32__)
-# if defined(__USE_MINGW_ANSI_STDIO)
-#  if __USE_MINGW_ANSI_STDIO < 1
-#   error "__USE_MINGW_ANSI_STDIO > 0 is required for correct PRI* macros"
-#  endif
-# else
-#  define __USE_MINGW_ANSI_STDIO 1
-# endif
+#if defined(__USE_MINGW_ANSI_STDIO)
+#if __USE_MINGW_ANSI_STDIO < 1
+#error "__USE_MINGW_ANSI_STDIO > 0 is required for correct PRI* macros"
+#endif
+#else
+#define __USE_MINGW_ANSI_STDIO 1
+#endif
 #endif
 
 #include "bson-config.h"
@@ -39,31 +36,31 @@
 
 
 #ifdef BSON_OS_WIN32
-# if defined(_WIN32_WINNT) && (_WIN32_WINNT < 0x0600)
-#  undef _WIN32_WINNT
-# endif
-# ifndef _WIN32_WINNT
-#  define _WIN32_WINNT 0x0600
-# endif
-# ifndef NOMINMAX
-#  define NOMINMAX
-# endif
-# include <winsock2.h>
-#  ifndef WIN32_LEAN_AND_MEAN
-#   define WIN32_LEAN_AND_MEAN
-#   include <windows.h>
-#   undef  WIN32_LEAN_AND_MEAN
-#  else
-#   include <windows.h>
-# endif
+#if defined(_WIN32_WINNT) && (_WIN32_WINNT < 0x0600)
+#undef _WIN32_WINNT
+#endif
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0600
+#endif
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <winsock2.h>
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#undef WIN32_LEAN_AND_MEAN
+#else
+#include <windows.h>
+#endif
 #include <direct.h>
 #include <io.h>
 #endif
 
 
 #ifdef BSON_OS_UNIX
-# include <unistd.h>
-# include <sys/time.h>
+#include <unistd.h>
+#include <sys/time.h>
 #endif
 
 
@@ -75,87 +72,102 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <stdint.h>
 
 
 BSON_BEGIN_DECLS
 
-
+#if !defined(_MSC_VER) || (_MSC_VER >= 1800)
+#include <inttypes.h>
+#endif
 #ifdef _MSC_VER
-# include "bson-stdint-win32.h"
-# ifndef __cplusplus
-   /* benign redefinition of type */
-#  pragma warning (disable :4142)
-#  ifndef _SSIZE_T_DEFINED
-#   define _SSIZE_T_DEFINED
-    typedef SSIZE_T ssize_t;
-#  endif
-    typedef SIZE_T size_t;
-#  pragma warning (default :4142)
-# else
-    /*
-     * MSVC++ does not include ssize_t, just size_t.
-     * So we need to synthesize that as well.
-     */
-#  pragma warning (disable :4142)
-#  ifndef _SSIZE_T_DEFINED
-#   define _SSIZE_T_DEFINED
-    typedef SSIZE_T ssize_t;
-#  endif
-#  pragma warning (default :4142)
-# endif
-# define PRIi32 "d"
-# define PRId32 "d"
-# define PRIu32 "u"
-# define PRIi64 "I64i"
-# define PRId64 "I64i"
-# define PRIu64 "I64u"
+#ifndef __cplusplus
+/* benign redefinition of type */
+#pragma warning(disable : 4142)
+#ifndef _SSIZE_T_DEFINED
+#define _SSIZE_T_DEFINED
+typedef SSIZE_T ssize_t;
+#endif
+#ifndef _SIZE_T_DEFINED
+#define _SIZE_T_DEFINED
+typedef SIZE_T size_t;
+#endif
+#pragma warning(default : 4142)
 #else
-# include "bson-stdint.h"
-# include <inttypes.h>
+/*
+ * MSVC++ does not include ssize_t, just size_t.
+ * So we need to synthesize that as well.
+ */
+#pragma warning(disable : 4142)
+#ifndef _SSIZE_T_DEFINED
+#define _SSIZE_T_DEFINED
+typedef SSIZE_T ssize_t;
+#endif
+#pragma warning(default : 4142)
+#endif
+#ifndef PRIi32
+#define PRIi32 "d"
+#endif
+#ifndef PRId32
+#define PRId32 "d"
+#endif
+#ifndef PRIu32
+#define PRIu32 "u"
+#endif
+#ifndef PRIi64
+#define PRIi64 "I64i"
+#endif
+#ifndef PRId64
+#define PRId64 "I64i"
+#endif
+#ifndef PRIu64
+#define PRIu64 "I64u"
+#endif
 #endif
 
-#if defined(__MINGW32__) && ! defined(INIT_ONCE_STATIC_INIT)
-# define INIT_ONCE_STATIC_INIT RTL_RUN_ONCE_INIT
+#if defined(__MINGW32__) && !defined(INIT_ONCE_STATIC_INIT)
+#define INIT_ONCE_STATIC_INIT RTL_RUN_ONCE_INIT
 typedef RTL_RUN_ONCE INIT_ONCE;
 #endif
 
 #ifdef BSON_HAVE_STDBOOL_H
-# include <stdbool.h>
+#include <stdbool.h>
 #elif !defined(__bool_true_false_are_defined)
-# ifndef __cplusplus
-   typedef signed char bool;
-#  define false 0
-#  define true 1
-# endif
-# define __bool_true_false_are_defined 1
+#ifndef __cplusplus
+typedef signed char bool;
+#define false 0
+#define true 1
+#endif
+#define __bool_true_false_are_defined 1
 #endif
 
 
 #if defined(__GNUC__)
-# if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 1)
-#  define bson_sync_synchronize() __sync_synchronize()
-# elif defined(__i386__ ) || defined( __i486__ ) || defined( __i586__ ) || \
-          defined( __i686__ ) || defined( __x86_64__ )
-#  define bson_sync_synchronize() asm volatile("mfence":::"memory")
-# else
-#  define bson_sync_synchronize() asm volatile("sync":::"memory")
-# endif
+#if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 1)
+#define bson_sync_synchronize() __sync_synchronize ()
+#elif defined(__i386__) || defined(__i486__) || defined(__i586__) || \
+   defined(__i686__) || defined(__x86_64__)
+#define bson_sync_synchronize() asm volatile("mfence" ::: "memory")
+#else
+#define bson_sync_synchronize() asm volatile("sync" ::: "memory")
+#endif
 #elif defined(_MSC_VER)
-# define bson_sync_synchronize() MemoryBarrier()
+#define bson_sync_synchronize() MemoryBarrier ()
 #endif
 
 
-#if !defined(va_copy) && defined(_MSC_VER)
-# define va_copy(dst,src) ((dst) = (src))
+#if !defined(va_copy) && defined(__va_copy)
+#define va_copy(dst, src) __va_copy (dst, src)
 #endif
 
 
-#if !defined(va_copy) && defined(__GNUC__) && __GNUC__ < 3
-# define va_copy(dst,src) __va_copy(dst, src)
+#if !defined(va_copy)
+#define va_copy(dst, src) ((dst) = (src))
 #endif
 
 

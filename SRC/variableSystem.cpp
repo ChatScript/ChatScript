@@ -16,7 +16,8 @@ int impliedSet = ALREADY_HANDLED;	// what fact set is involved in operation
 int impliedWild = ALREADY_HANDLED;	// what wildcard is involved in operation
 char impliedOp = 0;					// for impliedSet, what op is in effect += = 
 HEAPREF variableChangedThreadlist = NULL;
-
+char* nullLocal = "``";
+char* nullGlobal = "";
 int wildcardIndex = 0;
 char wildcardOriginalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wild cards can be stored
 char wildcardCanonicalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot wild cards can be stored
@@ -98,7 +99,7 @@ void JoinMatch(int start, int end, int index, bool inpattern)
             unsigned char japanletter[8];
             int kind = 0;
             bool japanese = false;
-            if (!japanese) japanese = csapicall == TEST_PATTERN && IsJapanese((unsigned char*)word, (unsigned char*)&japanletter, kind);
+            if (!japanese) japanese = csapicall == TEST_PATTERN && IsJapanese(word, (unsigned char*)&japanletter, kind);
             if (!kind)
             {
                 strcat(wildcardOriginalText[index], wildcardSeparator);
@@ -518,12 +519,7 @@ ANSWER:
     return answer;
 
 NULLVALUE:
-    if (localvar)
-    {
-        item = "``";
-        return item + 2; // null value for locals
-    }
-    return "";
+    return (localvar) ? (nullLocal + 2) : nullGlobal; // null value for locals
 }
 
 void ClearUserVariableSetFlags()
@@ -591,9 +587,13 @@ void SetVariable(WORDP D, char* value)
         if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue, value))) // only permanent variables get tracked
         {
             variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
-                (uint64)D, (uint64)D->w.userValue, (uint64)0);// save name
+                (uint64)D, (uint64)D->w.userValue, (uint64)D->internalBits);// save name
         }
         D->w.userValue = value;
+        if (D->word[1] == '^') // function definition assignment
+        {
+            variableChangedThreadlist = MakeFunctionDefinition(value); // change internal bits AFTER save of value
+        }
     }
 }
 
@@ -639,14 +639,17 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 
 	if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
 	{
-
 		if (!stricmp(var, (char*)"$cs_json_array_defaults"))
 		{
 			int64 val = 0;
 			if (word && *word) ReadInt64(word, val);
 			jsonDefaults = (int)val;
 		}
-
+        // tokencontrol changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_language"))
+        {
+            SetLanguage(word);
+        }
 		// tokencontrol changes are noticed by the engine
 		else if (!stricmp(var, (char*)"$cs_token"))
 		{
@@ -844,6 +847,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     if (*var == '_') oldValue = GetwildcardText(GetWildcardID(var), true); // onto a wildcard
     else if (*var == USERVAR_PREFIX) oldValue = GetUserVariable(var, false, true); // onto user variable
     else if (*var == '^') oldValue = FNVAR(var + 1); // onto function argument
+    else if (*var == SYSVAR_PREFIX) oldValue =  SystemVariable(var, NULL); 
     else return FAILRULE_BIT; // illegal
 
                               // get augment value
@@ -916,6 +920,8 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
         }
     }
     else if (*var == '^') strcpy(FNVAR(var + 1), result);
+    else if (*var == SYSVAR_PREFIX)  SystemVariable(var, result);
+    
     return NOPROBLEM_BIT;
 }
 
@@ -1227,6 +1233,11 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         ptr = ProcessMath(ptr, buffer, result);
     }
+    else if (*word == '$' && word[1] == '^') // function definition assignment
+    {
+        strcpy(buffer, ptr+2);
+        ptr = "";
+    }
     else
     {
         ptr = GetCommandArg(ptr, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT); // need to see null assigned -- store raw numbers, not with commas, lest relations break
@@ -1435,9 +1446,10 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             int count = FACTSET_COUNT(set);
             FACT* F = factSet[set][count];
             unsigned int id = Fact2Index(F);
-            char fact[MAX_WORD_SIZE];
+            char* fact = AllocateBuffer();
             WriteFact(F, false, fact, false, false,true);
             Log(USERLOG,"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
+            FreeBuffer();
         }
     }
 

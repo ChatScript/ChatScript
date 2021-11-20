@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_SOCKET_PRIVATE_H
 #define MONGOC_SOCKET_PRIVATE_H
-
-#if !defined (MONGOC_INSIDE) && !defined (MONGOC_COMPILATION)
-# error "Only <mongoc.h> can be included directly."
-#endif
 
 #include "mongoc-socket.h"
 
 BSON_BEGIN_DECLS
 
-struct _mongoc_socket_t
-{
+struct _mongoc_socket_t {
 #ifdef _WIN32
    SOCKET sd;
 #else
@@ -34,11 +31,13 @@ struct _mongoc_socket_t
 #endif
    int errno_;
    int domain;
+   int pid;
 };
 
-mongoc_socket_t *mongoc_socket_accept_ex (mongoc_socket_t *sock,
-                                          int64_t          expire_at,
-                                          uint16_t        *port);
+mongoc_socket_t *
+mongoc_socket_accept_ex (mongoc_socket_t *sock,
+                         int64_t expire_at,
+                         uint16_t *port);
 
 BSON_END_DECLS
 

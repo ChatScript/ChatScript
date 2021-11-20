@@ -14,14 +14,12 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_GRIDFS_PRIVATE_H
 #define MONGOC_GRIDFS_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 
 #include "mongoc-read-prefs.h"
 #include "mongoc-write-concern.h"
@@ -31,18 +29,18 @@
 BSON_BEGIN_DECLS
 
 
-struct _mongoc_gridfs_t
-{
-   mongoc_client_t     *client;
+struct _mongoc_gridfs_t {
+   mongoc_client_t *client;
    mongoc_collection_t *files;
    mongoc_collection_t *chunks;
 };
 
 
-mongoc_gridfs_t *_mongoc_gridfs_new (mongoc_client_t *client,
-                                     const char      *db,
-                                     const char      *prefix,
-                                     bson_error_t    *error);
+mongoc_gridfs_t *
+_mongoc_gridfs_new (mongoc_client_t *client,
+                    const char *db,
+                    const char *prefix,
+                    bson_error_t *error);
 
 
 BSON_END_DECLS

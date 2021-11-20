@@ -11,7 +11,7 @@ static char systemValue[MAX_WORD_SIZE]; // common answer place
 ////////////////////////////////////////////////////
 /// OVERVIEW CODE 
 ////////////////////////////////////////////////////
-char dbparams[1000];
+char dbparams[MAX_WORD_SIZE*4];
 
 void InitSystemVariables()
 {
@@ -500,6 +500,42 @@ static char* Sversion(char* value)
     return systemValue;
 }
 
+#ifndef DISCARDJSONOPEN
+static char* Scurlversion(char* value)
+{
+    static char hold[50] = ".";
+    if (value) return AssignValue(hold,value);
+    if (*hold != '.') return hold;
+    sprintf(systemValue,(char*)"%s",CurlVersion());
+    return systemValue;
+}
+#endif
+
+static char* Sdbversion(char* value)
+{
+    static char hold[50] = ".";
+    if (value) return AssignValue(hold,value);
+    if (*hold != '.') return hold;
+    sprintf(systemValue,(char*)"");
+#ifndef DISCARDMYSQL
+    strcat(systemValue,MySQLVersion());
+    strcat(systemValue,(char*)" ");
+#endif
+#ifndef DISCARDMICROSOFTSQL
+    strcat(systemValue,MsSqlVersion());
+    strcat(systemValue,(char*)" ");
+#endif
+#ifndef DISCARDPOSTGRES
+    strcat(systemValue,PostgresVersion());
+    strcat(systemValue,(char*)" ");
+#endif
+#ifndef DISCARDMONGO
+    strcat(systemValue,MongoVersion());
+    strcat(systemValue,(char*)" ");
+#endif
+    return systemValue;
+}
+
 static char* Sfact(char* value)
 {
 	static char hold[50] = ".";
@@ -608,6 +644,31 @@ static char* ScrossTalk1(char* value)
 	}
 	return (*hold != '.') ? hold : (char*)"";
 }
+
+static char* ScrossTalk2(char* value)
+{
+	static char hold[4000];
+	if (value)
+	{
+		size_t len = strlen(value);
+		if (len >= 4000) value[len - 1] = 0;
+		strcpy(hold, value);
+	}
+	return (*hold != '.') ? hold : (char*)"";
+}
+
+static char* ScrossTalk3(char* value)
+{
+	static char hold[4000];
+	if (value)
+	{
+		size_t len = strlen(value);
+		if (len >= 4000) value[len - 1] = 0;
+		strcpy(hold, value);
+	}
+	return (*hold != '.') ? hold : (char*)"";
+}
+
 static char* Sdocument(char* value)
 {
 	static char hold[50] = ".";
@@ -648,6 +709,16 @@ static char* Srule(char* value)
 	if (*hold != '.') return hold;
 	if (currentTopicID == 0 || currentRuleID == -1) return "";
 	sprintf(systemValue,(char*)"%s.%u.%u",GetTopicName(currentTopicID),TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID));
+    return systemValue;
+}
+
+static char* StestPattern(char* value)
+{
+    static char hold[50] = ".";
+    if (value) return AssignValue(hold,value);
+    if (*hold != '.') return hold;
+    if (testPatternIndex == -1) return "";
+    sprintf(systemValue,(char*)"%d",testPatternIndex);
     return systemValue;
 }
 
@@ -826,6 +897,8 @@ static char* sentencehold = NULL;
 
 char* SoriginalInput(char* value)
 {
+	if (csapicall == TEST_PATTERN) return testpatterninput;
+
 	static char hold[50] = ".";
 	if (value)
 	{
@@ -1193,6 +1266,12 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%all",Sall,(char*)"Boolean - is all flag on"}, 
 	{ (char*)"%crosstalk",ScrossTalk,(char*)"cross bot/cross document variable storage"}, 
 	{ (char*)"%crosstalk1",ScrossTalk1,(char*)"additional cross bot/cross document variable storage" },
+	{ (char*)"%crosstalk2",ScrossTalk2,(char*)"cross bot/cross document variable storage"},
+	{ (char*)"%crosstalk3",ScrossTalk3,(char*)"additional cross bot/cross document variable storage" },
+#ifndef DISCARDJSONOPEN
+    { (char*)"%curlversion",Scurlversion,(char*)"Curl version information"},
+#endif
+    { (char*)"%dbversion",Sdbversion,(char*)"Database version information"},
 	{ (char*)"%document",Sdocument,(char*)"Boolean - is :document flag on"},
 	{ (char*)"%fact",Sfact,(char*)"Most recent fact id"}, 
 	{ (char*)"%freetext",SfreeText,(char*)"Kbytes of available text space"}, 
@@ -1214,7 +1293,8 @@ SYSTEMVARIABLE sysvars[] =
     { (char*)"%forkCount",SForkCount,(char*)"Returns the number of forks"},
     { (char*)"%serverType",SServerType,(char*)"Returns parent, fork, server. server being this is a server environment where there are no child forks" },
 	{ (char*)"%restart",SRestart,(char*)"pass string back to a restart"},
-	{ (char*)"%timeout",STimeout,(char*)"did system time out happen" },
+    { (char*)"%testpattern",StestPattern,(char*)"The index number of current pattern being matched in ^testpattern"},
+    { (char*)"%timeout",STimeout,(char*)"did system time out happen" },
     
 	{ (char*)"\r\n---- Build variables",0,(char*)""},
     { (char*)"%tableinput",StableInput,(char*)"Current input line of table processing" },

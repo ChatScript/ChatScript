@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 
@@ -119,6 +119,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`windowsbuglog=xxx` | names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area
 |`linuxsbuglog=xxx` | names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area
 |`Vcs_new_user="text"` | if input has given text within it, treat user as new and dont read the topic file
+|`deployloggingdelay=5`      | auto enable server logging for 5 minutes after a deploy before using default logging value
 
 ## Execution options
 | option           | description
@@ -146,6 +147,8 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`blockapitrace`	| disables any %trace_on in ^testpattern and ^testoutput. Used for production servers.
 |`traceboot`	| turns on tracing while cs_boot is running at startup
 |`parselimit=n`	| if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed
+|`nl_save=1`	| for ^testpattern, enables results of nl analysis to be saved onto the $cs_nlinfo variable so that outside can pass it back in on future calls
+|`parselimit=1`	| inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
@@ -341,13 +344,6 @@ The server log can be written regardless of whether CS is running in
 server mode or not.
 
 ```
-Noserverprelog
-```
-Normally CS writes of a copy of input before server begins work on it to server log.
-Helps see what crashed the server (since if it crashes you get no log entry). This turns it
-off to improve performance.
-
-```
 serverlogauthcode=xxxxx
 ```
 In addition to permanently turning on server and/or user logging, you can provide a cheat code in your
@@ -393,13 +389,6 @@ Buglogging=none,file,stdout,stderr
 ```
 Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. 
 Alternate form of request, you can use buglogging=none for off and file, stdout, stderr.  - you may combine buglogging=file,stderr
-
-```
-stdlogging=1
-```
-Superceeded by `serverlogging=`.
-Route normal server logs to stdout and bugs logs to stderr.  Useful with Docker. 
-Use stdlogging=0 to turn off (the default). 
 
 ```
 DebugLevel=n

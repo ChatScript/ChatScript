@@ -34,6 +34,17 @@ char const * pgdefault_userupdate = "UPDATE userfiles SET file = $1::bytea WHERE
 #pragma comment(lib, "../SRC/postgres/libpq.lib")
 #endif
 
+const char* PostgresVersion()
+{
+    static char version[MAX_WORD_SIZE] = "";
+    if (*version) return(version);
+    
+    int data = PQlibVersion();
+
+    sprintf(version,"Postgres %d", data);
+    return(version);
+}
+
 void PostgresScriptShutDown() // script opened file
 {
 	if (conn)  PQfinish(conn);

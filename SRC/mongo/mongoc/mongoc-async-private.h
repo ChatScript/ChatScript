@@ -14,47 +14,45 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_ASYNC_PRIVATE_H
 #define MONGOC_ASYNC_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 #include "mongoc-stream.h"
 
 BSON_BEGIN_DECLS
 
 struct _mongoc_async_cmd;
 
-typedef struct _mongoc_async
-{
+typedef struct _mongoc_async {
    struct _mongoc_async_cmd *cmds;
-   size_t                    ncmds;
-   uint32_t                  request_id;
+   size_t ncmds;
+   uint32_t request_id;
 } mongoc_async_t;
 
-typedef enum
-{
+typedef enum {
+   MONGOC_ASYNC_CMD_CONNECTED,
    MONGOC_ASYNC_CMD_IN_PROGRESS,
    MONGOC_ASYNC_CMD_SUCCESS,
    MONGOC_ASYNC_CMD_ERROR,
    MONGOC_ASYNC_CMD_TIMEOUT,
 } mongoc_async_cmd_result_t;
 
-typedef void (*mongoc_async_cmd_cb_t)(mongoc_async_cmd_result_t result,
-                                      const bson_t             *bson,
-                                      int64_t                   rtt_msec,
-                                      void                     *data,
-                                      bson_error_t             *error);
+typedef void (*mongoc_async_cmd_cb_t) (struct _mongoc_async_cmd *acmd,
+                                       mongoc_async_cmd_result_t result,
+                                       const bson_t *bson,
+                                       int64_t duration_usec);
 
-typedef int
-(*mongoc_async_cmd_setup_t)(mongoc_stream_t *stream,
-                            int             *events,
-                            void            *ctx,
-                            int32_t         timeout_msec,
-                            bson_error_t    *error);
+typedef mongoc_stream_t *(*mongoc_async_cmd_initiate_t) (
+   struct _mongoc_async_cmd *);
+
+typedef int (*mongoc_async_cmd_setup_t) (mongoc_stream_t *stream,
+                                         int *events,
+                                         void *ctx,
+                                         int32_t timeout_msec,
+                                         bson_error_t *error);
 
 
 mongoc_async_t *
@@ -63,20 +61,8 @@ mongoc_async_new ();
 void
 mongoc_async_destroy (mongoc_async_t *async);
 
-bool
-mongoc_async_run (mongoc_async_t *async,
-                  int32_t         timeout_msec);
-
-struct _mongoc_async_cmd *
-mongoc_async_cmd (mongoc_async_t          *async,
-                  mongoc_stream_t         *stream,
-                  mongoc_async_cmd_setup_t setup,
-                  void                    *setup_ctx,
-                  const char              *dbname,
-                  const bson_t            *cmd,
-                  mongoc_async_cmd_cb_t    cb,
-                  void                    *cb_data,
-                  int32_t                  timeout_msec);
+void
+mongoc_async_run (mongoc_async_t *async);
 
 BSON_END_DECLS
 

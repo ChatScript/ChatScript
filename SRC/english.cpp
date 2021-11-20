@@ -732,8 +732,8 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		}
 	}
 
-	bool csEnglish = (externalTagger && stricmp(language, "english")) ? false : true;
-	bool isGerman = (!stricmp(language, "german")) ? true : false;
+	bool csEnglish = !stricmp(language, "english");
+	bool isGerman = !stricmp(language, "german");
 
 	// number processing has happened
 	int numberkind = IsNumber(original, numberStyle);
@@ -2180,9 +2180,16 @@ WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 b
 
 	if (!stricmp(suffix, "ing") && copy[lenword - lensuffix - 1] == 'k') // possible k replacing c or added after c
 	{
-		D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouackint
+        int lenprefix = lenword - lensuffix;
+        D = FindWord(copy, lenprefix, LOWERCASE_LOOKUP); // banking
+        if (D && D->properties & bits) return D;
+        D = FindWord(copy, lenprefix, UPPERCASE_LOOKUP);
+        if (D && D->properties & bits) return D;
+
+        --lenprefix;
+        D = FindWord(copy, lenprefix, LOWERCASE_LOOKUP); // bivouacking
 		if (D && D->properties & bits) return D;
-		D = FindWord(copy, lenword - lensuffix - 1, UPPERCASE_LOOKUP); 
+		D = FindWord(copy, lenprefix, UPPERCASE_LOOKUP);
 		if (D && D->properties & bits) return D;
 	}
 	if (!stricmp(suffix, "ed") && copy[lenword - lensuffix ] == 'e') // merely need to add d to word ending in e

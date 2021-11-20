@@ -45,6 +45,17 @@ static char mysqlpasswd[300];
 // SET SQL_SAFE_UPDATES=1   -- restore safe update
 // DROP TABLE userfiles;	--destroy the entire collection of saved entries. Then recreate it.
 
+const char* MySQLVersion()
+{
+    static char version[MAX_WORD_SIZE] = "";
+    if (*version) return(version);
+    
+    const char *data = mysql_get_client_info();
+
+    sprintf(version,"MySql %s", data);
+    return(version);
+}
+
 static void GetMySQLParams(char* params)
 {
 	// mysql="host=localhost port=3306 user=root password=admin db=chatscript" 

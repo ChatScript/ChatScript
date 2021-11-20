@@ -16,7 +16,7 @@
 
 #include "mongoc-config.h"
 
-#ifdef MONGOC_ENABLE_OPENSSL
+#ifdef MONGOC_ENABLE_CRYPTO_LIBCRYPTO
 
 #include "mongoc-rand.h"
 #include "mongoc-rand-private.h"
@@ -25,24 +25,40 @@
 
 #include <openssl/rand.h>
 
-int _mongoc_rand_bytes(uint8_t * buf, int num) {
-    return RAND_bytes(buf, num);
+int
+_mongoc_rand_bytes (uint8_t *buf, int num)
+{
+#if OPENSSL_VERSION_NUMBER < 0x10101000L
+   /* Versions of OpenSSL before 1.1.1 can potentially produce the same random
+    * sequences in processes with the same PID. Rather than attempt to detect
+    * PID changes (useful for parent/child forking but not if PIDs wrap), mix
+    * the current time into the generator's state.
+    * See also: https://wiki.openssl.org/index.php/Random_fork-safety */
+   struct timeval tv;
+
+   bson_gettimeofday (&tv);
+   RAND_add (&tv, sizeof(tv), 0.0);
+#endif
+
+   return RAND_bytes (buf, num);
 }
 
-int _mongoc_pseudo_rand_bytes(uint8_t * buf, int num) {
-    return RAND_pseudo_bytes(buf, num);
+void
+mongoc_rand_seed (const void *buf, int num)
+{
+   RAND_seed (buf, num);
 }
 
-void mongoc_rand_seed(const void* buf, int num) {
-    RAND_seed(buf, num);
+void
+mongoc_rand_add (const void *buf, int num, double entropy)
+{
+   RAND_add (buf, num, entropy);
 }
 
-void mongoc_rand_add(const void* buf, int num, double entropy) {
-    RAND_add(buf, num, entropy);
-}
-
-int mongoc_rand_status(void) {
-    return RAND_status();
+int
+mongoc_rand_status (void)
+{
+   return RAND_status ();
 }
 
 #endif

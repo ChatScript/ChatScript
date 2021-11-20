@@ -1,9 +1,9 @@
 
 #define MAX_SYNLOOP	60
-
+#define MAX_MULTIDICT 4	// 3 languages + universal or when no multi
 #define MAX_HASH_BUCKETS 215127 
 #define UNIQUEENTRY '`'				// leads words that wont clash with other dictionary entries
-
+#define MAX_HASH_DEPTH  80
 #define GETNEXTNODE(D) (D->nextNode & NODEBITS)		// top byte is the length of joined phrases of which this is header
 #define GETMULTIWORDHEADER(D)  (D->nextNode >> MULTIWORDHEADER_SHIFT)
 #define SETMULTIWORDHEADER(D,n) (  D->nextNode &= NODEBITS, D->nextNode |= n << MULTIWORDHEADER_SHIFT )
@@ -12,7 +12,7 @@
 
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
 
-#define CHECKSTAMP 7
+#define CHECKSTAMP 9  // binary version id
 
 // system internal bits on dictionary entries internalBits
 
@@ -84,10 +84,13 @@
 #define VARIABLE_ARGS_TABLE	 0x08000000		// only for table macros and output macros
 #define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
 #define DEFINES								0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
-// unused												0x20000000
-// unused												0x40000000
-// unused												0x80000000
 
+#define LANGUAGE_BITS				0x60000000	 // which language is this word from (applies only to ordinary words, not variables, etc)
+#define LANGUAGE_SHIFT			29 // matches FACT's use of LANGUAGE_SHIFT on opposite end
+// unused	pending language use			0x80000000
+
+#define LANGUAGE_UNIVERSAL 0
+#define LANGUAGE_1 0x20000000
 #define FN_TRACE_BITS ( MACRO_TRACE | NOTRACE_FN )
 #define FN_TIME_BITS ( MACRO_TIME | NOTIME_FN )
 
@@ -164,7 +167,11 @@ MEANING GetMeaning(WORDP D, int index);
 #define GetMeaningsFromMeaning(T) (GetMeanings(Meaning2Word(T)))
 #define Meaning2Index(x) ( (((unsigned int)x) & INDEX_BITS)  >> INDEX_OFFSET) //   which dict entry meaning
 #define CommonLevel(x) ((int)((x & COMMONNESS) >> (uint64)(64-14)))
-
+extern char language[40];
+extern unsigned int max_language;
+extern unsigned int max_fact_language;
+extern char language_list[200];
+extern unsigned int language_bits;
 unsigned char* GetWhereInSentence(WORDP D); // always skips the linking field at front
 extern unsigned int* hashbuckets;
 extern int worstDictAvail;
@@ -174,6 +181,8 @@ void LockLevel();
 void UnlockLayer(int layer);
 char* GetWord(char* word);
 WORDP GetPlural(WORDP D);
+bool IsValidLanguage(WORDP D);
+bool SetLanguage(char* arg1);
 void SetPlural(WORDP D,MEANING M);
 WORDP GetComparison(WORDP D);
 void SetComparison(WORDP D,MEANING M);
@@ -184,6 +193,7 @@ WORDP RawCanonical(WORDP D);
 void SetCanonical(WORDP D,MEANING M);
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
+bool LanguageRestrict(char* word);
 void ReverseDictionaryChanges(HEAPREF start);
 void SetTriedMeaningWithData(uint64 bits, unsigned int* data);
 void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
@@ -196,12 +206,14 @@ extern WORDP dictionaryBase;
 extern uint64 maxDictEntries;
 extern unsigned int userTopicStoreSize;
 extern unsigned int userTableSize;
+extern bool multidict;
 extern HEAPREF ongoingDictChanges;  
 extern bool monitorDictChanges;
 extern unsigned long maxHashBuckets;
 extern bool setMaxHashBuckets;
 extern WORDP dictionaryLocked;
 extern bool fullDictionary;
+extern unsigned int languageIndex;
 extern uint64 verbFormat;
 extern uint64 nounFormat;
 extern uint64 adjectiveFormat;
@@ -273,16 +285,16 @@ void ReadQueryLabels(char* file);
 void FreeDictionary();
 void ClearWordWhere(WORDP D,int at);
 void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
-char* UseDictionaryFile(const char* name);
+char* UseDictionaryFile(const char* name,const char* list = NULL);
 void ClearWhereInSentence();
 void ClearTriedData();
 void LoadDictionary(char* heapstart);
 void ClearDictionaryFiles();
-int CopyWhereInSentence(int oldindex);
+HEAPINDEX CopyWhereInSentence(int oldindex);
 void RestorePropAndSystem(char* stringUsed);
 inline unsigned int GlossIndex(MEANING M) { return M >> 24;}
 void ReadAbbreviations(char* file);
-void ReadLiveData();
+void ReadLiveData(char* language);
 void ReadLivePosData();
 WORDP GetSubstitute(WORDP D);
 void ShowStats(bool reset);
@@ -326,7 +338,7 @@ void ReturnToAfterLayer(int layer,bool unlocked);
 void ReturnBeforeLayer(int layer, bool unlocked);
 void DeleteDictionaryEntry(WORDP D);
 void BuildDictionary(char* junk);
-unsigned int GetAccess(WORDP D);
+HEAPINDEX GetAccess(WORDP D);
 void SetTried(WORDP D, int value);
 
 // read and write dictionary or its entries
@@ -346,6 +358,7 @@ void Write24(unsigned int val, FILE* out);
 // utilities
 void ReadWordsOf(char* file,uint64 mark);
 void WalkDictionary(DICTIONARY_FUNCTION func,uint64 data = 0);
+void WalkLanguages(LANGUAGE_FUNCTION func);
 char* FindCanonical(char* word, int i, bool nonew = false);
 void VerifyEntries(WORDP D,uint64 junk);
 void NoteLanguage();

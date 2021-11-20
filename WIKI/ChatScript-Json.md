@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 # Real World JSON
@@ -372,7 +372,7 @@ json text string and outputs a strict one.
 
 ## Accessing JSON structures
 
-## Direct access via JSON variables `$myvar.field` and `$myvar[]
+## Direct access via JSON variables `$myvar.field` and `$myvar[]`
 
 If a variable holds a JSON object value, you can directly set and get from fields of that object
 using dotted notation. This can be a fixed static fieldname you give or a user variable value or a match variable value (quoted or unquoted):
@@ -489,9 +489,15 @@ $data.\$varname = hello
 If item is the name of a json array, it returns `array`. If item is the name of a json object, it returns `object`. Otherwise
 it fails.
 
-### `^jsonmerge`(struct1 struct2)
+### `^jsonmerge`( {kind} struct1 struct2)
 Takes two json arrays or two json objects and adds unique elements of struct2 into 
 struct1 recursively. 
+
+If `kind` is `key` and the two structs are arrays of objects, then unique objects from the second array are added to the first 
+array (this is the default). Unique meaning that the first property from the object does not exist.
+If `kind` is `key-value` is like `key` but the uniqueness test is extended to the property value as well.
+If `kind` is `sum` and the two structs are objects, then the values for the same property name in the two objects are added together.
+If `kind` is `sumif` is like `sum` but items in `struct1` are only kept if they are also in `struct2`.
 
 ### `^jsoncount`(struct depth)
 Walks the given JSON structure, displaying it, except that for arrays arising after depth,
@@ -688,7 +694,7 @@ suppress this with the `SAFE` flag. `^jsonarraydelete(SAFE $obj $key)`.
 deprecated in favor of ^length
 
 
-### `^jsontext(factid)
+### `^jsontext`(factid)
 
 ^jsontext adds quotes if object of fact is a json text and
 FAILS if object is not a json fact.  
@@ -710,6 +716,7 @@ Control describes how to merge fields of json objects. `key` means
 if arg1 already has this key, ignore the corresponding field from arg2.
 `key-value` means add in the field and value unless they are the same.
 
+You can also request the system to sum values of fields of objects with control values of `sum` or `sumif`.
 
 
 

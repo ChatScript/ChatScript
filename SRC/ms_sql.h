@@ -18,6 +18,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #ifndef DISCARDMICROSOFTSQL
+const char* MsSqlVersion();
 void MsSqlUserFilesCode(char* params); // file system init
 void MsSqlFullCloseCode();
 extern char mssqlparams[];

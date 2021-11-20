@@ -14,21 +14,22 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_INIT_H
 #define MONGOC_INIT_H
 
-#if !defined (MONGOC_INSIDE) && !defined (MONGOC_COMPILATION)
-# error "Only <mongoc.h> can be included directly."
-#endif
+#include <bson/bson.h>
 
-#include <bson.h>
-
+#include "mongoc-macros.h"
 
 BSON_BEGIN_DECLS
 
 
-void mongoc_init   (void);
-void mongoc_cleanup(void);
+MONGOC_EXPORT (void)
+mongoc_init (void);
+MONGOC_EXPORT (void)
+mongoc_cleanup (void);
 
 
 BSON_END_DECLS

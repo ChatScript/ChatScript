@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-topic-manual">ChatScript Advanced Topic Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 8/18/2019 cs9.62</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/21/2021 cs11.6</p>
 <h1 id="advanced-topics">ADVANCED TOPICS</h1>
 <p>There are several things to know about advanced topics.</p>
 <h2 id="topic-execution">Topic Execution</h2>
@@ -111,6 +111,10 @@ u: ( dog ) I hate dogs</code></pre>
 <td>normally if you try to redeclare a concept, you get an error. <code>more</code> tells CS you intend to extend the concept and allows additional keywords.</td>
 </tr>
 <tr class="odd">
+<td><code>topic_safe</code></td>
+<td>when you edit a topic, it clears a user's cache of it unless this flag is set, meaning edits were safe to continue conversation</td>
+</tr>
+<tr class="even">
 <td><code>bot=name</code></td>
 <td>if this is given, only named bots are allowed to use this topic. See <a href="ChatScript-Multiple-Bots.html">ChatScript Multiple Bots</a> manual.</td>
 </tr>

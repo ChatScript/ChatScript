@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 7/18/2021 cs11.5
+<br>Revision 11/21/2021 cs11.6
 
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
@@ -17,6 +17,7 @@ Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
 * [Messaging](ChatScript-Engine-md#messaging)
 * [Error Handling](ChatScript-Engine-md#error-handling)
 * [Multiple Bots](ChatScript-Engine-md#multiple-bots)
+* [Multiple Languages](ChatScript-Engine-md#multiple-languages)
 * [Private Code](ChatScript-Engine-md#private-code)
 * [Documentation](ChatScript-Engine-md#documentation)
 
@@ -1150,6 +1151,99 @@ base will be 'a' instead with 15 deducted from the index.
 The list in parens are the function arguments and any local variables that need to be saved 
 and restored across the call. Following that is the actual compiled script code, ending
 with a backtick which completes this definition.
+
+# Multiple Languages
+
+ChatScript leans heavily on its dictionary, which normally 
+is in a single language. But you can support up to 3 languages in the
+dictionary simultanously as well as the "universal" language as well as Japanese, which is not treated as needing a dictionary. Words and
+facts are segregated by language. 
+
+The command line parameter `language=` can consist of a series of 
+languages separated by commas. This enables multi-dictionary behavior
+and with it, the ability to change the current language on the fly.
+E.g., `language=english,spanish,german,japanese`
+Note that japanese involves no dictionary at all, so it can be listed
+without compromising the 3-language limit.
+
+Words in different languages in the real world are listed
+in separate dictionaries by language (with some foreign words listed also in a language's
+dictionary as imported). Aside from that reason, words are segregated by language because
+the parts of speech data may vary as may its meanings (concept sets it belongs to, etc).
+and facts (which depend on words) may be language specific. One cannot
+have a fact consisting of words from different languages. All
+words must come from the same language or from universal language.
+
+Words that ChatScript depends upon, like "member" and "is" are part of the
+universal language, visible no matter what language you are currently in.
+Variables, concept and topic names, numbers, operators and punctuation are
+also language agnostic and always visible.
+
+## Internal data representations
+WORDENTRY has 2 bits in internal bits, which represent which of 4 languages the word
+is associated with (universal and up to 3 others). All dictionary lookup 
+routines only return answers from the current or univeral language.
+
+FACT also has 2 bits in its flags, representing the same thing. This is needed
+because when facts are written out in pure ascii, any association of a word
+and its language would be lost. Again, code that retrieves facts only finds facts
+from the current language or universal. When facts are created after loading, they are automatically 
+assigned the current language. They can then only be seen by that language or "universal" if that language gets set in script
+using ^setlanguage.
+
+LIVEDATA like monthnames, numbers, currency are now arrays of that data by languageIndex.
+Treetagger data is also arrays by languageIndex.
+
+The internal variables involved in language representation are:
+```
+Always used:
+    language - current language
+    multidict-  boolean true if using multiple dictionaries
+Used when multidict is true:
+    language_list - list of available languages separated by commas
+    languageIndex -  0..3 index of language for array indexing and fact bits
+    languageBits - high end bits for dictionary word
+    $cs_language - user variable that can change language
+```
+
+## EXTERNAL REPRESENTATION
+
+Dictionaries are read in under control of a specific language, so there is no special
+annotation on the dictionary data externally.
+
+External fact representation writes the fact's flags, which contain any 
+language restriction on it. A word that is not previously
+known in the universal language will be found or created in the 
+language designated by the fact.
+
+Other data created in TOPIC folders resulting from compilation also need to have
+words annotated with language modifiers. For example, 
+concepts are read in from "keywordsn.txt" and are not normal fact lists.
+Concepts are listed by name, followed by a list of members, from which facts
+are generated at load time. This requires that words are annotated with optional
+restrictions of bot id and language. Words with such restrictions have a suffix
+that begins with backtick, and are the bot id (if any) and a hyphen and a language index
+(if any). Concepts can thus mix members from different languages but those members are only 
+visible while in that language.
+
+Similarly words in CANON,
+PRIVATE, KEYWORDS, DICT, and dictionary entries in FACT must also be annotated with
+a backtick and language restriction. 
+
+Words in PATTERNWORDS and SCRIPT do not
+need annotation. Scripts/Topics are not language
+specific and only look for the spelled forms and not their language meanings,
+and enforce language restrictions on the fly. They are not language specific because
+that would require control script topics be duplicated per language,
+which would be a maintenance nightmare. You can make a topic
+refuse to process a language with rules at the start of the topic.
+
+The system loads multiple dictionaries, storing the binaries
+at the top level of DICT. It reads the language-specific sections of
+LIVEDATA under its appropriate language and the universal
+system data under universal language. Language adjunct data
+like monthnames, currency, and numbers are read into arrays by
+languageIndex.
 
 # Private Code
 

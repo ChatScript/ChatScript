@@ -16,10 +16,10 @@
 
 
 #ifdef __APPLE__
-# include <mach/clock.h>
-# include <mach/mach.h>
-# include <mach/mach_time.h>
-# include <sys/time.h>
+#include <mach/clock.h>
+#include <mach/mach.h>
+#include <mach/mach_time.h>
+#include <sys/time.h>
 #endif
 
 
@@ -28,8 +28,8 @@
 
 
 #if defined(BSON_HAVE_CLOCK_GETTIME)
-# include <time.h>
-# include <sys/time.h>
+#include <time.h>
+#include <sys/time.h>
 #endif
 
 #include "bson-clock.h"
@@ -55,16 +55,16 @@ int
 bson_gettimeofday (struct timeval *tv) /* OUT */
 {
 #if defined(_WIN32)
-# if defined(_MSC_VER)
-#  define DELTA_EPOCH_IN_MICROSEC 11644473600000000Ui64
-# else
-#  define DELTA_EPOCH_IN_MICROSEC 11644473600000000ULL
-# endif
-  FILETIME ft;
-  uint64_t tmp = 0;
+#if defined(_MSC_VER)
+#define DELTA_EPOCH_IN_MICROSEC 11644473600000000Ui64
+#else
+#define DELTA_EPOCH_IN_MICROSEC 11644473600000000ULL
+#endif
+   FILETIME ft;
+   uint64_t tmp = 0;
 
    /*
-    * The const value is shamelessy stolen from
+    * The const value is shamelessly stolen from
     * http://www.boost.org/doc/libs/1_55_0/boost/chrono/detail/inlined/win/chrono.hpp
     *
     * File times are the number of 100 nanosecond intervals elapsed since
@@ -87,8 +87,8 @@ bson_gettimeofday (struct timeval *tv) /* OUT */
       /* adjust to unix epoch */
       tmp -= DELTA_EPOCH_IN_MICROSEC;
 
-      tv->tv_sec = (long)(tmp / 1000000UL);
-      tv->tv_usec = (long)(tmp % 1000000UL);
+      tv->tv_sec = (long) (tmp / 1000000UL);
+      tv->tv_usec = (long) (tmp % 1000000UL);
    }
 
    return 0;
@@ -121,29 +121,35 @@ bson_get_monotonic_time (void)
 {
 #if defined(BSON_HAVE_CLOCK_GETTIME) && defined(CLOCK_MONOTONIC)
    struct timespec ts;
+   /* ts.tv_sec may be a four-byte integer on 32 bit machines, so cast to
+    * int64_t to avoid truncation. */
    clock_gettime (CLOCK_MONOTONIC, &ts);
-   return ((ts.tv_sec * 1000000UL) + (ts.tv_nsec / 1000UL));
+   return (((int64_t) ts.tv_sec * 1000000) + (ts.tv_nsec / 1000));
 #elif defined(__APPLE__)
-   static mach_timebase_info_data_t info = { 0 };
+   static mach_timebase_info_data_t info = {0};
    static double ratio = 0.0;
 
    if (!info.denom) {
-      // the value from mach_absolute_time () * info.numer / info.denom
-      // is in nano seconds. So we have to divid by 1000.0 to get micro seconds
+      /* the value from mach_absolute_time () * info.numer / info.denom
+       * is in nano seconds. So we have to divid by 1000.0 to get micro
+       * seconds*/
       mach_timebase_info (&info);
-      ratio = (double)info.numer / (double)info.denom / 1000.0;
+      ratio = (double) info.numer / (double) info.denom / 1000.0;
    }
 
    return mach_absolute_time () * ratio;
 #elif defined(_WIN32)
    /* Despite it's name, this is in milliseconds! */
    int64_t ticks = GetTickCount64 ();
-   return (ticks * 1000L);
+   return (ticks * 1000);
+#elif defined(__hpux__)
+   int64_t nanosec = gethrtime ();
+   return (nanosec / 1000UL);
 #else
-# warning "Monotonic clock is not yet supported on your platform."
+#pragma message "Monotonic clock is not yet supported on your platform."
    struct timeval tv;
 
    bson_gettimeofday (&tv);
-   return (tv.tv_sec * 1000000UL) + tv.tv_usec;
+   return ((int64_t) tv.tv_sec * 1000000) + tv.tv_usec;
 #endif
 }

@@ -615,7 +615,7 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
         
         if (!stricmp(word, "%trace_on"))
         {
-            if (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt")))   trace = (unsigned int)-1;
+            if (!blockapitrace && (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt"))))   trace = (unsigned int)-1;
         }
         else if (!stricmp(word, "%trace_off")) trace = 0;
         else strcpy(buffer, SystemVariable(word, NULL));

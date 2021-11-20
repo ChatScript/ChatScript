@@ -64,7 +64,8 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
     union {
         unsigned int topicIndex;	//   for a ~topic or %systemVariable or plan, this is its id
         unsigned int codeIndex;		//   for a system function, its the table index for it
-        unsigned int debugIndex;	//   for a :test function, its the table index for it
+        unsigned int debugIndex;	//   for a :test function, its the table index for it 
+                                                    // for an ordinary word in boot layer or later, this is its assigned savesentence index (0 otherwise)
     }x;
 #ifndef DISCARDCOUNTER
     unsigned int counter;			// general storage slot
@@ -201,9 +202,11 @@ void FreeStackHeap();
 bool KeyReady();
 bool InHeap(char* ptr);
 bool InStack(char* ptr);
+void RestoreCallingDirectory();
 void CloseDatabases(bool restart = false);
 FunctionResult AuthorizedCode(char* buffer);
 // FILE SYSTEM
+int SetDirectory(const char* directory);
 int MakeDirectory(const char* directory);
 void EncryptInit(char* params);
 void DecryptInit(char* params);
@@ -229,6 +232,7 @@ FILE* FopenUTF8WriteAppend(const char* filename, const char* flags = "ab");
 typedef void (*FILEWALK)(char* name, uint64 flag);
 void CopyFile2File(const char* newname,const char* oldname,bool autoNumber);
 bool LogEndedCleanly();
+unsigned int Vmemory();
 typedef int (*PRINTER)(const char * format, ...);
 typedef void(*DEBUGINTPUT)(const char * data);
 typedef void(*DEBUGOUTPUT)(const char * data);
@@ -270,6 +274,7 @@ typedef struct USERFILESYSTEM //  how to access user topic data
 
 extern USERFILESYSTEM userFileSystem;
 void InitUserFiles();
+void Bug0();
 void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursive);
 size_t DecryptableFileRead(void* buffer,size_t size, size_t count, FILE* file,bool decrypt,char* filekind);
 size_t EncryptableFileWrite(void* buffer,size_t size, size_t count, FILE* file,bool encrypt,char* filekind);
@@ -331,7 +336,7 @@ extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
-#define ReportBug(...) { Log(BUGLOG, __VA_ARGS__); if (server && serverLog) Log(SERVERLOG, __VA_ARGS__); if (!server && userLog) Log(USERLOG, __VA_ARGS__); Bug();  }
+#define ReportBug(...) { Bug0(); Log(BUGLOG, __VA_ARGS__); if (server && serverLog) Log(SERVERLOG, __VA_ARGS__); if (!server && userLog) Log(USERLOG, __VA_ARGS__); Bug();  }
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;
 extern unsigned int logsize;
@@ -343,7 +348,6 @@ extern int serverLog;
 extern int holdServerLog;
 extern int holdUserLog;
 extern int bugLog;
-extern bool serverPreLog;
 extern bool serverctrlz;
 extern char syslogstr[];
 

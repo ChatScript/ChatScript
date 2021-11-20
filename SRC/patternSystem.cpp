@@ -46,6 +46,7 @@ int indentBasis = 1;
 bool matching = false;
 bool patternRetry = false;
 static char kindprior[100];
+static int bilimit = 0;
 bool deeptrace = false;
 static char* returnPtr = NULL;
 char* patternchoice = NULL;
@@ -58,6 +59,8 @@ static int baseStack[MAX_PAREN_NEST];
 static uint64 matchedBits[20][4];	 // nesting level zone of bit matches
 static uint64 retryBits[4];     // last set of match bits before retry
 unsigned int patternEvaluationCount = 0;    // number of patterns evaluated in this volley
+int bicounter = 0;
+HEAPREF matchedWordsList = NULL;
 
 void ShowMatchResult(FunctionResult result, char* rule, char* label,int id)
 {
@@ -130,6 +133,24 @@ void GetPatternData(char* buffer)
         buffer = BitIndex(retryBits[1], buffer, 64);
         buffer = BitIndex(retryBits[2], buffer, 128);
         BitIndex(retryBits[3], buffer, 192);
+    }
+}
+
+void GetPatternMatchedWords(char* buffer)
+{
+    char* original = buffer;
+    HEAPREF list = matchedWordsList;
+    while (list)
+    {
+        uint64 val1, val2, val3;
+        list = UnpackHeapval(list, val1, val2, val3);
+
+        WORDP D = (WORDP)val1;
+        if (buffer != original) strcat(buffer++, " ");
+        strcpy(buffer, D->word);
+        buffer += strlen(buffer);
+        strcpy(buffer, " 1");
+        buffer += 2;
     }
 }
 
@@ -401,11 +422,24 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     int startdepth = globalDepth;
     patternDepth = depth;
     int wildgap = 0;
-    if (depth == 0) ++patternEvaluationCount;
+    if (depth == 0)
+    {
+        ++patternEvaluationCount;
+        bilimit = 0;
+    }
     if (wildcardSelector &  WILDGAP && *kind == '{')
         wildgap = ((wildcardSelector & GAPLIMIT) >> GAPLIMITSHIFT) + 1;
     memset(&matchedBits[depth], 0, sizeof(uint64) * 4);  // nesting level zone of bit matches
-    if (depth == 0) memset(&retryBits, 0, sizeof(uint64) * 4);
+    if (depth == 0)
+    {
+        memset(&retryBits, 0, sizeof(uint64) * 4);
+        while (matchedWordsList)
+        {
+            uint64 val1;
+            uint64 val2;
+            matchedWordsList = UnpackHeapval(matchedWordsList, val1, val2);
+        }
+    }
     char word[MAX_WORD_SIZE];
     char* orig = ptr;
     int statusBits = (*kind == '<') ? FREEMODE_BIT : 0; //   turns off: not, quote, startedgap, freemode ,wildselectorpassback
@@ -830,8 +864,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     wildcardSelector |= (word[2] - '0') << GAPLIMITSHIFT; // *~3 - limit is 9 back
                     if (word[strlen(word) - 1] == 'b')
                     {
-                        bidirectional = 1; // now aiming backwards
                         priorPiece = ptr;
+                        bidirectional = 1; // now aiming backwards on 1st leg of bidirect
                         bidirectionalSelector = wildcardSelector; // where to start forward direction if backward fails
                         reverse = !reverse; // run inverted first (presumably backward)
                         start = (reverse) ? (positionStart - 1) : (positionEnd + 1);
@@ -852,8 +886,13 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         case USERVAR_PREFIX: // is user variable defined
             if (IsAlphaUTF8(word[1]) || word[1] == '_' || word[1] == USERVAR_PREFIX) // legal variable, not $ or $100
             {
-                char* val = GetUserVariable(word, false, true);
-               matched = *val ? true : false;
+                 char* val = GetUserVariable(word, false, true);
+                 // val may be empty string either becuase value is NULL
+                 // OR because it is the empty string (which is a value).
+                 if (*val) matched = true;
+                 //else if (val == nullGlobal) matched = false;
+                 //else if (val == (nullLocal + 2)) matched = false;
+                 else matched = false; // empty string IS a value
              }
             else goto matchit;
             break;
@@ -988,7 +1027,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 else ptr = ""; // null function
                 if (result == NOPROBLEM_BIT) continue;
             }
-            if (result == FAILRULE_BIT) matched = false;
+            if (result & FAILCODES) matched = false;
             break;
         case 0: case '`': // end of data (argument or function - never a real rule)
             if (argumentText) // return to normal from argument substitution
@@ -1016,6 +1055,9 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             break;
         DOUBLELEFT:  case '(': case '[':  case '{': // nested condition (required or optional) (= consecutive  [ = choice   { = optional   << all of
                                                     // we make << also a depth token
+            if (trace & TRACE_PATTERN && *word != '{' && indentBasis == -1)
+                Log(USERLOG, "\r\n");
+            
             uppercaseFind = -1;
             ptr = nextTokenStart;
             {
@@ -1185,13 +1227,13 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         case SYSVAR_PREFIX: //   system variable
             if (!word[1]) // simple % 
             {
-                matched = MatchTest(reverse, FindWord(word), (positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd, NULL, NULL,
+                matched = MatchTest(reverse, FindWord(word), (positionEnd < basicStart&& firstMatched < 0) ? basicStart : positionEnd, NULL, NULL,
                     statusBits & QUOTE_BIT, positionStart, positionEnd, false, 0); //   possessive 's
                 uppercaseFind = -1;
                 if (!(statusBits & NOT_BIT) && matched && firstMatched < 0) firstMatched = positionStart; //   first SOLID match
             }
-			else if (!stricmp(word, "%trace_on"))
-			{
+            else if (!stricmp(word, "%trace_on"))
+            {
                 if (!blockapitrace)
                 {
                     trace = TRACE_PATTERN;
@@ -1201,13 +1243,14 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         ptr += 4;
                     }
                 }
-				continue;
-			}
-			else if (!stricmp(word, "%trace_off"))
-			{
+                continue;
+            }
+            else if (!stricmp(word, "%trace_off"))
+            {
                 trace = 0;
-				continue;
-			}
+                continue;
+            }
+            else if (!stricmp(word, "%testpattern-prescan") || !stricmp(word, "%testpattern-nosave")) continue;
             else matched = SysVarExists(word);
             break;
         case '?': //  question sentence? or variable search for 
@@ -1350,7 +1393,9 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         default: //   ordinary words, concept/topic, numbers, : and ~ and | and & accelerator
 		matchit:
             int teststart = (positionEnd < basicStart && firstMatched < 0) ? basicStart : (reverse ? positionStart : positionEnd);
-            matched = MatchTest(reverse, FindWord(word), teststart, NULL, NULL,
+            D = FindWord(word);
+            if (!D && strchr(word + 1, '~')) D = StoreWord(word,AS_IS); 
+            matched = MatchTest(reverse, D, teststart, NULL, NULL,
                 statusBits & QUOTE_BIT, positionStart, positionEnd, false, wildgap);
 
             if (!matched) uppercaseFind = -1;
@@ -1444,6 +1489,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             {
                 MarkMatchLocation(positionStart, positionEnd & REMOVE_SUBJECT, depth);
                 if (beginmatch == -1) beginmatch = positionStart; // first match in this level
+                WORDP D = FindWord(word);
+                matchedWordsList = AllocateHeapval(matchedWordsList, (uint64)D, depth);
             }
             if (oldEnd == (positionEnd & REMOVE_SUBJECT) && oldStart == positionStart) // something like function call or variable existence, didnt change position
             {
@@ -1521,21 +1568,29 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         {
             if (matched)
             {
-                if (bidirectional == 1) reverse = !reverse;
+                if (bidirectional == 1) reverse = !reverse; // we were looking backwards, resume normal
                 bidirectional = 0;
             }
             else if (bidirectional == 1) // looking back failed
             {
-                reverse = !reverse;
-                bidirectional = 2; // look forward
+                reverse = !reverse; // look other way
+                bidirectional = 2; // now on 2nd stage of bidirectional
                 ptr = priorPiece;
                 wildcardSelector = bidirectionalSelector;
                 wildcardIndex = bidirectionalWildcardIndex;
                 if (trace & TRACE_PATTERN  && CheckTopicTrace())
                 {
-                    Log(USERLOG, "%s- *~nb-flip ", word);
+                    Log(USERLOG, "%s- *~nb-flip %d ", word, firstMatched);
                 }
                 continue;
+            }
+            else if (bidirectional == 2) // failed on 2nd part of bidirectional
+            {
+                if (++bilimit > 100) // we are pointed at initial match, which can unbind
+                {
+                    rebindable = 0; // dont allow it to retry find
+                }
+                bidirectional = 0; // we end this bidirect, but can rebind maybe
             }
             else bidirectional = 0; // give up fully
         }
@@ -1754,6 +1809,14 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     matchedBits[depth][1] = 0;
                     matchedBits[depth][2] = 0;
                     matchedBits[depth][3] = 0;
+                    while (matchedWordsList)
+                    {
+                        uint64 val1;
+                        uint64 val2;
+                        HEAPREF list = UnpackHeapval(matchedWordsList, val1, val2);
+                        if (val2 != depth) break;
+                        matchedWordsList = list;
+                    }
                     continue;
                 }
                 break; //   default fail
@@ -1815,7 +1878,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     globalDepth = startdepth; // insures even if we skip >> closes, we get correct depth
     if (trace & TRACE_PATTERN && (depth || detailpattern) && CheckTopicTrace())
     {
-        if (*word != ')' && *word != '}' && *word != ']' && (*word != '>' || word[1] != '>'))
+          if (*word != ')' && *word != '}' && *word != ']' && (*word != '>' || word[1] != '>'))
         {
             if (*ptr != '}' && *ptr != ']' && *ptr != ')' && (*ptr != '>' || ptr[1] != '>')) 
                 Log(USERLOG,"...");	// there is more in the pattern still
@@ -1867,7 +1930,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     return success;
 }
 
-void ExecuteConceptPatterns()
+void ExecuteConceptPatterns(FACT* specificPattern)
 {
     WORDP D = FindWord("conceptPattern");
     if (!D) return; // none
@@ -1875,14 +1938,14 @@ void ExecuteConceptPatterns()
     SAVESYSTEMSTATE()
 
     char* buffer = AllocateBuffer();
-    FACT* F = GetVerbNondeadHead(D);
+    FACT* F = (specificPattern ? specificPattern : GetVerbNondeadHead(D));
     WORDP lastMatchedConcept = NULL;
     while (F)
     {
         MEANING conceptMeaning = F->object;
         WORDP concept = Meaning2Word(F->object);
         char* pattern = Meaning2Word(F->subject)->word;
-        F = GetVerbNondeadNext(F);
+        F = (specificPattern ? NULL : GetVerbNondeadNext(F));
         if (concept == lastMatchedConcept) continue; // one match per
 
         // all patterns here have been compiled, skip compilation mark
@@ -1892,6 +1955,8 @@ void ExecuteConceptPatterns()
 
         int start = 0;
         int end = 0;
+        bool retried = false;
+retry:
         int uppercasem = 0; // reconsider
         int matched = 0;
         wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
@@ -1912,6 +1977,20 @@ void ExecuteConceptPatterns()
             else if (end == 0) start = end = 1;  // didnt match a word
             if ((trace & TRACE_PATTERN) || showMark || (trace & TRACE_PREPARE)) Log(USERLOG,"mark  @word %s %d-%d ", concept->word, start, end);
             MarkMeaningAndImplications(0, 0, conceptMeaning, start, end, FIXED, false, false);
+
+            if (patternRetry)
+            {
+                if (end > start) start = end;    // continue from last match location
+                if (start > MAX_SENTENCE_LENGTH || start < 0)
+                {
+                    start = 0; // never matched internal words - is at infinite start -- WHY allow this?
+                }
+                else
+                {
+                    retried = true;
+                    goto retry;
+                }
+            }
         }
     }
     RESTORESYSTEMSTATE()

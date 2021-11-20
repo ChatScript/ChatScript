@@ -64,6 +64,17 @@ static const char* get_error_max();
 
 #ifndef DISCARD_MSSQL_INTERFACE_FOR_TEST
 
+const char* MsSqlVersion()
+{
+    static char version[MAX_WORD_SIZE] = "";
+    if (*version) return(version);
+    
+    const char *data = "?";
+
+    sprintf(version,"MicrosoftSql %s", data);
+    return(version);
+}
+
 static void loadSingleSqlParam(char* params, char* name, char* destination)
 {
     char name_with_equals[300];
@@ -370,7 +381,7 @@ const char* mssql_error(void)
 }
 
 static void set_error_max(char* str) {
-    strncpy(error_max, str, strlen(error_max));
+    strcpy(error_max, str);
 }
 
 static const char* get_error_max() {

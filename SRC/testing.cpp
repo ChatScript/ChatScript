@@ -2503,6 +2503,70 @@ static void C_TrimDown(char* file)
 	(*printer)("done\r\n");
 }
 
+static void C_Feelings(char* file)
+{
+	FILE* out = FopenUTF8Write("TMP/tmp.txt");
+	FILE* out2 = FopenUTF8Write("TMP/missing.txt");
+	FILE* out3 = FopenUTF8Write("TMP/bad.txt");
+	FILE* out4 = FopenUTF8Write("TMP/good.txt");
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		Log(USERLOG, "No such file %s\r\n", file);
+		return;
+	}
+	char word[MAX_WORD_SIZE];
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		char* at = readBuffer;
+		while (*at)
+		{
+			at = ReadCompiledWord(at, word);
+			if (!*word || *word == '~') continue;
+			MakeLowerCase(word);
+			WORDP D = FindWord(word);
+			FACT* F = NULL;
+			if (D) F = GetSubjectHead(D);
+			bool found = false;
+			bool shown = false;
+			bool bad = false;
+			bool good = false;
+			while (F)
+			{
+				if (F->verb == Mmember)
+				{
+					WORDP E = Meaning2Word(F->object);
+					if (strstr(E->word, "badness")) bad = true;
+					if (strstr(E->word, "goodness")) good = true;
+					if (strstr(E->word, "feeling_mixed")) {}
+					else if (strstr(E->word, "feeling") || strstr(E->word, "~emo"))
+					{
+						found = true;
+						if (!shown)
+						{
+							shown = true;
+							fprintf(out, "%s - ", word);
+						}
+						fprintf(out, "%s ", E->word);
+					}
+				}
+				F = GetSubjectNext(F);
+			}
+			if (found) fprintf(out, "\r\n");
+			else if (bad && !good) fprintf(out3, "%s\r\n", word);
+			else if (!bad && good) fprintf(out4, "%s\r\n", word);
+			else fprintf(out2, "%s\r\n", word);
+		}
+	}
+	fclose(out4);
+	fclose(out3);
+	fclose(out2);
+	fclose(out);
+	fclose(in);
+	(*printer)("done\r\n");
+}
+
+
 static void C_JAHuman(char* file)
 {
 	FILE* out = FopenUTF8Write("TMP/tmp.txt");
@@ -4893,13 +4957,16 @@ static void C_Build(char* input)
 	bool reset = false;
 	trace = 0;
 	grade = 0;
+	echorulepattern = false;
+	if (strstr(buildflags, "echorule")) echorulepattern = true;
 	if (strstr(buildflags, "quiet")) echo = false;
 	if (strstr(buildflags, "nomixedcase")) nomixedcase = true;
 	while (*input) 
 	{
 		input = ReadCompiledWord(input,control);
 		if (!stricmp(control,(char*)"nospell")) spell = NO_SPELL;
-        else if (!stricmp(control, (char*)"quiet")) echo = false;
+		else if (!stricmp(control, (char*)"echorule")) echorulepattern = true;
+		else if (!stricmp(control, (char*)"quiet")) echo = false;
 		else if (!stricmp(control, (char*)"nomixedcase")) nomixedcase = true;
 		else if (!stricmp(control,(char*)"nosubstitution")) spell = NO_SUBSTITUTE_WARNING;
 		else if (!stricmp(control,(char*)"outputspell")) spell = OUTPUT_SPELL;
@@ -4930,11 +4997,12 @@ static void C_Build(char* input)
 		FILE* in = FopenUTF8Write(logFilename);
 		FClose(in);
 		Log(USERLOG,"ChatScript Version %s  compiled %s\r\n",version,compileDate);
+		if (multidict) Log(USERLOG, "\r\n>>Setting language %s\r\n", language);
 		char word[MAX_WORD_SIZE];
 		sprintf(word,(char*)"files%s.txt",file);
 		if (file[len-1] == '0') buildId = BUILD0;
 		else if  (file[len-1] == '2') buildId = BUILD2;
-		else buildId = BUILD1; // global so SaveCanon can work
+		else buildId = BUILD1; // global so WriteCanon can work
 		char file[200];
 		sprintf(file,"%s/missingSets.txt", topicfolder);
 		remove(file); // precautionary
@@ -5004,6 +5072,11 @@ static void C_Restart(char* input)
 		restartBack = true;
 		return;
 	}
+	else if (strstr(input, "redo_boot")) // finish volley normally, redo boot after
+	{
+		softRestart = true;
+		return;
+	}
 
 	if (*input) // change params
 	{
@@ -5052,6 +5125,7 @@ static void Rephrase(char* buffer,char* out) // rewrite script to human understa
 		{
 			int index = atoi(hat+1);
 			char var[200];
+			*var = 0;
 			char* list = (char*) ((frame->display) ? (frame->definition + 2) : NULL);	// skip ( and space xxxx
 			if (list) for (int i = 0; i < 15; ++i)
 			{
@@ -5105,7 +5179,6 @@ static void C_Flush(char* x)
 {
 	FlushCache();
 }
-
 
 ///////////////////////////////////////////////////
 /// WORD INFORMATION
@@ -5778,7 +5851,8 @@ static void C_DualUpper(char* input)
 			WORDP E = Index2Word(hashbuckets[hash]);
 			while (E != dictionaryBase)
 			{
-				if (D->hash == E->hash && E->length == D->length && !stricmp(D->word, E->word)) // they match independent of case- 
+				if (!IsValidLanguage(E)) { ; }
+				else if (D->hash == E->hash && E->length == D->length && !stricmp(D->word, E->word)) // they match independent of case- 
 				{
 					list[index++] = E;
 				}
@@ -6578,38 +6652,7 @@ static void C_TimedTopics(char* input)
 #endif
 void C_MemStats(char* input)
 {
-	uint64 vmemory = 0;
-#ifdef WIN32
-	MEMORYSTATUSEX memInfo;
-	memInfo.dwLength = sizeof(MEMORYSTATUSEX);
-	GlobalMemoryStatusEx(&memInfo);
-	vmemory = memInfo.ullTotalPageFile - memInfo.ullAvailPageFile;
-#elif LINUX
-	struct sysinfo memInfo;
-	sysinfo(&memInfo);
-	long long totalVirtualMem = memInfo.totalram;
-	vmemory = memInfo.totalram - memInfo.freeram;
-	//Add other values in next statement to avoid int overflow on right hand side...
-	vmemory += memInfo.totalswap - memInfo.freeswap;
-	vmemory *= memInfo.mem_unit;
-
-	int sysinfo(struct sysinfo* info);
-	struct myinfo {
-		long uptime;             /* Seconds since boot */
-		unsigned long loads[3];  /* 1, 5, and 15 minute load averages */
-		unsigned long totalram;  /* Total usable main memory size */
-		unsigned long freeram;   /* Available memory size */
-		unsigned long sharedram; /* Amount of shared memory */
-		unsigned long bufferram; /* Memory used by buffers */
-		unsigned long totalswap; /* Total swap space size */
-		unsigned long freeswap;  /* swap space still available */
-		unsigned short procs;    /* Number of current processes */
-		unsigned long totalhigh; /* Total high memory size */
-		unsigned long freehigh;  /* Available high memory size */
-		unsigned int mem_unit;   /* Memory unit size in bytes */
-		char _f[20 - 2 * sizeof(long) - sizeof(int)]; /* Padding to 64 bytes */
-    };
-#endif
+	unsigned int vmemory = Vmemory();
 	unsigned int factUsedMemKB = ( lastFactUsed-factBase) * sizeof(FACT) / 1000;
 	unsigned int dictUsedMemKB = ( dictionaryFree-dictionaryBase) * sizeof(WORDENTRY) / 1000;
 	// dictfree shares text space
@@ -6645,6 +6688,7 @@ void C_MemStats(char* input)
 		else if (F->flags & FACTBOOT) ++bootfacts;
 	}
 	Log(USERLOG, "boot facts: %d  dead facts %d\r\n",bootfacts, deadfacts);
+	Log(USERLOG, "virtual memory %dMB\r\n", vmemory );
 }
 
 static void C_Who(char*input)
@@ -6706,7 +6750,8 @@ TestMode Command(char* input,char* buffer,bool scripted)
 		input = SkipWhitespace(input+strlen(info->word));
 		char* data = AllocateHeap(input);
 		TrimSpaces(data,false); // safe from change
-		wasCommand = COMMANDED;
+		if (!stricmp(info->word,":language")) wasCommand = LANGUAGECMD; // save results to user file
+		else wasCommand = COMMANDED;
 		testOutput = buffer;
 		if (buffer) *buffer = 0;
 		(*info->fn)(data);
@@ -6983,6 +7028,8 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 	int error = 0;
 	char lastCategory[100];
 	char lastSpecialty[100];
+	serverLog = FILE_LOG;
+	userLog = FILE_LOG;
 	while (ReadALine(readbuf, in, limit,false,false,true) >= 0)
     {
         if (!*readbuf) continue;
@@ -7015,6 +7062,8 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 		if (!out)
 		{
 			char* cat = strstr(buffer, "category:");
+			*lastCategory = 0;
+			*lastSpecialty = 0;
 			if (cat)
 			{
 				ReadCompiledWord(cat + 9, lastCategory);
@@ -7055,26 +7104,34 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 				char* end = strchr(zz, ']');
 				memmove(zz, end, strlen(end - 1));
 			}
-			zz = strstr(newOutput, "\"data\"");
-			if (zz) *zz = 0;
+			zz = strstr(newOutput, ", \"data\"");
+			if (zz)
+			{
+				char* xy = strchr(zz, '}');
+				memmove(zz, xy + 2,xy-zz);
+			}
 			zz = strstr(output, "\"data\"");
-			if (zz) *zz = 0;
+			if (zz)
+			{
+				char* xy = strchr(zz, '}');
+				memmove(zz, xy + 2,xy-zz);
+			}
 
 			if (strcmp(newOutput, output)) // different
 			{
 				userLog =  1 ;
 				printf("line %d error %d\r\n", n,error);
 				++error;
-				Log(USERLOG, "%d\r\n",n++);
-				Log(USERLOG, "o: %s\r\n",output--);
-				Log(USERLOG, "n: %s\r\n", newOutput--);
+				Log(ECHOUSERLOG, "%d\r\n",n++);
+				Log(ECHOUSERLOG, "old: %s\r\n",output--);
+				Log(ECHOUSERLOG, "new: %s\r\n", newOutput--);
 				while (*++output == *++newOutput && *output);
 				output[50] = 0;
 				newOutput[50] = 0;
-				Log(USERLOG, "oldchange: %s\r\n", output--);
-				Log(USERLOG, "newchange: %s\r\n", newOutput--);
+				Log(ECHOUSERLOG, "oldchange: %s\r\n", output--);
+				Log(ECHOUSERLOG, "newchange: %s\r\n", newOutput--);
 				originalUserInput = buffer;
-				Log(USERLOG, "%s  %s  `*`\r\n",lastCategory,lastSpecialty);
+				if (*lastCategory) Log(ECHOUSERLOG, "%s  %s  `*`\r\n",lastCategory,lastSpecialty);
 				userLog = 0;
 			}
 			else printf("%d\r\n", n++);
@@ -7090,7 +7147,7 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 
 	uint64 endtime = ElapsedMilliseconds();
 	int diff = (int)(endtime - starttime);
-	int msPerMessage = diff / n;
+	int msPerMessage = (n == 0) ? n : (diff / n);
 	Log(USERLOG, "Did %d messages in %d mseconds or %d ms per message", n, diff, msPerMessage);
 	C_MemStats(input); // after
 	printf("Did %d messages in %d mseconds or %d ms per message with %d errors\r\n", n, diff, msPerMessage,error);
@@ -8058,6 +8115,65 @@ static void C_LabelRemap(char* input)
 	}
 }
 
+static char* ReadQuoted(char* ptr, char* word)
+{
+	ptr = ReadCompiledWord(ptr, word);
+	size_t len = strlen(word);
+	if (word[len-1] == '"') word[len - 1] = 0;
+	memmove(word, word + 1, strlen(word));
+	if (strchr(word, ' ')) *word = 0; // eg han xxx (multiple words)
+	return ptr;
+}
+
+static void LoadSpanish(char* file)
+{
+
+	//"infinitive", eng, "mood", "mood_english", "tense", "tense_english", "verb_english", "form_1s", "form_2s", "form_3s", "form_1p", "form_2p", "form_3p", "gerund", "gerund_english", "pastparticiple", "pastparticiple_english"
+	//"abandonar", eng, "Indicativo", "Indicative", "Presente", "Present", "I abandon, am abandoning", "abandono", "abandonas", "abandona", "abandonamos", "abandonáis", "abandonan", "abandonando", "abandoning", "abandonado", "abandoned"
+
+	FILE* in = FopenReadOnly("spanish.csv");
+	if (!in) return;
+	FILE* out = FopenUTF8Write("TMP/spanish.txt");
+	ReadALine(readBuffer, in); // skip header
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		char* comma = readBuffer;
+		while ((comma = strchr(comma, ','))) * comma = ' ';
+		char word[MAX_WORD_SIZE];
+		char infinitive[MAX_WORD_SIZE];
+		char* ptr = ReadQuoted(readBuffer, infinitive);
+		if (*infinitive) fprintf(out, "%s ( VERB VERB_INFINITIVE) lemma=`%s` \r\n", infinitive,infinitive);
+		ptr = ReadQuoted(ptr, word); // eng infin
+		ptr = ReadQuoted(ptr, word); // mood 
+		ptr = ReadQuoted(ptr, word); // eng mood 
+		char tense[MAX_WORD_SIZE];
+		ptr = ReadQuoted(ptr, tense);
+		ptr = ReadQuoted(ptr, tense); // eng tense
+		ptr = ReadQuoted(ptr, word); // junk
+		ptr = ReadQuoted(ptr, word); // 1s
+		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // 2s
+		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // 3s
+		if (*word) fprintf(out, "%s ( VERB VERB_PRESENT_3PS) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // 1p
+		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // 2p
+		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // 3p
+		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // gerund
+		if (*word) fprintf(out, "%s ( NOUN NOUN_GERUND ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // junk gerund eng
+		ptr = ReadQuoted(ptr, word); // past part  
+		if (*word) fprintf(out, "%s ( VERB_PAST_PARTICIPLE VERB ) lemma=`%s` \r\n", word, infinitive);
+		ptr = ReadQuoted(ptr, word); // past part  eng
+	}
+	fclose(in);
+	fclose(out);
+	printf("converted\r\n");
+}
+
 static void LoadDescriptions (char* file)
 {
 	FILE* in = FopenReadWritten(file);
@@ -8301,12 +8417,12 @@ static void C_AllFacts(char* input)
 	FILE* out = FopenUTF8Write(fname);
 	if (!out) return;
 	FACT* F = factBase;
-	if (!strstr(input, "all"))
+	if (!strstr(input, "all")) // specific bot
 	{
 		char* word = AllocateBuffer();
 		while (++F <= lastFactUsed)
 		{
-			if (!(F->flags & (FACTTRANSIENT | FACTDEAD)))
+			if (!(F->flags & FACTTRANSIENT))
 			{
 				if (UnacceptableFact(F, true)) continue;
 				char* f = WriteFact(F, true, word, false, true);
@@ -8319,7 +8435,7 @@ static void C_AllFacts(char* input)
 		FClose(out);
 		FreeBuffer();
 	}
-	else
+	else // all facts, all languages
 	{
 		char* word = AllocateBuffer();
 		while (++F <= lastFactUsed)
@@ -8549,6 +8665,12 @@ static void C_DoInternal(char* input,bool internal)
 	if (internal){;}
 	else if (result == RESTART_BIT) wasCommand = RESTART;
 	else wasCommand = OUTPUTASGIVEN; // save results to user file
+}
+
+static void C_Language(char* input)
+{
+	SetUserVariable("$cs_language", TrimSpaces(input));
+	printf("language set %s\r\n", language);
 }
 
 static void C_Do(char* input)
@@ -11855,7 +11977,8 @@ CommandInfo commandSet[] = // NEW
 	
 	{ (char*)"\r\n---- Debugging commands",0,(char*)""}, 
 	{ (char*)":do",C_Do,(char*)"Execute the arguments as an output stream, e.g., invoke a function, set variables, etc"},  
-	{ (char*)":silent",C_Silent,(char*)"toggle silent - dont show outputs"}, 
+	{ (char*)":language",C_Language,(char*)"Set language to argument"},
+	{ (char*)":silent",C_Silent,(char*)"toggle silent - dont show outputs"},
 	{ (char*)":log",C_Log,(char*)"dump message into log file"}, 
 	{ (char*)":noreact",C_NoReact,(char*)"Disable replying to input"}, 
 	{ (char*)":notime",C_NoTime,(char*)"Toggle notiming during this topic"},
@@ -11916,7 +12039,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":word",C_Word,(char*)"Display information about given word"}, 
 	{ (char*)":mixedcase",C_MixedCase,(char*)"List words occurring in both cases, not part of WordNet"}, 
 	{ (char*)":dualupper",C_DualUpper,(char*)"List words occurring in multiple uppercase forms, not part of WordNet" },
-
+	{ (char*)":feeling",C_Feelings,(char*)"given words, list their feelings in tmp/tmp.txt and missing.txt" },
+	
 	{ (char*)"\r\n---- System Control commands",0,(char*)""}, 
 	{ (char*)":build",C_Build,(char*)"Compile a script - filename {nospell,outputspell,reset}"}, 
 	{ (char*)":bot",C_Bot,(char*)"Change to this bot"},  
@@ -11924,7 +12048,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":crash",C_Crash,(char*)"Simulate a server crash"},
 	{ (char*)":debug",C_Debug,(char*)"Initiate debugger"}, 
 	{ (char*)":flush",C_Flush,(char*)"Flush server cached user data to files"}, 
-	{ (char*)":quit",C_Quit,(char*)"Exit ChatScript"}, 
+	{ (char*)":quit",C_Quit,(char*)"Exit ChatScript"},
 	{ (char*)":reset",ResetUser,(char*)"Start user all over again, flushing his history"}, 
 	{ (char*)":restart",C_Restart,(char*)"Restart Chatscript"}, 
 	{ (char*)":user",C_User,(char*)"Change to named user, not new conversation"}, 
@@ -11964,7 +12088,8 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":dictwrite",C_DictWrite,(char*)"echo  to TMP/x.txt dictionary entries on one line" },
 
 	{ (char*)"\r\n---- internal support",0,(char*)""}, 
-    { (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },
+	{ (char*)":loadspanish",LoadSpanish,(char*)"convert spanish.csv to tmp/spanish.txt" },
+	{ (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },
 	{ (char*)":compiledp",C_CompileDP,(char*)"compile dp bot" },
 	{ (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
 	{ (char*)":comparelog",C_Comparelog,(char*)"diff 2 log files" },
@@ -12159,15 +12284,19 @@ TestMode DoCommand(char* input,char* output,bool authorize)
 	*currentFilename = 0;
 	char* ptr = NULL;
 #ifndef DISCARDSCRIPTCOMPILER
-	char* hold = newScriptBuffer;
-    oldScriptBuffer = NULL; // we must be top level
-	StartScriptCompiler(true);
+	// be careful, we could be inside compiling while executing :trace or other
+	if (!compiling) // if you are compiling, you'd need to save/restore nextToken and anything else
+	{
+		char* hold = newScriptBuffer;
+		oldScriptBuffer = NULL; // we must be top level
+		StartScriptCompiler(true);
 #endif
-	ReadNextSystemToken(NULL,ptr,NULL,false,false);		// flush any pending data in input cache
+		ReadNextSystemToken(NULL, ptr, NULL, false, false);		// flush any pending data in input cache
 #ifndef DISCARDSCRIPTCOMPILER
-	EndScriptCompiler();
-	newScriptBuffer = hold;
+		EndScriptCompiler();
+		newScriptBuffer = hold;
 #endif
+	}
 	if (strnicmp(input,(char*)":why",4)) responseIndex = 0;
 	return Command(input,output,!authorize); 
 #else

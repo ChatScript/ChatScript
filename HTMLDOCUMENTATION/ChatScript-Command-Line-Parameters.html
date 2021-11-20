@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/21/2021 cs11.6</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
 <p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
@@ -200,6 +200,10 @@ port=20</code></pre>
 <td><code>Vcs_new_user=&quot;text&quot;</code></td>
 <td>if input has given text within it, treat user as new and dont read the topic file</td>
 </tr>
+<tr class="even">
+<td><code>deployloggingdelay=5</code></td>
+<td>auto enable server logging for 5 minutes after a deploy before using default logging value</td>
+</tr>
 </tbody>
 </table>
 <h2 id="execution-options">Execution options</h2>
@@ -306,6 +310,14 @@ port=20</code></pre>
 <tr class="odd">
 <td><code>parselimit=n</code></td>
 <td>if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed</td>
+</tr>
+<tr class="even">
+<td><code>nl_save=1</code></td>
+<td>for ^testpattern, enables results of nl analysis to be saved onto the $cs_nlinfo variable so that outside can pass it back in on future calls</td>
+</tr>
+<tr class="odd">
+<td><code>parselimit=1</code></td>
+<td>inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up</td>
 </tr>
 </tbody>
 </table>
@@ -463,8 +475,6 @@ cache=20x1</code></pre>
 <p>The bugs log is in the same directory under bugs.txt (all ports).</p>
 <p>The server log records all transactions by all users in order of arrival. Whereas the user log records transactions by user/bot.</p>
 <p>The server log can be written regardless of whether CS is running in server mode or not.</p>
-<pre><code>Noserverprelog</code></pre>
-<p>Normally CS writes of a copy of input before server begins work on it to server log. Helps see what crashed the server (since if it crashes you get no log entry). This turns it off to improve performance.</p>
 <pre><code>serverlogauthcode=xxxxx</code></pre>
 <p>In addition to permanently turning on server and/or user logging, you can provide a cheat code in your input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code is hidden from CS processing so it will not impact NL processing.</p>
 <pre><code>hidefromlog=&quot;label label2 label3&quot;</code></pre>
@@ -481,8 +491,6 @@ cache=20x1</code></pre>
 Buglog=n
 Buglogging=none,file,stdout,stderr</code></pre>
 <p>Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. Alternate form of request, you can use buglogging=none for off and file, stdout, stderr. - you may combine buglogging=file,stderr</p>
-<pre><code>stdlogging=1</code></pre>
-<p>Superceeded by <code>serverlogging=</code>. Route normal server logs to stdout and bugs logs to stderr. Useful with Docker. Use stdlogging=0 to turn off (the default).</p>
 <pre><code>DebugLevel=n</code></pre>
 <p>Sets debug level of server logging. 0 will remove logging all the startup variables and their values.</p>
 <pre><code>Fork=n</code></pre>

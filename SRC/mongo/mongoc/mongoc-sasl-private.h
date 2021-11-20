@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 MongoDB, Inc.
+ * Copyright 2017 MongoDB, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,59 +14,44 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_SASL_PRIVATE_H
 #define MONGOC_SASL_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
-#include <sasl/sasl.h>
-#include <sasl/saslutil.h>
-
+#include <bson/bson.h>
+#include "mongoc-uri.h"
+#include "mongoc-stream-private.h"
+#include "mongoc-stream.h"
+#include "mongoc-stream-socket.h"
 
 BSON_BEGIN_DECLS
 
 
-typedef struct _mongoc_sasl_t mongoc_sasl_t;
+typedef struct {
+   char *user;
+   char *pass;
+   char *service_name;
+   char *service_host;
+   bool canonicalize_host_name;
+   char *mechanism;
+} mongoc_sasl_t;
 
 
-struct _mongoc_sasl_t
-{
-   sasl_callback_t  callbacks [4];
-   sasl_conn_t     *conn;
-   bool             done;
-   int              step;
-   char            *mechanism;
-   char            *user;
-   char            *pass;
-   char            *service_name;
-   char            *service_host;
-   sasl_interact_t *interact;
-};
-
-
-void _mongoc_sasl_init             (mongoc_sasl_t      *sasl);
-void _mongoc_sasl_set_pass         (mongoc_sasl_t      *sasl,
-                                    const char         *pass);
-void _mongoc_sasl_set_user         (mongoc_sasl_t      *sasl,
-                                    const char         *user);
-void _mongoc_sasl_set_mechanism    (mongoc_sasl_t      *sasl,
-                                    const char         *mechanism);
-void _mongoc_sasl_set_service_name (mongoc_sasl_t      *sasl,
-                                    const char         *service_name);
-void _mongoc_sasl_set_service_host (mongoc_sasl_t      *sasl,
-                                    const char         *service_host);
-void _mongoc_sasl_destroy          (mongoc_sasl_t      *sasl);
-bool _mongoc_sasl_step             (mongoc_sasl_t      *sasl,
-                                    const uint8_t      *inbuf,
-                                    uint32_t            inbuflen,
-                                    uint8_t            *outbuf,
-                                    uint32_t            outbufmax,
-                                    uint32_t           *outbuflen,
-                                    bson_error_t       *error);
-
+void
+_mongoc_sasl_set_pass (mongoc_sasl_t *sasl, const char *pass);
+void
+_mongoc_sasl_set_user (mongoc_sasl_t *sasl, const char *user);
+void
+_mongoc_sasl_set_service_name (mongoc_sasl_t *sasl, const char *service_name);
+void
+_mongoc_sasl_set_service_host (mongoc_sasl_t *sasl, const char *service_host);
+void
+_mongoc_sasl_set_properties (mongoc_sasl_t *sasl, const mongoc_uri_t *uri);
+bool
+_mongoc_sasl_get_canonicalized_name (mongoc_stream_t *node_stream, /* IN */
+                                     char *name,                   /* OUT */
+                                     size_t namelen);              /* IN */
 
 BSON_END_DECLS
 

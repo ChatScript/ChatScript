@@ -14,33 +14,47 @@
  * limitations under the License.
  */
 
+#include "mongoc-prelude.h"
+
 #ifndef MONGOC_OPENSSL_PRIVATE_H
 #define MONGOC_OPENSSL_PRIVATE_H
 
-#if !defined (MONGOC_I_AM_A_DRIVER) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
-
-#include <bson.h>
+#include <bson/bson.h>
 #include <openssl/bio.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
 #include "mongoc-ssl.h"
+#include "mongoc-stream-tls-openssl-private.h"
+
+#if (OPENSSL_VERSION_NUMBER >= 0x10001000L) && !defined(OPENSSL_NO_OCSP) && \
+   !defined(LIBRESSL_VERSION_NUMBER)
+#define MONGOC_ENABLE_OCSP_OPENSSL
+#endif
 
 
 BSON_BEGIN_DECLS
 
+bool
+_mongoc_openssl_check_peer_hostname (SSL *ssl,
+                                     const char *host,
+                                     bool allow_invalid_hostname);
+SSL_CTX *
+_mongoc_openssl_ctx_new (mongoc_ssl_opt_t *opt);
+char *
+_mongoc_openssl_extract_subject (const char *filename, const char *passphrase);
+void
+_mongoc_openssl_init (void);
+void
+_mongoc_openssl_cleanup (void);
 
-bool     _mongoc_openssl_check_cert      (SSL              *ssl,
-                                          const char       *host,
-                                          bool              weak_cert_validation);
-SSL_CTX *_mongoc_openssl_ctx_new         (mongoc_ssl_opt_t *opt);
-char    *_mongoc_openssl_extract_subject (const char       *filename,
-                                          const char *passphrase);
-void     _mongoc_openssl_init            (void);
-void     _mongoc_openssl_cleanup         (void);
+#ifdef MONGOC_ENABLE_OCSP_OPENSSL
+int
+_mongoc_ocsp_tlsext_status (SSL *ssl, mongoc_openssl_ocsp_opt_t *opts);
+#endif
 
+bool
+_mongoc_tlsfeature_has_status_request (const uint8_t *data, int length);
 
 BSON_END_DECLS
 

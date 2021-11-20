@@ -14,24 +14,25 @@
  * limitations under the License.
  */
 
-
-#if !defined (MONGOC_INSIDE) && !defined (MONGOC_COMPILATION)
-#error "Only <mongoc.h> can be included directly."
-#endif
+#include "mongoc-prelude.h"
 
 
 #ifndef MONGOC_RAND_H
 #define MONGOC_RAND_H
 
 
-#include <bson.h>
+#include <bson/bson.h>
 
+#include "mongoc-macros.h"
 
 BSON_BEGIN_DECLS
 
-void mongoc_rand_seed(const void* buf, int num);
-void mongoc_rand_add(const void* buf, int num, double entropy);
-int mongoc_rand_status(void);
+MONGOC_EXPORT (void)
+mongoc_rand_seed (const void *buf, int num);
+MONGOC_EXPORT (void)
+mongoc_rand_add (const void *buf, int num, double entropy);
+MONGOC_EXPORT (int)
+mongoc_rand_status (void);
 
 BSON_END_DECLS
 

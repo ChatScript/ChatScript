@@ -707,7 +707,7 @@ bool SpellCheckSentence()
 					notnum = true;
 				}
 			}
-			if (period <= 1 && !notnum)
+			if (period <= 1 && !notnum && stricmp(xtra, word))
 			{
 				WORDP X = StoreWord(xtra);
 				tokens[1] = X->word;
@@ -1983,11 +1983,13 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 			offset = D->spellNode;
 			if (PART_OF_SPEECH == posflags  && D->systemFlags & PATTERN_WORD){;} // legal generic match
 			else if (!(D->properties & posflags)) continue; // wrong kind of word
+			
+			if (!IsValidLanguage(D))
+				continue; // wrong dictionary
 			char* under = strchr(D->word,'_');
 			// SPELLING lists have no underscore or space words in them
 			if (hasUnderscore && !under) continue;	 // require keep any underscore
 			if (!hasUnderscore && under) continue;	 // require not have any underscore
-
             CheckWord(originalWord, realWordData, D, choices, index, min);
 			if (index > 3997) break; 
 		}

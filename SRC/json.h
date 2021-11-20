@@ -16,7 +16,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 extern int jsonOpenSize; 
 extern int json_open_counter;
 extern uint64 json_open_time ;
-
+extern bool curlFail;
 extern int jsonDefaults;
 void InitJson();
 FunctionResult JSONTreeCode(char* buffer);
@@ -58,6 +58,7 @@ char* UrlEncodePiece(char* input);
 FunctionResult JSONOpenCode(char* buffer);
 FunctionResult InitCurl();
 void CurlShutdown();
+const char* CurlVersion();
 #endif
 
 #endif
