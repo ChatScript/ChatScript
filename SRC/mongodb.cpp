@@ -31,7 +31,83 @@ mongoc_collection_t*	g_pCollection = NULL;
 mongoc_client_t*		g_filesysClient = NULL;
 mongoc_database_t*		g_filesysDatabase = NULL;
 mongoc_collection_t*	g_filesysCollectionTopic = NULL; // user topic
-mongoc_collection_t*	g_filesysCollectionLtm = NULL; // user ltm
+
+
+// Mongo Collection to File map and related functions
+typedef struct CollectionInfo {
+    char name[MONGO_COLLECTION_NAME_LENGTH];    // collection name
+    mongoc_collection_t *collectionHandle;      // collection handle
+} CollectionInfo;
+
+CollectionInfo collectionSet[MAX_COLLECTIONS_LIMIT];
+
+bool initCollectionHandle(char* name)
+{
+    bool initHandle = false;
+    if (!name) return initHandle;
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0) {;}
+    if (i < MAX_COLLECTIONS_LIMIT) {
+        strcpy(collection->name, name);
+        addFileTypeAsKnown(name);
+        initHandle = true;
+    }
+    return initHandle;
+}
+
+bool hasMongoCollectionHandle(char* filetype)
+{
+    bool isCollectionHandle = false;
+    if (!filetype) return isCollectionHandle;
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
+        if (!stricmp(collection->name, filetype)) break;
+
+    if (collection->collectionHandle) isCollectionHandle = true;
+
+    return isCollectionHandle;
+}
+
+mongoc_collection_t** getMongoCollectionHandleAddress(char* filetype)
+{
+    if (!filetype) return NULL;
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
+        if (!stricmp(collection->name, filetype)) break;
+
+    return &collection->collectionHandle;
+}
+
+mongoc_collection_t* getMongoCollectionHandle(char* filetype)
+{
+    if (!filetype) return NULL;
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
+        if (!stricmp(collection->name, filetype)) break;
+
+    return collection->collectionHandle;
+}
+
+void destroyMongoCollectionHandle()
+{
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
+    {
+        if (collection->collectionHandle != NULL) mongoc_collection_destroy(collection->collectionHandle);
+        collection->collectionHandle = NULL;
+        memset(collection->name, 0, MONGO_COLLECTION_NAME_LENGTH);
+    }
+}
 
 
 const char* MongoVersion()
@@ -206,12 +282,11 @@ FunctionResult MongoClose(char* buffer)
 		g_pClient = NULL;
 	}
 	else {
+        destroyMongoCollectionHandle();
 		if( g_filesysCollectionTopic != NULL ) mongoc_collection_destroy(g_filesysCollectionTopic);
-		if( g_filesysCollectionLtm != NULL ) mongoc_collection_destroy(g_filesysCollectionLtm);
 		if( g_filesysDatabase != NULL ) mongoc_database_destroy(g_filesysDatabase);
 		if( g_filesysClient != NULL ) mongoc_client_destroy(g_filesysClient);
 		g_filesysCollectionTopic = NULL;
-		g_filesysCollectionLtm = NULL;
 		g_filesysDatabase =  NULL;
 		g_filesysClient = NULL;
 	}
@@ -232,7 +307,7 @@ FunctionResult MongoInit(char* buffer)
     /* Make a connection to the database */
 	mongoc_collection_t** collectvar = &g_pCollection; // default user 
 	if (!stricmp(ARGUMENT(4),"topic")) collectvar = &g_filesysCollectionTopic; // filesys
- 	else if (!stricmp(ARGUMENT(4),"ltm")) collectvar = &g_filesysCollectionLtm; // filesys
+    else if (initCollectionHandle(ARGUMENT(4))) collectvar = getMongoCollectionHandleAddress(ARGUMENT(4)); // filesys
     eReturnValue  eRetVal = EstablishConnection(ARGUMENT(1), ARGUMENT(2), ARGUMENT(3),collectvar); // server, dbname, collection
     if (eRetVal != eReturnValue_SUCCESS )
     {	
@@ -255,8 +330,8 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 	}
     mongoc_collection_t* collection;
 	if (user) collection =  g_pCollection;
-	else if (!strncmp(ARGUMENT(2),"ltm",3) && g_filesysCollectionLtm) collection = g_filesysCollectionLtm; 
-	else collection = g_filesysCollectionTopic; 
+    else if (hasMongoCollectionHandle(ARGUMENT(2))) collection = getMongoCollectionHandle(ARGUMENT(2));
+	else collection = g_filesysCollectionTopic;
     if (!collection)
     {
         char* msg = "DB is not open\r\n";
@@ -336,7 +411,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 		unsigned int diff = (unsigned int)(endtime - starttime);
 		unsigned int crdiff = (unsigned int)(endtime - cursorReadStart);
 		unsigned int limit = 100;
-		char* val = GetUserVariable("$db_timelimit", false, true);
+		char* val = GetUserVariable("$mongo_timeexcess", false, true);
 		if (*val) limit = unsigned(atoi(val));
 		if (diff >= limit){
 			char dbmsg[512];
@@ -385,8 +460,8 @@ FunctionResult mongoDeleteDocument(char* buffer)
 	if (dot) *dot = 0; // not allowed by mongo
 	mongoc_collection_t* collection;
 	if (buffer) collection =  g_pCollection; // user script
- 	else if (!stricmp(ARGUMENT(2),"ltm")) collection =  g_filesysCollectionLtm;
-	else collection =  g_filesysCollectionTopic;
+    else if (hasMongoCollectionHandle(ARGUMENT(2))) collection = getMongoCollectionHandle(ARGUMENT(2));
+	else collection = g_filesysCollectionTopic;
     if (!collection)
     {
         char* msg = "DB is not open\r\n";
@@ -427,7 +502,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
         uint64 endtime = ElapsedMilliseconds();
 	    unsigned int diff = (unsigned int)endtime - (unsigned int)starttime;
 	    unsigned int limit = 100;
-		char* val = GetUserVariable("$db_timelimit", false, true);
+		char* val = GetUserVariable("$mongo_timeexcess", false, true);
 		if (*val) limit = unsigned(atoi(val));
 	    if (diff >= limit){
 	    	char dbmsg[512];
@@ -514,7 +589,7 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     uint64 endtime = ElapsedMilliseconds();
     unsigned int diff = (unsigned int)(endtime - starttime);
     unsigned int limit = 100;
-	char* val = GetUserVariable("$db_timelimit", false, true);
+	char* val = GetUserVariable("$mongo_timeexcess", false, true);
 	if (*val) limit = unsigned(atoi(val));
     if (diff >= limit){
     	char dbmsg[512];
@@ -567,7 +642,8 @@ size_t mongouserRead(void* buffer,size_t size, size_t count, FILE* file)
 	char* filename = (char*) file;
 	char* dot = strchr(filename,'.');
 	if (dot) *dot = 0;	 // terminate any suffix, not legal in mongo key
-	if (!strnicmp(filename,"USERS/ltm-",10)) ARGUMENT(2) = (char*)"ltm";
+    char* filetype = getFileType(filename);
+    if (hasMongoCollectionHandle(filetype)) ARGUMENT(2) = filetype;
 	else ARGUMENT(2) = (char*)"topic";
 	FunctionResult result = mongoGetDocument(filename,mongoBuffer,(userCacheSize - MAX_USERNAME),false);
 	if (dot) *dot ='.';	 
@@ -582,8 +658,9 @@ size_t mongouserWrite(const void* buffer,size_t size, size_t count, FILE* file)
 	ProtectNL(mongoBuffer); // replace cr/nl
 	char* dot = strchr((char*)file,'.');
 	char* keyname = (char*)file;
+    char* filetype = getFileType(keyname);
 	mongoc_collection_t* collection = g_filesysCollectionTopic;
-	if (!strncmp(keyname,"USERS/ltm-",10) && g_filesysCollectionLtm) collection = g_filesysCollectionLtm; // ltm file collection
+    if (hasMongoCollectionHandle(filetype)) collection = getMongoCollectionHandle(filetype);
 	if (dot) *dot = 0;	 // terminate any suffix, not legal in mongo key
 	FunctionResult result = MongoUpsertDoc(collection,keyname, mongoBuffer);
 	if (dot) *dot ='.';	 
@@ -630,20 +707,23 @@ void MongoSystemInit(char* params) // required
 	{
 		params = ReadCompiledWord(params,arg3);
 		if (!*arg3) break;
-		if (!strnicmp(arg3,"topic:",6)) 
-		{
-			ARGUMENT(3) = arg3 + 6;
-			ARGUMENT(4) = (char*)"topic"; 
+        char collectionname[MAX_WORD_SIZE];
+        char *collectiondbname = NULL;
+        strcpy(collectionname, arg3);
+        char *split = strchr(collectionname, ':');
+        if (split) {
+            collectiondbname = split + 1;
+            *split = 0;
 		}
-		else if (!strnicmp(arg3,"ltm:",4)) // file names always start USERS/ltm-
+        if (collectionname && collectiondbname)
 		{
-			ARGUMENT(3) = arg3 + 4;
-			ARGUMENT(4) = (char*)"ltm"; 
+            ARGUMENT(3) = collectiondbname;
+            ARGUMENT(4) = collectionname;
 		}
 		else // old style
 		{
 			ARGUMENT(3) = arg3;
-			ARGUMENT(4) = (char*)"topic"; 
+			ARGUMENT(4) = (char*)"topic";
 		}		
 		MongoUserFilesInit(); // init topic
 	}

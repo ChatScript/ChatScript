@@ -205,10 +205,7 @@ char* HandleIf(char* ptr, char* buffer,FunctionResult& result)
             memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
             if (trace & (TRACE_PATTERN | TRACE_MATCH | TRACE_SAMPLE) && CheckTopicTrace()) //   display the entire matching responder and maybe wildcard bindings
             {
-                char word[MAX_WORD_SIZE];
-                strncpy(word, ptr + 10, 40);
-                word[40] = 0;
-                Log(USERLOG,"  IF Pattern %s\r\n",word);
+                Log(USERLOG,"  IF Pattern... \r\n");
             }
             
             if (!Match(buffer,ptr+10,0,start,(char*)"(",1,0,start,end,uppercasem,whenmatched,0,0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
@@ -606,8 +603,8 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 	else //   boolean tests
 	{
 		// convert null to numeric operator for < or >  -- but not for equality
-		if (!*val1 && IsDigit(*val2) && IsNumber(val2) != NOT_A_NUMBER && (*op == '<' || *op == '>')) strcpy(val1,(char*)"0");
-		else if (!*val2 && IsDigit(*val1) && IsNumber(val1) != NOT_A_NUMBER  && (*op == '<' || *op == '>')) strcpy(val2,(char*)"0");
+		if (!*val1 && (IsSign(*val2) || IsDigit(*val2)) && IsNumber(val2) != NOT_A_NUMBER && (*op == '<' || *op == '>' )) strcpy(val1, (char*)"0");
+		else if (!*val2 && (IsSign(*val1)  || IsDigit(*val1)) && IsNumber(val1) != NOT_A_NUMBER  && (*op == '<' || *op == '>' )) strcpy(val2,(char*)"0");
 		// treat #123 as string but +21545 and -12345 as numbers
 
 		char* currency1;

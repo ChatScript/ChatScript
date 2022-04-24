@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/21/2021 cs11.6</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -705,6 +705,8 @@
 </tbody>
 </table>
 <p>and special concepts: | <code>~capacronym</code> | word is in all caps (and &amp;) and is likely an acronym | <code>~emoji</code> | word starts and end with : and represents an emoji</p>
+<h2 id="spanish">Spanish</h2>
+<p>For Spanish (if you are in spanish language mode) there is ~spanish_he, ~spanish_she, ~spanish_singular, ~spanish_plural for nouns and adjectives and determiner 'the'. Pronouns will be marked with ~pronoun_object_singular or ~pronoun_object_plural or ~pronoun_object_you. Also ~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and ~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you. And simple future tense verbs will be marked ~spanish_future.</p>
 <h1 id="system-variables">System Variables</h1>
 <p>The system has some predefined variables which you can generally test and use but not normally assign to. These all begin with <code>%</code> . Ones that are reasonable to set are written in bold underline. Boolean values are always <code>1</code> or <code>null</code> on returns. <code>1</code> or <code>0</code> if you are setting them.</p>
 <h2 id="date-time-numbers">Date &amp; Time &amp; Numbers</h2>
@@ -910,25 +912,47 @@
 <td>value of <code>%input</code> that is at the start of this conversation start</td>
 </tr>
 <tr class="odd">
+<td><code>%speaker</code></td>
+<td>value of <code>speaker</code> from a conversation involving :tsvsource</td>
+</tr>
+<tr class="even">
 <td><code>%userinput</code></td>
 <td>Boolean is the current input from the user (vs the chatbot)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>%voice</code></td>
 <td>active or passive on current input</td>
 </tr>
-<tr class="odd">
-<td>%trace_on</td>
+<tr class="even">
+<td><code>%trace_on</code></td>
 <td>Fake empty variable used to turn on tracing (see Debugging commands)</td>
 </tr>
-<tr class="even">
-<td>%trace_off</td>
+<tr class="odd">
+<td><code>%trace_off</code></td>
 <td>Fake empty variable used to turn off tracing (see Debugging commands)</td>
+</tr>
+<tr class="even">
+<td><code>%starttimems</code></td>
+<td>Start of user request time/date in milliseconds</td>
+</tr>
+<tr class="odd">
+<td><code>%inputsize</code></td>
+<td>gives how many characters were passed in input</td>
+</tr>
+<tr class="even">
+<td><code>%inputlimited</code></td>
+<td>1 if too many characters were given (relative to fullinputlimit)</td>
+</tr>
+<tr class="odd">
+<td><code>%tsvsource</code></td>
+<td>1 if in progress Null otherwise</td>
+</tr>
+<tr class="even">
+<td><code>%heapsize</code></td>
+<td>how many bytes of heap are left</td>
 </tr>
 </tbody>
 </table>
-<div style="white-space: pre-line;">%inputsize | gives how many characters were passed in input
-%inputlimited | 1 if too many characters were given (relative to fullinputlimit)</div>
 <h2 id="chatbot-output">Chatbot Output</h2>
 <table style="width:31%;">
 <colgroup>
@@ -1429,20 +1453,12 @@ canon: faster fast</code></pre>
 <td>controls automatic handling of outputs to user. By default it consists of <code>$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde</code> If you want none of theses, use $cs_response = 0 (all flags turned off). See ^print for explanation of flags. <br><code>#response_noconvertspecial</code> - leave escaped n r and t alone in output and ^log, <br><code>#response_upperstart</code> - makes the first letter of an output sentence capitalized, <br><code>#Response_removespacebeforecomma</code> - does the obvious, <br><code>#Response_alterunderscores</code> - converts single underscores to spaces and double underscores to singles (eg for a web url)</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_jsontimeout</code></td>
-<td>seconds before JsonOpen declares a time out failure. If unspecified the default is 300</td>
-</tr>
-<tr class="even">
 <td><code>$cs_crashmsg</code></td>
 <td>in server mode, what to say if the server crashes and we return a message to the user. By default the message is <em>Hey, sorry. I forgot what I was thinking about.</em></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_abstract</code></td>
 <td>used with :abstract</td>
-</tr>
-<tr class="even">
-<td><code>$cs_looplimit</code></td>
-<td>loop() defaults to 1000 iterations before stopping. You can change this default with this</td>
 </tr>
 <tr class="odd">
 <td><code>$cs_trace</code></td>
@@ -1573,83 +1589,72 @@ canon: faster fast</code></pre>
 <td>if defined, causes the system to output numbers in a different language style: french, indian. All other values are english.</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_topicretrylimit</code></td>
-<td>if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30)</td>
-</tr>
-<tr class="even">
-<td><code>$$topic_retry_limit_exceeded</code></td>
-<td>set if topic retry limit is encountered</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_topicretrylimit</code></td>
-<td>if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30)</td>
-</tr>
-<tr class="even">
-<td><code>$cs_userhistorylimit</code></td>
-<td>if not null, indicates how many volleys back are tracked as what was said by both parties</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_saveusedJson</code></td>
-<td>if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below)</td>
-</tr>
-<tr class="even">
-<td><code>$cs_proxycredentials</code></td>
-<td>See ^JSONOPEN in JSON manual</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_proxyserver</code></td>
-<td>See ^JSONOPEN in JSON manual</td>
-</tr>
-<tr class="even">
-<td><code>$cs_proxymethod</code></td>
-<td>See ^JSONOPEN in JSON manual</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_addresponse</code></td>
-<td>provides a function name hook onto the output q to the user. See below.</td>
-</tr>
-<tr class="even">
 <td><code>%trace_on and %trace_off</code></td>
 <td>Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_indentlevel</code></td>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
+</tr>
+<tr class="odd">
+<td><code>$indentlevel</code></td>
+<td>deprecated form of $cs_indentlevel</td>
 </tr>
 <tr class="even">
 <td><code>$cs_tracetestoutput</code></td>
 <td>set to 1 to force tracing in ^testoutput</td>
 </tr>
 <tr class="odd">
-<td><code>$cs_sentences_limit</code></td>
-<td>after this many sentences in volley, cs ignores the rest (default 50)</td>
-</tr>
-<tr class="even">
 <td><code>$cs_outputlimit</code></td>
 <td>Generating more output than this will report a bug into LOGS/bugs.txt</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_summary</code></td>
 <td>After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_showtime</code></td>
 <td>After volley prints to terminal milliseconds of time used</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_inputlimit</code></td>
-<td>Restrict user input size (excluding oob)</td>
 </tr>
 <tr class="even">
 <td><code>$cs_new_user</code></td>
 <td>set to 1, treat user as always new (don't try to read topic file)</td>
 </tr>
-<tr class="odd">
-<td><code>$cs_mongoqueryparams</code></td>
-<td>set as a json structure of move its fields to a mongo query</td>
-</tr>
 </tbody>
 </table>
+<h1 id="hook-functions">hook functions</h1>
+<div style="white-space: pre-line;"><code>$cs_beforereset</code> | if set to a topic, will be executed before :reset is executed |
+<code>$cs_addresponse</code> | provides a function name hook onto the output q to the user. |
+<code>$testpatternpretopic</code> | execute this topic to preprocess input before matchines |
+<code>$$cs_testpatterninput</code> | a copy of user input created by engine for $testpatternpretopic to change if it wants |
+<code>$testpattern_posttopic</code> | can name a topic to be executed after ^testpattern to alter returned new variables |</div>
+<h1 id="variables-to-limit-effort">variables to limit effort</h1>
+<div style="white-space: pre-line;"><code>$cs_topicretrylimit</code> | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
+<code>$$topic_retry_limit_exceeded</code> | set if topic retry limit is encountered |
+<code>$cs_userhistorylimit</code> | if not null, indicates how many volleys back are tracked as what was said by both parties |
+<code>$cs_sentences_limit</code> | after this many sentences in volley, cs ignores the rest (default 50) |
+<code>$cs_inputlimit</code> | Restrict user input size (excluding oob) |
+<code>$cs_looplimit</code> | loop() defaults to 1000 iterations before stopping. You can change this default with this |
+<code>$cs_analyzelimit</code> | in non-standalone mode, after this millisecond limit, cs stops NL analysis of more sentences |
+<code>$cs_analyzelimitlog</code> | if analyzelimit triggers, report this fact in bug log |
+<code>$FakeTimeOffset</code> | For testing analyzelimit, pretend this much ms has already lapsed on start |
+<code>$cs_badspellLimit</code> | x-y format. After x many spelling corrections or x/y ratio of badspells to words seen, stop spellchecking |
+<code>$cs_sequence</code> | How many words in sequence to check as a composite (default: 5) |</div>
+<h1 id="json-variables">JSON variables</h1>
+<div style="white-space: pre-line;"><code>$cs_jsontimeout</code> | seconds before JsonOpen declares a time out failure. If unspecified the default is 300 |
+<code>$cs_saveusedJson</code> | if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below) |
+<code>$cs_proxycredentials</code> | See ^JSONOPEN in JSON manual|
+<code>$cs_proxyserver</code> | See ^JSONOPEN in JSON manual|
+<code>$cs_proxymethod</code> | See ^JSONOPEN in JSON manual|</div>
+<h1 id="mongo-variables">Mongo variables</h1>
+<div style="white-space: pre-line;"><code>$cs_mongoqueryparams</code> | set as a json structure of move its fields to a mongo query |
+<code>$mongo_enable_ssl</code> | if set to true, will use ssl |
+<code>$mongosslcafile</code> | data for ssl |
+<code>$mongosslpemfile</code> | data for ssl |
+<code>$mongosslpempwd</code> | data for ssl |
+<code>$mongovalidatessl</code> | data for ssl |
+<code>$mongo_timeexcess</code> | if certain operations exceed this ms, log entry is created |
+<code>$$mongo_error</code> | error message if db not openable |</div>
 <p>Note for %trace_on and %trace_off - you can use the command line parameter <code>blockapitrace</code> to prevent tracing in any code you accidentally leave in place.</p>
 <p><code>$cs_saveusedJson</code> exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some other non-JSON fact.</p>
 <p><code>$cs_inputlimit=x:y</code> for excessively long user input (excluding oob portion), the input will be truncated by keeping the first x characters and the last y characters.</p>

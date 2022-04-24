@@ -1,7 +1,7 @@
 #ifndef MAINSYSTEMH
 #define MAINSYSTEMH
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -57,7 +57,7 @@ extern bool blockapitrace;
 extern unsigned int timeLog;
 extern int outputlevel;
 extern char* releaseBotVar;
-extern bool hadAuthCode;
+extern int hadAuthCode;
 extern bool crashset;
 extern bool crashBack;
 extern bool restartBack;
@@ -101,7 +101,9 @@ extern char* originalUserInput;
 	SOURCE_ECHO_LOG = 2,
 };
 #define MAX_TRACED_FUNCTIONS 50
-extern char treetaggerParams[200];
+#define TESTPATTERN_TRACE_SIZE 200000
+ extern char* tracebuffer;
+ extern char treetaggerParams[200];
 extern unsigned short int derivationIndex[MAX_SENTENCE_LENGTH];
 extern int derivationLength;
 extern bool client;
@@ -122,7 +124,7 @@ extern bool callback;
 extern int sentenceLimit;
 extern char rootdir[MAX_WORD_SIZE];
 extern char incomingDir[MAX_WORD_SIZE];
-
+extern int volleyFile;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern bool logline;
@@ -157,6 +159,15 @@ extern uint64 sourceStart;
 extern unsigned int sourceTokens;
 extern unsigned int sourceLines;
 extern char* version;
+extern FILE* tsvFile;
+extern unsigned int tsvIndex;
+extern unsigned int tsvMessageField;
+extern unsigned int tsvLoginField;
+extern unsigned int tsvSpeakerField;
+extern unsigned int tsvCount;
+extern unsigned int tsvSkip;
+extern char tsvpriorlogin[MAX_WORD_SIZE]; 
+extern char speaker[100];
 extern unsigned int tokenCount;
 extern unsigned int choiceCount;
 extern int externalTagger;
@@ -237,6 +248,7 @@ extern uint64 alarmTime;
 extern uint64 alarmDelay;
 extern  char userPrefix[MAX_WORD_SIZE];			// label prefix for user input
 extern char botPrefix[MAX_WORD_SIZE];			// label prefix for bot output
+extern bool errorOnMissingElse;
 
 void Restart();
 void ProcessInputFile();
@@ -284,6 +296,7 @@ void MainLoop();
 void FinishVolley(char* output,char* summary,int limit = outputsize);
 int ProcessInput();
 FunctionResult DoOneSentence(char* incoming,char* prepassTopic,bool atlimit);
+void ExecuteVolleyFile(FILE* sourceFile);
 
 #ifdef DLL
 #ifdef __linux__
@@ -303,7 +316,7 @@ void ResetToPreUser();
 void PrepareSentence(char* input,bool mark = true,bool user=true, bool analyze = false, bool oobstart = false,bool atlimit = false);
 bool PrepassSentence(char* presspassTopic);
 FunctionResult Reply();
-void OnceCode(const char* var,char* topic = NULL);
+FunctionResult OnceCode(const char* var,char* topic = NULL);
 void AddBotUsed(const char* reply,unsigned int len);
 void AddHumanUsed(const char* reply);
 bool HasAlreadySaid(char* msg);

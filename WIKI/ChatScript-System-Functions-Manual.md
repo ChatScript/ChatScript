@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 4/24/2022 cs12.1
 
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
@@ -804,12 +804,15 @@ This affects detecting repeated input on the part of the user or detecting repea
 Returns what the bot said last volley.
 
 
-### `^print ( stream )`
+### `^print ( {stdout, log} stream )`
 
 Sends the results of outputing that stream to the user. It is isolated from the normal output stream, 
 and goes to the user whether or not one later generates a failure code from the rule. 
 Before the output you may put in output control flags as either a simple value without a `#` 
 (e.g., `OUTPUT_EVALCODE` ) or a value list in parens.
+
+By default it goes to the user log (or if log is specified) but if stdout
+is specified it goes to the console.
 
 Flags include:
 
@@ -1509,6 +1512,10 @@ but `%trace_on all` turns on full tracing.
 Use of  "cheat cs info" as part of the user input will save onto the newglobal
 $cs_info the datestamps of the engine and scripts, and they will
 be appended to any output from ^testoutput that occurs subsequently.
+
+Use of  bwinfo as part of the user input will  return
+a changed variable `bwinfo` which lists all words and the concepts marked for them
+A concept ~bwinfo_ignore if you define it will  have concepts NOT to show here.
 
 If you pass in a variable { $language : xxxx } then cs will change to that 
 language for the call. This only works for languages not requiring

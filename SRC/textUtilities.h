@@ -2,7 +2,7 @@
 #define _TEXTUTILITIESH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -93,7 +93,10 @@ extern char conditionalCompile[MAX_CONDITIONALS+1][50];
 extern int conditionalCompiledIndex;
 extern char numberComma;
 extern char numberPeriod;
-
+extern int startSentence;
+extern int endSentence;
+extern unsigned char toHex[16];
+extern bool hasHighChar;
 extern bool showBadUTF;
 extern char* userRecordSourceBuffer;
 extern char tmpWord[MAX_WORD_SIZE];
@@ -151,6 +154,7 @@ char* ReadToken(const char* ptr, char* word);
 FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
 void ClearSupplementalInput();
+bool IsAllUpper(char* ptr);
 int IsJapanese(char* utf8letter, unsigned char* utf16letter,int& kind);
 char* GetNextInput();
 void MoreToCome();
@@ -176,10 +180,6 @@ void WriteInteger(char* word, char* buffer, int useNumberStyle = NOSTYLE_NUMBERS
 void BOMAccess(int &BOMvalue, char &oldc, int &oldCurrentLine);
 size_t OutputLimit(unsigned char* data);
 void ConvertQuotes(char* ptr);
-extern int startSentence;
-extern int endSentence;
-extern unsigned char toHex[16];
-extern bool hasHighChar;
 bool IsFraction(char* token);
 char* UTF16_2_UTF8(char* in,bool withinquote);
 

@@ -125,6 +125,8 @@ struct Client_t
         delete this;
     }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wreorder-ctor"
     Client_t(int fd, struct ev_loop *l_p, int queue) : fd(fd), l(l_p), q(queue),requestValid(false)
     {
         strcpy(this->magic, "deadbeef");
@@ -134,6 +136,7 @@ struct Client_t
         this->ev_w.data = this;
         ev_io_start(this->l, &this->ev_r);
     }
+#pragma GCC diagnostic pop
 
     ~Client_t() // if child dies, this destructor is not called
     {
@@ -653,6 +656,7 @@ int evsrv_do_chat(Client_t *client)
 
 RESTART_RETRY:
     cs_qsize = client->q;
+    callStartTime = client->starttime;
 	int turn = PerformChat(
         client->user,
         client->bot,

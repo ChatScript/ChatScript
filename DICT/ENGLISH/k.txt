@@ -4997,3 +4997,5 @@
     knock_together~1vz 
  know_what_is_going_on ( meanings=1 glosses=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
     know_what_is_going_on~1vz   be well-informed
+ kitten-tail ( NOUN NOUN_SINGULAR ) 
+ king-of-arm ( NOUN NOUN_SINGULAR ) 

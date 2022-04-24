@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 3/21/2021 cs11.2
+<br>Revision 4/24/2022 cs12.1
 
 
 
@@ -24,6 +24,11 @@ Therefore you can request a match based on what the user actually typed, not spe
 case they used is possible by quote quoting the keyword `''ME`. Case will only be partially obeyed on the
 first word of a sentence because the user might be upper casing the first letter of the first word. So the system
 allows flexibility in matching the case of the first letter of the first word.
+
+## Numeric Comparison
+You write a numeric comparison like this ($var>=5). You can use > >= < <=  == and !=.
+For < <=  > >=  a null value will be treated as the number 0. Equality testing, however,
+will not. So  ($myvar<5) will match if $myvar is null, but ($myvar==0) will not match.
 
 ## UNLIMITED WILDCARDS
 

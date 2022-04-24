@@ -393,7 +393,7 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 		ptr = ReadTabField(ptr, suite);
 		char comment[MAX_WORD_SIZE];
 		ptr = ReadTabField(ptr, comment);
-		char name[100];
+		char name[1000];
 		ptr = ReadTabField(ptr, name);
 		// integration(api==2): RunTest,Suite,Comment,Name,Input,Response
 		//API(api==1):RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse

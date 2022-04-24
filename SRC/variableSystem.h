@@ -1,7 +1,7 @@
 #ifndef _VARIABLESYSTEMH_
 #define _VARIABLESYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -73,7 +73,7 @@ void ClearUserVariables(char* above = 0);
 void MigrateUserVariables();
 void RecoverUserVariables();
 char* GetUserVariable(const char* word, bool nojson = false,bool notracing = false);
-void SetUserVariable(const char* var, char* word, bool assignment = false);
+void SetUserVariable(const char* var, char* word, bool assignment = false,bool reuse = false);
 FunctionResult Add2UserVariable(char* var, char* word,char* op,char* originalArg);
 
 char* PerformAssignment(char* word,char* ptr,char* buffer,FunctionResult& result,bool nojson = false);

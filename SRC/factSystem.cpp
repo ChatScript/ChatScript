@@ -98,7 +98,7 @@ void VerifyFacts()
 }
 bool showit = false;
 
-bool UnacceptableFact(FACT* F,bool jsonavoid)
+bool UnacceptableFact(FACT* F)
 {
 	if (!F || F->flags & FACTDEAD) return true;
 	if (showit) TraceFact(F);
@@ -107,6 +107,11 @@ bool UnacceptableFact(FACT* F,bool jsonavoid)
 	// if ownership flags exist (layer0 or layer1) and we have different ownership.
 	bool invalid = (myBot && F->botBits && !(F->botBits & myBot)) ? true : false;
 	if (invalid) return true;
+	
+	// fact is not from overridden collection during api testpattern call
+	if (csapicall == TEST_PATTERN && F->verb == Mmember &&
+		Meaning2Word(F->object)->internalBits & OVERRIDE_CONCEPT &&
+		!(F->flags & OVERRIDE_MEMBER_FACT)) return true; 
 
 	// if language flags exist, confirm those
 	unsigned int language = (F->flags & FACTLANGUAGE) << LANGUAGE_SHIFT;
@@ -124,13 +129,13 @@ bool ValidMemberFact(FACT* F)
 	return (F->verb == Mmember && (!myBot || !F->botBits || F->botBits & myBot)); 
 }
 
-FACT* GetSubjectNondeadNext(FACT* F,bool jsonaccept) 
+FACT* GetSubjectNondeadNext(FACT* F) 
 { 
 	FACT* G = F;
 	while (F) 
 	{
 		F =  Index2Fact(F->subjectNext);
-		if (F && !UnacceptableFact(F,jsonaccept)) break;
+		if (F && !UnacceptableFact(F)) break;
 	}
 	if (F == G)
 	{
@@ -146,7 +151,7 @@ FACT* GetVerbNondeadNext(FACT* F)
 	while (F) 
 	{
 		F =  Index2Fact(F->verbNext);
-		if (F && !UnacceptableFact(F,true)) break;
+		if (F && !UnacceptableFact(F)) break;
 	}
 	if (F == G)
 	{
@@ -162,7 +167,7 @@ FACT* GetObjectNondeadNext(FACT* F)
 	while (F) 
 	{
 		F =  Index2Fact(F->objectNext);
-		if (F && !UnacceptableFact(F,true)) break;
+		if (F && !UnacceptableFact(F)) break;
 	}
 	if (F == G)
 	{
@@ -175,7 +180,7 @@ FACT* GetObjectNondeadNext(FACT* F)
 FACT* GetSubjectNondeadHead(FACT* F) 
 {
 	F = Index2Fact(F->subjectHead);
-	while (F && UnacceptableFact(F,true)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->subjectNext);
 	}
@@ -185,7 +190,7 @@ FACT* GetSubjectNondeadHead(FACT* F)
 FACT* GetVerbNondeadHead(FACT* F) 
 {
 	F = Index2Fact(F->verbHead);
-	while (F && UnacceptableFact(F,true)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->verbNext);
 	}
@@ -195,18 +200,18 @@ FACT* GetVerbNondeadHead(FACT* F)
 FACT* GetObjectNondeadHead(FACT* F) 
 {
 	F = Index2Fact(F->objectHead);
-	while (F && UnacceptableFact(F,true)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->objectNext);
 	}
 	return F;
 }
 
-FACT* GetSubjectNondeadHead(WORDP D, bool jsonaccess) // able to get special marker empty fact for json units
+FACT* GetSubjectNondeadHead(WORDP D) // able to get special marker empty fact for json units
 {
 	if (!D) return NULL;
 	FACT* F = Index2Fact(D->subjectHead);
-	while (F && UnacceptableFact(F,jsonaccess)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->subjectNext);
 	}
@@ -218,7 +223,7 @@ FACT* GetVerbNondeadHead(WORDP D)
 {
 	if (!D) return NULL;
 	FACT* F = Index2Fact(D->verbHead);
-	while (F && UnacceptableFact(F,true)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->verbNext);
 	}
@@ -229,7 +234,7 @@ FACT* GetObjectNondeadHead(WORDP D)
 {
 	if (!D) return NULL;
 	FACT* F = Index2Fact(D->objectHead);
-	while (F && UnacceptableFact(F,true)) 
+	while (F && UnacceptableFact(F)) 
 	{
 		F =  Index2Fact(F->objectNext);
 	}
@@ -273,7 +278,7 @@ FACT* EarliestFact(MEANING M) // earliest fact is last in list
 	FACT* G = F;
 	while (F)
 	{
-		F = GetSubjectNondeadHead(F);
+		F = GetSubjectNondeadNext(F);
 		if (F) G = F;
 	}
 	return G;
@@ -354,6 +359,7 @@ void InitFactWords()
 	Mmember = MakeMeaning(StoreWord((char*)"member",AS_IS));
 	Mexclude = MakeMeaning(StoreWord((char*)"exclude", AS_IS));
 	Mis = MakeMeaning(StoreWord((char*)"is", AS_IS));
+	StoreWord("null", AS_IS);
 }
 
 void CloseFacts()
@@ -854,11 +860,11 @@ bool ExportFacts(char* name, int set,char* append)
 	ReleaseInfiniteStack();
 
 	FILE* out;
-	if (strstr(name,"ltm")) out = userFileSystem.userCreate(name); // user ltm file
+    if (isKnownFileType(name)) out = userFileSystem.userCreate(name); // user ltm file
 	else out = (append && !stricmp(append,"append")) ? FopenUTF8WriteAppend(name) : FopenUTF8Write(name);
 	if (out)
 	{
-		if (strstr(name,"ltm")) 
+        if (isKnownFileType(name))
 		{
 			EncryptableFileWrite(base,1,(buffer-base),out,ltmEncrypt,"LTM"); 
 			userFileSystem.userClose(out);
@@ -917,14 +923,14 @@ FunctionResult ExportJson(char* name, char* jsonitem, char* append)
 	}
 
 	FILE* out;
-	if (strstr(name,"ltm")) out = userFileSystem.userCreate(name); // user ltm file
+    if (isKnownFileType(name)) out = userFileSystem.userCreate(name); // user ltm file
 	else out = (append && !stricmp(append,"append")) ? FopenUTF8WriteAppend(name) : FopenUTF8Write(name);
 	if (!out) return FAILRULE_BIT;
 
 	char* buffer = GetFreeCache(); // filesize limit
 	ExportJson1(jsonitem, buffer);
     bool isWriteFailure = false;
-	if (strstr(name,"ltm"))
+    if (isKnownFileType(name))
 	{
 		size_t wrote = EncryptableFileWrite(buffer,1,strlen(buffer),out,ltmEncrypt,"LTM");
 		userFileSystem.userClose(out);
@@ -1136,13 +1142,13 @@ bool ImportFacts(char* buffer,char* name, char* set, char* erase, char* transien
 		if (name[len-1] == '"') name[len-1] = 0;
 	}
 	FILE* in;
-	if (strstr(name,"ltm")) in = userFileSystem.userOpen(name);
+    if (isKnownFileType(name)) in = userFileSystem.userOpen(name);
 	else in = FopenReadWritten(name);
 	if (!in) return false;
 
 	char* filebuffer = GetFreeCache();
 	size_t readit;
-	if (strstr(name,"ltm"))
+    if (isKnownFileType(name))
 	{
 		readit = DecryptableFileRead(filebuffer,1,userCacheSize,in,ltmEncrypt,"LTM");	// LTM file read, read it all in, including BOM
 		userFileSystem.userClose(in);
@@ -1212,7 +1218,7 @@ void WriteFacts(FILE* out,FACT* F, int flags) //   write out from here to end
 	{
 		if (!(F->flags & (FACTTRANSIENT|FACTDEAD))) 
 		{
-            if (UnacceptableFact(F, true)) continue;
+            if (UnacceptableFact(F)) continue;
 			F->flags |= flags; // used to pass along build2 flag
 			char* f = WriteFact(F, true, word, false, true);
 			fprintf(out,(char*)"%s",f);
@@ -1244,7 +1250,6 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	//   get correct field values
 	// DICTIONARY should never be build with any but simple meanings and Mis
 	// No fact meaning should ever have a synset marker on it. And member facts may have type restrictions on them
-
 	//   allocate a fact
     int n = factEnd - lastFactUsed;
     if (n < worstlastFactUsed) worstlastFactUsed = n;

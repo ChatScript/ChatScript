@@ -1,7 +1,7 @@
 #ifndef _JSONH_
 #define _JSONH_
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -50,7 +50,7 @@ void jkillfact(WORDP D);
 void InitJSONNames();
 char* jwrite(char* start,char* buffer, WORDP D, int subject,bool plain = false,unsigned int limit = 0);
 bool IsValidJSONName(char* word, char type = 0);
-int orderJsonArrayMembers(WORDP D, FACT * *store);
+int orderJsonArrayMembers(WORDP D, FACT * *store,size_t & size);
 void WalkJsonHierarchy(WORDP D, FACT_FUNCTION func, uint64 data = 0, int depth = 0);
 
 #ifndef DISCARDJSONOPEN

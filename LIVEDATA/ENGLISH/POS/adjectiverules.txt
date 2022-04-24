@@ -26,7 +26,12 @@ DISCARD
 	INCLUDE * ADJECTIVE_NORMAL
 	STAY HAS PREPOSITION
 DISCARD
-	
+
+# noun gerund before noun is unreasonable if can be adjective participle  I hate *disgusting food
+0 INCLUDE *  NOUN_GERUND
+	STAY HAS ADJECTIVE_PARTICIPLE
+	IS NOUN_BITS
+	DISCARD
 
 # wont be adjective participle before verb and after noun if could be noun - construction (Noun_singular)  spending/spend (Noun_singular +Adjective_participle)  was/be (Verb_past)
 -1 IS NOUN_BITS

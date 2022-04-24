@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 4/24/2022 cs12.1
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -125,6 +125,8 @@ the above : statement show the list:
 :prepare     - Show results of tokenization, tagging, and marking on a sentence
 :regress     - create or test a regression file
 :source      - Switch input to named file
+:tsvsource  - switch conversation to a named file
+:concat - switch to file where multiple lines are joined to a single input line
 :testpattern - See if a pattern works with an input.
 :testtopic   - Try named topic responders on input
 :verify      - Given test type & topic, test that rules are accessible. 
@@ -920,6 +922,21 @@ will remain untouched. For a complete reset see command line parameter `erasenam
 ### `:user username`
 Change your login id. It will then prompt you for new input as that user and proceed from
 there, not starting a new conversation but merely continuing a prior one.
+
+### `:tsvsource filename conversationid message speaker count skip`
+The system will switch to reading input from a delimited file describing 
+conversations. 
+
+Conversationid is the field index where the id for login will be found.
+Message is the field index of the  input being supplied. 
+Speaker is field index of who is speaking (Professional or Customer).
+
+Each successive line with the same conversation id continues the conversation.
+Either speaker can be doing the talking. When a new conversation id
+is read, the prior conversation ends and a new one begins. As the conversation ends,
+a topic you can define called ~cs_tsvsource which consists only of gambits.
+It is not harmful if you don't have this topic. It allows you to do any final processing
+of the conversation.
 
 ### `:source REGRESS/bigregress.txt`
 Switch the system to reading input from the named file. Good for regression testing.

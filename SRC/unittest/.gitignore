@@ -1,6 +1,5 @@
 CMakeFiles/
 proto/
-
 *.dSYM
 *.o
 imp_test

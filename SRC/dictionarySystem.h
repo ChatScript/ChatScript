@@ -2,7 +2,7 @@
 #define _DICTIONARYSYSTEM_H
 
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -54,7 +54,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define POSSESSIVE_BITS			( PRONOUN_POSSESSIVE | POSSESSIVE )
 #define DETERMINER_BITS		   ( DETERMINER | PREDETERMINER | POSSESSIVE_BITS ) // come before adjectives/nouns/ adverbs leading to those
 
-//		0x0000000000100000ULL 	
+//      0x0000000000100000ULL 	// for spanish
 
 // punctuation
 #define COMMA 					0x0000000000080000ULL	
@@ -72,7 +72,8 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define ADJECTIVE_BITS ( ADJECTIVE_NOUN | ADJECTIVE_NORMAL | ADJECTIVE_PARTICIPLE | ADJECTIVE_NUMBER )
 
 // unusual words
-#define INTERJECTION			0x0000000000000400ULL	 
+#define INTERJECTION			0x0000000000000400ULL	 // includes emoji
+#define EMOJI	INTERJECTION	 
 #define THERE_EXISTENTIAL		0x0000000000000200ULL	// "There" is no future in it. There is actually a unique kind of pronoun.  Pennbank: EX
 #define FOREIGN_WORD			0x0000000000000100ULL 	// pennbank: FW
 #define TO_INFINITIVE	 		0x0000000000000080ULL 	// attaches to NOUN_INFINITIVE
@@ -111,9 +112,12 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define	AUX_BE					0x0000000800000000ULL	
 #define AUX_VERB_PRESENT		0x0000000400000000ULL
 #define AUX_VERB_FUTURE			0x0000000200000000ULL
+#define SPANISH_FUTURE AUX_VERB_FUTURE // for spanish labelling
 #define AUX_VERB_PAST			0x0000000100000000ULL
 #define AUX_VERB_TENSES ( AUX_VERB_PRESENT | AUX_VERB_FUTURE | AUX_VERB_PAST ) // modal verbs
 #define AUX_VERB ( AUX_VERB_TENSES | AUX_BE | AUX_HAVE | AUX_DO )
+
+#define SPANISH_VERB_BITS ( VERB_BITS |  AUX_VERB_FUTURE )
 
 #define STARTTAGS				0x0000800000000000ULL	// the top bit of the 48 bits visible to tagger
 
@@ -123,7 +127,9 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NOUN_HUMAN				0x4000000000000000ULL  //   person or group of people that uses WHO, he, she, anyone
 #define NOUN_FIRSTNAME			0x2000000000000000ULL  //   a known first name -- wiULL also be a sexed name probably
 #define NOUN_SHE				0x1000000000000000ULL	//   female sexed word (used in sexed person title detection for example)
+#define SPANISH_SHE				NOUN_SHE	//   female sexed word (used in sexed person title detection for example)
 #define NOUN_HE					0x0800000000000000ULL	//   male sexed word (used in sexed person title detection for example)
+#define SPANISH_HE				NOUN_HE	//   female sexed word (used in sexed person title detection for example)
 #define NOUN_THEY				0x0400000000000000ULL   
 #define NOUN_TITLE_OF_ADDRESS	0x0200000000000000LL	//   eg. mr, miss
 #define NOUN_TITLE_OF_WORK		0x0100000000000000ULL
@@ -135,7 +141,9 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define QWORD 	 				0x0008000000000000ULL 	// who what where why when how whose -- things that can start a question
 
 #define PLACE_NUMBER			0x0004000000000000ULL	// hidden refinement of ADJECTIVE_NUMBER
+#define SPANISH_PLURAL			PLACE_NUMBER	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
 #define SINGULAR_PERSON			0x0002000000000000ULL	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
+#define SPANISH_SINGULAR			SINGULAR_PERSON	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
 
 #define IDIOM 					0x0001000000000000ULL	// multi word expression of which end is at TAIL (like multiword prep)
 
@@ -147,6 +155,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NOUN_FEMALEHUMAN    ( NOUN |  NOUN_HUMAN | NOUN_SHE | NOUN_PROPER_SINGULAR )
 #define NOUN_HUMANNAME ( NOUN_HUMAN | NOUN | NOUN_PROPER_SINGULAR )
 
+// adjective bits and noun bits are those that classify the kind of them
 #define TAG_TEST ( INTERJECTION | IDIOM | PUNCTUATION | QUOTE | COMMA | CURRENCY | PAREN | PARTICLE | VERB_BITS | NOUN_BITS | FOREIGN_WORD | DETERMINER_BITS | ADJECTIVE_BITS | AUX_VERB | ADVERB  | PRONOUN_BITS | CONJUNCTION | POSSESSIVE_BITS | THERE_EXISTENTIAL | PREPOSITION | TO_INFINITIVE )
 
 #define NOUN_DESCRIPTION_BITS ( ADJECTIVE_BITS | DETERMINER_BITS  | ADVERB  | NOUN_BITS )
@@ -161,20 +170,29 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // verb conjucations
 #define VERB_CONJUGATE3				0x0000000000000010ULL	//	3rd word of composite verb extensions	
+#define PRONOUN_OBJECT_SINGULAR  VERB_CONJUGATE3 // spanish
 #define VERB_CONJUGATE2				0x0000000000000020ULL	//   2nd word of composite verb extensions  (e.g., re-energize)
+#define PRONOUN_OBJECT_PLURAL  VERB_CONJUGATE2 // spanish
 #define VERB_CONJUGATE1				0x0000000000000040ULL	//   1st word of composite verb extensions  (e.g. peter_out)
+#define PRONOUN_OBJECT_I  VERB_CONJUGATE1 // spanish
 
 #define PRESENTATION_VERB			0x0000000000000080ULL 	// will occur after THERE_EXISTENTIAL
+#define PRONOUN_OBJECT_YOU PRESENTATION_VERB // spanish
 #define COMMON_PARTICIPLE_VERB		0x0000000000000100ULL	// will be adjective after "be or seem" rather than treated as a verb participle
+#define VERB_IMPERATIVE  COMMON_PARTICIPLE_VERB  // spanish
 
 #define NOCONCEPTLIST				0x0000000000000200ULL   // conceptlist should ignore this on a concept (keep in low order bits for query)
 #define PRONOUN_RELATIVE			0x0000000000000400ULL   
 
 // phrasal verb controls
 #define INSEPARABLE_PHRASAL_VERB		0x0000000000000800ULL	//  cannot be split apart ever
+#define PRONOUN_INDIRECTOBJECT_SINGULAR  INSEPARABLE_PHRASAL_VERB // spanish
 #define MUST_BE_SEPARATE_PHRASAL_VERB	0x0000000000001000ULL 	// phrasal MUST separate - "take my mother into" but not "take into my mother" 	
+#define PRONOUN_INDIRECTOBJECT_PLURAL  MUST_BE_SEPARATE_PHRASAL_VERB // spanish
 #define SEPARABLE_PHRASAL_VERB			0x0000000000002000ULL  // can be separated
+#define PRONOUN_INDIRECTOBJECT_I  SEPARABLE_PHRASAL_VERB // spanish
 #define PHRASAL_VERB 					0x0000000000004000ULL  // accepts particles - when lacking INSEPARABLE and MUST_SEPARABLE, can do either 
+#define PRONOUN_INDIRECTOBJECT_YOU  PHRASAL_VERB // spanish
 
 // verb objects
 #define VERB_NOOBJECT  				0x0000000000008000ULL 	
@@ -240,9 +258,8 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define SPELLING_EXCEPTION	0x0040000000000000ULL	// dont double final consonant making past tense
 #define ADJECTIVE_NOT_PREDICATE	0x0080000000000000ULL	
 #define ADJECTIVE_ONLY_PREDICATE	0x0100000000000000ULL	
-// unused		0x0200000000000000ULL	
-
-// unused			0x0400000000000000ULL
+#define PRONOUN_I								0x0200000000000000ULL	
+#define PRONOUN_YOU						0x0400000000000000ULL
 #define NO_PROPER_MERGE				0x0800000000000000ULL	// do not merge this word into any proper name
 #define MARKED_WORD					0x1000000000000000ULL	// transient word marker that USER can store on word and find facts that connect to it && building dictionary uses it to mean save this word regardless
 #define PATTERN_WORD 					0x2000000000000000ULL
@@ -640,6 +657,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NO_LOWERCASE_PROPER_MERGE	0x0000010000000000ULL   
 #define DO_SPLIT_UNDERSCORE					0x0000020000000000ULL   
 #define MARK_LOWER										0x0000040000000000ULL   
+#define TRUST_POS												0x0000080000000000ULL   
 
 // in tokenflags not token control
 #define NO_FIX_UTF								0x0000080000000000ULL   
@@ -652,7 +670,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // these change from parsing
 #define SENTENCE_TOKENFLAGS  ( QUOTATION | COMMANDMARK | IMPLIED_SUBJECT | IMPLIED_YOU | FOREIGN_TOKENS | FAULTY_PARSE  | NOT_SENTENCE | PRESENT | PAST | FUTURE | PRESENT_PERFECT | CONTINUOUS | PERFECT | PASSIVE )
 
-// flags to control output processing
+// flags to control output processing $cs_response
 #define    OUTPUT_ONCE			0x00000001 
 #define    OUTPUT_KEEPSET		0x00000002	// don't expand class or set
 #define    OUTPUT_KEEPVAR		0x00000004 			// don't expand a var past its first level

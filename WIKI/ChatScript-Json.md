@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 4/24/2022 cs12.1
 
 
 # Real World JSON
@@ -23,7 +23,21 @@ Indices of an array start at 0, so the above has as values:
 
 Note that arrays can hold values of different types.  Arrays have no hole in indexing and usually  ordered and  retain that order, but they
 work out of order as well (^Jsonmerge can alter the order).
+
+If you have an array, you can use dot notation to find the index of some value in it,
+eg
+```
+    $_index = $array.space
+```
+will find what array index the value `space` is at;
+
+15. given an jsonarray treated as an object (using dot)	
+	$array.value returns the index of the element that has that value
+
+
 A JSON object is a list of key-value pairs separated by commas and placed within curly braces `{}`, e.g.,
+
+
 
 ```json
 { 
@@ -429,6 +443,9 @@ select DUPLICATE entries being legal. If you want the insertion to be unique, us
 ```
    $cs_json_array_defaults = #JSON_ARRAY_UNIQUE 
 ```
+
+HOWEVER, if you have explicitly created an array using ^jsoncreate, it
+will add elements based on how you declared it (UNIQUE or DUPLICATE)
 
 The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert
 as you are not allowed to create discontiguous indices.
@@ -894,6 +911,9 @@ buffer without being checked.
 Note: CS blocks until the call is complete. On a production server if you expect that the call can take
 serious time, you are advised to send the request in OOB to your own additional layer which returns to CS immediately.
 Then it makes the call and when the call completes, makes a call back to CS with the results in OOB.
+
+You can set dynamic time limits on ^jsonopen. The variable $cs_jsontimeout
+sets a local seconds limit on the call. -1 means fail immediately.
 
 #### `JSONOpen and local files`
 

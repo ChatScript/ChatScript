@@ -17,6 +17,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #ifndef DISCARDMONGO
 extern char mongodbparams[MAX_WORD_SIZE * 4];  // 4 parts: url database topic ltm
 
+#define MAX_COLLECTIONS_LIMIT 10
+#define MONGO_COLLECTION_NAME_LENGTH 256
+
 const char* MongoVersion();
 void MongoSystemInit(char* params);
 void MongoShutdown();

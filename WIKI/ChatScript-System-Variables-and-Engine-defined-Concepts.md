@@ -1,7 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/21/2021 cs11.6
-
+<br>Revision 4/24/2022 cs12.1
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
@@ -249,6 +248,16 @@ and special concepts:
 | `~capacronym`           | word is in all caps (and &) and is likely an acronym
 | `~emoji`				| word starts and end with : and represents an emoji
 
+## Spanish
+
+For Spanish (if you are in spanish language mode) there is
+~spanish_he, ~spanish_she, ~spanish_singular, ~spanish_plural
+for nouns and adjectives and determiner 'the'.  Pronouns will be marked with ~pronoun_object_singular or
+~pronoun_object_plural or ~pronoun_object_you. Also
+~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and
+~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you. And simple future tense
+verbs will be marked ~spanish_future.
+
 # System Variables
 
 The system has some predefined variables which you can generally test and use but not
@@ -316,13 +325,16 @@ user starts over again. If you want truly random, use  %fullmstime % $howmany to
 | `%tense`            |  past , present, or future simple tense (present perfect is a past tense) 
 | `%user`             |  user login name supplied 
 | `%userfirstline`    |  value of `%input` that is at the start of this conversation start 
+| `%speaker`    |  value of `speaker` from a conversation involving :tsvsource 
 | `%userinput`        |  Boolean is the current input from the user (vs the chatbot) 
 | `%voice`            |  active or passive on current input  
-| %trace_on | Fake empty variable used to turn on tracing (see Debugging commands)
-| %trace_off | Fake empty variable used to turn off tracing (see Debugging commands)
-
-| %inputsize |  gives how many characters were passed in input
-| %inputlimited |   1 if too many characters were given (relative to fullinputlimit)
+| `%trace_on` | Fake empty variable used to turn on tracing (see Debugging commands)
+| `%trace_off` | Fake empty variable used to turn off tracing (see Debugging commands)
+| `%starttimems` | Start of user request time/date in milliseconds
+| `%inputsize` |  gives how many characters were passed in input
+| `%inputlimited` |   1 if too many characters were given (relative to fullinputlimit)
+| `%tsvsource`  |  1 if in progress Null otherwise
+| `%heapsize`  |  how many bytes of heap are left
 
 ## Chatbot Output
 
@@ -646,10 +658,8 @@ contents.
 | -------------------  | ------- |
 | `$cs_token`          |  described extensively above| 
 | `$cs_response`       |  controls automatic handling of outputs to user. By default it consists of `$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde` If you want none of theses, use $cs_response = 0 (all flags turned off). See ^print for explanation of flags. <br>`#response_noconvertspecial` - leave escaped n r and t alone in output and ^log, <br>`#response_upperstart` - makes the first letter of an output sentence capitalized, <br>`#Response_removespacebeforecomma` - does the obvious, <br>`#Response_alterunderscores` - converts single underscores to spaces and double underscores to singles (eg for a web url) |
-| `$cs_jsontimeout`    |  seconds before JsonOpen declares a time out failure. If unspecified the default is 300 | 
 | `$cs_crashmsg`       |  in server mode, what to say if the server crashes and we return a message to the user. By default the message is _Hey, sorry. I forgot what I was thinking about._ | 
 | `$cs_abstract`       |  used with :abstract | 
-| `$cs_looplimit`      |  loop() defaults to 1000 iterations before stopping. You can change this default with this | 
 | `$cs_trace`          |  if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data | 
 | `$cs_control_pre`    |  name of topic (flag it SYSTEM) to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values | 
 | `$cs_usermessagelimit` | max number of message pairs (user input & bot output) saved in topic file | 
@@ -682,25 +692,52 @@ contents.
 | `$cs_fullfloat` | if defined, causes the system to generate full float 64-bit precision on outputs, otherwise you get 2 digit precision by default |
 | `$cs_botid`    |  when non-zero creates facts and functions restricted by this bitmask so facts and functions created by other masks cannot be seen. allows you to separate facts and functions per bot in a multi-bot environment. During compilation if this is set by a bot: command, then functions created and facts created by tables will be restricted to that owner.| 
 | `$cs_numbers` | if defined, causes the system to output numbers in a different language style: french, indian. All other values are english. |
+| `%trace_on and %trace_off`    | Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.| 
+| `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
+| `$indentlevel`		| deprecated form of $cs_indentlevel |
+| `$cs_tracetestoutput`  | set to 1 to force tracing in ^testoutput|
+| `$cs_outputlimit`  | Generating more output than this will report a bug into LOGS/bugs.txt |
+| `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
+| `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
+| `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
+
+# hook functions
+| `$cs_beforereset` | if set to a topic, will be executed before :reset is executed |
+| `$cs_addresponse`    | provides a function name hook onto the output q to the user. | 
+| `$testpatternpretopic` |  execute this topic to preprocess input before matchines | 
+| `$$cs_testpatterninput` |  a copy of user input created by engine for $testpatternpretopic to change if it wants | 
+| `$testpattern_posttopic` | can name a topic to be executed after ^testpattern to alter returned new variables |
+
+# variables to limit effort 
 | `$cs_topicretrylimit` | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
 | `$$topic_retry_limit_exceeded` | set if topic retry limit is encountered |
-| `$cs_topicretrylimit` | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
 | `$cs_userhistorylimit` | if not null, indicates how many volleys back are tracked as what was said by both parties |
+| `$cs_sentences_limit`  | after this many sentences in volley, cs ignores the rest (default 50) |
+| `$cs_inputlimit` | Restrict user input size (excluding oob) |
+| `$cs_looplimit`      |  loop() defaults to 1000 iterations before stopping. You can change this default with this | 
+| `$cs_analyzelimit` | in non-standalone mode, after this millisecond limit, cs stops NL analysis of more sentences |
+| `$cs_analyzelimitlog` | if analyzelimit triggers, report this fact in bug log |
+| `$FakeTimeOffset` | For testing analyzelimit, pretend this much ms has already lapsed on start |
+| `$cs_badspellLimit` | x-y format. After x many spelling corrections or x/y ratio of badspells to words seen, stop spellchecking |
+| `$cs_sequence` | How many words in sequence to check as a composite (default: 5) |
+
+# JSON variables
+| `$cs_jsontimeout`    |  seconds before JsonOpen declares a time out failure. If unspecified the default is 300 | 
 | `$cs_saveusedJson` | if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below) |
 | `$cs_proxycredentials`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
-| `$cs_addresponse`    | provides a function name hook onto the output q to the user. See below.| 
-| `%trace_on and %trace_off`    | Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.| 
-| `$cs_indentlevel`		| controls indenting when tracing in ^testpattern. 3 is a good number usually|
-| `$cs_tracetestoutput`  | set to 1 to force tracing in ^testoutput|
-| `$cs_sentences_limit`  | after this many sentences in volley, cs ignores the rest (default 50) |
-| `$cs_outputlimit`  | Generating more output than this will report a bug into LOGS/bugs.txt |
-| `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
-| `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
-| `$cs_inputlimit` | Restrict user input size (excluding oob) |
-| `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
+
+# Mongo variables
 | `$cs_mongoqueryparams` | set as a json structure of move its fields to a mongo query |
+| `$mongo_enable_ssl` | if set to true, will use ssl |
+| `$mongosslcafile` | data for ssl |
+| `$mongosslpemfile` | data for ssl  |
+| `$mongosslpempwd` | data for ssl  |
+| `$mongovalidatessl` | data for ssl  |
+| `$mongo_timeexcess` | if certain operations exceed this ms, log entry is created  |
+| `$$mongo_error` | error message if db not openable |
+
 
 Note for %trace_on and %trace_off - you can use the command line
 parameter `blockapitrace` to prevent tracing in any code you 

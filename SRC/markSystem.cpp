@@ -34,6 +34,11 @@ In a pattern, an author can request:
 		Thereafter the system chases up the synset hierarchy fanning out to sets marked from synset nodes.
 
 #endif
+
+#pragma warning(disable: 4068)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-value"
+
 #define GENERIC_MEANING 0  // not a specific meaning of the word
 int verbwordx = -1;
 
@@ -41,7 +46,6 @@ int uppercaseFind = -1; // unknown
 static bool failFired = false;
 bool trustpos = false;
 int marklimit = 0;
-static int freeTriedList = 0;
 std::map <WORDP, HEAPINDEX> triedData; // per volley index into heap space
 static STACKREF wordlist = NULL;
 static HEAPREF pendingConceptList = NULL;
@@ -138,6 +142,20 @@ bool HasMarks(int start)
 	return whereHitEnd != 0;
 }
 
+void ShowMarkData(char* word)
+{
+	WORDP D = FindWord(word);
+	if (!D) return;
+	unsigned char* data = GetWhereInSentence(D); // has 2 hidden int fields before this point
+	if (!data)  return;
+	for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
+	{
+		unsigned char begin = data[i];
+		unsigned char end = data[i + 1];
+		printf("%d-%d   ", begin, end);
+	}
+	printf("\r\n");
+}
 bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int start, int end)
 {	//   keep closest to start at bottom, when run out, drop later ones 
     if (!D || !D->word) return false;
@@ -250,10 +268,9 @@ HEAPINDEX CopyWhereInSentence(int oldindex)
 	unsigned int* olddata = (unsigned int*)Index2Heap(oldindex); // original location
 	if (!olddata) return 0;
 
-	size_t len = TRIEDDATA_WORDSIZE;
 	//  64bit tried by meaning field (aligned) + sentencerefs (2 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
-	if (data) memcpy((char*)data, olddata, len * sizeof(int));
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, TRIEDDATA_WORDSIZE, 4, false); // 64 bits (2 words) + 48 bytes (12 words)  = 14 words  
+	if (data) memcpy((char*)data, olddata, TRIEDDATA_WORDSIZE * sizeof(int));
 	return Heap2Index((char*)data);
 }
 
@@ -262,43 +279,23 @@ void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
 	memset(concepts, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
 	memset(topics, 0, sizeof(unsigned int) * MAX_SENTENCE_LENGTH);
 
-	// be able to reuse memory
-	if (documentMode) for (std::map<WORDP, HEAPINDEX>::iterator it = triedData.begin(); it != triedData.end(); ++it)
-	{
-		MEANING* data = (MEANING*)Index2Heap(it->second);
-		*data = freeTriedList;
-		freeTriedList = it->second;
-	}
-
 	triedData.clear();
 	memset(unmarked, 0, MAX_SENTENCE_LENGTH);
 }
 
-void ClearTriedData() // erases  the WHEREINSENTENCE and the TRIEDBITS
-{
-	triedData.clear();
-	freeTriedList = 0;
-}
-
 unsigned int* AllocateWhereInSentence(WORDP D)
 {
-	if (documentMode && freeTriedList) // reuse memory
-	{
-		MEANING* d = (MEANING*)Index2Heap(freeTriedList);
-		freeTriedList = *d;
-	}
-	size_t len = TRIEDDATA_WORDSIZE;
 	//  64bit tried by meaning field (aligned) + sentencerefs (3 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, len, 4, false); 
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, TRIEDDATA_WORDSIZE, 4, false);
 	if (!data) return NULL;
 
-	memset((char*)data, END_OF_REFERENCES, len * sizeof(int)); // clears sentence xref start/end bits and casing byte
+	memset((char*)data, END_OF_REFERENCES, TRIEDDATA_WORDSIZE * sizeof(int)); // clears sentence xref start/end bits and casing byte
 	data[0] = 0; // clears the tried meanings list
 	data[1] = 0;
 	// store where in the temps data
 	int index = Heap2Index((char*)data); // original index!
 	triedData[D] = index;
-	return data + 2; // analogous to GetWhereInSentence
+	return data + 2; // analogous to GetWhereInSentence (hidden bits)
 }
 
 void SetTriedMeaningWithData(uint64 bits, unsigned int* data)
@@ -380,7 +377,7 @@ static unsigned char* DataIntersect(WORDP D)
 
 		unsigned char* commonData = (unsigned char*)AllocateWhereInSentence(D);
 		if (!commonData) return 0; // allocate failure
-		memcpy(commonData, data, TRIEDDATA_WORDSIZE * sizeof(int)); // starts with the base
+		memcpy(commonData, data, REFSTRIEDDATA_WORDSIZE * sizeof(int)); // starts with the base
 
 		// keep common positions of this second word (and optionally third) with existing first
 		for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE) // walk commondata
@@ -703,6 +700,7 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 				{
 					if (trace & TRACE_HIERARCHY) TraceHierarchy(F, "");
 				}
+				// concept might not be concept if member is to a word, not a concept
 				else if (*concept->word == '~' && WhereWordHit(concept, start) >= end) mark = false; // already marked this set
 				else  //does set has some members it does not want
 				{
@@ -849,7 +847,7 @@ void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start
     
     // we mark word hit before using MarkSetPath, so that exclude is supported
     // words we dont know we dont bother marking
-    if (!once || D->properties & (PART_OF_SPEECH | NOUN_TITLE_OF_WORK | NOUN_HUMAN) || D->systemFlags & PATTERN_WORD || D->internalBits &  CONCEPT)
+    if (!once || D->properties & (PART_OF_SPEECH | NOUN_TITLE_OF_WORK | NOUN_HUMAN) || D->systemFlags & PATTERN_WORD || *D->word == '~')
     {
         MarkWordHit(depth, exactWord, D, 0, start, end);
         MarkSetPath(depth + 2, exactWord, M, start, end, 0, kind); // generic membership of this word all the way to top
@@ -957,6 +955,7 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
         // not allowed to detect uppercase when user input 
         // is form is conjugated (fitted != Fit) except
         // for Plural noun  OR   monitoring => Monitor as canonical
+		if (D->length == 2 && !strcmp(D->word,"AM") && start > 1 && start == end && *wordStarts[start-1] == 'I' && !wordStarts[start-1][1]) continue;
         if (start == end && IsUpperCase(*D->word) && kind == FIXED){ ; }
         else if (start == end && IsUpperCase(*D->word)  &&  kind == CANONICAL &&
 			stricmp(D->word, wordStarts[start])) // user didnt type this, upper case should be noun singular -- bug for us  if he did proper noun plural
@@ -977,7 +976,10 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
 				else if (IsUpperCase(word[1])) refined = RAWCASE; // 2 uppercase in a row is intentional (or caps lock so we cant tell)
 			}
 		}
-		MarkMeaningAndImplications(0, 0,MakeMeaning(D),start,end, refined,true);
+		if (end > start && *D->word != '~') Add2ConceptTopicList(concepts, D, start, end, true); // add multi-words to concept list directly as WordHit will not store anything but concepts
+		unsigned int restriction = 0;
+		if (start == end && false) restriction = (unsigned int)(finalPosValues[start] & BASIC_POS);
+		MarkMeaningAndImplications(0, 0, MakeTypedMeaning(D,0,restriction),start,end, refined,true);
 	}
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 }
@@ -991,17 +993,17 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 
 	if (!stricmp(language, "japanese"))
 	{
-		for (int i = 1; i <= wordCount; ++i)
+		if (wordCount)
 		{
-			strcpy(fixedbuffer, wordStarts[i]);
-			int limit = i + sequenceLimit + 10; // japanese sentences can be long words
+			strcpy(fixedbuffer, wordStarts[1]);
+			int limit = sequenceLimit + 11; // japanese sentences can be long words
 			if (limit > wordCount) limit = wordCount;
-			for (int j = i + 1; j <= limit; ++j)
+			for (int j = 2; j <= limit; ++j)
 			{
 				strcat(fixedbuffer, " ");
 				strcat(fixedbuffer, wordStarts[j]);
 				WORDP D = FindWord(fixedbuffer, 0, PRIMARY_CASE_ALLOWED);
-				if (D) MarkMeaningAndImplications(0, 0, MakeMeaning(D), i, j, CANONICAL, true);
+				if (D) MarkMeaningAndImplications(0, 0, MakeMeaning(D), 1, j, CANONICAL, true);
 			}
 			ReleaseStack(fixedbuffer); // short term
 			return;
@@ -1030,8 +1032,8 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		while (wordlist)
 		{
             uint64 D;
-            wordlist = UnpackHeapval(wordlist, D, discard);
-			((WORDP)D)->internalBits ^= BEEN_HERE;
+            wordlist = UnpackStackval(wordlist, D, discard);
+			((WORDP)D)->internalBits &= -1 ^ BEEN_HERE;
 		}
 
 		if (!IsAlphaUTF8OrDigit(*wordStarts[i]) ) continue; // we only composite words, not punctuation or quoted stuff
@@ -1098,7 +1100,7 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		}
 		
 		// scan interesting initial words (spaced, underscored, capitalized) but we need to recognize bots in lower case, so try all cases here as well
-        if (!trustpos) // the base words would already be scanned and marked by pos
+        if (!trustpos || tokenControl & TRUST_POS) // the base words would already be scanned and marked by pos
         { // test in most specific order
 			HuntMatch(RAW, rawbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace); // using start and end have derivation issues when multiple replaces happen
 			HuntMatch(FIXED , fixedbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
@@ -1190,8 +1192,8 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 	while (wordlist)
 	{
         uint64 D;
-        wordlist = UnpackHeapval(wordlist, D, discard);
-		((WORDP)D)->internalBits ^= BEEN_HERE;
+        wordlist = UnpackStackval(wordlist, D, discard);
+		((WORDP)D)->internalBits &= -1 ^ BEEN_HERE;
 	}
 
 #ifdef TREETAGGER
@@ -1420,7 +1422,7 @@ void MarkAllImpliedWords(bool limitnlp)
 	pendingConceptList = NULL;
 	for (i = 1; i <= wordCount; ++i)  capState[i] = IsUpperCase(*wordStarts[i]); // note cap state
 	failFired = false;
-	TagIt(); // pos tag and maybe parse
+	TagIt(limitnlp); // pos tag and maybe parse
 
 	if (prepareMode == POS_MODE || tmpPrepareMode == POS_MODE || prepareMode == PENN_MODE || prepareMode == POSVERIFY_MODE || prepareMode == POSTIME_MODE)
 	{
@@ -1439,7 +1441,6 @@ void MarkAllImpliedWords(bool limitnlp)
 	for (i = 1; i <= wordCount; ++i) //   mark that we have found this word, either in original or canonical form
 	{
 		marklimit = 0; // per word scan limit
-		if (i == startSentence && upperCount > 10 && lowerCount < 5) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~shout")), i, i);
 		char* original = wordStarts[i];
 		if (!*original)
 			continue;	// ignore this
@@ -1448,6 +1449,12 @@ void MarkAllImpliedWords(bool limitnlp)
 		if (showMark) Log(ECHOUSERLOG, (char*)"\r\n");
 
 		if (trace  & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE) Log(USERLOG,"%d: %s (raw):\r\n", i, original);
+		
+		char word[MAX_WORD_SIZE];
+		GetDerivationText(i, i, word);
+		if (word[1] && upperCount != lowerCount && IsAllUpper(word)) // this is shout, not caps lock
+			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~shout")), i, i);
+
 		uint64 flags = posValues[i];
 		WORDP D = originalLower[i] ? originalLower[i] : originalUpper[i]; // one of them MUST have been set
 		if (!D) D = StoreWord(original,AS_IS); // just so we can't fail later
@@ -1474,7 +1481,6 @@ void MarkAllImpliedWords(bool limitnlp)
 			flags |= VERB;
 		}
 		finalPosValues[i] = flags; // these are what we finally decided were correct pos flags from tagger
-
 		if (wordStarts[i][1] && (wordStarts[i][1] == ':' || wordStarts[i][2] == ':')) // time info 1:30 or 11:30
 		{
 			if (originalLower[i] && IsDigit(wordStarts[i][0]) && IsDigit(wordStarts[i][3]))
@@ -1534,7 +1540,7 @@ void MarkAllImpliedWords(bool limitnlp)
 		}
         
         // detect an emoji shortcode
-        if (IsEmojiShortCode(wordStarts[i]))
+        if (IsEmojiShortCode(wordStarts[i]) || (OL && OL->properties & EMOJI) || (OU && OU->properties & EMOJI) )
         {
             MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~emoji")),i,i);
         }
@@ -1650,6 +1656,34 @@ void MarkAllImpliedWords(bool limitnlp)
 			StdMark(MakeTypedMeaning(raw, 0, restriction), i, i, FIXED);
 		}
 
+		if (!stricmp(language, "spanish") && OL) // object pronoun data
+		{ // we have to manual name concept because primary naming is from the english corresponding bit
+			if (finalPosValues[i] & PRONOUN_OBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_OBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_singular")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_OBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_plural")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_OBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_i")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_OBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_you")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_singular")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_plural")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_i")), i, i, CANONICAL);
+			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_you")), i, i, CANONICAL);
+			if (finalPosValues[i] & SPANISH_FUTURE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_future")), i, i, CANONICAL);
+			if (allOriginalWordBits[i] & SPANISH_HE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_he")), i, i, CANONICAL);
+			if (allOriginalWordBits[i] & SPANISH_SHE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_she")), i, i, CANONICAL);
+			if (allOriginalWordBits[i] & SPANISH_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_singular")), i, i, CANONICAL);
+			if (allOriginalWordBits[i] & SPANISH_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_plural")), i, i, CANONICAL);
+			if (OL->systemFlags & VERB_IMPERATIVE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~verb_imperative")), i, i, CANONICAL);
+		}
+
+		// mark ancillary stuff
+		MarkMeaningAndImplications(0, 0, MakeMeaning(wordTag[i]), i, i); // may do nothing
+		MarkTags(i);
+		MarkMeaningAndImplications(0, 0, MakeMeaning(wordRole[i]), i, i); // may do nothing
+#ifndef DISCARDPARSER
+		MarkRoles(i);
+#endif
+
 		markLength = 0;
 		if (IS_NEW_WORD(OU) && (OL || CL)) { ; } // uppercase original was unknown and we have lower case forms, ignore upper.
 		else
@@ -1691,13 +1725,6 @@ void MarkAllImpliedWords(bool limitnlp)
 			StdMark(MakeTypedMeaning(CU, 0, NOUN), i, i, CANONICAL);
 		}
 
-		// mark ancillary stuff
-		MarkMeaningAndImplications(0, 0, MakeMeaning(wordTag[i]), i, i); // may do nothing
-		MarkTags(i);
-		MarkMeaningAndImplications(0, 0, MakeMeaning(wordRole[i]), i, i); // may do nothing
-#ifndef DISCARDPARSER
-		MarkRoles(i);
-#endif
 
 		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG," "); //   close canonical form uppercase
 		markLength = 0;
@@ -1821,3 +1848,6 @@ void MarkAllImpliedWords(bool limitnlp)
 
 	ExecuteConceptPatterns(); // now use concept patterns
 }
+
+#pragma GCC diagnostic pop
+

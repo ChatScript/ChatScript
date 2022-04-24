@@ -30,6 +30,7 @@ closer close
 '	's
 's  's
 a A
+any a
 after after		# not aft
 born birth		# dont want animal bear
 an a

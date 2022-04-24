@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 11/21/2021 cs11.6</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/24/2022 cs12.1</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
@@ -106,6 +106,8 @@
 :prepare     - Show results of tokenization, tagging, and marking on a sentence
 :regress     - create or test a regression file
 :source      - Switch input to named file
+:tsvsource  - switch conversation to a named file
+:concat - switch to file where multiple lines are joined to a single input line
 :testpattern - See if a pattern works with an input.
 :testtopic   - Try named topic responders on input
 :verify      - Given test type &amp; topic, test that rules are accessible. 
@@ -590,6 +592,10 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>Flush the current user's total history (erases the <code>USER/TOPIC</code> file) and reruns the bot definition macro, starting conversation from the beginning. Can be done from within a script without damaging the existing control flow or input sentence but that means variables and facts not covered by the bot definition will remain untouched. For a complete reset see command line parameter <code>erasename</code>.</p>
 <h3 id="user-username"><code>:user username</code></h3>
 <p>Change your login id. It will then prompt you for new input as that user and proceed from there, not starting a new conversation but merely continuing a prior one.</p>
+<h3 id="tsvsource-filename-conversationid-message-speaker-count-skip"><code>:tsvsource filename conversationid message speaker count skip</code></h3>
+<p>The system will switch to reading input from a delimited file describing conversations.</p>
+<p>Conversationid is the field index where the id for login will be found. Message is the field index of the input being supplied. Speaker is field index of who is speaking (Professional or Customer).</p>
+<p>Each successive line with the same conversation id continues the conversation. Either speaker can be doing the talking. When a new conversation id is read, the prior conversation ends and a new one begins. As the conversation ends, a topic you can define called ~cs_tsvsource which consists only of gambits. It is not harmful if you don't have this topic. It allows you to do any final processing of the conversation.</p>
 <h3 id="source-regressbigregress.txt"><code>:source REGRESS/bigregress.txt</code></h3>
 <p>Switch the system to reading input from the named file. Good for regression testing.</p>
 <p>The system normally prints out just the output, while the log file contains both the input and the output. You can say <code>:source filename echo</code> to have input echoed to the console.</p>

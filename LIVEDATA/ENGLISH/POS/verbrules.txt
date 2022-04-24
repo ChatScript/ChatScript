@@ -32,10 +32,10 @@ DISCARD
 	HAS NOUN_BITS DETERMINER ADJECTIVE_BITS PRONOUN_BITS
 DISCARD
 
-# not adverb or adjective particple because has direct object after, so will be verb participle
+# not adverb or adjective particple because has direct object after, so will be verb participle - allow disgusting food
 0 	INCLUDE * ADVERB ADJECTIVE_PARTICIPLE
 	STAY ISORIGINALMEMBER  ~adjective_participles
-	HAS NOUN_BITS DETERMINER ADJECTIVE_BITS
+	HAS  DETERMINER 
 DISCARD
   
  #  adjective participle likely  "you are *fucking beautiful"
@@ -64,6 +64,12 @@ KEEP
  #    HAS PRONOUN_SUBJECT PRONOUN_OBJECT NOUN_BITS
   #   INCLUDE * NOUN_INFINITIVE
 #  KEEP
+
+# not verb at start if dual noun possible - *fire truck
+0  INCLUDE * VERB_INFINITIVE VERB_PRESENT VERB_PRESENT_3PS
+    STAY START
+    DUALNOUN
+DISCARD
 
 # not verb at end if dual noun possible - that is my savings *account
 0  INCLUDE * VERB_INFINITIVE VERB_PRESENT VERB_PRESENT_3PS

@@ -713,13 +713,17 @@ static char* Output_User_Match_and_Function_Vars(char* word, char* ptr, char* sp
     }
     else // we are right side (expression) indirect
     {
-        Output(word + 1, buffer, result, controls); // no leading space  - we now have the variable value from the indirection
         if (word[1] == USERVAR_PREFIX && *ptr != '(') // direct retry to avoid json issues (unless function call)
         {
             strcpy(word, GetUserVariable(word + 1));
+            *buffer = 0;
             Output_Dollar(word, "", space, buffer, controls, result, false, false); // allow json processing
         }
-        else *word = ENDUNIT;	// marker for retry
+        else 
+        {
+            Output(word + 1, buffer, result, controls); // no leading space  - we now have the variable value from the indirection
+            *word = ENDUNIT;	// marker for retry
+         }
     }
     return ptr;
 }
@@ -797,14 +801,10 @@ static char* Output_Text(char* word, char* ptr, char* space, char*& buffer, unsi
         strcpy(copy + 1, word);
         *copy = '^';  // supply ^
         result = NOPROBLEM_BIT;
-        if (csapicall == TEST_OUTPUT || csapicall == TEST_PATTERN)  StdNumber(word, buffer, controls);
-        else
-        {
-            WORDP D = FindWord(copy, 0, LOWERCASE_LOOKUP);
-            if (!D || !(D->internalBits & FUNCTION_NAME)) StdNumber(word, buffer, controls);
-            else ptr = Output_Function(copy, ptr, space, buffer, controls, result, false);
-        }
-    }
+        WORDP D = FindWord(copy, 0, LOWERCASE_LOOKUP);
+        if (!D || !(D->internalBits & FUNCTION_NAME) || csapicall == TEST_OUTPUT) StdNumber(word, buffer, controls);
+        else ptr = Output_Function(copy, ptr, space, buffer, controls, result, false);
+     }
      return ptr;
 }
 

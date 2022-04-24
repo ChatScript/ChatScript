@@ -3000,7 +3000,7 @@
     time_exposure~1nz (^exposure~4) exposure of a film for a relatively long time
     time_exposure~2nz (^picture~2) a photograph produced with a relatively long exposure time
  take ( meanings=43 glosses=22 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON2 COMMON1 NOUN_NODETERMINER KINDERGARTEN posdefault:VERB VERB_TAKES_INDIRECT_THEN_TOINFINITIVE VERB_DIRECTOBJECT VERB_NOOBJECT ) conjugate=taken 
-    take~1nz (^motion-picture_photography~1) the act of photographing a scene or part of a scene without interruption
+    take~1nz the act of photographing a scene or part of a scene without interruption
     return~13n 
     contract~4vz be stricken by an illness, fall victim to an illness
     take_away~1v 
@@ -14632,7 +14632,7 @@
  twenty-nine ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR KINDERGARTEN ) 
     twenty-nine~1nz (^large_integer~1) the cardinal number that is the sum of twenty-eight and one
     xxix~1az being nine more than twenty
- thou ( meanings=2 PRONOUN_SUBJECT PRONOUN_OBJECT NOUN NOUN_SINGULAR COMMON4 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+ thou ( meanings=2 PRONOUN_SUBJECT PRONOUN_OBJECT NOUN NOUN_SINGULAR COMMON4 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR PRONOUN_PLURAL ANIMATE_BEING ) 
     chiliad~1n 
     thou~2z 
  ten_thousand ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) 
@@ -16134,11 +16134,11 @@
  teem ( meanings=2 VERB_PRESENT VERB_INFINITIVE VERB COMMON2 posdefault:VERB VERB_NOOBJECT ) 
     pour~1v 
     pullulate~5v 
- thee ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN ANIMATE_BEING ) 
+ thee ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_SINGULAR PRONOUN_PLURAL ANIMATE_BEING ) 
     thee~1z 
- theirs ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN PERSONAL_PRONOUN ) 
+ theirs ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 KINDERGARTEN PRONOUN_PLURAL PERSONAL_PRONOUN ) 
     theirs~1z 
- their ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET PERSONAL_PRONOUN ) 
+ their ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET PRONOUN_PLURAL PERSONAL_PRONOUN ) 
     their~1z 
     their~2z 
  thrown ( meanings=2 glosses=2 VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE_PARTICIPLE COMMON4 KINDERGARTEN posdefault:VERB ) conjugate=threw 
@@ -20078,7 +20078,7 @@
     type_up~1vz 
  they ( meanings=1 PRONOUN_SUBJECT COMMON4 COMMON2 COMMON1 KINDERGARTEN PRONOUN_PLURAL PERSONAL_PRONOUN ) 
     they~1z 
- thy ( meanings=1 PRONOUN_POSSESSIVE KINDERGARTEN ) 
+ thy ( meanings=1 PRONOUN_POSSESSIVE KINDERGARTEN PRONOUN_SINGULAR ) 
     thy~1z 
  them ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON2 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_PLURAL ) 
     them~1z 
@@ -20096,6 +20096,4 @@
     themselves~1z 
  the_only ( meanings=1 DETERMINER KINDERGARTEN DETERMINER_SINGULAR ) 
     the_only~1z 
- tten-tails ( NOUN NOUN_SINGULAR ) 
- ttten-tails ( NOUN NOUN_SINGULAR ) 
- tttten-tails ( NOUN NOUN_SINGULAR ) 
+ three-fourth ( NOUN NOUN_SINGULAR ) 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/21/2021 cs11.6</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -382,8 +382,9 @@ $_actualEnd = $_actual &amp; 255
 <p>The history of either <code>BOT</code> or <code>USER</code> (values of who) will be cut back to the count give. This affects detecting repeated input on the part of the user or detecting repeating output by the chatbot.</p>
 <h3 id="lastsaid"><code>^lastsaid ()</code></h3>
 <p>Returns what the bot said last volley.</p>
-<h3 id="print-stream"><code>^print ( stream )</code></h3>
+<h3 id="print-stdout-log-stream"><code>^print ( {stdout, log} stream )</code></h3>
 <p>Sends the results of outputing that stream to the user. It is isolated from the normal output stream, and goes to the user whether or not one later generates a failure code from the rule. Before the output you may put in output control flags as either a simple value without a <code>#</code> (e.g., <code>OUTPUT_EVALCODE</code> ) or a value list in parens.</p>
+<p>By default it goes to the user log (or if log is specified) but if stdout is specified it goes to the console.</p>
 <p>Flags include:</p>
 <table style="width:90%;">
 <colgroup>
@@ -873,6 +874,7 @@ else { $$tcpopen_error }</code></pre>
 <p>Patterns can also define functions that can be used there or in later invoked patterns. They should be compiled using ^compilepattern</p>
 <p>Use of %trace_on and %trace_off in a pattern can also be used to trigger and return tracing data. %trace_on normally just does pattern tracing but <code>%trace_on all</code> turns on full tracing.</p>
 <p>Use of &quot;cheat cs info&quot; as part of the user input will save onto the newglobal $cs_info the datestamps of the engine and scripts, and they will be appended to any output from ^testoutput that occurs subsequently.</p>
+<p>Use of bwinfo as part of the user input will return a changed variable <code>bwinfo</code> which lists all words and the concepts marked for them A concept ~bwinfo_ignore if you define it will have concepts NOT to show here.</p>
 <p>If you pass in a variable { $language : xxxx } then cs will change to that language for the call. This only works for languages not requiring their own dictionaries (like Japanese and ideographic).</p>
 <p>If the user input you pass in is &quot;null&quot;, then the current input is not altered and will be used. This is only useful if you are calling this function from a normal bot and not an external one.</p>
 <p><code>$$cs_sentencecount</code> will be set as the number of the current sentence being used and can be used with ^restoresentence. <code>%originalinput</code> is the input field. <code>%testpattern</code> will be the index number in the array of patterns of current pattern being matched in ^testpattern</p>

@@ -341,7 +341,10 @@ if (!('webkitSpeechRecognition' in window)) {
   info.innerHTML = "Speech only works if you use Chrome or Safari. Works best with headphones and mic for separation of signals";
 } else {
   btnMicrophone.style.display = 'inline-block';
-  var recognition = new webkitSpeechRecognition();
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+  var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
+  var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+  var recognition = new SpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
   recognition.lang = 'en-US';
@@ -363,12 +366,12 @@ if (!('webkitSpeechRecognition' in window)) {
       ignore_onend = true;
     }
     if (event.error == 'not-allowed') {
-      if (event.timeStamp - start_timestamp < 100) {
+   //   if (event.timeStamp - start_timestamp < 100) {
 	//Added more detailed message to unblock access to microphone.
         info.innerHTML = " I am blocked. In Chrome go to settings. Click Advanced Settings at the bottom. Under Privacy click the Content Settings button. Under Media click Manage Exceptions Button. Remove this site from the blocked sites list. ";
-      } else {
-        info.innerHTML = "You did not click the allow button."
-      }
+     // } else {
+    //    info.innerHTML = "You did not click the allow button."
+     // }
       ignore_onend = true;
     }
   };

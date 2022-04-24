@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 4/24/2022 cs12.1
 
 
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
@@ -897,7 +897,7 @@ these are strings with `^` in front of them.
 
 They don't make any sense on input or patterns or from a user, but they are handy in a
 table. They mean compile the string (format it suitable for output execution) and you can
-use the results of it in an `^eval` call.
+use the results of it in an `^eval` or `match` call.
 
 On the output side, a ^"string" means to interpret the contents inside the string as a
 format string, substituting any named variables with their content, preserving all internal

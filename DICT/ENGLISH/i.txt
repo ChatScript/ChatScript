@@ -4408,7 +4408,7 @@
     number~5n 
  I_Samuel ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     1_Samuel~1nz (^book~3) the first of two books in the Old Testament that tell of Saul and David
- I ( meanings=1 PRONOUN_SUBJECT KINDERGARTEN ANIMATE_BEING OBJECT_AS_ADJECTIVE PERSONAL_PRONOUN ) 
+ I ( meanings=1 PRONOUN_SUBJECT PRONOUN_I KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING OBJECT_AS_ADJECTIVE PERSONAL_PRONOUN ) 
     I~1z 
  II_Samuel ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_PROPER_SINGULAR ) 
     2_Samuel~1nz (^book~3) the second of two books of the Old Testament that tell of Saul and David
@@ -7843,7 +7843,7 @@
  immanent ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
     immanent~1az of qualities that are spread throughout something
     subjective~1a 
- its ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET PERSONAL_PRONOUN ) 
+ its ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 COMMON1 KINDERGARTEN PREDETERMINER_TARGET PRONOUN_SINGULAR PERSONAL_PRONOUN ) 
     its~1z 
     its~2z 
  implicit ( meanings=2 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 GRADE5_6 posdefault:ADJECTIVE ) 

@@ -1431,7 +1431,15 @@ retry:
                 end = NORETRY;
 				start = 0; // never matched internal words - is at infinite start -- WHY allow this?
 			}
-			else  oldstart = start+1;	// continue from last start match location + 1
+			else
+			{
+				char word[MAX_WORD_SIZE];
+				char* pat = ptr + 2;
+				pat = ReadCompiledWord(pat, word);
+				// special case matching concept memorization, next iteration skip past this one however big
+				// if (*word == '_' && word[1] == '~' ) start = end; // bug industrial engineering technologist
+				oldstart = start + 1;	// continue from last start match location + 1
+			} 
 			if (end != NORETRY) 
 			{
 				if (trace & (TRACE_PATTERN|TRACE_MATCH|TRACE_SAMPLE)  && CheckTopicTrace() )
@@ -1462,7 +1470,7 @@ exit:
 	if (timingChanged) timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	else if (modifiedTiming) timing = modifiedTimingVal;
     if (result & ENDCODES) return result;
-    return (retried) ? NOPROBLEM_BIT : result;
+    return (retried) ? ENDRULE_BIT : result;  // we matched once at least, so failure is expected, signal using endrule
 }
 
 static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id,char* rule)
@@ -2582,7 +2590,7 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
 	if (D->internalBits &  QUERY_KIND || *D->word == '$') // save value
 	{
         char* val = D->w.userValue;
-		if (D > keywordBase) // dont alter values from frozen before lest level rip out releases wrong memory
+		if (D > keywordBase) // new word we can do what we want
 		{
 			size_t len = (val) ? strlen(val) : 0;
 			char* value = (char*)&bindata[skip];
@@ -2592,10 +2600,11 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
 			if (val) strcpy(value + 3, val);
 			valsize = (len + 4 + 7) / 8; // reserve space for it, null, rounding
 		}
+		// dont alter values from frozen before lest level rip out releases wrong memory
 		else if (val && *val && val > textBase)// warn on attempt to change memory location
 		{
-			printf("Not allowed to alter query or variable %s from earlier level. Ignored\r\n",D->word);
-			ReportBug("Not allowed to alter query or variable %s from earlier level. Ignored",D->word)
+			printf("Not allowed to alter query or variable %s from earlier level to %s. Ignored\r\n",D->word, val);
+			ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignored\r\n",D->word, val)
 		}
 		// else maybe just changing flag bits
 	}
@@ -2681,6 +2690,7 @@ static uint64* UnpackBin(uint64* data64)
 
 static void WriteFastDictionary(const char* layer,const char* fname,WORDP keywordStart, WORDP* basewords,FACT* factStart)
 {
+	
 	// for fastloading binary format
 	FILE* out = NULL;
 	char filename[MAX_WORD_SIZE];
@@ -2809,6 +2819,16 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                     endOnly = true;
                     continue;
                 }
+				if (!stricmp(word3, (char*)"DUPLICATE"))
+				{
+					set->internalBits &= CONCEPT_DUPLICATES;
+					continue;
+				}
+				if (!stricmp(word3, (char*)"NODUPLICATE"))
+				{
+					set->internalBits &= NO_CONCEPT_DUPLICATES;
+					continue;
+				}
                 uint64 val = FindPropertyValueByName(word3);
 				if ( val) type |= val;
 				else 
@@ -3013,7 +3033,10 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
             }
 
             MEANING verb = (*keyword == '!') ? Mexclude : Mmember;
-			int flags = FACTDUPLICATE | fact_language;
+			int flags = fact_language;
+			if (!(set->internalBits & NO_CONCEPT_DUPLICATES)) 
+				flags |= FACTDUPLICATE;		
+			
 			if (original) flags |=  ORIGINAL_ONLY;
 			if (casesensitive) flags |= RAWCASE_ONLY;
 			if (startOnly) flags |= START_ONLY;

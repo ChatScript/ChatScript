@@ -6,11 +6,13 @@ static std::mutex mtx;
 #endif 
 bool authorize = false;
 bool pseudoServer = false;
+uint64 callStartTime;
 int loglimit = 0;
 bool prelog = false;
 FILE* userlogFile = NULL;
 char* indents[100];
 int ide = 0;
+bool timeout = false;
 int inputSize =  0;
 bool inputLimitHit = false;
 bool convertTabs = true;
@@ -55,6 +57,7 @@ unsigned int outputsize = MAX_BUFFER_SIZE;           // default
 bool serverctrlz = false;					// close communication with \0 and ctrlz
 bool echo = false;							// show log output onto console as well
 bool oob = false;							// show oob data
+bool postprocess = true;				// showing traces on postprocess
 bool detailpattern = false;
 bool silent = false;						// dont display outputs of chat
 bool logged = false;
@@ -95,6 +98,7 @@ unsigned int currentLineColumn = 0;				// column number in file being read
 unsigned int maxFileLine = 0;				// line number in file being read
 unsigned int peekLine = 0;
 char currentFilename[MAX_WORD_SIZE];	// name of file being read
+char knownFileTypes[MAX_FILE_TYPES][MAX_WORD_SIZE]; // all known file types read from config (by default ltm)
 std::map <WORDP, uint64> timeSummary;  // per volley time data about functions etc
 
 // error recover 
@@ -106,6 +110,7 @@ unsigned int randIndex = 0;
 unsigned int oldRandIndex = 0;
 
 char syslogstr[300] = "chatscript"; // header for syslog messages
+// #define DO_HEAP_CHECKING
 
 #ifdef WIN32
 #include <conio.h>
@@ -124,7 +129,6 @@ void Bug0()
 {
 	char word[MAX_WORD_SIZE];
 	GetCurrentDir(word, MAX_WORD_SIZE);
-	int xx = 0;
 }
 
 void Bug()
@@ -424,7 +428,7 @@ void LoggingCheats(char* incoming)
 {
 	// startup logging
 	uint64 now = ElapsedMilliseconds();
-	unsigned long delayMinutes= (unsigned long) ( (now - timedeployed) / 60000  );
+	unsigned long delayMinutes = (unsigned long)((now - timedeployed) / 60000);
 	if (delayMinutes < startLogDelay) serverLog |= FILE_LOG | PRE_LOG;
 
 	// logging overrides 
@@ -455,16 +459,31 @@ void LoggingCheats(char* incoming)
 		userLog |= FILE_LOG;
 		fclose(in);
 	}
-	char* authcode = NULL;
-	if (incoming && *serverlogauthcode) authcode = strstr(incoming, serverlogauthcode);
+	char* authcode = (incoming) ? strstr(incoming, serverlogauthcode) : NULL;
 	if (authcode)// dont process authcode as input from user
 	{
-		memset(authcode, ' ', strlen(serverlogauthcode)); // hide auth code entirely
+		size_t len = strlen(serverlogauthcode);
+		memset(authcode, ' ', len); // hide auth code entirely
 		if (!userLog) userLog = FILE_LOG | PRE_LOG;
 		if (!serverLog) serverLog = FILE_LOG | PRE_LOG;
-		hadAuthCode = true;
+		hadAuthCode = 1;
+		if (authcode[len] == '1') // more detailed cheat choices
+		{
+			authcode[len] = ' ';
+		}
+		else if (authcode[len] == '2') // more detailed cheat choices
+		{
+			authcode[len] = ' ';
+			hadAuthCode |= 2;
+		}
+		else if (authcode[len] == '3')
+		{
+			authcode[len] = ' ';
+			hadAuthCode |= 3;
+		}
 	}
-	else hadAuthCode = false;
+	else hadAuthCode = 0;
+	*currentFilename = 0;
 }
 
 char* Myfgets(char* buffer,  int size, FILE* in)
@@ -549,17 +568,16 @@ void FreeStackHeap()
 
 char* AllocateStack(const char* word, size_t len,bool localvar,int align) // call with (0,len) to get a buffer
 {
-	if (!stackFree) 
-		return NULL; // shouldnt happen
+	if (!stackFree) ReportBug("FATAL: Allocating stack with null free\r\n");
 
 	if (infiniteStack)
 	{
 		infiniteStack = false;
 		ReportBug("FATAL: Allocating stack while InfiniteStack in progress from %s\r\n", infiniteCaller);
 	}
-	if (len == 0)
+	if (len == 0) // compute size needed
 	{
-		if (!word ) return NULL;
+		if (!word ) return NULL; // not passing in anything
 		len = strlen(word);
 	}
 	if (align == 1 || align == 4) // 1 is old true value
@@ -577,11 +595,8 @@ char* AllocateStack(const char* word, size_t len,bool localvar,int align) // cal
         stackFree = (char*)x;
     }
 	unsigned int avail = heapFree - (stackFree + len + 1);
-	if (avail < 5000) // dont get close
-    {
-		ReportBug((char*)"FATAL: Out of stack space stringSpace:%d ReleaseStackspace:%d \r\n",heapBase-heapFree,stackFree - stackStart);
-		return NULL;
-    }
+	if (avail < 5000)  ReportBug((char*)"FATAL: Out of stack space stringSpace:%d ReleaseStackspace:%d \r\n",heapBase-heapFree,stackFree - stackStart);
+
 	char* answer = stackFree;
 	if (localvar) // give hidden data
 	{
@@ -690,6 +705,24 @@ void ReleaseInfiniteStack()
 	infiniteCaller = "";
 }
 
+void CheckHeap(HEAPREF linkval, const char* file, unsigned int line) {
+	static int call_count = 0;
+	uint64* cur = (uint64*)linkval;
+	int loop_count = 0;
+	printf("CheckHeap: entering # %d with %p\n", call_count++, linkval);
+	while (cur && loop_count++ < 1000) {
+		printf("CheckHeap: cur %p %s %d\n", cur, file, line);
+		if (!InHeap((char*)cur)) {
+			printf("CheckHeap: bad\n");
+			exit(-1);
+		}
+		cur = (uint64*)cur[0];
+	}
+	if (loop_count >= 1000)  printf("CheckHeap: large loop_count\n");
+
+	printf("CheckHeap: good\n");
+}
+
 HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
 {
     uint64* heapval = (uint64*)AllocateHeap(NULL, 4, sizeof(uint64), false);
@@ -697,7 +730,10 @@ HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
     heapval[1] = val1;
     heapval[2] = val2;
     heapval[3] = val3;
-    return (HEAPREF)heapval;
+#ifdef DO_HEAP_CHECKING
+	CheckHeap((HEAPREF)heapval, __FILE__, __LINE__);
+#endif
+	return (HEAPREF)heapval;
 }
 
 HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & val3)
@@ -706,7 +742,10 @@ HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & va
     val1 = data[1];
     val2 = data[2];
     val3 = data[3];
-    return (HEAPREF)data[0];
+#ifdef DO_HEAP_CHECKING
+	CheckHeap((HEAPREF)data, __FILE__, __LINE__);
+#endif
+	return (HEAPREF)data[0];
 }
 
 void RestoreCallingDirectory()
@@ -1234,6 +1273,8 @@ void InitFileSystem(char* untouchedPath,char* readablePath,char* writeablePath)
 	if (untouchedPath) strcpy(staticPath,untouchedPath);
 	else *staticPath = 0;
 
+	addFileTypeAsKnown((char*)"ltm"); // adding ltm as default known file type
+
 	InitUserFiles(); // default init all the io operations to file routines
 }
 
@@ -1715,7 +1756,7 @@ char* GetMyTime(time_t curr)
 {
 	char mytime[100];
 	myctime(&curr,mytime); //	Www Mmm dd hh:mm:ss yyyy
-	static char when[40];
+	static char when[100];
 	strncpy(when,mytime+4,3); // mmm
 	if (mytime[8] == ' ') mytime[8] = '0';
 	strncpy(when+3,mytime+8,2); // dd
@@ -1724,6 +1765,7 @@ char* GetMyTime(time_t curr)
 	when[8] = '-';
 	strncpy(when+9,mytime+11,8); // hh:mm:ss
 	when[17] = 0;
+	sprintf(when+17, (char*)"-%llu", ElapsedMilliseconds()); // add exact info because seconds is too little difference sometimes
 	return when;
 }
 
@@ -1950,6 +1992,7 @@ bool TraceFunctionArgs(FILE* out, char* name, int start, int end)
 
 void BugBacktrace(FILE* out)
 {
+	if (!strstr(logmainbuffer, "FATAL")) return;
 	unsigned int i = globalDepth;
 	char rule[MAX_WORD_SIZE];
     CALLFRAME* frame = GetCallFrame(i);
@@ -2195,7 +2238,12 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
         char newname[MAX_WORD_SIZE];
 #ifdef WIN32
 		const char* old = strrchr(fname, '/');
-		strcpy(newname, old + 1); // just the name, no directory path
+		if (old) strcpy(newname, old + 1); // just the name, no directory path
+		else
+		{
+			strcpy(newname, fname);
+			old = fname - 1;
+		}
 #else
 		strcpy(newname, fname);
 #endif
@@ -2392,7 +2440,7 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 {
 	bool isFile =  bug == NULL ;  // bug is either existing std channel or null and we have to go get it
 	if (isFile) bug = rotateLogOnLimit(name, folder);
-	if (!compiling && bug)
+	if (!compiling && bug && originalUserInput && *originalUserInput)
 	{
 		struct tm ptm;
 		char data[10000];
@@ -2400,8 +2448,11 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 		if (*currentFilename) sprintf(data, (char*)" in %s at %u: %s ", currentFilename, currentFileLine, readBuffer);
 		fprintf(bug, (char*)"\r\nBUG: %s: %s volley:%u ", GetTimeInfo(&ptm, true), data, volleyCount);
 		fprintf(bug, "%s", logmainbuffer);
-		fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, loginID, located);
-		fprintf(bug, "%s\r\n", originalUserInput);
+		if (originalUserInput)
+		{
+			fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, computerID, located);
+			fprintf(bug, "%s\r\n", originalUserInput);
+		}
 		if (!strstr(logmainbuffer, "No such bot")) BugBacktrace(bug);
 	}
 	else if (*currentFilename && bug)
@@ -2448,7 +2499,7 @@ void Prelog(char* user, char* usee, char* incoming)
             char startdate[40];
             GetTimeMS(ElapsedMilliseconds(), startdate);
             char buffer[MAX_WORD_SIZE];
-			sprintf(buffer,"\r\n%s ServerPre: pid: %d %s (%s) size=%u `*`\r\n", startdate, id, user, usee, len);
+			sprintf(buffer,"\r\n%s ServerPre: pid: %d %s (%s) size=%zu `*`\r\n", startdate, id, user, usee, len);
 			if (serverLog & PRE_LOG || prelog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog & PRE_LOG || prelog) Log(PASSTHRUUSERLOG, buffer);
 		}
@@ -2512,7 +2563,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			char wait[100];
 			*wait = 0;
 			if (cs_qsize) sprintf(wait, "%dq", cs_qsize);
-			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%u ip:%s (%s) %d `*`  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter);
+			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*`  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter,timeout);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();
@@ -2811,5 +2862,38 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	return ++id;
 }
 
+/////////////////////////////////////////////////////////
+/// FILE TYPES
+/////////////////////////////////////////////////////////
 
+char* getFileType(char* filename)
+{
+	if (!filename) return NULL;
+	char* filetype = AllocateHeap(filename);
+	char* split = strrchr(filetype, '/');
+	if (split) filetype = split + 1;
+	char* split2 = strchr(filetype, '-');
+	if (split2) *split2 = 0;
+	return filetype;
+}
 
+void addFileTypeAsKnown(char* filetype)
+{
+	if (!filetype || strstr((char*)"topic", filetype)) return;
+	int i = -1;
+	bool isKnownFileType = false;
+	while (strlen(knownFileTypes[++i]) > 0)
+	{
+		if (strstr(knownFileTypes[i], filetype)) isKnownFileType = true;
+	}
+	if (!isKnownFileType && i < MAX_FILE_TYPES) strcpy(knownFileTypes[i], filetype);
+}
+
+bool isKnownFileType(char* filename) {
+	bool knownType = false;
+	if (!filename) return knownType;
+	int i = -1;
+	while (strlen(knownFileTypes[++i]) > 0 && i < MAX_FILE_TYPES)
+		if (strstr(filename, knownFileTypes[i])) knownType = true;
+	return knownType;
+}

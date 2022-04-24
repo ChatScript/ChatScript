@@ -16,7 +16,7 @@ clean = .PHONY binary server debugserver standalone pgserver debugpgserver mysql
 
 # store executable names in make variables so that cleanall target works
 executable.server=../BINARIES/ChatScript
-server: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1
+server: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARD_TEXT_COMPRESSION=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1
 server: PGLOAD= -pthread
 server: INCLUDEDIRS=-Ievserver
 server: binary
@@ -166,7 +166,7 @@ LDFLAGS= -L/usr/local/lib -lrt -lcurl -lev   -L../BINARIES --verbose $(PGLOAD)
 INCLUDEDIRS+= -I/usr/local/include
 endif
 
-SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp  mssql.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp 
+SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp  mssql.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp zif.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
 # include any private targets and settings

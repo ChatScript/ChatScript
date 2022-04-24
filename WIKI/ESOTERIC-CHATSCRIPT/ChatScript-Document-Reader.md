@@ -26,7 +26,7 @@ The document will automatically be broken into sentences and fed to the system o
 time. The system will execute the prepass once at start (the prepass of the bot), and the
 postpass once at end (the postpass of the bot). All sentences of the document are treated
 as a single volley and when the document is completed, the system reloads the user's
-prior state. So you can't store stuff except external to ChatScript 
+prior state. So you can't store much  except external to ChatScript 
 (e.g., a file using `^export` or `^log`).
 
 Optional arguments after the file/directory name are:

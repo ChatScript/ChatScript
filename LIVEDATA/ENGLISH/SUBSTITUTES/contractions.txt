@@ -1,4 +1,4 @@
- 
+ ?=you'd ~verb_past_participle+you+had|~verb_infinitive+you+would
   it'd_be it+would+be
   it'd_been it+had+been
   sha_n't shall+not
@@ -192,7 +192,6 @@
  y'all_'s you+all+are
  y'could've you+could+have
  y'know you+know
- you'd you+'d
  you'da you+would+have
  you'l you+will
  you'll you+will

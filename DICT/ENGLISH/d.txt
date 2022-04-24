@@ -20491,4 +20491,7 @@
     dat~1z 
  del ( meanings=1 DETERMINER COMMON4 COMMON1 KINDERGARTEN ) 
     del~1z 
+ dye-work ( NOUN NOUN_SINGULAR ) 
+ dead-man's-finger ( NOUN NOUN_SINGULAR ) 
+ dead-men's-finger ( NOUN NOUN_SINGULAR ) 
  Dr ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

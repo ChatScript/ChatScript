@@ -25518,7 +25518,7 @@ FACT* Index2Fact(FACTOID e)Index2Fact49,2271
 static void VerifyField(FACT* F, MEANING field, unsigned int offset)VerifyField66,2559
 static void VerifyFact(FACT* F)VerifyFact83,2974
 void VerifyFacts()VerifyFacts91,3256
-bool UnacceptableFact(FACT* F,bool jsonavoid)UnacceptableFact100,3353
+bool UnacceptableFact(FACT* F)UnacceptableFact100,3353
 FACT* GetSubjectNext(FACT* F) { return Index2Fact(F->subjectNext);}GetSubjectNext107,3608
 FACT* GetVerbNext(FACT* F) {return Index2Fact(F->verbNext);}GetVerbNext108,3676
 FACT* GetObjectNext(FACT* F) {return Index2Fact(F->objectNext);}GetObjectNext109,3737

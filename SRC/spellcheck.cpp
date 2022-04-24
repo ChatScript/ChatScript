@@ -1,4 +1,5 @@
 #include "common.h"
+#pragma warning( disable: 4068)
 
 MEANING lengthLists[100];		// lists of valid words by length
 bool fixedSpell = false;
@@ -499,6 +500,8 @@ bool SpellCheckSentence()
 	fixedSpell = false;
 	bool isEnglish = (!stricmp(language, "english") ? true : false);
     bool isGerman = (!stricmp(language, "german") ? true : false);
+	bool isSpanish = (!stricmp(language, "spanish") ? true : false);
+
 	int startWord = FindOOBEnd(1);
 	int i;
 	int badspelllimit = 0;
@@ -544,6 +547,24 @@ bool SpellCheckSentence()
 		if (IsValidJSONName(word)) continue;
 		if (!stricmp(serverlogauthcode,word)) continue;
 
+		// spanish conjugated verb?
+		if (isSpanish)
+		{
+			WORDP entry, canonical;
+			uint64 sysflags;
+			uint64 properties = ComputeSpanish(i, word, entry, canonical, sysflags,false);
+			if (properties) // we figured it out as a conjugation of a verb, noun, or adjective
+			{
+				// does it have wrong unaccented spelling?
+				if (strcmp(word, entry->word))
+				{
+					tokens[1] = entry->word;
+					fixedSpell = ReplaceWords("spanish accent correct on conjugation", i, 1, 1, tokens);
+				}
+				continue; 
+			}
+		}
+
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
 		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
 		{
@@ -554,7 +575,7 @@ bool SpellCheckSentence()
             uint64 secondaryCaseY = (primaryCaseY == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
 
 			WORDP X = FindWord(word, 0, primaryCaseX);
-			if (!X || IS_NEW_WORD(X)) X = FindWord(word, 0, secondaryCaseX);
+			if (IS_NEW_WORD(X)) X = FindWord(word, 0, secondaryCaseX);
 			WORDP Y = FindWord(wordStarts[i + 1], 0, primaryCaseY);
 			if (!Y || IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, secondaryCaseY);
 			bool useful1 = UsefulKnownWord(X);
@@ -645,7 +666,7 @@ bool SpellCheckSentence()
 			else if (IsConceptMember(D)) good = true;
 			if (good)
 			{
-				if (strcmp(D->word, word)) // different capitalization
+				if (strcmp(D->word, word) && !(D->properties & NOUN_HUMAN)) // different capitalization and not just a human name
 				{
 					tokens[1] = D->word;
 					fixedSpell = ReplaceWords("' alternate capitalization", i, 1, 1, tokens);
@@ -936,7 +957,7 @@ bool SpellCheckSentence()
 		}
 
 		// words with excess repeated characters 2=>1 unless root noun or verb
-		if (!FindWord(word) && !IsDigit(word[1]) && word[1] != '.' && word[1] != ',')
+		if (IS_NEW_WORD(FindWord(word)) && !IsDigit(word[1]) && word[1] != '.' && word[1] != ',')
 		{
 			if (!stricmp(language, "english"))
 			{
@@ -1375,6 +1396,8 @@ bool SpellCheckSentence()
 	return fixedSpell;
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wparentheses-equality"
 static char UnaccentedChar(char* str)
 {
 	unsigned char c = (unsigned char)*str;
@@ -1445,6 +1468,7 @@ static char UnaccentedChar(char* str)
 	}
 	return 0;
 }
+#pragma GCC diagnostic pop
 
 int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
 {//   dictword has no underscores, inputSet is already lower case
@@ -1908,7 +1932,8 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
        if (val < min)
        {
             if ((trace & TRACE_BITS) == TRACE_SPELLING) Log(USERLOG,"    Better: %s against %s value: %d\r\n", D->word, originalWord, val);
-            index = 0;
+			for (unsigned int j = 0; j < index; ++j) RemoveInternalFlag(choices[j], BEEN_HERE);
+			index = 0;
             min = val;
         }
         else if (val == min && (trace & TRACE_BITS) == TRACE_SPELLING) Log(USERLOG,"    Equal: %s against %s value: %d\r\n", D->word, originalWord, val);
@@ -2002,7 +2027,11 @@ char* SpellFix(char* originalWord,int start,uint64 posflags)
 		if (stem) 
 		{
             WORDP X = StoreWord(stem,flags); 
-			if (X) choices[index++] = X;
+			if (X && !(X->internalBits & BEEN_HERE))
+			{
+				choices[index++] = X;
+				AddInternalFlag(X, BEEN_HERE);
+			}
 		}
 	}
 

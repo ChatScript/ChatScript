@@ -34,6 +34,9 @@ static void jsmn_fill_token(jsmntok_t *token, jsmntype_t type,  int start, int e
 
 /**
  * Fills next available token with JSON primitive (number, boolean, null)
+ * Note no errror checking. If it starts with a digit, it's a number and it ends
+ * when : } or such json happens, so dates, spaces, they all swallow as a text string
+ * masquerading as a number.
  */
 static jsmnerr_t jsmn_parse_primitive(jsmn_parser *parser, const char *js, size_t len, jsmntok_t *tokens) {
 	jsmntok_t *token;
@@ -42,7 +45,8 @@ static jsmnerr_t jsmn_parse_primitive(jsmn_parser *parser, const char *js, size_
 	start = parser->pos;
 	int nest = 0;
 	char c;
-	for (; parser->pos < len && (c = js[parser->pos]) ; parser->pos++) {
+	for (; parser->pos < len && js[parser->pos] ; parser->pos++) {
+		c = js[parser->pos];
 		switch (c) 
 		{
 			case '[': // we allow [ ] in jsonpath access tokens
@@ -83,7 +87,8 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 
 	/* Skip starting quote */
 	char c;
-	for (; parser->pos < len && (c = js[parser->pos]); parser->pos++) {
+	for (; parser->pos < len && js[parser->pos]; parser->pos++) {
+		c = js[parser->pos];
 		/* Quote: end of string */
 		if (c == '\"') {
 			token = jsmn_alloc_token(parser, tokens);
@@ -99,8 +104,9 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 			case 'u': /* Allows escaped symbol \uXXXX */
 				{
 					parser->pos++;
-					for (int i = 0; i < 4 && (c = js[parser->pos]); i++) 
+					for (int i = 0; i < 4 && js[parser->pos]; i++) 
 					{
+						c = js[parser->pos];
 						if ((c >= '0' && c <= '9') ||  	(c >= 'A' && c <= 'F') ||  (c >= 'a' && c <= 'f'))  
 						{
 							parser->pos++;
@@ -132,8 +138,9 @@ jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len, jsmntok_t 
 	jsmntok_t *token;
 	int count = 0;
 	char c;
-	for (; parser->pos < len && (c = js[parser->pos]); parser->pos++) 
+	for (; parser->pos < len && js[parser->pos]; parser->pos++) 
 	{
+		c = js[parser->pos];
 		jsmntype_t type;
 		switch (c) {
 			case '{': case '[':

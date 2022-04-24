@@ -336,6 +336,19 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
             strcat(path,D->word);
         }
 
+        if (*separator == '.' && !strnicmp(item, "ja-", 3)) // dot into array means find value as object
+        {
+            WORDP key = FindWord(separator + 1); // only can go 1 level here
+            FACT* F = GetSubjectNondeadHead(D);
+            while (F)
+            {
+                    if (Meaning2Word(F->object) == key) break; 
+                    F = GetSubjectNondeadNext(F);
+            }
+            if (!F) goto NULLVALUE;
+            answer = Meaning2Word(F->verb)->word;
+            goto ANSWER;
+        }
         if (*separator == '.' && strncmp(item, "jo-", 3) && !factvalue) goto NULLVALUE; // cannot be dotted
         //else if (*separator == '[' && strncmp(item, "ja-", 3)) goto NULLVALUE; // cannot be indexed
 
@@ -597,7 +610,7 @@ void SetVariable(WORDP D, char* value)
     }
 }
 
-void SetUserVariable(const char* var, char* word, bool assignment)
+void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
 {
     char varname[MAX_WORD_SIZE];
     MakeLowerCopy(varname, (char*)var);
@@ -619,7 +632,7 @@ void SetUserVariable(const char* var, char* word, bool assignment)
 			{
 				if (D->w.userValue && !strcmp(word, D->w.userValue))
 					return; // no change is happening in heap
-				word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
+				if (!reuse) word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
 			}
 			if (!word) return;
         }

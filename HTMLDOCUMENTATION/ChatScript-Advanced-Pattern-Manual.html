@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 3/21/2021 cs11.2</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 4/24/2022 cs12.1</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="quoted-keywords-word-and-raw-case-keywords-co-aka-quote-quote-keywords">QUOTED Keywords 'word and RAW-CASE Keywords ''CO (aka quote quote keywords)</h2>
 <p>Words in a pattern or a concept are either their literal characters or, if they are the canonical form, allow a std transformation of the word. A singular noun will match singular or plural (because the singular is the canonical form). An infinitive verb will match any conjugation of the verb whereas all other verb forms only match the form given.</p>
@@ -17,6 +17,8 @@
 <pre><code>    u: ( my cat)   -- this allows  &quot;I cats&quot;
     u: (&#39;my &#39;cat)  -- this only allows &quot;my cat&quot;</code></pre>
 <p>Of course users make typos and may have the input spellchecked to match. Like &quot;my cate&quot; might get changed to &quot;my cat&quot;. And even if no spell fix happens, disambiguating &quot;I like me&quot; vs &quot;I like ME&quot; can be tricky. Therefore you can request a match based on what the user actually typed, not spell checked, and in the case they used is possible by quote quoting the keyword <code>''ME</code>. Case will only be partially obeyed on the first word of a sentence because the user might be upper casing the first letter of the first word. So the system allows flexibility in matching the case of the first letter of the first word.</p>
+<h2 id="numeric-comparison">Numeric Comparison</h2>
+<p>You write a numeric comparison like this (<span class="math inline"><em>v</em><em>a</em><em>r</em> &gt; =5).<em>Y</em><em>o</em><em>u</em><em>c</em><em>a</em><em>n</em><em>u</em><em>s</em><em>e</em> &gt; &gt; = &lt; &lt; = = =<em>a</em><em>n</em><em>d</em>!=.<em>F</em><em>o</em><em>r</em> &lt; &lt; = &gt; &gt; =<em>a</em><em>n</em><em>u</em><em>l</em><em>l</em><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em><em>w</em><em>i</em><em>l</em><em>l</em><em>b</em><em>e</em><em>t</em><em>r</em><em>e</em><em>a</em><em>t</em><em>e</em><em>d</em><em>a</em><em>s</em><em>t</em><em>h</em><em>e</em><em>n</em><em>u</em><em>m</em><em>b</em><em>e</em><em>r</em>0.<em>E</em><em>q</em><em>u</em><em>a</em><em>l</em><em>i</em><em>t</em><em>y</em><em>t</em><em>e</em><em>s</em><em>t</em><em>i</em><em>n</em><em>g</em>, <em>h</em><em>o</em><em>w</em><em>e</em><em>v</em><em>e</em><em>r</em>, <em>w</em><em>i</em><em>l</em><em>l</em><em>n</em><em>o</em><em>t</em>.<em>S</em><em>o</em>(</span>myvar&lt;5) will match if <span class="math inline"><em>m</em><em>y</em><em>v</em><em>a</em><em>r</em><em>i</em><em>s</em><em>n</em><em>u</em><em>l</em><em>l</em>, <em>b</em><em>u</em><em>t</em>(</span>myvar==0) will not match.</p>
 <h2 id="unlimited-wildcards">UNLIMITED WILDCARDS</h2>
 <p>When you use <code>*</code> you want everything matching until the next significant token, eg</p>
 <pre><code>u: (I love *  tomorrow) matches all words between love and tomorrow. 

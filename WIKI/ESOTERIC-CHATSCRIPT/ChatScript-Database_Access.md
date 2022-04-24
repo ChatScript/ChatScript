@@ -1,7 +1,6 @@
 # ChatScript Database Access
-
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/6/2021 cs11.4
+<br>Revision 4/24/2022 cs12.1
 
 # Overview
 By default, a CS server records the current state of a user in a file stored in the local 
@@ -190,6 +189,19 @@ $_var = ^mongofinddocument(dog)
 You can include a JSON object's worth of additional attributes on a Mongo upsert using $cs_mongoqueryparams.
 
 You also use a private hook code to alter things on upsert.
+
+### Mongo CS variables
+
+$mongo_enable_ssl if set to "true" will then use these variables:
+```
+$mongosslcafile
+$mongosslpemfile
+$mongosslpempwd
+$mongovalidatessl
+$mongo_timeexcess -- record into log file if operation takes more than this ms
+```
+
+$$mongo_error
 
 ## Postgres Fileserver and Databse
 

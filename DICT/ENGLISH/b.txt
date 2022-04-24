@@ -5713,7 +5713,7 @@
  bladdernose ( meanings=1 NOUN NOUN_SINGULAR ) 
     Cystophora_cristata~1n 
  bitch ( meanings=6 glosses=3 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 posdefault:NOUN VERB_NOOBJECT ) 
-    bitch~1nz (^canine~1) female of any member of the dog family
+    bitch~1nz female of any member of the dog family
     kick~4n 
     cunt~2nz (^disagreeable_person~1) a person who is thoroughly disliked
     bitch~4nz (^difficulty~4) an unpleasant difficulty
@@ -21171,7 +21171,7 @@
     bottomed~1az having a bottom of a specified character
  bell-bottomed ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     bell-bottom~1az having legs that flare at the bottom
- bell-bottom ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
+ bell-bottom ( meanings=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR posdefault:ADJECTIVE ) 
     bellbottom~1a 
  bottom-up ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL posdefault:ADJECTIVE ) 
     bottom-up~1az of an approach to a problem that begins with details and works up to the highest conceptual level
@@ -23880,9 +23880,16 @@
     butt_out~1vz 
  buzz_around ( meanings=1 VERB_PRESENT VERB_INFINITIVE VERB VERB_DIRECTOBJECT VERB_NOOBJECT PHRASAL_VERB INSEPARABLE_PHRASAL_VERB VERB_CONJUGATE1 ) 
     buzz_around~1vz 
- Brig. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
- Blvd. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ brefes ( NOUN NOUN_PLURAL ) 
+ beam-end ( NOUN NOUN_SINGULAR ) 
+ bachelor-at-arm ( NOUN NOUN_SINGULAR ) 
+ beggar-tick ( NOUN NOUN_SINGULAR ) 
+ beggar's-tick ( NOUN NOUN_SINGULAR ) 
+ butter-and-egg ( NOUN NOUN_SINGULAR ) 
+ boys-and-girl ( NOUN NOUN_SINGULAR ) 
  Bldg. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Blvd. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
+ Brig. ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
  Brig ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
  Blvd ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 
  Bldg ( NOUN_TITLE_OF_ADDRESS NOUN NOUN_PROPER_SINGULAR KINDERGARTEN ) 

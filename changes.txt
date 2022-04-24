@@ -1,3 +1,58 @@
+WANTED:  Full-time ChatScript programmer for San Francisco-based JustAnswer.
+Can work remotely. Will be my understudy and perform engine debugging
+and engine enhancements. Contact me if you have experience using CS and 
+some interest in this job.
+
+Version 12.1 4/24/2022
+
+1. Support for emoji (see Esotheric-ChatScript/ChatScript-Foreign-Languages)
+2. Support for Spanish- (see Esotheric-ChatScript/ChatScript-Foreign-Languages)
+	detect verbs in simple past, present, and future tense.
+	detect gender and plurality of adjectives and nouns
+	detect plurality of pronouns
+3. You can use multiple treetaggers (if you are licensed) including
+	english, german, and spanish. (see Esotheric-ChatScript/ChatScript-Foreign-Languages)
+	but you need a new copy of treetagger library from me.
+4. If you explicitly create a json array, it will remember whether it should
+	use duplicates or unique.
+5. :tsvsource switches input to a special conversation-oriented file.
+	See chatscript-debugging
+6. controls over cs level of effort (see ChatScript-System-Variables-and-Engine-defined-Concepts)
+	$cs_badspellLimit
+	$cs_analyzelimit
+    $cs_analyzelimitlog
+	$fakeTimeOffset
+7. mongo db control variables (see Esoteric-chatscript/ChatScript-database-access)
+	$mongo_enable_ssl
+	$mongosslcafile
+	$mongosslpemfile
+	$mongosslpempwd
+	$mongo_timeexcess
+	$mongovalidatessl
+	$$mongo_error
+8. ^testpattern control variables
+		$testpatternpretopic - execute this topic to preprocess input before matchines
+		$$cs_testpatterninput -- a copy of user input created by engine for $testpatternpretopic 
+			to change if it wants to act as actual user input
+		$testpattern_posttopic - execute this topic after testpattern to monitor and adjust variable changes
+
+9. misc control variables
+	$cs_beforereset if set to a topic, will be executed before :reset is executed
+	$cs_sequence How many words in sequence to check as a composite (default: 5)
+
+10. serverlogauthcode in input- using that value in user input used to
+	enable pattern tracing. concatening 2 onto that value will enable
+	full tracing in ^testpattern. Full tracing is automatic in ^testoutput.
+11. %starttimems - Start of user request time/date in milliseconds
+12 %tsvsource (1 if in progress Null otherwise)
+13. %heapsize how many bytes of heap are left
+14. ^print now has arguments stdout (send to console) and log (the previous default)
+15. given an jsonarray treated as an object (using dot)	
+	$array.value returns the index of the element that has that value
+16.  :concat -- read from file and  merge lines into one input line
+17 bwinfo, if stated in user input to  ^testpattern, will return
+	a changed variable bwinfo which lists all words and the concepts marked for them
+	A concept ~bwinfo_ignore will list concepts NOT to show here.
 
 Version 11.6 11/21/2021 THANKSGIVING SPECIAL
 

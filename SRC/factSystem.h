@@ -1,7 +1,7 @@
 #ifndef _FACTSYSTEMH_
 #define _FACTSYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -75,7 +75,7 @@ void InitFactWords();
 void AutoKillFact(MEANING M);
 bool ValidMemberFact(FACT* F);
 void VerifyFacts();
-bool UnacceptableFact(FACT* F, bool jsonavoid);
+bool UnacceptableFact(FACT* F);
 
 // fact creation and destruction
 FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties = 0);
@@ -133,7 +133,7 @@ inline void SetObjectHead(FACT* F, FACT* value){ F->objectHead = Fact2Index(valu
 typedef FACT* (*GetNextFact)(FACT* F);
 typedef void (*SetNextFact)(FACT* F,FACT* value);
 
-FACT* GetSubjectNondeadNext(FACT* F,bool jsonaccept = true);
+FACT* GetSubjectNondeadNext(FACT* F);
 FACT* GetVerbNondeadNext(FACT* F);
 FACT* GetObjectNondeadNext(FACT* F) ;
 FACT* GetSubjectNext(FACT* F);
@@ -147,7 +147,7 @@ inline FACT* GetSubjectHead(WORDP D) {return Index2Fact(D->subjectHead);}
 inline FACT* GetVerbHead(WORDP D) {return Index2Fact(D->verbHead);}
 inline FACT* GetObjectHead(WORDP D)  {return Index2Fact(D->objectHead);}
 
-FACT* GetSubjectNondeadHead(WORDP D,bool jsonaccept = true);
+FACT* GetSubjectNondeadHead(WORDP D);
 FACT* GetVerbNondeadHead(WORDP D);
 FACT* GetObjectNondeadHead(WORDP D);
 inline FACT* GetSubjectNondeadHead(MEANING M) {return GetSubjectNondeadHead(Meaning2Word(M));}

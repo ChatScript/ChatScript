@@ -1,6 +1,6 @@
 # ChatScript Pattern Redux
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com  
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 4/24/2022 cs12.1
 
 Pattern matching information was introduced in the Beginner manual and expanded in the 
 [Advanced User Manual](ChatScript-Advanced-User-Manual.md).
@@ -374,6 +374,8 @@ The relationship operators are:
 | `?`      | is member of 2nd arg concept or topic or JSON array. If no argument occurs after, means is value found in sentence
 
 Using a compare with two text strings (not numbers) will evaluate based on case-independent alpha sorting.
+
+For comparison against a number (< <= > >=) a null value will be treated as the number 0.
 
 The `?` operator has two forms. `xxx?~yyy` will look for actual membership in the set whereas
 `_n?~yyy` will only see if the location of match detection of `_n` is the same as a 

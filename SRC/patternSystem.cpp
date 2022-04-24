@@ -41,6 +41,7 @@
 // and slot to use is 5 bits below
 // BUT it we are memorizing specific, it must use separate slot index because _*~4 _() can exist
 HEAPREF heapPatternThread = NULL;
+char xword[MAX_WORD_SIZE]; // used by Match, saves on stack space
 int patternDepth = 0;
 int indentBasis = 1;
 bool matching = false;
@@ -433,14 +434,9 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     if (depth == 0)
     {
         memset(&retryBits, 0, sizeof(uint64) * 4);
-        while (matchedWordsList)
-        {
-            uint64 val1;
-            uint64 val2;
-            matchedWordsList = UnpackHeapval(matchedWordsList, val1, val2);
-        }
+        matchedWordsList = NULL;
     }
-    char word[MAX_WORD_SIZE];
+    char word[SMALL_WORD_SIZE]; // users may type big, but pattern words wont be
     char* orig = ptr;
     int statusBits = (*kind == '<') ? FREEMODE_BIT : 0; //   turns off: not, quote, startedgap, freemode ,wildselectorpassback
     kindprior[depth] = *kind;
@@ -448,7 +444,6 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
     unsigned int startNest = functionNest;
     int startfnvarbase = fnVarbase;
     int wildcardBase = wildcardIndex;
-    unsigned int result = NOPROBLEM_BIT;
     int bidirectional = 0;
     int bidirectionalSelector = 0;
     int bidirectionalWildcardIndex = 0;
@@ -500,7 +495,6 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 			if (*ptr == '-') // prove not found anywhere before here
 			{
 				++ptr;
-				char xword[MAX_WORD_SIZE];
 				ptr = ReadCompiledWord(ptr, xword);
 				WORDP D = FindWord(xword, 0, PRIMARY_CASE_ALLOWED); // word only, not ( ) stuff
 				int startp, endp;
@@ -520,7 +514,6 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 				else if (ptr[1] == '-')
 				{
 					++ptr;
-					char xword[MAX_WORD_SIZE];
 					ptr = ReadCompiledWord(ptr+1, xword);
 					WORDP D = FindWord(xword, 0, PRIMARY_CASE_ALLOWED); // word only, not ( ) stuff
 					int startp, endp;
@@ -710,9 +703,12 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
                 if (trace & TRACE_PATTERN  && CheckTopicTrace())
                 {
-                    if (positionStart <= 0 || positionStart > wordCount || positionEnd <= 0 || positionEnd > wordCount) Log(USERLOG, "(index:%d)", positionEnd);
-                    else if (positionStart == positionEnd) Log(USERLOG,"(word:%s index:%d)", wordStarts[positionEnd], positionEnd);
-                    else Log(USERLOG,"(word:%s-%s index:%d-%d)", wordStarts[positionStart], wordStarts[positionEnd], positionStart, positionEnd);
+                    char data[MAX_WORD_SIZE];
+
+                    if (positionStart <= 0 || positionStart > wordCount || positionEnd <= 0 || positionEnd > wordCount) sprintf(data, "`index:%d`", positionEnd);
+                    else if (positionStart == positionEnd) sprintf(data,"`%s index:%d`", wordStarts[positionEnd], positionEnd);
+                    else sprintf(data,"`%s-%s index:%d-%d`", wordStarts[positionStart], wordStarts[positionEnd], positionStart, positionEnd);
+                    strcat(word, data);
                 }
                 if (beginmatch == -1) beginmatch = positionStart; // treat this as a real match
                 matched = true;
@@ -853,8 +849,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
             }
             else if (IsAlphaUTF8(word[1]) || word[1] == '*')
+            {
                 matched = FindPartialInSentenceTest(word + 1, (positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd, positionStart, reverse,
                     positionStart, positionEnd); // wildword match like st*m* or *team* matches steamroller
+                if (matched) foundaword = true;
+            }
             else // variable gap
             {
                 int start = (reverse) ? (positionStart - 1) : (positionEnd + 1);
@@ -918,9 +917,10 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 char* base = PushMatch(wildcardIndex);
                 int baseindex = wildcardIndex;
                 AllocateOutputBuffer();
-                FunctionResult result;
                 if (!stricmp(D->word, "^match") || !stricmp(D->word, "^mark") || !stricmp(D->word, "^unmark")) matching = true;
                 if (trace & TRACE_PATTERN) Log(USERLOG, "\r\n");
+               
+                FunctionResult result;
                 ptr = DoFunction(word, ptr, currentOutputBase, result);
                 matching = false;
                 PopMatch(base, baseindex);
@@ -930,7 +930,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     if (*kind == '[' || *kind == '{') matched = false;
                 }
                 // allowed to do comparisons on answers from system functions but cannot have space before them, but not from user macros
-                if (*ptr == '!' && ptr[1] == ' ')// simple not operator or no operator
+                if (result != NOPROBLEM_BIT) { ; }
+                else if (*ptr == '!' && ptr[1] == ' ')// simple not operator or no operator
                 {
                     if (!stricmp(currentOutputBase, (char*)"0") || !stricmp(currentOutputBase, (char*)"false")) result = FAILRULE_BIT;	// treat 0 and false as failure along with actual failures
                 }
@@ -1026,8 +1027,8 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
                 else ptr = ""; // null function
                 if (result == NOPROBLEM_BIT) continue;
+                matched = false;
             }
-            if (result & FAILCODES) matched = false;
             break;
         case 0: case '`': // end of data (argument or function - never a real rule)
             if (argumentText) // return to normal from argument substitution
@@ -1301,13 +1302,39 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             //   if left side is anything but a variable $ or _ or @, it must be found in sentence and that is what we compare against
             else
             {
+                char copy[MAX_WORD_SIZE];
+                strcpy(copy, word);
+                strcpy(word, copy); // refresh for retry debugging
                 char lhsside[MAX_WORD_SIZE];
                 char* lhs = lhsside;
                 char op[10];
                 char rhsside[MAX_WORD_SIZE];
                 char* rhs = rhsside;
                 DecodeComparison(word, lhs, op, rhs);
-                if (trace & TRACE_PATTERN) sprintf(word, (char*)"%s%s%s", lhs, op, rhs);
+                if (trace & TRACE_PATTERN)
+                {
+                    char lhscopy[MAX_WORD_SIZE];
+                    strcpy(lhscopy, lhs);
+                    if (*lhs == '_') // show value
+                    {
+                        char val[MAX_WORD_SIZE];
+                        strcpy(val, "`");
+                        strncpy(val + 1, wildcardOriginalText[GetWildcardID(lhs)], 15);
+                        strcpy(val + 16, "...");
+                        strcat(val, "`");
+                        strcat(lhscopy, val);
+                    }
+                    else if (*lhs == '$') // show value
+                    {
+                        char val[MAX_WORD_SIZE];
+                        strcpy(val, "`");
+                        strncpy(val + 1, GetUserVariable(lhs), 15);
+                        strcpy(val + 16, "...");
+                        strcat(val, "`");
+                        strcat(lhscopy, val);
+                    }
+                    sprintf(word, (char*)"%s%s%s", lhscopy, op, rhs); //rephrase for trace later
+                }
                 if (*lhs == '^') DecodeFNRef(lhs); // local function arg indirect ^$ var or _ as LHS
                 if (*rhs == '^') DecodeFNRef(rhs);// local function argument or indirect ^$ var  is LHS. copy across real argument
 
@@ -1317,7 +1344,10 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     ++lhs;
                     quoted = true;
                 }
-
+                if (*op == '?' && *rhs == USERVAR_PREFIX)
+                {
+                    rhs = GetUserVariable(rhs, false, true);
+                }
                 if (*op == '?' && *rhs != '~') // NOT a ? into a set test - means does this thing exist in sentence
                 {
                     char* val = "";
@@ -1344,10 +1374,10 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     break;
                 }
 
-                result = *lhs;
+                int lhschar = *lhs;
                 if (IsComparison(*op)) // otherwise for words and concepts, look up in sentence and check relation there
                 {
-                    if (result == '_' && quoted) --lhs; // include the quote
+                    if (lhschar == '_' && quoted) --lhs; // include the quote
                     char* word1val = AllocateStack(NULL, MAX_WORD_SIZE);
                     char* word2val = AllocateStack(NULL, MAX_WORD_SIZE);
                     FunctionResult answer = HandleRelation(lhs, op, rhs, false, id, word1val, word2val);
@@ -1490,7 +1520,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 MarkMatchLocation(positionStart, positionEnd & REMOVE_SUBJECT, depth);
                 if (beginmatch == -1) beginmatch = positionStart; // first match in this level
                 WORDP D = FindWord(word);
-                matchedWordsList = AllocateHeapval(matchedWordsList, (uint64)D, depth);
+                if (D) matchedWordsList = AllocateHeapval(matchedWordsList, (uint64)D, depth);
             }
             if (oldEnd == (positionEnd & REMOVE_SUBJECT) && oldStart == positionStart) // something like function call or variable existence, didnt change position
             {
@@ -1694,12 +1724,11 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         }
                         else if (matched && positionStart != positionEnd)
                         { 
-                            char b[MAX_WORD_SIZE];
-                            strcpy(b, key);
-                            char* x = strchr(b, '_');
-                            if (!x) x = strchr(b, ' ');
+                            strcpy(xword, key);
+                            char* x = strchr(xword, '_');
+                            if (!x) x = strchr(xword, ' ');
                             if (x) *x = 0; // does first word of phrase match?
-                            if (!stricmp(b, wordStarts[positionStart]) || !stricmp(b, wordCanonical[positionStart]))
+                            if (!stricmp(xword, wordStarts[positionStart]) || !stricmp(xword, wordCanonical[positionStart]))
                             {
                                 Log(USERLOG,"%s+ ", key);
                                 break; // dont need whole list
@@ -1730,14 +1759,23 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 						else if (*lhs == '_') Log(USERLOG,"%s:%s%s `%s`", lhs, op, rhs, wildcardOriginalText[GetWildcardID(lhs)]);
 						else Log(USERLOG,"%s:%s%s", lhs, op, rhs);
 					}
-					else if (*word == '=' && word[1]) // comparison
-					{ 
-						char lhsside[MAX_WORD_SIZE];
-						char* lhs = lhsside;
-						char op[10];
-						char rhsside[MAX_WORD_SIZE];
-						char* rhs = rhsside;
-						DecodeComparison(word, lhs, op, rhs);
+                    else if (*word == '=' && word[1]) // comparison
+                    {
+                        char lhsside[MAX_WORD_SIZE];
+                        char* lhs = lhsside;
+                        char op[10];
+                        char rhsside[MAX_WORD_SIZE];
+                        char* rhs = rhsside;
+                        DecodeComparison(word, lhs, op, rhs);
+                        if (*lhs == '_')
+                        {
+                            char val[MAX_WORD_SIZE];
+                            strcpy(val, "('");
+                            strncpy(val+2, wildcardOriginalText[GetWildcardID(lhs)], 15);
+                            strcpy(val + 17, "...");
+                            strcat(val, "`)");
+                            strcat(lhs, val);
+                        }
 						Log(USERLOG,"%s%s%s", lhs, op, rhs);
 					}
 					else if (*word == '^') Log(USERLOG,"%s(...)", word);

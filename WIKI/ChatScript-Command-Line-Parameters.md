@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 4/24/2022 cs12.1
 
 
 
@@ -349,6 +349,13 @@ serverlogauthcode=xxxxx
 In addition to permanently turning on server and/or user logging, you can provide a cheat code in your
 input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code
 is hidden from CS processing so it will not impact NL processing.
+
+In calls to ^testpattern, this will log to return in a `trace` field. By
+default, this code will just trace patterns. But if you concat `2` onto the
+code it will do a full cs trace.
+
+In calls to ^testouput, this will log to return in a trace field but will always
+be a full trace.
 
 ```
 hidefromlog="label label2 label3"

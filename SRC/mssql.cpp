@@ -42,7 +42,6 @@ struct DbInterface_t;
 static DbInterface_t* get_db(int id);
 static bool is_db_initialized(ConnectionId c_id);
 static void set_db_initialized(ConnectionId c_id, bool flag);
-static void set_db_used(ConnectionId c_id, bool flag);
 static void* init_z_buffer(int size);
 static int uninit_z_buffer();
 static void set_error_max(char* str);
@@ -502,11 +501,6 @@ static bool is_db_initialized(ConnectionId c_id)
 static void set_db_initialized(ConnectionId c_id, bool flag) {
     DbInterface_t* dbp = get_db(c_id);
     dbp->is_initialized = flag;
-}
-
-static void set_db_used(ConnectionId c_id, bool flag) {
-    DbInterface_t* dbp = get_db(c_id);
-    dbp->used = flag;
 }
 
 int mssql_set_verbose(int id, bool flag)

@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/26/2020 cs10.8
+<br>Revision 4/24/2022 cs12.1
 
 
 # ADVANCED OUTPUT
@@ -278,7 +278,8 @@ The test condition can be:
 * A relation - one of `==` `!=` `<` `<=` `>` `>=` `?` `!?`
 
 For the purposes of numeric comparison `(< <= > >=)` a null value compared against a
-number will be considered as 0.
+number will be considered as 0. But == will not consider a null value as 0 because this
+conflicts with the ability to detect if the variable has some value or not.
 
 You may have a series of test conditions separated by `AND` and `OR`. The failure of the
 test condition can be any end or fail code. It does not affect outside the condition; it

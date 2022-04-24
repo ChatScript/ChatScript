@@ -1102,7 +1102,7 @@
     reed_organ~1nz (^free-reed_instrument~1) a free-reed instrument in which air is forced through the reeds by bellows
     pipe_organ~1nz (^keyboard_instrument~1) wind instrument whose sound is produced by means of pipes arranged in sets supplied with air from a bellows and controlled from a large complex musical keyboard
     organ~4nz (^body_part~1) a fully differentiated structural and functional unit in an animal that is specialized for some particular function
-    organ~5nz (^periodical~1) a periodical that is published by a special interest group
+    organ~5nz a periodical that is published by a special interest group
     organ~6nz (^agency~3) a government agency or instrument devoted to the performance of some specific function
  orthodontic_treatment ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     orthodontic_treatment~1nz (^treatment~1) dental treatment that corrects irregularities of the teeth or of the relation of the teeth to surrounding anatomy
@@ -7319,7 +7319,7 @@
  oy ( INTERJECTION ) 
  oyez ( INTERJECTION ) 
  ought ( AUX_VERB_FUTURE COMMON4 KINDERGARTEN PRESENTATION_VERB ) 
- our ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 KINDERGARTEN PREDETERMINER_TARGET PERSONAL_PRONOUN ) 
+ our ( meanings=2 DETERMINER PRONOUN_POSSESSIVE COMMON4 COMMON2 KINDERGARTEN PREDETERMINER_TARGET PRONOUN_PLURAL PERSONAL_PRONOUN ) 
     our~1z 
     our~2z 
  o'er ( meanings=1 ADVERB COMMON2 COMMON1 ) 
@@ -8076,7 +8076,7 @@
     orientating~1a 
  orientating ( meanings=1 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 posdefault:VERB ) 
     orienting~1az positioning with respect to a reference system or determining your bearings physically or intellectually
- out-of-door ( meanings=1 ADJECTIVE ADJECTIVE_NORMAL ) 
+ out-of-door ( meanings=1 NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) 
     outdoor~1a 
  outdoorsy ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 ) 
     outdoorsy~1az characteristic of or suitable to outdoor life
@@ -10031,7 +10031,7 @@
  ought_to ( AUX_VERB_FUTURE KINDERGARTEN ) 
  others ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_INDIRECTOBJECT KINDERGARTEN PRONOUN_PLURAL posdefault:NOUN INDEFINITE_PRONOUN ) 
     others~1z 
- ours ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 KINDERGARTEN posdefault:NOUN PERSONAL_PRONOUN ) 
+ ours ( meanings=1 PRONOUN_SUBJECT PRONOUN_OBJECT COMMON4 KINDERGARTEN PRONOUN_PLURAL posdefault:NOUN PERSONAL_PRONOUN ) 
     ours~1z 
  oneself ( meanings=1 PRONOUN_OBJECT COMMON4 COMMON1 PRONOUN_REFLEXIVE KINDERGARTEN PRONOUN_SINGULAR ANIMATE_BEING ) 
     oneself~1z 
@@ -10039,4 +10039,3 @@
     ourselves~1z 
  one_another ( meanings=1 PRONOUN_OBJECT KINDERGARTEN ANIMATE_BEING ) 
     one_another~1z 
- oil_of_clofes ( NOUN NOUN_PLURAL ) 

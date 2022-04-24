@@ -67,8 +67,8 @@ unsigned char toLowercaseData[256] = // convert upper to lower case
 	130,131,132,133,134,135,136,137,138,139,	140,141,142,143,144,145,146,147,148,149,
 	150,151,152,153,154,155,156,157,158,159,	160,161,162,163,164,165,166,167,168,169,
 	170,171,172,173,174,175,176,177,178,179,	180,181,182,183,184,185,186,187,188,189,
-	190,191,192,193,194,195,196,197,198,199,	200,201,202,203,204,205,206,207,208,209,
-	210,211,212,213,214,215,216,217,218,219,	220,221,222,223,224,225,226,227,228,229,
+	190,191,192+32,193 + 32,194 + 32,195 + 32,196 + 32,197 + 32,198 + 32,199 + 32,	200 + 32,201 + 32,202 + 32,203 + 32,204 + 32,205 + 32,206 + 32,207 + 32,208 + 32,209 + 32,
+	210 + 32,211+32,212 + 32,213 + 32,214 + 32,215 + 32,216 + 32,217 + 32,218 + 32,219 + 32,	220 + 32,221 + 32,222+32,223,224,225,226,227,228,229,
 	230,231,232,233,234,235,236,237,238,239,	240,241,242,243,244,245,246,247,248,249,
 	250,251,252,253,254,255
 };
@@ -86,8 +86,8 @@ unsigned char toUppercaseData[256] = // convert lower to upper case
 	130,131,132,133,134,135,136,137,138,139,	140,141,142,143,144,145,146,147,148,149,
 	150,151,152,153,154,155,156,157,158,159,	160,161,162,163,164,165,166,167,168,169,
 	170,171,172,173,174,175,176,177,178,179,	180,181,182,183,184,185,186,187,188,189,
-	190,191,192,193,194,195,196,197,198,199,	200,201,202,203,204,205,206,207,208,209,
-	210,211,212,213,214,215,216,217,218,219,	220,221,222,223,224,225,226,227,228,229,
+	190,191,192-32,193 - 32,194 - 32,195 - 32,196 - 32,197 - 32,198 - 32,199 - 32,	200 - 32,201 - 32,202 - 32,203 - 32,204 - 32,205 - 32,206 - 32,207 - 32,208 - 32,209 - 32,
+	210 - 32,211 - 32,212 - 32,213 - 32,214 - 32,215 - 32,216 - 32,217 - 32,218 - 32,219 - 32,	220 - 32,221 - 32,222-32,223,224,225,226,227,228,229,
 	230,231,232,233,234,235,236,237,238,239,	240,241,242,243,244,245,246,247,248,249,
 	250,251,252,253,254,255
 };
@@ -445,7 +445,7 @@ char* ReadTokenMass(char* ptr, char* word)
 	return ptr;
 }
 
-void InitTextUtilitiesByLanguage(char* language)
+void InitTextUtilitiesByLanguage(char* lang)
 {
 	char word[MAX_WORD_SIZE];
 	char value[MAX_WORD_SIZE];
@@ -456,7 +456,7 @@ void InitTextUtilitiesByLanguage(char* language)
 	size_t size;
 	char file[SMALL_WORD_SIZE];
 
-	sprintf(file, (char*)"%s/%s/numbers.txt", livedataFolder, language);
+	sprintf(file, (char*)"%s/%s/numbers.txt", livedataFolder, lang);
 	FILE* in = FopenStaticReadOnly(file); // LIVEDATA substitutes or from script TOPIC world
 	if (in)
 	{
@@ -494,7 +494,7 @@ void InitTextUtilitiesByLanguage(char* language)
 		fclose(in);
 	}
 
-	sprintf(file, (char*)"%s/%s/currencies.txt", livedataFolder, language);
+	sprintf(file, (char*)"%s/%s/currencies.txt", livedataFolder, lang);
 	in = FopenStaticReadOnly(file);
 	if (in)
 	{
@@ -524,7 +524,7 @@ void InitTextUtilitiesByLanguage(char* language)
 		fclose(in);
 	}
 
-	sprintf(file, (char*)"%s/%s/months.txt", livedataFolder, language);
+	sprintf(file, (char*)"%s/%s/months.txt", livedataFolder, lang);
 	in = FopenStaticReadOnly(file);
 	if (in)
 	{
@@ -667,6 +667,16 @@ bool IsFraction(char* token)
 		}
 	}
 	return false;
+}
+
+bool IsAllUpper(char* ptr)
+{
+	--ptr;
+	while (*++ptr)
+	{
+		if (!IsUpperCase(*ptr) && *ptr != '&' && *ptr != '-' && *ptr != '_' && !IsDigit(*ptr)) break;
+	}
+	return (!*ptr);
 }
 
 char* RemoveEscapesWeAdded(char* at)
@@ -831,8 +841,8 @@ int IsJapanese(char* utf8letter,unsigned char* utf16letter,int& kind)
 	else if (utfbase[2] == 'F' && utfbase[3] == 'F' && utfbase[4] == '1' && utfbase[5] == 'F') kind = JAPANESE_PUNCTUATION; // full width ?
 	else if (utfbase[2] == 'F' && utfbase[3] == 'F' ) kind = JAPANESE_KANJI; // ff00-ffEF are half-full width chars and FFF0-FFFF are specials
 	else if (utfbase[2] == 'F' && utfbase[3] == 'E'  && (utfbase[4] == '3' || utfbase[4] == '4'))  kind = JAPANESE_KANJI; // CJK Compatibility Forms
-	else if (utfbase[2] == 'F' && utfbase[3] == '9' ||  utfbase[2] == 'A')  kind = JAPANESE_KANJI; // F900	FAFF	CJK Compatibility Ideographs
-	else if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] <= '9') kind = JAPANESE_HIRAGANA;
+	else if (utfbase[2] == 'F' && (utfbase[3] == '9' ||  utfbase[3] == 'A'))  kind = JAPANESE_KANJI; //  F900 FAFF	 CJK Compatibility Ideographs
+	else if (utfbase[2] == '3' && utfbase[3] == '0' && utfbase[4] <= '9') kind = JAPANESE_HIRAGANA; 
 	// Hiragana(3040 - 309f)
 		//3040   ぀  ぁ  あ  ぃ  い  ぅ  う  ぇ  え  ぉ  お  か  が  き  ぎ  く
 		//3050   ぐ  け  げ  こ  ご  さ  ざ  し  じ  す  ず  せ  ぜ  そ  ぞ  た
@@ -887,7 +897,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 		else if (*at == '\\')
 		{
 			const char* at1 = at + 1;
-			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == 'u' ))  // just pass it along
+			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || (*at1 == 'u' && IsHexDigit(at[2]) && IsHexDigit(at[3]) && IsHexDigit(at[4]) && IsHexDigit(at[5])) ))  // just pass it along
 			{
 				*to++ = *at;
 				*to++ = *++at;
@@ -904,10 +914,12 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 			*to++ = *at;
 		}
 		// translate utf8 to uxxxx notation 
+#ifdef DISABLE_CLAUSE
 		else if (false && convert2utf16 && *at & 0x80)
 		{
-			UTF8_2_UTF16((unsigned char* &) at, (unsigned char*&)to);
+			UTF8_2_UTF16((unsigned char*&)at, (unsigned char*&)to);
 		}
+#endif
 		else *to++ = *at;
 		if ((to - start) > limit && false) 	// dont overflow just abort silently
 		{
@@ -1503,7 +1515,7 @@ char* FixHtmlTags(char* html)
 			memmove(at + 1, at + 5, strlen(at + 4));
 		}
 	}
-
+	
 	while ((html = strchr(++html, '&')))
 	{
 		if (!strnicmp(html, (char*)"&lt;", 4))
@@ -1577,6 +1589,56 @@ char* FixHtmlTags(char* html)
 		{
 			memmove(html + 1, html + 6, strlen(html + 5));
 			*html = ' ';
+		}
+		else if (!strnicmp(html, (char*)"&#8217;", 7))
+		{
+			memmove(html + 1, html + 7, strlen(html + 6));
+			*html = '\'';
+		}
+		else if (!strnicmp(html, (char*)"&#39;", 5))
+		{
+			memmove(html + 1, html + 5, strlen(html + 4));
+			*html = '\'';
+		}
+		else if (html[1] == '#' && html[2] == 'x' && 
+			(html[6] == ';' || html[7] == ';')) // hex html
+		{
+			char* end = strchr(html, ';');
+			unsigned int x = 0;
+			char* ptr = html + 3;
+			while (IsDigit(*ptr))
+			{
+				x = (x << 4);
+				char c = toUppercaseData[*ptr++];
+				if (c >= 'A') c = 10 + c - 'A';
+				else c -= '0';
+				x += c;
+			}
+
+			char data[100];
+			sprintf(data, "u%u", x);
+			char* answer = UTF16_2_UTF8(data, false);
+			size_t n = strlen(answer);
+			strncpy(html, answer, n);
+			memmove(html + n, end + 1, strlen(end));
+		}
+		else if (html[1] == '#' && IsDigit(html[2]) &&
+			(html[5] == ';' || html[6] == ';')) // decimal html
+		{
+			char* end = strchr(html, ';');
+			unsigned int x = 0;
+			char* ptr = html + 2;
+			while (IsDigit(*ptr))
+			{
+				x = (x * 10) + (*ptr++ - '0');
+			}
+			char data[100];
+			sprintf(data, "u%u", x);
+			char* answer = UTF16_2_UTF8(data, false);
+			size_t n = strlen(answer);
+			strncpy(html, answer, n);
+			memmove(html + n, end + 1, strlen(end));
+
 		}
 	}
 	return start;
@@ -2246,7 +2308,9 @@ bool IsFileExtension(char* word)
 		return (!strnicmp(word, (char*)"7z", 2) || !strnicmp(word, (char*)"ai", 2) || !strnicmp(word, (char*)"cs", 2) || !strnicmp(word, (char*)"db", 2) || !strnicmp(word, (char*)"gz", 2) || !strnicmp(word, (char*)"js", 2) || !strnicmp(word, (char*)"pl", 2) || !strnicmp(word, (char*)"ps", 2) || !strnicmp(word, (char*)"py", 2) || !strnicmp(word, (char*)"rm", 2) || !strnicmp(word, (char*)"sh", 2) || !strnicmp(word, (char*)"vb", 2));
 	}
 	else if (len == 4) {
-		return (!strnicmp(word, (char*)"aspx", 4) || !strnicmp(word, (char*)"docx", 4) || !strnicmp(word, (char*)"h264", 4) || !strnicmp(word, (char*)"heic", 4) || !strnicmp(word, (char*)"html", 4) || !strnicmp(word, (char*)"icns", 4) || !strnicmp(word, (char*)"indd", 4) || !strnicmp(word, (char*)"java", 4) || !strnicmp(word, (char*)"jpeg", 4) || !strnicmp(word, (char*)"json", 4) || !strnicmp(word, (char*)"mpeg", 4) || !strnicmp(word, (char*)"midi", 4) || !strnicmp(word, (char*)"pptx", 4) || !strnicmp(word, (char*)"sitx", 4) || !strnicmp(word, (char*)"tiff", 4) || !strnicmp(word, (char*)"xlsx", 4) || !strnicmp(word, (char*)"zipx", 4));
+		return (!strnicmp(word, (char*)"aspx", 4) || !strnicmp(word, (char*)"docx", 4) || !strnicmp(word, (char*)"h264", 4) || !strnicmp(word, (char*)"heic", 4) || !strnicmp(word, (char*)"html", 4) || !strnicmp(word, (char*)"icns", 4) || !strnicmp(word, (char*)"indd", 4) || !strnicmp(word, (char*)"java", 4) ||
+			!strnicmp(word, (char*)"jpeg", 4) || !strnicmp(word, (char*)"json", 4) || !strnicmp(word, (char*)"mpeg", 4) || !strnicmp(word, (char*)"midi", 4) || !strnicmp(word, (char*)"pptx", 4) || !strnicmp(word, (char*)"sitx", 4) || !strnicmp(word, (char*)"tiff", 4) || 
+			!strnicmp(word, (char*)"xlsx", 4) || !strnicmp(word, (char*)"zipx", 4));
 	}
 	else {
 		return (!strnicmp(word, (char*)"class", 5) || !strnicmp(word, (char*)"gadget", 6) || !strnicmp(word, (char*)"swift", 5) || !strnicmp(word, (char*)"tar.gz", 6) || !strnicmp(word, (char*)"toast", 5) || !strnicmp(word, (char*)"xhtml", 5));
@@ -2873,6 +2937,46 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 			continue;
 		}
 		char originalc = c;
+
+		// convert &# html codes to utf16 
+		if (c == '&' && read[1] == '#' && read[2] == 'x' &&
+			(read[6] == ';' || read[7] == ';')) // hex html
+		{
+			char* end = strchr(read, ';');
+			unsigned int x = 0;
+			char* ptr = read + 3;
+			while (IsDigit(*ptr))
+			{
+				x = (x << 4);
+				char c1 = toUppercaseData[*ptr++];
+				if (c1 >= 'A') c1 = 10 + c1 - 'A';
+				else c1 -= '0';
+				x += c1;
+			}
+
+			char data[100];
+			sprintf(data, "\\u%04X", x);
+			size_t n = strlen(data);
+			strncpy(read, data, n);
+			memmove(read + n, end + 1, strlen(end));
+		}
+		else if (read[1] == '#' && IsDigit(read[2]) &&
+			(read[5] == ';' || read[6] == ';')) // decimal html
+		{
+			char* end = strchr(read, ';');
+			unsigned int x = 0;
+			char* ptr = read + 2;
+			while (IsDigit(*ptr))
+			{
+				x = (x * 10) + (*ptr++ - '0');
+			}
+			char data[100];
+			sprintf(data, "\\u%04X", x);
+			size_t n = strlen(data);
+			strncpy(read, data, n);
+			memmove(read + n, end + 1, strlen(end));
+		}
+
 		// convert utf16 \unnnn encode from JSON to our std utf8
 		if ( c == '\\' && read[1] == 'u' && IsHexDigit(read[2]) && IsHexDigit(read[3]) && IsHexDigit(read[4]) && IsHexDigit(read[5]))
 		{
@@ -2901,17 +3005,15 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 		}
 		else if (c == '\\')
 		{
-			*write++ = '\\';
+			if (read[1] != '\'')
+				*write++ = '\\'; // can\'t
 			*write++ = *++read;
 			continue;
 		}
-		else if (c == ENDUNIT && kind != SYSTEM_PURIFY) *write++ = '\''; // remove special character - reserved for internal use
+		else if (c == '`') *write++ = '\''; // do not allow backtick from outside
 		else if (c == '\t' && kind != TAB_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
 		else if (c < 32 && c != '\t' && kind != SYSTEM_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
-		else if (c == 0x92) // windows smart quote not real unicode
-		{
-			*write++ = '\'';
-		}
+		else if (c == 0x92) *write++ = '\''; // windows smart quote not real unicode
 		else if (tokenControl & NO_FIX_UTF || kind == INPUT_TESTOUTPUT_PURIFY)
 		{ // directly accept utf8 and regular as is
 			if ((c & 0xe0) == 0xc0 && (read[1] & 0xc0) == 0x80) // 2byte utf8
@@ -3219,10 +3321,6 @@ char* SkipOOB(char* buffer)
 
 			if (c == '"')
 			{
-				if (!strnicmp(at+1, "pattern",7))
-				{
-					int xx = 0;
-				}
 				quote = !quote; // ignore within quotes
 				continue;
 			}
@@ -3589,7 +3687,7 @@ RESUME:
 					char* current = buffer;
 					char* at = lang;
 					*at++ = c;
-					while (fread(&c, 1, 1, in))
+					if (in) while (fread(&c, 1, 1, in))
 					{
 						if (IsAlphaUTF8(c) && c != ' ') *at++ = c;
 						else break;
@@ -3876,7 +3974,7 @@ static char* EatString(const char* ptr, char* word, char ender, char jsonactives
 			*word++ = *ptr++;
 			continue;
 		}
-		else if (!function && c == ender && (IsWhiteSpace(*ptr) || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0 || *ptr == '`')) // a terminator followed by white space or closing bracket or end of data terminated
+		else if (!function && c == ender && (IsWhiteSpace(*ptr) || *ptr == ','  || nestingData[(unsigned char)*ptr] == -1 || *ptr == 0 || *ptr == '`')) // a terminator followed by white space or closing bracket or end of data terminated
 		{
 			*word++ = c; // put in the close tring
 			if (IsWhiteSpace(*ptr)) ++ptr; // move to next item start

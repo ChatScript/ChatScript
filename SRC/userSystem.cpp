@@ -33,8 +33,8 @@ char loginName[ID_SIZE];    //   user typed name
 char callerIP[ID_SIZE];
 
 char timeturn15[100];
-char timeturn0[20];
-char timePrior[20];
+char timeturn0[50];
+char timePrior[50];
 static void SaveJSON(WORDP D);
 
 void PartialLogin(char* caller,char* ip)

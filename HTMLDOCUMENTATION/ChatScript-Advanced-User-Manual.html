@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/18/2021 cs11.3</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/24/2022 cs12.1</p>
 <ul>
 <li><a href="ChatScript-Advanced-User-Manual.html#review-overview-of-how-cs-works">Review</a></li>
 <li><a href="ChatScript-Advanced-User-Manual.html#advanced-tokenization">Advanced Tokenization</a></li>
@@ -468,7 +468,7 @@ DATA:
 <p>In output context, it means print out this string with its double quotes literally. E.g.</p>
 <pre><code>u: ( hello ) &quot;What say you? &quot; # prints out &quot;What say you? &quot;</code></pre>
 <p>There are also the functional interpretations of strings; these are strings with <code>^</code> in front of them.</p>
-<p>They don't make any sense on input or patterns or from a user, but they are handy in a table. They mean compile the string (format it suitable for output execution) and you can use the results of it in an <code>^eval</code> call.</p>
+<p>They don't make any sense on input or patterns or from a user, but they are handy in a table. They mean compile the string (format it suitable for output execution) and you can use the results of it in an <code>^eval</code> or <code>match</code> call.</p>
 <p>On the output side, a ^&quot;string&quot; means to interpret the contents inside the string as a format string, substituting any named variables with their content, preserving all internal spacing and punctuation, and stripping off the double quotes.</p>
 <pre><code>u: ( test ) ^&quot;This $var is good.&quot; # if $var is kid the result is This kid is good.</code></pre>
 <p><strong><em>What really happens on the output side of a rule?</em></strong></p>

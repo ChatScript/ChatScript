@@ -145,11 +145,19 @@ DISCARD
 	IS NOUN_PLURAL
 KEEP
 
-# singular noun at start of sentence lacks determiner. If it can be infinitive verb followed by noun phrase, prefer that "*book tickets"
+# animate being nouns at start of sentence before verb are better subjects "*mother lives" 
+0   INCLUDE * NOUN_BITS
+    STAY START
+    STAY HASPROPERTY ANIMATE_BEING
+    HAS VERB_PRESENT VERB_PRESENT_3PS
+KEEP
+
+# singular noun at start of sentence lacks determiner. If it can be infinitive verb followed by noun phrase, prefer that "*book tickets" but "*fire truck" is a compound
 0   INCLUDE * NOUN_SINGULAR
     STAY HAS VERB_INFINITIVE
     STAY START
     HAS NOUN_SINGULAR NOUN_PLURAL DETERMINER PRONOUN_POSSESSIVE
+    STAY !DUALNOUN
 DISCARD
 
 # number only, before possible adjective, will be adjective 17 (Noun_number Adjective_number)  big (+Adjective_normal Adverb)

@@ -12,6 +12,7 @@ static unsigned int conceptID = 0; // name of concept set
 char* patternStarter = NULL;
 char* patternEnder = NULL;
 const char* linestartpoint = NULL;
+static bool isConcept = false;
 static WORDP currentFunctionDefinition;			// current macro defining or executing
 
 static unsigned int complexity = 0;
@@ -229,8 +230,8 @@ void AddError(char* buffer)
 		{
 			strncpy(at, patternStarter,50);
 			at += 50;
-			sprintf(at, " ... ");
-			sprintf(at + 5, patternEnder - 50);
+			sprintf(at, "%s"," ... ");
+			sprintf(at + 5, "%s", patternEnder - 50);
 		}
 		strcat(at, " <--");
 	}
@@ -405,6 +406,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     FindDeprecated(ptr, (char*)"$control_pre", (char*)"Deprecated $control_pre needs to be $cs_control_pre");
     FindDeprecated(ptr, (char*)"$control_post", (char*)"Deprecated $control_post needs to be $cs_control_post");
 #ifdef INFORMATION
+	/***
     A token is nominally a contiguous collection of characters broken off by tab or space(since return and newline are stripped off).
         Tokens to include whitespace are encased in doublequotes.
 
@@ -421,7 +423,8 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
         You can include a reserved tokens by putting \ in front of them.
 
         Some tokens revise their start, like the pattern tokens representing comparison.They do this in the script compiler.
-#endif
+		***/
+		#endif
 
         // strings
 		if (*ptr == '\'' && ptr[1] == '"')
@@ -627,6 +630,25 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
                 if (*start == '^') --ptr;
             }
         }
+
+	// reading concept, careful handling for emoticons emoji
+	if (isConcept)
+	{
+		if (!*ptr) return ptr;
+		while (*ptr != ' ' && *ptr) *word++ = *ptr++;
+		*word = 0;
+		if (*(word - 1) == ')') // closing ) for concept, not part of emoticon?
+		{
+			
+			if (( *start == '~' || IsAlphaUTF8(*start)) && IsAlphaUTF8(start[1]) && IsAlphaUTF8(start[2])) // clear word
+			{
+				--ptr;
+				--word;
+			}
+		}
+		*word = 0;
+		if (start) 	return ptr; // test always true, but makes debug visible on start
+	}
 
     // the normal composite token
     bool quote = false;
@@ -863,9 +885,9 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
     if (len == 2 && (*word == '!' || *word == '\\')) { ; }
     else if (patternContext && len > 1 && word[len - 1] == '>' && word[len - 2] != '>' && word[len - 2] != '_' && word[len - 2] != '!')
     {
-        ptr -= len - 1;
+        ptr -= 1;
         --len;
-        word[len - 1] = 0;
+        word[len] = 0;
     }
 
     // find internal comparison op if any
@@ -999,7 +1021,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
         }
     }
     char* tilde = (IsAlphaUTF8(*word)) ? strchr(word + 1,'~') : 0;
-    if (tilde) // has specific meaning like African-american~1n or African-american~1 - we compile to master to detect meaning
+    if (tilde && *word != '$') // has specific meaning like African-american~1n or African-american~1 - we compile to master to detect meaning
     {
         if (IsDigit(*++tilde)) // we know the meaning, removing any POS marker since that is redundant
         {
@@ -1035,7 +1057,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
 
     InsureAppropriateCase(word);
 
-	if (csapicall == COMPILE_PATTERN  && !stricmp(word, "#!")) // compilepattern api comment
+	if (csapicall != NO_API_CALL && !stricmp(word, "#!")) // compilepattern api comment
 	{
 		ptr = strstr(ptr, "!#");
 		if (!ptr) return ptr; // failed somehow
@@ -1434,7 +1456,7 @@ bool TopLevelUnit(char* word) // major headers (not kinds of rules)
 {
 	return (!stricmp(word,(char*)":quit") || !stricmp(word,(char*)"canon:")  || !stricmp(word,(char*)"replace:") || !stricmp(word, (char*)"ignorespell:") || !stricmp(word, (char*)"prefer:") || !stricmp(word,(char*)"query:") || !stricmp(word, (char*)"word:") || !stricmp(word,(char*)"concept:") || !stricmp(word,(char*)"data:") || !stricmp(word,(char*)"plan:")
 		|| !stricmp(word,(char*)"outputMacro:") || !stricmp(word,(char*)"patternMacro:") || !stricmp(word,(char*)"dualMacro:")  || !stricmp(word,(char*)"table:") || !stricmp(word,(char*)"tableMacro:") || !stricmp(word,(char*)"rename:") || 
-		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word, (char*)"language:")  || !stricmp(word,(char*)"topic:") || (*word == ':' && IsAlphaUTF8(word[1]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
+		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word, (char*)"language:")  || !stricmp(word,(char*)"topic:") || (*word == ':' && IsLowerCase( word[1]) && IsLowerCase(word[2]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
 }
 
 static char* FlushToTopLevel(FILE* in,unsigned int depth,char* data)
@@ -2129,7 +2151,7 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
 					continue;
 				}
 				if (*word == '^' && word[1] == '\''){;}
-				else if (*word == '^' && *nextToken != '(' && word[1] != '^' && word[1] != USERVAR_PREFIX && word[1] != '_' && word[1] != '"' && !IsDigit(word[1]))
+				else if (*word == '^' && *nextToken && *nextToken != '(' && word[1] != '^' && word[1] != USERVAR_PREFIX && word[1] != '_' && word[1] != '"' && !IsDigit(word[1]))
 				 // ^^ indicated a deref of something
 					BADSCRIPT((char*)"%s is either a function missing arguments or an undefined function variable.\r\n",word) //   not function call or function var ref
 				// track only initial arguments for verify. can have any number when its a stream
@@ -2621,9 +2643,10 @@ $^x:=.... define function
         }
 
 		char* comparison = FindComparison(word);
+		char comparisonchar = 0;
 		if (comparison) // comparison, do normal analysis on 1st argument
 		{
-			c = *comparison;
+			comparisonchar= c = *comparison;
 			*comparison = 0;
 		}
 		switch(*word) // ordinary tokens, not the composite comparison blob
@@ -3194,7 +3217,8 @@ $^x:=.... define function
 					patternEnder = data;
 					BADSCRIPT((char*)"PATTERN-59 Quoting a $ variable is meaningless - %s\r\n", word);
 				}
-				variableGapSeen = false;
+				// $x? is a search to match and is legal
+				if (variableGapSeen && memorizeSeen && comparisonchar != '?')	 BADSCRIPT((char*)"PATTERN-59 Variable gap in progress, cannot reference variable - %s\r\n", word);
 				break;
 			case '"': //   string
 				{
@@ -3352,7 +3376,7 @@ $^x:=.... define function
 				supplementalColumn = 0;
 				char* end = strchr(fn, '`');
 				*end = 0;
-				char* aftername = strchr(assignment + 4, ' ^');
+				char* aftername = strchr(assignment + 4, '^');
 				char* paren = strchr(aftername, '(');
 				char* space = strchr(aftername, ' ');
 				if (space && space < paren) paren = space;
@@ -3375,7 +3399,7 @@ $^x:=.... define function
 				patternEnder = data;
 				BADSCRIPT((char*)"PATTERN-57 Cannot use _ before a comparison\r\n")
 			}
-			if (variableGapSeen)
+			if (variableGapSeen && comparisonchar != '?' && memorizeSeen)
 			{
 				patternEnder = data;
 				BADSCRIPT((char*)"PATTERN-16 Cannot use * before comparison since memorization will be incomplete\r\n")
@@ -3387,8 +3411,8 @@ $^x:=.... define function
 				AddDisplay(word);
 				if (dot) *dot = '.';
 			}
-	 		*comparison = c;
-			if (c == '!') // move not operator out in front of token
+	 		*comparison = comparisonchar;
+			if (comparisonchar == '!') // move not operator out in front of token
 			{
 				*data++ = '!';
 				*data++ = ' '; // and space it, so if we see "!=shec?~hello" we wont think != is an operator, instead = is a jump infof
@@ -4062,7 +4086,15 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
             AddMapOutput(priorLine);
             priorLine = currentFileLine;
         }
-        if (stricmp(word,(char*)"else"))  break; //   caller will add space after our jump index
+		if (stricmp(word, (char*)"else"))
+		{
+#ifdef COMMENTED_OUT
+			if (false && csapicall == COMPILE_OUTPUT && jaErrorOnMissingElse) {
+				BADSCRIPT((char*)"Missing ELSE clause.\r\n");
+			}
+#endif // COMMENTED_OUT
+			break; //   caller will add space after our jump index
+		}
 
 		//   there is either else if or else
 		ptr = ReadNextSystemToken(in,ptr,word,false,false); //   swallow the else
@@ -4492,8 +4524,8 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
  				else if (word[1] == 0 && (*ptr == '_' || IsAlphaUTF8(*ptr)  ))  {;} // if  isolated like join(' _1) then  add space
 				else *dataChunk++ = ' ';  
 				continue;
-			case '@': //   factset ref
-				if (!IsDigit(word[1])) 
+			case '@':
+				if (!IsDigit(word[1]) && word[1] != '_') // not factset nor place locator
 					BADSCRIPT((char*)"OUTPUT-4 bad factset reference - %s\r\n",word)
 				if (!stricmp(nextToken,(char*)"+=") || !stricmp(nextToken,(char*)"-=") ) insert = 2;
 				break;
@@ -5526,8 +5558,9 @@ static void SetJumpOffsets(char* data) // store jump offset for each rule
     }
  }
 
-static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate,bool startOnly,bool endOnly)
+static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING concept,uint64 type,bool ignoreSpell,unsigned int build,bool duplicate,bool startOnly,bool endOnly,bool emoticon)
 {
+	if (emoticon) type |= EMOJI;
 	// read the keywords zone of the concept
 	char* at;
 	MEANING M;
@@ -5556,7 +5589,7 @@ static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING 
 			if (*ptr == '\'') ++ptr;
 			break;
 		default:
-			if (*word == USERVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || *word == SYSVAR_PREFIX) BADSCRIPT((char*)"CONCEPT-? Cannot use $var or _var or %var as a keyword in %s\r\n",Meaning2Word(concept)->word);
+			if (*word == USERVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || (*word == SYSVAR_PREFIX && IsLowerCase(word[1]) && IsLowerCase(word[2]))) BADSCRIPT((char*)"CONCEPT-? Cannot use $var or _var or %var as a keyword in %s\r\n",Meaning2Word(concept)->word);
 			if (*word == '~') MakeLowerCase(word); //   sets are always lower case
             if (*word == '"' && word[1] == '(')// pattern word
             {
@@ -5598,7 +5631,10 @@ static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING 
                 if (nospellcheck) {}
 				else if (!IsAlphaUTF8OrDigit(end) && end != '"' && strlen(word) != 1 && !nomixedcase)
 				{
-					if (end != '.' || strlen(word) > 6) WARNSCRIPT((char*)"last character of keyword %s is punctuation. Is this intended?\r\n", word)
+					if (IsPunctuation(end)); // no warnings for emoji
+					else if (!IsAlphaUTF8DigitNumeric(end));
+					else if (end != '.' || strlen(word) > 6) 
+						WARNSCRIPT((char*)"last character of keyword %s is punctuation. Is this intended?\r\n", word)
 				}
 				else if (end == '"' && word[(strlen(word) - 2)] == ' ') BADSCRIPT((char*) "CONCEPT-? Keyword %s ends in illegal space\r\n", word)
 				if (*word == '\\') memcpy(word,word+1,strlen(word)); // how to allow $e as a keyword
@@ -5847,7 +5883,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				else if (!stricmp(word,(char*)"user"));
                 else BADSCRIPT((char*)"Bad topic flag %s for topic %s\r\n",word,currentTopicName)
 			}
-			else if (!keywordsDone) ptr = ReadKeyword(word,ptr,notted,quoted,topicValue,0,false,build,false,false,false);//   absorb keyword list
+			else if (!keywordsDone) ptr = ReadKeyword(word,ptr,notted,quoted,topicValue,0,false,build,false,false,false,false);//   absorb keyword list
 			else if (!stricmp(word,(char*)"datum:")) // absorb a top-level data table line
 			{
 				ptr = ReadTable(ptr,in,build,true);
@@ -5859,7 +5895,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 				if (TopLevelGambit(word)) ++gambits;
 				if (pack == data)
 				{
-					strcpy(pack,ENDUNITTEXT+1);	//   init 1st rule
+					strcpy(pack,&ENDUNITTEXT[1]);	//   init 1st rule
 					pack += strlen(pack);
 				}
 				ReadTopLevelRule(topicName,lowercaseForm,ptr,in,pack,data);
@@ -5924,6 +5960,7 @@ static char* ReadRename(char* ptr, FILE* in,unsigned int build)
 		if (*word == '#' && (word[1] != '#' || !IsAlphaUTF8(word[2])))
 		{
 			*ptr = 0;
+            *readBuffer = 0;
 			break; // comment ends it also
 		}
 
@@ -6077,7 +6114,7 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 				++toplevelrules;
 				if (pack == data)
 				{
-					strcpy(pack,ENDUNITTEXT+1);	//   init 1st rule
+					strcpy(pack,&ENDUNITTEXT[1]);	//   init 1st rule
 					pack += strlen(pack);
 				}
 				ReadTopLevelRule(plan,lowercaseForm,ptr,in,pack,data);
@@ -6404,13 +6441,16 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 	uint64 type = 0;
 	uint64 sys;
 	bool notted = false;
+	bool emoticon = false;
 	int quoted = 0;
 	bool duplicate = false;
 	while (ALWAYS) //   read as many tokens as needed to complete the definition (must be within same file)
 	{
 		char word[MAX_WORD_SIZE];
-		ptr = ReadNextSystemToken(in,ptr,word,false);
+		char* z = ReadNextSystemToken(in,ptr,word,false);
+		ptr = z;
 		if (!*word) break;	//   file ran dry
+		
 		size_t len = strlen(word);
 		if (TopLevelUnit(word)) //   definition ends when another major unit starts
 		{
@@ -6472,6 +6512,11 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
                     endOnly = startOnly = true;
                     continue;
                 }
+				if (!stricmp(word, (char*)"EMOTICON"))
+				{
+					emoticon = true;
+					continue;
+				}
                 if (!stricmp(word, (char*)"START_ONLY")) // match member only at start of sentence
                 {
                     startOnly = true;
@@ -6529,6 +6574,8 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
                 }
             }
 			AddInternalFlag(D,(unsigned int)(build|CONCEPT));
+			if (duplicate) AddInternalFlag(D, CONCEPT_DUPLICATES);
+			else AddInternalFlag(D, NO_CONCEPT_DUPLICATES);
 		}
 
 		// read the keywords zone of the concept
@@ -6537,18 +6584,20 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			case '(':  case '[':	// start keyword list
 				if (parenLevel) BADSCRIPT((char*)"CONCEPT-5 Cannot use [ or ( within a keyword list for %s\r\n",conceptName);
 				parenLevel++;
+				isConcept = emoticon;
 				break;
 			case ')': case ']':		// end keyword list
 				--parenLevel;
 				if (parenLevel < 0) BADSCRIPT((char*)"CONCEPT-6 Missing ( for concept definition %s\r\n",conceptName)
 				break;
 			default: 
-				 ptr = ReadKeyword(word,ptr,notted,quoted,concept,type,ignoreSpell,build,duplicate,startOnly,endOnly);
+				 ptr = ReadKeyword(word,ptr,notted,quoted,concept,type,ignoreSpell,build,duplicate,startOnly,endOnly,emoticon);
 		}
 		if (parenLevel == 0) break;
 
 	}
 	if (parenLevel) BADSCRIPT((char*)"CONCEPT-7 Failure to give closing ( in concept %s\r\n",conceptName)
+	isConcept = false;
 
 	return ptr;
 }
@@ -6604,6 +6653,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	}
 	while (ALWAYS) 
 	{
+		isConcept = false;
 		ptr = ReadNextSystemToken(in,ptr,word,false); //   eat tokens (should all be top level)
 		if (!*word) break;						//   no more tokens found
 
@@ -6810,8 +6860,9 @@ static void WriteConcepts(WORDP D, uint64 build) // do last, so dictionary words
 	}
 	if (D->internalBits & FAKE_NOCONCEPTLIST) fprintf(out,(char*)"%s",(char*)"NOCONCEPTLIST ");
 	if (D->internalBits & UPPERCASE_MATCH) fprintf(out,(char*)"%s",(char*)"UPPERCASE_MATCH ");
-    int n = 10;
-
+	if (D->internalBits & CONCEPT_DUPLICATES) fprintf(out, (char*)"%s", (char*)"DUPLICATE ");
+	else fprintf(out, (char*)"%s", (char*)"NODUPLICATE ");
+	int n = 10;
 	seeAllFacts = true; // do for all bots at once in all languages
 
     FACT* E = GetObjectNondeadHead(D);
@@ -7458,4 +7509,5 @@ char* CompileString(char* ptr) // incoming is:  ^"xxx" or ^'xxxx'
 	return data;
 }
 #endif
+
 #endif

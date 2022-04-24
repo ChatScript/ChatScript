@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-database-access">ChatScript Database Access</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/6/2021 cs11.4</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
 <h1 id="overview">Overview</h1>
 <p>By default, a CS server records the current state of a user in a file stored in the local filesystem under the name topic_username_botname.txt. This works fine for single-server systems. In a world where one uses a second server as a hot backup and transfer users to it while redeploying the primary server, user information gets lost. The solution to this (and the ability to scale CS with an arbitrary number of servers) is to have some kind of networked file server.</p>
 <p>CS directly supports use of Mongo, Postgres, MySQL,and MsSQL databases as file servers. Instead of writing the users's state record to the local file system, it writes it as a record in the database. That record will be overwritten each volley with the changed state. There is no accumulation of prior state data. Nor are user logs ever written there. If user logging is on, such logs are written to the machine performing the chat (which may scatter them over many machines). Likewise server logging is kept per machine.</p>
@@ -94,6 +94,14 @@ $_var = ^mongofinddocument(dog)
 ^mongoclose()</code></pre>
 <p>You can include a JSON object's worth of additional attributes on a Mongo upsert using $cs_mongoqueryparams.</p>
 <p>You also use a private hook code to alter things on upsert.</p>
+<h3 id="mongo-cs-variables">Mongo CS variables</h3>
+<p>$mongo_enable_ssl if set to &quot;true&quot; will then use these variables:</p>
+<pre><code>$mongosslcafile
+$mongosslpemfile
+$mongosslpempwd
+$mongovalidatessl
+$mongo_timeexcess -- record into log file if operation takes more than this ms</code></pre>
+<p>$$mongo_error</p>
 <h2 id="postgres-fileserver-and-databse">Postgres Fileserver and Databse</h2>
 <p>While standing in the SRC directory, you can do: <code>make server</code> - build ordinary CS server w/o PostgreSQL client <br><code>make pgserver</code> - build CS server w PostgreSQL client (you had to install postgress first)</p>
 <p>Usually postgres somes with amazon servers, but if not you may have to do something like</p>

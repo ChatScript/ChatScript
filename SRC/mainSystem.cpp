@@ -1,10 +1,12 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "11.6";
+char* version = "12.1";
 char sourceInput[200];
 int cs_qsize = 0;
 static char baseLanguage[50];
 static char* retryInput;
+char* tracebuffer;
+int volleyFile = 0;
 unsigned long startLogDelay = 0;
 char* releaseBotVar = NULL;
 char rootdir[MAX_WORD_SIZE];
@@ -13,7 +15,7 @@ FILE* userInitFile;
 unsigned int parseLimit = 0;
 bool jabugpatch = false;
 bool fastload = true;
-bool hadAuthCode;
+int hadAuthCode = 0;
 bool blockapitrace = false;
 static bool crnl_safe = false;
 int externalTagger = 0;
@@ -111,6 +113,16 @@ char forkCount[10];
 int timerCheckInstance = 0;
 char hostname[100];
 bool logline = false;
+static char* tsvInputs[15];
+char tsvpriorlogin[MAX_WORD_SIZE];
+unsigned int tsvIndex;
+unsigned int tsvMessageField;
+unsigned int tsvLoginField;
+unsigned int tsvSpeakerField;
+unsigned int tsvCount;
+unsigned int tsvSkip;
+char speaker[100];
+FILE* tsvFile = NULL;
 bool nosuchbotrestart = false; // restart if no such bot
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 char derivationSeparator[MAX_SENTENCE_LENGTH];
@@ -136,6 +148,7 @@ bool scriptOverrideAuthorization = false;
 clock_t  startSystem;						// time chatscript started
 unsigned int choiceCount = 0;
 int always = 1;									// just something to stop the complaint about a loop based on a constant
+bool errorOnMissingElse = false;
 
 // support for callbacks
 uint64 callBackTime = 0;			// one-shot pending time - forces callback with "[callback]" when output was [callback=xxx] when no user submitted yet
@@ -236,7 +249,9 @@ static void HandlePermanentBuffers(bool init)
 	{
 		if (fullInputLimit == 0) fullInputLimit = maxBufferSize * 2;
 		readBuffer = (char*)malloc(fullInputLimit);
+		if (!readBuffer) myexit("FATAL: buffer allocation fail");
 		*readBuffer = 0;
+		tracebuffer = (char*)malloc(TESTPATTERN_TRACE_SIZE);
 		lastInputSubstitution = (char*)malloc(maxBufferSize);
 		rawSentenceCopy = (char*)malloc(maxBufferSize);
 		revertBuffer = (char*)malloc(maxBufferSize);
@@ -262,6 +277,7 @@ static void HandlePermanentBuffers(bool init)
 	else
 	{
 		free(readBuffer);
+		free(tracebuffer);
 		free(lastInputSubstitution);
 		free(rawSentenceCopy);
 		free(revertBuffer);
@@ -375,7 +391,6 @@ static void HandleReBoot(WORDP boot, bool volleyboot)
 	int olduserlog = userLog;
 	if (trace) userLog = FILE_LOG | PRE_LOG;
 	if (*bootcmd) DoCommand(bootcmd, NULL, false); // run this command  before CSBOOT is run. eg to trace boot process
-	userLog = olduserlog;
 
 	if (!volleyboot) UnlockLayer(LAYER_BOOT); // unlock it to add stuff
 	else 	currentBeforeLayer = LAYER_BOOT; // be in user layer (before is boot layer)
@@ -395,6 +410,7 @@ static void HandleReBoot(WORDP boot, bool volleyboot)
 		ReturnToAfterLayer(LAYER_BOOT, false);  // dict/fact/strings reverted and any extra topic loaded info  (but CSBoot process NOT lost)
 	}
 
+	userLog = olduserlog;
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 	stackFree = stackStart; // drop any possible stack used
@@ -511,7 +527,7 @@ static void ShowMemoryUsage()
 	strcpy(buf, StdIntOutput(factcount)); // unused facts
 	strcpy(buf1, StdIntOutput(textFreeMemMB)); // unused text
 	strcpy(buf2, StdIntOutput(freeMB));
-	sprintf(data, (char*)"Free %sMB: dict %s(%dMb) fact %s(%sMb) stack/heap %sMB \r\n\r\n",
+	sprintf(data, (char*)"Free %sMB: dict %s(%zuMb) fact %s(%sMb) stack/heap %sMB \r\n\r\n",
 		buf2, StdIntOutput(dictfree), dictFreeMemMB, buf, factmb, buf1);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
@@ -691,6 +707,7 @@ void CreateSystem()
 
 void LoadSystem()
 {//   reset the basic system 
+	currentInput = NULL;
 	myBot = 0; // facts loaded here are universal
 	originalUserInput = NULL;
 	InitFacts(); // malloc space
@@ -729,9 +746,10 @@ static void ProcessArgument(char* arg)
 	serverLog = old;
 
 #endif
-	if (!strnicmp(arg, (char*)"trace", 5))
+	if (!strnicmp(arg, (char*)"trace", 5) && stricmp(arg,(char*)"traceboot"))
 	{
 		if (arg[5] == '=') trace = atoi(arg + 6);
+		else if (arg[5] == 'b') {}
 		else trace = (unsigned int)-1;
 	}
 	else if (!strnicmp(arg, (char*)"language=", 9))
@@ -995,6 +1013,7 @@ static void ProcessArgument(char* arg)
 			else bugLog = NO_LOG;
 		}
 	}
+	else if (!stricmp(arg, "jaErrorOnMissingElse")) errorOnMissingElse = true;
 #ifndef DISCARDSERVER
 	else if (!stricmp(arg, "serverretry")) serverRetryOK = true;
 	else if (!stricmp(arg, "local")) server = false; // local standalone
@@ -1696,10 +1715,178 @@ void EmitOutput()
 	else (*printer)((char*)"%s", (char*)"   >");
 }
 
+void ExecuteVolleyFile(FILE* sourceFile)
+{
+	int actualSize = maxBufferSize;
+	char* oldinput = ourMainInputBuffer;
+	if (sourceFile != stdin)
+	{
+		fseek(sourceFile, 0, SEEK_END);
+		actualSize = (int)ftell(sourceFile);
+		actualSize += (actualSize / 5);
+		fseek(sourceFile, 0, SEEK_SET);
+		ourMainInputBuffer = (char*)malloc(actualSize); // room for file + spaces at end of lines
+	}
+	char* ptr = ourMainInputBuffer;
+	while (fgets(ptr, actualSize, sourceFile))
+	{
+		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(ptr, ptr + 3, strlen(ptr + 2));// UTF8 BOM
+		char* x = TrimSpaces(ptr);
+		if (!*x && sourceFile != stdin) continue;
+		size_t len = strlen(ptr);
+		if (ptr[len - 1] == '\n') ptr[--len] = 0;
+		if (ptr[len - 1] == '\r') ptr[--len] = 0;
+		if (!*ptr && sourceFile == stdin) break; // std in can end for a round
+		if (ptr[len - 1] == '-' && IsAlphaUTF8(ptr[len - 2]))  --len;  // word break, remove it
+		else ptr[len++] = ' '; // separate words from different lines
+		ptr += len; // ignore blank lines
+	}
+	*ptr = 0;
+	if (sourceFile != stdin) fclose(sourceFile);
+	
+	callStartTime = ElapsedMilliseconds();
+	PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer);
+	printf("Volley Complete: %s\r\n", ourMainOutputBuffer);
+	if (sourceFile != stdin) free(ourMainInputBuffer);
+
+	ourMainInputBuffer = oldinput;
+	sourceFile = stdin;
+}
+
+static void SeparateData(char* input)
+{
+	static bool inited = false;
+	if (!inited)
+	{
+		inited = true;
+		for (int i = 0; i < 15; ++i) tsvInputs[i] = (char*)malloc(20000);
+	}
+
+	// input is id, category, specialty, message, speaker, rating
+	char* tab;
+	tsvIndex = 0;
+	while ((tab = strchr(input, '\t'))) 
+	{
+		if (tsvIndex == 3)
+		{ // tsv file is allowing unescaped tabs in user input, patch
+			char* customer = strstr(input, "\tCustomer");
+			if (customer) tab = customer;
+			char* professional = strstr(input, "\tProfessional");
+			if (professional) tab = professional;
+		}
+			
+		*tab = 0;
+		strcpy(tsvInputs[tsvIndex++] ,input);
+		input = tab + 1;
+	}
+	char* end = strchr(input, '\r');
+	if (end) *end = 0;
+	end = strchr(input, '\n');
+	if (end) *end = 0;
+	strcpy(tsvInputs[tsvIndex++] ,input);
+	*tsvInputs[tsvIndex] = 0;
+}
+
+static char* GetTSVLine()
+{
+	if (fgets(ourMainInputBuffer, fullInputLimit - 100, tsvFile) == NULL) return NULL;
+	size_t x = strlen(ourMainInputBuffer);
+	SeparateData(ourMainInputBuffer);
+
+	// ID	Category	Sub	Message	Author	Star	
+	strcpy(loginID, tsvInputs[tsvLoginField]);
+	strcpy(ourMainInputBuffer, tsvInputs[tsvMessageField]);
+	strcpy(speaker, tsvInputs[tsvSpeakerField]);
+
+	return ourMainInputBuffer;
+}
+
+static bool UseTSVInput()
+{
+	while (1) // maybe we skip over some data
+	{
+		strcpy(tsvpriorlogin, loginID);
+		char skipID[MAX_WORD_SIZE];
+
+		// get next volley
+		if (GetTSVLine() == NULL)
+		{
+			return false;
+		}
+
+		// ignore 1st n
+		while(tsvSkip)
+		{
+			--tsvSkip;
+			strcpy(skipID, loginID);
+			while (GetTSVLine() != NULL && !stricmp(loginID, skipID)) {}
+		}
+
+		// 1st startup
+		if (!*tsvpriorlogin)
+		{
+			// skip 1st line which comes from pearl conversation
+			if (GetTSVLine() == NULL)
+			{
+				*ourMainInputBuffer = 0;
+				return false;
+			}
+		}
+
+		// new user?
+		else if (*tsvpriorlogin && stricmp(loginID, tsvpriorlogin)) // changinge users - ignore pearl data 1st volley
+		{
+			char copy[MAX_WORD_SIZE];
+			strcpy(copy, loginID);
+			strcpy(loginID, tsvpriorlogin);
+
+			Login(tsvpriorlogin, "", "", "");
+			ResetMode buildReset = MILD_RESET;
+			GetUserData(buildReset, "");
+
+			FunctionResult result = InternalCall("^GambitCode", GambitCode, "~cs_tsvsource", (char*)"", NULL, currentOutputBase);
+			
+			strcpy(loginID, copy);
+			ResetToPreUser();
+
+			if (--tsvCount <= 0)
+			{
+				*ourMainInputBuffer = 0;
+				return false;
+			}
+
+			// skip 1st line which comes from pearl conversation
+			if (GetTSVLine() == NULL)
+			{
+				*ourMainInputBuffer = 0;
+				return false;
+			}
+		}
+
+		// are we ignoring lines from Professional?
+		if (!stricmp(speaker, "Professional")) continue;
+
+		// we have next input
+		break;
+	}
+	return true;
+}
+
 bool GetInput()
 {
-	// start out with input
+	/*
+	* Simple inputs are single lines to the current user.
+	* 
+	* Similarly, one can :source  filename to switch inputs of single lines to the current user.
+	* 
+	* :tsvsource handles single lines that specificy what user to use and
+	* can pass along additional data. When we change users, it executes a closure topic.
+	* 
+	* DocumentMode is yet another input where lines all come from a document and are all
+	* treated as a single volley.
+	*/
 
+	// start out with input
 	if (ourMainInputBuffer[1]) { ; } // callback in progress, data put into buffer, read his input later, but will be out of date
 	else if (documentMode)
 	{
@@ -1707,16 +1894,37 @@ bool GetInput()
 	}
 	else // normal input reading
 	{
-		if (sourceFile == stdin) // user-based input
+		if (sourceFile == stdin && !volleyFile) // user-based input std input
 		{
 			if (ide) return true; // only are here because input is entered
 			else if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100,
 				false, true, true)
-				< 0) return true; // end of input
+				< 0) 
+				return true; // end of input
 		}
+		else if (tsvFile)
+		{
+			if (!UseTSVInput()) // ran dry
+			{
+				fclose(tsvFile); 
+				*speaker = 0;
+				tsvFile = NULL;
+				sourceFile = stdin;
+				GetInput();
+				printf("\r\nResuming std input\r\n");
+				return false; 
+			}
+		}
+
 		// file based input
 		else
 		{
+			if (volleyFile) 
+			{
+				ExecuteVolleyFile(sourceFile); 
+				return false;
+			}
+
 		REREAD:
 			if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100, false, true, true) < 0) return true; // end of input
 			if (strstr(ourMainInputBuffer + 1, ":exit")) return true;
@@ -1792,6 +2000,7 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 		}
 
 		// we have input, process it
+		callStartTime = ElapsedMilliseconds();
 		if (!server && extraTopicData)
 		{
 			turn = PerformChatGivenTopic(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer, extraTopicData);
@@ -1860,6 +2069,7 @@ void MainLoop() //   local machine loop
 	}
 	else strcpy(user, loginID);
 	originalUserInput = ourMainInputBuffer;
+	callStartTime = ElapsedMilliseconds();
 	PerformChat(user, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer); // unknown bot, no input,no ip
 	EmitOutput();
 
@@ -2096,7 +2306,10 @@ void FinishVolley(char* output, char* postvalue, int limit)
 		if (!(responseControl & RESPONSE_NOFACTUALIZE)) FactizeResult();
 		postProcessing = true;
 		++outputNest;
+		unsigned int oldtrace = trace;
+		if (!postprocess) trace = 0; // :show postprocess 0
 		OnceCode((char*)"$cs_control_post", postvalue);
+		trace = oldtrace;
 		--outputNest;
 		postProcessing = false;
 
@@ -2172,7 +2385,7 @@ void FinishVolley(char* output, char* postvalue, int limit)
 		}
 
 		// now convert output separators between rule outputs to space from ' for user display result (log has ', user sees nothing extra)
-		if (prepareMode != REGRESS_MODE)
+		if (prepareMode != REGRESS_MODE && responseIndex > 1) // api calls only have single response, and can use ` safely in data
 		{
 			char* sep = output + 1;
 			while ((sep = strchr(sep, ENDUNIT)))
@@ -2261,7 +2474,7 @@ static void ValidateUserInput(char* oobSkipped)
 		{
 			if (quote) quote = NULL;
 			else quote = at;
-			if ((!at[1] || !at[2]) && *starttoken == '"') // no global quotes, (may have space at end)
+			if ((!at[1] || !at[2]) && *starttoken == '"' && at != starttoken) // no global quotes, (may have space at end)
 			{
 				*at = ' ';
 				*starttoken = ' ';
@@ -2363,8 +2576,14 @@ static void LimitUserInput(char* at)
 
 int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
+#ifdef NOMAIN
+	callStartTime = ElapsedMilliseconds(); // not thru our control (either server or standalone)
+#endif
+	char* timecheat = GetUserVariable("$FakeTimeOffset");
+	if (*timecheat) callStartTime -= atoi(timecheat);
 	GetCurrentDir(incomingDir, MAX_WORD_SIZE);
 	softRestart = false;
+	timeout = false;
 	SetDirectory(rootdir); // an outside caller cant be trusted
 	currentInput = "";
 	if (crashBack && autorestartdelay) // dont start immediately if requested after a crash
@@ -2466,6 +2685,8 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		int count = Crashed(output, reloading, ip);
 		RESTORE_LOGGING();
 		RestoreCallingDirectory();
+		serverLog = holdServerLog; // global remember so we can restore against local change
+		userLog = holdUserLog ;
 		return count;
 	}
 
@@ -2492,6 +2713,7 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		size_t size;
 		char* safeInput = InfiniteStack(limit, "PerformChat");
 		char* oobSkipped = PurifyInput(incoming, safeInput, size, INPUT_PURIFY); // change out special or illegal characters
+	
 		CompleteBindStack(size);
 		incoming = safeInput;
 		if (!oobSkipped) oobSkipped = safeInput; // all user message
@@ -2505,7 +2727,9 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		char* first = incoming;
 
 #ifndef DISCARDTESTING
-		if (!server && !(*first == ':' && IsAlphaUTF8(first[1]))) strcpy(revertBuffer, first); // for a possible revert
+#ifndef NOMAIN
+		if (!server && !volleyFile && !(*first == ':' && IsAlphaUTF8(first[1]))) strcpy(revertBuffer, first); // for a possible revert
+#endif
 #endif
 
 		bool hadIncoming = *incoming != 0 || documentMode;
@@ -2552,6 +2776,7 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 			userFirstLine = volleyCount + 1;
 			responseIndex = 0;
 		}
+
 		AddInput(safeInput, 0, true);
 
 		ok = ProcessInput();
@@ -2564,6 +2789,8 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 			}
 			RESTORE_LOGGING();
 			RestoreCallingDirectory();
+			serverLog = holdServerLog; // global remember so we can restore against local change
+			userLog = holdUserLog;
 			return ok; // command processed
 		}
 
@@ -2620,7 +2847,6 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 #else
 		longjmp(crashJump, 1);
 #endif
-
 	}
 
 	if (userlogFile)
@@ -2629,6 +2855,8 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		userlogFile = NULL;
 	}
 	RestoreCallingDirectory();
+	serverLog = holdServerLog; // global remember so we can restore against local change
+	userLog = holdUserLog;
 	return volleyCount;
 }
 
@@ -2792,9 +3020,12 @@ int ProcessInput()
 	if (!documentMode)
 	{
 		responseIndex = 0;	// clear out data (having left time for :why to work)
-		OnceCode((char*)"$cs_control_pre");
-		if (responseIndex != 0) ReportBug((char*)"Not expecting PRE to generate a response")
-			randIndex = oldRandIndex;
+		FunctionResult result = OnceCode((char*)"$cs_control_pre");
+		randIndex = oldRandIndex;
+		if (result != NOPROBLEM_BIT)
+		{
+			return 0; // abort run
+		}
 	}
 	char* input = SkipWhitespace(GetNextInput());
 	if (input && *input) ++volleyCount;
@@ -2812,9 +3043,9 @@ loopback:
 	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
 	if (!documentMode)  AddHumanUsed(input);
 	sentenceloopcount = 0;
-	while ((((input = GetNextInput()) && input && *input) || startConversation) && sentenceloopcount < sentenceLimit) // loop on user input sentences
+	while ((((input = GetNextInput()) && input && *input) || startConversation) && (volleyFile || sentenceloopcount < sentenceLimit)) // loop on user input sentences
 	{
-		sentenceOverflow = (sentenceloopcount + 1) >= sentenceLimit; // is this the last one we will do
+		sentenceOverflow = !volleyFile && (sentenceloopcount + 1) >= sentenceLimit; // is this the last one we will do
 		topicIndex = currentTopicID = 0; // precaution
 		FunctionResult result = DoOneSentence(input, prepassTopic, sentenceloopcount >= (sentenceLimit - 1));
 		if (result == RESTART_BIT)
@@ -2854,7 +3085,7 @@ loopback:
 			++sourceLines;
 		}
 		startConversation = false;
-		++sentenceloopcount;
+		++sentenceloopcount; 
 	}
 
 	return true;
@@ -3003,7 +3234,7 @@ retry:
 	return result;
 }
 
-void OnceCode(const char* var, char* function) //   run before doing any of his input
+FunctionResult OnceCode(const char* var, char* function) //   run before doing any of his input
 {
 	// cannot drop stack because may be executing from ^reset(USER)
 	// stackFree = stackStart; // drop any possible stack used
@@ -3015,9 +3246,11 @@ void OnceCode(const char* var, char* function) //   run before doing any of his 
 	{
 		Log(USERLOG, "\r\n0 ***Ctrl:%s \r\n", var);
 	}
+	FunctionResult result = NOPROBLEM_BIT;
+	int olddepth = globalDepth;
 
 	int topicid = FindTopicIDByName(name);
-	if (!topicid) return;
+	if (!topicid) return NOPROBLEM_BIT;
 	ResetReuseSafety();
 	CALLFRAME* frame = ChangeDepth(1, name);
 
@@ -3025,7 +3258,7 @@ void OnceCode(const char* var, char* function) //   run before doing any of his 
 	if (pushed < 0)
 	{
 		ChangeDepth(-1, name);
-		return;
+		return NOPROBLEM_BIT;
 	}
 
 	// prove it has gambits
@@ -3036,23 +3269,24 @@ void OnceCode(const char* var, char* function) //   run before doing any of his 
 		sprintf(word, "There are no gambits in topic %s for %s or topic is blocked for this bot.", GetTopicName(topicid), var);
 		AddResponse(word, 0);
 		ChangeDepth(-1, name);
-		return;
+		return NOPROBLEM_BIT;
 	}
 	ruleErased = false;
 	howTopic = (char*)"gambit";
-	PerformTopic(GAMBIT, currentOutputBase);
+	result = PerformTopic(GAMBIT, currentOutputBase);
 	ChangeDepth(-1, name);
 
 	if (pushed) PopTopic();
 	if (topicIndex) ReportBug((char*)"INFO: topics still stacked")
-		if (globalDepth)
-			ReportBug((char*)"INFO: Once code %s global depth not 0", name);
+	if (globalDepth != olddepth)
+		ReportBug((char*)"INFO: Once code %s global depth not back", name);
 	topicIndex = currentTopicID = 0; // precaution
+	return result;
 }
 
 void AddHumanUsed(const char* reply)
 {
-	if (!reply || !*reply) return;
+	if (!reply || !*reply || volleyFile) return;
 	if (humanSaidIndex >= MAX_USED) humanSaidIndex = 0; // chop back //  overflow is unlikely but if he inputs >10 sentences at once, could
 	unsigned int i = humanSaidIndex++;
 	*humanSaid[i] = ' ';
@@ -3068,7 +3302,7 @@ void AddHumanUsed(const char* reply)
 
 void AddBotUsed(const char* reply, unsigned int len)
 {
-	if (chatbotSaidIndex >= MAX_USED) chatbotSaidIndex = 0; // overflow is unlikely but if he could  input >10 sentences at once
+	if (chatbotSaidIndex >= MAX_USED || volleyFile) chatbotSaidIndex = 0; // overflow is unlikely but if he could  input >10 sentences at once
 	unsigned int i = chatbotSaidIndex++;
 	*chatbotSaid[i] = ' ';
 	reply = SkipOOB((char*)reply);
@@ -3121,7 +3355,7 @@ void FlipResponses()
 static void SaveResponse(char* msg)
 {
 	responseData[responseIndex].patternchoice = patternchoice;
-	multichoice = NULL;
+	multichoice = false;
 	responseData[responseIndex].response = AllocateHeap(msg, 0);
 	responseData[responseIndex].responseInputIndex = inputSentenceCount; // which sentence of the input was this in response to
 	responseData[responseIndex].topic = currentTopicID; // what topic wrote this
@@ -3397,7 +3631,7 @@ static void TraceDerivation(bool analyze)
 
 static void TraceTokenization(char* input)
 {
-	Log(USERLOG, "\r\nTokenControl: ");
+	Log(USERLOG, "\r\n%s TokenControl: ",language);
 	DumpTokenControls(tokenControl);
 	Log(USERLOG, "\r\n");
 	if (tokenFlags & USERINPUT) Log(USERLOG, "Original User Input: %s\r\n", input);
@@ -3414,8 +3648,6 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
 	ResetSentence();
 	ResetTokenSystem();
-	ClearWhereInSentence();
-	ClearTriedData();
 	char separators[MAX_SENTENCE_LENGTH];
 	memset(separators, 0, sizeof(char) * MAX_SENTENCE_LENGTH);
 
@@ -3438,6 +3670,9 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	char startc = *ptr;
 	char* start = ptr;
 	loading = true; // block fact language assign, so oob json visible to all languages
+	
+	char* xy = ptr;
+	if (!oobstart) while ((xy = strchr(ptr, '`'))) *xy = ' '; // get rid of internal reserved use
 	ptr = Tokenize(ptr, wordCount, wordStarts, separators, false, oobstart);
 	loading = false;
 	SetContinuationInput(ptr);
@@ -3569,13 +3804,24 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	}
 
 	char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
-	if (*bad) {}
-	else if (!oobExists)
+	char* timelimit = GetUserVariable("$cs_analyzelimit");
+	bool timeover = false;
+	if (*timelimit && !oobExists)
+	{
+		uint64 used = ElapsedMilliseconds() - callStartTime;
+		if (used >= atoi(timelimit))
+		{
+			timeover = true;  // enforce time limit for nl- too long in q
+			char* logit = GetUserVariable("$cs_analyzelimitlog");
+			if (*logit && *logit != '0') ReportBug("Limiting analysis")
+		}
+	}
+	if (!oobExists && !timeover && !*bad)
 	{
 		NLPipeline(mytrace);
 		bad = GetUserVariable("$$cs_badspell", false, true); // possibly set by NLPipeline
 	}
-	else
+	else // need wordcanonical to be valid (nonzero)  for any savesentence call
 	{
 		marklimit = 0;
 		for (int i = 1; i <= wordCount; ++i)
@@ -3657,12 +3903,19 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 
 	wordStarts[0] = wordStarts[wordCount + 1] = AllocateHeap((char*)""); // visible end of data in debug display
 	wordStarts[wordCount + 2] = 0;
-	if (!oobExists && mark && wordCount) MarkAllImpliedWords((*bad || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false);
+	if (!oobExists &&  mark && wordCount) MarkAllImpliedWords((*bad || timeover || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false);
 
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & TRACE_POS || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
 	if (timing & TIME_PREPARE) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Prepare %s time: %d ms\r\n", input, diff);
+		if (timing & TIME_ALWAYS || diff > 0)
+		{
+			char hold[10];
+			strncpy(hold, input + 50, 4);
+			strcpy(input + 50, "..."); // avoid long inputs
+			Log(STDTIMELOG, (char*)"Prepare %s time: %d ms\r\n", input, diff);
+			strncpy(input + 50, hold, 4);
+		}
 	}
 }
 

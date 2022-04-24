@@ -382,43 +382,46 @@ static void TreeTagger()
 	}
 	ts.number_of_words = wordCount;
 	tag_sentence(0, &ts, languageIndex);
-	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(USERLOG, "External Tagging:\r\n");
+	if (trace & (TRACE_PREPARE | TRACE_POS | TRACE_TREETAGGER)) Log(USERLOG, "External %s Tagging:\r\n",language);
 
+	bool chunk = false;
 	bit = 2 << (languageIndex * 2);
-	if (multidict && !(treetagging & bit)) return; // not doing chunk for this language
-	bool chunk = strstr(treetaggerParams, "chunk") ? true : false;
-	if (chunk) // do chunking here but marking later
+	if (treetagging & bit) //  doing chunk for this language
 	{
-		for (i = 0; i < wordCount; ++i)
+		chunk = strstr(treetaggerParams, "chunk") ? true : false;
+		if (chunk) // do chunking here but marking later
 		{
-			tschunk.word[i] = (char*)ts.resulttag[i];
-			tschunk.inputtag[i] = NULL;
-		}
-		tschunk.number_of_words = wordCount;
-		tag_sentence(1, &tschunk, languageIndex);
-		int starter = -1;
-		char type[20];
-		for (i = 0; i < wordCount; ++i)
-		{
-			char status = *(strrchr((char*)tschunk.resulttag[i], '/') + 1);
-			char* kind = strrchr((char*)tschunk.resulttag[i], '-') + 1;
-			if (status == 'I') continue; // continue a chunk
+			for (i = 0; i < wordCount; ++i)
+			{
+				tschunk.word[i] = (char*)ts.resulttag[i];
+				tschunk.inputtag[i] = NULL;
+			}
+			tschunk.number_of_words = wordCount;
+			tag_sentence(1, &tschunk, languageIndex);
+			int starter = -1;
+			char type[20];
+			for (i = 0; i < wordCount; ++i)
+			{
+				char status = *(strrchr((char*)tschunk.resulttag[i], '/') + 1);
+				char* kind = strrchr((char*)tschunk.resulttag[i], '-') + 1;
+				if (status == 'I') continue; // continue a chunk
+				if (starter >= 0) // just ended a chunk
+				{
+					if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG, "(%s) %s..%s \r\n", type, wordStarts[starter + 1], wordStarts[i]);
+					MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, i);
+					starter = 0;
+				}
+				if (status == 'B') // begin a chunk
+				{
+					starter = i;
+					strcpy(type, kind);
+				}
+			}
 			if (starter >= 0) // just ended a chunk
 			{
-				if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG,"(%s) %s..%s \r\n", type, wordStarts[starter + 1], wordStarts[i]);
-				MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, i);
-				starter = 0;
+				if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG, "(%s) %s..%s\r\n", type, wordStarts[starter + 1], wordStarts[wordCount]);
+				MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, wordCount);
 			}
-			if (status == 'B') // begin a chunk
-			{
-				starter = i;
-				strcpy(type, kind);
-			}
-		}
-		if (starter >= 0) // just ended a chunk
-		{
-			if (trace & (TRACE_PREPARE | TRACE_TREETAGGER)) Log(USERLOG,"(%s) %s..%s\r\n", type, wordStarts[starter + 1], wordStarts[wordCount]);
-			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(type)), starter + 1, wordCount);
 		}
 	}
 
@@ -510,7 +513,8 @@ static void TreeTagger()
 		else
 		{
 			canonical = canonical0;
-			flags = 0;
+			if (!stricmp(language, "SPANISH")) flags = canonical0->properties;
+			else flags = 0;
 		}
 		if (!canonical) canonical = entry;
 
@@ -628,7 +632,7 @@ static void BlendWithTreetagger(bool &changed)
 			}
 			Log(USERLOG,"\r\n");
 		}
-		else if (trace & (TRACE_PREPARE | TRACE_TREETAGGER))
+		else if (trace & (TRACE_PREPARE | TRACE_TREETAGGER) && trace & TRACE_POS)
 		{
 			Log(USERLOG,"Treetagger matches %d: \"%s\" TT: %s CS: ", i, wordStarts[i], ts.resulttag[i - 1]);
 			uint64 bit = START_BIT;
@@ -655,7 +659,7 @@ static void LoadTreetagger(char* language)
 	char name[MAX_WORD_SIZE];
 	char lang[MAX_WORD_SIZE];
 	MakeUpperCopy(lang, language);
-	if (*treetaggerParams != '1' && !strstr(lang, treetaggerParams)) return; // dont load this
+	if (*treetaggerParams != '1' && !strstr(treetaggerParams,lang)) return; // dont load this
 	
 	MakeLowerCopy(lang, language);
 	sprintf(name, "DICT/%s_tags.txt", lang);
@@ -997,12 +1001,6 @@ static bool LimitValues(int i, uint64 bits,char* msg,bool& changed)
 			}
 			else if (!bits) posValues[i] = allOriginalWordBits[i] & TAG_TEST;
 			else posValues[i] = bits & allOriginalWordBits[i] & TAG_TEST; // back up to what it COULD have been originally that we will now accept
-			if (trace & TRACE_POS)
-			{
-				*buff = 0;
-				PosBits(posValues[i],buff);
-				Log(USERLOG,"    Limit recovery  \"%s\"(%d) %s -> %s\r\n",wordStarts[i],i,msg,buff);
-			}
 		}
 		bitCounts[i] = BitCount(posValues[i]);
 
@@ -1115,6 +1113,8 @@ static void PerformPosTag(int start, int end)
 		uint64 flags = GetPosData(i,original,revise,entry,canonical,sysflags,cansysflags,true,false,start); // flags will be potentially beyond what is stored on the word itself (like noun_gerund) but not adjective_noun
 		if (revise != NULL) wordStarts[i] = revise->word;
 		if (!canonical) canonical = entry;
+		if (!stricmp(language,"SPANISH") && !entry) return;
+
 		if (entry->internalBits & UPPERCASE_HASH && !(flags & PRONOUN_BITS)) // treat I as lower case original -- note: (char*)"Sue" fails to have cannonical upper
 		{
 			originalUpper[i] = entry;
@@ -1129,7 +1129,7 @@ static void PerformPosTag(int start, int end)
 			originalUpper[i] = NULL;
 			canonicalUpper[i] = NULL;
 		}
-		parseFlags[i] = canonical->parseBits;
+		parseFlags[i] = canonical ? canonical->parseBits : 0;
 		if (flags & POSSESSIVE && *entry->word == '\'') // is this a possessive quotemark or a QUOTE?
 		{
 			size_t len = (i > start) ? strlen(wordStarts[i-1]) : 0;
@@ -1151,7 +1151,7 @@ static void PerformPosTag(int start, int end)
 		{
 //			posValues[i] = 0; // concepts wont work if bits are turned off. we just need them all on that might be
 //			canSysFlags[i] = 0;
-			wordCanonical[i] = canonical->word;
+			wordCanonical[i] = (canonical) ? canonical->word : (char*)"";
 		}
 	}
 
@@ -1220,8 +1220,8 @@ static void PerformPosTag(int start, int end)
 			originalLower[i] = FindWord(wordStarts[i]);
 		}
 
-        posValues[i] &= TAG_TEST;  // only the bits we care about for pos tagging
-
+		if (!stricmp(language,"spanish")) posValues[i] &= TAG_TEST | SPANISH_HE | SPANISH_SHE | SPANISH_SINGULAR | SPANISH_PLURAL;
+        else posValues[i] &= TAG_TEST;  // only the bits we care about for pos tagging
     }
 
 	if (tokenControl & NO_IMPERATIVE && posValues[start] & VERB_BITS && posValues[start+1] & NOUN_BITS)
@@ -1233,7 +1233,9 @@ static void PerformPosTag(int start, int end)
 		else posValues[i] &= -1 ^ (VERB_BITS|VERB);	// no command sentence starts
 	}
 	tokenControl = oldTokenControl;
-	if (noPosTagging || stricmp(language, "english")) return;
+	if (noPosTagging) return;
+	int bit = 1 << (languageIndex * 2);
+	if (stricmp(language, "english") && !(treetagging & bit)) return; // not doing tt for this language
 
 	uint64 startTime = 0;
 	ttLastChanged = 0;
@@ -1375,16 +1377,17 @@ void TagInit()
     InitRoleSentence(1,wordCount);
 }
 
-void TagIt() // get the set of all possible tags. Parse if one can to reduce this set and determine word roles
+void TagIt(bool timeout) // get the set of all possible tags. Parse if one can to reduce this set and determine word roles
 {
 	// AssignRoles manages:  posValues+bitCounts, roles+needRoles+rolelevel, crossreference  (can we remove coordinates or complementref or objectref or indorectobjecref?), phrasal_verb?
 	TagInit();
 	memset(ignoreWord,0,sizeof(unsigned char) * (wordCount+4));
-
-	wordStarts[wordCount+1] = AllocateHeap((char*)"");
 	knownWords = 0;
-	if (!stricmp(language, "japanese") || !stricmp(language, "ideographic")) return; // we know nothing of them
-	
+	if (timeout || !stricmp(language, "japanese") || !stricmp(language, "ideographic"))
+	{
+		for (int j = 1; j <= wordCount; ++j) canonicalLower[j] = originalLower[j] = StoreWord(wordStarts[j], AS_IS);
+		return; // we know nothing of them
+	}
 	int i;
 
 	// count words beginning lowercase and note which ones - also init wordcanonical, in case it never goes to postag
@@ -1431,7 +1434,7 @@ void TagIt() // get the set of all possible tags. Parse if one can to reduce thi
 		OnceCode((char*)"$cs_externaltag");
 	}
 
-	if (externalPostagger && stricmp(language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
+	// if (externalPostagger && stricmp(language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
 
 	// handle regular area
 	for (i = 1; i <= wordCount; ++i)
@@ -2335,7 +2338,7 @@ static bool ApplyRulesToWord( int j,bool & changed)
 				else
 				{
 					result = TestTag(start,control,field & PATTERN_BITS,direction,tracex); // might change start to end or start of PREPOSITIONAL_PHRASE if skipping
-					if (tracex && k && k <= wordCount)
+					if (tracex && start && start <= wordCount)
 						Log(USERLOG,"    =%d  %s(%d) op:%s result:%d\r\n",k,wordStarts[start],start,OpDecode(field),result);
 					if (result == UNKNOWN_CONSTRAINT)
 					{
@@ -2919,7 +2922,7 @@ retry:
 		{
 			if (ignoreWord[wordIndex]) continue;
 			int j = (reverseWords) ? (endSentence + 1 - wordIndex) : wordIndex; // test from rear of sentence forwards to prove rules are independent
-			if (bitCounts[j] != 1)  
+			if (bitCounts[j] != 1 && !stricmp(language,"ENGLISH"))
 				ApplyRulesToWord(j,changed);
 			else if (trace & TRACE_TREETAGGER && wordIndex == endSentence) // purely for display on trace
 			{
@@ -2934,7 +2937,7 @@ retry:
 		if (!changed && ts.number_of_words  && ttLastChanged <= endSentence) BlendWithTreetagger(changed); // can override us even when we know
 		if (changed) continue;
 #endif	
-		if (!changed && ambiguous) // no more rules changed anything and we still need help
+		if (!changed && ambiguous && !stricmp(language,"ENGLISH")) // no more rules changed anything and we still need help
 		{
 			if (!(tokenControl & (DO_PARSE-DO_POSTAG))) // guess based on probability
 			{
@@ -2962,7 +2965,7 @@ retry:
 #endif	
 #ifndef DISCARDPARSER
 	bool modified = false;
-	if (!parsed)  ParseSentence(resolved,modified); 
+	if (!parsed && !stricmp(language,"ENGLISH"))  ParseSentence(resolved, modified);
 	if (modified && !resolved) goto retry;
 #endif
 	return resolved;
@@ -3132,7 +3135,7 @@ void DecodeTag(char* buffer, uint64 type, uint64 tie, uint64 originalBits)
 	if (type & INTERJECTION) strcat(buffer,(char*)"Interjection ");
 	if (type & (ADJECTIVE|ADJECTIVE_BITS))
 	{
-		if (type & ADJECTIVE_NOUN) Showit(buffer,(char*)"Adjective_noun ",tie&NOUN); // can be dual kind of adjective
+		if (type & ADJECTIVE_NOUN) Showit(buffer,(char*)"Adjective_noun ",tie&(NOUN|ADJECTIVE)); // can be dual kind of adjective
 		if (type & ADJECTIVE_PARTICIPLE) Showit(buffer,(char*)"Adjective_participle ",tie&VERB); // can be dual kind of adjective
 		if (type & ADJECTIVE_NUMBER) Showit(buffer,(char*)"Adjective_number ",tie&ADJECTIVE);
 		if (type & PLACE_NUMBER) Showit(buffer,(char*)"Place_number ",tie&ADJECTIVE);
@@ -3304,11 +3307,20 @@ void MarkTags(unsigned int i)
 	{
 		if (bits & bit) 
 		{
-			if (bit & PRONOUN_BITS)  MarkMeaningAndImplications(0,0,MakeMeaning(Dpronoun),start,stop); // general as opposed to specific
-			else if (bit & AUX_VERB)  MarkMeaningAndImplications(0, 0,MakeMeaning(Dauxverb),start,stop); // general as opposed to specific
+			if (bit & PRONOUN_BITS)
+			{
+				uint64 n = originalLower[i]->systemFlags;
+				MarkMeaningAndImplications(0, 0, MakeMeaning(Dpronoun), start, stop); // general as opposed to specific
+				if (n & PRONOUN_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~PRONOUN_SINGULAR")), start, stop);
+				if (n & PRONOUN_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~PRONOUN_PLURAL")), start, stop);
+				if (n & PRONOUN_I) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~PRONOUN_I")), start, stop);
+				if (n & PRONOUN_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~PRONOUN_YOU")), start, stop);
+				if (n & PRONOUN_INDIRECTOBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~PRONOUN_INDIRECTOBJECT")), start, stop);
+			}
+			else if (bit & AUX_VERB)  MarkMeaningAndImplications(0, 0, MakeMeaning(Dauxverb), start, stop); // general as opposed to specific
 
-			// determiners are a kind of adjective- "how *much time do you like" but we dont want them marked
-			//	if (bit & DETERMINER_BITS) MarkMeaningAndImplications(0,0,MakeMeaning(Dadjective),start,stop);
+			// determiners are a kind of adjective- "how *much time do you like" but we dont want them marked that way
+			if (bit & DETERMINER_BITS ) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~determiner")), start, stop);
 			
 			MarkMeaningAndImplications(0, 0,posMeanings[j],start,stop); // NOUNS which have singular like "well" but could be infinitive, are listed as nouns but not infintive
 			if (bit & NOUN_HUMAN) // impute additional meanings
@@ -7932,7 +7944,12 @@ static unsigned int GuessAmbiguousAdverb(int i, bool &changed)
 	// if a timeword could be an adverb, make it so (if we wanted a noun by now it would be one)  "right *now we will go" but not "it flew *past me"
 	if (posValues[i] & ADVERB && originalLower[i] && (originalLower[i]->systemFlags & TIMEWORD) && !(posValues[i] & PREPOSITION))
 	{
-		if (LimitValues(i, ADVERB,(char*)" time word could be adverb, make it so",changed)) return GUESS_RETRY; // we have a verb, can supply verb now...
+		if (posValues[i] & ADJECTIVE_NORMAL && allOriginalWordBits[i-1] & AUX_BE)
+		{
+			if (LimitValues(i, ADJECTIVE_NORMAL, (char*)" adjective after be", changed)) return GUESS_RETRY;
+		}
+
+		else if (LimitValues(i, ADVERB, (char*)" time word could be adverb, make it so", changed)) return GUESS_RETRY; // we have a verb, can supply verb now...
 	}
 	// if word after could be a timeword and we could be an adverb, make it so  "*right now we will go" but not "but now"
 	if (posValues[i] & ADVERB && !(posValues[i] & CONJUNCTION) && posValues[NextPos(i)] & ADVERB && originalLower[NextPos(i)] && canSysFlags[NextPos(i)] & TIMEWORD )
@@ -9600,21 +9617,24 @@ restart:
 				if (posValues[i] == ADJECTIVE_PARTICIPLE)  // "the men using a sword were"  and "the walking dead"
 				{
 					if (roles[i]){;}
+					else if (posValues[NextPos(i)] & NOUN_BITS) { ; } // describing a noun as boring adjective UNLESS its our object!
 					// accidents have been reported involving passengers
 					else if ( roles[i-1] & MAINVERB && allOriginalWordBits[i] & VERB_PRESENT_PARTICIPLE)
 					{
 						AddRole(i,VERB2);	// default role -- will be verbal describing verb...EXCEPT it may be an adjective object of a linking verb
 					}
-					else if (posValues[NextPos(i)] & (NOUN_BITS|DETERMINER|PRONOUN_POSSESSIVE)) {;} // describing a noun as boring adjective UNLESS its our object!
+					else if (posValues[NextPos(i)] & (DETERMINER|PRONOUN_POSSESSIVE)) {;} // describing a noun as boring adjective UNLESS its our object!
 					else SetRole(i,0);	// default role
 				
 					// establish a permanent verbal zone if this is freestanding or following a noun and isnt in a zone
-					if (posValues[i-1] & (ADJECTIVE_BITS|DETERMINER|POSSESSIVE|PRONOUN_POSSESSIVE|CONJUNCTION)){;} // wont take an object, can only describe one "the tall and distinguished gentleman"
-					
+					if (posValues[i - 1] & (ADJECTIVE_BITS | DETERMINER | POSSESSIVE | PRONOUN_POSSESSIVE | CONJUNCTION)) { ; } // wont take an object, can only describe one "the tall and distinguished gentleman"
+
 					// we dont care about adj part occurring BEFORE a noun.. that's ordinary adjective
-					else 
+					else if (posValues[i + 1] & NOUN_BITS) {;}
+					// BUT NOT if it is following an adjective,determiner, possessive, etc (before a noun)
+					else
 					{
-						AddVerbal(i); // BUT NOT if it is following an adjective,determiner, possessive, etc (before a noun)
+						AddVerbal(i);
 						needRoles[roleIndex] &= -1 ^ VERB2;
 					}
 					//  "who is a *dating service for" has the object as not part of this level

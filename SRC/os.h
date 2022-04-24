@@ -2,7 +2,7 @@
 #define _OSH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -118,6 +118,7 @@ extern jmp_buf scriptJump[20];
 extern char* lastheapfree;
 extern bool prelog;
 extern jmp_buf crashJump;
+extern uint64 callStartTime;
 extern int jumpIndex;
 void ShowMemory(char* label);
 void JumpBack();
@@ -141,6 +142,7 @@ extern char externalBugLog[1000];
 extern FILE* userlogFile;
 extern bool pseudoServer;
 extern bool authorize;
+extern bool timeout;
 
 // MEMORY SYSTEM
 extern char logLastCharacter;
@@ -201,6 +203,8 @@ void InitStackHeap();
 void FreeStackHeap();
 bool KeyReady();
 bool InHeap(char* ptr);
+void CheckHeap(HEAPREF linkval, const char* file, unsigned int line); 
+#define CHECK_IN_HEAP(ptr) CheckHeap(ptr, __FILE__, __LINE__)
 bool InStack(char* ptr);
 void RestoreCallingDirectory();
 void CloseDatabases(bool restart = false);
@@ -215,6 +219,8 @@ extern unsigned int currentFileLine;
 extern unsigned int currentLineColumn;
 extern unsigned int maxFileLine;
 extern char currentFilename[MAX_WORD_SIZE];
+#define MAX_FILE_TYPES 10
+extern char knownFileTypes[MAX_FILE_TYPES][MAX_WORD_SIZE];
 int FClose(FILE* file);
 void InitFileSystem(char* untouchedPath,char* readablePath,char* writeablePath);
 void C_Directories(char* x);
@@ -331,6 +337,7 @@ extern bool ltmEncrypt;
 extern bool echo;
 extern bool showDepth;
 extern bool oob;
+extern bool postprocess;
 extern bool detailpattern;
 extern bool silent;
 extern uint64 logCount;
@@ -416,3 +423,8 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 	void setSignalHandlers ();
 	void signalHandler( int signalcode );
 #endif
+
+// FILE TYPES
+char* getFileType(char* filename);
+void addFileTypeAsKnown(char* filetype);
+bool isKnownFileType(char* filename);

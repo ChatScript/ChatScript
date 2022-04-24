@@ -137,6 +137,16 @@ char* SFullTime(char* value)
     return systemValue;
 }
 
+static char* SStartTimeMS(char* value)
+{
+	// full time in milliseconds
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	sprintf(systemValue, (char*)"%llu", callStartTime);
+	return systemValue;
+}
+
 static char* SFullTimeMS(char* value)
 {
     // full time in milliseconds
@@ -491,6 +501,17 @@ static char* SfactExhaustion(char* value)
     return (factsExhausted) ? (char*)"1" : (char*)"";
 }
 
+static char* StsvSource(char* value)
+{
+	static char hold[50] = ".";
+	if (value)
+	{
+		return AssignValue(hold, value);
+	}
+	if (*hold != '.') return hold;
+	return (tsvFile) ? (char*)"1" : (char*)"";
+}
+
 static char* Sversion(char* value)
 {
 	static char hold[50] = ".";
@@ -619,6 +640,18 @@ static char* SmaxFactSets(char* value)
 	if (*hold != '.') return hold;
 	sprintf(systemValue,(char*)"%d",MAX_FIND_SETS);
     return systemValue;
+}
+
+static char* Sspeaker(char* value)
+{
+	static char hold[4000];
+	if (value)
+	{
+		size_t len = strlen(value);
+		if (len >= 4000) value[len - 1] = 0;
+		strcpy(hold, value);
+	}
+	return (*hold != '.') ? hold :  speaker;
 }
 
 static char* ScrossTalk(char* value)
@@ -836,6 +869,16 @@ static char* STimeout(char* value)
 	if (value) return AssignValue(hold, value);
 	if (*hold != '.') return hold;
 	return  timerCheckInstance == TIMEOUT_INSTANCE ? (char*)"1" : (char*)"";
+}
+
+static char* SHeapSize(char* value)
+{
+	static char hold[50] = ".";
+	if (value) return AssignValue(hold, value);
+	if (*hold != '.') return hold;
+	int d = (heapFree - stackFree); 
+	sprintf(systemValue,"%d", d);
+	return  systemValue;
 }
 
 ////////////////////////////////////////////////////
@@ -1246,6 +1289,7 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%day",SdayOfWeek,(char*)"Named day of the week"}, 
 	{ (char*)"%daynumber",SdayNumberOfWeek,(char*)"Numeric day of week (0=sunday)"},  
 	{ (char*)"%fulltime",SFullTime,(char*)"Numeric full time/date in seconds"}, 
+	{ (char*)"%startmstime",SStartTimeMS,(char*)"Start of user request time/date in milliseconds" },
 	{ (char*)"%fullmstime",SFullTimeMS,(char*)"Numeric full time/date in milliseconds" },
     { (char*)"%hour",Shour,(char*)"Numeric 2-digit current hour of day (00..23)"},
 	{ (char*)"%leapyear",SleapYear,(char*)"Boolean - is it a leap year"}, 
@@ -1264,7 +1308,8 @@ SYSTEMVARIABLE sysvars[] =
 	
 	{ (char*)"\r\n---- System variables",0,(char*)""},
 	{ (char*)"%all",Sall,(char*)"Boolean - is all flag on"}, 
-	{ (char*)"%crosstalk",ScrossTalk,(char*)"cross bot/cross document variable storage"}, 
+	{ (char*)"%speaker",Sspeaker,(char*)"speaker variable from :tsvsource"},
+	{ (char*)"%crosstalk",ScrossTalk,(char*)"cross bot/cross document variable storage"},
 	{ (char*)"%crosstalk1",ScrossTalk1,(char*)"additional cross bot/cross document variable storage" },
 	{ (char*)"%crosstalk2",ScrossTalk2,(char*)"cross bot/cross document variable storage"},
 	{ (char*)"%crosstalk3",ScrossTalk3,(char*)"additional cross bot/cross document variable storage" },
@@ -1274,6 +1319,7 @@ SYSTEMVARIABLE sysvars[] =
     { (char*)"%dbversion",Sdbversion,(char*)"Database version information"},
 	{ (char*)"%document",Sdocument,(char*)"Boolean - is :document flag on"},
 	{ (char*)"%fact",Sfact,(char*)"Most recent fact id"}, 
+	{ (char*)"%tsvsource",StsvSource,(char*)"Boolean Inputting tsvsource file?"},
 	{ (char*)"%freetext",SfreeText,(char*)"Kbytes of available text space"}, 
 	{ (char*)"%freeword",SfreeWord,(char*)"number of available unused words"}, 
 	{ (char*)"%freefact",SfreeFact,(char*)"number of available unused facts"}, 
@@ -1295,7 +1341,8 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%restart",SRestart,(char*)"pass string back to a restart"},
     { (char*)"%testpattern",StestPattern,(char*)"The index number of current pattern being matched in ^testpattern"},
     { (char*)"%timeout",STimeout,(char*)"did system time out happen" },
-    
+	{ (char*)"%heapsize",SHeapSize,(char*)"bytes of heap/stack left" },
+
 	{ (char*)"\r\n---- Build variables",0,(char*)""},
     { (char*)"%tableinput",StableInput,(char*)"Current input line of table processing" },
     { (char*)"%dict",Sdict,(char*)"String - when dictionary was built"},
@@ -1339,7 +1386,6 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%badspell",SbadSpell,(char*)"How many bad spellings were handled" },
 	{ (char*)"%inputlimited",SinputLimited,(char*)"were we given too much input" },
 	{ (char*)"%inputsize",SinputSize,(char*)"bytes of input passed in" },
-
 	{ (char*)"\r\n---- Output variables",0,(char*)""},
 	{ (char*)"%inputrejoinder",SinputRejoinder,(char*)"if pending input rejoinder, this is the tag of it else null"},
 	{ (char*)"%lastoutput",SlastOutput,(char*)"Last line of currently generated output or null"},

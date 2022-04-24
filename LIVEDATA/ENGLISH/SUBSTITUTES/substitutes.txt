@@ -37,6 +37,12 @@
  degree_K degree+Kelvin
  ?_° degree
  ° degree
+ ?=ill ~verb_infinitive+I+will
+ ?=its ~verb_present_participle+it+is|~determiner+it+is
+ ?=im ~verb_present_participle+I+am
+ no-one no+one
+ noone no+one
+
  womxn woman
  wimmin women
  a.i. artificial+intelligence

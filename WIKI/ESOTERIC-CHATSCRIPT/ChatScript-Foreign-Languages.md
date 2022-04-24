@@ -1,7 +1,24 @@
 # Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 4/24/2022 cs12.1
 
+# Emoji
+
+OK. So it's not really a foreign language. But it does have unique
+support. First off, in LIVEDATA/interjections.txt you can see
+some emoji declarations like:
+```
+:( ~emosad EMOJI
+```
+This goes one step beyond saying that :( should mark the concept 
+~emosad. It also declares it as an emoji. All declared emoji are members of
+~emoji and ~interjections. And, among other things, if you jam
+a bunch of emoji together in input, the tokenizer will separate them into
+distinct emoji that can be recognized. And you can define a concept of emoticons via
+```
+concept: ~stuff EMOTICON ( ... )
+```
+Just be careful to keep a space between the last emoticon and the closing ). 
 
 # Foreign Language Overview
 
@@ -30,10 +47,23 @@ of the numeric value of words (like dozen == 12), knowing the names of the month
 make available using the command line parameter "language=" . If you don't supply this, the default language is English. But you can for example
 say "language=german".  
 
-You can name up to three different languages (for which you have dictionaries) by listing them on that parameter
-"language=english,german,spanish". You need to use the same language sequence for all compilations and normal execution (hence its a parameter typically
-listed in cs_init.txt).  You can even add "japanese" at the end of your list (not earlier) because that requires no dictionary. The first language listed
-is always the default language.
+You can name up to four different languages (for which you have dictionaries) by listing them on that parameter
+"language=english,german,spanish,japanese". You need to use the same language sequence for all compilations and normal execution (hence its a parameter typically
+listed in cs_init.txt).   The first language listed
+is always the default language. 
+
+In addition, if you have Treetagger licenses, you can use multiple
+treetaggers by putting on a cs_init line something like:
+```
+treetagger=english,spanish
+```
+Treetagger improves CS's inbuilt pos-tagging, and provides the only
+pos-tagging for spanish and german.
+
+```
+:language xxx
+```
+allows you to change language on the fly in standalone mode.
 
 All API external functions( ^compilepattern, ^testpattern, ^compileoutput, ^testoutput ) accept a top-level "language" parameter
 which sets the language for the duration of the call. The script compiler can be told "language: spanish" at the top level of a file, to change language for compilation
@@ -46,7 +76,6 @@ as numeric conversions of words in that language.
 
 If `language=ideographic` is used, then spell check is disabled and tokenization will make each character be a token.
 This is useful for languages like Korean and Chinese. 
-
 
 ## Japanese
 ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. 
@@ -109,6 +138,17 @@ exclamation marks.
 CS comes with a spanish dictionary, and spell checking will use it.
 In particular, if the input lacks appropriate accent marks, CS will
 likely fill them in for you.
+
+CS can use inbuilt rules for adjectives and nouns to	mark a word
+with plurality (~spanish_singular or ~spanish_plural) and 
+gender (~spanish_he or ~spanish_she). For verbs, CS recognizes 
+present, past, and future tense (simple, marked as ~spanish_future)
+as well as ~verb_imperative.
+
+Pronouns will be marked with ~pronoun_object_singular or
+~pronoun_object_plural or ~pronoun_object_you. Also
+~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and
+~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you.
 
 ## MULTIPLE LANGUAGE DICTIONARY
 ChatScript leans heavily on its dictionary, which normally 

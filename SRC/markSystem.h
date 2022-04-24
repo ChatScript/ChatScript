@@ -1,7 +1,7 @@
 #ifndef _MARKSYSTEMH_
 #define _MARKSYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2021 by Bruce Wilcox
+Copyright (C)2011-2022 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -34,6 +34,7 @@ typedef void (*ExternalTaggerFunction)();
 #define  MAXREFSENTENCE_BYTES (MAX_XREF_SENTENCE * REF_ELEMENT_SIZE) 
 #define TRIEDDATA_WORDSIZE ((sizeof(uint64)/4)  + ((MAXREFSENTENCE_BYTES + 3) / sizeof(int)))
 //  64bit tried by meaning field (aligned) + sentencerefs (8 bytes each x 50)
+#define REFSTRIEDDATA_WORDSIZE (TRIEDDATA_WORDSIZE - 2 )
 extern std::map <WORDP, HEAPINDEX> triedData; // per volley index into heap space
 
 
@@ -51,6 +52,7 @@ extern int upperCount, lowerCount;
 unsigned int GetNextSpot(WORDP D,int start,int& startx,int& endx,bool reverse = false,int gap = 0);
 unsigned int GetIthSpot(WORDP D,int i,int& start,int& end);
 bool MarkWordHit(int depth,MEANING ucase,WORDP D, int index, int start,int end);
+void ShowMarkData(char* word); 
 void MarkMeaningAndImplications(int depth,MEANING ucase,MEANING M,int start,int end,int kind = FIXED, bool sequence = false, bool once = false);
 bool RemoveMatchValue(WORDP D, int position);
 unsigned int IsMarkedItem(WORDP D, int start, int end);

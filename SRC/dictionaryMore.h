@@ -29,10 +29,12 @@
 #define VAR_CHANGED				0x00000002		// $variable has changed value this volley 
 #define NOTRACE_TOPIC			VAR_CHANGED		// dont trace this topic (topic names)
 #define NOTRACE_FN					VAR_CHANGED		// dont trace this function (on functions only)
+#define CONCEPT_DUPLICATES	VAR_CHANGED		// concept allows duplication
 
 //		0x00000004 # DO_CONTRACTIONS
 #define FROM_FILE						0x00000004	//  for scriptcompiler to tell stuff comes from FILE not DIRECTORY
 #define MACRO_TIME					FROM_FILE	// turn on timing for this function (only used when live running)
+#define NO_CONCEPT_DUPLICATES	FROM_FILE		// concept allows duplication
 
 //		0x00000008 # DO_INTERJECTIONS
 #define HAS_EXCLUDE				0x00000008		// concept/topic has keywords to exclude
@@ -80,7 +82,7 @@
 #define BUILD2									0x00800000		// comes from dynamic build layer data
 #define CONSTANT_IS_NEGATIVE		0x01000000	
 #define INTERNAL_MARK			0x02000000		// transient marker for Intersect coding and Country testing in :trim
-// unused												0x04000000
+//	0x04000000	
 #define VARIABLE_ARGS_TABLE	 0x08000000		// only for table macros and output macros
 #define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
 #define DEFINES								0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
@@ -178,6 +180,8 @@ extern int worstDictAvail;
 #define OOB_START '['
 #define OOB_END ']'
 void LockLevel();
+void WriteDictionary(WORDP D, uint64 junk);
+void WriteTextEntry(WORDP D, bool tmp=false);
 void UnlockLayer(int layer);
 char* GetWord(char* word);
 WORDP GetPlural(WORDP D);
@@ -188,9 +192,10 @@ WORDP GetComparison(WORDP D);
 void SetComparison(WORDP D,MEANING M);
 WORDP GetTense(WORDP D);
 void SetTense(WORDP D,MEANING M);
-WORDP GetCanonical(WORDP D);
+WORDP GetCanonical(WORDP D, uint64 kind = 0);
 WORDP RawCanonical(WORDP D);
 void SetCanonical(WORDP D,MEANING M);
+void ExportCurrentDictionary();
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
 bool LanguageRestrict(char* word);
@@ -215,6 +220,7 @@ extern WORDP dictionaryLocked;
 extern bool fullDictionary;
 extern unsigned int languageIndex;
 extern uint64 verbFormat;
+extern bool exportdictionary;
 extern uint64 nounFormat;
 extern uint64 adjectiveFormat;
 extern uint64 adverbFormat;
@@ -230,7 +236,7 @@ extern char* stringLocked;
 extern WORDP dictionaryPreBuild[NUMBER_OF_LAYERS+1];
 extern char* heapPreBuild[NUMBER_OF_LAYERS+1];
 extern WORDP dictionaryFree;
-extern char dictionaryTimeStamp[20];
+extern char dictionaryTimeStamp[50];
 extern bool primaryLookupSucceeded;
 
 extern unsigned int wordAccessCount;    // number of words looked up in this volley
@@ -287,9 +293,8 @@ void ClearWordWhere(WORDP D,int at);
 void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
 char* UseDictionaryFile(const char* name,const char* list = NULL);
 void ClearWhereInSentence();
-void ClearTriedData();
 void LoadDictionary(char* heapstart);
-void ClearDictionaryFiles();
+void ClearDictionaryFiles(bool tmp=false);
 HEAPINDEX CopyWhereInSentence(int oldindex);
 void RestorePropAndSystem(char* stringUsed);
 inline unsigned int GlossIndex(MEANING M) { return M >> 24;}
@@ -342,7 +347,6 @@ HEAPINDEX GetAccess(WORDP D);
 void SetTried(WORDP D, int value);
 
 // read and write dictionary or its entries
-void WriteDictionary(WORDP D, uint64 data);
 void DumpDictionaryEntry(char* word,unsigned int limit);
 bool ReadDictionary(char* file);
 char* ReadDictionaryFlags(WORDP D, char* ptr,unsigned int *meaningcount = NULL, unsigned int *glosscount = NULL);

@@ -39,12 +39,6 @@ struct ms_server_info_t {
 
 // #define SKIP_TEST = 1
 
-// *** Must match declaration in userCache.h ***
-unsigned int userCacheSize = 10000;
-
-// *** Must match declaration in mainSystem.h ***
-int gzip;
-
 static void randomize_data(char* write_text, size_t write_len, int seed) {
     for (size_t i=0; i < write_len; ++i) {
         write_text[i] = (char)i;

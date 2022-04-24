@@ -451,6 +451,20 @@ static WORDP UnitSubstitution(char* buffer,int i)
 	return NULL;
 }
 
+static WORDP PosSubstitution(char* buffer, int i)
+{
+	char value[3 * MAX_WORD_SIZE];
+	strcpy(value, "?=");
+	strcat(value + 2, buffer); // presume word after word is not big
+	char* at = value;
+	while ((at = strchr(at, '_'))) *at++ = '`';// make safe form that we used for _
+
+	WORDP D = FindWord(value, 0, STANDARD_LOOKUP);
+	uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
+	if (D && allowed & D->internalBits) return D; // allowed transform
+	return NULL;
+}
+
 static char spawnWord[100];
 
 static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, bool& oobStart, bool& oobJson)
@@ -548,11 +562,11 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 #endif
 
 	char utfcharacter[10];
-	char* x = IsUTF8(ptr, utfcharacter); // return after this character if it is valid.
-	if (isSpanish && utfcharacter[0] == 0xC2 && (utfcharacter[1] == 0xBF|| utfcharacter[1] == 0xA1)) // invert question or exclamation
+	IsUTF8(ptr, utfcharacter); // return after this character if it is valid
+	if (isSpanish && utfcharacter[0] == 0xC2 && (utfcharacter[1] == 0xBF || utfcharacter[1] == 0xA1)) // invert question or exclamation
 	{
 		ptr += 2; // ignore it, we only want trailing ? or !
-		x = IsUTF8(ptr, utfcharacter);
+		IsUTF8(ptr, utfcharacter);
 	}
 
 	if (isJapanese || !stricmp(language, "ideographic") || tokenControl & TOKENIZE_BY_CHARACTER)
@@ -597,7 +611,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		if (utfcharacter[1]) return ptr + strlen(utfcharacter); // rewrite some utf8 characters to std ascii
 		// we should return normal length for english words used direct
 	}
-	
+
 	// large repeat punctuation
 	if (*ptr == ptr[1] && ptr[1] == ptr[2] && ptr[2] == ptr[3] && IsPunctuation(*ptr))
 	{
@@ -606,73 +620,32 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		while (*++at == c) *at = ' '; // eradicate junk
 	}
 
-    // special break on token
-    if (*ptr == '\'')
-    {
-        char word[MAX_WORD_SIZE];
-        ReadCompiledWord(ptr,word);
-        WORDP X = ApostropheBreak(word);
-        if (X) return ptr + strlen(word); // allow token
-    }
-
-	if (kind & QUOTERS) // quoted strings 
+	// ellipsis
+	if (!strncmp(ptr, ". . . ", 6))
 	{
-		if (c == '\'' && ptr[1] == 's' && !IsAlphaUTF8(ptr[2])) return ptr + 2;	// 's directly
-		if (c == '"')
-		{
-            if (tokenControl & SPLIT_QUOTE)
-            {
-                char* end1 = strchr(ptr + 1, '"');
-                if (end1) // strip the quotes and try agin
-                {
-                    *ptr = ' ';
-                    *end1 = ' ';
-                    return ptr;
-                }
-                else return ptr + 1; // split up quote marks
-            }
-			else // see if merely highlighting a word
-			{
-				char* word = AllocateStack(NULL,maxBufferSize,false,0);
-				ReadCompiledWord(ptr, word);
-				char* close = strchr(word + 1, '"');
-				ReleaseStack(word);
-				if (close && !strchr(word, ' ')) // we dont need quotes
-				{
-					int wordLen = close - word;
-					if (tokenControl & LEAVE_QUOTE) return ptr + wordLen + 1;  // leave what is after the quotes e.g. a comma
-					*ptr = ' ';			// kill off starting dq
-					ptr[wordLen] = ' ';	// kill off closing dq
-					return ptr;
-				}
-			}
-		}
-		if (c == '\'' && tokenControl & SPLIT_QUOTE) // 'enemies of the state'
-		{
-			if (quotepending) quotepending = false;
-			else if (strchr(ptr + 1, '\'')) quotepending = true;
-            if (quotepending) return ptr + 1;
-            else if (ptr[1] == ' ' || ptr[1] == '.' || ptr[1] == ',') return ptr + 1;
-		}
-		if (c == '\'' && !(tokenControl & TOKEN_AS_IS) && !IsAlphaUTF8(ptr[1]) && !IsDigit(ptr[1])) 	return ptr + 1; // is this quote or apostrophe - for penntag dont touch it - for 've  leave it alone also leave '82 alone
-		else if (c == '\''  && tokenControl & TOKEN_AS_IS) { ; } // for penntag dont touch it - for 've  leave it alone also leave '82 alone
-		else if (c == '"' && tokenControl & TOKEN_AS_IS) return ptr + 1;
-		else if (c == '*' && ptr[1] == '.' && (IsLowerCase(ptr[2]) || IsDigit(ptr[2]))) { 
-			char ext[MAX_WORD_SIZE];
-			ReadCompiledWord(ptr+2, ext);
-			if (IsFileExtension(ext)) {
-				return ptr + strlen(ext) + 2;
-			}
-		}
-		else
-		{
-			char* end1 = HandleQuoter(ptr, words, count);
-			if (end1)  return end1;
-		}
-        if (!IsDigit(ptr[1])) return ptr + 1; // just return isolated quote
+		memcpy(ptr, "...   ", 6);
 	}
-    char token[MAX_WORD_SIZE];
-    ReadCompiledWord(ptr, token);
+
+	// special break on token
+	if (*ptr == '\'')
+	{
+		char word[MAX_WORD_SIZE];
+		ReadCompiledWord(ptr, word);
+		WORDP X = ApostropheBreak(word);
+		if (X) return ptr + strlen(word); // allow token
+	}
+
+	char token[MAX_WORD_SIZE];
+	ReadCompiledWord(ptr, token);
+	if (IsUrl(token, token + strlen(token))) return ptr + strlen(token);
+
+	// try emoiji pieces (since multiple utf8 emojis might be used)
+	char emoji[10];
+	if (IsUTF8(token, emoji) && emoji[1]) // utf characters will be >1 byte
+	{
+		WORDP E = FindWord(emoji, 0); 
+		if (E && E->properties & EMOJI) return ptr + strlen(emoji);
+	}
 
 #ifdef PRIVATE_CODE
     // Check for private hook function to check a token following local rules
@@ -692,17 +665,95 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		strcpy(spawnWord, "number");
 		return ptr + 3;
 	}
+	WORDP EMO = FindWord(token);
+	if (EMO && EMO->properties & EMOJI) return ptr + strlen(EMO->word);
+
+	if (kind & QUOTERS) // quoted strings  (but let *sigh* be emoji before this)
+	{
+		if (c == '\'' && ptr[1] == 's' && !IsAlphaUTF8(ptr[2])) return ptr + 2;	// 's directly
+		if (c == '"')
+		{
+			if (tokenControl & SPLIT_QUOTE)
+			{
+				char* end1 = strchr(ptr + 1, '"');
+				if (end1) // strip the quotes and try agin
+				{
+					*ptr = ' ';
+					*end1 = ' ';
+					return ptr;
+				}
+				else return ptr + 1; // split up quote marks
+			}
+			else // see if merely highlighting a word
+			{
+				char* word = AllocateStack(NULL, maxBufferSize, false, 0);
+				ReadCompiledWord(ptr, word);
+				char* close = strchr(word + 1, '"');
+				ReleaseStack(word);
+				if (close && !strchr(word, ' ')) // we dont need quotes
+				{
+					int wordLen = close - word;
+					if (tokenControl & LEAVE_QUOTE) return ptr + wordLen + 1;  // leave what is after the quotes e.g. a comma
+					*ptr = ' ';			// kill off starting dq
+					ptr[wordLen] = ' ';	// kill off closing dq
+					return ptr;
+				}
+			}
+		}
+		if (c == '\'' && tokenControl & SPLIT_QUOTE) // 'enemies of the state'
+		{
+			if (quotepending) quotepending = false;
+			else if (strchr(ptr + 1, '\'')) quotepending = true;
+			if (quotepending) return ptr + 1;
+			else if (ptr[1] == ' ' || ptr[1] == '.' || ptr[1] == ',') return ptr + 1;
+		}
+		if (c == '\'' && !(tokenControl & TOKEN_AS_IS) && !IsAlphaUTF8(ptr[1]) && !IsDigit(ptr[1])) 	return ptr + 1; // is this quote or apostrophe - for penntag dont touch it - for 've  leave it alone also leave '82 alone
+		else if (c == '\'' && tokenControl & TOKEN_AS_IS) { ; } // for penntag dont touch it - for 've  leave it alone also leave '82 alone
+		else if (c == '"' && tokenControl & TOKEN_AS_IS) return ptr + 1;
+		else if (c == '*' && ptr[1] == '.' && (IsLowerCase(ptr[2]) || IsDigit(ptr[2]))) {
+			char ext[MAX_WORD_SIZE];
+			ReadCompiledWord(ptr + 2, ext);
+			if (IsFileExtension(ext)) {
+				return ptr + strlen(ext) + 2;
+			}
+		}
+		else
+		{
+			char* end1 = HandleQuoter(ptr, words, count);
+			if (end1)  return end1;
+		}
+		if (!IsDigit(ptr[1])) return ptr + 1; // just return isolated quote
+	}
+	ReadCompiledWord(ptr, token);
+
+#ifdef PRIVATE_CODE
+	// Check for private hook function to check a token following local rules
+	static HOOKPTR fnIsToken = FindHookFunction((char*)"IsValidTokenWord");
+	if (fnIsToken)
+	{
+		if (((IsValidTokenWordHOOKFN)fnIsToken)(token))
+		{
+			return ptr + strlen(token);
+		}
+	}
+#endif
 
 	// embedded punctuation
 	char* embed = strchr(token, '?');
 	if (embed && embed != token && embed[1] && !IsUrl(token, embed)) *embed = 0; // break off love?i, but not ? to introduce the query string in an URL
-
 	embed = strchr(token, ')');
 	if (embed && embed != token ) *embed = 0; // break off 61.3) 
 	if (embed && embed == token && embed[1]) embed[1] = 0; // break off )box.
-	//embed = strchr(token, '.');
-	//if (embed && embed != token && IsAlphaUTF8(embed[1])) embed[1] = 0; // break off )box.  BUT U.S. Cellular should not be broken.
-
+	embed = strchr(token, '.');
+	if (embed && embed != token && IsAlphaUTF8(embed[1]))
+	{// break off probable 2 words.  BUT U.S. Cellular should not be broken.
+		size_t l = strlen(token);
+		int front = (embed - token);
+		if (front > 4 && embed[1] &&  !IsFileExtension(embed+1))
+		{
+			*embed = 0;
+		}
+	}
 	if (*token == '.' && IsAlphaUTF8(token[1])) token[1] = 0; // break off .he
 
 	// if this was 93302-42345 then we need to keep - separate, not as minus
@@ -716,6 +767,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 
 	WORDP X = FindWord(token);
 	size_t xx = strlen(token);
+	if (X && X->properties & EMOJI) return ptr + xx;
 	if (X && !IsDigit(*token) && token[xx - 1] != '?' && token[xx - 1] != '!' && token[xx - 1] != ',' && token[xx - 1] != ';' && token[xx - 1] != ':') // we know the word and it cant be a number
     {
         if (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD)) // if we just created it and not to protect testpattern
@@ -1001,7 +1053,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
         }
         
         *comma = ','; // restore token for now
-        if (comma > token && comma < (token + strlen(token)) && IsDigit(*(comma-1)) && IsDigit(comma[1]))
+        if (comma > token && comma < (token + strlen(token)) && IsDigit(*(comma-1)) && IsDigit(comma[1]) && kind != BRACKETS)
         {
             // joined number word like 1,234.99dollars
             char *cur = token - 1;
@@ -2369,7 +2421,7 @@ bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	memcpy(derivationIndex+i+newlength,backupDerivations,sizeof(short int) * afterCount);
 
 	wordCount += newlength - oldlength;
-	wordStarts[wordCount+1] = NULL; // do we want "" ?
+	wordStarts[wordCount+1] = ""; 
 	if (trace & TRACE_INPUT || spellTrace)
 	{
 		char* limit;
@@ -2395,15 +2447,17 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		return 0; // changing single word case to what it already is?
 	if (*wordStarts[i] == '?' && found->word[0] == '?' && found->word[1] && found->word[1] != '>') return 0; // avoid unitmeasure ?`something input detect. only allow punctuation deteciton
 
-	char replacewordlist[MAX_WORD_SIZE];
-	*replacewordlist = 0;
+	char replacedata[MAX_WORD_SIZE];
+	*replacedata = 0;
+	char* replacewordlist = replacedata;
 	if (sub) strcpy(replacewordlist, sub);
 	char* pluralgiven = strchr(replacewordlist, '|');
-	if (pluralgiven) *pluralgiven = 0; // alternate form for plurals
+	if (pluralgiven) *pluralgiven = 0; // alternate form for plurals or parts of speech
 	char* ptr = replacewordlist;
 	int basis = 1;
 	char *at = found->word;
 	while ((at = strchr(at + 1, '`'))) ++basis; // how many words we matched to substitute
+	int start = i;
 
 	// see if we have test condition to process (starts with !) and has [ ] with list of words to NOT match after
 	if (sub && *sub == '!')
@@ -2458,6 +2512,108 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			if (!*sub) sub = 0;
 		}
 	}
+	// pos dependent substitution
+	else if (*found->word == '?' && found->word[1] == '=' && *replacewordlist == '~')
+	{
+		if (pluralgiven) *pluralgiven = '|'; // restore multiple marker
+		char lower[MAX_WORD_SIZE];
+		*lower = 0;
+		size_t len = 0;
+		WORDP next = NULL;
+		if (*wordStarts[i + 1])
+		{
+			MakeLowerCopy(lower, wordStarts[i + 1]);
+			next = FindWord(lower );
+			len = strlen(lower);
+		}
+		while (1)
+		{
+			char* starter = strchr(replacewordlist, '+');
+			char* multiple = strchr(replacewordlist, '|');
+			WORDP D = NULL;
+			if (starter)
+			{
+				char* tokens[50];
+				char newwords[50][1000];
+				char* replacers = starter + 1;
+				bool match = false;
+				uint64 properties = 0;
+				if (!next) { ; }
+				else if (!strnicmp(replacewordlist, "~verb_present_participle+", 25))
+				{
+					if (!stricmp(lower + len - 3, "ing"))
+					{
+						properties = VERB;
+						char* verb = GetInfinitive(lower, true);
+						if (verb) D = FindWord(verb);
+					}
+				}
+				else if (!strnicmp(replacewordlist, "~verb_past_participle+", 22))
+				{
+					if (next && next->properties & VERB_PAST_PARTICIPLE)
+					{
+						properties = VERB_PAST_PARTICIPLE; // known irregular
+						D = next;
+					}
+					else if (!stricmp(lower + len - 2, "ed"))
+					{
+						properties = VERB_PAST_PARTICIPLE;
+						char* verb = GetInfinitive(lower, true);
+						if (verb) D = FindWord(verb);
+					}
+				}
+				else if (!strnicmp(replacewordlist, "~verb_infinitive+", 17))
+				{
+					char* verb = GetInfinitive(lower, true);
+					if (verb && !stricmp(verb, lower))
+					{
+						D = FindWord(verb);
+						properties = VERB_INFINITIVE;
+					}
+				}
+				else if (!strnicmp(replacewordlist, "~verb+", 5))
+				{
+					properties = VERB;
+					D = next;
+				}
+				else if (!strnicmp(replacewordlist, "~noun+", 5)) 
+				{
+					properties = NOUN;
+					D = next;
+				}
+				else if (!strnicmp(replacewordlist, "~determiner+", 12))
+				{
+					properties = DETERMINER_BITS;
+					D = next;
+				}
+				else if (!strnicmp(replacewordlist, "~adjective+", 11))
+				{
+					properties = ADJECTIVE;
+					D = next;
+				}
+				else if (!strnicmp(replacewordlist, "~adverb+", 8)) 
+				{
+					properties = ADVERB;
+					D = next;
+				}
+				if (D && D->properties & properties)
+				{
+					// break out the separate tokens
+					int count = 0;
+					char* sep = replacers;
+					if (multiple) *multiple = 0;
+					while ((sep = strchr(sep, '+'))) *sep = ' ';
+					while (replacers && *replacers) replacers = ReadCompiledWord(replacers, newwords[++count]);
+					for (int j = 1; j <= count; ++j) tokens[j] = newwords[j];
+					bool result = ReplaceWords("Pos sub", start, basis, count, tokens); // remove basis, add count
+					if (result) return i;
+				}
+			}
+			if (multiple) replacewordlist = multiple + 1;
+			else break;
+		}
+		return 0; // failed to find type info
+	}
 	// avoid ?'  becoming feet from unit substitution which was not detected
 	else if (*found->word == '?' && found->word[1] == '`') // unit substitution
 	{
@@ -2505,7 +2661,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 
 		// ?_psi matching 30 psi as separated words
 		basis = 1;
-        int start = i;
+		int start = i;
 		if (IsDigitWord(wordStarts[i], numberStyle,true,true)) // separated number match
 		{
 			if (i == wordCount) return 0; // shouldnt happen
@@ -2666,28 +2822,27 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
     return NULL;
 }
 
-static WORDP ViableIdiom(char* text,int i,unsigned int n)
+static WORDP ViableIdiom(char* text, int i, unsigned int n)
 { // n is words merged into "word"
 
-	WORDP word = FindWord(text,0, STANDARD_LOOKUP);
-	bool again = primaryLookupSucceeded;
-	WORDP X = Viability(word, i, n);
-	if (!word || (!X && word->word[2] && word->word[3])) //avoid is -> I
+	WORDP set[20];
+	WORDP D = NULL;
+	int nn = GetWords(text, set, false); // words in any case and with mixed underscore and spaces
+	while (nn)
+	{
+		D = Viability(set[--nn], i, n);
+		if (D) return D;
+	}
+	if (text[2] && text[3]) //avoid is -> I  
 	{
 		size_t len = strlen(text);  // watch out for <his  
 		if (text[len - 1] == 's' && text[0] != '<') // plural nouns try simple singular
 		{
-			word = FindWord(text, len - 1, STANDARD_LOOKUP);
-			again = primaryLookupSucceeded;
-			X = Viability(word, i, n);
+			D = FindWord(text, len - 1, STANDARD_LOOKUP);
+			D = Viability(D, i, n);
 		}
-		if (!word) return 0;
 	}
-    if (X || !again) return X; // we have answer or we havent tried secondary case yet
-    
-	// allowed to try other case
-    word = FindWord(text, 0, SECONDARY_CASE_ALLOWED);
-	return Viability(word, i, n);
+	return D;
 }
 
 static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
@@ -2754,6 +2909,10 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 
 		if (!found && i == j && (IsDigit(buffer[1]) || (IsSign(buffer[1]) && IsDigit(buffer[2])))) 
 			found = UnitSubstitution(buffer + 1,i);// generic digits + unit
+		if (!found && i == j )
+			found = PosSubstitution(buffer+1, i); // match normal
+		if (!found && (i+2) == j) // x ' y format like you'd (contractions)
+			found = PosSubstitution(buffer + 1, i); // match normal
 
         if (found == localfound && j == wordCount)  //   sentence ender
 		{
@@ -2829,86 +2988,78 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 	return result;
 }
 
+static unsigned int GetHeaderCount(char* word, unsigned int count)
+{
+	WORDP set[20];
+	WORDP D;
+	int nn = GetWords(word, set, false); // words in any case and with mixed underscore and spaces
+	while (nn)
+	{
+		D = set[--nn];
+		if (GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
+	}
+	return count;
+}
+
 void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 {
-    char buffer[MAX_WORD_SIZE];
-    *buffer = '<';	// sentence start marker
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
+	char buffer[MAX_WORD_SIZE];
+	*buffer = '<';	// sentence start marker
+	bool isEnglish = (!stricmp(language, "english") ? true : false);
 	lastMatch = NULL;
 	lastMatchLocation = 0;
-    unsigned int cycles = 0;
+	unsigned int cycles = 0;
 	WORDP done[3];
 	int doneat[3];
 	int doneindex = 0;
 	doneat[0] = doneat[1] = doneat[2] = 0;
 	done[0] = done[1] = done[2] = 0;
 
-    for (int i = FindOOBEnd(1); i <= wordCount; ++i)
-    {
-		if (!stricmp(loginID,wordStarts[i])) continue; // dont match user's name
+	for (int i = FindOOBEnd(1); i <= wordCount; ++i)
+	{
+		if (!stricmp(loginID, wordStarts[i])) continue; // dont match user's name
 
 		//   put word into buffer to start with
-        size_t len = strlen(wordStarts[i]);
-		if (len > (MAX_WORD_SIZE-40)) continue;	// too big
-		char* ptr = buffer+1;
-        strcpy(ptr,wordStarts[i]);
-        ptr += len;
+		size_t len = strlen(wordStarts[i]);
+		if (len > (MAX_WORD_SIZE - 40)) continue;	// too big
+		char* ptr = buffer + 1;
+		strcpy(ptr, wordStarts[i]);
+		ptr += len;
 
-        //   can this start a substition?  It must have an idiom count != ZERO_IDIOM_COUNT
- 
-        unsigned int count = 0;
-		WORDP D = FindWord(buffer+1,0,PRIMARY_CASE_ALLOWED); // main word a header?
-  		if (D) count = GETMULTIWORDHEADER(D);
-        if (!count && isEnglish && wordStarts[i][len-1] == 's') // consider singular?
+		//   can this start a substition?  It must have an idiom count != ZERO_IDIOM_COUNT
+
+		unsigned int count = GetHeaderCount(buffer + 1, 0);
+		if (!count && isEnglish && wordStarts[i][len - 1] == 's') // consider simple singular?
 		{
-			D = FindWord(wordStarts[i], len-1, PRIMARY_CASE_ALLOWED);
-			if (D) count = GETMULTIWORDHEADER(D);
+			wordStarts[i][len - 1] = 0;
+			count = GetHeaderCount(wordStarts[i], count);
+			wordStarts[i][len - 1] = 's';
 		}
-        
-		//   does secondary form longer phrases?
-        WORDP E  = FindWord(buffer+1,0,SECONDARY_CASE_ALLOWED);
-		if (E && GETMULTIWORDHEADER(E) > count) count = GETMULTIWORDHEADER(E);
 
-        //   now see if start-bounded word does better
-        if (i == 1) 
-        {
-			D = FindWord(buffer,0,PRIMARY_CASE_ALLOWED); // with < header
-            if (D && GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
-			D = FindWord(buffer,0,SECONDARY_CASE_ALLOWED);
-			if (D && GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
- 		}
+		//   now see if start-bounded word does better
+		if (i == 1)  count = GetHeaderCount(buffer, count);
 
 		//   now see if end-bounded word does better
 		if (i == wordCount)
-        {
-            *ptr++ = '>'; //   append boundary
-            *ptr-- = 0;
-            D = FindWord(buffer+1,0,PRIMARY_CASE_ALLOWED);
-            if (D && GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
-			D = FindWord(buffer+1,0,SECONDARY_CASE_ALLOWED);
-			if (D &&  GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
-
-			if (i == 1) //   can use start and end simultaneously
-			{
-				D = FindWord(buffer,0,PRIMARY_CASE_ALLOWED); 
-				if (D && GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
-				D = FindWord(buffer,0,SECONDARY_CASE_ALLOWED);
-				if (D && GETMULTIWORDHEADER(D) > count) count = GETMULTIWORDHEADER(D);
-			}
+		{
+			*ptr++ = '>'; //   append boundary
+			*ptr-- = 0;
+			count = GetHeaderCount(buffer + 1, count);
+			if (i == 1)  count = GetHeaderCount(buffer, count);//   can use start and end simultaneously
 			*ptr = 0;	// remove tail
 		}
 
-		if (!count && (IsDigit(*wordStarts[i]) || (*wordStarts[i] == '-' && IsDigit(*(wordStarts[i]+1))))) count = 1; // numeric units
-        
+		if (!count && (IsDigit(*wordStarts[i]) || (*wordStarts[i] == '-' && IsDigit(*(wordStarts[i] + 1))))) count = 1; // numeric units
+
 		//   use max count
-        if (count ) 
+		if (count)
 		{
 			WORDP x = ProcessMyIdiom(i, count - 1, buffer, ptr);
 			if (x)
 			{
 				// block small loops
-				if ((i == doneat[0] && x == done[0]) || 
-					(i == doneat[1] && x == done[1]) || 
+				if ((i == doneat[0] && x == done[0]) ||
+					(i == doneat[1] && x == done[1]) ||
 					(i == doneat[2] && x == done[2]))
 					continue;	// dont retry here
 				doneindex = (doneindex + 1) % 3;
@@ -2919,9 +3070,9 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 				{
 					if (testpatterninput)
 					{
-						ReportBug((char*)"Substitute cycle overflow %s in %s of %s\r\n", x->word, buffer,testpatterninput);
+						ReportBug((char*)"Substitute cycle overflow %s in %s of %s\r\n", x->word, buffer, testpatterninput);
 					}
-					else ReportBug((char*)"Substitute cycle overflow %s in %s\r\n", x->word,buffer);
+					else ReportBug((char*)"Substitute cycle overflow %s in %s\r\n", x->word, buffer);
 					break;
 				}
 

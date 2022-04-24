@@ -38,13 +38,13 @@ bbfn ~emogoodbye
 <cu ~emogoodbye
  <cya ~emogoodbye
  <cyal8r ~emogoodbye
-:( ~emosad
- :)   ~emohappy
- :@ ~emosurprise
- :[ ~emosad
- :]  ~emohappy
- :{ ~emosad
- :}   ~emohappy
+:( ~emosad EMOJI
+ :)   ~emohappy EMOJI
+ :@ ~emosurprise EMOJI
+ :[ ~emosad EMOJI
+ :]  ~emohappy EMOJI
+ :{ ~emosad EMOJI
+ :}   ~emohappy EMOJI
  # normal interjections
  <not_a_prayer> ~no 
  <top_of_the_morning ~emohello

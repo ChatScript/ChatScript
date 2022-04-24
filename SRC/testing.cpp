@@ -1,4 +1,5 @@
 #include "common.h"
+#pragma warning(disable: 4068)
 
 extern int ignoreRule;
 static bool down_is = true;
@@ -8,7 +9,7 @@ static int volleyCounter = 0;
 static int relevantVolleyCounter = 0;
 static int itemcount = 0;
 bool nomixedcase = false;
-
+static void GetAffect(WORDP D, unsigned int restriction, int& good, int& bad);
 void InitStats()
 {
 	preparationtime = 0;
@@ -1083,6 +1084,29 @@ static void C_Regress(char* input)
 	else VerifyRegress(input);
 }
 
+static void C_TSVSource(char* input)
+{// file  userid  message  speaker  count
+	char word[MAX_WORD_SIZE];
+	char* ptr = ReadCompiledWord(input, word);
+	FILE* in = FopenReadNormal(word); // source
+	if (in) tsvFile = in;
+	else Log(USERLOG, "No such source file: %s\r\n", word);
+	sourceFile = NULL;
+	ptr = ReadCompiledWord(ptr, word);
+	tsvLoginField = atoi(word);
+	ptr = ReadCompiledWord(ptr, word);
+	tsvMessageField = atoi(word);
+	ptr = ReadCompiledWord(ptr, word);
+	tsvSpeakerField = atoi(word);
+	ptr = ReadCompiledWord(ptr, word);
+	tsvCount = atoi(word);
+	if (tsvCount == 0) tsvCount = 10000000;
+	ptr = ReadCompiledWord(ptr, word);
+	tsvSkip = atoi(word);
+
+	*loginID = 0;
+}
+
 static void C_Source(char* input)
 {
 	char word[MAX_WORD_SIZE];
@@ -1107,6 +1131,48 @@ static void C_Source(char* input)
 	sourceTokens = 0;
 	sourceLines = 0;
 } 
+
+int vcount = 0;
+
+static void DoVolley(char* name, uint64 flag)
+{
+	if (--vcount < 0) return;
+
+	FILE* in = FopenReadNormal(name);
+	if (!in) return;
+	ExecuteVolleyFile(in);
+	Log(ECHOUSERLOG, "%s", ourMainOutputBuffer);
+}
+
+static void C_Concat(char* input)
+{
+	vcount = 10;
+	char word[MAX_WORD_SIZE];
+	logline = false;
+	char* ptr = ReadCompiledWord(input, word);
+	char* directory = strrchr(word, '/');
+	if (directory && directory[1]) 
+	{
+		FILE* in = FopenReadNormal(word); // source
+		if (in)
+		{
+			sourceFile = in;
+			volleyFile = 1;
+		}
+		else Log(USERLOG, "No such source file: %s\r\n", word);
+	}
+	else if (directory)  // execute each file in turn
+	{
+		WalkDirectory(word, DoVolley, 0, 0); 
+	}
+	else // input mode to console
+	{
+		sourceFile = stdin;
+		volleyFile = (volleyFile == 0) ? 1 : 0;
+		if (volleyFile) printf("concat input enabled\r\n");
+		else printf("concat input disabled\r\n");
+	}
+}
 
 static void ReadNextDocument(char* name,uint64 value) // ReadDocument(inBuffer,sourceFile) called eventually to read document
 {
@@ -2677,7 +2743,8 @@ static void JSONSizing(WORDP D, int subject)
 	FACT** stack = (FACT**)InfiniteStack(limit, "jwritehierarchy");
 	if (F && F->flags & JSON_ARRAY_FACT)
 	{
-		indexsize = orderJsonArrayMembers(D, stack); // tests for illegal delete
+		size_t size = 0;
+		indexsize = orderJsonArrayMembers(D, stack,size); // tests for illegal delete
 	}
 	else // json object
 	{
@@ -2703,7 +2770,7 @@ static void JSONSizing(WORDP D, int subject)
 		else if (F->flags & JSON_OBJECT_FACT)
 		{
 			char buffer[MAX_WORD_SIZE];
-			WriteMeaning(F->verb, NULL, buffer);
+			WriteMeaning(F->verb, false, buffer);
 			if (!stricmp(buffer, "pattern"))
 			{
 				char* pat = Meaning2Word(F->object)->word;
@@ -5099,6 +5166,8 @@ static void C_User(char* username)
 	wasCommand = BEGINANEW;	// make system save revised user file
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-function"
 static void Rephrase(char* buffer,char* out) // rewrite script to human understandable
 {
 	char* at = strchr(buffer,'`');
@@ -5144,6 +5213,7 @@ static void Rephrase(char* buffer,char* out) // rewrite script to human understa
 		}
 	}
 }
+#pragma GCC diagnostic pop
 
 static void C_Debug(char* x)
 {
@@ -6992,30 +7062,73 @@ static void FollowIt(WORDP D)
     }
 }
 
+
+static void CleanLog(char* output)
+{
+	if (!output) return;
+	char* zz = strstr(output, "Hi. ");
+	if (zz) memmove(zz, zz + 4, strlen(zz + 3));
+	zz = strstr(output, "Hello. ");
+	if (zz) memmove(zz, zz + 7, strlen(zz + 6));
+	zz = strstr(output, "HELLO");
+	if (zz) memmove(zz - 1, zz + 9, strlen(zz + 8));
+	zz = strstr(output, "ruleshown");
+	if (zz)
+	{
+		char* end = strchr(zz, ']');
+		memmove(zz, end, strlen(end - 1));
+	}
+	zz = strstr(output, ", \"data\"");
+	if (zz)
+	{
+		char* xy = strchr(zz, '}');
+		memmove(zz, xy + 2, xy - zz);
+	}
+	zz = strstr(output, "\"$bwtrace\": \"bruce-cheat\"");
+	if (zz)
+	{
+		memmove(zz, zz + 25, strlen(zz + 25) + 1);
+		if (zz[0] == ',') memmove(zz, zz + 2, strlen(zz + 2) + 1); // delete , space
+	}
+	zz = strstr(output, "\"newglobals\": {} ,");
+	if (zz)
+	{
+		memmove(zz, zz + 18, strlen(zz + 18) + 1);
+		if (*(zz - 1) == ' ') memmove(zz - 1, zz, strlen(zz) + 1); // space before
+	}
+	zz = strstr(output, "\"output\"");
+	if (zz)
+	{
+		char* xy = strchr(zz, '{');
+		if (xy[1] == ' ')
+			memmove(xy + 1, xy + 2, strlen(xy + 1) + 1);
+	}
+}
+
 static void C_Ingestlog(char* input)
 {
 	char name[MAX_WORD_SIZE];
 	char* ptr = ReadCompiledWord(input, name);
-    FILE* in = FopenReadOnly(name);
+	FILE* in = FopenReadOnly(name);
 	ReadCompiledWord(ptr, name); // optional 2nd arg, file to write to instead
 	FILE* out = NULL;
 	if (*name) out = FopenBinaryWrite(name);
 
-    int n = 0;
+	int n = 0;
 	echo = false;
-    char bot[MAX_WORD_SIZE]; 
-    char* message;
+	char bot[MAX_WORD_SIZE];
+	char* message;
 	userLog = 0;
-    uint64 starttime = ElapsedMilliseconds();
-    if (!in)
-    {
-        (*printer)("no such file");
-        return;
-    }
-/*
-Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert) 0 [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop]  ==> [assistanttitle=Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
-Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is my life  ==> [why=~test.0.0.~control.11.0  ] Welcome  When:Jun 04 07:13:05.027 2021 8ms 0wait Why:~xpostprocess.1.0=OOBRESULT.~control.11.0 ~test.0.0.~control.11.0  JOpen:0/0
-*/
+	uint64 starttime = ElapsedMilliseconds();
+	if (!in)
+	{
+		(*printer)("no such file");
+		return;
+	}
+	/*
+	Respond: user:37224444 bot:Pearl ip:184.106.28.86 (~consumer_electronics_expert) 0 [reset type: FunnelQuestion category: consumer_electronics partner: 1 source: sip DeviceCategory: desktop]  ==> [assistanttitle=Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
+	Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is my life  ==> [why=~test.0.0.~control.11.0  ] Welcome  When:Jun 04 07:13:05.027 2021 8ms 0wait Why:~xpostprocess.1.0=OOBRESULT.~control.11.0 ~test.0.0.~control.11.0  JOpen:0/0
+	*/
 	size_t limit = fullInputLimit;
 	if (fullInputLimit < 1500000) limit = 1500000;
 	char* xreadbuf = (char*)malloc(limit);
@@ -7030,22 +7143,22 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 	char lastSpecialty[100];
 	serverLog = FILE_LOG;
 	userLog = FILE_LOG;
-	while (ReadALine(readbuf, in, limit,false,false,true) >= 0)
-    {
-        if (!*readbuf) continue;
+	while (ReadALine(readbuf, in, limit, false, false, true) >= 0)
+	{
+		if (!*readbuf) continue;
 		if (!strstr(readbuf, "Respond:")) continue;
 		char user[MAX_WORD_SIZE];
-        char* userp = strstr(readbuf, "user:");
-			ReadCompiledWord(userp + 5, user);
-			char* botp = strstr(readbuf, "bot:");
-			if (!botp) continue;
-			if (botp[4] == ' ') // default bot
-			{
-				*bot = 0;
-			}
-			else ReadCompiledWord(botp + 4, bot);
+		char* userp = strstr(readbuf, "user:");
+		ReadCompiledWord(userp + 5, user);
+		char* botp = strstr(readbuf, "bot:");
+		if (!botp) continue;
+		if (botp[4] == ' ') // default bot
+		{
+			*bot = 0;
+		}
+		else ReadCompiledWord(botp + 4, bot);
 
-        strcpy(xreadbuf, readbuf);
+		strcpy(xreadbuf, readbuf);
 		strcpy(readbuf, xreadbuf); // debug loopback
 		char* myoob = strchr(readbuf, '[');
 		char* when = strstr(readbuf, "When:");
@@ -7058,7 +7171,7 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 		char* ix = strstr(readbuf, "ip:") + 3;
 		if (*ix != ' ') ReadCompiledWord(ip, ix);
 		message = myoob;
-        strcpy(buffer, message); // this gets trashed
+		strcpy(buffer, message); // this gets trashed
 		if (!out)
 		{
 			char* cat = strstr(buffer, "category:");
@@ -7073,7 +7186,19 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 			}
 			*outbuffer = 0;
 			PerformChat(user, bot, buffer, ip, outbuffer); // this autofrees our buffer
-			output = SkipWhitespace(output+3);
+
+			char label[MAX_WORD_SIZE];
+			*label = 0;
+			char* lab = strstr(buffer, "\"label");
+			if (lab)
+			{
+				char* c = strchr(lab, ',');
+				*c = 0;
+				strcpy(label, lab + 10);
+				*c = ',';
+			}
+
+			output = SkipWhitespace(output + 3);
 			char* newOutput = SkipWhitespace(outbuffer);
 			size_t len = strlen(output);
 			while (output[len - 1] == ' ') output[--len] = 0;
@@ -7081,49 +7206,17 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 			while (newOutput[len - 1] == ' ') newOutput[--len] = 0;
 			newOutput = strstr(newOutput, "\"output\"");
 			output = strstr(output, "\"output\"");
+			if (!newOutput || !output) continue;
 
-			// compensate for "hi" change
-			char* zz = strstr(newOutput, "Hi. ");
-			if (zz) memmove(zz, zz + 4, strlen(zz + 3));
-			zz = strstr(output, "Hi. ");
-			if (zz) memmove(zz, zz + 4, strlen(zz + 3));
-			zz = strstr(output, "Hello. ");
-			if (zz) memmove(zz, zz + 7, strlen(zz + 6));
-			zz = strstr(newOutput, "HELLO");
-			if (zz) 
-				memmove(zz-1, zz + 9, strlen(zz + 8));
-			zz = strstr(newOutput, "ruleshown");
-			if (zz)
-			{
-				char* end = strchr(zz, ']');
-				memmove(zz, end, strlen(end - 1));
-			}
-			zz = strstr(output, "ruleshown");
-			if (zz)
-			{
-				char* end = strchr(zz, ']');
-				memmove(zz, end, strlen(end - 1));
-			}
-			zz = strstr(newOutput, ", \"data\"");
-			if (zz)
-			{
-				char* xy = strchr(zz, '}');
-				memmove(zz, xy + 2,xy-zz);
-			}
-			zz = strstr(output, "\"data\"");
-			if (zz)
-			{
-				char* xy = strchr(zz, '}');
-				memmove(zz, xy + 2,xy-zz);
-			}
-
+			CleanLog(newOutput);
+			CleanLog(output);
 			if (strcmp(newOutput, output)) // different
 			{
-				userLog =  1 ;
-				printf("line %d error %d\r\n", n,error);
+				userLog = 1;
+				printf("line %d error %d label: %s\r\n", n, error, label);
 				++error;
-				Log(ECHOUSERLOG, "%d\r\n",n++);
-				Log(ECHOUSERLOG, "old: %s\r\n",output--);
+				Log(ECHOUSERLOG, "%d\r\n", n++);
+				Log(ECHOUSERLOG, "old: %s\r\n", output--);
 				Log(ECHOUSERLOG, "new: %s\r\n", newOutput--);
 				while (*++output == *++newOutput && *output);
 				output[50] = 0;
@@ -7131,16 +7224,16 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 				Log(ECHOUSERLOG, "oldchange: %s\r\n", output--);
 				Log(ECHOUSERLOG, "newchange: %s\r\n", newOutput--);
 				originalUserInput = buffer;
-				if (*lastCategory) Log(ECHOUSERLOG, "%s  %s  `*`\r\n",lastCategory,lastSpecialty);
+				if (*lastCategory) Log(ECHOUSERLOG, "%s  %s  `*`\r\n", lastCategory, lastSpecialty);
 				userLog = 0;
 			}
 			else printf("%d\r\n", n++);
 		}
 		else fprintf(out, "%s\r\n", buffer);
 	}
-    fclose(in);
+	fclose(in);
 	if (out) fclose(out);
-	bufferIndex  = oldIndex; //because performchat clears buffers down to raw base
+	bufferIndex = oldIndex; //because performchat clears buffers down to raw base
 	free(buffer);
 	free(outbuffer);
 	free(readbuf);
@@ -7150,8 +7243,48 @@ Jun 04 07:13:05.019 2021 Respond: user:dt bot:test len:16 ip: (~test) 2 this is 
 	int msPerMessage = (n == 0) ? n : (diff / n);
 	Log(USERLOG, "Did %d messages in %d mseconds or %d ms per message", n, diff, msPerMessage);
 	C_MemStats(input); // after
-	printf("Did %d messages in %d mseconds or %d ms per message with %d errors\r\n", n, diff, msPerMessage,error);
+	printf("Did %d messages in %d mseconds or %d ms per message with %d errors\r\n", n, diff, msPerMessage, error);
 	if (error) Log(USERLOG, "%d errors\r\n", error);
+}
+
+static void C_CompareFiles(char* input)
+{
+	char name[MAX_WORD_SIZE];
+	char* ptr = ReadCompiledWord(input, name);
+	FILE* in1 = FopenReadOnly(name);
+	if (!in1)
+	{
+		printf("%s doesnt exist\r\n", name);
+		return;
+	}
+	ptr = ReadCompiledWord(ptr, name);
+	FILE* in2 = FopenReadOnly(name);
+	if (!in2)
+	{
+		printf("%s doesnt exist\r\n", name);
+		fclose(in1);
+		return;
+	}
+	char* buffer1 = (char*)malloc(1000);
+	char* buffer2 = (char*)malloc(1000);
+	int n = 0;
+	while (1)
+	{
+		if (!fgets(buffer1, 1000, in1)) break;
+		if (!fgets(buffer2, 1000, in2)) break;
+		if (strcmp(buffer1, buffer2))
+		{
+			size_t x = strlen(buffer1);
+			size_t y = strlen(buffer2);
+			printf("line %d differ %zu %zu:\r\n",n,x,y);
+			printf("%s|",buffer1);
+			printf("%s|",buffer2);
+		}
+		++n;
+	}
+	fclose(in1);
+	fclose(in2);
+	printf("done. \r\n");
 }
 
 static void C_Comparelog(char* input)
@@ -7534,6 +7667,29 @@ static void C_AllMembers(char* input)
     FollowIt(D);
     fclose(outptr);
     printf("%d entries now in TMP/tmp.txt\r\n", follown);
+}
+
+static void pure(char* input)
+{
+	FILE* in = FopenReadOnly(input);
+	if (!in)
+	{
+		(*printer)("no such file");
+		return;
+	}
+	FILE* out = FopenUTF8Write("tmp\\clean.txt");
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		if (!*readBuffer) continue;
+		char word[MAX_WORD_SIZE];
+		char* ptr = ReadCompiledWord(readBuffer, word);
+		ptr = ReadCompiledWord(ptr, word);
+		*ptr = 0;
+		fprintf(out, "%s\r\n", readBuffer);
+	}
+	(*printer)("done\r\n");
+	fclose(out);
+	fclose(in);
 }
 
 static void C_Dedupe(char* input)
@@ -8115,6 +8271,8 @@ static void C_LabelRemap(char* input)
 	}
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-function"
 static char* ReadQuoted(char* ptr, char* word)
 {
 	ptr = ReadCompiledWord(ptr, word);
@@ -8124,54 +8282,694 @@ static char* ReadQuoted(char* ptr, char* word)
 	if (strchr(word, ' ')) *word = 0; // eg han xxx (multiple words)
 	return ptr;
 }
+#pragma GCC diagnostic pop
 
-static void LoadSpanish(char* file)
+static void ReadSpanishDictionary(char* file)
 {
+	// gananciales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ganancial` NC  
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		printf("No such file %s\r\n", file);
+		return;
+	}
+	char outfile[MAX_WORD_SIZE];
+	char* last = strrchr(file, '/');
+	sprintf(outfile, "tmp/%s", last+1);
+	FILE* out = FopenUTF8Write(outfile);
 
-	//"infinitive", eng, "mood", "mood_english", "tense", "tense_english", "verb_english", "form_1s", "form_2s", "form_3s", "form_1p", "form_2p", "form_3p", "gerund", "gerund_english", "pastparticiple", "pastparticiple_english"
-	//"abandonar", eng, "Indicativo", "Indicative", "Presente", "Present", "I abandon, am abandoning", "abandono", "abandonas", "abandona", "abandonamos", "abandonáis", "abandonan", "abandonando", "abandoning", "abandonado", "abandoned"
-
-	FILE* in = FopenReadOnly("spanish.csv");
-	if (!in) return;
-	FILE* out = FopenUTF8Write("TMP/spanish.txt");
-	ReadALine(readBuffer, in); // skip header
 	while (ReadALine(readBuffer, in) >= 0)
 	{
-		char* comma = readBuffer;
-		while ((comma = strchr(comma, ','))) * comma = ' ';
-		char word[MAX_WORD_SIZE];
-		char infinitive[MAX_WORD_SIZE];
-		char* ptr = ReadQuoted(readBuffer, infinitive);
-		if (*infinitive) fprintf(out, "%s ( VERB VERB_INFINITIVE) lemma=`%s` \r\n", infinitive,infinitive);
-		ptr = ReadQuoted(ptr, word); // eng infin
-		ptr = ReadQuoted(ptr, word); // mood 
-		ptr = ReadQuoted(ptr, word); // eng mood 
-		char tense[MAX_WORD_SIZE];
-		ptr = ReadQuoted(ptr, tense);
-		ptr = ReadQuoted(ptr, tense); // eng tense
-		ptr = ReadQuoted(ptr, word); // junk
-		ptr = ReadQuoted(ptr, word); // 1s
-		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // 2s
-		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // 3s
-		if (*word) fprintf(out, "%s ( VERB VERB_PRESENT_3PS) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // 1p
-		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // 2p
-		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // 3p
-		if (*word) fprintf(out, "%s ( VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // gerund
-		if (*word) fprintf(out, "%s ( NOUN NOUN_GERUND ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // junk gerund eng
-		ptr = ReadQuoted(ptr, word); // past part  
-		if (*word) fprintf(out, "%s ( VERB_PAST_PARTICIPLE VERB ) lemma=`%s` \r\n", word, infinitive);
-		ptr = ReadQuoted(ptr, word); // past part  eng
+		if (*readBuffer == '#') continue;
+		char word[MAX_WORD_SIZE];		
+		char type[MAX_WORD_SIZE];
+		char* ptr = SkipWhitespace( readBuffer);
+		if (*ptr == '`')
+		{
+			char* wordptr = word;
+			while (*ptr == '`') *wordptr++ = *ptr++;
+			ptr = ReadCompiledWord(ptr, wordptr); // avoid fact read (there is no closing `)
+		}
+		else if (*ptr == '"' && ptr[1] == ' ') continue;
+		else ptr = ReadCompiledWord(ptr, word);
+		char* end = strchr(ptr, ')');
+		if (!end)
+		{
+			continue;
+		}
+		end[1] = 0;
+		char* more = end + 2; // past ) and space
+		if (!strcmp(ptr, "( )") && !*more) continue; // useless
+		char typing[MAX_WORD_SIZE];
+		strcpy(typing, ptr);
+
+		// decide on typing - we want to adjust verbs
+		bool verb = false;
+		bool infinitive = false;
+		while ((ptr = ReadCompiledWord(ptr, type)) && *ptr)
+		{
+			if (!stricmp(type, "VERB")) verb = true;
+			if (!stricmp(type, "VERB_INFINITIVE")) infinitive = true;
+		}
+		size_t x = strlen(word);
+		if (word[x - 2] == 's' && word[x - 1] == 'e' && VERB_INFINITIVE)
+		{ // reflexive is not infinitive
+			//char* p = strstr(type, "VERB_INFINITIVE");
+			//if (p) strncpy(p, "               ", 15);
+		}
+		if (!strstr(more, "lemma") && verb && !infinitive) // presume verb with no lemma must be infinitive?
+		{
+			//typing[strlen(typing) -1]  = 0; // remove ) 
+			//strcat(typing, " VERB_INFINITIVE )");
+		}
+		fprintf(out, " %s %s ", word, typing);
+		fprintf(out, "%s\r\n", TrimSpaces(more));
 	}
 	fclose(in);
 	fclose(out);
+	printf("done\r\n");
+}
+
+static void AdjustSpanish(char* junk)
+{
+	char buffer[50];
+	for (char i = '0'; i <= '9'; ++i)
+	{
+		sprintf(buffer, (char*)"%c.txt", i);
+		ReadSpanishDictionary(UseDictionaryFile(buffer));
+	}
+	for (char i = 'a'; i <= 'z'; ++i)
+	{
+		sprintf(buffer, (char*)"%c.txt", i);
+		ReadSpanishDictionary(UseDictionaryFile(buffer));
+	}
+	ReadSpanishDictionary(UseDictionaryFile((char*)"other.txt"));
+	ReadSpanishDictionary(UseDictionaryFile((char*)"extra.txt"));
+}
+
+static void C_ExportDictionary(char* junk)
+{
+	ExportCurrentDictionary(); // you need to erase dict.bin first, so ascii is read in
+}
+
+static WORDP Known(char* name)
+{
+	WORDP D = FindWord(name);
+	if (D) return D;
+
+	WORDP revise, entry, canonical;
+	uint64 sysflags = 0;
+	uint64  cansysflags = 0;
+	uint64 properties = GetPosData(2, name, revise, entry, canonical, sysflags, cansysflags);
+	if (canonical != entry) return canonical ;
+	return NULL;
+}
+
+static void CheckPos(char* word, uint64 tag, FILE* out,int zone)
+{
+	WORDP D = FindWord(word);
+	if (!D)
+	{
+		printf("%s not found\r\n", word);
+		return;
+	}
+	Log(ECHOUSERLOG, "-------------\r\n");
+
+	FACT* F = GetObjectNondeadHead(D);
+	while (F)
+	{
+		WORDP E = Meaning2Word(F->subject);
+		if (E->properties & tag)
+		{
+			char extra[100];
+			*extra = 0;
+			if (E->properties & NOUN && tag != NOUN) strcat(extra, "N");
+			if (E->properties & VERB && tag != VERB) strcat(extra, "V");
+			if (E->properties & (ADJECTIVE | ADVERB) && !(tag & (ADVERB | ADJECTIVE))) strcat(extra, "A");
+			if (E->properties & (PARTICLE | CONJUNCTION | PREPOSITION) && !(tag & CONJUNCTION)) strcat(extra, "e");
+			char context[MAX_WORD_SIZE];
+			sprintf(context, "~%s_context", E->word);
+			if (FindWord(context)) strcat(extra, "  context");
+			
+			//Log(ECHOUSERLOG, "%s  %s\r\n", E->word,extra);
+			if (E->counter) Log(ECHOUSERLOG, "*** %s  %d\r\n", E->word, E->counter | zone);
+			E->counter |= zone;
+		}
+		F = GetObjectNondeadNext(F);
+	}
+}
+
+static void MemberPos(char* data)
+{
+	char pos[MAX_WORD_SIZE];
+	char word[MAX_WORD_SIZE];
+	char name[MAX_WORD_SIZE];
+	FILE* out = FopenBinaryWrite("tmp\\members.txt");
+	data = ReadCompiledWord(data, word);
+	ReadCompiledWord(data, pos);
+	uint64 tag = 0;
+	if (!stricmp(pos, "NOUN")) tag = NOUN;
+	if (!stricmp(pos, "VERB")) tag = VERB;
+	if (!stricmp(pos, "ADJECTIVE")) tag = ADJECTIVE;
+	if (!stricmp(pos, "ADVERB")) tag = ADVERB;
+	if (!stricmp(pos, "OTHER")) tag = PARTICLE | CONJUNCTION | PREPOSITION | DETERMINER_BITS | AUX_VERB;
+	sprintf(name, "%s_hi",word);
+	CheckPos(name, tag, out,4);
+	sprintf(name, "%s_med", word);
+	CheckPos(name, tag, out,2);
+	sprintf(name, "%s_lo", word);
+	CheckPos(name, tag, out,1);
+	fclose(out);
+	printf("done\r\n");
+}
+
+static void CheckAdverb(WORDP D, uint64 junk)
+{
+	if (D->properties & ADVERB )
+	{
+		Log(USERLOG, "%s\r\n", D->word);
+	}
+}
+static void LoadSpanish(char* file)
+{
+	WalkDictionary(CheckAdverb, 0);
+	if (1==1) return;
+
+
+	int line = 0;
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		printf("No such file %s\r\n", file);
+		return;
+	}
+	char* buffer = AllocateBuffer();
+	char* originalbuffer = buffer;
+	FILE* goodl = FopenBinaryWrite("tmp\\goodlow.txt");
+	FILE* goodm = FopenBinaryWrite("tmp\\goodmedium.txt");
+	FILE* goodh = FopenBinaryWrite("tmp\\goodhi.txt");
+	FILE* badl = FopenBinaryWrite("tmp\\badlow.txt");
+	FILE* badm = FopenBinaryWrite("tmp\\badmedium.txt");
+	FILE* badh = FopenBinaryWrite("tmp\\badhi.txt");
+	FILE* othergood = FopenBinaryWrite("tmp\\othergood.txt");
+	FILE* otherbad = FopenBinaryWrite("tmp\\otherbad.txt");
+
+	while (ReadALine(readBuffer, in) >= 0)
+	{ // conflicting	-1.7	0.64031	[-1, -2, -3, -1, -2, -1, -2, -1, -2, -2]
+		++line;
+		char word[MAX_WORD_SIZE];
+		char value[MAX_WORD_SIZE];
+		ReadCompiledWord(readBuffer, word);
+		char* ptr = strchr(readBuffer, ',');
+		ptr = strchr(ptr+1, ',');
+		ptr = strchr(ptr + 1, ',');
+		ptr = strchr(ptr + 1, ',');
+		ptr = strchr(ptr + 1, ',');
+		if (strchr(word ,'0')) fprintf(otherbad,"%s\r\n", ptr+1);
+		else if (strchr(word , '4')) fprintf(othergood,"%s\r\n",ptr+1);
+		else
+		{
+			int xx = 0;
+		}
+		if (1 == 1) continue;
+
+		if (*readBuffer == '#') continue;
+		 ptr = readBuffer;
+		if (strstr(file, "neg"))
+		{
+			char* comma = strchr(ptr, ','); 
+			*comma = 0;
+			ReadCompiledWord(ptr, word);
+			MakeLowerCase(word);
+			fprintf(goodl, "%s\r\n",word);
+			continue;
+		}
+		if (strstr(file, "vader"))
+		{
+			//while (*ptr)
+			{
+				ptr = SkipWhitespace(ptr);
+				char* f = strchr(ptr, '[');
+				if (f) *f = 0;
+				char* end = strchr(ptr, ',');
+				if (end)
+				{
+					*end = 0;
+					char* x = ptr;
+					while ((x = strchr(x, ' '))) *x = '_';
+					*end = ' ';
+				}
+				ptr = ReadCompiledWord(ptr, word);
+				MakeLowerCase(word);
+				//ptr = ReadCompiledWord(ptr, kind);
+				ptr = ReadCompiledWord(ptr, value);
+			}
+			float val = (float)atof(value);
+			// if (val >= 0.1 && val < .5) // too weak
+			if (val > 2.0)
+				fprintf(goodh, "%s\r\n", word); // strong good
+			else if (val > 1.0 && val <= 2.0) fprintf(goodm, "%s\r\n", word);// medium good
+			else if (val >= 0.4 && val <= 1.0) fprintf(goodl, "%s\r\n", word);// weak good
+			else if (val < -2.0) fprintf(badh, "%s\r\n", word);// strong bad
+			else if (val < -1.0 && val >= -2.0)
+				fprintf(badm, "%s\r\n", word); // medium bad
+			else if (val <= -0.3 && val >= -1.0)
+				fprintf(badl, "%s\r\n", word);// weakbad
+			else if (val > 0.0) fprintf(othergood, "%s %s\r\n", word, value);
+			else  fprintf(otherbad, "%s %s\r\n", word, value);
+		}
+		else if (strstr(file, "afin")) // -5 to 5,  4,5 strong  3 mid  1,2 weak
+		{
+			char* p = ptr;
+			while ((p = strchr(p, ' '))) *p = '_';
+			p = strrchr(ptr, '_');
+			*p = ' ';
+			ptr = ReadCompiledWord(ptr, word);
+			ptr = ReadCompiledWord(ptr, value);
+			MakeLowerCase(word);
+			int val = atoi(value);
+			if (val >=4) fprintf(goodh, "%s\r\n", word); // strong good
+			else if (val == 3) fprintf(goodm, "%s\r\n", word);// medium good
+			else if (val >= 1) fprintf(goodl, "%s\r\n", word);// weak good
+			else if (val <= -4) fprintf(badh, "%s\r\n", word);// strong bad
+			else if (val == -3)  fprintf(badm, "%s\r\n", word); // medium bad
+			else if (val <= -1) fprintf(badl, "%s\r\n", word);
+			else  fprintf(otherbad, "%s %d\r\n", word, val);
+		}
+		else if (strstr(file, "senti"))
+		{
+			ptr = ReadCompiledWord(ptr, word);
+			char* sense = strchr(word, '#');
+			if (sense) 
+			{
+				*sense = ' '; 
+				sense[1] = ' ';
+			}
+			ptr = ReadCompiledWord(ptr, value);
+			float val = (float)atof(value);
+			if (val >= .75) fprintf(goodh, "%s\r\n", word);  // unaffectionate#a	0.06700 is wrongly weighted
+			else if (val >= .5) fprintf(goodm, "%s\r\n", word);
+			else if (val >= .3) fprintf(goodl, "%s\r\n", word);
+			else if (val > 0) fprintf(othergood, "%s\r\n", word);
+			else if (val <= -.75) fprintf(badh, "%s\r\n", word);
+			else if (val <= -.6) fprintf(badm, "%s\r\n", word);
+			else if (val <= -.5) fprintf(badl, "%s\r\n", word);
+			else if (val < 0) fprintf(otherbad, "%s\r\n", word);
+		}
+		else if (strstr(file, "adverb"))
+		{
+			char w[MAX_WORD_SIZE];
+			ptr = ReadCompiledWord(ptr, w);
+			ptr = ReadCompiledWord(ptr, w);
+			if (!*w) continue;
+			WORDP F = FindWord(w);
+			if (F && F->properties & ADVERB) continue;
+			fprintf(othergood, "%s ( ADVERB ) \r\n", w);
+
+			continue;
+		}
+		else if (strstr(file, "adjective"))
+		{
+			char w[MAX_WORD_SIZE];
+			ptr = ReadCompiledWord(ptr, w);
+			if (!*w) continue;
+			MakeLowerCase(w);
+			WORDP F = FindWord(w);
+			if (F && F->properties & ADJECTIVE) continue;
+			fprintf(othergood, "%s ( ADJECTIVE ) \r\n", w);
+			if (*ptr == '(')
+			{
+				size_t len = strlen(w);
+				w[len - 1] = 'a';
+				F = FindWord(w);
+				if (F && F->properties & ADJECTIVE) continue;
+				fprintf(othergood, "%s ( ADJECTIVE ) \r\n", w);
+			}
+
+			continue;
+		}
+		else if (strstr(file, "verb1"))
+		{
+			char w[MAX_WORD_SIZE];
+			ReadCompiledWord(ptr, w);
+			if (!*w) continue;
+			WORDP F = FindWord(w);
+			if (F && F->properties & VERB_INFINITIVE) continue;
+			fprintf(othergood, "%s ( VERB VERB_INFINITIVE ) \r\n",w);
+
+			continue;
+		}
+		else if (strstr(file, "verb"))
+		{
+			char person1[MAX_WORD_SIZE];
+			char person2[MAX_WORD_SIZE];
+			char person3[MAX_WORD_SIZE];
+			char person1p[MAX_WORD_SIZE];
+			char person2p[MAX_WORD_SIZE];
+			char person3p[MAX_WORD_SIZE];
+			char gerund[MAX_WORD_SIZE];
+			char infinitive[MAX_WORD_SIZE];
+			char junk[MAX_WORD_SIZE];
+			char tense[MAX_WORD_SIZE];
+			char pastpart[MAX_WORD_SIZE];
+
+
+	//		"infinitive", "infinitive_english", "mood", "mood_english", "tense", "tense_english", "verb_english", "form_1s", "form_2s", "form_3s", "form_1p", "form_2p", "form_3p", "gerund", "gerund_english", "pastparticiple", "pastparticiple_english"
+	//		"abandonar", "to abandon, leave behind, desert; to quit, give up", "Indicativo", "Indicative", "Presente", "Present", "I abandon, am abandoning", "abandono", "abandonas", "abandona", "abandonamos", "abandonáis", "abandonan", "abandonando", "abandoning", "abandonado", "abandoned"
+			char* at = ptr;
+			while ((at = strchr(at, ' ' ))) *at = '_';  //change space to underscore
+			at = ptr;
+			while ((at = strchr(at, ','))) *at = ' ';  //change comma to space
+			at = ptr;
+			while ((at = strchr(at, '"')))
+			{
+				char* end = strchr(at + 1, '"');
+				*end = 0;
+				char* x = at;
+				while ((x = strchr(x, ','))) *x = '_';
+				x = at;
+				while ((x = strchr(x, ' '))) *x = '_';
+				*end = ' ';
+				*at = ' ';  //change quotes to space
+			}
+			ptr = ReadCompiledWord(ptr, infinitive);
+			ptr = ReadCompiledWord(ptr, junk); // english infinitive
+			ptr = ReadCompiledWord(ptr, junk); // mood
+			ptr = ReadCompiledWord(ptr, junk); // mood english
+			ptr = ReadCompiledWord(ptr, junk); // tense
+			ptr = ReadCompiledWord(ptr, tense); // tense english
+			if (!stricmp(tense, "present")) strcpy(tense, "VERB_PRESENT");
+			else if (!stricmp(tense, "preterite")) strcpy(tense, "VERB_PAST");
+			else if (!stricmp(tense, "future")) strcpy(tense, "AUX_VERB_FUTURE"); // aka future
+			else if (strstr(tense, "Perfect")) continue; // multiple word (has aux)
+			else if (strstr(tense, "Archaic")) continue; // old verb
+			else 
+			{
+				strcat(tense, "-unknown"); continue;
+			}
+			ptr = ReadCompiledWord(ptr, junk); // verb english
+			ptr = ReadCompiledWord(ptr, person1); // 1st person
+			ptr = ReadCompiledWord(ptr, person2); // 2nd person
+			ptr = ReadCompiledWord(ptr, person3); // 3rd person
+			ptr = ReadCompiledWord(ptr, person1p); // 1st person plural
+			ptr = ReadCompiledWord(ptr, person2p); // 2nd person plural
+			ptr = ReadCompiledWord(ptr, person3p); // 3rd person plural
+			ptr = ReadCompiledWord(ptr, gerund); // gerund
+			ptr = ReadCompiledWord(ptr, junk); // gerund english
+			ptr = ReadCompiledWord(ptr, pastpart); // past participle  // may be missing
+
+			WORDP entry;
+			WORDP canonical;
+			uint64 sysflags;
+			if (ComputeSpanish(2, person1, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB %s PRONOUN_I PRONOUN_SUBJECT PRONOUN_SINGULAR ) lemma=`%s`\r\n",  person1, tense, infinitive);
+			if (ComputeSpanish(2, person2, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB  %s PRONOUN_YOU PRONOUN_SUBJECT PRONOUN_SINGULAR ) lemma=`%s`\r\n",  person2, tense, infinitive);
+
+			if (ComputeSpanish(2, person3, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB  %s PRONOUN_SUBJECT PRONOUN_SINGULAR ) lemma=`%s`\r\n",  person3, tense, infinitive);
+
+			if (ComputeSpanish(2, person1p, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB  %s PRONOUN_I PRONOUN_SUBJECT PRONOUN_PLURAL ) lemma=`%s`\r\n",  person1p, tense, infinitive);
+
+			if (ComputeSpanish(2, person2p, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB  %s PRONOUN_YOU PRONOUN_SUBJECT PRONOUN_PLURAL ) lemma=`%s`\r\n",  person2p, tense, infinitive);
+
+			if (ComputeSpanish(2, person3p, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  VERB  %s PRONOUN_SUBJECT PRONOUN_PLURAL ) lemma=`%s`\r\n",  person3p, tense, infinitive);
+			
+			// gerund
+			if (ComputeSpanish(2, gerund, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else fprintf(othergood, "%s (  NOUN NOUN_GERUND ) lemma=`%s`\r\n",  gerund, infinitive);
+			
+			if (*pastpart  && ComputeSpanish(2, pastpart, entry, canonical, sysflags) && !stricmp(canonical->word, infinitive)) {}
+			else if (*pastpart) fprintf(othergood, "%s (  VERB  VERB_PASTPARTICPLE ) lemma=`%s`\r\n",  pastpart, infinitive);
+		}
+	}
+	if (in) fclose(in);
+	fclose(othergood);
+	fclose(otherbad);
+	fclose(goodl);
+	fclose(goodm);
+	fclose(goodh);
+	fclose(badl);
+	fclose(badm);
+	fclose(badh);
+	FreeBuffer();
 	printf("converted\r\n");
+}
+
+static void GetOtherForms(char* word)
+{
+	nWordForms = 0;
+	NextInferMark();
+	WORDP D = FindWord(word);
+	if (!D) return;
+
+	ShowForm(word);
+	char revise[MAX_WORD_SIZE];
+	size_t len = strlen(word);
+		if (word[len - 1] == 'e')
+		{
+			strcpy(revise, word);
+			revise[len - 1] = 0; // drop the e
+			ShowForm(revise);
+		}
+		if (word[len - 1] == 'y')
+		{
+			strcpy(revise, word);
+			revise[len - 1] = 'i';  // y to i
+			ShowForm(revise);
+		}
+		if (word[len - 1] == 'e' && word[len - 2] ==  'l')
+		{
+			strcpy(revise, word);
+			revise[len - 2] = 'i'; // le to il
+			revise[len - 1] = 'l'; 
+			ShowForm(revise);
+		}
+		if (word[len - 1] == 'e' && word[len - 2] == 'i') // ie to y
+		{
+			strcpy(revise, word);
+			revise[len - 2] = 'y'; // le to il
+			revise[len - 1] = 0;
+			ShowForm(revise);
+		}
+		if (word[len - 1] == 't')
+		{
+			strcpy(revise, word);
+			strcpy(revise + len - 1, "ss"); //  t to ss
+			ShowForm(revise);
+		}
+		sprintf(revise, "inter%s", word);
+		ShowForm(revise);
+		if (!IsVowel(word[len - 1]))
+		{
+			sprintf(revise, "%s%c", word, word[len - 1]);
+			ShowForm(revise);
+		}
+}
+
+static void ShowOtherForms(char* file)
+{
+	GetOtherForms(file);
+	for (int i = 0; i < nWordForms; ++i) printf("%s  ", wordForms[i]->word);
+	printf("\r\n");
+	for (int i = 0; i < nNegateWordForms; ++i) printf("-%s  ", negateWordForms[i]->word);
+	printf("\r\n");
+}
+
+static void GetAffect(WORDP D,unsigned int restriction,int& good, int& bad)
+{
+	if (!D) return;
+	MEANING M = MakeMeaning(D, restriction);
+	FACT* F = GetSubjectNondeadHead(D);
+	while (F)
+	{
+		int restrict = GETTYPERESTRICTION(F->subject);
+		if (restrict && restriction && !(restriction & restrict)) {} // this fact and we are restrictedand doesnt match our restriction
+		else if (F->verb == Mmember)
+		{
+			char* name = Meaning2Word(F->object)->word;
+			if (strstr(name, "good"))
+			{
+				if (strstr(name, "lo")) good |= 1;
+				else if (strstr(name, "med")) good |= 2;
+				else if (strstr(name, "hi")) good |= 4;
+			}
+			else if (strstr(name, "bad"))
+			{
+				if (strstr(name, "lo")) bad|= 1;
+				else if (strstr(name, "med")) bad |= 2;
+				else if (strstr(name, "hi")) bad |= 4;
+			}
+		}
+		F = GetSubjectNondeadNext(F);
+	}
+}
+
+static unsigned CountBits(unsigned int number)
+{
+	if (number == 0) return 0;
+	if (number == 1) return 1;
+	if (number == 2) return 1;
+	if (number == 3) return 2;
+	if (number == 4) return 1;
+	if (number == 5) return 2;
+	if (number == 6) return 2;
+	if (number == 7) return 3;
+	return 0;
+}
+
+static void ValidateAffect(char* original, bool nocanonical,unsigned int restriction)
+{
+	char* name;
+	WORDP revise, entry, canonical;
+	uint64 sysflags = 0;
+	uint64  cansysflags = 0;
+	name = original;
+	if (!nocanonical)
+	{
+		GetPosData(2, original, revise, entry, canonical, sysflags, cansysflags);
+		if (canonical) name = canonical->word;
+	}
+	
+	WORDP D = FindWord(name);
+	if (!D)
+	{
+		printf("no such word %sr\n",name);
+		return;
+	}
+	int good = 0;
+	int bad = 0;
+	GetAffect(D, restriction,good, bad);
+	if (good && bad) Log(USERLOG, "base conflict for (%s)  %s good:%d bad:%d \r\n", original,name,good,bad);
+	if (!good && !bad)
+	{
+		D = FindWord(original);
+		GetAffect(D, restriction,good, bad);
+		printf("canonical %s has no affect for %s good:%d bad:%d\r\n", name, original,good,bad);
+		return;
+	}
+	if (CountBits(good) > 1) Log(USERLOG," %s has multiple good\r\n", original);
+	if (CountBits(bad) > 1)  Log(USERLOG, " %s has multiple bad\r\n", original);
+	if (1 == 1) return;
+
+	GetOtherForms(name);
+	for (int i = 0; i < nWordForms; ++i)
+	{
+		int g = 0;
+		int b = 0;
+		WORDP E = wordForms[i];
+		GetAffect(E, restriction,g, b);
+		if (good && b) Log(ECHOUSERLOG,"base conflict for  %s good:%d vs %s bad:%d\r\n",name,good,E->word,b);
+		if (bad && g) Log(ECHOUSERLOG, "base conflict for  %s bad:%d %s good:%d\r\n", name,bad,E->word,g);
+		if (!b && !g) Log(ECHOUSERLOG, "missing for  %s good:%d bad:%d %s \r\n", name, good,bad, E->word);
+	}
+}
+
+static void CheckAff(char* name)
+{
+	FILE* in = FopenReadOnly(name);
+	if (!in)
+	{
+		printf("No such file %s\r\n", name);
+		return;
+	}
+	FILE* goodl = FopenBinaryWrite("tmp\\goodother.txt");
+	FILE* badl = FopenBinaryWrite("tmp\\badother.txt");
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		char word[MAX_WORD_SIZE];
+		ReadCompiledWord(readBuffer, word);
+		WORDP X = FindWord(word);
+		if (!X) fprintf(badl, "%s\r\n", word);
+		else
+		{
+			int good = 0;
+			int bad = 0;
+			GetAffect(X, NULL, good, bad);
+			if (!good && !bad) fprintf(goodl, "%s\r\n", word); // maybe useful
+		}
+	}
+	fclose(goodl);
+	fclose(badl);
+	printf("done\r\n");
+}
+
+static void ValidateAffectConcept(char* name)
+{
+	WORDP D = FindWord(name);
+	if (!D)
+	{
+		printf("concept not found %s\r\n", name);
+		return;
+	}
+	FACT* F = GetObjectNondeadHead(D);
+	while (F)
+	{
+		if (F->verb == Mmember)
+		{
+			char* name  = Meaning2Word(F->subject)->word;
+			unsigned int restriction = GETTYPERESTRICTION(F->subject);
+			ValidateAffect(name, true,restriction); // dont switch to cannonical if quoted
+			//ValidateAffect(name, F->flags & ORIGINAL_ONLY, restriction); // dont switch to cannonical if quoted
+		}
+		F = GetObjectNondeadNext(F);
+	}
+	printf("finished\r\n");
+}
+
+static void PermuteAffectConcept(char* name)
+{
+	WORDP D = FindWord(name);
+	if (!D)
+	{
+		printf("concept not found %s\r\n", name);
+		return;
+	}
+	FACT* F = GetObjectNondeadHead(D);
+	while (F)
+	{
+		if (F->verb == Mmember)
+		{
+			WORDP item = Meaning2Word(F->subject);
+			char* name = item->word;
+			GetOtherForms(name);
+			bool header = false;
+			for (int i = 0; i < nWordForms; ++i)
+			{
+				int g = 0;
+				int b = 0;
+				WORDP E = wordForms[i];
+				if (!stricmp(E->word, "sexiness"))
+				{
+					int xx = 0;
+				}
+				WORDP revise, entry, canonical;
+				uint64 sysflags = 0;
+				uint64  cansysflags = 0;
+				uint64 properties = GetPosData(2, E->word, revise, entry, canonical, sysflags, cansysflags);
+				// do we spawn a non-conjugated alternate word
+				if (properties & (MORE_FORM | MOST_FORM)) continue;
+				if (properties & (VERB_PAST_PARTICIPLE | VERB_PRESENT_PARTICIPLE)) continue; // assume we will see the infinitive somehow
+				if (properties & (VERB_INFINITIVE | NOUN_SINGULAR | ADJECTIVE | ADVERB)) {}// we dont know this word
+				else continue;
+
+				GetAffect(E, 0, g, b);
+				if (g || b) continue; // already known
+
+				if (!header)
+				{
+					header = true;
+					Log(USERLOG, "%s\r\n", name);
+				}
+				Log(USERLOG,"      %s\r\n", E->word);
+			}
+		}
+		F = GetObjectNondeadNext(F);
+	}
+	printf("finished\r\n");
 }
 
 static void LoadDescriptions (char* file)
@@ -8424,7 +9222,7 @@ static void C_AllFacts(char* input)
 		{
 			if (!(F->flags & FACTTRANSIENT))
 			{
-				if (UnacceptableFact(F, true)) continue;
+				if (UnacceptableFact(F)) continue;
 				char* f = WriteFact(F, true, word, false, true);
 				char* kind = "";
 				if (F->flags & FACTBOOT) kind = "boot";
@@ -8815,6 +9613,12 @@ static void C_Show(char* input)
 		if (*value) all = set;
 		else all = !all;
 		Log(USERLOG,"All set to %d\n",all);
+	}
+	else if (!stricmp(word, (char*)"postprocess"))
+	{
+		if (*value) postprocess = set;
+		else postprocess = !postprocess;
+		Log(USERLOG, " postprocess set to %d\r\n", postprocess);
 	}
 	else if (!stricmp(word,(char*)"oob"))
 	{
@@ -9699,8 +10503,7 @@ static void BuildDummyConcept(WORDP D,uint64 junk)
 
 static void SortConcept(WORDP D,uint64 junk)
 {
-	if (*D->word == '~')
-		Sortit(D->word,(int)junk); // 1 will be for 1line, otherwise take multiline as needed
+	if (*D->word == '~') Sortit(D->word, (int)junk); // 1 will be for 1line, otherwise take multiline as needed
 }
 
 static void Translate(char* msg,char* to, char* apkey)
@@ -10020,11 +10823,53 @@ static void C_TranslateConcept(char* input) // give the lang & filename to write
 	(*printer)("translation of %s complete\r\n",input);
 }
 
+static void C_ExcludeConcept(char* input)
+{
+	FILE* out = FopenBinaryWrite("cset.txt"); // empty the file
+	fclose(out);
+
+	char concept1[MAX_WORD_SIZE];
+	char concept2[MAX_WORD_SIZE];
+	input = ReadCompiledWord(input, concept1);
+	input = ReadCompiledWord(input, concept2);
+	WORDP c1 = FindWord(concept1);
+	WORDP c2 = FindWord(concept2);
+	if (!c1 || !c2)
+	{
+		printf("missing %s or %s\r\n", concept1, concept2);
+		return;
+	}
+
+	// kill redundant facts in concept2
+	FACT* F = GetObjectNondeadHead(c1);
+	while (F)
+	{
+		FACT* G = GetObjectNondeadHead(c2);
+		while (G)
+		{
+			if (F->subject == G->subject)
+			{
+				G->flags |= FACTDEAD;
+				printf("dup: %s\r\n", Meaning2Word(G->subject)->word);
+				break;
+			}
+			G = GetObjectNondeadNext(G);
+		}
+
+		F = GetObjectNondeadNext(F);
+	}
+	
+	// now write out concept2
+	int junk = 0;
+	Sortit(c2->word, junk);
+}
+
 static void C_SortConcept(char* input)
 {
 #ifdef INFORMATION
 	To get concepts in a file sorted alphabetically(both by concept and within), do
 		0. empty TOPICS
+		0. create top level file concepts.top
 		0. :build concept0
 		1. : sortconcept x		-- builds one concept per line and sorts the file by concept name  outputs to concepts.top
 		2. take the contents of concepts.top that was written at top level and replace the original file in ONTOLOGY, erase TOPICS
@@ -10039,6 +10884,7 @@ static void C_SortConcept(char* input)
 		4. : sortconcept x  -- one concept per line
 #endif
 	WORDP D = StoreWord((char*)"~a_dummy", AS_IS);
+
 	char which[100];
 	int64 flags;
 	input = ReadCompiledWord(input, which);
@@ -10068,6 +10914,49 @@ static void C_SortConcept(char* input)
 		else system((char*)"copy c:/chatscript/cset.txt >concepts.top");
 	}
 }
+
+static bool IsMemberSet(WORDP D, WORDP set)
+{
+	FACT* F = GetSubjectNondeadHead(D);
+	while (F)
+	{
+		WORDP E = Meaning2Word(F->object);
+		if (F->verb == Mmember && E == set) return true;
+		//if (*E->word == '~' && IsMember(E, set)) return true; // it is a member of that which is a member
+		F = GetSubjectNondeadNext(F);
+	}
+	return false;
+}
+
+static void C_CanonConcept(char* concept)
+{
+	WORDP D = FindWord(concept);
+	if (!D) return;
+	FILE* out = FopenUTF8Write("tmp\\concept.txt");
+	if (!out) return;
+	FACT* F = GetObjectNondeadHead(D);
+	while (F)
+	{
+		WORDP E = Meaning2Word(F->subject);
+		if (F->verb == Mmember)
+		{
+			if (F->flags & ORIGINAL_ONLY) fprintf(out, "'%s\r\n", E->word);
+			else
+			{
+				WORDP revise, entry, canonical;
+				uint64 sysflags = 0;
+				uint64  cansysflags = 0;
+				GetPosData(2, E->word, revise, entry, canonical, sysflags, cansysflags);
+				if (canonical && canonical != entry && IsMemberSet(canonical, D)) { ;} // dont bother, canonical is here
+				else fprintf(out, "%s\r\n", canonical->word); // write canonical form instead
+			}
+		}
+		F = GetObjectNondeadNext(F);
+	}
+	fclose(out);
+	printf("done\r\n");
+}
+
 
 //////////////////////////////////////////////////////////
 //// ANALYTICS
@@ -12040,7 +12929,10 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":mixedcase",C_MixedCase,(char*)"List words occurring in both cases, not part of WordNet"}, 
 	{ (char*)":dualupper",C_DualUpper,(char*)"List words occurring in multiple uppercase forms, not part of WordNet" },
 	{ (char*)":feeling",C_Feelings,(char*)"given words, list their feelings in tmp/tmp.txt and missing.txt" },
-	
+	{ (char*)":ShowOtherForms",ShowOtherForms,(char*)"give related words in other parts of speech" },
+	{ (char*)":ValidateAffectConcept",ValidateAffectConcept,(char*)"given conceptname, check members affect" },
+	{ (char*)":PermuteAffectConcept",PermuteAffectConcept,(char*)"given conceptname, check members affect for suggestions to permute" },
+	{ (char*)":CheckAffect",CheckAff,(char*)"see if file useful" },
 	{ (char*)"\r\n---- System Control commands",0,(char*)""}, 
 	{ (char*)":build",C_Build,(char*)"Compile a script - filename {nospell,outputspell,reset}"}, 
 	{ (char*)":bot",C_Bot,(char*)"Change to this bot"},  
@@ -12061,7 +12953,9 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":tokenize",C_Tokenize,(char*)"Show results of tokenization" },
 	{ (char*)":prepare",C_Prepare,(char*)"Show results of tokenization, tagging, and marking on a sentence"},
 	{ (char*)":regress",C_Regress,(char*)"create or test a regression file"}, 
-	{ (char*)":source",C_Source,(char*)"Switch input to named file"}, 
+	{ (char*)":concat",C_Concat,(char*)"Switch input to named file as single volley or do multiline volleys on stdin"},
+	{ (char*)":tsvsource",C_TSVSource,(char*)"Switch input to named file line orientd"},
+	{ (char*)":source",C_Source,(char*)"Switch input to named file"},
 	{ (char*)":testpattern",C_TestPattern,(char*)"See if a pattern works with an input."}, 
 	{ (char*)":variablereference",C_VariableReference,(char*)"List variables set or retrieved and how often" },
 	{ (char*)":testtopic",C_TestTopic,(char*)"Try named topic responders on input"},
@@ -12087,12 +12981,16 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":checklist",C_CheckList,(char*)"echo  to TMP/tmp.txt words in file list that can be verbs" },
 	{ (char*)":dictwrite",C_DictWrite,(char*)"echo  to TMP/x.txt dictionary entries on one line" },
 
+	{ (char*)":pure",pure,(char*)"modify spanish dict" },
 	{ (char*)"\r\n---- internal support",0,(char*)""}, 
+	{ (char*)":adjustspanish",AdjustSpanish,(char*)"modify spanish dict" },
+	{ (char*)":memberpos",MemberPos,(char*)"members of concept with pos" },
 	{ (char*)":loadspanish",LoadSpanish,(char*)"convert spanish.csv to tmp/spanish.txt" },
 	{ (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },
 	{ (char*)":compiledp",C_CompileDP,(char*)"compile dp bot" },
 	{ (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
 	{ (char*)":comparelog",C_Comparelog,(char*)"diff 2 log files" },
+	{ (char*)":comparefiles",C_CompareFiles,(char*)"diff 2  files" },
 	{ (char*)":dedupe",C_Dedupe,(char*)"echo input file to TMP/tmp.txt without duplicate lines)" },
 	{ (char*)":topicdump",C_TopicDump,(char*)"Dump topic data suitable for inclusion as extra topics into TMP/tmp.txt (:extratopic or PerformChatGivenTopic)"},
     { (char*)":listvariables",C_ListVariables,(char*)"List variables into tmp/variables.txt" },
@@ -12107,6 +13005,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":newdiff",C_NewDiff,(char*)"Read lines from paired file, note diff lines into tmp/match.txt and tmp/unmatch.txt" },
 	{ (char*)":mergelines",C_MergeLines,(char*)"Read lines from sorted file, rewrite only 1 instence of 1st words to TMP/tmp.txt" },
     { (char*)":striplog",C_StripLog,(char*)"Read lines from a server log file, reducing them to normal inputs for :source, write to TMP/tmp.txt" },
+	{ (char*)":exportdictionary",C_ExportDictionary,(char*)"rewrite dictionary to  tmp"},
 #ifndef DISCARDPOSTGRES
 	{ (char*)":endpguser",C_EndPGUser,(char*)"Switch from postgres user topic to file system"},
 #endif
@@ -12117,8 +13016,10 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":pennnoun",C_PennNoun,(char*)"locate mass nouns in pennbank"}, 
 	{ (char*)":pos",C_POS,(char*)"Show results of tokenization and tagging"},  
 	{ (char*)":plural",C_Plural,(char*)"Show plural of word" },
-	{ (char*)":sortconcept",C_SortConcept,(char*)"Prepare concept file alphabetically"},
-	{ (char*)":translateconcept",C_TranslateConcept,(char*)"take"}, 
+	{ (char*)":canonconcept",C_CanonConcept,(char*)"Prepare concept file alphabetically with canonicals where possible" },
+	{ (char*)":sortconcept",C_SortConcept,(char*)"Prepare concept file or concept alphabetically"},
+	{ (char*)":excludeconcept",C_ExcludeConcept,(char*)"Remove 1st from 2nd, writing 2nd to tmp/cset.txt" },
+	{ (char*)":translateconcept",C_TranslateConcept,(char*)"take"},
 	{ (char*)":timepos",C_TimePos,(char*)"compute wps average to prepare inputs"},
 	{ (char*)":verifypos",C_VerifyPos,(char*)"Regress pos-tagging using default REGRESS/postest.txt file or named file"},
 	{ (char*)":verifyspell",C_VerifySpell,(char*)"Regress spell checker against file"}, 
@@ -12170,7 +13071,6 @@ void Sortit(char* name,int oneline)
 {
 	WORDP D = FindWord(name,0);
 	if (!D) return;
-	FILE* out = FopenUTF8WriteAppend((char*)"cset.txt");
 
 	char* word = AllocateStack(NULL, maxBufferSize);
 	MakeUpperCopy(word,name);
@@ -12180,20 +13080,27 @@ void Sortit(char* name,int oneline)
 	std::vector<char*> mylist;
 	FACT* F = GetObjectNondeadHead(D);
 	bool duplicate = false;
+	bool hasmember = false;
 	while (F)
 	{
         if (ValidMemberFact(F) || F->verb == Mexclude)
 		{
+			hasmember = true;
 			strcpy(word,WriteMeaning(F->subject));
 			if (*word == '~') MakeUpperCase(word); // cap all concepts and topics
 			WORDP E = StoreWord(word);
 			if (F->verb == Mexclude) AddInternalFlag(E,BEEN_HERE); // exclude notation
+			if (F->flags & ORIGINAL_ONLY) AddInternalFlag(E, INTERNAL_MARK);
 			mylist.push_back(E->word);
-			if (F->flags & FACTDUPLICATE) duplicate = true;	// we allow duplicate facts, DONT SORT THIS
+			if (F->flags & FACTDUPLICATE) 
+				duplicate = true;	// we allow duplicate facts, DONT SORT THIS
 		}
 		F = GetObjectNondeadNext(F);
 	}
 	ReleaseStack(word);
+	if (!hasmember) return;
+
+	FILE* out = FopenUTF8WriteAppend((char*)"cset.txt");
 
 	// sort the member list, but do special concept reversed so comes in proper to flood dictionary in correct order
 	if (!duplicate) std::sort(mylist.begin(), mylist.end(),!stricmp(name,(char*)"~a_dummy") ? myInverseFunction : myFunction);
@@ -12257,8 +13164,13 @@ void Sortit(char* name,int oneline)
 		WORDP G = FindWord(*it);
 		if (G->internalBits & BEEN_HERE) // marked for exclude
 		{
-			G->internalBits ^= BEEN_HERE;
+			G->internalBits &= -1 ^ BEEN_HERE;
 			sprintf(b,(char*)"!%s ",*it ); 
+		}
+		else if (G->internalBits & INTERNAL_MARK) // original_only marker
+		{
+			G->internalBits ^= INTERNAL_MARK;
+			sprintf(b, (char*)"'%s ", *it);
 		}
 		else sprintf(b,(char*)"%s ",*it ); 
 		if (strlen(buffer) > 180 && !oneline) close = true;
