@@ -31,4 +31,8 @@ FunctionResult MsSqlScriptWriteCode(char* buffer);
 
 #endif /* DISCARDMICROSOFTSQL */
 
+// These are outside the DISCARDMICROSOFTSQL on purpose.
+void malloc_mssql_buffer();
+void free_mssql_buffer();
+
 #endif	/* MSSQL_H */

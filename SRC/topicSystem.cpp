@@ -4,7 +4,7 @@
 #define MAX_REPEATABLE 300
 #define TOPIC_LIMIT 10000			
 #define NEW_KEY 0x80000000
-
+bool allNoStay = false;
 bool hypotheticalMatch = false;
 int currentBeforeLayer = 0;
 int hasFundamentalMeanings = 0;
@@ -186,7 +186,7 @@ void Encode(unsigned int val,char* &ptr,int size)
 		return;
 	}
 
-	if (val > (USED_CODES*USED_CODES*USED_CODES)) ReportBug((char*)"Encode val too big")
+	if (val > (USED_CODES*USED_CODES*USED_CODES)) ReportBug((char*)"Encode val too big");
 	int digit1 = val / (USED_CODES*USED_CODES);
     ptr[0] = code[digit1];
 	val -= (digit1 * USED_CODES * USED_CODES);
@@ -409,7 +409,7 @@ char* GetVerify(char* tag,int &topicid, int &id) //  ~topic.#.#=LABEL<~topic.#.#
 	WORDP D = FindWord(topicname);
 	if (!D) return "";
 
-	sprintf(file,(char*)"VERIFY/%s-b%c.txt", topicfolder+1, (D->internalBits & BUILD0) ? '0' : '1');
+	sprintf(file,(char*)"VERIFY/%s-b%c.txt", topicname+1, (D->internalBits & BUILD0) ? '0' : '1');
 	topicid = FindTopicIDByName(topicname,true);
 	
 	*dot = '.';
@@ -465,13 +465,13 @@ char* GetRule(int topicid, int id)
 void AddTopicFlag(int topicid,unsigned int flag)
 {
     if (topicid > (int)numberOfTopics || !topicid)
-		ReportBug((char*)"AddTopicFlag flags topic id %d out of range\r\n", topicid)
+		ReportBug((char*)"AddTopicFlag flags topic id %d out of range\r\n", topicid);
     else TI(topicid)->topicFlags |= flag;
 }
 
 void RemoveTopicFlag(int topicid,unsigned int flag)
 {
-    if (topicid > (int)numberOfTopics || !topicid) ReportBug((char*)"RemoveTopicFlag flags topic %d out of range\r\n", topicid)
+    if (topicid > (int)numberOfTopics || !topicid) ReportBug((char*)"RemoveTopicFlag flags topic %d out of range\r\n", topicid);
     else 
 	{
 		TI(topicid)->topicFlags &= -1 ^ flag;
@@ -505,7 +505,7 @@ static char* RuleTypeName(char type)
 
 void SetTopicData(unsigned int topicid,char* data)
 {
-    if (topicid > numberOfTopics) ReportBug((char*)"SetTopicData id %u out of range\r\n", topicid)
+    if (topicid > numberOfTopics) ReportBug((char*)"SetTopicData id %u out of range\r\n", topicid);
 	else TI(topicid)->topicScript= data;
 }
 
@@ -579,7 +579,7 @@ unsigned int FindTopicIDByName(char* name,bool exact)
 		int topicid = D->x.topicIndex;
 		if (!topicid)
 		{
-			if (!compiling) ReportBug((char*)"Missing topic index for %s\r\n",D->word)
+			if (!compiling) ReportBug((char*)"Missing topic index for %s\r\n",D->word);
 			break;
 		}
 		topicBlock* block = TI(topicid);
@@ -608,7 +608,7 @@ char* FindNextRule(signed char level, char* ptr, int& id)
     if (ptr[1] != ':') 
 	{
 		if (buildID)  BADSCRIPT((char*)"TOPIC-10 In topic %s missing colon for responder %s - look at prior responder for bug",GetTopicName(currentTopicID) ,ShowRule(ptr))
-		ReportBug((char*)"not ptr start of responder %d %s %s - killing data",currentTopicID, GetTopicName(currentTopicID) ,tmpWord)
+                          ReportBug((char*)"not ptr start of responder %d %s %s - killing data",currentTopicID, GetTopicName(currentTopicID) ,tmpWord);
 		TI(currentTopicID)->topicScript = 0; // kill off data
 		return NULL;
 	}
@@ -625,7 +625,7 @@ char* FindNextRule(signed char level, char* ptr, int& id)
 			strncpy(word,ptr,50);
 			word[50] = 0;
 			if (buildID) BADSCRIPT((char*)"TOPIC-11 Bad layout starting %s %c %s",word,level,start)
-			ReportBug((char*)"Bad layout bug1 %c The rule just before here may be faulty %s",level,start)
+                             ReportBug((char*)"Bad layout bug1 %c The rule just before here may be faulty %s",level,start);
 			return NULL;
 		}
         if (TopLevelRule(ptr)) break; // found next top level
@@ -797,7 +797,7 @@ char* GetPattern(char* ptr, char* label, char* pattern, bool friendly, int limit
 
 char* GetOutputCopy(char* ptr)
 {
-	static char buffer[MAX_WORD_SIZE];
+	static char buffer[3 * MAX_WORD_SIZE];
 	if (!ptr || !*ptr) return NULL;
 	if (ptr[1] == ':') ptr = GetLabel(ptr,NULL);
 	else ptr += 3; // why ever true?
@@ -1556,7 +1556,7 @@ static FunctionResult FindRandomRule(char type, char* buffer, unsigned int& id)
 			idResponder[index] = ruleID;
 			if (++index > TOPIC_LIMIT-1)
 			{
-               ReportBug((char*)"Too many random choices for topic")
+                ReportBug((char*)"Too many random choices for topic");
                break; 
 			}
         }
@@ -1782,7 +1782,7 @@ char* WriteUserTopics(char* ptr,bool sharefile)
 			numberOfTopicsInLayer[0], numberOfTopicsInLayer[1], numberOfTopicsInLayer[2], buildStamp[2],ShowRule(GetRule(outputRejoinderTopic,outputRejoinderRuleID)));
 	}
 	ptr += strlen(ptr);
-    if (topicIndex)  ReportBug((char*)"topic system failed to clear out topic stack\r\n")
+    if (topicIndex)  ReportBug((char*)"topic system failed to clear out topic stack\r\n");
    
 	for (id = 0; id < pendingTopicIndex; ++id) 
 	{
@@ -1954,7 +1954,7 @@ bool ReadUserTopics()
 				if (!ignore) *bits++ = ((*at -'a') << 4) + (at[1] - 'a'); 
 				at += 2;
 			}
-			if (!ignore && (int)((bits - startbits)) != size) ReportBug((char*)"Bad updating on topic %s %d %d actual vs %d wanted  %s\r\n",GetTopicName(id), id,(unsigned int)((bits - startbits)),size,readBuffer)
+			if (!ignore && (int)((bits - startbits)) != size) ReportBug((char*)"Bad updating on topic %s %d %d actual vs %d wanted  %s\r\n",GetTopicName(id), id,(unsigned int)((bits - startbits)),size,readBuffer);
 			char val[MAX_WORD_SIZE];
 			at = ReadCompiledWord(at+1,val); // skip over the blank that ended the prior loop
 			block->topicLastGambitted = (unsigned int)FullDecode(val); // gambits
@@ -1966,7 +1966,7 @@ bool ReadUserTopics()
     }
 	if (strcmp(readBuffer,(char*)"#`end topics")) 
 	{
-		ReportBug((char*)"Bad file layout")
+		ReportBug((char*)"Bad file layout");
 		return false;
 	}
 
@@ -2057,7 +2057,7 @@ static WORDP AllocateTopicMemory( int topicid, char* name, uint64 flags, unsigne
 		if (i == topLevelRules) break;
 		ptr = FindNextRule(NEXTTOPLEVEL,ptr,id);
 	}
-	if (gambitIndex != gambitCount)		ReportBug((char*)"Gambits in  %s don't match count. maybe T: instead of t: ?\r\n",name)
+	if (gambitIndex != gambitCount)		ReportBug((char*)"Gambits in  %s don't match count. maybe T: instead of t: ?\r\n",name);
 	block->gambitTag[gambitIndex] = NOMORERULES;
 	block->responderTag[responderIndex] = NOMORERULES;
 	block->ruleOffset[i] = NOMORERULES; 
@@ -2234,11 +2234,11 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 		if (!*name) break;
 		if (!plan && stricmp(name,(char*)"topic:"))
 		{
-			ReportBug((char*)"FATAL: bad topic alignment %s\r\n",name)
+			ReportBug((char*)"FATAL: bad topic alignment %s\r\n",name);
 		}
 		if (plan && stricmp(name,(char*)"plan:"))
 		{
-			ReportBug((char*)"FATAL: bad plan alignment %s\r\n",name)
+			ReportBug((char*)"FATAL: bad plan alignment %s\r\n",name);
 		}
 		ptr = ReadCompiledWord(ptr,name);
 		if (!topicBlockPtrs[layer]) //  || !topicBlockPtrs[layer]->topicName
@@ -2303,14 +2303,14 @@ static void LoadTopicData(const char* fname,const char* layerid,unsigned int bui
 		copy[datalen-2] = 0;
 		if (didread != (datalen - 2))
 		{
-			ReportBug((char*)"failed to read all of topic/plan %s read: %d wanted: %d \r\n",name,didread,datalen)
+			ReportBug((char*)"failed to read all of topic/plan %s read: %d wanted: %d \r\n",name,didread,datalen);
 			break;
 		}
 
 		// read \r\n or \n carefully, since windows and linux do things differently
 		char c = 0;
 		didread = fread(&c,1,1,in); // \n or \r\n
-		if (c != '\r' && c != '\n')  ReportBug((char*)"FATAL: failed to end topic/plan %s properly\r\n",name) // legal in topic files
+		if (c != '\r' && c != '\n')  ReportBug((char*)"FATAL: failed to end topic/plan %s properly\r\n",name); // legal in topic files
 		block->topicSourceFileName = AllocateHeap(ptr); // name of file topic came from
 
 		//   bot restriction if any
@@ -2604,7 +2604,7 @@ void AddBinWord(WORDP D, bool isnew, FILE* out)
 		else if (val && *val && val > textBase)// warn on attempt to change memory location
 		{
 			printf("Not allowed to alter query or variable %s from earlier level to %s. Ignored\r\n",D->word, val);
-			ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignored\r\n",D->word, val)
+			ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignored\r\n",D->word, val);
 		}
 		// else maybe just changing flag bits
 	}
@@ -2786,7 +2786,6 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
 			T = ReadMeaning(name,true,true);
 			set = Meaning2Word(T);
 			AddWordItem(set, dictionaryBuild);
-
 			AddInternalFlag(set,(unsigned int) (CONCEPT|build));// sets and concepts are both sets. Topics get extra labelled on script load
 			if (dictionaryBuild)
 			{
@@ -2821,12 +2820,12 @@ void InitKeywords(const char* fname,const char* layer,unsigned int build,bool di
                 }
 				if (!stricmp(word3, (char*)"DUPLICATE"))
 				{
-					set->internalBits &= CONCEPT_DUPLICATES;
+					set->internalBits |= CONCEPT_DUPLICATES;
 					continue;
 				}
 				if (!stricmp(word3, (char*)"NODUPLICATE"))
 				{
-					set->internalBits &= NO_CONCEPT_DUPLICATES;
+					set->internalBits |= NO_CONCEPT_DUPLICATES;
 					continue;
 				}
                 uint64 val = FindPropertyValueByName(word3);
@@ -3104,7 +3103,7 @@ static int ReadFastDictionary(char* name, const char* layer, unsigned int build)
 	ReleaseInfiniteStack(); // we can keep using that space since we dont use stack more
 	if (size != read)
 	{
-		ReportBug("Unable to load binary keywords %d != %d", size, read)
+		ReportBug("Unable to load binary keywords %d != %d", size, read);
 		return 0;
 	}
 
@@ -3507,12 +3506,12 @@ void GetActiveTopicName(char* buffer)
 
 	// the real current topic might be the control topic or a user topic
 	// when we are in a user topic, return that or something from the nested depths. Otherwise return most pending topic.
-	if (currentTopicID && !(GetTopicFlags(currentTopicID) & (TOPIC_SYSTEM|TOPIC_BLOCKED|TOPIC_NOSTAY))) strcpy(buffer,GetTopicName(currentTopicID,false)); // current topic is valid
+	if (currentTopicID && !allNoStay && !(GetTopicFlags(currentTopicID) & (TOPIC_SYSTEM|TOPIC_BLOCKED|TOPIC_NOSTAY))) strcpy(buffer,GetTopicName(currentTopicID,false)); // current topic is valid
 	else if (topicIndex) // is one of these topics a valid one
 	{
 		for (unsigned int i = topicIndex; i > 1; --i) // 0 is always the null topic
 		{
-			if (!(GetTopicFlags(topicStack[i]) & (TOPIC_SYSTEM|TOPIC_BLOCKED|TOPIC_NOSTAY)))
+			if (!allNoStay && !(GetTopicFlags(topicStack[i]) & (TOPIC_SYSTEM|TOPIC_BLOCKED|TOPIC_NOSTAY)))
 			{
 				strcpy(buffer,GetTopicName(topicStack[i],false));
 				break;
@@ -3532,14 +3531,14 @@ void AddPendingTopic(int topicid)
 	//   topics added previously should retain their old order 
 	// - a topic is pending if user says it is OR we execute the output side of one of its rules (not just the pattern side)
 	if (!topicid || planning) return;
-	if (GetTopicFlags(topicid) & (TOPIC_SYSTEM|TOPIC_NOSTAY|TOPIC_BLOCKED)) 	//   cant add this but try its caller
+	if (GetTopicFlags(topicid) & (TOPIC_SYSTEM|TOPIC_NOSTAY|TOPIC_BLOCKED) || allNoStay) 	//   cant add this but try its caller
 	{
 		// may not recurse in topics
 		for (unsigned int i = topicIndex; i >= 1; --i) // #1 will always be 0, the prior nontopic
 		{
 			topicid = topicStack[i];
 			if (i == 1)  return; // no one to add
-			if (GetTopicFlags(topicid) & (TOPIC_SYSTEM|TOPIC_NOSTAY|TOPIC_BLOCKED)) continue;	//   cant 
+			if (GetTopicFlags(topicid) & (TOPIC_SYSTEM|TOPIC_NOSTAY|TOPIC_BLOCKED) || allNoStay) continue;	//   cant 
 			break;
 		}
 	}
@@ -3630,7 +3629,7 @@ int PushTopic(int topicid) // -1 = failed  0 = unneeded  1 = pushed
     if (topicIndex >= MAX_TOPIC_STACK) 
     {
 		--topicIndex;
-        ReportBug((char*)"PushTopic overflow")
+        ReportBug((char*)"PushTopic overflow");
         return -1;
     }
 	currentTopicID = topicid;

@@ -1,128 +1,133 @@
-﻿+ babies NOUN NOUN_PLURAL KINDERGARTEN 
+﻿+ babies`1 NOUN NOUN_PLURAL KINDERGARTEN 
 + cents NOUN NOUN_PLURAL KINDERGARTEN 
-+ words VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ kind_of PATTERN_WORD 
-+ boogie_man PATTERN_WORD 
++ words`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ seconds`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ makes`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ questions`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ says`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ things`1 NOUN NOUN_PLURAL KINDERGARTEN 
++ kind_of`1 PATTERN_WORD 
++ boogie_man`1 PATTERN_WORD 
 + ^harry 
-+ defaultbot 
-+ loopback PATTERN_WORD 
-+ can_I_ask_you PATTERN_WORD 
-+ can_I_ask_a_question PATTERN_WORD 
-+ can_I_ask_the_question PATTERN_WORD 
-+ to_go PATTERN_WORD 
-+ do_you_need PATTERN_WORD 
-+ do_you_want PATTERN_WORD 
-+ voices VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ do_you_watch PATTERN_WORD 
-+ do_you_see PATTERN_WORD 
-+ do_you_view PATTERN_WORD 
-+ fingers VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ brains VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
-+ how_do_you_spell PATTERN_WORD 
-+ how_would_you_spell PATTERN_WORD 
-+ deflecting VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE5_6 
-+ not_sure PATTERN_WORD 
-+ not_certain PATTERN_WORD 
-+ one_day PATTERN_WORD 
-+ a_moment_ago PATTERN_WORD 
-+ it_be PATTERN_WORD 
-+ be_it PATTERN_WORD 
-+ do_you_understand PATTERN_WORD 
-+ what_be PATTERN_WORD 
-+ faring VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
-+ too_many PATTERN_WORD 
-+ not_enough PATTERN_WORD 
-+ too_few PATTERN_WORD 
-+ seemed VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
-+ concerns VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ with_you PATTERN_WORD 
-+ causes VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
-+ a_lot_of PATTERN_WORD 
-+ shoulds PATTERN_WORD 
-+ dream_about PATTERN_WORD 
-+ going_in_circles PATTERN_WORD 
-+ circular_conversation PATTERN_WORD 
-+ talking_in_circles PATTERN_WORD 
-+ does_that_make_sense PATTERN_WORD 
-+ does_it_make_sense_that PATTERN_WORD 
-+ weakest MOST_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
-+ a_little_bird PATTERN_WORD 
-+ a_little_birdie PATTERN_WORD 
-+ louder MORE_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
-+ any_sense PATTERN_WORD 
-+ you_be_an PATTERN_WORD 
-+ you_be_a PATTERN_WORD 
-+ replied VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
-+ give_I_a_way PATTERN_WORD 
-+ tell_I_a_way PATTERN_WORD 
-+ how_can_I_prove PATTERN_WORD 
-+ how_can_you_prove PATTERN_WORD 
-+ nobody_has_ever PATTERN_WORD 
-+ no_one_has_ever PATTERN_WORD 
-+ have_you_done PATTERN_WORD 
-+ have_you_felt PATTERN_WORD 
-+ have_you_been PATTERN_WORD 
-+ have_you_been_to PATTERN_WORD 
-+ have_you_been_on PATTERN_WORD 
-+ be_this PATTERN_WORD 
-+ be_that PATTERN_WORD 
-+ where_to_begin PATTERN_WORD 
-+ where_to_start PATTERN_WORD 
-+ be_you_joking PATTERN_WORD 
-+ be_you_kdding PATTERN_WORD 
-+ you_must_be_kid PATTERN_WORD 
-+ you_must_be_joke PATTERN_WORD 
-+ you_are_a_what PATTERN_WORD 
-+ he_is_a_what PATTERN_WORD 
-+ she_is_a_what PATTERN_WORD 
-+ asked VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE3_4 
-+ you_liar PATTERN_WORD 
-+ you_lie PATTERN_WORD 
-+ kidding VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
-+ I_bet_you_do_not PATTERN_WORD 
-+ I_bet_you_would_not PATTERN_WORD 
-+ I_bet_you_will_not PATTERN_WORD 
-+ not_trust PATTERN_WORD 
-+ can_not PATTERN_WORD 
-+ what_does_it_matter PATTERN_WORD 
-+ why_does_it_matter PATTERN_WORD 
-+ how_much PATTERN_WORD 
-+ which_be PATTERN_WORD 
-+ has_that PATTERN_WORD 
-+ does_that_have PATTERN_WORD 
-+ be_you PATTERN_WORD 
-+ you_be PATTERN_WORD 
-+ what_do_you_think_about PATTERN_WORD 
-+ what_be_you_thought_on PATTERN_WORD 
-+ weekends VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ morals NOUN NOUN_PLURAL GRADE1_2 
-+ when_did_you PATTERN_WORD 
-+ when_did_I PATTERN_WORD 
-+ when_will_it PATTERN_WORD 
-+ when_be_it PATTERN_WORD 
-+ when_will_I_meet_you PATTERN_WORD 
-+ where_be_that PATTERN_WORD 
-+ where_be_it PATTERN_WORD 
-+ where_will_I_find PATTERN_WORD 
-+ where_could_I_find PATTERN_WORD 
-+ where_can_I_find PATTERN_WORD 
-+ who_be_they PATTERN_WORD 
-+ who_be_them PATTERN_WORD 
-+ who_be_that PATTERN_WORD 
-+ who_be_she PATTERN_WORD 
-+ who_create_you PATTERN_WORD 
-+ who_made_you PATTERN_WORD 
-+ who_built_you PATTERN_WORD 
-+ who_be_you_in_love PATTERN_WORD 
-+ who_do_you_love PATTERN_WORD 
-+ cares VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ why_would_I_lie PATTERN_WORD 
-+ why_would_I_be_lying PATTERN_WORD 
-+ why_do_the PATTERN_WORD 
-+ why_do_a PATTERN_WORD 
-+ why_would_you_lie PATTERN_WORD 
-+ why_would_you_be_lying PATTERN_WORD 
-+ why_be_it_bad PATTERN_WORD 
-+ why_could_it_be_bad PATTERN_WORD 
-+ ignoring VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 
-+ leave_you PATTERN_WORD 
++ defaultbot`1 
++ loopback`1 PATTERN_WORD 
++ can_I_ask_you`1 PATTERN_WORD 
++ can_I_ask_a_question`1 PATTERN_WORD 
++ can_I_ask_the_question`1 PATTERN_WORD 
++ to_go`1 PATTERN_WORD 
++ do_you_need`1 PATTERN_WORD 
++ do_you_want`1 PATTERN_WORD 
++ voices`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ do_you_watch`1 PATTERN_WORD 
++ do_you_see`1 PATTERN_WORD 
++ do_you_view`1 PATTERN_WORD 
++ fingers`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ brains`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
++ how_do_you_spell`1 PATTERN_WORD 
++ how_would_you_spell`1 PATTERN_WORD 
++ deflecting`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE5_6 
++ not_sure`1 PATTERN_WORD 
++ not_certain`1 PATTERN_WORD 
++ one_day`1 PATTERN_WORD 
++ a_moment_ago`1 PATTERN_WORD 
++ it_be`1 PATTERN_WORD 
++ be_it`1 PATTERN_WORD 
++ do_you_understand`1 PATTERN_WORD 
++ what_be`1 PATTERN_WORD 
++ faring`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
++ too_many`1 PATTERN_WORD 
++ not_enough`1 PATTERN_WORD 
++ too_few`1 PATTERN_WORD 
++ seemed`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
++ concerns`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ with_you`1 PATTERN_WORD 
++ causes`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
++ a_lot_of`1 PATTERN_WORD 
++ shoulds`1 PATTERN_WORD 
++ dream_about`1 PATTERN_WORD 
++ going_in_circles`1 PATTERN_WORD 
++ circular_conversation`1 PATTERN_WORD 
++ talking_in_circles`1 PATTERN_WORD 
++ does_that_make_sense`1 PATTERN_WORD 
++ does_it_make_sense_that`1 PATTERN_WORD 
++ weakest`1 MOST_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
++ a_little_bird`1 PATTERN_WORD 
++ a_little_birdie`1 PATTERN_WORD 
++ louder`1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
++ any_sense`1 PATTERN_WORD 
++ you_be_an`1 PATTERN_WORD 
++ you_be_a`1 PATTERN_WORD 
++ replied`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
++ give_I_a_way`1 PATTERN_WORD 
++ tell_I_a_way`1 PATTERN_WORD 
++ how_can_I_prove`1 PATTERN_WORD 
++ how_can_you_prove`1 PATTERN_WORD 
++ nobody_has_ever`1 PATTERN_WORD 
++ no_one_has_ever`1 PATTERN_WORD 
++ have_you_done`1 PATTERN_WORD 
++ have_you_felt`1 PATTERN_WORD 
++ have_you_been`1 PATTERN_WORD 
++ have_you_been_to`1 PATTERN_WORD 
++ have_you_been_on`1 PATTERN_WORD 
++ be_this`1 PATTERN_WORD 
++ be_that`1 PATTERN_WORD 
++ where_to_begin`1 PATTERN_WORD 
++ where_to_start`1 PATTERN_WORD 
++ be_you_joking`1 PATTERN_WORD 
++ be_you_kdding`1 PATTERN_WORD 
++ you_must_be_kid`1 PATTERN_WORD 
++ you_must_be_joke`1 PATTERN_WORD 
++ you_are_a_what`1 PATTERN_WORD 
++ he_is_a_what`1 PATTERN_WORD 
++ she_is_a_what`1 PATTERN_WORD 
++ asked`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE3_4 
++ you_liar`1 PATTERN_WORD 
++ you_lie`1 PATTERN_WORD 
++ kidding`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
++ I_bet_you_do_not`1 PATTERN_WORD 
++ I_bet_you_would_not`1 PATTERN_WORD 
++ I_bet_you_will_not`1 PATTERN_WORD 
++ not_trust`1 PATTERN_WORD 
++ can_not`1 PATTERN_WORD 
++ what_does_it_matter`1 PATTERN_WORD 
++ why_does_it_matter`1 PATTERN_WORD 
++ how_much`1 PATTERN_WORD 
++ which_be`1 PATTERN_WORD 
++ has_that`1 PATTERN_WORD 
++ does_that_have`1 PATTERN_WORD 
++ be_you`1 PATTERN_WORD 
++ you_be`1 PATTERN_WORD 
++ what_do_you_think_about`1 PATTERN_WORD 
++ what_be_you_thought_on`1 PATTERN_WORD 
++ weekends`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ morals`1 NOUN NOUN_PLURAL GRADE1_2 
++ when_did_you`1 PATTERN_WORD 
++ when_did_I`1 PATTERN_WORD 
++ when_will_it`1 PATTERN_WORD 
++ when_be_it`1 PATTERN_WORD 
++ when_will_I_meet_you`1 PATTERN_WORD 
++ where_be_that`1 PATTERN_WORD 
++ where_be_it`1 PATTERN_WORD 
++ where_will_I_find`1 PATTERN_WORD 
++ where_could_I_find`1 PATTERN_WORD 
++ where_can_I_find`1 PATTERN_WORD 
++ who_be_they`1 PATTERN_WORD 
++ who_be_them`1 PATTERN_WORD 
++ who_be_that`1 PATTERN_WORD 
++ who_be_she`1 PATTERN_WORD 
++ who_create_you`1 PATTERN_WORD 
++ who_made_you`1 PATTERN_WORD 
++ who_built_you`1 PATTERN_WORD 
++ who_be_you_in_love`1 PATTERN_WORD 
++ who_do_you_love`1 PATTERN_WORD 
++ cares`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
++ why_would_I_lie`1 PATTERN_WORD 
++ why_would_I_be_lying`1 PATTERN_WORD 
++ why_do_the`1 PATTERN_WORD 
++ why_do_a`1 PATTERN_WORD 
++ why_would_you_lie`1 PATTERN_WORD 
++ why_would_you_be_lying`1 PATTERN_WORD 
++ why_be_it_bad`1 PATTERN_WORD 
++ why_could_it_be_bad`1 PATTERN_WORD 
++ ignoring`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 
++ leave_you`1 PATTERN_WORD 

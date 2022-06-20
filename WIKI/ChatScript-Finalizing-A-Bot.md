@@ -1,6 +1,6 @@
 # ChatScript Finalizing a Bot Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 6/20/2022 cs12.2
 
 OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should
 polish it. There are a bunch of tools to do this.
@@ -28,6 +28,39 @@ This serves two functions. First, it makes it easy to read a topic-- you don't h
 interpret pattern code to see what is intended. Second, it allows the system to verify your
 code in various ways. It is the "unit test" of a rule. If you've annotated your topics in this
 way, you can issue :verify commands.
+
+### Generic :verify
+
+You can ask ChatScript to execute all of your verify data as sample inputs. `:verifyList` will generate
+all of your verification data as sample inputs in tmp/tmp.txt (by default or you can name a file).
+You can then issue :verifyRun (defaults to tmp/tmp.txt or you can name a file). This will execute
+each input as though coming in with no current topic (all topics will be treated as nostay).
+:verifyMatch will then tell you all the inputs that didn't output from the expected rule.
+
+There is a special verification input you can issue:
+```
+#! ~topicname $variable = value
+```
+When execution of a verify input is being done, when the topic with the name of the ~topicname sees this
+input, it will perform an assignment of the named variable with the named value. This is useful for enabling 
+and disabling topics that might conflict.  Eg.
+```
+topic: ~awe_en_US keep repeat ()
+#! ~awe_event $event_context = awe_event
+u: () ^check_event(awe_event)
+```
+Normally this topic checks to see if the event context has been set to the event for this topic. If not, the code in
+^check_event executes a ^fail(TOPIC) and this topic will not react. But we WANT it to react during testing,
+so the comment will turn on this context to allow the topic to work (and other topics controlled by different events
+will not react during this topic's verify input.)  At the end of the topic we have this:
+```
+#! ~awe_event $event_context = null
+u: ()
+```
+
+This turns off the context set during verify.
+
+### Detailed :Verify
 
 Typically I start with proving the patterns work everywhere.
 

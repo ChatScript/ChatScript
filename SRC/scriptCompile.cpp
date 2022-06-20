@@ -1454,7 +1454,7 @@ static void ClearBeenHere(WORDP D, uint64 junk)
 
 bool TopLevelUnit(char* word) // major headers (not kinds of rules)
 {
-	return (!stricmp(word,(char*)":quit") || !stricmp(word,(char*)"canon:")  || !stricmp(word,(char*)"replace:") || !stricmp(word, (char*)"ignorespell:") || !stricmp(word, (char*)"prefer:") || !stricmp(word,(char*)"query:") || !stricmp(word, (char*)"word:") || !stricmp(word,(char*)"concept:") || !stricmp(word,(char*)"data:") || !stricmp(word,(char*)"plan:")
+	return (!stricmp(word,(char*)":quit") || !stricmp(word,(char*)"canon:")  || !stricmp(word,(char*)"replace:") || !stricmp(word, (char*)"debug:")  || !stricmp(word, (char*)"ignorespell:") || !stricmp(word, (char*)"prefer:") || !stricmp(word,(char*)"query:") || !stricmp(word, (char*)"word:") || !stricmp(word,(char*)"concept:") || !stricmp(word,(char*)"data:") || !stricmp(word,(char*)"plan:")
 		|| !stricmp(word,(char*)"outputMacro:") || !stricmp(word,(char*)"patternMacro:") || !stricmp(word,(char*)"dualMacro:")  || !stricmp(word,(char*)"table:") || !stricmp(word,(char*)"tableMacro:") || !stricmp(word,(char*)"rename:") || 
 		!stricmp(word,(char*)"describe:") ||  !stricmp(word,(char*)"bot:") || !stricmp(word, (char*)"language:")  || !stricmp(word,(char*)"topic:") || (*word == ':' && IsLowerCase( word[1]) && IsLowerCase(word[2]) && !IsEmojiShortCode(word)) );	// :xxx is a debug command
 }
@@ -1503,6 +1503,7 @@ static bool IsTopic(char* word)
 static void DoubleCheckSetOrTopic()
 {
 	char file[200];
+	*scopeBotName = 0; // no longer compiling a specific bot
 	sprintf(file,"%s/missingsets.txt", topicfolder);
 	FILE* in = FopenReadWritten(file);
 	if (!in) return;
@@ -1522,7 +1523,7 @@ static void DoubleCheckSetOrTopic()
 		char* data = strchr(word, '$');
 		if (data) *data = 0;
 		if (!IsSet(word) && !IsTopic(word) && !IsDigit(word[1]))  // NEVER defined
-			WARNSCRIPT((char*)"Undefined set or topic %s",word)
+			WARNSCRIPT((char*)"Undefined set or topic %s\r\n",word)
 		else if (data && data[1])// check if defined for appropriate bot
 		{
 			if (data) *data = '$';
@@ -1531,7 +1532,7 @@ static void DoubleCheckSetOrTopic()
 			if (!D || !(D->internalBits & BEEN_HERE))
 			{
 				if (data) *data = 0;
-				WARNSCRIPT("Undefined set or topic %s for bot %s", word, data+1)
+				WARNSCRIPT("Undefined set or topic %s for bot %s\r\n", word, data+1)
 			}
 		}
 	}
@@ -1575,31 +1576,33 @@ static char* AddVerify(char* kind, char* sample)
 {
 	char* comment = strstr(sample,(char*)"# "); // locate any comment on the line and kill it
 	if (comment) *comment = 0;
+
 	sprintf(verifyLines[verifyIndex++],(char*)"%s %s",kind,SkipWhitespace(sample)); 
 	return 0;	// kill rest of line
 }
 
-static void WriteVerify()
+static void WriteVerify(char* label)
 {
 	if (!verifyIndex) return;
 	char name[100];
-	sprintf(name,(char*)"VERIFY/%s-b%c.txt",currentTopicName+1, (buildID == BUILD0) ? '0' : '1'); 
-	FILE* valid  = FopenUTF8WriteAppend(name);
+	sprintf(name, (char*)"VERIFY/%s-b%c.txt", currentTopicName + 1, (buildID == BUILD0) ? '0' : '1');
+	FILE* valid = FopenUTF8WriteAppend(name);
 	static bool init = true;
-	if (!valid && init) 
+	if (!valid && init)
 	{
 		MakeDirectory((char*)"VERIFY");
 		init = false;
-		valid  = FopenUTF8WriteAppend(name);
+		valid = FopenUTF8WriteAppend(name);
 	}
 
 	if (valid)
 	{
 		char* space = "";
 		if (REJOINDERID(currentRuleID)) space = "    ";
-		for (unsigned int i = 0; i < verifyIndex; ++i) 
+		for (unsigned int i = 0; i < verifyIndex; ++i)
 		{
-			fprintf(valid,(char*)"%s %s.%u.%u %s\r\n",space,currentTopicName,TOPLEVELID(currentRuleID),REJOINDERID(currentRuleID),verifyLines[i]); 
+			if (*label) fprintf(valid, (char*)"%s%s.%u.%u=%s  %s\r\n", space, currentTopicName, TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, verifyLines[i]);
+			else fprintf(valid, (char*)"%s%s.%u.%u  %s\r\n", space, currentTopicName, TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), verifyLines[i]);
 		}
 		fclose(valid); // dont use FClose
 	}
@@ -2453,7 +2456,7 @@ static bool PatternRelationToken(char* ptr)
 {
 	if (*ptr == '!' && (ptr[1] == '=' || ptr[1] == '?')) return true;
 	if (*ptr == '>' || *ptr == '<' || *ptr == '?' || *ptr == '&') return true;
-	if (*ptr == '=') return true;;
+	if (*ptr == '=') return true;
 	return false;
 }
 
@@ -3636,53 +3639,6 @@ $^x:=.... define function
 
 		strcpy(data,word); // default unchanged (but not updated yet to accept)
 		size_t len = strlen(data);
-
-		// check for japanese
-		
-		int kind = 0;
-		unsigned char japanletter[8];
-		unsigned int japaneseSize = 0;
-		char* atj = data - 1;
-		if (assignment || comparison) {}
-		else while (*++atj) // does it contain japanese
-		{
-			japaneseSize = IsJapanese(atj, (unsigned char*)&japanletter, kind);
-			if (japaneseSize) break;
-		}
-		if (japaneseSize && japaneseSize != len) //  japanese and more than 1 character
-		{
-			// break up japanese into characters to match
-			if (!stricmp(language, "japanese"))
-			{
-				char* ptr = word;
-				*data++ = '('; // force a memorizable sequence
-				*data++ = ' ';
-				bool nonjapanese = false;
-				while(*ptr)
-				{
-					int l = IsJapanese(ptr, (unsigned char*)&japanletter,kind);  // return \uxxxx
-					if (l)
-					{
-						if (nonjapanese)
-						{
-							*data++ = ' ';
-							nonjapanese = false;
-						}
-						strncpy(data, (char*)ptr, l);
-						ptr += l;
-						data += l;
-						*data++ = ' ';
-					}
-					else // western frag inside
-					{
-						nonjapanese = true;
-						*data++ = *ptr++;
-					}
-				}
-				*data++ = ')';
-				len = 0;
-			} // end japanese
-        }
 		data += len;
 		*data++ = ' ';
 
@@ -4088,11 +4044,7 @@ char* ReadIf(char* word, char* ptr, FILE* in, char* &data,char* rejoinders)
         }
 		if (stricmp(word, (char*)"else"))
 		{
-#ifdef COMMENTED_OUT
-			if (false && csapicall == COMPILE_OUTPUT && jaErrorOnMissingElse) {
-				BADSCRIPT((char*)"Missing ELSE clause.\r\n");
-			}
-#endif // COMMENTED_OUT
+			if (csapicall == COMPILE_OUTPUT && errorOnMissingElse) BADSCRIPT((char*)"Missing ELSE clause.\r\n");
 			break; //   caller will add space after our jump index
 		}
 
@@ -4709,7 +4661,6 @@ static void ReadTopLevelRule(WORDP topicName, char* typeval,char* &ptr, FILE* in
 	char word[MAX_WORD_SIZE];
 	char rejoinders[256];	//   legal levels a: thru q:
 	memset(rejoinders,0,sizeof(rejoinders));
-	WriteVerify();	// dump any accumulated verification data before the rule
 	//   rejoinders == 1 is normal, 2 means authorized in []  3 means authorized and used
 	*rejoinders = 1;	//   we know we have a responder. we will see about rejoinders later
 	while (ALWAYS) //   read responser + all rejoinders
@@ -4732,7 +4683,7 @@ static void ReadTopLevelRule(WORDP topicName, char* typeval,char* &ptr, FILE* in
 			}
 			
 			currentRuleID += ONE_REJOINDER;
-			WriteVerify();
+			WriteVerify("");
 		}
 		strcpy(data,kind); 
 		data += 2;
@@ -4753,7 +4704,8 @@ Then one of 3 kinds of character:
 		char labelName[MAX_WORD_SIZE];
 		*label = 0;
 		*labelName = 0;
-     
+		bool verified = false;
+
 		while (ALWAYS) //   read as many tokens as needed to complete the responder definition
 		{
 			ptr = ReadNextSystemToken(in,ptr,word,false); 
@@ -4816,6 +4768,11 @@ Then one of 3 kinds of character:
 					strcpy(labelName,word);
 					if (strchr(word,'.')) BADSCRIPT((char*)"RULE-2 Label %s must not contain a period\r\n",word)
 					if (len > 160) BADSCRIPT((char*)"RULE-2 Label %s must be less than 160 characters\r\n",word)
+					if (!verified)
+					{
+						WriteVerify(word);	// dump any accumulated verification data before the rule
+						verified = true;
+					}
 					int fulllen = len;
 					if (len > 40)
 					{
@@ -4849,7 +4806,12 @@ Then one of 3 kinds of character:
 		} //   END OF WHILE
 		if (patternDone) 
 		{
-            dataBase = data;
+			if (!verified)
+			{
+				WriteVerify("");	// dump any accumulated verification data before the rule
+				verified = true;
+			}
+			dataBase = data;
             ptr = ReadOutput(false,false,ptr,in,data,rejoinders,word,NULL);
             dataBase = NULL;
             char complex[MAX_WORD_SIZE];
@@ -4879,7 +4841,7 @@ Then one of 3 kinds of character:
 			//  word is a rejoinder type
 			strcpy(kind,lowercaseForm);
 		}
-		else ReportBug((char*)"Prior script not complete- unexpected top level word %s after seeing %s", lowercaseForm, data - 20)
+		else ReportBug((char*)"Prior script not complete- unexpected top level word %s after seeing %s", lowercaseForm, data - 20);
 	}
 
 	//   did he forget to fill in any [] jumps
@@ -5318,6 +5280,10 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 			DebugCode(word);
 			continue;
 		}
+		if (!stricmp(word, (char*)":quit"))
+		{
+			myexit("table has :quit");
+		}
 		if (*word == ':' && word[1]) // debug command
 		{
 			ptr = original;  // safe
@@ -5726,8 +5692,8 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 {
 	patternContext = false;
 	displayIndex = 0;
-	char* data = (char*) malloc(MAX_TOPIC_SIZE); // use a big chunk of memory for the data
-	if (!data) ReportBug("FATAL: ReadTopic malloc failed")
+	char* data = (char*) mymalloc(MAX_TOPIC_SIZE); // use a big chunk of memory for the data
+	if (!data) ReportBug("FATAL: ReadTopic malloc failed");
 	*data = 0;
 	char* pack = data;
 
@@ -5943,7 +5909,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 		fprintf(out, (char*)"%s\r\n", data);
 		fclose(out); // dont use FClose
 	}
-	free(data);
+	myfree(data);
 	
 	return ptr;
 }
@@ -6076,8 +6042,8 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
     plan->w.planArgCount = functionArgumentCount;
 	currentFunctionDefinition = plan;
 	
-	char* data = (char*) malloc(MAX_TOPIC_SIZE); // use a big chunk of memory for the data
-	if (!data) ReportBug("Malloc failed for ReadPlan")
+	char* data = (char*) mymalloc(MAX_TOPIC_SIZE); // use a big chunk of memory for the data
+	if (!data) ReportBug("Malloc failed for ReadPlan");
 	*data = 0;
 	char* pack = data;
 
@@ -6159,7 +6125,7 @@ static char* ReadPlan(char* ptr, FILE* in,unsigned int build)
 	fprintf(out,(char*)"\" %s \" %s\r\n",restriction,data);
 	fclose(out); // dont use FClose
 
-	free(data);
+	myfree(data);
 	return ptr;
 }
 
@@ -6658,24 +6624,25 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 		if (!*word) break;						//   no more tokens found
 
 		currentFunctionDefinition = NULL; //   can be set by ReadTable or ReadMacro
-		if (!stricmp(word,(char*)":quit")) break;
+		if (!stricmp(word,(char*)":quit"))
+			break;
 				
-		if (*word == ':' && word[1] && !strstr(readBuffer,"^eval"))		// testing command not near an eval
+		if (*word == ':' && word[1] && !strstr(readBuffer, "^eval"))		// testing command not near an eval
 		{
 			char output[MAX_WORD_SIZE];
-			DoCommand(readBuffer,output);
+			DoCommand(readBuffer, output);
 			*readBuffer = 0;
 			*ptr = 0;
 		}
-		else if (!stricmp(word,(char*)"concept:")) ptr = ReadConcept(ptr,in,build);
-		else if (!stricmp(word,(char*)"query:")) ptr = ReadQuery(ptr,in,build);
+		else if (!stricmp(word, (char*)"concept:")) ptr = ReadConcept(ptr, in, build);
+		else if (!stricmp(word, (char*)"query:")) ptr = ReadQuery(ptr, in, build);
 		else if (!stricmp(word, (char*)"word:")) ptr = ReadWord(ptr, in, build);
-		else if (!stricmp(word,(char*)"replace:")) ptr = ReadReplace(ptr,in,build);
-        else if (!stricmp(word, (char*)"ignorespell:")) ptr = ReadIgnoreSpell(ptr, in, build);
-        else if (!stricmp(word, (char*)"prefer:")) ptr = ReadPrefer(ptr, in, build);
-		else if (!stricmp(word,(char*)"canon:")) ptr = ReadCanon(ptr,in,build);
-		else if (!stricmp(word,(char*)"topic:"))  ptr = ReadTopic(ptr,in,build);
-		else if (!stricmp(word,(char*)"plan:"))  ptr = ReadPlan(ptr,in,build);
+		else if (!stricmp(word, (char*)"replace:")) ptr = ReadReplace(ptr, in, build);
+		else if (!stricmp(word, (char*)"ignorespell:")) ptr = ReadIgnoreSpell(ptr, in, build);
+		else if (!stricmp(word, (char*)"prefer:")) ptr = ReadPrefer(ptr, in, build);
+		else if (!stricmp(word, (char*)"canon:")) ptr = ReadCanon(ptr, in, build);
+		else if (!stricmp(word, (char*)"topic:"))  ptr = ReadTopic(ptr, in, build);
+		else if (!stricmp(word, (char*)"plan:"))  ptr = ReadPlan(ptr, in, build);
 		else if (!stricmp(word, (char*)"language:"))
 		{
 			ptr = ReadNextSystemToken(in, ptr, word, false);
@@ -6685,11 +6652,12 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 				Log(USERLOG, "\r\n>>Setting language %s\r\n", word);
 			}
 		}
-		else if (!stricmp(word,(char*)"bot:")) 
+		else if (!stricmp(word, (char*)"bot:"))
 		{
 			globalBotScope = false; // lasts for this file
 			ptr = ReadBot(ptr);
 		}
+		else if (!strnicmp(word, (char*)"debug:",6)) DebugCode("");
 		else if (!stricmp(word,(char*)"table:")) ptr = ReadTable(ptr,in,build,false);
 		else if (!stricmp(word,(char*)"rename:")) ptr = ReadRename(ptr,in,build);
 		else if (!stricmp(word,(char*)"describe:")) ptr = ReadDescribe(ptr,in,build);
@@ -7028,7 +6996,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 	}
 	if (!in)  
 	{
-		ReportBug((char*)"prebuild bin not found")
+		ReportBug((char*)"prebuild bin not found");
 		return;
 	}
 	

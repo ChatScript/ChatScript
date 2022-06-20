@@ -51,4 +51,5 @@ void ResetTokenSystem();
 void DumpTokenControls(uint64 val);
 void DumpResponseControls(uint64 val);
 void DumpTokenFlags(char* msg);
+char* find_closest_jp_period(char* input); /* for testing */
 #endif

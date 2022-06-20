@@ -62,7 +62,7 @@ but is needed when seeing the dictionary definitions(:word) and if one wants to 
 
 #endif
 bool exportdictionary = false;
-char language[40];							// indicate current language used
+char language[40] = "";							// indicate current language used
 char language_list[200];				// indicate legal languages- comma separated
 unsigned int language_bits = 0; // current language used to mark/filter WORDP items
 unsigned int languageIndex; // current language used to mark facts and index data by language
@@ -407,7 +407,8 @@ WORDP GetCanonical(WORDP D, uint64 kind)
 	it = canonicalWords.find(D);
 	if (it == canonicalWords.end()) return NULL;
 	WORDP E = it->second;
-	if (*E->word != '`') return E; // normal english canonical or simple canonical of foreign (not multiple choice)
+
+	if (*E->word != '`'  || kind == (uint64) -1) return E; // normal english canonical or simple canonical of foreign (not multiple choice). 0 kind means want all
 
 	// foreign canonicals have multiple choices. This code only picks first one if no type given. Other code may decide more complex, but generally treetagger will do that
 	char word[MAX_WORD_SIZE];
@@ -416,14 +417,29 @@ WORDP GetCanonical(WORDP D, uint64 kind)
 	char* lemma = word;
 	char* tags = strrchr(word, '`');
 	*tags++ = 0; // type decriptors
+	WORDP lemmachoice = NULL;
+	int lemmacount = 0;
 	// walk list of pos tags and simultaneously walk the list of lemmas
 	while (*tags && (tags = ReadCompiledWord(tags, type)))
 	{
 		char* split = strchr(lemma, '`');
 		if (split) *split = 0;
-		if (*type == 'V' && kind & VERB) return StoreWord(lemma, AS_IS);
-		else if (*type == 'N' && kind & NOUN) return StoreWord(lemma, AS_IS);
-		else if (*type == 'A' && type[2] == 'J' && kind & ADJECTIVE) return StoreWord(lemma, AS_IS);
+		// if we have multiple meanings unresolved, we cannot pick a lemma based on type
+		if (*type == 'V' && kind & VERB)
+		{
+			lemmachoice = StoreWord(lemma, AS_IS,VERB);
+			++lemmacount;
+		}
+		else if (*type == 'N' && kind & NOUN)
+		{
+			lemmachoice = StoreWord(lemma, AS_IS,NOUN);
+			++lemmacount;
+		}
+		else if (*type == 'A' && type[2] == 'J' && kind & ADJECTIVE)
+		{
+			lemmachoice = StoreWord(lemma, AS_IS, NOUN);
+			++lemmacount;
+		}
 		if (split)
 		{
 			*split = '`';
@@ -432,8 +448,27 @@ WORDP GetCanonical(WORDP D, uint64 kind)
 		tags = SkipWhitespace(tags);
 	}
 
-	char* end = strchr(word, '`'); // multiple choice?
-	if (end) *end = 0;	 // pick 1st one as default
+	if (lemmacount == 1) return lemmachoice;
+
+	// if we dont know the type, we dont know which lemma to pick
+	// So pick one different from original, so we get broader mark coverage
+	char* next = word;
+	while (*next)
+	{
+		char* end = strchr(next, '`'); // multiple choice?
+		if (end)
+		{
+			WORDP X = FindWord(next, end - next,PRIMARY_CASE_ALLOWED);
+			if (X && stricmp(X->word, D->word)) return X; // prefer a different one
+			next = end + 1;
+		}
+		else
+		{
+			WORDP X = FindWord(next);
+			if (X) return X; 
+			break;
+		}
+	}
 	return StoreWord(word, AS_IS);
 }
 
@@ -998,7 +1033,7 @@ void InitDictionary()
 	{
 		//   dictionary and meanings 
 		// on FUTURE startups (not 1st) the userCacheCount has been preserved while the rest of the system is reloaded
-		hashbuckets = (unsigned int*)malloc(size + hsize);
+		hashbuckets = (unsigned int*)mymalloc(size + hsize);
 		if (!hashbuckets) ReportBug("FATAL: Cannot allocate dictionary space");
 		dictionaryBase = (WORDP)(((char*)hashbuckets) + hsize);
 
@@ -1341,7 +1376,7 @@ WORDP AllocateEntry()
 	WORDP  D = dictionaryFree++;
 	int index = Word2Index(D);
 	int avail = (int)(maxDictEntries - index);
-	if (avail <= 0) ReportBug((char*)"FATAL: used up all dict nodes\r\n")
+	if (avail <= 0) ReportBug((char*)"FATAL: used up all dict nodes\r\n");
 		if (avail < worstDictAvail) worstDictAvail = avail;
 	memset(D, 0, sizeof(WORDENTRY));
 	return D;
@@ -1375,7 +1410,7 @@ WORDP StoreWord(const char* word, uint64 properties)
 	char* buffer = NULL;
 	unsigned int n = 0;
 	bool lowercase = false;
-	
+
 	//   make all words normalized with no blanks in them.
 	char wordx[MAX_WORD_SIZE];
 	if ((*word == SYSVAR_PREFIX || *word == USERVAR_PREFIX || *word == '~' || *word == '^') &&
@@ -1515,11 +1550,13 @@ static void ReadLanguage(char* language)
 {
 	max_fact_language = languageIndex; // track highest index we see
 	max_language = languageIndex << LANGUAGE_SHIFT;
+	if (!stricmp(language, "japanese")) return;
+
 	ReadAsciiDictionary();
 	ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL, 0);
 }
 
-static char* GetNextLanguage(char*& data)
+char* GetNextLanguage(char*& data)
 {
 	if (!data || !*data) return NULL;
 
@@ -1771,9 +1808,9 @@ void CloseDictionary()
 void FreeDictionary()
 {
 	CloseDictionary();
-	if (hashbuckets) free(hashbuckets);
-	dictionaryBase = NULL;
+	if (hashbuckets) myfree(hashbuckets);
 	hashbuckets = NULL;
+	dictionaryBase = NULL; // based off hashbuckets
 }
 
 static void Write8(unsigned int val, FILE * out)
@@ -2173,7 +2210,7 @@ static WORDP ReadBinaryEntry(FILE * in)
 			meanings[i] = Read32(0);
 			if (meanings[i] == 0)
 			{
-				ReportBug((char*)"binary entry meaning is null %s", name)
+				ReportBug((char*)"binary entry meaning is null %s", name);
 					return NULL;
 			}
 		}
@@ -2216,7 +2253,7 @@ bool ReadBinaryDictionary()
 	unsigned int size = Read32(in); // bucket size used
 	if (size != maxHashBuckets) // if size has changed, rewrite binary dictionary
 	{
-		ReportBug((char*)"Binary dictionary uses hash=%d but system is using %d -- rebuilding binary dictionary\r\n", size, maxHashBuckets)
+		ReportBug((char*)"Binary dictionary uses hash=%d but system is using %d -- rebuilding binary dictionary\r\n", size, maxHashBuckets);
 			return false;
 	}
 	for (unsigned long i = 0; i <= maxHashBuckets; ++i)
@@ -2383,6 +2420,17 @@ char* ReadDictionaryFlags(WORDP D, char* ptr, unsigned int* meaningcount, unsign
 		else if (!stricmp(junk, "null")) {;}
 		else
 		{
+			if (!strcmp(junk, "null)"))
+			{
+				ptr = ReadCompiledWord(ptr, junk);
+				continue; // BUG, ignoring
+			}
+			size_t len = strlen(junk);
+			if (junk[len - 1] == ')')
+			{
+				junk[len - 1] = 0; // closing parent touching token, remove it
+				ptr -= 2;
+			}
 			uint64 val = FindPropertyValueByName(junk);
 			if (val) properties |= val;
 			else
@@ -2488,7 +2536,7 @@ MEANING GetMaster(MEANING T)
 	if (!GetMeaningCount(D)) return MakeMeaning(D, index); // has none, all erased
 	if (index > GetMeaningCount(D))
 	{
-		ReportBug((char*)"Bad meaning index %s %d", D->word, index)
+		ReportBug((char*)"Bad meaning index %s %d", D->word, index);
 			return MakeMeaning(D, 0);
 	}
 	if (index == 0) return T; // already at master
@@ -2503,7 +2551,7 @@ MEANING GetMaster(MEANING T)
 		int ind = Meaning2Index(at);
 		if (ind > GetMeaningCount(X))
 		{
-			ReportBug((char*)"syset master failure %s", X->word)
+			ReportBug((char*)"syset master failure %s", X->word);
 				return old;
 		}
 		at = GetMeanings(X)[ind];
@@ -2631,7 +2679,7 @@ bool ReadDictionary(char* file)
 		end[0] = ' ';
 		if (lemma) *lemma = 'l';
 		WORDP D = StoreWord(word, AS_IS);
-		if (stricmp(D->word, word)) ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word)
+		if (stricmp(D->word, word)) ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word);
 		unsigned int meaningCount = 0;
 		unsigned int glossCount = 0;
 
@@ -2657,6 +2705,12 @@ bool ReadDictionary(char* file)
 				char copy[MAX_WORD_SIZE];
 				char* lemma = TrimSpaces(at + 6);
 				strcpy(copy, lemma);
+				
+				// getcanonical equivalent without pulling out just 1 tag
+				// if a complex lemma has already been assigned, dont overwrite it
+				WORDP Z = GetCanonical(D,(uint64)-1); // get raw form
+				if (Z && strchr(Z->word, '`')) break; // dont override lemma
+
 				char* end1 = strchr(lemma + 1, '`'); // first end
 				if (!end1)
 				{
@@ -3068,7 +3122,7 @@ HEAPREF SetSubstitute(const char* name, char* originalx, char* replacementx, uns
 		D = FindWord(copy);	//   do we know original already?
 		if (D && D->systemFlags & HAS_SUBSTITUTE && D->w.substitutes) // fastdict may have this marked but we have still to redo it with xrefs
 		{
-			if (csapicall != TEST_PATTERN && stricmp(D->w.substitutes->word, S->word)) ReportBug((char*)"Already have a different substitute yielding %s from %s so ignoring %s\r\n", S->word, original, readBuffer)
+			if (csapicall != TEST_PATTERN && stricmp(D->w.substitutes->word, S->word)) ReportBug((char*)"Already have a different substitute yielding %s from %s so ignoring %s\r\n", S->word, original, readBuffer);
 		}
 
 		D = StoreWord(copy, 0);
@@ -3740,6 +3794,8 @@ static void ReadPlurals(char* file)
 
 void ReadLiveData(char* language) // language-specific - if live changes, may have to rebuild topic data due to dict index changes
 {
+	if (!stricmp(language, "japanese")) return; // we have no data
+
 	char word[MAX_WORD_SIZE];
 	sprintf(word, (char*)"%s/%s/plurals.txt", livedataFolder, language);
 	ReadPlurals(word);
@@ -3806,14 +3862,14 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		MEANING M = GetMeanings(D)[i]; // what we point to in synset land
 		if (!M)
 		{
-			ReportBug((char*)"Has no meaning %s %d\r\n", D->word, i)
+			ReportBug((char*)"Has no meaning %s %d\r\n", D->word, i);
 				return;
 		}
 		X = Meaning2Word(M);
 		int index = Meaning2Index(M);
 		int count1 = GetMeaningCount(X);
 		if (index > count1)
-			ReportBug((char*)"Has meaning index too high %s.%d points to %s.%d but limit is %d\r\n", D->word, i, X->word, index, count1)
+			ReportBug((char*)"Has meaning index too high %s.%d points to %s.%d but limit is %d\r\n", D->word, i, X->word, index, count1);
 
 			// can we find the master meaning for this meaning?
 			MEANING at = M;
@@ -3821,16 +3877,16 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		while (!(at & SYNSET_MARKER)) // find the correct ptr to return as master
 		{
 			X = Meaning2Word(at);
-			if (X->internalBits & DELETED_MARK) ReportBug((char*)"Synset goes to dead word %s", X->word)
+			if (X->internalBits & DELETED_MARK) ReportBug((char*)"Synset goes to dead word %s", X->word);
 				int ind = Meaning2Index(at);
 			if (ind > GetMeaningCount(X))
 			{
-				ReportBug((char*)"syset master failure %s", X->word)
+				ReportBug((char*)"syset master failure %s", X->word);
 					return;
 			}
 			if (!ind)
 			{
-				ReportBug((char*)"syset master failure %s refers to no meaning index", X->word)
+				ReportBug((char*)"syset master failure %s refers to no meaning index", X->word);
 					return;
 			}
 			at = GetMeanings(X)[ind];
@@ -3839,7 +3895,7 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 				MEANING* meanings = GetMeanings(X);
 				meanings[ind] |= SYNSET_MARKER;
 				at |= SYNSET_MARKER;  // go add missing marker arbitrarily
-				ReportBug((char*)"syset master loop overflow %s", X->word)
+				ReportBug((char*)"syset master loop overflow %s", X->word);
 					return;
 			}
 		}
@@ -3875,7 +3931,7 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		{
 			if (X->internalBits & DELETED_MARK)
 			{
-				ReportBug((char*)"Synset references dead entry %s word: %s meaning: %d\r\n", X->word, D->word, i)
+				ReportBug((char*)"Synset references dead entry %s word: %s meaning: %d\r\n", X->word, D->word, i);
 					break;
 			}
 			if (M & SYNSET_MARKER)
@@ -3885,12 +3941,12 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 			if (!GetMeanings(X))
 			{
 				M = 0;
-				ReportBug((char*)"Missing synsets for %s word: %s meaning: %d\r\n", X->word, D->word, i)
+				ReportBug((char*)"Missing synsets for %s word: %s meaning: %d\r\n", X->word, D->word, i);
 					break;
 			}
 			if (GetMeaningCount(X) < index)
 			{
-				ReportBug((char*)"Missing synset index %s %s\r\n", X->word, D->word)
+				ReportBug((char*)"Missing synset index %s %s\r\n", X->word, D->word);
 					break;
 			}
 			M = GetMeaning(X, index);
@@ -3900,7 +3956,7 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 				MEANING* meanings = GetMeanings(X);
 				meanings[index] |= SYNSET_MARKER;
 				M |= SYNSET_MARKER;  // go add missing marker arbitrarily
-				ReportBug((char*)"Missing synset head: %s\r\n", D->word)
+				ReportBug((char*)"Missing synset head: %s\r\n", D->word);
 					break; // in case of trouble
 			}
 			X = Z;
@@ -3909,13 +3965,13 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 				MEANING* meanings = GetMeanings(X);
 				meanings[index] |= SYNSET_MARKER;
 				M |= SYNSET_MARKER;  // go add missing marker arbitrarily
-				ReportBug((char*)"Missing synset head: %s\r\n", D->word)
+				ReportBug((char*)"Missing synset head: %s\r\n", D->word);
 					break; // in case of trouble
 			}
 		}
 		if (M & SYNSET_MARKER) ++synsetHeads; // prior was a synset head
 		if (synsetHeads != 1)
-			ReportBug((char*)"Bad synset list %s heads: %d count: %d\r\n", D->word, synsetHeads, counter)
+			ReportBug((char*)"Bad synset list %s heads: %d count: %d\r\n", D->word, synsetHeads, counter);
 	}
 	int limit = 1000;
 	if (GetTense(D))
@@ -3925,12 +3981,12 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		{
 			if (!E)
 			{
-				ReportBug((char*)"Missing conjugation %s \r\n", D->word)
+				ReportBug((char*)"Missing conjugation %s \r\n", D->word);
 					break;
 			}
 			if (E->internalBits & DELETED_MARK)
 			{
-				ReportBug((char*)"Deleted conjucation %s %s \r\n", D->word, E->word)
+				ReportBug((char*)"Deleted conjucation %s %s \r\n", D->word, E->word);
 					break;
 			}
 			E = GetTense(E);
@@ -3943,12 +3999,12 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		{
 			if (!E)
 			{
-				ReportBug((char*)"Missing plurality %s \r\n", D->word)
+				ReportBug((char*)"Missing plurality %s \r\n", D->word);
 					break;
 			}
 			if (E->internalBits & DELETED_MARK)
 			{
-				ReportBug((char*)"Deleted plurality %s %s \r\n", D->word, E->word)
+				ReportBug((char*)"Deleted plurality %s %s \r\n", D->word, E->word);
 					break;
 			}
 			E = GetPlural(E);
@@ -3961,12 +4017,12 @@ void VerifyEntries(WORDP D, uint64 junk) // prove meanings have synset heads and
 		{
 			if (!E)
 			{
-				ReportBug((char*)"Missing comparison %s \r\n", D->word)
+				ReportBug((char*)"Missing comparison %s \r\n", D->word);
 					break;
 			}
 			if (E->internalBits & DELETED_MARK)
 			{
-				ReportBug((char*)"Deleted comparison %s %s \r\n", D->word, E->word)
+				ReportBug((char*)"Deleted comparison %s %s \r\n", D->word, E->word);
 					break;
 			}
 			E = GetComparison(E);
@@ -4085,7 +4141,7 @@ void LoadDictionary(char* heapstart)
 		WORDP oldd = dictionaryFree;
 		AcquirePosMeanings(false); // set pos tables from dict entries (doesnt add new entries to dict or fact)
 		ExtendDictionary(); // also sets global variables
-		if (dictionaryFree != oldd) ReportBug("Adding pos facts changed dictionary") // word added to dictionary?
+		if (dictionaryFree != oldd) ReportBug("Adding pos facts changed dictionary"); // word added to dictionary?
 	}
 	*currentFilename = 0;
 
@@ -4322,6 +4378,11 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	WORDP revise;
 	uint64 inferredProperties = (name[0] != '~' && name[0] != '^') ? GetPosData(-1, name, revise, entry, canonical, xflags, cansysflags) : 0;
 	if (D && D->systemFlags & HAS_SUBSTITUTE && GetSubstitute(D) ) Log(USERLOG, "SUBSTITUTION SOURCE-> %s\r\n", GetSubstitute(D)->word );
+	if (stricmp(language, "english"))
+	{
+		WORDP fullcanon = GetCanonical(D, 0);
+		if (fullcanon) canonical = fullcanon;
+	}
 	if (entry && D != entry) Log(USERLOG, "\r\n  Changed to %s\r\n", entry->word);
 	sysflags |= xflags;
 	bit = START_BIT;
@@ -4733,7 +4794,7 @@ static void ExtractSynsets(WORDP D, uint64 data) // now rearrange to get synsets
 	unsigned int count = GetMeaningCount(E);
 	if (count < index || syn != D) // he doesnt point back to us!
 	{
-		ReportBug("Bad extract master")
+		ReportBug("Bad extract master");
 			myexit(0);
 	}
 	MEANING oldmeaning = 0;
@@ -4747,7 +4808,7 @@ static void ExtractSynsets(WORDP D, uint64 data) // now rearrange to get synsets
 		if (GetMeaning(referent, offset) != synset) // prove points to synset head
 		{
 			ReportBug("bad extract master2 synset: %s index: %d word %s index %d  synset checked against %s %d but was %s %d\r\n", D->word, k, referent->word, offset, Meaning2Word(synset)->word, Meaning2Index(synset),
-				Meaning2Word(GetMeaning(referent, offset))->word, Meaning2Index(GetMeaning(referent, offset)));
+                      Meaning2Word(GetMeaning(referent, offset))->word, Meaning2Index(GetMeaning(referent, offset)));
 			myexit(0);
 		}
 		GetMeanings(referent)[offset] = oldmeaning; // change his synset ptr to be our new master
@@ -4765,20 +4826,20 @@ static void ExtractSynsets(WORDP D, uint64 data) // now rearrange to get synsets
 	{
 		if (F->flags & (FACTSUBJECT | FACTVERB | FACTOBJECT))
 		{
-			ReportBug("bad fact on synset")
+			ReportBug("bad fact on synset");
 				myexit(0);
 		}
 		if (F->verb == Mis);
 		else
 		{
-			ReportBug("unknonw synset fact")
+			ReportBug("unknonw synset fact");
 				myexit(0);
 		}
 		MEANING object = F->object;		// originally a synset id
 		WORDP o = Meaning2Word(object);
 		if (!(o->internalBits & WORDNET_ID))
 		{
-			ReportBug("failed link")
+			ReportBug("failed link");
 				myexit(0);
 		}
 		if (o->meanings) // if it has meaning now. - if not, hasnt been converted yet
@@ -4849,7 +4910,7 @@ static void PurgeDictionary(WORDP D, uint64 data)
 		WORDP X = Meaning2Word(M);
 		if (M && !(Meaning2Word(M)->internalBits & WORDNET_ID) && Meaning2Word(M) != D) //invalid link
 		{
-			ReportBug("bad xlink %s %s", D->word, Meaning2Word(M)->word)
+			ReportBug("bad xlink %s %s", D->word, Meaning2Word(M)->word);
 				GetMeanings(D)[i] = 0;
 		}
 		if (!M) // was deleted 
@@ -5041,7 +5102,7 @@ static char* ReadWord(char* ptr, char* spot) //   mass of  non-whitespace
 	*spot = 0;
 	if (original[0] == '"' && original[1] == '"' && original[2] == 0) *original = 0;
 	if (*ptr == ENDUNIT) 
-		ReportBug("funny separator shouldnt be found")
+		ReportBug("funny separator shouldnt be found");
 	return ptr;
 }
 
@@ -5508,7 +5569,7 @@ static void readData(const char* file)
 						else if (frameNumber == 33) AddSystemFlag(D, VERB_TAKES_GERUND);
 						else
 						{
-							//  ReportBug("unknown sentence construction")
+							//  ReportBug("unknown sentence construction");
 						}
 					}
 					if (synsetNum != 0) //   we are done with the specific one we wanted
@@ -5518,7 +5579,7 @@ static void readData(const char* file)
 		}
 		if (ptr[0] == '|') ++ptr;
 		else if (ptr[1] == '|') ptr += 2;
-		else ReportBug("baddata")
+		else ReportBug("baddata");
 			if (*ptr == ' ') ++ptr; //   skip leading blank
 
 									//   grab gloss - erase end of line and any quote area
@@ -5631,7 +5692,7 @@ static void readWordKind(const char* file, unsigned int flags)
 					wordkind |= ADVERB;
 					sys = 0;
 				}
-				else if (!wordkind) ReportBug("word class not found %s", word)
+				else if (!wordkind) ReportBug("word class not found %s", word);
 			}
 			else
 			{
@@ -7641,7 +7702,7 @@ static void CheckShortDictionary(const char* name, bool pattern)
 		{
 			char* wordx = JoinWords(1);
 			WORDP G = FindWord(wordx, 0, PRIMARY_CASE_ALLOWED);
-			if (!G) ReportBug("idiom header missing")
+			if (!G) ReportBug("idiom header missing");
 			else
 			{
 				AddSystemFlag(G, MARKED_WORD);
@@ -7718,7 +7779,7 @@ static void CleanDead(WORDP D, uint64 junk) // insure all synonym circulars poin
 				M = GetMeaning(X, index);
 				if (M & SYNSET_MARKER)
 				{
-					if (seenMarker) ReportBug("duplicate synset head?")
+					if (seenMarker) ReportBug("duplicate synset head?");
 						seenMarker = true; // deleted word was synset header, we must take on that role.
 					synhead = MakeMeaning(X, index) | (M & (BASIC_POS));
 				}

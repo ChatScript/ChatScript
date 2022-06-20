@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 6/20/2022 cs12.2
 
 
 
@@ -149,6 +149,7 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`parselimit=n`	| if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed
 |`nl_save=1`	| for ^testpattern, enables results of nl analysis to be saved onto the $cs_nlinfo variable so that outside can pass it back in on future calls
 |`parselimit=1`	| inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up
+|`random=n`	| will force a specific value to be returned from %random
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of

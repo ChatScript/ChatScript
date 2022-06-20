@@ -1,7 +1,7 @@
 
 # ChatScript Coding Standards
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/22/2017 cs7.6
+<br>Revision 6/20/2022 cs12.2
 
 Contents:
 
@@ -12,6 +12,7 @@ Contents:
 * [Easy to read rule output](ChatScript-Coding-Standards.md#easy-to-read-rule-output)
 * [Bundle related rules](ChatScript-Coding-Standards.md#bundle-related-rules)
 * [Concept and Function localization](ChatScript-Coding-Standards.md#concept-and-function-localization)
+* [Keywords](ChatScript-Coding-Standards.md#keywords)
 * [Keyword casing and Misspellings](ChatScript-Coding-Standards.md#keyword-casing-and-misspellings)
 
 *Rationale*:<br>
@@ -222,6 +223,26 @@ you need to move something around. Consider using `!` keywords as instead.
 *Rationale*:<br>
 When you can localize data to the one file that uses it, 
 it makes it easier to find the definition when you want to inspect it.
+
+## Keywords 
+
+* Keywords and phrases in concepts, topic keywords, and patterns should be in lemma form if you want all conjugations matched.
+* Numbers should be in digit rather than word form.
+* Put the rareest keywords first in [ ] .
+* If you use [ ] in a pattern and then repeat that the same in another pattern, best to make a concept of it and use the concept.
+
+*Rationale*:<br>
+You want to match the most you can. Don't repeat singular and plural forms of a word, or word forms of a number, etc.
+And you want to put rarest first in [] because you want to avoid accidental matches on common words.
+
+You make a concept out of repeated [ ] pieces, because:
+Firstly, because when you want to add items in later, you may forget to add them in equivalently in other rules. 
+Secondly, because the concept hunts for earliest match of any whereas [ ] hunts in specific order.  
+If pattern is ( are you * [ dry happy] near me) then if input is "are you happy to be dry while near me", 
+the pattern will bind are you dry, then fail on near because the next word in sentence is while. 
+But it cant back up (not full lookahead mechanism) and try happy instead. 
+It can retry the start of sentence, but that will just come back to "are you". 
+But with a concept, it finds the earliest match to anything in the concept. 
 
 
 ## Keyword Casing and Misspellings

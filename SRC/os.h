@@ -131,6 +131,7 @@ extern char hide[4000];
 #define MYSQLFILES 3
 #define MICROSOFTSQLFILES 4
 extern int adjustIndent;
+extern char debugdata[MAX_WORD_SIZE];
 extern bool logged;
 extern int filesystemOverride;
 #define MAX_GLOBAL 600
@@ -204,7 +205,7 @@ void FreeStackHeap();
 bool KeyReady();
 bool InHeap(char* ptr);
 void CheckHeap(HEAPREF linkval, const char* file, unsigned int line); 
-#define CHECK_IN_HEAP(ptr) CheckHeap(ptr, __FILE__, __LINE__)
+#define CHECK_IN_HEAP(ptr) CheckHeap(ptr)
 bool InStack(char* ptr);
 void RestoreCallingDirectory();
 void CloseDatabases(bool restart = false);
@@ -343,7 +344,13 @@ extern bool silent;
 extern uint64 logCount;
 extern char* testOutput;
 #define DebugPrint(...) Log(STDDEBUGLOG, __VA_ARGS__)
-#define ReportBug(...) { Bug0(); Log(BUGLOG, __VA_ARGS__); if (server && serverLog) Log(SERVERLOG, __VA_ARGS__); if (!server && userLog) Log(USERLOG, __VA_ARGS__); Bug();  }
+#define ReportBug(...) do { \
+                            Bug0(); \
+                            Log(BUGLOG, __VA_ARGS__); \
+                            if (server && serverLog) Log(SERVERLOG, __VA_ARGS__); \
+                            if (!server && userLog) Log(USERLOG, __VA_ARGS__); \
+                            Bug(); \
+                        } while (false)
 extern char logFilename[MAX_WORD_SIZE];
 extern bool logUpdated;
 extern unsigned int logsize;
@@ -372,6 +379,10 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 
 // HOOKS
 typedef void (*HOOKPTR)(void);
+void myfree(void* ptr);
+#define mymalloc(len) mymalloc_imp(len, __FILE__, __LINE__)
+char* mymalloc_imp(size_t len, const char* file,  int line);
+void FreeServerLog();
 
 typedef void (*PerformChatArgumentsHOOKFN)(char*& user, char*& usee, char*& incoming);
 typedef void (*SignalHandlerHOOKFN)(int signalcode, char*& msg);

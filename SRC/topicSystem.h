@@ -83,6 +83,7 @@ extern int currentTopicID;
 extern char* currentRule;	
 extern int currentRuleID;
 extern int currentReuseID;
+extern bool allNoStay;
 extern int currentReuseTopic;
 extern int currentRuleTopic;
 extern bool monitorChange;

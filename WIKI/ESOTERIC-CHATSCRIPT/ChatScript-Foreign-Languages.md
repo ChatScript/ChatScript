@@ -1,6 +1,6 @@
 # Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 6/20/2022 cs12.2
 
 # Emoji
 
@@ -82,37 +82,62 @@ ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Jap
 It knows something is japanese because either the a command line parameter has "language=japanese",
 or because japanese characters are being used in compiling a pattern (^compilepattern), or because a global variable is passed in via ^testpattern  "$language = japanese".
 
-### CompilePattern   
-ChatScript directly supports Japanese coding in ^compilepattern. A "word" is a sequence of characters with no spaces in it (except for double quoted strings). 
-Note in the texts below, ? stands for some japanese character. 
+^testpattern	will change bits of japanese-written punctuation in a pattern to english to be compatible with pattern matching.
+	This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.
+	
+^testoutput will remove all spaces not within doublequotes. And will change bits of japanese-written punctuation in a pattern to english to be compatible.
+	This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.
 
-Patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. 
-Each character thus becomes a word internally.
+###  Mecab Japanese tokenizer
+CS uses the Mecab open source library to tokenize a continuous stream of Japanese characters, to provide the pos-tags
+and lemmas.  To use Japanse you need to go to common.h and remove #define DISABLE_JAPANESE 1 and 
+install mecab on your machines. Here are the instructions for that...
 
-So this, ( _??? $var:=_0 ), which a scripter writes as a single word to be found and memorized, internally is sent to cs as this:
+Here is how to install and build the mecab Japanese tokenizer libraries used by ChatScript. These instructions are based on the web page here.
+```
+Windows - prebuilt library  (THIS HAS ALREADY BEEN DONE FOR YOU)
+install visual studio
+go to https://taku910.github.io/mecab/#download
+download mecab-0.996.exe
+chrome will warn you, click "Download anyway"
+open the executable
+set the char set to utf-8
+accept the license
+put in the default location
+install
+permit all users
+allow compilation
+finish
+copy the library from C:\Program Files (x86)\MeCab\bin\libmecab.dll to Pearl\BINARIES
 
-[{"dse": {"compilepattern": "( _??? $var:=_0 )"  }} ] 
+Linux (on Ubuntu) - Install using apt-get 
+sudo apt-get install -y mecab mecab-ipadic-utf8 libmecab-dev
 
-and CS returns this for internal use, where each character is now a separate word:
-[{ "dse": { "testpattern": {input: " ???? ??", "patterns": [{ "pattern": "^( _( ? ? ? ) :6$var:=_0 ) " }] } } }]
-
-This pattern says that the given character sequence MUST be detected as a contiguous sequence. You can use the usual exclusion and memorization operators on such words, and they will be applied to the sequence.
-
-### ^testpattern
-If you set a global variable "language" to "japanese", then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:
-
-Normal character clusters are separated into discrete characters. These can match the patterns that have been compiled.
-English AND Japanese terminal punctuation marks corresponding to period, question , and exclamation are internally converted to English (because they will be stripped off the sentence as per usual).
-If the pattern matcher is required to memorize a "word", it will find the separated characters and join them back together to return the value.  Thus the above testpattern call will return:"output": {"newglobals": {"$var": "???"} , "match": 0}  }  ]  
-Concepts are written per usual, using Japanese words (characters without spaces).
-
-###Sentence Limit
-
-CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. 
-Where terminal punctuation is detected, that ends a sentence. 
-Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. 
-Ryan ran some numbers on about 100,000 user inputs from our jp bots. 
-The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.
+Linux (on Centos 7)
+Before starting the install, run: yum install gcc-c++
+go to a-file1/Common/Install\ Software/MeCab to get the installation files
+the files came from https://taku910.github.io/mecab/#download
+convert to English using Google Translate, if necessary, to read the page. (smile)
+copy the mecab source locally: mecab-0.996.tar.gz
+unzip the source: tar xfz mecab-0.996.tar.gz
+cd mecab-0.996
+chmod -R 0755 .
+./configure
+make 
+sudo make install
+cd ..
+copy the ipa dictionary locally: mecab-ipadic-2.7.0-20070801.tar.gz
+unzip the dictionary: tar xfz mecab-ipadic-2.7.0-20070801.tar.gz
+cd mecab-ipadic-2.7.0-20070801
+chmod -R 0755 .
+sh ./configure --with-charset = utf8
+make
+sudo make install
+cd ..
+copy the static library up: cp mecab-0.996/src/.libs/libmecab.a .
+echo "/usr/local/lib" >> /etc/ld.so.conf
+ldconfig
+```
 
 ###Numbers
 
@@ -130,6 +155,10 @@ So "Esszimmer" (dining room) becomes  Ess Zimmer.
 CS comes with a german dictionary, and spell checking will use it.
 In particular, if the input lacks appropriate accent marks, CS will
 likely fill them in for you.
+
+New postag attribute labels for German: ~spanish_she, ~german_he, ~german_neuter, german_accusative,
+~german_dative, ~german_nominative, ~german_genitive_object_complement
+
 
 ## SPANISH
 The tokenizer will simply delete any upside down question or
@@ -269,3 +298,4 @@ If you just want to translate a single concept/topic then you can call
 ```
 It will, as a byproduct, provide the sorted english form of the concept on a single line in `cset.txt`. 
 If you dont give a language and filename, then it will just sort your english concept and write it out.
+

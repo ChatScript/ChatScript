@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="foreign-language-support">Foreign Language Support</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/20/2022 cs12.2</p>
 <h1 id="emoji">Emoji</h1>
 <p>OK. So it's not really a foreign language. But it does have unique support. First off, in LIVEDATA/interjections.txt you can see some emoji declarations like:</p>
 <pre><code>:( ~emosad EMOJI</code></pre>
@@ -32,19 +32,53 @@
 <p>If <code>language=ideographic</code> is used, then spell check is disabled and tokenization will make each character be a token. This is useful for languages like Korean and Chinese.</p>
 <h2 id="japanese">Japanese</h2>
 <p>ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. It knows something is japanese because either the a command line parameter has &quot;language=japanese&quot;, or because japanese characters are being used in compiling a pattern (^compilepattern), or because a global variable is passed in via ^testpattern &quot;$language = japanese&quot;.</p>
-<h3 id="compilepattern">CompilePattern</h3>
-<p>ChatScript directly supports Japanese coding in ^compilepattern. A &quot;word&quot; is a sequence of characters with no spaces in it (except for double quoted strings). Note in the texts below, ? stands for some japanese character.</p>
-<p>Patterns that are compiled and that have tokens of Japanese UTF8 characters will expand those tokens to put spaces between each character. Each character thus becomes a word internally.</p>
-<p>So this, ( _??? $var:=_0 ), which a scripter writes as a single word to be found and memorized, internally is sent to cs as this:</p>
-<p>[{&quot;dse&quot;: {&quot;compilepattern&quot;: &quot;( _??? $var:=_0 )&quot; }} ]</p>
-<p>and CS returns this for internal use, where each character is now a separate word: [{ &quot;dse&quot;: { &quot;testpattern&quot;: {input: &quot; ???? ??&quot;, &quot;patterns&quot;: [{ &quot;pattern&quot;: &quot;^( _( ? ? ? ) :6$var:=_0 ) &quot; }] } } }]</p>
-<p>This pattern says that the given character sequence MUST be detected as a contiguous sequence. You can use the usual exclusion and memorization operators on such words, and they will be applied to the sequence.</p>
-<h3 id="testpattern">^testpattern</h3>
-<p>If you set a global variable &quot;language&quot; to &quot;japanese&quot;, then in calls to ^testpattern (the condition of a node) will adjust user inputs that have japanese characters in the following ways:</p>
-<p>Normal character clusters are separated into discrete characters. These can match the patterns that have been compiled. English AND Japanese terminal punctuation marks corresponding to period, question , and exclamation are internally converted to English (because they will be stripped off the sentence as per usual). If the pattern matcher is required to memorize a &quot;word&quot;, it will find the separated characters and join them back together to return the value. Thus the above testpattern call will return:&quot;output&quot;: {&quot;newglobals&quot;: {&quot;$var&quot;: &quot;???&quot;} , &quot;match&quot;: 0} } ]<br />
-Concepts are written per usual, using Japanese words (characters without spaces).</p>
-<h3 id="sentence-limit">Sentence Limit</h3>
-<p>CS has a limit of 254 words per sentence, which in this context means 254 characters per sentence of input. Where terminal punctuation is detected, that ends a sentence. Where the limit is reached before finding any terminal punctuation, CS does what it does with English, it breaks the sentence at that point and remaining words will be allocated to the next sentence. Ryan ran some numbers on about 100,000 user inputs from our jp bots. The average character length was 33, and inputs greater than 254 characters only account for 0.5% of all volleys.</p>
+<p>^testpattern will change bits of japanese-written punctuation in a pattern to english to be compatible with pattern matching. This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.</p>
+<p>^testoutput will remove all spaces not within doublequotes. And will change bits of japanese-written punctuation in a pattern to english to be compatible. This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.</p>
+<h3 id="mecab-japanese-tokenizer">Mecab Japanese tokenizer</h3>
+<p>CS uses the Mecab open source library to tokenize a continuous stream of Japanese characters, to provide the pos-tags and lemmas. To use Japanse you need to go to common.h and remove #define DISABLE_JAPANESE 1 and install mecab on your machines. Here are the instructions for that...</p>
+<p>Here is how to install and build the mecab Japanese tokenizer libraries used by ChatScript. These instructions are based on the web page here.</p>
+<pre><code>Windows - prebuilt library  (THIS HAS ALREADY BEEN DONE FOR YOU)
+install visual studio
+go to https://taku910.github.io/mecab/#download
+download mecab-0.996.exe
+chrome will warn you, click &quot;Download anyway&quot;
+open the executable
+set the char set to utf-8
+accept the license
+put in the default location
+install
+permit all users
+allow compilation
+finish
+copy the library from C:\Program Files (x86)\MeCab\bin\libmecab.dll to Pearl\BINARIES
+
+Linux (on Ubuntu) - Install using apt-get 
+sudo apt-get install -y mecab mecab-ipadic-utf8 libmecab-dev
+
+Linux (on Centos 7)
+Before starting the install, run: yum install gcc-c++
+go to a-file1/Common/Install\ Software/MeCab to get the installation files
+the files came from https://taku910.github.io/mecab/#download
+convert to English using Google Translate, if necessary, to read the page. (smile)
+copy the mecab source locally: mecab-0.996.tar.gz
+unzip the source: tar xfz mecab-0.996.tar.gz
+cd mecab-0.996
+chmod -R 0755 .
+./configure
+make 
+sudo make install
+cd ..
+copy the ipa dictionary locally: mecab-ipadic-2.7.0-20070801.tar.gz
+unzip the dictionary: tar xfz mecab-ipadic-2.7.0-20070801.tar.gz
+cd mecab-ipadic-2.7.0-20070801
+chmod -R 0755 .
+sh ./configure --with-charset = utf8
+make
+sudo make install
+cd ..
+copy the static library up: cp mecab-0.996/src/.libs/libmecab.a .
+echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf
+ldconfig</code></pre>
 <h3 id="numbers">Numbers</h3>
 <p>For english numbers as digits residing adjacent to japanese characters, the english number is broken off intact. Thus ??72????? becomes ? ? 72 ? ? ? ? ? on inputs</p>
 <h3 id="sentence-terminators">Sentence Terminators</h3>
@@ -52,6 +86,7 @@ Concepts are written per usual, using Japanese words (characters without spaces)
 <h2 id="german">GERMAN</h2>
 <p>The spell checker has code to break apart an unknown compound word into its separate recognizable pieces, based on https://www.dartmouth.edu/~deutsch/Grammatik/Wortbildung/Komposita.html . So &quot;Esszimmer&quot; (dining room) becomes Ess Zimmer.</p>
 <p>CS comes with a german dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>
+<p>New postag attribute labels for German: ~spanish_she, ~german_he, ~german_neuter, german_accusative, ~german_dative, ~german_nominative, ~german_genitive_object_complement</p>
 <h2 id="spanish">SPANISH</h2>
 <p>The tokenizer will simply delete any upside down question or exclamation marks.</p>
 <p>CS comes with a spanish dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>

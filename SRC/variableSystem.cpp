@@ -259,12 +259,12 @@ void SetWildCard(char* value, char* canonicalValue, const char* index, unsigned 
     if (strlen(value) > MAX_MATCHVAR_SIZE)
     {
         value[MAX_MATCHVAR_SIZE] = 0;
-        ReportBug((char*)"Too long matchvariable original value %s", value)
+        ReportBug((char*)"Too long matchvariable original value %s", value);
     }
     if (strlen(canonicalValue) > MAX_MATCHVAR_SIZE)
     {
         canonicalValue[MAX_MATCHVAR_SIZE] = 0;
-        ReportBug((char*)"Too long matchvariable canonical value %s", value)
+        ReportBug((char*)"Too long matchvariable canonical value %s", value);
     }
     while (value[0] == ' ') ++value;
     while (canonicalValue && canonicalValue[0] == ' ') ++canonicalValue;

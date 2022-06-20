@@ -6,13 +6,6 @@
 # Doc on makefile structure
 # http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
 
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	ODBCLIB := -lodbc -lmsodbcsql-17
-else
-	ODBCLIB := -lodbc -lmsodbcsql.17
-endif
-
 all: imp_test
 	$(info Starting test)
 	./imp_test
@@ -24,6 +17,7 @@ VPATH = . .. ../duktape ./$(OBJDIR)
 SOURCES := \
 	constructCode.cpp \
 	cs_ev.cpp \
+	cs_jp.cpp \
 	csocket.cpp  \
 	dictionarySystem.cpp  \
 	duktape.cpp \
@@ -63,6 +57,7 @@ SOURCES := \
 	test_scriptCompile.cpp \
 	test_zif.cpp \
 	test_main.cpp \
+	test_jp.cpp \
 	test_json.cpp \
 	timer.cpp
 
@@ -78,7 +73,7 @@ COMPILE.cpp = $(CXX) -c $(CPPFLAGS) $(CFLAGS) $(TARGET_ARCH) $(DEPFLAGS)
 COMPILE.c = $(CC) -c $(DEPFLAGS) $(CFLAGS) $(TARGET_ARCH)
 
 QUIET_WARNINGS=-Wno-unused-variable -Wno-char-subscripts -Wno-write-strings \
-	-Wno-unknown-pragmas
+	-Wno-unknown-pragmas -Wno-deprecated
 
 DEFINES=-DLOCKUSERFILE=1 -DEVSERVER=1 -DEVSERVER_FORK=1 -DDISCARDPOSTGRES=1 \
 	-DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DNOMAIN
@@ -100,16 +95,31 @@ $(DEPFILES):
 CFLAGS := -Wall -funsigned-char $(QUIET_WARNINGS) $(DEFINES) 
 
 CPPFLAGS := --std=c++11
-LIBS = -lodbc -lmsodbcsql.17 -lz -lcurl -g
 
+UNAME := $(shell uname)
 
-foo:
-	@echo "Objects $(OBJECTS)"
+ifeq ($(UNAME), Linux)
+$(info ************ LINUX VERSION ************)
+ODBCLIB := -lodbc -lmsodbcsql-17
+LDFLAGS= -L/usr/lib64 -lrt --verbose
+LIBDIR := ../../BINARIES
+endif
+
+ifeq ($(UNAME), Darwin)
+$(info ************ MAC VERSION $OSXRELEASE detected ************)
+OSXRELEASE := $(shell defaults read loginwindow SystemVersionStampAsString)
+ODBCLIB := -lodbc -lmsodbcsql.17
+LDFLAGS=-mmacosx-version-min=$(OSXRELEASE)
+LIBDIR := ../../BINARIES
+ADDLIBS := -liconv
+endif
+
+LIBS = -L$(LIBDIR) $(ADDLIBS) /usr/local/lib/libmecab.a $(ODBCLIB) -lz -lcurl -lcppunit -g
 
 include $(wildcard $(DEPFILES))
 
 imp_test: $(OBJECTS) Makefile
-	g++ -o imp_test $(OBJECTS) $(CFLAGS) -g \
+	g++ -o imp_test $(OBJECTS) -g \
 	$(LIBS) -Wno-write-strings -Wdeprecated -fpermissive --std=c++11
 
 clean:

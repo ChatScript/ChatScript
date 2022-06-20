@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
@@ -663,5 +663,16 @@ This will read in the file named, replace new lines with spaces, and write to TM
 <p>will take the all built concept and write them out to <code>concepts.top</code> as a multiple line, with members sorted alphabetically. If you want the concept declarations sorted alphabetically, first do <code>:sortconcept 1</code>, then take <code>concepts.top</code> and replace your original script concepts from it. Then do this and then replace your original script concepts from this.</p>
 <h1 id="variablereference">:variablereference</h1>
 <p>List all user variable assignments in a bot and uses into TMP/reference.txt . See documentation in Finalize a bot</p>
+<h1 id="testpattern-and-testoutput">^testpattern and ^testoutput</h1>
+<p>There are special debugging abilities tied to ^testpattern.</p>
+<p>A pattern that has %trace-on in it, turns on :trace all until either the pattern ends or %trace-off is found. This will output in the trace field of json return.</p>
+<p>If the user message starts with <code>cheat cs info</code> then the system will output a newglobal $cs_info with the timestamps of the engine compilation, and the level 0 and level1 script.</p>
+<p>If user input contains the serverauthorizationcode you supply in cs_initmore.txt, followed immediately by 2, then if there is a double quoted string as the next token, and the first token of that string is the label of the currently executing testpattern node, the rest of the string will be compiled, executed, and its output returned as a debug field. If no testpattern nodes match that name, then the first testoutput node that is invoked will execute the debug string. Eg.</p>
+<pre><code>    cs_initmore.txt:
+serverauthcode=mycheat
+    userinput:
+I love mycheat2 &quot;NODE4 :do test %bot me&quot; in the morning.</code></pre>
+<p>The above should return a debug field with &quot;test somebotname me&quot; in it. If the ^testpattern NODE4 is never executed then the first ^testoutput node will execute this.</p>
+<p>Whereas: <code>userinput:  I love mycheat1 in the morning.</code> will execute a simple :trace pattern with output in trace field in the resulting object.</p>
 </body>
 </html>

@@ -1,7 +1,22 @@
-# WANTED:  Full-time ChatScript programmer for San Francisco-based JustAnswer.
-Can work remotely. Will be my understudy and perform engine debugging
-and engine enhancements. Contact me if you have experience using CS and 
-some interest in this job.
+#  Version 12.2 June 20, 2022
+
+1. added more about keywords in ChatScript Coding Standards
+2. for people with various treetagger licenses: CS now supports loading 
+english, spanish, german pos-tagging and chunking.  Requires you get new library modules from me.
+See Esoteric: ChatScript-Foreign-Languages
+3. CS now supports japanese with a native 3rd party library. See Esoteric: ChatScript-Foreign-Languages
+4. new debugging tool for ^testpattern and ^testoutput. If input contains the serverauthorizationcode
+you supply in cs_initmore.txt, followed immediately by 2, then if there is a double quoted string as the next 
+token, and the first token of that string is the label of the currently executing testpattern node, the
+rest of the string will be compiled, executed, and its output returned as a debug field.  If no testpattern nodes
+match that name, then the first testoutput node that is invoked will execute the debug string. 
+See ChatScript-Debugging-Manual : ^testpattern
+5. if language is japanese, testoutput will remove all spaces not within doublequotes. ^testpattern
+	will change bits of japanese-written punctuation in a pattern to english to be compatible with pattern matching.
+	This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.
+6. param random= will force a specific value to be returned from %random
+7. New automated script testing functions :verifylist, :verifyrun, :verifymatch will see if your verification comments
+	can be reached. See ChatScript-Finalizing-a-bot  Generic :verify
 
 # Version 12.1 4/24/2022
 

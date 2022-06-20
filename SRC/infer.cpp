@@ -219,7 +219,7 @@ static void QueryFacts(WORDP original, WORDP D,unsigned int index,unsigned int s
 
         if (!--count) 
 		{
-			ReportBug((char*)"matchfacts infinite loop")
+			ReportBug((char*)"matchfacts infinite loop");
 			break;
 		}
         uint64 flags = F->flags;
@@ -272,7 +272,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 	if (D->inferMark == saveMark || (ignoremark &&  D->inferMark == ignoremark)) return false; // marked with a current mark
 	if (depth > FOLLOW_LIMIT)
 	{
-		ReportBug((char*)"Exceeding follow limit %s\r\n",D->word)
+		ReportBug((char*)"Exceeding follow limit %s\r\n",D->word);
 		return false;	
 	}
 
@@ -301,7 +301,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 			{
 				Log(USERLOG,"(%s=>) ",mean);
 				if (strlen(mean) > 999) 
-					ReportBug("Scan insert > 1000")
+					ReportBug("Scan insert > 1000");
 				else strcpy(last,mean);
 			}
 		}
@@ -537,7 +537,7 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 	WORDP C = FindWord(kind,0);
 	if (!C || !(C->internalBits & QUERY_KIND)) 
 	{
-		ReportBug((char*)"INFO: Illegal query name: %s",kind)
+		ReportBug((char*)"INFO: Illegal query name: %s",kind);
 		return 0;
 	}
 	char copy[MAX_WORD_SIZE];	// hold the actual control value, so we can overwrite it
@@ -549,7 +549,7 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 	}
 	else 
 	{
-		ReportBug((char*)"INFO: query control lacks data %s",kind)
+		ReportBug((char*)"INFO: query control lacks data %s",kind);
 		return 0;
 	}
 
@@ -690,7 +690,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				if (!at) at = strchr(control,' ');
 				if (!at) 
 				{
-					ReportBug((char*)"INFO: Couldnt find end of name %s in control",control)
+					ReportBug((char*)"INFO: Couldnt find end of name %s in control",control);
 					return 0; // couldn't find end of name
 				}
 				*at = 0;
@@ -747,7 +747,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				choice = myset;
 				break;
 			default: 
-				ReportBug((char*)"INFO: Bad control code for query init %s(%s) %s",C->word,C->w.userValue,control)
+				ReportBug((char*)"INFO: Bad control code for query init %s(%s) %s",C->word,C->w.userValue,control);
 				return 0;
 
 		}
@@ -804,7 +804,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					else if (*control == 'o') M = F->object; 
 					else 
 					{
-						ReportBug((char*)"INFO: bad control for choice[0] == '@' query %s(%s) %s",C->word,C->w.userValue,control)
+						ReportBug((char*)"INFO: bad control for choice[0] == '@' query %s(%s) %s",C->word,C->w.userValue,control);
 						return 0;
 					}
 					if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))  Log(USERLOG," %s ",WriteMeaning(M));
@@ -901,7 +901,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			else 
 			{
-				ReportBug((char*)"INFO: bad follow argument of %s  %s",kind,control)
+				ReportBug((char*)"INFO: bad follow argument of %s  %s",kind,control);
 				return 0;
 			}
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
@@ -960,7 +960,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			baseOffset = 3;
 			break;
 		default:
-			ReportBug((char*)"INFO: Bad control code for #2 (queue test) %s(%s) %s",C->word,C->w.userValue,control)
+			ReportBug((char*)"INFO: Bad control code for #2 (queue test) %s(%s) %s",C->word,C->w.userValue,control);
 			return 0;
 		}
 	}
@@ -1131,7 +1131,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) Log(USERLOG," object must ultimately be member of set marked #%c ",*control);
 			break;
 		default: 
-			ReportBug((char*)"INFO: Bad control code for Zone 3 test %s(%s) %s",C->word,C->w.userValue,control)
+			ReportBug((char*)"INFO: Bad control code for Zone 3 test %s(%s) %s",C->word,C->w.userValue,control);
 			return 0;
 		}
 	}
@@ -1183,13 +1183,13 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			baseFlags |=  (baseFlags & (USE_ORIGINAL_SUBJECT|USE_ORIGINAL_OBJECT)) ? RICCOCHET_USING_SUBJECT : USE_ORIGINAL_SUBJECT;
 			break; 
 		case  'v':
-			ReportBug((char*)"INFO: bad riccochet field")
+			ReportBug((char*)"INFO: bad riccochet field");
 			return 0; 
 		case  'o': 
 			baseFlags |=  (baseFlags & (USE_ORIGINAL_SUBJECT|USE_ORIGINAL_OBJECT)) ? RICCOCHET_USING_OBJECT : USE_ORIGINAL_OBJECT;
 			break;
 		default: 
-			ReportBug((char*)"INFO: Bad control code for Zone 4 test %s(%s) %s",C->word,C->w.userValue,control)
+			ReportBug((char*)"INFO: Bad control code for Zone 4 test %s(%s) %s",C->word,C->w.userValue,control);
 			return 0;
 		}
 	}

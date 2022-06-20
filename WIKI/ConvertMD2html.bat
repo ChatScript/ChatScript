@@ -50,6 +50,7 @@ pandoc ESOTERIC-CHATSCRIPT/ChatScript-Database_Access.md -s -o ../HTMLDOCUMENTAT
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Planning.md -s -o ../HTMLDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Planning.html
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-PosParser.md -s -o ../HTMLDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-PosParser.html
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Engine.md -s -o ../HTMLDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Engine.html
+pandoc ESOTERIC-CHATSCRIPT/ChatScript-Data-Loading.md -s -o ../HTMLDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Data-Loading.html
 pandoc ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.md -s -o ../HTMLDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Foreign-Languages.html
 
 pandoc OVERVIEWS-AND-TUTORIALS/ChatScript-Tutorial.md -s -o ../HTMLDOCUMENTATION/OVERVIEWS-AND-TUTORIALS/ChatScript-Tutorial.html

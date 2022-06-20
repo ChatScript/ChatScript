@@ -111,8 +111,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define AUX_HAVE				0x0000001000000000ULL 
 #define	AUX_BE					0x0000000800000000ULL	
 #define AUX_VERB_PRESENT		0x0000000400000000ULL
+
 #define AUX_VERB_FUTURE			0x0000000200000000ULL
 #define SPANISH_FUTURE AUX_VERB_FUTURE // for spanish labelling
+
 #define AUX_VERB_PAST			0x0000000100000000ULL
 #define AUX_VERB_TENSES ( AUX_VERB_PRESENT | AUX_VERB_FUTURE | AUX_VERB_PAST ) // modal verbs
 #define AUX_VERB ( AUX_VERB_TENSES | AUX_BE | AUX_HAVE | AUX_DO )
@@ -126,11 +128,17 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 #define NOUN_HUMAN				0x4000000000000000ULL  //   person or group of people that uses WHO, he, she, anyone
 #define NOUN_FIRSTNAME			0x2000000000000000ULL  //   a known first name -- wiULL also be a sexed name probably
-#define NOUN_SHE				0x1000000000000000ULL	//   female sexed word (used in sexed person title detection for example)
-#define SPANISH_SHE				NOUN_SHE	//   female sexed word (used in sexed person title detection for example)
-#define NOUN_HE					0x0800000000000000ULL	//   male sexed word (used in sexed person title detection for example)
-#define SPANISH_HE				NOUN_HE	//   female sexed word (used in sexed person title detection for example)
+
+// genders
+#define NOUN_SHE					0x1000000000000000ULL	//   female sexed word (used in sexed person title detection for example)
+#define SPANISH_SHE				NOUN_SHE	
+#define GERMAN_SHE				NOUN_SHE	
+#define NOUN_HE						0x0800000000000000ULL	//   male sexed word (used in sexed person title detection for example)
+#define SPANISH_HE				NOUN_HE
+#define GERMAN_HE				NOUN_HE	
 #define NOUN_THEY				0x0400000000000000ULL   
+#define GERMAN_NEUTER	NOUN_THEY	
+
 #define NOUN_TITLE_OF_ADDRESS	0x0200000000000000LL	//   eg. mr, miss
 #define NOUN_TITLE_OF_WORK		0x0100000000000000ULL
 #define LOWERCASE_TITLE			0X0080000000000000ULL	//   lower case word may be in a title (but not a noun)
@@ -370,9 +378,12 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 // pos tagger roles and states on roles[] && needRoles[] (32 bit limit)
 // needRoles values can be composed of multiple choices. roles are exactly one choice
 #define MAINOBJECT			0x00000008
+#define GERMAN_ACCUSATIVE MAINOBJECT
 #define MAININDIRECTOBJECT	0x00000004 
+#define GERMAN_DATIVE MAININDIRECTOBJECT
 #define MAINVERB			0x00000002
 #define MAINSUBJECT			0x00000001			// noun roles like Mainsubject etc are ordered lowest first for pronoun IT priority
+#define GERMAN_NOMINATIVE MAINSUBJECT
 
 #define SUBJECT2			0x00000010
 #define VERB2				0x00000020
@@ -385,6 +396,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 		 	
 #define QUOTATION_UTTERANCE  	0x00000800		
 #define OBJECT_COMPLEMENT		0x00001000	// can be noun or adjective or to/infinitive after direct object..."that should keep them *happy" "I knight you *Sir *Peter" (verb expects it)
+#define GERMAN_GENITIVE OBJECT_COMPLEMENT
 #define TO_INFINITIVE_OBJECT 	0x00002000	// expecting either indirectobject then to infinitve or just to infinitive
 #define VERB_INFINITIVE_OBJECT	0x00004000  // expecting either indirectobject then infinitive or just infinitive
 #define OMITTED_SUBJECT_VERB	0x00008000 // for clauses like "if necessary"

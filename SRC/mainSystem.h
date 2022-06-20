@@ -125,6 +125,7 @@ extern int sentenceLimit;
 extern char rootdir[MAX_WORD_SIZE];
 extern char incomingDir[MAX_WORD_SIZE];
 extern int volleyFile;
+extern unsigned int forcedRandom;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern bool logline;
@@ -145,6 +146,7 @@ extern int traceUniversal;
 extern char apikey[100];
 extern char defaultbot[100];
 extern char buildflags[100];
+extern char verifyLabel[MAX_WORD_SIZE];
 extern unsigned int volleyCount;
 extern FILE* sourceFile;
 extern bool multiuser;
@@ -312,7 +314,7 @@ int PerformChatGivenTopic(char* user, char* usee, char* incoming, char* ip, char
 #endif
 
 void ResetSentence();
-void ResetToPreUser();
+void ResetToPreUser(bool saveBuffers = false);
 void PrepareSentence(char* input,bool mark = true,bool user=true, bool analyze = false, bool oobstart = false,bool atlimit = false);
 bool PrepassSentence(char* presspassTopic);
 FunctionResult Reply();
@@ -322,4 +324,5 @@ void AddHumanUsed(const char* reply);
 bool HasAlreadySaid(char* msg);
 bool AddResponse(char* msg, unsigned int controls);
 
+void HandlePermanentBuffers(bool init); // for unit testing
 #endif

@@ -33,9 +33,12 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 //#define DISCARDJAVASCRIPT 1
 //#define DISCARD_TEXT_COMPRESSION 1
 //#define DISCARDWEBSOCKET 1
-
+//#define DISCARD_JAPANESE 1
 // these can add components
 //#define  TREETAGGER 1
+#define DISCARD_JAPANESE 1
+//#define HARDCRASH 1 - dont trap interrupt (for debugging)
+
 
 #ifdef DLL
 #define NOMAIN 1
@@ -198,6 +201,9 @@ using namespace std;
 #include "factSystem.h"
 #include "functionExecute.h"
 
+#include "cs_jp.h"
+#include "cs_es.h"
+#include "cs_german.h"
 #include "csocket.h"
 #include "constructCode.h"
 #include "english.h"

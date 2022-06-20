@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 11/21/2021 cs11.6
+<br>Revision 6/20/2022 cs12.2
 
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
@@ -20,6 +20,8 @@ Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
 * [Multiple Languages](ChatScript-Engine-md#multiple-languages)
 * [Private Code](ChatScript-Engine-md#private-code)
 * [Documentation](ChatScript-Engine-md#documentation)
+* [Engine Flows](ChatScript-Engine-md#engine-flows)
+
 
 
 This does not cover ChatScript the scripting language. 
@@ -1299,3 +1301,75 @@ There are some hooks you can define to tap into execution of the engine. Use
 # Documentation
 
 Master documentation is in the `WIKI` folder, with `PDFDOCUMENTATION` and `HTMLDOCUMENTATION` generated from that using scripts in `WIKI`.
+
+# Engine Flows
+```
+Main
+	InitSystem - allocates memory, loads data, sets up environment
+	MainLoop - in standalone mode, reads in user input, calls PerformChat
+	--servers-- windows and linux queue requests and call PerformChat
+	CloseSystem - shuts down chatscript
+
+PerformChat - called from outside and from MainLoop - takes input and returns output
+	LoggingCheats - enable special logging cheats based on input
+	Login - sets up caller and callee
+	GetUserData - loads user state
+
+	PurifyInput - converts simplify user input to ascii or utf8 to utf8, find oob bounds 
+	ValidateUserInput - check user doesnt have large tokens (non-language stuff)
+	AddInput - stores user input for processing 
+	
+	ProcessInput - handles the input, tokenizing and executing control scripts
+	.	GetNextInput - pulls input from store
+	.	DoCommand - if input appears to be :debug type command
+	.	DoOneSentence -- handle a sentence
+			PrepareSentence - tokenize, nlp processing
+			..	Tokenize - break apart sentence or oob
+			..	SetContinuationInput - remainder of untokenized input
+			..	NLPipeline - perform nlp analysis on sentence -- not for  oob 
+					ProcessSubstitutes - handle explicit substitution requests
+					SpellCheckSentence - our spellchecking system
+					
+					ProperNameMerge - mergie proper names into 1 token
+					ProcessCompositeDate - merge multiple word data data into 1 token
+					ProcessCompositeNumber - imerge multiple word numbers into 1 token
+					ProcessSplitUnderscores 
+
+			..	MarkAllImpliedWords - mark words and concepts implied - not for  oob 
+						Tagit - postagging and parsing
+							external tagger and/or 
+							PerformPosTag - 
+								JapaneseNLP - when language is japanese - Otherwise...
+								ApplyRules - rule-based english reduction of possible pos values 
+									ParseSentence - when no more rules apply, try parsing
+								GetPosData - get/compute pos data for a word in context	
+
+	.		PrepassSentence - any cs-prepass topic processing to revise nlp found - not for  oob 
+	.		Reply - take marked sentence and run main control script on it
+				-- some oob script just accessses API calls below
+				API CompilePatternCode - generate compiled pattern code
+					StartScriptCompiler
+					ReadPattern
+					EndScriptCompiler
+				API TestPatternCode - external api to handle most of the above  bypassed in oob
+					SetLanguage - assigns language for this call
+					MakeConcepts - convert external concept data to transient internal
+					MakeVariables - bind or unbind incoming variable data
+					NeedNL - see if test will require nlp work
+					DecodeSentenceData - convert external cached NL to internal
+					AnalyzeCode - perform all NLP if needed
+					TestPatternAgainstSentence - execute a pattern
+					UnbindConcepts - undo concepts modified
+					HandleChangedVariables - set up json newglobals data to return
+						EncodeSentenceData - convert NLP to return for external caching
+					UnbindVariables - undo variable changes
+				API CompileOutputCode - generate compiled output code
+					StartScriptCompiler
+					ReadOutput
+					EndScriptCompiler
+				API TestOutputCode - external api to access output generation
+					Output - code interpreter 
+
+	FinishVolley - sets up output
+	LogChat - output logs
+```

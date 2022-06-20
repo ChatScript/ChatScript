@@ -34,7 +34,7 @@
 //		0x00000004 # DO_CONTRACTIONS
 #define FROM_FILE						0x00000004	//  for scriptcompiler to tell stuff comes from FILE not DIRECTORY
 #define MACRO_TIME					FROM_FILE	// turn on timing for this function (only used when live running)
-#define NO_CONCEPT_DUPLICATES	FROM_FILE		// concept allows duplication
+#define NO_CONCEPT_DUPLICATES	FROM_FILE		// concept disallows duplication
 
 //		0x00000008 # DO_INTERJECTIONS
 #define HAS_EXCLUDE				0x00000008		// concept/topic has keywords to exclude
@@ -187,6 +187,7 @@ char* GetWord(char* word);
 WORDP GetPlural(WORDP D);
 bool IsValidLanguage(WORDP D);
 bool SetLanguage(char* arg1);
+char* GetNextLanguage(char*& data);
 void SetPlural(WORDP D,MEANING M);
 WORDP GetComparison(WORDP D);
 void SetComparison(WORDP D,MEANING M);

@@ -355,6 +355,11 @@ static char* Srand(char* value) // 1 .. 100
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
+	if (forcedRandom)
+	{
+		sprintf(systemValue, (char*)"%u", forcedRandom);
+		return systemValue;
+	}
 	if (regression) return "0";
 	sprintf(systemValue,(char*)"%u",random(100)+1);
 	return systemValue;
@@ -1386,6 +1391,7 @@ SYSTEMVARIABLE sysvars[] =
 	{ (char*)"%badspell",SbadSpell,(char*)"How many bad spellings were handled" },
 	{ (char*)"%inputlimited",SinputLimited,(char*)"were we given too much input" },
 	{ (char*)"%inputsize",SinputSize,(char*)"bytes of input passed in" },
+
 	{ (char*)"\r\n---- Output variables",0,(char*)""},
 	{ (char*)"%inputrejoinder",SinputRejoinder,(char*)"if pending input rejoinder, this is the tag of it else null"},
 	{ (char*)"%lastoutput",SlastOutput,(char*)"Last line of currently generated output or null"},

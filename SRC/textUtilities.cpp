@@ -1,4 +1,10 @@
 ﻿#include "common.h"
+typedef struct JapanCharInfo
+{
+	const char* charword;		//  japanese 3 byte character
+	const unsigned char convert;		// ascii equivalent
+} JapanCharInfo;
+
 char* currentInput = NULL; // latest input we are processing from GetNextInput for error reporting
 static HEAPREF startSupplementalInput = NULL;
 int startSentence;
@@ -44,6 +50,38 @@ typedef struct NUMBERDECODE
 
 static NUMBERDECODE* numberValues[MAX_MULTIDICT]; // multilanguage
 
+static JapanCharInfo japanSet[] =
+{
+	// ranged characters - only substituted in all variables
+	{"\xEF\xBC\xA1",(unsigned char)'A'}, // "Ａ"
+	{"\xEF\xBC\xBA",(unsigned char)'Z'}, //"Ｚ" 
+	{"\xEF\xBD\x81",(unsigned char)'a'}, // "ａ" 
+	{"\xEF\xBD\x9A",(unsigned char)'z'}, // "ｚ" 
+	{"\xEF\xBC\x90",(unsigned char)'0'}, // "０" 
+	{"\xEF\xBC\x99",(unsigned char)'9' },// "９" 
+	// one-off characters  always substituted in variables
+	{"\xE3\x80\x82",(unsigned char)'.'}, // "。" ideographic_full_stop, code point U+3002       
+	{"\xEF\xBC\x8E", (unsigned char)'.'}, // "．" fullwidth full stop, code point U+FF0E  
+	{"\xEF\xBC\x8D", (unsigned char)'-'},// "－" fullwidth hyphen-minus, code point U+FF0D uft8 
+	{"\xEF\xBC\xBF", (unsigned char)'_'}, // "＿"fullwidth low line, code point U+FF3F 
+	{"\xEF\xBC\x8E", (unsigned char)'.'}, // "。"  full width stop 
+	{"\xEF\xBD\xA1", (unsigned char)'.'}, // "｡" jp half-period stop
+    // From https://en.wikipedia.org/wiki/List_of_Japanese_typographic_symbols
+	{0,0}
+};
+
+static JapanCharInfo japanControlSet[] = // always change pattern and output
+{
+	{ "\xE3\x80\x80",(unsigned char)' ' },// "　" ideographic space, code point U+3000  
+	{ "\xEF\xBC\x88", (unsigned char)'(' }, // "（", jp open paren, U+FF08
+	{ "\xEF\xBC\x89", (unsigned char)')' }, // "）", jp close paren, U+FF09
+	{ "\xEF\xBD\x9B", (unsigned char)'{' }, // "｛", jp open curly brace, U+FF5B
+	{ "\xEF\xBD\x9D", (unsigned char)'}' }, // "｝", jp close curly brace, U+FF5D
+	{ "\xEF\xBC\xBB", (unsigned char)'(' }, // "［", jp open bracket, U+FF3B
+	{ "\xEF\xBC\xBD", (unsigned char)')' }, // "］", jp close bracket, U+FF3D
+	{ 0,0 }
+};
+
 typedef struct CURRENCYDECODE
 {
 	int word; // word index of currency abbrev
@@ -55,7 +93,10 @@ static int* monthnames[MAX_MULTIDICT];
 static int* topleveldomains;
 
 unsigned char toLowercaseData[256] = // convert upper to lower case
-{
+{  // encoder/decoder https://mothereff.in/utf-8
+	// table of values site:
+	// https://www.utf8-chartable.de/unicode-utf8-table.pl?start=12288
+
 	0,1,2,3,4,5,6,7,8,9,			10,11,12,13,14,15,16,17,18,19,
 	20,21,22,23,24,25,26,27,28,29,	30,31,32,33,34,35,36,37,38,39,
 	40,41,42,43,44,45,46,47,48,49,	50,51,52,53,54,55,56,57,58,59,
@@ -67,8 +108,8 @@ unsigned char toLowercaseData[256] = // convert upper to lower case
 	130,131,132,133,134,135,136,137,138,139,	140,141,142,143,144,145,146,147,148,149,
 	150,151,152,153,154,155,156,157,158,159,	160,161,162,163,164,165,166,167,168,169,
 	170,171,172,173,174,175,176,177,178,179,	180,181,182,183,184,185,186,187,188,189,
-	190,191,192+32,193 + 32,194 + 32,195 + 32,196 + 32,197 + 32,198 + 32,199 + 32,	200 + 32,201 + 32,202 + 32,203 + 32,204 + 32,205 + 32,206 + 32,207 + 32,208 + 32,209 + 32,
-	210 + 32,211+32,212 + 32,213 + 32,214 + 32,215 + 32,216 + 32,217 + 32,218 + 32,219 + 32,	220 + 32,221 + 32,222+32,223,224,225,226,227,228,229,
+	190,191,192,193 ,194 ,195 ,196 ,197 ,198 ,199 ,	200 ,201 ,202 ,203 ,204 ,205 ,206 ,207 ,208 ,209 ,
+	210 ,211,212 ,213 ,214 ,215 ,216 ,217 ,218 ,219 ,	220 ,221 ,222,223,224,225,226,227,228,229,
 	230,231,232,233,234,235,236,237,238,239,	240,241,242,243,244,245,246,247,248,249,
 	250,251,252,253,254,255
 };
@@ -86,8 +127,8 @@ unsigned char toUppercaseData[256] = // convert lower to upper case
 	130,131,132,133,134,135,136,137,138,139,	140,141,142,143,144,145,146,147,148,149,
 	150,151,152,153,154,155,156,157,158,159,	160,161,162,163,164,165,166,167,168,169,
 	170,171,172,173,174,175,176,177,178,179,	180,181,182,183,184,185,186,187,188,189,
-	190,191,192-32,193 - 32,194 - 32,195 - 32,196 - 32,197 - 32,198 - 32,199 - 32,	200 - 32,201 - 32,202 - 32,203 - 32,204 - 32,205 - 32,206 - 32,207 - 32,208 - 32,209 - 32,
-	210 - 32,211 - 32,212 - 32,213 - 32,214 - 32,215 - 32,216 - 32,217 - 32,218 - 32,219 - 32,	220 - 32,221 - 32,222-32,223,224,225,226,227,228,229,
+	190,191,192-32,193 ,194 ,195 ,196 ,197 ,198 ,199 ,	200 ,201 ,202 ,203 ,204 ,205 ,206 ,207 ,208 ,209 ,
+	210 ,211 ,212 ,213 ,214 ,215 ,216 ,217 ,218 ,219 ,	220 ,221 ,222-32,223,224,225,226,227,228,229,
 	230,231,232,233,234,235,236,237,238,239,	240,241,242,243,244,245,246,247,248,249,
 	250,251,252,253,254,255
 };
@@ -340,6 +381,29 @@ void InitUniversalTextUtilities()
 	}
 }
 
+void Translate_UTF16_2_UTF8(char* input)
+{
+	char* output = input--;
+	while (*++input)
+	{
+		char c = *input;
+		if (c == '\\' && input[1] == 'u' && IsHexDigit(input[2]) && IsHexDigit(input[3]) && IsHexDigit(input[4]) && IsHexDigit(input[5]))
+		{
+			char* utf8 = UTF16_2_UTF8(input + 1, false);
+			if (utf8)
+			{
+				size_t len = strlen(utf8);
+				input += 5; // skip what we read
+				// shrink to fit hole
+				memmove(input + len, input + 6, strlen(input + 5));
+				strncpy(input, utf8, len);
+				input += len - 1;
+			}
+		}
+		// else leave input/output alone
+	}
+}
+
 char* UTF16_2_UTF8(char* in,bool withinquote)
 { // u0000 notation
 	static char answer[20];
@@ -443,6 +507,12 @@ char* ReadTokenMass(char* ptr, char* word)
 	while (*ptr && *ptr != ' ') *word++ = *ptr++;	// find end of word
 	*word = 0;
 	return ptr;
+}
+
+
+bool LegalVarChar(char at)
+{
+	return  (IsAlphaUTF8OrDigit(at) || at == '_' || at == '-');
 }
 
 void InitTextUtilitiesByLanguage(char* lang)
@@ -679,6 +749,90 @@ bool IsAllUpper(char* ptr)
 	return (!*ptr);
 }
 
+void ConvertJapanText(char* output,bool pattern)
+{
+	char* base = output--;
+	bool variable = false;
+	while (*++output)
+	{
+		int index = output - base;
+		unsigned char c = *output;
+		int kind = IsLegalNameCharacter(c); // 1==utf8 0=non letter/digit
+		
+		// universally replace [] () {}
+		int k = -1;
+		JapanCharInfo* fn;
+		if (kind == 1) // is utf8 based
+		{
+			while ((fn = &japanControlSet[++k]) && fn->charword)
+			{
+				if (!strncmp((char*)output, fn->charword, 3))
+				{
+					memmove(output + 1, output + 3, strlen(output + 2));
+					*output = fn->convert;
+					// stuff ends variables unless its json access $x[5]
+					if (*output != '[' && *output != ']') variable = false;
+					else if (variable && *output == ']') // is it closing a variable or merely arrayref
+					{
+						char* at = output;
+						while (*--at != USERVAR_PREFIX)
+						{
+							if (*at == '[') break; // opening []
+						}
+						if (*at == USERVAR_PREFIX)  variable = false; 
+					}
+					break;
+				}
+			}
+			if (fn->charword) continue; // we already made a subsitution
+		}
+
+		// all variables need . - _ letters and digits converted from japanese to ascii
+		if (c == USERVAR_PREFIX) variable = true;
+		else if (variable && c == ']') // is it closing a variable or merely arrayref
+		{
+			char* at = output;
+			while (*--at != USERVAR_PREFIX)
+			{
+				if (*at == '[') break; // opening []
+			}
+			if (*at == USERVAR_PREFIX)  variable = false;
+		}
+		else if (!kind ) variable = false; // not utf8 and not var legal
+		else if (pattern || (variable && kind == 1)) // convert to ascii only
+		{
+			k = -1;
+			while ((fn = &japanSet[++k]) && fn->charword)
+			{
+                if (k < 6) // ranged
+                {
+                    if (pattern && !variable) continue; // dont convert ranged values except in variables
+                    // within range?
+                    unsigned int endval = (unsigned int)output[2];
+                    int lower = strncmp(output, fn->charword, 3);
+                    int upper = strncmp(output, japanSet[k + 1].charword, 3);
+                    if (lower >= 0 && upper <= 0) // in range
+                    {
+                        memmove(output + 1, output + 3, strlen(output + 2) );
+                        *output = (char)(fn->convert + (endval - (unsigned int)fn->charword[2]));
+                        ++k; // only check a range once at start
+                        break;
+                    }
+                    ++k; // only check a range once at start
+                    continue;
+                }
+                else if (!strncmp((char*)output, fn->charword, 3)) // non range
+                {
+                    memmove(output + 1, output + 3, strlen(output + 2));
+                    *output = fn->convert;
+                    break;
+                }
+			}
+			if (!fn->charword) variable = false; // didnt match legal vardata
+		}
+	}
+}
+
 char* RemoveEscapesWeAdded(char* at)
 {
 	if (!at || !*at) return at;
@@ -746,6 +900,13 @@ void RemoveImpure(char* buffer)
 	while ((p = strchr(buffer, '\r'))) *p = ' '; // legal
 	while ((p = strchr(buffer, '\n'))) *p = ' '; // legal
 	while ((p = strchr(buffer, '\t'))) *p = ' '; // legal
+}
+
+char* RemoveQuotes(char* item)
+{
+	char* q;
+	while ((q = strchr(item, '"'))) memmove(q, q + 1, strlen(q));
+	return item;
 }
 
 void ChangeSpecial(char* buffer)
@@ -897,7 +1058,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 		else if (*at == '\\')
 		{
 			const char* at1 = at + 1;
-			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || (*at1 == 'u' && IsHexDigit(at[2]) && IsHexDigit(at[3]) && IsHexDigit(at[4]) && IsHexDigit(at[5])) ))  // just pass it along
+			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == 'u'))  // just pass it along
 			{
 				*to++ = *at;
 				*to++ = *++at;
@@ -1052,7 +1213,7 @@ void AcquireDefines(const char* fileName)
 				if (!value)  value = FindMiscValueByName(label);
 				if (!value)  value = FindParseValueByName(label);
 				xbuildDictionary = olddict;
-				if (!value)  ReportBug((char*)"missing modifier value for %s\r\n", label)
+				if (!value)  ReportBug((char*)"missing modifier value for %s\r\n", label);
 					if (orop) result |= value;
 					else if (shiftop) result <<= value;
 					else if (plusop) result += value;
@@ -1344,6 +1505,8 @@ bool IsArithmeticOp(char* word)
 
 char* IsUTF8(char* buffer, char* character) // swallow a single utf8 character (ptr past it) or return null 
 {
+	*character = 0;
+	if (!buffer || !*buffer) return NULL;
 	*character = *buffer;
 	character[1] = 0;  // simple ascii character
 	if (*buffer == 0) return buffer; // dont walk past end
@@ -1901,6 +2064,21 @@ char* ReadTabField(char* buffer, char* storage)
 	int len = strlen(storage);
 	while (storage[len - 1] == ' ') storage[--len] = 0;
 	return end + 1;
+}
+
+char* HexDisplay(char* str)
+{
+	char* buffer = AllocateBuffer();
+	char* start = buffer;
+	--str;
+	while (*++str)
+	{
+		if (*str < 0x7f) sprintf(buffer, "%c", *str);
+		else sprintf(buffer, "%x", *str);
+		buffer += strlen(buffer);
+	}
+	FreeBuffer();
+	return start; 
 }
 
 FunctionResult AnalyzeCode(char* buffer)
@@ -2498,7 +2676,7 @@ char* ReadInt(char* ptr, int& value)
 		if (IsDigit(*ptr)) value += *ptr - '0';
 		else
 		{
-			Bug(); // ReportBug((char*)"bad number %s\r\n", original)
+			Bug(); // ReportBug((char*)"bad number %s\r\n", original);
 			while (*++ptr && *ptr != ' ');
 			value = 0;
 			return ptr;
@@ -2544,7 +2722,7 @@ char* ReadInt64(char* ptr, int64& spot)
 		else if (cur1 && ptr == cur1) break;	 // end of number part of like 65$
 		else
 		{
-			Bug(); // ReportBug((char*)"bad number1 %s\r\n", original)
+			Bug(); // ReportBug((char*)"bad number1 %s\r\n", original);
 			while (*++ptr && *ptr != ' ');
 			spot = 0;
 			return ptr;
@@ -3642,7 +3820,7 @@ RESUME:
 				buffer -= 2;
 				*start = 0;
 				hasutf = false;
-				ReportBug("File is utf16. We want UTF8")
+				ReportBug("File is utf16. We want UTF8");
 			}
 		}
 

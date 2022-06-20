@@ -29,9 +29,8 @@ static char mssqlpasswd[100];
 static char mssqldatabase[100];
 static const char* log_filename = "mssql_init_log.txt";
 
-static void* z_buffer = nullptr; // for compress and uncomress operations
-static int z_buffer_size = 0;
-static int z_ref_count = 0;
+static char* zip_buffer = nullptr; // for compress and uncomress operations
+static int zip_buffer_size = 0;
 
 // library init
 static const size_t mssql_header_size = 4;
@@ -42,8 +41,6 @@ struct DbInterface_t;
 static DbInterface_t* get_db(int id);
 static bool is_db_initialized(ConnectionId c_id);
 static void set_db_initialized(ConnectionId c_id, bool flag);
-static void* init_z_buffer(int size);
-static int uninit_z_buffer();
 static void set_error_max(char* str);
 static const char* get_error_max();
 
@@ -139,16 +136,15 @@ static size_t mssqlUserRead(void* buf,size_t size, size_t count, FILE* key)
         ReportBug( "%s: user mssql not initialized yet", get_error_max() );
         return 0;
     }
-
-    size_t z_size = z_buffer_size;
-    int rv = mssql_file_read(User, z_buffer, &z_size, (const char*) key);
+    size_t z_size = zip_buffer_size;
+    int rv = mssql_file_read(User, zip_buffer, &z_size, (const char*) key);
     if (rv) {
         ReportBug( mssql_error() );
         return 0;
     }
 
     size_t buf_size = size * count;
-    int rv_u = mssql_maybe_uncompress((char*)z_buffer,
+    int rv_u = mssql_maybe_uncompress((char*)zip_buffer,
                                       z_size,
                                       (char*)buf,
                                       &buf_size);
@@ -171,20 +167,22 @@ static size_t mssqlUserWrite(const void* buf, size_t size, size_t count, FILE* k
     }
 
     size_t buf_size = size * count;
-    size_t z_size = z_buffer_size;
-    int rv_c = mssql_maybe_compress((char*)z_buffer,
+    size_t z_size = zip_buffer_size;
+    int rv_c = mssql_maybe_compress(zip_buffer,
                                     &z_size,
                                     (const char*)buf,
                                     buf_size);
     if (rv_c) {
         ReportBug( mssql_error() );
-        return 0;
+        buf_size = 0;
     }
-
-    int rv_w = mssql_file_write(User, z_buffer, z_size, (const char*) key);
-    if (rv_w) {
-        ReportBug( mssql_error() );
-        return 0;
+    else
+    {
+        int rv_w = mssql_file_write(User, zip_buffer, z_size, (const char*)key);
+        if (rv_w) {
+            ReportBug( mssql_error() );
+            buf_size =  0;
+        }
     }
 
     return buf_size;
@@ -350,11 +348,12 @@ struct DbInterface_t {
     bool use_tracing;
     bool verbose;
     SQLLEN file_buf_len;        // how much is used
-    void* key_buf;              // storage for key
-    SQLLEN key_buf_size;        // allocated size
+    char* key_buf[100];              // storage for key (actual size allowed is set at 100
+    SQLLEN key_buf_size = 100;        // allocated size
     SQLLEN key_buf_len;         // how much is used
     bool is_empty;              // no data in result set
     bool is_initialized;        // has finished initialization
+    bool is_connected;          // has successfully connected
 };
 
 static struct DbInterface_t db_list[2]; // one for file, one for scripting.
@@ -441,14 +440,6 @@ static bool is_error(SQLRETURN e, const char* s, SQLHANDLE h, SQLSMALLINT t)
     return true;
 }
 
-static void* getHeap(size_t size) {
-    return malloc(size);
-}
-
-static void releaseHeap(void* ptr) {
-    free(ptr);
-}
-
 int mssql_init_db_struct(ConnectionId c_id)
 {
     unsigned int max_id = sizeof(db_list) / sizeof(db_list[0]);
@@ -463,13 +454,10 @@ int mssql_init_db_struct(ConnectionId c_id)
 
     dbp->verbose = false;
 
-    dbp->key_buf_size = 100;
-    dbp->key_buf = nullptr;
-
-    dbp->henv = SQL_NULL_HENV;   // Environment handle
-    dbp->hdbc = SQL_NULL_HDBC;   // Connection handle
-    dbp->hstmt_w = SQL_NULL_HSTMT;  // Write statement handle
-    dbp->hstmt_r = SQL_NULL_HSTMT;  // Write statement handle
+    dbp->henv = 0;   // Environment handle
+    dbp->hdbc = 0;   // Connection handle
+    dbp->hstmt_w = 0;  // Write statement handle
+    dbp->hstmt_r = 0;  // Read statement handle
     dbp->write_prepared = false;
     dbp->write_parameters_bound = false;
     dbp->read_prepared = false;
@@ -478,6 +466,7 @@ int mssql_init_db_struct(ConnectionId c_id)
     dbp->use_tracing = false;
     dbp->used = 1;
     dbp->is_initialized = false;
+    dbp->is_connected = false;
 
     return c_id;
 }
@@ -526,36 +515,47 @@ int mssql_use_stored_procedures(int id, bool flag)
 static bool free_statement_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (dbp->hstmt_w != SQL_NULL_HSTMT) {
+    bool result = true;
+    if (dbp->hstmt_w != 0) {
         rv = SQLFreeHandle(SQL_HANDLE_STMT, dbp->hstmt_w);
         if (is_error(rv, "SQLFreeHandle", dbp->hstmt_w, SQL_HANDLE_STMT)) {
-            return false;
+            result = false;
         }
-        dbp->hstmt_w = nullptr;
+        dbp->hstmt_w = 0;
     }
-    if (dbp->hstmt_r != SQL_NULL_HSTMT) {
+    if (dbp->hstmt_r != 0) {
         rv = SQLFreeHandle(SQL_HANDLE_STMT, dbp->hstmt_r);
         if (is_error(rv, "SQLFreeHandle", dbp->hstmt_r, SQL_HANDLE_STMT)) {
-            return false;
+            result = false;
         }
-        dbp->hstmt_r = nullptr;
+        dbp->hstmt_r = 0;
     }
-    return true;
+    return result;
 }
 
 static bool free_connection_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (dbp->hdbc != SQL_NULL_HDBC) {
+    bool result = true;
+    if (dbp->hdbc != 0) {
+        rv = SQLFreeHandle(SQL_HANDLE_DBC, dbp->hdbc);
+        if (is_error(rv, "SQLFreeHandle", dbp->hdbc, SQL_HANDLE_DBC)) {
+            result = false;
+        }
+        dbp->hdbc = 0;
+    }
+    return result;
+}
+
+static bool disconnect(DbInterface_t* dbp)
+{
+    SQLRETURN rv;
+    if (dbp->is_connected) {
+        dbp->is_connected = false;
         rv = SQLDisconnect(dbp->hdbc);
         if (is_error(rv, "SQLDisconnect", dbp->hdbc, SQL_HANDLE_DBC)) {
             return false;
         }
-        rv = SQLFreeHandle(SQL_HANDLE_DBC, dbp->hdbc);
-        if (is_error(rv, "SQLFreeHandle", dbp->hdbc, SQL_HANDLE_DBC)) {
-            return false;
-        }
-        dbp->hdbc = nullptr;
     }
     return true;
 }
@@ -563,25 +563,19 @@ static bool free_connection_handle(DbInterface_t* dbp)
 static bool free_environment_handle(DbInterface_t* dbp)
 {
     SQLRETURN rv;
-    if (dbp->henv != SQL_NULL_HENV) {
+    bool result = true;
+    if (dbp->henv != 0) {
         rv = SQLFreeHandle(SQL_HANDLE_ENV, dbp->henv);
-        if (is_error(rv, "SQLFreeHandle", dbp->henv, SQL_HANDLE_ENV)) {
-            return false;
+        if (is_error(rv, "SQLFreeHandle ENV", dbp->henv, SQL_HANDLE_ENV)) {
+            result = false;
         }
-        dbp->henv = nullptr;
+        dbp->henv = 0;
     }
-    return true;
-
+    return result;
 }
 
 static bool deinit_database_interface_struct(DbInterface_t* dbp)
 {
-    uninit_z_buffer();
-
-    releaseHeap(dbp->key_buf);
-    dbp->key_buf = nullptr;
-    dbp->key_buf_size = 0;
-
     dbp->write_prepared = false;
     dbp->write_parameters_bound = false;
     dbp->read_prepared = false;
@@ -594,41 +588,18 @@ static bool deinit_database_interface_struct(DbInterface_t* dbp)
 int mssql_close(int id)
 {
     DbInterface_t* dbp = get_db(id);
-    bool ok = (dbp != nullptr);
-
-    ok = ok & free_statement_handle(dbp);
-    ok = ok & free_connection_handle(dbp);
-    ok = ok & free_environment_handle(dbp);
-    ok = ok & deinit_database_interface_struct(dbp);
-    if (ok) {
-        set_db_initialized((ConnectionId)id, false);
+    if (dbp != nullptr) {
+      free_statement_handle(dbp);
+      disconnect(dbp);
+      free_connection_handle(dbp);
+      free_environment_handle(dbp);
+      deinit_database_interface_struct(dbp);
+      set_db_initialized((ConnectionId)id, false);
     }
 
-    int rv = (ok ? 0 : -1);
-
-    return rv;
+    return 0;
 }
 
-static bool alloc_buffers(DbInterface_t* dbp)
-{
-    init_z_buffer((SQLLEN)userCacheSize + OVERFLOW_SAFETY_MARGIN);
-    if (z_buffer == nullptr) {
-        snprintf(error_buf, sizeof(error_buf),
-                 "%s: mssql: Unable to allocate %ld bytes for file buffer",
-                 get_error_max(), (long) z_buffer_size);
-        return false;
-    }
-
-    dbp->key_buf = getHeap(dbp->key_buf_size);
-    if (dbp->key_buf == nullptr) {
-        snprintf(error_buf, sizeof(error_buf),
-                 "%s: mssql: Unable to allocate %ld bytes for key buffer",
-                 get_error_max(), (long) dbp->key_buf_size);
-        return false;
-    }
-
-    return true;
-}
 static bool alloc_environment_handle(DbInterface_t* dbp)
 {
     SQLRETURN retcode;
@@ -724,6 +695,9 @@ static bool connect(DbInterface_t* dbp,
                     const char* pwd,
                     const char* database)
 {
+    if (dbp->is_connected) {
+        return true;
+    }
     SQLRETURN retcode;
     SQLSMALLINT outstrlen;
     const char *driver = "ODBC Driver 17 for SQL Server";
@@ -751,17 +725,23 @@ static bool connect(DbInterface_t* dbp,
         }
     }
     if (retcode == SQL_SUCCESS) {
+        dbp->is_connected = true;
         if (dbp->verbose) {
             printf("Connect: SQL_SUCCESS\n");
         }
         return true;
     }
     else if (retcode == SQL_SUCCESS_WITH_INFO) {
+        dbp->is_connected = true;
         if (dbp->verbose) {
             extract_error("SQLDriverConnect", dbp->hdbc, SQL_HANDLE_DBC);
             printf("Got SQL_SUCCESS_WITH_INFO %s\n", error_buf);
         }
         return true;
+    }
+    else {
+      extract_error("SQLDriverConnect", dbp->hdbc, SQL_HANDLE_DBC);
+      free_connection_handle(dbp);
     }
 
     is_error(retcode, "SQLDriverConnect", dbp->hdbc, SQL_HANDLE_DBC);
@@ -789,31 +769,53 @@ int mssql_init(int id,
                const char* host,
                const char* host_port,
                const char* user,
-               const char* pwd,
+               const char* password,
                const char* database)
 {
     if (is_db_initialized((ConnectionId)id)) {
         return 0;
     }
-    
+
     mssql_init_db_struct((ConnectionId)id);
 
     DbInterface_t* dbp = get_db(id);
-    bool ok = (dbp != nullptr);
-    ok = ok && alloc_buffers(dbp);
-    ok = ok && alloc_environment_handle(dbp);
-    ok = ok && set_ODBC_version(dbp);
-    ok = ok && alloc_connection_handle(dbp);
-    ok = ok && set_login_timeout(dbp);
-    ok = ok && set_tracing(dbp);
-    ok = ok && connect(dbp, host, host_port, user, pwd, database);
-    ok = ok && alloc_statement_handles(dbp);
-
-    if (ok) {
-        set_db_initialized((ConnectionId)id, true);
+    if (dbp == nullptr) {
+        return -1;
     }
 
-    return (ok ? 0 : -1);
+    if (!alloc_environment_handle(dbp)) {
+        mssql_close(id);
+        return -1;
+    }
+    
+    if (!set_ODBC_version(dbp)) {
+        mssql_close(id);
+        return -1;
+    }
+
+    if (!alloc_connection_handle(dbp)) {
+        mssql_close(id);
+        return -1;
+    }
+
+    if (!set_login_timeout(dbp)) {
+        mssql_close(id);
+        return -1;
+    }
+
+    if (!connect(dbp, host, host_port, user, password, database)) {
+        mssql_close(id);
+        return -1;
+    }
+        
+    if (!alloc_statement_handles(dbp)) {
+        mssql_close(id);
+        return -1;
+    }
+
+    set_db_initialized((ConnectionId)id, true);
+
+    return 0;
 }
 
 static bool empty_result_set(SQLHSTMT hstmt)
@@ -837,19 +839,16 @@ static bool file_check_key_size(DbInterface_t* dbp, const char* key) {
 static bool file_write_preformat_data(DbInterface_t* dbp, const void* buf, size_t buf_size)
 {
     size_t cushion = 20;
-    if (z_buffer_size  < (SQLLEN)(buf_size + cushion)) {
+    if (zip_buffer_size  < (SQLLEN)(buf_size + cushion)) {
         sprintf(error_buf, "%s: mssql: file too big. file size %zu",
                 get_error_max(), buf_size);
         return false;
     }
 
-    if (buf != z_buffer) { // only copy if buffers are not the same
-        memcpy(z_buffer, buf, buf_size);
-    }
+    memcpy(zip_buffer, buf, buf_size);
+    
     dbp->file_buf_len = buf_size;
-    if (dbp->verbose) {
-        printf("write size %ld\n", (long) dbp->file_buf_len);
-    }
+    if (dbp->verbose)  printf("write size %ld\n", (long)buf_size);
 
     return true;
 }
@@ -877,7 +876,7 @@ static bool file_write_bind_params(DbInterface_t* dbp)
             return false;
         }
 
-        SQLULEN p2_column_size = z_buffer_size;
+        SQLULEN p2_column_size = zip_buffer_size;
         SQLSMALLINT p2_digits = 0;
         retcode = SQLBindParameter(dbp->hstmt_w,      // StatementHandle
                                    2,                // ParameterNumber
@@ -886,7 +885,7 @@ static bool file_write_bind_params(DbInterface_t* dbp)
                                    SQL_LONGVARBINARY, // ParameterType
                                    p2_column_size,   // ColumnSize
                                    p2_digits,        // DecimalDigits
-                                   z_buffer, // ParameterValuePtr
+                                   zip_buffer, // ParameterValuePtr
                                    dbp->file_buf_len, // BufferLength, ignored for writes
                                    &dbp->file_buf_len); // StrLen_or_IndPtr
         if (is_error(retcode, "SQLBindParameter", dbp->hstmt_w, SQL_HANDLE_STMT)) {
@@ -964,7 +963,7 @@ int mssql_file_write(int id, const void* buf, size_t buf_size, const char* key)
 {
     DbInterface_t* dbp = get_db(id);
     bool ok = (dbp != nullptr);
-
+    
     ok = ok && file_check_key_size(dbp, key);
     ok = ok && file_write_preformat_data(dbp, buf, buf_size);
     ok = ok && file_write_prepare(dbp);
@@ -984,7 +983,7 @@ static bool file_read_init(DbInterface_t* dbp, const char* key)
     dbp->key_buf_len = strlen(key);
     memcpy(dbp->key_buf, key, dbp->key_buf_len);
 
-    dbp->file_buf_len = z_buffer_size;
+    dbp->file_buf_len = zip_buffer_size;
 
     return true;
 }
@@ -1103,8 +1102,8 @@ static bool file_read_fetch_and_get_data(DbInterface_t* dbp, size_t* buf_size_p)
         retcode = SQLGetData(dbp->hstmt_r,  // Statement handle
                              1,            // Column number
                              SQL_C_BINARY, // TargetType, the C type
-                             (SQLPOINTER) z_buffer, // TargetValudPtr
-                             (SQLLEN) z_buffer_size, // BufferLength
+                             (SQLPOINTER) zip_buffer, // TargetValudPtr
+                             (SQLLEN) zip_buffer_size, // BufferLength
                              (SQLLEN*) &dbp->file_buf_len  // strlen_or_ind
                              );
         if (is_error(retcode, "SQLGetData", dbp->hstmt_r, SQL_HANDLE_STMT)) {
@@ -1128,9 +1127,8 @@ static bool file_read_postformat_data(DbInterface_t* dbp, void* read_buf, size_t
             return false;
         }
 
-        if (read_buf != z_buffer) { // only copy if buffers are not the same
-            memcpy(read_buf, z_buffer, dbp->file_buf_len);
-        }
+        memcpy(read_buf, zip_buffer, dbp->file_buf_len);
+
         *read_len_p = dbp->file_buf_len;
         if (dbp->verbose) {
             printf("read size %ld\n", (long) dbp->file_buf_len);
@@ -1322,30 +1320,38 @@ int mssql_fetch_lengths(int id)
     return -1;
 }
 
-static void* init_z_buffer(int size)
+bool is_connected(ConnectionId id) 
 {
-    if (z_buffer_size < size) {
-        releaseHeap(z_buffer);
-        z_buffer_size = size;
-        z_buffer = getHeap(size);
+    DbInterface_t* dbp = get_db(id);
+    if (dbp == nullptr) {
+        return false;
     }
-    z_ref_count += 1;
-    return z_buffer;
+    return dbp->is_connected;
 }
 
-static int uninit_z_buffer()
+void malloc_mssql_buffer()
 {
-    if (z_ref_count <= 0) {
-        return 0;
+    if (!zip_buffer)
+    {
+        zip_buffer_size = (SQLLEN)userCacheSize + OVERFLOW_SAFETY_MARGIN;
+        zip_buffer = mymalloc(zip_buffer_size);
     }
-
-    z_ref_count -= 1;
-    if (z_ref_count == 0) {
-        releaseHeap(z_buffer);
-        z_buffer = nullptr;
-        z_buffer_size = 0;
-    }
-    return z_ref_count;
+    if (!zip_buffer) myexit("FATAL: cannot allocate mssql buffer space");
 }
+
+void free_mssql_buffer()
+{
+    if (zip_buffer)
+    {
+        myfree(zip_buffer);
+        zip_buffer = nullptr;
+    }
+}
+
+#else // DISCARDMICROSOFTSQL from common.h
+
+void malloc_mssql_buffer() { }
+
+void free_mssql_buffer() { }
 
 #endif // DISCARDMICROSOFTSQL from common.h

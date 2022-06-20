@@ -161,7 +161,7 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
     if (!D || !D->word) return false;
 	if (start > wordCount) 
 	{
-		ReportBug((char*)"INFO: save position is too big")
+		ReportBug((char*)"INFO: save position is too big");
 		return false;
 	}
 	if (end > wordCount) end = wordCount;
@@ -185,7 +185,7 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 	else if (whereHitEnd >= end) return false; // no need since already covering concept in this area
 	if (++marklimit > 5000)
 	{
-		if (!failFired) ReportBug("INFO: Mark limit hit")
+		if (!failFired) ReportBug("INFO: Mark limit hit");
 		failFired = true;
 		return false;
 	}
@@ -991,24 +991,6 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 	char* limit = GetUserVariable("$cs_sequence", false, true);
 	int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
 
-	if (!stricmp(language, "japanese"))
-	{
-		if (wordCount)
-		{
-			strcpy(fixedbuffer, wordStarts[1]);
-			int limit = sequenceLimit + 11; // japanese sentences can be long words
-			if (limit > wordCount) limit = wordCount;
-			for (int j = 2; j <= limit; ++j)
-			{
-				strcat(fixedbuffer, " ");
-				strcat(fixedbuffer, wordStarts[j]);
-				WORDP D = FindWord(fixedbuffer, 0, PRIMARY_CASE_ALLOWED);
-				if (D) MarkMeaningAndImplications(0, 0, MakeMeaning(D), 1, j, CANONICAL, true);
-			}
-			ReleaseStack(fixedbuffer); // short term
-			return;
-		}
-	}
 	if (parseLimited && sequenceLimit > 2) sequenceLimit = 2;
 
 	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
@@ -1082,8 +1064,12 @@ static void SetSequenceStamp() //   mark words in sequence, original and canonic
 		strcat(fixedbuffer, wordStarts[i+1]);
 		HuntMatch(FIXED, fixedbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i+1, usetrace);
 		strcpy(canonbuffer, wordCanonical[i]);
-		strcat(canonbuffer, "-");
-		strcat(canonbuffer, wordCanonical[i + 1]);
+		if (wordCanonical[i + 1] != NULL) 
+		{		
+			strcat(canonbuffer, "-");
+			strcat(canonbuffer, wordCanonical[i + 1]);
+		}
+
 		HuntMatch(CANONICAL,canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + 1, usetrace);
 
 		//   set base phrase
@@ -1656,25 +1642,7 @@ void MarkAllImpliedWords(bool limitnlp)
 			StdMark(MakeTypedMeaning(raw, 0, restriction), i, i, FIXED);
 		}
 
-		if (!stricmp(language, "spanish") && OL) // object pronoun data
-		{ // we have to manual name concept because primary naming is from the english corresponding bit
-			if (finalPosValues[i] & PRONOUN_OBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_OBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_singular")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_OBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_plural")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_OBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_i")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_OBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_you")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_singular")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_plural")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_i")), i, i, CANONICAL);
-			if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_you")), i, i, CANONICAL);
-			if (finalPosValues[i] & SPANISH_FUTURE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_future")), i, i, CANONICAL);
-			if (allOriginalWordBits[i] & SPANISH_HE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_he")), i, i, CANONICAL);
-			if (allOriginalWordBits[i] & SPANISH_SHE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_she")), i, i, CANONICAL);
-			if (allOriginalWordBits[i] & SPANISH_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_singular")), i, i, CANONICAL);
-			if (allOriginalWordBits[i] & SPANISH_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_plural")), i, i, CANONICAL);
-			if (OL->systemFlags & VERB_IMPERATIVE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~verb_imperative")), i, i, CANONICAL);
-		}
+		if (!stricmp(language, "spanish") && OL)   MarkSpanishTags(OL,i); // object pronoun and tense data
 
 		// mark ancillary stuff
 		MarkMeaningAndImplications(0, 0, MakeMeaning(wordTag[i]), i, i); // may do nothing

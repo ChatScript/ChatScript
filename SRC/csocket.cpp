@@ -488,7 +488,7 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 					if (*at1 == '\\') memmove(at1, at1 + 1, strlen(at1));
 				}
 			}
-			else actual = "";
+			else actual = (char*)"";
 	
 			char* dq = expect;
 			while ((dq = strstr(dq, "\"\"")))
@@ -635,7 +635,7 @@ void Client(char* login)// test client for a server
 	char* preview = AllocateBuffer();
 	char* totalConvo = AllocateBuffer();
 	char* response = AllocateBuffer(); // returned from chatbot
-	char* sendbuffer = (char* ) malloc(fullInputLimit +maxBufferSize+100); // staged message to chatbot
+	char* sendbuffer = (char* ) mymalloc(fullInputLimit +maxBufferSize+100); // staged message to chatbot
 	char user[500];
 	size_t userlen;
 	size_t botlen;
@@ -658,7 +658,7 @@ void Client(char* login)// test client for a server
 		ReadALine(data, sourceFile); // actual user input
 		msg = data;
 	}
-	else msg = "";
+	else msg = (char*)"";
 
 restart: // start with user
 	char* separator = strchr(from, ':'); // login is username  or  username:botname or username:botname/trace or username:trace
@@ -1069,7 +1069,7 @@ restart: // start with user
 				else if (!strnicmp(ptr, (char*)":dllchat", 8))
 				{
 #ifdef WIN32
-					HINSTANCE hGetProcIDDLL = LoadLibrary("chatscript.dll");
+					HINSTANCE hGetProcIDDLL = LoadLibrary((LPCSTR)"chatscript.dll");
 					if (!hGetProcIDDLL) {
 						printf("could not load cs dll\r\n");
 						myexit("no dll");
@@ -1105,7 +1105,7 @@ restart: // start with user
 						server = true;
 						Log(SERVERLOG, "ServerPre: %s (%s) size:%d %s\r\n", user, bot, strlen(input), input);
 						server = false; 
-						y("dll-user", "", input, "11.11.11.11", output);
+						y((char*)"dll-user", (char*)"", input, (char*)"11.11.11.11", output);
 						server = true; 
 						Log(SERVERLOG, "Respond: %s (%s) %s\r\n", user, bot, output);
 						printf(output);
@@ -1562,7 +1562,7 @@ static void* AcceptSockets(void*) // accepts incoming connections from users
 			LaunchClient((void*)sock);
 		}
 	}
-	catch (SocketException &e) { (*printer)((char*)"%s", (char*)"accept busy\r\n"); ReportBug((char*)"***Accept busy\r\n") }
+	catch (SocketException& e) { (*printer)((char*)"%s", (char*)"accept busy\r\n"); ReportBug((char*)"***Accept busy\r\n"); }
 	myexit((char*)"end of internet server");
 	return NULL;
 }
@@ -1580,14 +1580,14 @@ static void* Done(TCPSocket * sock, char* memory)
 	}
 	catch (...) { ReportBug((char*)"sending failed\r\n"); }
 	delete sock;
-	free(memory);
+	myfree(memory);
 	return NULL;
 }
 
 static void* HandleTCPClient(void *sock1)  // individual client, data on STACK... might overflow... // WINDOWS + LINUX
 {
 	uint64 starttime = ElapsedMilliseconds();
-	char* memory = (char*)malloc(4 + 100 + fullInputLimit + outputsize + 8); // our data in 1st chunk, his reply info in 2nd - 80k limit
+	char* memory = mymalloc(4 + 100 + fullInputLimit + outputsize + 8); // our data in 1st chunk, his reply info in 2nd - 80k limit
 	if (!memory) return NULL; // ignore him if we run out of memory
 	char* output = memory + SERVERTRANSERSIZE;
 	*output = 0;
@@ -1603,7 +1603,8 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 	}
 	catch (SocketException e)
 	{
-		ReportBug((char*)"Socket errx") cerr << "Unable to get port" << endl;
+		ReportBug((char*)"Socket errx");
+		cerr << "Unable to get port" << endl;
 		return Done(sock, memory);
 	}
 
@@ -1642,7 +1643,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 					Log(SERVERLOG,"TCP %s closed connection prematurely\r\n", sock->getForeignAddress().c_str());
 				}
 				delete sock;
-				free(memory);
+				myfree(memory);
 				return NULL;
 			}
 			p[len1] = 0;  // force extra string end at end of buffer
@@ -1698,8 +1699,8 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 	catch (...)
 	{
 		struct tm ptm;
-		ReportBug((char*)"***%s client presocket failed %s\r\n", IP, GetTimeInfo(&ptm, true) + SKIPWEEKDAY)
-			return Done(sock, memory);
+		ReportBug((char*)"***%s client presocket failed %s\r\n", IP, GetTimeInfo(&ptm, true) + SKIPWEEKDAY);
+		return Done(sock, memory);
 	}
 
 	uint64 serverstarttime = ElapsedMilliseconds();
@@ -1733,7 +1734,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 	delete sock;
 
 	// do not delete memory til after server would have given up
-	free(memory);
+	myfree(memory);
 #ifndef WIN32
 	pthread_exit(0);
 #endif

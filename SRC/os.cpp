@@ -6,6 +6,8 @@ static std::mutex mtx;
 #endif 
 bool authorize = false;
 bool pseudoServer = false;
+char debugdata[MAX_WORD_SIZE];
+
 uint64 callStartTime;
 int loglimit = 0;
 bool prelog = false;
@@ -140,6 +142,12 @@ void Bug()
 	}
 }
 
+void FreeServerLog()
+{
+	if (logmainbuffer) myfree(logmainbuffer);
+	logmainbuffer = NULL;
+}
+
 void TrackTime(char* name, int elapsed)
 {
     WORDP D = StoreWord(name);
@@ -248,7 +256,7 @@ void CloseDatabases(bool restart)
 }
 
 void myexit(const char* msg, int code)
-{	
+{
 	int oldcompiling = compiling;
 	int oldloading = loading;
 	compiling = NOT_COMPILING;
@@ -264,7 +272,6 @@ void myexit(const char* msg, int code)
 	if (code)
 	{
 		printf("%s\r\n", msg);
-		ReportBug("myexit called with %s  ", msg); // since this does not say FATAL at start, it will not loop back here
 	}
 	char name[MAX_WORD_SIZE];
 	sprintf(name, (char*)"%s/exitlog.txt", logsfolder);
@@ -277,7 +284,8 @@ void myexit(const char* msg, int code)
 		FClose(out);
 	}
 
-	if (code != 0 && crashset && !crashBack) // try to recover
+    bool is_recoverable = (code != 0 && crashset && !crashBack);
+	if (is_recoverable) // try to recover
 	{
 #ifdef LINUX
 		siglongjmp(crashJump, 1);
@@ -303,7 +311,7 @@ void myexit(const char* msg, int code)
 	if (code == 0 && out) fprintf(out, (char*)"CS exited at %s\r\n", GetTimeInfo(&ptm, true));
 	else if (out) fprintf(out, (char*)"CS terminated at %s\r\n", GetTimeInfo(&ptm, true));
 	if (out) FClose(out);
-	//if (!client) CloseSystem(true);
+	if (!client) CloseSystem();
 	exit((code == 0) ? EXIT_SUCCESS : EXIT_FAILURE);
 }
 
@@ -355,7 +363,7 @@ void signalHandler( int signalcode )
 void setSignalHandlers () 
 {
 	char word[MAX_WORD_SIZE];
-	struct sigaction sa;
+	struct sigaction sa = {};
 	sa.sa_handler = &signalHandler;
 	sigfillset(&sa.sa_mask); // Block every signal during the handler
 		// Handle relevant signals
@@ -411,11 +419,27 @@ void CloseBuffers()
 {
 	while (overflowLimit > 0) 
 	{
-		free(overflowBuffers[--overflowLimit]);
+		myfree(overflowBuffers[--overflowLimit]);
 		overflowBuffers[overflowLimit] = 0;
 	}
-	free(buffers);
-	buffers = 0;
+	myfree(buffers);
+	buffers = NULL;
+	myfree(readBuffer);
+	readBuffer = NULL;
+	myfree(tracebuffer);
+	tracebuffer = NULL;
+	myfree(lastInputSubstitution);
+	lastInputSubstitution = NULL;
+	myfree(rawSentenceCopy); 
+	rawSentenceCopy = NULL;
+	myfree(revertBuffer); 
+	revertBuffer = NULL;
+	myfree(ourMainInputBuffer);
+	ourMainInputBuffer = NULL;
+	myfree(ourMainOutputBuffer);
+	ourMainOutputBuffer = NULL;
+    free_jp_token_buffers();
+    free_mssql_buffer();
 }
 
 FunctionResult AuthorizedCode(char* buffer)
@@ -459,32 +483,92 @@ void LoggingCheats(char* incoming)
 		userLog |= FILE_LOG;
 		fclose(in);
 	}
+
+	*debugdata = 0;
 	char* authcode = (incoming) ? strstr(incoming, serverlogauthcode) : NULL;
 	if (authcode)// dont process authcode as input from user
 	{
 		size_t len = strlen(serverlogauthcode);
 		memset(authcode, ' ', len); // hide auth code entirely
-		if (!userLog) userLog = FILE_LOG | PRE_LOG;
-		if (!serverLog) serverLog = FILE_LOG | PRE_LOG;
-		hadAuthCode = 1;
+			hadAuthCode = 1;
 		if (authcode[len] == '1') // more detailed cheat choices
 		{
 			authcode[len] = ' ';
+			if (!serverLog) serverLog = FILE_LOG;
 		}
-		else if (authcode[len] == '2') // more detailed cheat choices
+		else if (authcode[len] == '2') // dynamic debugging using debug field
 		{
 			authcode[len] = ' ';
 			hadAuthCode |= 2;
-		}
-		else if (authcode[len] == '3')
-		{
-			authcode[len] = ' ';
-			hadAuthCode |= 3;
+			char* end = ReadCompiledWord(authcode, debugdata);
+			if (*debugdata == '"') // argument
+			{
+				size_t x = strlen(debugdata);
+				debugdata[x - 1] = 0;
+				memmove(debugdata, debugdata + 1, x); // remove leading dq
+				authcode += len; // toward the argument
+				while (authcode < end) *authcode++ = ' '; // erase message
+			}
+			else *debugdata = 0;
 		}
 	}
 	else hadAuthCode = 0;
 	*currentFilename = 0;
 }
+
+bool memory_check_m = false;
+
+size_t allocated = 0; // current total allocated via malloc
+int n_allocations = 0; // how many allocations have we got ongoing
+void* allocations[100];
+int allocationline[100];
+char* allocationfile[100];
+int allocindex = 0; // current index of save
+
+
+char* mymalloc_imp(size_t size,const char* file, int line)
+{
+	if (!memory_check_m) return (char*)malloc(size);
+
+	++n_allocations;
+	allocated += size;
+
+	int* answer =  (int*)malloc(size + 4);
+    if (answer == nullptr) printf("dbg: Error: null returned from malloc!\n");
+	*answer = size;
+	allocationline[allocindex] = line;
+	allocationfile[allocindex] = (char*)file;
+	allocations[allocindex++] = answer + 1;
+	return (char*)(answer + 1);
+}
+
+void myfree(void* ptr)
+{
+	if (!memory_check_m)
+	{
+		free(ptr);
+		return;
+	}
+	int* answer = ((int*)ptr) - 1;
+	int i;
+	for ( i = allocindex-1; i >= 0; --i)
+	{
+		if (ptr == allocations[i])
+		{
+			allocationline[i] = allocationline[--allocindex];
+			allocationfile[i] = allocationfile[allocindex];
+			allocations[i] = allocations[allocindex];
+			break;
+		}
+	}
+	if (i < 0) // did not find
+	{
+		int xx = 0;
+	}
+	allocated -= *answer;
+	free(answer);
+}
+
 
 char* Myfgets(char* buffer,  int size, FILE* in)
 {
@@ -512,7 +596,7 @@ char* AllocateBuffer(char* name)
 		// try to acquire more space, permanently
 		if (overflowIndex >= overflowLimit) 
 		{
-			overflowBuffers[overflowLimit] = (char*) malloc(maxBufferSize);
+			overflowBuffers[overflowLimit] = (char*) mymalloc(maxBufferSize);
 			if (!overflowBuffers[overflowLimit])  ReportBug((char*)"FATAL: out of buffers\r\n");
 			overflowLimit++;
 			if (overflowLimit >= MAX_OVERFLOW_BUFFERS) ReportBug((char*)"FATAL: Out of overflow buffers\r\n");
@@ -532,7 +616,7 @@ void FreeBuffer(char* name)
 	if (showmem) Log(USERLOG,"%d Buffer free %s %d %s\r\n", globalDepth,name, bufferIndex, releaseStackDepth[globalDepth]->name);
 	if (overflowIndex) --overflowIndex; // keep the dynamically allocated memory for now.
 	else if (bufferIndex)  --bufferIndex; 
-	else ReportBug((char*)"Buffer allocation underflow")
+	else ReportBug((char*)"Buffer allocation underflow");
 }
 
 void ResetHeapFree(char* val)
@@ -546,11 +630,11 @@ void InitStackHeap()
 	size = (size * 64) + 64; // 64 bit align both ends
 	if (!heapEnd)
 	{
-		heapEnd = (char*)malloc(size);	// point to end of heap (start of stack)
+		heapEnd = mymalloc(size);	// point to end of heap (start of stack)
 		if (!heapEnd)
 		{
 			(*printer)((char*)"Out of  memory space for text space %d\r\n", (int)size);
-			ReportBug((char*)"FATAL: Cannot allocate memory space for text %d\r\n", (int)size)
+			ReportBug((char*)"FATAL: Cannot allocate memory space for text %d\r\n", (int)size);
 		}
 	}
 	ResetHeapFree( heapEnd + size); // allocate backwards
@@ -562,7 +646,7 @@ void InitStackHeap()
 
 void FreeStackHeap()
 {
-	if (heapEnd) free(heapEnd);
+	if (heapEnd) myfree(heapEnd);
 	heapEnd = NULL;
 }
 
@@ -629,7 +713,7 @@ bool AllocateStackSlot(char* variable)
 	unsigned int len = sizeof(char*);
     if ((stackFree + len + 1) >= (heapFree - 5000)) // dont get close
     {
-		ReportBug((char*)"Out of stack space\r\n")
+		ReportBug((char*)"Out of stack space\r\n");
 		return false;
     }
 	char* answer = stackFree;
@@ -731,7 +815,7 @@ HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
     heapval[2] = val2;
     heapval[3] = val3;
 #ifdef DO_HEAP_CHECKING
-	CheckHeap((HEAPREF)heapval, __FILE__, __LINE__);
+	CheckHeap((HEAPREF)heapval);
 #endif
 	return (HEAPREF)heapval;
 }
@@ -743,7 +827,7 @@ HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & va
     val2 = data[2];
     val3 = data[3];
 #ifdef DO_HEAP_CHECKING
-	CheckHeap((HEAPREF)data, __FILE__, __LINE__);
+	CheckHeap((HEAPREF)data);
 #endif
 	return (HEAPREF)data[0];
 }
@@ -795,12 +879,12 @@ HEAPREF Index2Heap(HEAPINDEX offset)
     char* ptr = heapBase - offset;
     if (ptr < heapFree)
 	{
-		ReportBug((char*)"INFO: String offset into free space\r\n")
+		ReportBug((char*)"INFO: String offset into free space\r\n");
 		return NULL;
 	}
 	if (ptr > heapBase)  
 	{
-		ReportBug((char*)"INFO: String offset before heap space\r\n")
+		ReportBug((char*)"INFO: String offset before heap space\r\n");
 		return NULL;
 	}
 	return ptr;
@@ -846,14 +930,14 @@ void CompleteInfiniteHeap(char* base)
 {
 	infiniteHeap = false;
 	infiniteCaller = "";
-	if (base >= lastheapfree) ReportBug("Heap growing backwards")
+	if (base >= lastheapfree) ReportBug("Heap growing backwards");
 	size_t len = (heapFree - base);
 	lastheapfree = heapFree = (char*)base;
 	int nominalLeft = maxHeapBytes - (heapBase - heapFree);
 	if ((unsigned long)nominalLeft < minHeapAvailable) minHeapAvailable = nominalLeft;
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000) || nominalLeft < 0)
-	ReportBug((char*)"FATAL: Out of permanent heap space\r\n")
+        ReportBug((char*)"FATAL: Out of permanent heap space\r\n");
 }
 
 char* AllocateHeap(const char* word,size_t len,int bytes,bool clear, bool purelocal) // BYTES means size of unit
@@ -914,7 +998,7 @@ Allocations happen during volley processing as
 	
 	if (heapFree >= lastheapfree)
 	{
-		ReportBug("Heap growing backwards")
+		ReportBug("Heap growing backwards");
 	}
 	lastheapfree =  heapFree = (char*)base;
 	char* newword =  heapFree;
@@ -922,7 +1006,7 @@ Allocations happen during volley processing as
 	if ((unsigned long) nominalLeft < minHeapAvailable) minHeapAvailable = nominalLeft;
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000) || nominalLeft < 0) 
-		ReportBug((char*)"FATAL: Out of permanent heap space\r\n")
+		ReportBug((char*)"FATAL: Out of permanent heap space\r\n");
     if (word) 
 	{
 		if (purelocal) // never use clear true with this
@@ -1433,8 +1517,8 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	  // Prepare string for use with FindFile functions.  First, 
 	  // copy the string to a buffer, then append '\*' to the 
 	  // directory name.
-    DirSpec = (LPSTR)malloc(MAX_PATH);
-	if (!DirSpec) ReportBug("WalkDirectory malloc failed")
+    DirSpec = (LPSTR)mymalloc(MAX_PATH);
+	if (!DirSpec) ReportBug("WalkDirectory malloc failed");
     strcpy(DirSpec,fulldir);
 	strcat(DirSpec,(char*)"/*");
 	// Find the first file in the directory.
@@ -1442,7 +1526,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	if (hFind == INVALID_HANDLE_VALUE) 
 	{
 		ReportBug((char*)"No such directory %s\r\n",DirSpec);
-        free(DirSpec); 
+        myfree(DirSpec); 
         return;
 	} 
     if (FindFileData.cFileName[0] != '.' && stricmp(FindFileData.cFileName, (char*)"bugs.txt"))
@@ -1470,7 +1554,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
             (*function)(name, flags);
         }
     }
-    free(DirSpec);
+    myfree(DirSpec);
     dwError = GetLastError();
 	FindClose(hFind);
 	if (dwError != ERROR_NO_MORE_FILES) 
@@ -1482,8 +1566,8 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 
     // now recurse in directories
     // Find the first file in the directory.
-    DirSpec = (LPSTR)malloc(MAX_PATH);
-	if (!DirSpec) ReportBug("WalkDirectory malloc failed2")
+    DirSpec = (LPSTR)mymalloc(MAX_PATH);
+	if (!DirSpec) ReportBug("WalkDirectory malloc failed2");
     strcpy(DirSpec, fulldir);
     strcat(DirSpec, (char*)"/*");
     hFind = FindFirstFile(DirSpec, &FindFileData);
@@ -1505,7 +1589,7 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
         }
     }
     FindClose(hFind);
-	free(DirSpec);
+	myfree(DirSpec);
 #else
     string dir = string(fulldir);
     vector<string> files = vector<string>();
@@ -1620,7 +1704,7 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
     if (regression) curr = 44444444; 
 	mylocaltime (&curr,ptm);
 
-	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset");
+	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset",false,true);
 	if (utc) utcoffset = (char*)"+0";
 	if (*utcoffset) // report UTC relative time - so if time is 1PM and offset is -1:00, time reported to user is 12 PM.  
 	{
@@ -2427,7 +2511,8 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 		else if (*currentFilename) fprintf(out, (char*)"   in %s at %u: %s\r\n    ", currentFilename, currentFileLine, readBuffer);
 		else if (originalUserInput  && *originalUserInput)
 		{
-			fprintf(out, (char*)"%u %s in sentence:    ", volleyCount, GetTimeInfo(&ptm, true));
+			fprintf(out, (char*)"%u %s computerId <%s> loginId <%s> callerIP <%s> in sentence:    ",
+                    volleyCount, GetTimeInfo(&ptm, true), computerID, loginID, callerIP);
 			fwrite(originalUserInput, 1, strlen(originalUserInput), out); // separate write in case bigger than logbuffer
 			fwrite("\r\n", 1, 2, out); 
 		}
@@ -2450,7 +2535,7 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 		fprintf(bug, "%s", logmainbuffer);
 		if (originalUserInput)
 		{
-			fprintf(bug, "caller:%s callee:%s at %s in sentence: ", loginID, computerID, located);
+			fprintf(bug, " caller:%s callee:%s at %s in sentence: ", loginID, computerID, located);
 			fprintf(bug, "%s\r\n", originalUserInput);
 		}
 		if (!strstr(logmainbuffer, "No such bot")) BugBacktrace(bug);
@@ -2472,8 +2557,6 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 void Prelog(char* user, char* usee, char* incoming)
 {
 	if (!userLog && !serverLog) return;
-	if (serverLog & FILE_LOG) serverLog |= PRE_LOG;
-	if (userLog & FILE_LOG) userLog |= PRE_LOG;
 
 	if ((serverLog & PRE_LOG) || (userLog & PRE_LOG) || prelog)
 	{
@@ -2563,7 +2646,8 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			char wait[100];
 			*wait = 0;
 			if (cs_qsize) sprintf(wait, "%dq", cs_qsize);
-			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*`  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter,timeout);
+			if (*verifyLabel) sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` VLABEL:%s  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, verifyLabel, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
+			else sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();
@@ -2659,7 +2743,7 @@ unsigned int Log(unsigned int channel, const char * fmt, ...)
 	if (!logmainbuffer)
 	{
 		if (logsize < maxBufferSize) logsize = maxBufferSize; 
-		logmainbuffer = (char*)malloc(logsize);
+		logmainbuffer = mymalloc(logsize);
 		if (!logmainbuffer) exit(1);
 		*logmainbuffer = 0;
 	}

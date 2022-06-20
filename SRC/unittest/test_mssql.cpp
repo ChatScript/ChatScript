@@ -55,9 +55,11 @@ static void randomize_data(char* write_text, size_t write_len, int seed) {
 #ifndef SKIP_TEST
 TEST_CASE("get_id", "[mssql]")
 {
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
@@ -65,7 +67,7 @@ TEST_CASE("get_id", "[mssql]")
 #ifndef SKIP_TEST
 TEST_CASE("init mssql", "[mssql]") 
 {
-
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
 
@@ -86,12 +88,14 @@ TEST_CASE("init mssql", "[mssql]")
     REQUIRE(0 == strcmp(expected_in_str, actual_in_str));
 
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("file_write", "[mssql]")
 {
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
 
@@ -117,12 +121,14 @@ TEST_CASE("file_write", "[mssql]")
     REQUIRE(0 == rv2);
     
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("file_read", "[mssql]")
 {
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(Script);
     REQUIRE(1 == id);
 
@@ -159,6 +165,7 @@ TEST_CASE("file_read", "[mssql]")
     REQUIRE(0 == rv_write);
 
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
@@ -170,6 +177,7 @@ TEST_CASE("file_read_write_performance", "[mssql]")
         return;
     }
 
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
 
@@ -235,12 +243,14 @@ TEST_CASE("file_read_write_performance", "[mssql]")
         fclose(f);
     }
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("file_read_only_key_exists", "[mssql]")
 {
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
 
@@ -257,12 +267,14 @@ TEST_CASE("file_read_only_key_exists", "[mssql]")
 
     REQUIRE(0 < read_len);
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("file_read_only_no_key_exists", "[mssql]")
 {
+    malloc_mssql_buffer();
     int id = mssql_init_db_struct(User);
     REQUIRE(0 == id);
 
@@ -280,12 +292,14 @@ TEST_CASE("file_read_only_no_key_exists", "[mssql]")
     REQUIRE(0 == read_len);
 
     mssql_close(id);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_compress_nominal_gzip_1", "[mssql]")
 {
+    malloc_mssql_buffer();
     char c_buf[200];
     size_t c_size = sizeof(c_buf);
     char p_buf[] = "This is a test";
@@ -297,12 +311,14 @@ TEST_CASE("mssql_maybe_compress_nominal_gzip_1", "[mssql]")
     int rv_c = mssql_maybe_compress(c_buf, &c_size, p_buf, p_size);
     REQUIRE(0 == rv_c);
     REQUIRE(strstr(c_buf, "gzip") == c_buf);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_compress_nominal_gzip_0", "[mssql]")
 {
+    malloc_mssql_buffer();
     char c_buf[200];
     size_t c_size = sizeof(c_buf);
     char p_buf[] = "This is a test";
@@ -314,12 +330,14 @@ TEST_CASE("mssql_maybe_compress_nominal_gzip_0", "[mssql]")
     int rv_c = mssql_maybe_compress(c_buf, &c_size, p_buf, p_size);
     REQUIRE(0 == rv_c);
     REQUIRE(strstr(c_buf, "norm") == c_buf);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_uncompress_nominal", "[mssql]")
 {
+    malloc_mssql_buffer();
     for (int g=0; g <= 1; ++g) {
         gzip = g;
 
@@ -341,12 +359,14 @@ TEST_CASE("mssql_maybe_uncompress_nominal", "[mssql]")
         REQUIRE(rcv_size == p_size);
         REQUIRE(strcmp(p_buf, rcv_buf) == 0);
     }
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_uncompress_0_length", "[mssql]")
 {
+    malloc_mssql_buffer();
     for (int g=0; g <= 1; ++g) {
         gzip = g;
 
@@ -359,12 +379,14 @@ TEST_CASE("mssql_maybe_uncompress_0_length", "[mssql]")
         REQUIRE(0 == rv_r);
         REQUIRE(0 == rcv_size);
     }
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_uncompress_comp_nullptr", "[mssql]")
 {
+    malloc_mssql_buffer();
     for (int g=0; g <= 1; ++g) {
         gzip = g;
 
@@ -376,12 +398,14 @@ TEST_CASE("mssql_maybe_uncompress_comp_nullptr", "[mssql]")
         int rv_r = mssql_maybe_uncompress(nullptr, c_size, rcv_buf, &rcv_size);
         REQUIRE(rv_r < 0);
     }
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_uncompress_mismatch", "[mssql]")
 {
+    malloc_mssql_buffer();
     for (int g=0; g <= 1; ++g) {
         gzip = g;
 
@@ -403,12 +427,14 @@ TEST_CASE("mssql_maybe_uncompress_mismatch", "[mssql]")
         REQUIRE(rcv_size == 0);
         REQUIRE(rv_r == 0);
     }
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_maybe_uncompress_header_garbage", "[mssql]")
 {
+    malloc_mssql_buffer();
     for (int g=0; g <= 1; ++g) {
         gzip = g;
 
@@ -428,12 +454,14 @@ TEST_CASE("mssql_maybe_uncompress_header_garbage", "[mssql]")
         int rv_r = mssql_maybe_uncompress(c_buf, c_size, rcv_buf, &rcv_size);
         REQUIRE(rv_r < 0);
     }
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
 #ifndef SKIP_TEST
 TEST_CASE("mssql_script_interface", "[mssql]")
 {
+    malloc_mssql_buffer();
     char* key1 = "bbb";
     struct ms_server_info_t ms;
     mssql_init(Script, ms.host, ms.port, ms.user, ms.password, ms.database);
@@ -456,6 +484,37 @@ TEST_CASE("mssql_script_interface", "[mssql]")
     size_t empty_size = strlen(empty_data) + 1;
     rv_w = mssql_file_write(Script, empty_data, empty_size, (const char*) key1);
     REQUIRE(rv_w == 0);
+    free_mssql_buffer();
 }
 #endif // SKIP_TEST
 
+
+#ifndef SKIP_TEST
+TEST_CASE("mssql_test_bad_init", "[mssql]")
+{
+    const char *driver = "ODBC Driver 17 for SQL Server";
+    const char* good_host = "devdb5";
+    const char* bad_host = "xxx";
+    const char* host_port = "1433";
+    const char* user = "chatscript_user";
+    const char* password = "h0s3i1F";
+    const char* database = "chatscript";
+
+    int num_cycles = 2;
+    for (int i=0; i < num_cycles; ++i) {
+        mssql_init(Script, good_host, host_port, user, password, database);
+        REQUIRE(is_connected(Script) == true);
+
+        mssql_close(Script);
+        REQUIRE(is_connected(Script) == false);
+    }
+
+    for (int i=0; i < num_cycles; ++i) {
+        mssql_init(Script, bad_host, host_port, user, password, database);
+        REQUIRE(is_connected(Script) == false);
+
+        mssql_close(Script);
+        REQUIRE(is_connected(Script) == false);
+    }
+}
+#endif  // SKIP_TEST

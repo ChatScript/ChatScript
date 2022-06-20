@@ -3,7 +3,7 @@
 
 extern int ignoreRule;
 static bool down_is = true;
-
+char priorLogin[ID_SIZE];
 static int downcount = 0;
 static int volleyCounter = 0;
 static int relevantVolleyCounter = 0;
@@ -35,7 +35,7 @@ void InitStats()
 
 bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
 {
-	if (scriptOverrideAuthorization || !stricmp(GetUserVariable("$bwtrace"), serverlogauthcode))
+	if (scriptOverrideAuthorization || !strnicmp(GetUserVariable("$bwtrace"), serverlogauthcode,strlen(serverlogauthcode)))
 	{
 		if (in) FClose(in);
 		return true; // commanded from script
@@ -653,6 +653,7 @@ static void MemorizeRegress(char* input)
 			}
 		}
 		char* at;
+		char kind[20];
 		bool start = true;
 		while (ReadALine(readBuffer,in)  >= 0) // read log file
 		{
@@ -662,10 +663,7 @@ static void MemorizeRegress(char* input)
 			// Respond: user:fa bot:patient1a ip: (~introductions) 1  fa ==> I'm afraid I don't understand that question.  When:Mar23'14-20:06:30 Why:~control.10.0=MAINCONTROL 
 			// fields are: type, user, bot, ip, {rand}, (resulting topic), current volley id, user input, ==> bot output, when: {version/build1/build0/f:/p:) followed by why: rule tags for each issued output.
 		
-			char kind[MAX_WORD_SIZE];
-			ReadCompiledWord(readBuffer,kind);
-
-			if (!strstr(kind,(char*)"Respond:") && !strstr(kind,(char*)"Start:") ) continue; // abnormal line? like a ^log entry.
+			if (!strstr(readBuffer,(char*)"Respond:")) continue; // abnormal line? like a ^log entry.
 
 			// normal volley
 			char user[MAX_WORD_SIZE];
@@ -681,9 +679,9 @@ static void MemorizeRegress(char* input)
 			if (randptr) rand = atoi(randptr+5);
 	
 			// confirm legit startup
-			if (start == true)
+			if (start == true && false)
 			{
-				if (volley || *kind != 'S') 
+				if (volley) 
 				{
 					Log(USERLOG,"Log file must begin with Start at turn 0, not turn %d\r\n",volley);
 					FClose(in);
@@ -717,7 +715,7 @@ static void MemorizeRegress(char* input)
 			char* end = strstr(output,(char*)" When:");
 			if (end) *end = 0; // end of output
 			if (rand != -1) fprintf(out,(char*)"%s user:%s bot:%s rand:%u (%s) %u ==> %s\r\n", kind, user, bot,(unsigned int)rand,topic,volley,output);
-			else fprintf(out,(char*)"%s user:%s bot:%s (%s) %u %s ==> %s\r\n", kind, user, bot,topic,volley,input,output);
+			else fprintf(out,(char*)"%s user:%s bot:%s (%s) %u %s ==> %s\r\n", "Respond:", user, bot,topic,volley,input,output);
 
 			if (!why) continue;
 			
@@ -811,13 +809,11 @@ static void VerifyRegress(char* file)
 	char* verifyinfo = AllocateBuffer();
 	unsigned int volley = 0;
 	char* myBuffer = AllocateBuffer();
+	char* buffer = AllocateBuffer();
 	regression = REGRESS_REGRESSION;
 	char* holdmain = mainOutputBuffer;
 	while (ReadALine(myBuffer,in) >= 0 ) // read regression file
 	{
-		//Start: user:fd bot:rose rand:553 volley:0 topic:~hello input:  output: Good morning.  
-		//	verify:  rule:~hello.1.0. kind:t label: pattern: ( !$olduser =8%input=0 =7%hour<12 )  output: $olduser = 1 Good morning. $begintime = %fulltime  
-		//	verify2:  rule:~submain_control.5.0  kind:u label: pattern: ( =8%input<%userfirstline )  output: $repeatstart = %userfirstline + 10 ^gambit ( ~hell 
 		//Respond: user:fd bot:rose volley:1 topic:~hellold input: what is your name output: My name is Rose. What's yours?  
 		//	verify:  rule:~hello.4.0=MYNAME. kind:t label:MYNAME pattern: ( )  output: My name is Rose. $begintime = %fulltime ^^if ( ! $ 
 		//	verify2: what is your name?  rule:~physical_self.101.0=TELLNAME  kind:u label:TELLNAME pattern: ( ![ him my her them ] << what your [ name moniker output: ^reuse ( ~hello.myname ) `01b u: ( !my what * you  
@@ -838,7 +834,8 @@ static void VerifyRegress(char* file)
 		{
             FreeBuffer();
             FreeBuffer();
-            ReportBug("Inconsistent regression file");
+			FreeBuffer();
+			ReportBug("Inconsistent regression file");
 			return;
 		}
 		u += 5;
@@ -868,8 +865,8 @@ static void VerifyRegress(char* file)
 		oldsaid = TrimSpaces(oldsaid,true);
 
 		// EXECUTE the input choice
-		char* buffer = AllocateBuffer();
 		mainOutputBuffer = buffer;
+		*buffer = 0;
 
 		// bot login
 		strcpy(computerID,bot);
@@ -911,7 +908,9 @@ static void VerifyRegress(char* file)
 			originalUserInput = myinput;
 			AddInput(myinput, 0, true);
 			ProcessInput();
+			int baseindex = bufferIndex;
 			FinishVolley(buffer,NULL);
+			bufferIndex = baseindex; // resettopreser cleared it 
 			char* revised = Purify(buffer);
 			if (revised != buffer) strcpy(buffer,revised);
 			TrimSpaces(buffer,false);
@@ -1869,7 +1868,7 @@ static void C_TestTopic(char* input)
 
 static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove patterns match comment example, kind is o for outside, r for rule, t for topic, s for samples
 {
-    bool testKeyword = kind == 'k';
+   bool testKeyword = kind == 'k';
     bool testPattern = kind == 'p';
     bool testBlocking = kind == 'b';
     bool testSample = kind == 's' || kind == 'S';
@@ -1880,6 +1879,7 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
         (*printer)((char*)"%s not found\r\n", topic);
         return;
     }
+
     WORDP topicWord = FindWord(GetTopicName(topicID)); // must find it
     topic = topicWord->word;
 
@@ -1993,7 +1993,7 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
         //   test pattern on THIS rule
 
         //  perform varible setup, do assigns, and prepare matching context
-        ResetToPreUser();
+        ResetToPreUser(true);
         KillShare();
         ReadUserData();
         if (verifyToken != 0) tokenControl = verifyToken;
@@ -2017,7 +2017,7 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
         GetPattern(rule, label, pattern);
         if (!*pattern)
         {
-            ReportBug((char*)"No pattern here? %s %s\r\n", topic, rule)
+            ReportBug((char*)"No pattern here? %s %s\r\n", topic, rule);
                 continue;
         }
 
@@ -2318,8 +2318,9 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
     }
     FClose(in);
     RemovePendingTopic(topicID);
-    FreeBuffer(); // copyBuffer
+	FreeBuffer(); // copyBuffer
     FreeBuffer(); // primaryBuffer
+
     trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
     timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 }
@@ -2406,7 +2407,7 @@ static void C_Verify(char* input)
 		else AllGambitTests(topic);
 	}
 	Log(USERLOG,"%d verify findings of %d trials.\r\n",err,trials);
-	ResetToPreUser();
+	ResetToPreUser(true);
 }
 
 bool stanfordParser = false;
@@ -2859,7 +2860,7 @@ static void C_TestPatternInfo(char* file)
 		return;
 	}
 	int calls = 0;
-	char* buffer = (char*)malloc(1000000);
+	char* buffer = mymalloc(1000000);
 	while (ReadALine(buffer, in, 1000000) >= 0)
 	{
 		//Mar 31 07:55 : 46 2021 ServerPre : pid : 2379498 csc(Pearl) size = 810[
@@ -2896,7 +2897,7 @@ static void C_TestPatternInfo(char* file)
 			nl, patternCount, inputCount, patternSize, maxPatternSize, conceptValues, maxConcept, maxConceptValue);
 	}
 	fclose(in);
-	free(buffer);
+	myfree(buffer);
 	Log(ECHOUSERLOG, "CS calls: %d\r\n", calls);
 }
 
@@ -6824,7 +6825,8 @@ TestMode Command(char* input,char* buffer,bool scripted)
 		else wasCommand = COMMANDED;
 		testOutput = buffer;
 		if (buffer) *buffer = 0;
-		(*info->fn)(data);
+		if (!stricmp(info->word, ":do") && scripted) C_DoInternal(data, true);
+		else (*info->fn)(data);
 		testOutput = NULL;
 		if (strcmp(info->word,(char*)":echo") && prepareMode == NO_MODE && !(trace & TRACE_TREETAGGER)) echo = oldecho;
 		if (scripted && strcmp(info->word,(char*)":echo")) echo = oldecho;
@@ -7131,14 +7133,15 @@ static void C_Ingestlog(char* input)
 	*/
 	size_t limit = fullInputLimit;
 	if (fullInputLimit < 1500000) limit = 1500000;
-	char* xreadbuf = (char*)malloc(limit);
-	char* readbuf = (char*)malloc(limit);
-	char* buffer = (char*)malloc(limit);
-	char* outbuffer = (char*)malloc(limit);
+	char* xreadbuf = mymalloc(limit);
+	char* readbuf = mymalloc(limit);
+	char* buffer = mymalloc(limit);
+	char* outbuffer = mymalloc(limit);
 	int oldIndex = bufferIndex;
 	bool premode = false;
 	C_MemStats(input); // before
 	int error = 0;
+	int botconverse = 0;
 	char lastCategory[100];
 	char lastSpecialty[100];
 	serverLog = FILE_LOG;
@@ -7185,6 +7188,7 @@ static void C_Ingestlog(char* input)
 				else *lastSpecialty = 0;
 			}
 			*outbuffer = 0;
+			if (strstr(buffer, "testoutput")) ++botconverse; 
 			PerformChat(user, bot, buffer, ip, outbuffer); // this autofrees our buffer
 
 			char label[MAX_WORD_SIZE];
@@ -7213,7 +7217,7 @@ static void C_Ingestlog(char* input)
 			if (strcmp(newOutput, output)) // different
 			{
 				userLog = 1;
-				printf("line %d error %d label: %s\r\n", n, error, label);
+				printf("line %d error %d label: %s botconverse: %d\r\n", n, error, label, botconverse);
 				++error;
 				Log(ECHOUSERLOG, "%d\r\n", n++);
 				Log(ECHOUSERLOG, "old: %s\r\n", output--);
@@ -7234,9 +7238,9 @@ static void C_Ingestlog(char* input)
 	fclose(in);
 	if (out) fclose(out);
 	bufferIndex = oldIndex; //because performchat clears buffers down to raw base
-	free(buffer);
-	free(outbuffer);
-	free(readbuf);
+	myfree(buffer);
+	myfree(outbuffer);
+	myfree(readbuf);
 
 	uint64 endtime = ElapsedMilliseconds();
 	int diff = (int)(endtime - starttime);
@@ -7265,8 +7269,8 @@ static void C_CompareFiles(char* input)
 		fclose(in1);
 		return;
 	}
-	char* buffer1 = (char*)malloc(1000);
-	char* buffer2 = (char*)malloc(1000);
+	char* buffer1 = mymalloc(1000);
+	char* buffer2 = mymalloc(1000);
 	int n = 0;
 	while (1)
 	{
@@ -7305,8 +7309,8 @@ static void C_Comparelog(char* input)
 		fclose(in1);
 		return;
 	}
-	char* buffer1 = (char*)malloc(fullInputLimit);
-	char* buffer2 = (char*)malloc(fullInputLimit);
+	char* buffer1 = mymalloc(fullInputLimit);
+	char* buffer2 = mymalloc(fullInputLimit);
 //Respond: user:37224444 bot : Pearl ip:84.106.28.86 (~consumer_electronics_expert) 0[reset type : FunnelQuestion category : consumer_electronics partner : 1 source : sip DeviceCategory : desktop] ==> [assistanttitle = Technician's Assistant|assistantname=Pearl Wilson|why=~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY |v=33.0 ] Welcome! How can I help with your electronics question?  When:May02 18:24:25 8ms Why:~xpostprocess.5.0.~control.9.0 ~consumer_electronics_expert.491.0=GENERAL_START.~handle_oob.12.0=GIVEN_CATEGORY
 	int n = 0;
 	int matched = 0;
@@ -7430,8 +7434,8 @@ static void C_Comparelog(char* input)
 		}
 	}
 	Log(ECHOUSERLOG, "done %d matched %d failed \r\n\r\n", matched, failed);
-	free(buffer1);
-	free(buffer2);
+	myfree(buffer1);
+	myfree(buffer2);
 }
 
 static void C_CompileDP(char* input)
@@ -7638,8 +7642,8 @@ static void C_AllMembers(char* input)
     outptr = FopenUTF8Write("TMP/tmp.txt");
     char* ptr = ReadCompiledWord(input,concept);
     WORDP D = FindWord(concept);
-    WORDP* members = (WORDP*)malloc(150000);
-	if (!members) ReportBug("AllMembers malloc failed")
+    WORDP* members = (WORDP*)mymalloc(150000);
+	if (!members) ReportBug("AllMembers mymalloc failed");
     WORDP* base = members;
     follown = 0;
     if (!D)
@@ -8372,18 +8376,18 @@ static void C_ExportDictionary(char* junk)
 	ExportCurrentDictionary(); // you need to erase dict.bin first, so ascii is read in
 }
 
-static WORDP Known(char* name)
-{
-	WORDP D = FindWord(name);
-	if (D) return D;
+// static WORDP Known(char* name)
+// {
+// 	WORDP D = FindWord(name);
+// 	if (D) return D;
 
-	WORDP revise, entry, canonical;
-	uint64 sysflags = 0;
-	uint64  cansysflags = 0;
-	uint64 properties = GetPosData(2, name, revise, entry, canonical, sysflags, cansysflags);
-	if (canonical != entry) return canonical ;
-	return NULL;
-}
+// 	WORDP revise, entry, canonical;
+// 	uint64 sysflags = 0;
+// 	uint64  cansysflags = 0;
+// 	uint64 properties = GetPosData(2, name, revise, entry, canonical, sysflags, cansysflags);
+// 	if (canonical != entry) return canonical ;
+// 	return NULL;
+// }
 
 static void CheckPos(char* word, uint64 tag, FILE* out,int zone)
 {
@@ -8888,7 +8892,7 @@ static void CheckAff(char* name)
 		{
 			int good = 0;
 			int bad = 0;
-			GetAffect(X, NULL, good, bad);
+			GetAffect(X, 0, good, bad);
 			if (!good && !bad) fprintf(goodl, "%s\r\n", word); // maybe useful
 		}
 	}
@@ -9444,15 +9448,38 @@ static void C_DoInternal(char* input,bool internal)
 #ifndef DISCARDSCRIPTCOMPILER
 	hasErrors = 0;
 	StartScriptCompiler(true);
-	ReadOutput(false,false,input, NULL,out,NULL,NULL,NULL);
+	SAVESYSTEMSTATE()
+	csapicall = TEST_OUTPUT;
+	int buffercount = bufferIndex;
+	int frameindex = globalDepth;
+	if (setjmp(scriptJump[++jumpIndex])) // return on script compiler error
+	{
+		bufferIndex = buffercount;
+		globalDepth = frameindex;
+		result = FAILRULE_BIT;
+	}
+	else
+	{
+		ReadOutput(false, false, input, NULL, out, NULL, NULL, NULL);
+	}
+	--jumpIndex;
+	csapicall = NO_API_CALL;
+	RESTORESYSTEMSTATE()
+	variableChangedThreadlist = NULL;
+	currentFact = NULL;
 	EndScriptCompiler();
-	if (hasErrors) Log(USERLOG,"\r\nScript errors prevent execution.");
+
+	if (hasErrors || result != NOPROBLEM_BIT) Log(USERLOG,"\r\nScript errors prevent execution.");
 	else 
 	{
 		FreshOutput(data,answer,result);
 		if (trace & TRACE_OUTPUT) Log(USERLOG,"   result: %s  output: %s\r\n",ResultCode(result),answer);
 		if (!internal) AddResponse(answer,responseControl);
-		else (*printer)("    %s\r\n",answer);
+		else
+		{
+			strcpy(currentOutputBase, answer);
+			(*printer)("    %s\r\n", answer);
+		}
 	}
 #else
 	Log(USERLOG,"Script compiler not installed.");
@@ -10436,15 +10463,15 @@ static void CleanIt(char* word,uint64 junk) // remove cr from source lines for L
 	}
 	fseek (in, 0, SEEK_END);
     size_t size = ftell(in);
-	char* buf = (char*) malloc(size+2); // enough to hold the file
-	if (!buf) ReportBug("Cleanit malloc failed")
+	char* buf = (char*) mymalloc(size+2); // enough to hold the file
+	if (!buf) ReportBug("Cleanit mymalloc failed");
 
 	fseek (in, 0, SEEK_SET);
 	unsigned int val = (unsigned int) fread(buf,1,size,in);
 	FClose(in);
 	if (val != size)
 	{
-		free(buf);
+		myfree(buf);
 		return;
 	}
 	buf[size] = 0;	// force an end
@@ -10457,7 +10484,7 @@ static void CleanIt(char* word,uint64 junk) // remove cr from source lines for L
 	}
 	if (buf[size-1] != '\n') fwrite((char*)"\n",1,1,out); // force ending line feed
 	FClose(out);
-	free(buf);
+	myfree(buf);
 }
 
 static void C_ExtraTopic(char* input) // topicdump will create a file in TMP/tmp.txt
@@ -10473,8 +10500,8 @@ static void C_ExtraTopic(char* input) // topicdump will create a file in TMP/tmp
 	fseek (in, 0, SEEK_END);
     size_t size = ftell(in);
 	fseek (in, 0, SEEK_SET);
- 	extraTopicData = (char*)malloc(size+2); // enough to hold the file
-	if (!extraTopicData) ReportBug("C_ExtraTopic malloc failed")
+ 	extraTopicData = mymalloc(size+2); // enough to hold the file
+	if (!extraTopicData) ReportBug("C_ExtraTopic mymalloc failed");
 	char* at = extraTopicData;
 	maxFileLine = currentFileLine = 0; // prepare for BOM
 	while(ReadALine(at,in,size) >= 0) {at += strlen(at);} // join all lines
@@ -12279,6 +12306,190 @@ static void C_NewDiff(char* input)
 	fclose(unmatch);
 }
 
+static void C_Sap(char* file)
+{
+	FILE* in = fopen(file, "rb");
+	if (!in)
+	{
+		(*printer)("file not found");
+		return;
+	}
+	char name[MAX_WORD_SIZE];
+	sprintf(name, "%s/tmp.txt", tmpfolder);
+	FILE* out = FopenUTF8Write(name);
+	char* word = AllocateBuffer();
+	char* tab;
+	char id[MAX_WORD_SIZE];
+	ReadALine(word, in);  // headers
+	while (fgets(word, maxBufferSize,in) )
+	{
+		char* start = word;
+		char* end = strchr(word, '\r');
+		*end = 0;
+
+		tab = strchr(word, '\t'); // end talk#
+		*tab = 0;
+		start = ReadCompiledWord(start, id);
+		fprintf(out, "%s   ",start);
+
+		start = tab + 1; // title
+		tab = strchr(start, '\t');
+		*tab = 0;
+		RemoveQuotes(start);
+		fprintf(out, "\"%s\"   ", start);
+
+		start = tab + 1; // abstract
+		tab = strchr(start, '\t');
+		*tab = 0;
+		RemoveQuotes(start);
+		fprintf(out, "\"%s\"   ", start);
+
+		start = tab + 1; // start date time
+		tab = strchr(start, '\t');
+		*tab = 0;
+		fprintf(out, "%s   ", start);
+
+		start = tab + 1; // end date time NOT USED
+		tab = strchr(start, '\t');
+		*tab = 0;
+
+		start = tab + 1; // track
+		tab = strchr(start, '\t');
+		*tab = 0;
+		RemoveQuotes(start);
+		fprintf(out, "\"%s\"   ", start);
+
+		start = tab + 1; // speakers
+		tab = strchr(start, '\t'); 
+		*tab = 0;
+		RemoveQuotes(start); 
+		char* space = start;
+		while ((space = strchr(space, ' ')))  *space =  '_';
+		fprintf(out, "\"%s\"   ", start);
+
+		start = tab + 1; // id
+		tab = strchr(start, '\t'); 
+		*tab = 0;
+
+		start = tab + 1; // room
+		RemoveQuotes(start); 
+		fprintf(out, "\"%s\"\r\n", start);
+	}
+	fclose(in);
+	fclose(out);
+	FreeBuffer();
+	printf("done\r\n");
+}
+
+static void VerifyList1(char* file, uint64 output)
+{
+	FILE* out = (FILE*)output;
+	FILE* in = FopenReadOnly(file);
+	char name[MAX_WORD_SIZE];
+	while (fgets(name, MAX_WORD_SIZE, in))
+	{
+		char* start = name;
+		if ((unsigned char)start[0] == 0xEF && (unsigned char)start[1] == 0xBB && (unsigned char)start[2] == 0xBF) start += 3;// UTF8 BOM 
+		if (!*start) continue;
+
+		// ~ai_en_us.1.0 #!Does your system need training ?
+		if (start[2] == ' ')
+			continue; // indented level
+		char* end = strstr(start, "#!");
+		if (!end) continue;
+		char* message = strchr(end, ' '); // skip any other controls on #!
+		*end = 0;
+		char* nl = strchr(message, '\r');
+		if (!nl) nl = strchr(message, '\n');
+		*nl = 0;
+		fprintf(out, "%s", message);
+		fprintf(out, "   #!!# %s\r\n", start);
+	}
+	fclose(in);
+}
+
+static void C_VerifyList(char* junk)
+{
+	char name[MAX_WORD_SIZE];
+	sprintf(name, "%s/tmp.txt", tmpfolder);
+	FILE* out = FopenUTF8Write(name);
+	WalkDirectory("VERIFY", VerifyList1, (uint64)out, false);
+	fclose(out);
+	printf("done\r\n");
+}
+
+static void C_VerifyRun(char* junk)
+{
+	if (!*junk) junk = "tmp/tmp.txt"; // default verifylist location
+	allNoStay = true;
+	strcpy(priorLogin, loginID);
+	strcpy(loginID, "verifier");
+	unlink("USERS/log-verifier.txt");
+	C_Source(junk);
+}
+
+static void C_VerifyMatch(char* file)
+{
+	if (!*file) file = "USERS/log-verifier.txt";
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		printf("missing file\r\n");
+		return;
+	}
+	int fail = 0;
+	int match = 0;
+	while (fgets(readBuffer, MAX_WORD_SIZE, in))
+	{
+		//Jun 17 14:11 : 59.900 2022 ServerPre : pid : 0 dt(sage) size = 63 Does your system need training ? #  AI_TRAINING = ~ai_en_us.1.0
+		//Jun 17 14:11 : 59.900 2022 Respond : user : dt bot : sage len : 65 ip : (~ai_en_us) 1 Does your system need training ? #  AI_TRAINING = ~ai_en_us.1.0 ==> {"transcript": "{\"transcript\": \"\\\"No, and that's why we don't need to harvest user data.\\\"\", \"audio\": \"\\\"\\\"\", \"image\": \"\\\"\\\"\", \"emotion\": \"\\\"happy\\\"\", \"animation\": \"\\\"\\\"\", \"rule\": \"AI TRAINING\"}", "audio" : "\"\"", "image" : "\"\"", "emotion" : "\"happy\"", "animation" : "\"\"", "rule" : "AI_TRAINING"}   When:Jun 17 14 : 11 : 59.908 2022 8ms q 0 Why : ~ai_en_us.1.0 = AI_TRAINING.~control.35.0 = KEYWORDED  JOpen : 0 / 0 Timeout : 0
+
+		char expectedRuleID[MAX_WORD_SIZE];
+		if (strstr(readBuffer, "Respond"))
+		{
+			char* l = strstr(readBuffer, "VLABEL:");
+			if (l)
+			{
+				char* end = ReadCompiledWord(l + 7, expectedRuleID); // expected verify label
+				memmove(l, end, strlen(end) + 1); // erase vlabel
+			}
+
+			// Why: ~ai_en_us.1.0 = AI_TRAINING.~control.35.0
+			char* why = strstr(readBuffer, "Why:");
+			if (why)
+			{
+				char* label1 = strchr(expectedRuleID, '~');
+				if (!label1) label1 = "";
+				why += 4;
+				char* equal = strchr(why, '=');
+				if (equal) *equal = 0;
+				char* dot = strchr(why, '.');
+				if (dot) dot = strchr(dot + 1, '.');
+				if (dot) dot = strchr(dot + 1, '.');
+				if (dot) *dot = 0; // remove caller data
+				char actual[MAX_WORD_SIZE];
+				ReadCompiledWord(why, actual);
+				char* eq = strchr(expectedRuleID, '=');
+				char* pt = label1;
+				if (eq) *eq = 0;
+				if (stricmp(actual, label1))
+				{
+					if (eq) *eq = '=';
+					char* when = strstr(readBuffer, "When:");
+					if (when) *when = 0;
+					char* close = strchr(readBuffer, ')');
+					Log(USERLOG, "actual: %s vs expected: %s %s\r\n", actual, expectedRuleID, close + 1);
+					++fail;
+				}
+				else ++match;
+			}
+		}
+	}
+	printf("match: %d   fail: %d\r\n", match, fail);
+	fclose(in);
+}
+
+
 static void C_MergeLines(char* file)
 {
    FILE* in = fopen(file, "rb");
@@ -13031,6 +13242,10 @@ CommandInfo commandSet[] = // NEW
     { (char*)":countcat",C_CountCat,(char*)"generate counts of words listed in file" },
 	{ (char*)":suffix",C_Suffix,(char*)"word + suffix, tell us root" },
 	{ (char*)":logging",C_Logging,(char*)"change logging [server user] to value" },
+	{ (char*)":sap",C_Sap,(char*)"convert AWE table to tmp.txt" },
+	{ (char*)":verifylist",C_VerifyList,(char*)"put verify tests into tmp.txt" },
+	{ (char*)":verifyrun",C_VerifyRun,(char*)"execute verify test file" },
+	{ (char*)":verifymatch",C_VerifyMatch,(char*)"does userlog match verify data on why" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

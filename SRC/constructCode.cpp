@@ -686,7 +686,7 @@ FunctionResult HandleRelation(char* word1,char* op, char* word2,bool output,int&
 				else if (strcmp(val1,val2)) result = FAILRULE_BIT;
 				else result = NOPROBLEM_BIT;
 				if (*op == '!') result =  (result == NOPROBLEM_BIT) ? FAILRULE_BIT : NOPROBLEM_BIT;
-				else if (*op != '=') ReportBug((char*)"INFO: Op not implemented for comma numbers %s",op)
+				else if (*op != '=') ReportBug((char*)"INFO: Op not implemented for comma numbers %s",op);
 			}
 			else if (*op == '=') result =  (v1 == v2) ? NOPROBLEM_BIT : FAILRULE_BIT;
 			else if (*op == '<') 

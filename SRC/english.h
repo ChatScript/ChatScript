@@ -1,5 +1,5 @@
-#ifndef _H
-#define _H
+#ifndef ENGLISH_H
+#define ENGLISH_H
 #ifdef INFORMATION
 Copyright (C)2011-2022 by Bruce Wilcox
 
@@ -18,6 +18,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #ifdef TREETAGGER
 void InitTreeTagger(char* params);
 void MarkChunk();
+void TreeTagger();
 bool MatchTag(char* tag,int i);
 char* GetTag(int i);
 extern bool treetaggerfail;
@@ -67,6 +68,5 @@ uint64 ProbableAdverb(char* original, unsigned int len,uint64& expectedBase);
 uint64 ProbableNoun(char* original,unsigned int len);
 uint64 ProbableVerb(char* original,unsigned int len);
 bool IsDeterminedNoun(int i,int& det);
-uint64 ComputeSpanish(int at, char* original, WORDP & entry, WORDP & canonical, uint64 & sysflags,bool adjust = false) // case sensitive, may add word to dictionary, will not augment flags of existing words
-;
+
 #endif

@@ -114,7 +114,7 @@ bool Login(char* user,char* usee,char* ip,char* incoming) //   select the partic
 	}
 	if (*callee) MakeLowerCopy(computerID, callee);
 	else ReadComputerID(); //   we are defaulting the chatee
-	if (!*computerID) ReportBug((char*)"No default bot?\r\n")
+	if (!*computerID) ReportBug((char*)"No default bot?\r\n");
 
 	//   for topic access validation
 	*computerIDwSpace = ' ';
@@ -277,7 +277,7 @@ static bool ReadUserFacts()
 	}
 	if (strcmp(readBuffer,(char*)"#`end fact sets")) 
 	{
-		ReportBug((char*)"Bad fact sets alignment\r\n")
+		ReportBug((char*)"Bad fact sets alignment\r\n");
 		return false;
 	}
 
@@ -292,14 +292,14 @@ static bool ReadUserFacts()
 		}
 		else 
 		{
-			ReportBug((char*)"Bad user fact %s\r\n",readBuffer)
+			ReportBug((char*)"Bad user fact %s\r\n",readBuffer);
 			return false;
 		}
 		
 	}	
     if (strncmp(readBuffer,(char*)"#`end user facts",16)) 
 	{
-		ReportBug((char*)"Bad user facts alignment\r\n")
+		ReportBug((char*)"Bad user facts alignment\r\n");
 		return false;
 	}
 
@@ -378,7 +378,7 @@ static bool ReadRecentMessages()
 		chatbotSaidIndex = 0;
 		backupMessages = NULL;
 		ReleaseStack(buffer);
-		ReportBug((char*)"bad humansaid")
+		ReportBug((char*)"bad humansaid");
 		return false;
 	}
 	else *humanSaid[humanSaidIndex] = 0;
@@ -398,7 +398,7 @@ static bool ReadRecentMessages()
 		backupMessages = NULL;
 		ReleaseStack(buffer);
 		backupMessages = NULL;
-		ReportBug((char*)"Bad message alignment\r\n")
+		ReportBug((char*)"Bad message alignment\r\n");
 		return false;
 	}
 	else *chatbotSaid[chatbotSaidIndex] = 0;
@@ -580,7 +580,7 @@ static bool ReadUserVariables()
 
 	if (strcmp(readBuffer,(char*)"#`end variables")) 
 	{
-		ReportBug((char*)"Bad variable alignment\r\n")
+		ReportBug((char*)"Bad variable alignment\r\n");
 		return false;
 	}
 	return true;
@@ -611,7 +611,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	ptr = WriteUserTopics(ptr,sharefile);
 	if (!ptr)
 	{
-		ReportBug("User file topic data too big %s",loginID)
+		ReportBug("User file topic data too big %s",loginID);
 		return NULL;
 	}
 	char* saveJSON = GetUserVariable("$cs_saveusedJson", false, true);
@@ -620,7 +620,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe - does not write kernel or boot bot variables
 	if (!ptr)
 	{
-		ReportBug("User file variable data too big %s",loginID)
+		ReportBug("User file variable data too big %s",loginID);
 		return NULL;
 	}
 
@@ -628,19 +628,19 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 	ptr = WriteUserFacts(ptr,sharefile,count, saveJSON);  // json safe
 	if (!ptr)
 	{
-		ReportBug("User file fact data too big %s",loginID)
+		ReportBug("User file fact data too big %s",loginID);
 		return NULL;
 	}
 	ptr = WriteUserContext(ptr,sharefile); 
 	if (!ptr)
 	{
-		ReportBug("User file context data too big %s",loginID)
+		ReportBug("User file context data too big %s",loginID);
 		return NULL;
 	}
 	ptr = WriteRecentMessages(ptr,sharefile, messageCount); // json safe
 	if (!ptr)
 	{
-		ReportBug("User file message data too big %s", loginID)
+		ReportBug("User file message data too big %s", loginID);
 		return NULL;
 	}
 	return ptr;
@@ -774,36 +774,36 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
 		size_t len = strlen(start);
 		if (!ReadUserTopics())
 		{
-			if (len < 40000) { ReportBug("User data file TOPICS inconsistent %d %s \r\n", len, start) }
-			else { ReportBug("User data file %d TOPICS inconsistent\r\n", len) }
+			if (len < 40000) { ReportBug("User data file TOPICS inconsistent %d %s \r\n", len, start); }
+			else { ReportBug("User data file %d TOPICS inconsistent\r\n", len); }
             loadingUser = false;
             return false;
 		}
 		if (!ReadUserVariables())
 		{
-			if (len < 40000) ReportBug((char*)"User data file VARIABLES inconsistent %d %s \r\n",len,start)
-			else ReportBug((char*)"User data file %d VARIABLES inconsistent\r\n", len)
+			if (len < 40000) ReportBug((char*)"User data file VARIABLES inconsistent %d %s \r\n",len,start);
+			else ReportBug((char*)"User data file %d VARIABLES inconsistent\r\n", len);
             loadingUser = false;
             return false;
 		}
 		if (!ReadUserFacts())
 		{
-			if (len < 40000) ReportBug((char*)"User data file FACTS inconsistent %d %s \r\n", len, start)
-			else ReportBug((char*)"User data file %d FACTS inconsistent\r\n", len)
+			if (len < 40000) ReportBug((char*)"User data file FACTS inconsistent %d %s \r\n", len, start);
+			else ReportBug((char*)"User data file %d FACTS inconsistent\r\n", len);
             loadingUser = false;
             return false;
 		}
 		if (!ReadUserContext())
 		{
-			if (len < 40000) ReportBug((char*)"User data file CONTEXT inconsistent %d %s \r\n", len,start)
-			else ReportBug((char*)"User data file %d CONTEXT inconsistent\r\n", len)
+			if (len < 40000) ReportBug((char*)"User data file CONTEXT inconsistent %d %s \r\n", len,start);
+			else ReportBug((char*)"User data file %d CONTEXT inconsistent\r\n", len);
             loadingUser = false;
             return true; // accept failure
 		}
 		if (!ReadRecentMessages())
 		{
-			if (len < 40000) ReportBug((char*)"User data file MESSAGES inconsistent %d %s \r\n", len,start)
-			else ReportBug((char*)"User data file %d MESSAGES inconsistent\r\n", len)
+			if (len < 40000) ReportBug((char*)"User data file MESSAGES inconsistent %d %s \r\n", len,start);
+			else ReportBug((char*)"User data file %d MESSAGES inconsistent\r\n", len);
             loadingUser = false;
             return true;
 		}

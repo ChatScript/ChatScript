@@ -24,11 +24,11 @@ void InitUserCache()
 	userTableSize /= 64;
 	userTableSize = (userTableSize * 64) + 64; // 64 bit align both ends
 
-	cacheBase = (char*) malloc( userTopicStoreSize + userTableSize );
+	cacheBase = (char*) mymalloc( userTopicStoreSize + userTableSize);
 	if (!cacheBase)
 	{
 		(*printer)((char*)"Out of  memory space for user cache %d %d %d\r\n",userTopicStoreSize,userTableSize,MAX_DICTIONARY);
-		ReportBug((char*)"FATAL: Cannot allocate memory space for user cache %ld\r\n",(long int) userTopicStoreSize)
+		ReportBug((char*)"FATAL: Cannot allocate memory space for user cache %ld\r\n",(long int) userTopicStoreSize);
 	}
 	cacheIndex = (unsigned int*) (cacheBase + userTopicStoreSize); // linked list for caches - each entry is [3] wide 0=prior 1=next 2=TIMESTAMP
 	char* ptr = cacheBase;
@@ -45,7 +45,7 @@ void InitUserCache()
 
 void CloseUserCache()
 {
-	if (cacheBase) free(cacheBase);
+	if (cacheBase) myfree(cacheBase);
 	cacheBase = NULL;
 }
 
@@ -75,7 +75,7 @@ static void WriteCache(unsigned int which,size_t size)
 
 		if (!out) 
 		{
-            ReportBug((char*)"cannot open user state file %s to write\r\n", ptr)
+            ReportBug((char*)"cannot open user state file %s to write\r\n", ptr);
             if (dieonwritefail) myexit("Failed to open user state file to write");
             return;
 		}

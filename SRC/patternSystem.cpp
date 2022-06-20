@@ -436,7 +436,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         memset(&retryBits, 0, sizeof(uint64) * 4);
         matchedWordsList = NULL;
     }
-    char word[SMALL_WORD_SIZE]; // users may type big, but pattern words wont be
+    char* word = AllocateBuffer(); // users may type big, but pattern words wont be, except data string assignment
     char* orig = ptr;
     int statusBits = (*kind == '<') ? FREEMODE_BIT : 0; //   turns off: not, quote, startedgap, freemode ,wildselectorpassback
     kindprior[depth] = *kind;
@@ -1051,6 +1051,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 globalDepth = startdepth;
                 uppercaseFind = -1;
                 if (patternDepth-- == 0) patternDepth = 0;
+                FreeBuffer();
                 return false; // shouldn't happen
             }
             break;
@@ -1965,6 +1966,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         else Log(USERLOG, "...)-\r\n");
     }
     if (patternDepth-- == 0) patternDepth = 0;
+    FreeBuffer();
     return success;
 }
 

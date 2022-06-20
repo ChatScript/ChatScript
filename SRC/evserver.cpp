@@ -140,7 +140,7 @@ struct Client_t
 
     ~Client_t() // if child dies, this destructor is not called
     {
-		if (this->data) free(this->data); 
+		if (this->data) myfree(this->data); 
 		this->data = NULL;
         if (ev_is_active(&this->ev_r))  ev_io_stop(this->l, &this->ev_r);
         if (ev_is_active(&this->ev_w))  ev_io_stop(this->l, &this->ev_w);
@@ -171,7 +171,7 @@ struct Client_t
     {
         if (this->requestValid)
         {
-            ReportBug((char*)"recv called although we got whole request, should process it first\r\n")
+            ReportBug((char*)"recv called although we got whole request, should process it first\r\n");
             return -1;
         }
 
@@ -372,7 +372,7 @@ static void evsrv_child_died(EV_P_ ev_child *w, int revents) {
 int evsrv_init(const string &interfaceKind, int port, char* arg) {
     if (srv_socket_g != -1) 
 	{
-        ReportBug((char*)"INFO: evserver: server already initialized\r\n")
+        ReportBug((char*)"INFO: evserver: server already initialized\r\n");
         return -1;
     }
     if (arg) {
@@ -521,7 +521,7 @@ int evsrv_run()
 {
     if (!l_g) 
 	{
-        ReportBug((char*)"evsrv_run() called with no ev loop initialized")
+        ReportBug((char*)"evsrv_run() called with no ev loop initialized");
         (*printer)((char*)"no ev loop initialized, nothing to do\r\n");
         return -1;
     }
@@ -608,7 +608,7 @@ static void client_read(EV_P_ ev_io *w, int revents)
     r = client->send_data();
 	if (client->data)
 	{
-		free(client->data);
+		myfree(client->data);
 		client->data = NULL;
 	}
 
@@ -647,7 +647,7 @@ int evsrv_do_chat(Client_t *client)
     echo = false;
 	bool restarted = false;
 	
-	if (!client->data) 	client->data = (char*) malloc(outputsize+8);
+	if (!client->data) 	client->data = (char*) mymalloc(outputsize+8);
     if (!client->data)
     {
         (*printer)("Malloc failed for child data\r\n");

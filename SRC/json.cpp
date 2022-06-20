@@ -401,7 +401,7 @@ int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING *
 		break;
 	}
 	default:
-		char* str = AllocateBuffer("jsmn default"); // cant use InfiniteStack because ReportBug will.
+		char* str = AllocateBuffer("jsmn default"); // cant use InfiniteStack because ReportBug will;.
 		strncpy(str, jsontext + curr.start, size);
 		str[size] = 0;
 		FreeBuffer("jsmn default");
@@ -1037,7 +1037,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		else if (res == CURLE_GOT_NOTHING) { ReportBug((char*)"\r\nINFO: Curl got nothing %s", word); }
 		else if (res == CURLE_UNSUPPORTED_PROTOCOL) { ReportBug((char*)"\r\nINFO: Curl unsupported protocol %s", word); }
 		else if (res == CURLE_COULDNT_CONNECT || res == CURLE_COULDNT_RESOLVE_HOST || res == CURLE_COULDNT_RESOLVE_PROXY) Log(USERLOG, "\r\nJson connect failed ");
-		else if (res == CURLE_OPERATION_TIMEDOUT) { ReportBug((char*)"\r\nINFO: Curl timeout ") }
+		else if (res == CURLE_OPERATION_TIMEDOUT) { ReportBug((char*)"\r\nINFO: Curl timeout "); }
 		else
 		{
 			if (output.buffer && output.size) { ReportBug((char*)"\r\nINFO: Other curl return code %d %s  - %s ", (int)res, word, output.buffer); }
@@ -1626,7 +1626,7 @@ char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigne
 	unsigned int actual = buffer - start + len + 200; // some slop
 	if (actual  > limit)
 	{
-		ReportBug("Jwrite too much %d of %d", actual, limit)
+		ReportBug("Jwrite too much %d of %d", actual, limit);
 		return buffer;
 	}
 	int index = 0;
@@ -2473,9 +2473,9 @@ FunctionResult JSONObjectInsertCode(char* buffer) //  objectname objectkey objec
 FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 {
 	if (*word != USERVAR_PREFIX) return FAILRULE_BIT; // must be user variable reference at start
-	char basicname[MAX_WORD_SIZE];
+	char basicname[MAX_WORD_SIZE] = "";
 	strcpy(basicname, word);
-	char fullpath[MAX_WORD_SIZE];
+	char fullpath[MAX_WORD_SIZE] = "";
 	*fullpath = 0;
 	bool changedBase = false;
 
@@ -2604,7 +2604,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 				else if (IsTransientJson(priorLeftside->word)) arg1 = (char*)"transient";
 				else if (IsBootJson(priorLeftside->word)) arg1 = (char*)"boot";
 				else arg1 = (char*)"permanent";
-				char loc[100];
+				char loc[100] = "";
 
 				// create appropriate structure
 				if (c == '.')

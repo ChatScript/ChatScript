@@ -1,13 +1,15 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "12.1";
+char* version = "12.2";
 char sourceInput[200];
 int cs_qsize = 0;
 static char baseLanguage[50];
 static char* retryInput;
 char* tracebuffer;
 int volleyFile = 0;
+char verifyLabel[MAX_WORD_SIZE];
 unsigned long startLogDelay = 0;
+unsigned int forcedRandom = 0;
 char* releaseBotVar = NULL;
 char rootdir[MAX_WORD_SIZE];
 char incomingDir[MAX_WORD_SIZE];
@@ -243,29 +245,29 @@ static void HandleReBoot(WORDP boot, bool reboot);
 /// SYSTEM STARTUP AND SHUTDOWN
 ///////////////////////////////////////////////
 
-static void HandlePermanentBuffers(bool init)
+void HandlePermanentBuffers(bool init)
 {
 	if (init)
 	{
 		if (fullInputLimit == 0) fullInputLimit = maxBufferSize * 2;
-		readBuffer = (char*)malloc(fullInputLimit);
+		readBuffer = mymalloc(fullInputLimit);
 		if (!readBuffer) myexit("FATAL: buffer allocation fail");
 		*readBuffer = 0;
-		tracebuffer = (char*)malloc(TESTPATTERN_TRACE_SIZE);
-		lastInputSubstitution = (char*)malloc(maxBufferSize);
-		rawSentenceCopy = (char*)malloc(maxBufferSize);
-		revertBuffer = (char*)malloc(maxBufferSize);
+		tracebuffer = mymalloc(TESTPATTERN_TRACE_SIZE);
+		lastInputSubstitution = mymalloc(maxBufferSize);
+		rawSentenceCopy = mymalloc(maxBufferSize);
+		revertBuffer = mymalloc(maxBufferSize);
 
-		ourMainInputBuffer = (char*)malloc(fullInputLimit);  // precaution for overflow
+		ourMainInputBuffer = mymalloc(fullInputLimit);  // precaution for overflow
 
 		currentOutputLimit = outputsize;
-		currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = (char*)malloc(outputsize);
+		currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = mymalloc(outputsize);
 
 		// need allocatable buffers for things that run ahead like servers and such.
 		maxBufferSize = (maxBufferSize + 63);
 		maxBufferSize &= 0xffffffc0; // force 64 bit align on size  
 		unsigned int total = maxBufferLimit * maxBufferSize;
-		buffers = (char*)malloc(total); // have it around already for messages
+		buffers = mymalloc(total); // have it around already for messages
 		if (!buffers)
 		{
 			(*printer)((char*)"%s", (char*)"cannot allocate buffer space");
@@ -273,18 +275,12 @@ static void HandlePermanentBuffers(bool init)
 		}
 		bufferIndex = 0;
 		baseBufferIndex = bufferIndex;
+        malloc_jp_token_buffers();
+		malloc_mssql_buffer();
 	}
 	else
 	{
-		free(readBuffer);
-		free(tracebuffer);
-		free(lastInputSubstitution);
-		free(rawSentenceCopy);
-		free(revertBuffer);
-		free(ourMainInputBuffer);
-
-		free(ourMainOutputBuffer);
-		// free(buffers);  see CloseBuffers()
+		CloseBuffers();
 	}
 }
 
@@ -517,7 +513,7 @@ static void ShowMemoryUsage()
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
 
-	sprintf(data, (char*)"hashbuckets: %ld (unused %u) depths %s\r\n", maxHashBuckets, unused, depthmsg);
+	sprintf(data, (char*)"hashbuckets: %lu (unused %u) depths %s\r\n", maxHashBuckets, unused, depthmsg);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
 
@@ -558,7 +554,7 @@ void CreateSystem()
 		maxBufferSize = (maxBufferSize + 63);
 		maxBufferSize &= 0xffffffC0; // force 64 bit align
 		unsigned int total = maxBufferLimit * maxBufferSize;
-		buffers = (char*)malloc(total); // have it around already for messages
+		buffers = mymalloc(total); // have it around already for messages
 		if (!buffers)
 		{
 			(*printer)((char*)"%s", (char*)"cannot allocate buffer space");
@@ -597,11 +593,19 @@ void CreateSystem()
 		outputsize, logsize);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
+
+	sprintf(data, (char*)"Libraries: ");
 #ifndef DISCARDJSONOPEN
-	sprintf(data, (char*)"Libraries: curl:%s \r\n", CurlVersion());
+	char data1[100];
+	sprintf(data1, (char*)"curl:%s, ", CurlVersion());
+	strcat(data, data1);
+#endif
+#ifndef DISCARD_JAPANESE
+	strcat(data, "Mecab-Japanese");
+#endif
+	strcat(data, "\r\n");
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
-#endif
 
 	// in case
 	MakeDirectory(topicfolder);
@@ -612,6 +616,9 @@ void CreateSystem()
 	MakeDirectory(name);
 
 	LoadSystem();			// builds base facts and dictionary (from wordnet)
+	char* lang = language_list;
+	lang = GetNextLanguage(lang);
+	SetLanguage(lang);
 	*currentFilename = 0;
 	*debugEntry = 0;
 
@@ -685,9 +692,9 @@ void CreateSystem()
 	else (*printer)(route);
 #endif
 #ifdef TREETAGGER
-	if (!treetaggerfail)
+	if (externalPostagger == TreeTagger)
 	{
-		sprintf(route, (char*)"    TreeTagger access enabled: %s\r\n", language);
+		sprintf(route, (char*)"    TreeTagger access enabled\r\n");
 		if (server) Log(SERVERLOG, route);
 		else (*printer)(route);
 	}
@@ -849,6 +856,7 @@ static void ProcessArgument(char* arg)
 		char* number = strchr(arg + 6, 'x');
 		if (number) userCacheCount = atoi(number + 1);
 	}
+	else if (!strnicmp(arg, "random=", 7)) forcedRandom = atoi(arg + 7);
 	else if (!strnicmp(arg, (char*)"nofastload", 10)) fastload = false; // how many user facts allowed
 	else if (!strnicmp(arg, (char*)"userfacts=", 10)) userFactCount = atoi(arg + 10); // how many user facts allowed
 	else if (!stricmp(arg, (char*)"redo")) redo = true; // enable redo
@@ -1109,7 +1117,7 @@ static void LoadconfigFromUrl(char* configUrl, char** configUrlHeaders, int head
 	int wordcount = 0;
 	for (unsigned int i = 0; i < response_string.size(); i++) {
 		if (response_string[i] == '\n' || (response_string[i] == '\\' && response_string[i + 1] == 'n')) {
-			configLines[configLinesLength] = (char*)malloc(sizeof(char) * MAX_WORD_SIZE);
+			configLines[configLinesLength] = mymalloc(sizeof(char) * MAX_WORD_SIZE);
 			strcpy(configLines[configLinesLength++], TrimSpaces(word, true));
 			for (int ti = 0; ti < MAX_WORD_SIZE; ti++) {
 				word[ti] = '\0';
@@ -1139,7 +1147,7 @@ static void ReadConfig()
 		if (!strnicmp(argv[i], (char*)"configHeader=", 13))
 		{
 			configHeader = argv[i] + 13;
-			configHeaders[headerCount] = (char*)malloc(sizeof(char) * strlen(configHeader) + 1);
+			configHeaders[headerCount] = mymalloc(sizeof(char) * strlen(configHeader) + 1);
 			strcpy(configHeaders[headerCount], configHeader);
 			configHeaders[headerCount++][strlen(configHeader)] = '\0';
 		}
@@ -1502,6 +1510,7 @@ void CloseSystem()
 	CurlShutdown();
 #endif
 	HandlePermanentBuffers(false);
+	FreeServerLog();
 	//if (!error) myexit("Close System", 0);
 }
 
@@ -1725,7 +1734,7 @@ void ExecuteVolleyFile(FILE* sourceFile)
 		actualSize = (int)ftell(sourceFile);
 		actualSize += (actualSize / 5);
 		fseek(sourceFile, 0, SEEK_SET);
-		ourMainInputBuffer = (char*)malloc(actualSize); // room for file + spaces at end of lines
+		ourMainInputBuffer = mymalloc(actualSize); // room for file + spaces at end of lines
 	}
 	char* ptr = ourMainInputBuffer;
 	while (fgets(ptr, actualSize, sourceFile))
@@ -1747,7 +1756,7 @@ void ExecuteVolleyFile(FILE* sourceFile)
 	callStartTime = ElapsedMilliseconds();
 	PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer);
 	printf("Volley Complete: %s\r\n", ourMainOutputBuffer);
-	if (sourceFile != stdin) free(ourMainInputBuffer);
+	if (sourceFile != stdin) myfree(ourMainInputBuffer);
 
 	ourMainInputBuffer = oldinput;
 	sourceFile = stdin;
@@ -1759,7 +1768,7 @@ static void SeparateData(char* input)
 	if (!inited)
 	{
 		inited = true;
-		for (int i = 0; i < 15; ++i) tsvInputs[i] = (char*)malloc(20000);
+		for (int i = 0; i < 15; ++i) tsvInputs[i] = mymalloc(20000);
 	}
 
 	// input is id, category, specialty, message, speaker, rating
@@ -1981,7 +1990,8 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 			(*printer)((char*)"%s\r\n    ", UTF2ExtendedAscii(ourMainOutputBuffer));
 			strcpy(ourMainInputBuffer, oktest);
 		}
-		else if (quitting) return;
+		else if (quitting) 
+			return;
 		else if (buildReset)
 		{
 			(*printer)((char*)"%s\r\n", UTF2ExtendedAscii(ourMainOutputBuffer));
@@ -1996,7 +2006,11 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 				ourMainInputBuffer[1] = 0;
 				continue; // ignore input we got, already processed	
 			}
-			if (!*ourMainInputBuffer) break;     // failed to get input
+			if (!*ourMainInputBuffer)
+			{
+				if (allNoStay) strcpy(loginID, priorLogin);
+				break;     // failed to get input
+			}
 		}
 
 		// we have input, process it
@@ -2004,7 +2018,7 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 		if (!server && extraTopicData)
 		{
 			turn = PerformChatGivenTopic(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer, extraTopicData);
-			free(extraTopicData);
+			myfree(extraTopicData);
 			extraTopicData = NULL;
 		}
 		else
@@ -2098,13 +2112,13 @@ static void ClearFunctionTracing()
 	}
 }
 
-void ResetToPreUser() // prepare for multiple sentences being processed - data lingers over multiple sentences
+void ResetToPreUser(bool saveBuffers) // prepare for multiple sentences being processed - data lingers over multiple sentences
 {
 	testpatterninput = NULL;
 	postProcessing = false;
 	stackFree = stackStart; // drop any possible stack used
 	csapicall = NO_API_CALL;
-	bufferIndex = baseBufferIndex; // return to default basic buffers used so far, in case of crash and recovery
+	if (!saveBuffers) bufferIndex = baseBufferIndex; // return to default basic buffers used so far, in case of crash and recovery
 	jumpIndex = 0;
 	patternDepth = adjustIndent = 0;
 	ReestablishBotVariables(); // any changes user made to kernel or boot variables will be reset
@@ -2484,7 +2498,7 @@ static void ValidateUserInput(char* oobSkipped)
 		{
 			if ((at - starttoken) > (MAX_WORD_SIZE - 1)) // trouble - token will be too big, drop excess
 			{
-				ReportBug("INFO: User input token size too big %d vs %d for ==> %s ", (at - starttoken), MAX_WORD_SIZE, starttoken)
+				ReportBug("INFO: User input token size too big %d vs %d for ==> %s ", (at - starttoken), MAX_WORD_SIZE, starttoken);
 					memmove(starttoken + MAX_WORD_SIZE - 10, at, strlen(at) + 1);
 				at = starttoken + MAX_WORD_SIZE - 10;
 			}
@@ -2499,7 +2513,7 @@ static void ValidateUserInput(char* oobSkipped)
 	}
 	if ((at - starttoken) > (MAX_WORD_SIZE - 1)) // token will be too big at end, drop excess
 	{
-		ReportBug("INFO: User input token size too big %d vs %d for ==> %s ", (at - starttoken), MAX_WORD_SIZE, starttoken)
+		ReportBug("INFO: User input token size too big %d vs %d for ==> %s ", (at - starttoken), MAX_WORD_SIZE, starttoken);
 			starttoken[MAX_WORD_SIZE - 10] = 0;
 	}
 }
@@ -2647,6 +2661,14 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 	if (!crnl_safe) Clear_CRNL(originalUserInput); // we dont allow returns and newlines to damage logs
 
 	Prelog(caller, callee, originalUserInput);
+	*verifyLabel = 0;
+	char* labelbreak = strstr(originalUserInput, "#!!#"); // input src verify data
+	if (labelbreak)
+	{
+		ReadCompiledWord(labelbreak + 4, verifyLabel);
+		*labelbreak = 0;
+		// add see if context assignment is happening
+	}
 
 	FILE* in = fopen("restart.txt", (char*)"rb"); // per external file created, enable server log
 	if (in) // trigger restart
@@ -2690,13 +2712,14 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		return count;
 	}
 
+#ifndef HARDCRASH
 #ifdef WIN32
-	__try
-	{ // catch crashes in windows
+	__try  // catch crashes in windows
 #else
-	try {
+	try 
 #endif
-
+#endif
+{
 		if (!strnicmp(incoming, ":reset:", 7))
 		{
 			buildReset = FULL_RESET;
@@ -2733,7 +2756,7 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 #endif
 
 		bool hadIncoming = *incoming != 0 || documentMode;
-		if (!*computerID && *incoming != ':') ReportBug("No computer id before user load?")
+		if (!*computerID && *incoming != ':') ReportBug("No computer id before user load?");
 
 			// else documentMode
 			if (fakeContinue)
@@ -2829,8 +2852,8 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 			printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
 		}
 		RESTORE_LOGGING();
-		// end of try
-	}
+	} // end of try
+#ifndef HARDCRASH
 #ifdef WIN32
 	__except (true)
 #else
@@ -2841,13 +2864,14 @@ int PerformChat(char* user, char* usee, char* incoming, char* ip, char* output) 
 		char word[MAX_WORD_SIZE];
 		sprintf(word, (char*)"Try/catch");
 		Log(SERVERLOG, word);
-		ReportBug("%s", word);
+		ReportBug("fatal %s", word);
 #ifdef LINUX
 		siglongjmp(crashJump, 1);
 #else
 		longjmp(crashJump, 1);
 #endif
 	}
+#endif // hardcrash
 
 	if (userlogFile)
 	{
@@ -3277,7 +3301,7 @@ FunctionResult OnceCode(const char* var, char* function) //   run before doing a
 	ChangeDepth(-1, name);
 
 	if (pushed) PopTopic();
-	if (topicIndex) ReportBug((char*)"INFO: topics still stacked")
+	if (topicIndex) ReportBug((char*)"INFO: topics still stacked");
 	if (globalDepth != olddepth)
 		ReportBug((char*)"INFO: Once code %s global depth not back", name);
 	topicIndex = currentTopicID = 0; // precaution
@@ -3381,7 +3405,7 @@ char* DoOutputAdjustments(char* msg, unsigned int control, char*& buffer, char* 
 	{
 		strncpy(buffer, msg, 1000); // 5000 is safestringlimit
 		strcpy(buffer + 1000, (char*)" ... "); //   prevent trouble
-		ReportBug((char*)"INFO: response too big %s...", buffer)
+		ReportBug((char*)"INFO: response too big %s...", buffer);
 	}
 	else strcpy(buffer, msg);
 	if (buffer[len - 1] == ' ') buffer[len - 1] = 0; // no trailing blank from output autospacing
@@ -3662,7 +3686,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 		in += 10;
 		memmove(in + 1, in, strlen(in) + 1); // make room to patch
 		*in = '"';
-		ReportBug("INFO: Missing dq in API input field")
+		ReportBug("INFO: Missing dq in API input field");
 	}
 
 	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
@@ -3813,7 +3837,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 		{
 			timeover = true;  // enforce time limit for nl- too long in q
 			char* logit = GetUserVariable("$cs_analyzelimitlog");
-			if (*logit && *logit != '0') ReportBug("Limiting analysis")
+			if (*logit && *logit != '0') ReportBug("Limiting analysis");
 		}
 	}
 	if (!oobExists && !timeover && !*bad)

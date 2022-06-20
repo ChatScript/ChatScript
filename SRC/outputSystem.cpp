@@ -32,7 +32,7 @@ bool SafeCopy(char* output, char* word, bool space)
     size_t len = strlen(word);
     if (((output - currentOutputBase) + len) > (currentOutputLimit - 200))
     {
-        ReportBug((char*)"output buffer too big for copy %s\r\n", output) // buffer overflow
+        ReportBug((char*)"output buffer too big for copy %s\r\n", output); // buffer overflow
             return false;
     }
     if (space) { *output++ = ' '; *output = 0; }
@@ -156,11 +156,6 @@ static char* FixFormatOutput(char* output, unsigned int controls) // revises out
         while ((at = strchr(at, '_'))) *at = ' ';
     }
     return output + len;
-}
-
-bool LegalVarChar(char at)
-{
-    return  (IsAlphaUTF8OrDigit(at) || at == '_' || at == '-');
 }
 
 static char* ReadUserVariable(char* input, char* var)
@@ -624,7 +619,7 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
     return ptr;
 }
 
-static char* Output_Backslash(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_Backslash(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result,bool &nospace)
 {
     // handles newline:  \n and equivalent \r
     // handles backslashed strings: \"testing"  means dump the rest of the token out
@@ -1048,6 +1043,8 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
 
     bool quoted = false;
     char* startQuoted = NULL;
+    bool nospace = false;
+
     // nested depth assignments from our heap space
     int paren = 0;
     while (ptr)
@@ -1138,6 +1135,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
             else if (*word == '\\' && word[1] == '"' && (controls & OUTPUT_DQUOTE_FLIP)) allow = false;	// closing dq
             else if ((*word == '.' && !word[1]) || (*word == '?' && !word[1]) || (*word == '!' && !word[1]) || (*word == ',' && !word[1]) || (*word == ':' && !word[1]) || (*word == ';' && !word[1])) allow = false;
             else if (*word == '\'' && (!word[1] || word[1] == 's')) allow = false;
+            else if (nospace) allow = false; // from \\u
             if (allow) // add space separator
             {
                 space = buffer;
@@ -1152,6 +1150,8 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
             if (*ptr != '\\') --ptr;
             word[len - 2] = 0;
         }
+        nospace = false;
+
     retry:
         switch (*word)
         {
@@ -1208,7 +1208,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
 
             // prefixes:  quote, backslash
         case '\\':  //   backslash needed for new line  () [ ]   
-            ptr = Output_Backslash(word, ptr, space, buffer, (quoted) ? (controls | OUTPUT_DQUOTE_FLIP) : controls, result);
+            ptr = Output_Backslash(word, ptr, space, buffer, (quoted) ? (controls | OUTPUT_DQUOTE_FLIP) : controls, result,nospace);
             if (word[1] == '"') quoted = !quoted; // no space on 1st thing following quoted
             break;
         case '\'': //   quoted item

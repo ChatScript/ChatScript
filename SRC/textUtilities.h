@@ -69,6 +69,7 @@ enum PurifyKind {
 
 #define LETTERMAX 40
 
+
 #define RESTORE_LOGGING() serverLog = holdServerLog; userLog = holdUserLog;
 
 // accesses to these arrays MUST use unsigned char in the face of UTF8 strings
@@ -154,12 +155,17 @@ char* ReadToken(const char* ptr, char* word);
 FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
 void ClearSupplementalInput();
+char* RemoveQuotes(char* item);
 bool IsAllUpper(char* ptr);
+void Translate_UTF16_2_UTF8(char* input);
+void ConvertJapanText(char* output,bool pattern);
 int IsJapanese(char* utf8letter, unsigned char* utf16letter,int& kind);
 char* GetNextInput();
+char* HexDisplay(char* str);
 void MoreToCome();
 void ClearNumbers();
 void EraseCurrentInput();
+bool LegalVarChar(char at);
 bool AddInput(char* buffer,int kind,bool clear = false);
 char* FindSystemNameByValue(uint64 val); // system flags
 uint64 FindSystemValueByName(char* name);

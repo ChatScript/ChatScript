@@ -167,4 +167,5 @@ extern int debugValue;
 FunctionResult DebugCode(char* buffer);
 FunctionResult IdentifyCode(char* buffer);
 FunctionResult MatchCode(char* buffer);
+FunctionResult CompileOutputCode(char* buffer); // for unit tests
 #endif

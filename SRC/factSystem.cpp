@@ -56,7 +56,7 @@ FACT* Index2Fact(FACTOID e)
 		{
 			char buf[MAX_WORD_SIZE];
 			strcpy(buf, StdIntOutput(lastFactUsed - factBase));
-			ReportBug((char*)"Illegal fact index %d last:%s ", e, buf);
+			ReportBug((char*)"Illegal fact index %d last:%s ", e, buf);;
 			F = NULL;
 		}
 	}
@@ -76,8 +76,8 @@ static void VerifyField(FACT* F, MEANING field, unsigned int offset)
 		G = Index2Fact(*y);
 	}
 	if (!limit) 
-		ReportBug("Cicular field data")
-	else ReportBug("Fact not woven correctly")
+		ReportBug("Cicular field data");
+	else ReportBug("Fact not woven correctly");
 }
 
 static void VerifyFact(FACT* F)
@@ -139,7 +139,7 @@ FACT* GetSubjectNondeadNext(FACT* F)
 	}
 	if (F == G)
 	{
-		ReportBug("Infinite loop in GetSubjectNondeadNext ")
+		ReportBug("Infinite loop in GetSubjectNondeadNext ");
 		F = NULL;
 	}
 	return F;
@@ -155,7 +155,7 @@ FACT* GetVerbNondeadNext(FACT* F)
 	}
 	if (F == G)
 	{
-		ReportBug("Infinite loop in GetVerbNondeadNext ")
+		ReportBug("Infinite loop in GetVerbNondeadNext ");
 		F = NULL;
 	}
 	return F;
@@ -171,7 +171,7 @@ FACT* GetObjectNondeadNext(FACT* F)
 	}
 	if (F == G)
 	{
-		ReportBug("Infinite loop in GetObjectNondeadNext ")
+		ReportBug("Infinite loop in GetObjectNondeadNext ");
 		F = NULL;
 	}	
 	return F;
@@ -341,7 +341,7 @@ void InitFacts()
 
 	if ( factBase == 0) 
 	{
-		factBase = (FACT*) malloc(maxFacts * sizeof(FACT)); // only on 1st startup, not on reload
+		factBase = (FACT*) mymalloc(maxFacts * sizeof(FACT)); // only on 1st startup, not on reload
 		if ( factBase == 0)
 		{
 			(*printer)((char*)"%s",(char*)"failed to allocate fact space\r\n");
@@ -364,7 +364,7 @@ void InitFactWords()
 
 void CloseFacts()
 {
-    free(factBase);
+    myfree(factBase);
 	factBase = 0;
 }
 
@@ -414,8 +414,8 @@ FACT* SpecialFact(FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned in
 	if (++lastFactUsed == factEnd) 
 	{
 		--lastFactUsed;
-        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(lastFactUsed))
-        ReportBug((char*)"FATAL: out of fact space at %d",Fact2Index(lastFactUsed))
+        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(lastFactUsed));
+        ReportBug((char*)"FATAL: out of fact space at %d",Fact2Index(lastFactUsed));
 		(*printer)((char*)"%s",(char*)"out of fact space");
 		return lastFactUsed; // dont return null because we dont want to crash anywhere
 	}
@@ -721,11 +721,11 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	if (!subject || !object || !verb)
 	{
 		if (!subject) 
-			ReportBug((char*)"Missing subject field in fact create at line %d of %s",currentFileLine,currentFilename)
+			ReportBug((char*)"Missing subject field in fact create at line %d of %s",currentFileLine,currentFilename);
 		if (!verb) 
-			ReportBug((char*)"Missing verb field in fact create at line %d of %s",currentFileLine,currentFilename)
+			ReportBug((char*)"Missing verb field in fact create at line %d of %s",currentFileLine,currentFilename);
 		if (!object) 
-			ReportBug((char*)"Missing object field in fact create at line %d of %s",currentFileLine,currentFilename)
+			ReportBug((char*)"Missing object field in fact create at line %d of %s",currentFileLine,currentFilename);
 		return NULL;
 	}
 
@@ -735,23 +735,23 @@ FACT* CreateFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR
 	WORDP o = (properties & FACTOBJECT) ? NULL : Meaning2Word(object);
     if (s && !s->word)
 	{
-		ReportBug((char*)"bad choice in fact subject")
+		ReportBug((char*)"bad choice in fact subject");
 		return NULL;
 	}
 	if (v && !v->word)
 	{
-		ReportBug((char*)"bad choice in fact verb")
+		ReportBug((char*)"bad choice in fact verb");
 		return NULL;
 	}
 	if (o && !o->word)
 	{
-		ReportBug((char*)"bad choice in fact object")
+		ReportBug((char*)"bad choice in fact object");
 		return NULL;
 	}
 
 	// convert any restricted meaning
 	MEANING other;
-	char* word;
+	char* word = nullptr;
 	if (s && (word = s->word) && *word != '"' && strchr(word+1,'~')) // has number or word after it? convert notation
 	{
 		other = ReadMeaning(word,true,true);
@@ -1256,8 +1256,8 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	if (++lastFactUsed == factEnd) 
 	{
 		--lastFactUsed;
-        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(lastFactUsed))
-        ReportBug((char*)"out of fact space at %d",Fact2Index(lastFactUsed))
+        if (loading || compiling) ReportBug((char*)"FATAL:  out of fact space at %d", Fact2Index(lastFactUsed));
+        ReportBug((char*)"out of fact space at %d",Fact2Index(lastFactUsed));
 		(*printer)((char*)"%s",(char*)"out of fact space");
         factsExhausted = true;
 		return NULL;
@@ -1343,7 +1343,7 @@ static char* WriteField(MEANING T, uint64 flags,char* buffer,bool ignoreDead, bo
     }
 	else if (!T) 
 	{
-		ReportBug((char*)"Missing fact field")
+		ReportBug((char*)"Missing fact field");
 		*buffer++ = '?';
 	}
     else 
@@ -1486,7 +1486,7 @@ char* ReadField(char* ptr,char* field,char fieldkind, unsigned int& flags)
 		else if (fieldkind == 'o') flags |= FACTOBJECT;
 		if (!G)
 		{
-			ReportBug((char*)"Missing fact field")
+			ReportBug((char*)"Missing fact field");
 			return NULL;
 		}
 		sprintf(field,(char*)"%u",Fact2Index(G)); 
@@ -1692,7 +1692,7 @@ void ReadFacts(const char* name,const char* layer,unsigned int build,bool user) 
 		else if (*word == USERVAR_PREFIX) // variable
 		{
 			char* eq = strchr(word,'=');
-			if (!eq) ReportBug((char*)"Bad fact file user var assignment %s",word)
+			if (!eq) ReportBug((char*)"Bad fact file user var assignment %s",word);
 			else 
 			{
 				*eq = 0;

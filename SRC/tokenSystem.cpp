@@ -1,4 +1,5 @@
 #include "common.h"
+#include "cs_jp.h"
 
 #ifdef INFORMATION
 SPACES		 space \t \r \n 
@@ -304,7 +305,7 @@ char* GetBurstWord(unsigned int n) //   0-based
 {
 	if (n >= burstLimit) 
 	{
-		ReportBug((char*)"Bad burst n %d",n)
+		ReportBug((char*)"Bad burst n %d",n);
 		return "";
 	}
 	return burstWords[n];
@@ -513,7 +514,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 						char* closer = ptr + 1;
 						char close = *closer;
 						*closer = 0;
-						char word[MAX_WORD_SIZE];
+						char word[MAX_WORD_SIZE] = "";
 						uint64 oldbot = myBot;
 						myBot = 0; // universal access to this transient json
 						FunctionResult result = InternalCall("^JSONParseCode", JSONParseCode, (char*)"TRANSIENT SAFE", jsonStart, NULL, word);
@@ -563,12 +564,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 
 	char utfcharacter[10];
 	IsUTF8(ptr, utfcharacter); // return after this character if it is valid
-	if (isSpanish && utfcharacter[0] == 0xC2 && (utfcharacter[1] == 0xBF || utfcharacter[1] == 0xA1)) // invert question or exclamation
-	{
-		ptr += 2; // ignore it, we only want trailing ? or !
-		IsUTF8(ptr, utfcharacter);
-	}
-
 	if (isJapanese || !stricmp(language, "ideographic") || tokenControl & TOKENIZE_BY_CHARACTER)
 	{
 		unsigned char japanletter[8];
@@ -1402,6 +1397,76 @@ FunctionResult GetDerivationText(int start, int end, char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+char* find_closest_jp_period(char* input)
+{
+    char* periods[] = { "。", "．" }; // jp period, jp half-period,
+    char* result = NULL;
+    for (int i=0; i < 2; ++i) {
+        char* period_loc = strstr(input, periods[i]);
+        if (result == NULL || (period_loc != NULL && period_loc < result)) {
+            result = period_loc;
+        }
+    }
+    return result;
+}
+
+char* TokenizeJapanese(char* input, int& count, char** words, char* separators) //   return ptr to stuff to continue analyzing later
+{
+	// find sentence end if there is one, break off
+	char* period = find_closest_jp_period(input);
+	char* exclaim = strstr(input, "！");
+	char* question = strstr(input, "？");
+	char* end = period;
+	if ((end && exclaim && exclaim < end) || !end) end = exclaim;
+	if ((end && question && question < end) || !end) end = question;
+	char* continuation; 
+	if (end)
+	{
+		char utfcharacter[10];
+		continuation = IsUTF8(end, utfcharacter); // continue after punctuation
+		*end = 0; // prevent tokenizer from running past sentence (not even seeing punctuation)
+	}
+	else continuation = input + strlen(input);
+
+	int error_flag = jp_tokenize(input);
+	if (error_flag != 0) {
+		count = 0;
+		ReportBug("Bad input to jp_tokenize %s", input);
+		return continuation;
+	}
+	
+	count = 0;
+
+	// build token list
+	char* at = (char*)get_jp_token_str();
+	while (at && *at)
+	{
+		char word[MAX_WORD_SIZE];
+		at = ReadCompiledWord(at, word);
+		if (!*word) break; // no more tokens there
+		words[++count] = AllocateHeap(word);
+		
+		//  blanks between tokens
+		if (separators) separators[count] = (count > 1) ? ' ' : 0;
+		
+		// locate where we are in input, in case too many tokens
+		if (count > REAL_SENTENCE_WORD_LIMIT) break;
+	}
+	if (separators) separators[count] = 0; // no separator after last token
+
+	// recode to cs std punctuation for marking
+	if (end)
+	{
+		char* punc = NULL;
+		if (end == period) punc = ".";
+		else if (end == question) punc = "?";
+		else punc = "!";
+		words[++count] = AllocateHeap(punc);
+	}
+
+	return continuation;
+}
+
 char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
 {	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
     char* ptr = input;
@@ -1412,6 +1477,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
     char priorToken[MAX_WORD_SIZE] = {0};
     int nest = 0;
     unsigned int paren = 0;
+	bool isJapanese = (!stricmp(language, "japanese") ? true : false);
 
 	if (tokenControl == UNTOUCHED_INPUT)
 	{
@@ -1433,7 +1499,13 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		}
 		mycount = count;
 		ptr = input;
-		goto SAFETY;
+		return ptr;
+	}
+	
+	bool useJapanese = isJapanese && *input && *input != '[';
+	if (useJapanese)
+	{
+		return TokenizeJapanese(input, mycount, words, separators);
 	}
 	
 	if (*ptr != '[') input = FixHtmlTags(input);
@@ -1449,6 +1521,10 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 	{
 		ptr = SkipWhitespace(ptr);
 		if (!*ptr) break; 
+		if (!stricmp(language,"SPANISH") && ptr[0] == 0xC2 && (ptr[1] == 0xBF || ptr[1] == 0xA1)) // invert question or exclamation
+		{
+			ptr += 2; // ignore it, we only want trailing ? or !
+		}
         if (!(tokenControl & TOKEN_AS_IS))
         {
             while (*ptr == ptr[1] && !IsAlphaUTF8OrDigit(*ptr) && *ptr != '-' && *ptr != '.' && *ptr != '[' && *ptr != ']' && *ptr != '(' &&
@@ -1520,7 +1596,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		if (++count > REAL_SENTENCE_WORD_LIMIT ) 
 		{
 			mycount = REAL_SENTENCE_WORD_LIMIT;
-			goto SAFETY;
+			return ptr;
 		}
 
 		//   if the word is a quoted expression, see if we KNOW it already as a noun, if so, remove quotes
@@ -1623,7 +1699,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
         if (separators) separators[0] = separators[1] = '\'';
 	}
 	mycount = count;
-SAFETY:
+
 	return ptr;
 }
 
@@ -2487,7 +2563,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			}
 			else 
 			{
-				ReportBug((char*)"bad substitute %s", sub)
+				ReportBug((char*)"bad substitute %s", sub);
 				return 0;
 			}
 		}
@@ -3003,8 +3079,7 @@ static unsigned int GetHeaderCount(char* word, unsigned int count)
 
 void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 {
-	char buffer[MAX_WORD_SIZE];
-	*buffer = '<';	// sentence start marker
+	char buffer[MAX_WORD_SIZE] = "<"; // sentence start marker
 	bool isEnglish = (!stricmp(language, "english") ? true : false);
 	lastMatch = NULL;
 	lastMatchLocation = 0;

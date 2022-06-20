@@ -27,4 +27,7 @@ const char* get_mssql_out_conn_str(void);
 int mssql_maybe_compress(char* c_buf, size_t* c_size, const char* p_buf, size_t p_size);
 int mssql_maybe_uncompress(const char* c_buf, size_t c_size, char* p_buf, size_t* p_size);
 
+// For testing
+bool is_connected(ConnectionId id);
+
 #endif /* MSSQLIMPH_ */

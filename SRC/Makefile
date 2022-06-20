@@ -24,7 +24,7 @@ server: EXECUTABLE=$(executable.server)
 server: CFLAGS= -c  -std=c++11 -Wall  -funsigned-char   -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable  -Wno-write-strings -Wno-char-subscripts -Wno-strict-aliasing  -o2 -rdynamic
 
 executable.debugserver=../BINARIES/ChatScriptDebug
-debugserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1 -DDEBUG
+debugserver: DEFINES+= -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1 -DDEBUG -DDISCARD_TEXT_COMPRESSION=1
 debugserver: PGLOAD= -pthread
 debugserver: INCLUDEDIRS=-Ievserver
 debugserver: binary
@@ -166,7 +166,7 @@ LDFLAGS= -L/usr/local/lib -lrt -lcurl -lev   -L../BINARIES --verbose $(PGLOAD)
 INCLUDEDIRS+= -I/usr/local/include
 endif
 
-SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp  mssql.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp zif.cpp
+SOURCES=constructCode.cpp duktape/duktape.cpp evserver.cpp csocket.cpp cs_ev.c cs_es.cpp cs_german.cpp cs_jp.cpp dictionarySystem.cpp englishTagger.cpp factSystem.cpp json.cpp functionExecute.cpp english.cpp infer.cpp javascript.cpp jsmn.cpp markSystem.cpp  mssql.cpp mysql.cpp mongodb.cpp os.cpp outputSystem.cpp patternSystem.cpp postgres.cpp privatesrc.cpp scriptCompile.cpp spellcheck.cpp secure.cpp systemVariables.cpp tagger.cpp testing.cpp textUtilities.cpp tokenSystem.cpp topicSystem.cpp userCache.cpp userSystem.cpp variableSystem.cpp mainSystem.cpp zif.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
 # include any private targets and settings

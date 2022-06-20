@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 6/20/2022 cs12.2
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -1103,3 +1103,35 @@ will take the all built concept and write them out to `concepts.top` as a multip
 
 # :variablereference 
 List all user variable assignments in a bot and uses into TMP/reference.txt .  See documentation in Finalize a bot
+
+
+# ^testpattern and ^testoutput
+
+There are special debugging abilities tied to ^testpattern.
+
+A pattern that has %trace-on in it, turns on :trace all until either the pattern ends or %trace-off is found. This
+will output in the trace field of json return.
+
+If the user message starts with `cheat cs info` then the system will output a newglobal $cs_info with the
+timestamps of the engine compilation, and the level 0 and level1 script.
+
+If user input contains the serverauthorizationcode
+you supply in cs_initmore.txt, followed immediately by 2, then if there is a double quoted string as the next 
+token, and the first token of that string is the label of the currently executing testpattern node, the
+rest of the string will be compiled, executed, and its output returned as a debug field.  If no testpattern nodes
+match that name, then the first testoutput node that is invoked will execute the debug string.  Eg.
+```
+    cs_initmore.txt:
+serverauthcode=mycheat
+    userinput:
+I love mycheat2 "NODE4 :do test %bot me" in the morning.
+```
+The above should return a debug field with "test somebotname me" in it. If the ^testpattern NODE4 is never executed
+then the first ^testoutput node will execute this.
+
+Whereas:
+```
+    userinput:
+ I love mycheat1 in the morning.
+ ```
+ will execute a simple  :trace pattern with output in trace field  in the resulting object.

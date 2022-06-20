@@ -178,7 +178,10 @@
   <ItemGroup>
     <ClCompile Include="..\SRC\constructCode.cpp" />
     <ClCompile Include="..\SRC\csocket.cpp" />
+    <ClCompile Include="..\SRC\cs_es.cpp" />
     <ClCompile Include="..\SRC\cs_ev.c" />
+    <ClCompile Include="..\SRC\cs_german.cpp" />
+    <ClCompile Include="..\SRC\cs_jp.cpp" />
     <ClCompile Include="..\SRC\dictionarySystem.cpp" />
     <ClCompile Include="..\SRC\duktape\duktape.cpp" />
     <ClCompile Include="..\SRC\english.cpp" />
@@ -213,6 +216,7 @@
     <ClCompile Include="..\SRC\userSystem.cpp" />
     <ClCompile Include="..\SRC\variableSystem.cpp" />
     <ClCompile Include="..\SRC\zif.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}</ProjectGuid>
@@ -1840,7 +1844,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\BINARIES\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(SolutionDir)../BINARIES/treetagger.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)../BINARIES/treetagger.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;$(SolutionDir)../BINARIES/libmecab.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <AdditionalLibraryDirectories>$(SolutionDir)../treetagger</AdditionalLibraryDirectories>
     </Link>
