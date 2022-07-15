@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6803827E287B04E70086C780 /* cs_es.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68038273287B04E60086C780 /* cs_es.cpp */; };
+		6803827F287B04E70086C780 /* mssql.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68038274287B04E70086C780 /* mssql.cpp */; };
+		68038280287B04E70086C780 /* cs_jp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68038275287B04E70086C780 /* cs_jp.cpp */; };
+		68038281287B04E70086C780 /* cs_german.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6803827C287B04E70086C780 /* cs_german.cpp */; };
 		6889101C244A13EC00EC8D52 /* topicSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68890CF2244A13E700EC8D52 /* topicSystem.cpp */; };
 		6889101D244A13EC00EC8D52 /* postgres.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68890CF5244A13E700EC8D52 /* postgres.cpp */; };
 		6889101E244A13EC00EC8D52 /* functionExecute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68890CF6244A13E700EC8D52 /* functionExecute.cpp */; };
@@ -61,6 +65,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68038273287B04E60086C780 /* cs_es.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cs_es.cpp; path = ../../SRC/cs_es.cpp; sourceTree = "<group>"; };
+		68038274287B04E70086C780 /* mssql.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mssql.cpp; path = ../../SRC/mssql.cpp; sourceTree = "<group>"; };
+		68038275287B04E70086C780 /* cs_jp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cs_jp.cpp; path = ../../SRC/cs_jp.cpp; sourceTree = "<group>"; };
+		68038276287B04E70086C780 /* ms_sql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ms_sql.h; path = ../../SRC/ms_sql.h; sourceTree = "<group>"; };
+		68038277287B04E70086C780 /* mssql_imp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mssql_imp.h; path = ../../SRC/mssql_imp.h; sourceTree = "<group>"; };
+		68038279287B04E70086C780 /* cs_german.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cs_german.h; path = ../../SRC/cs_german.h; sourceTree = "<group>"; };
+		6803827A287B04E70086C780 /* cs_jp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cs_jp.h; path = ../../SRC/cs_jp.h; sourceTree = "<group>"; };
+		6803827B287B04E70086C780 /* cs_es.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cs_es.h; path = ../../SRC/cs_es.h; sourceTree = "<group>"; };
+		6803827C287B04E70086C780 /* cs_german.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cs_german.cpp; path = ../../SRC/cs_german.cpp; sourceTree = "<group>"; };
 		68890CF2244A13E700EC8D52 /* topicSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = topicSystem.cpp; path = ../../SRC/topicSystem.cpp; sourceTree = "<group>"; };
 		68890CF3244A13E700EC8D52 /* constructCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = constructCode.h; path = ../../SRC/constructCode.h; sourceTree = "<group>"; };
 		68890CF4244A13E700EC8D52 /* userCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = userCache.h; path = ../../SRC/userCache.h; sourceTree = "<group>"; };
@@ -153,12 +166,18 @@
 		8F2A54AB1C606DB700305D6A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				68890E4B244A13E900EC8D52 /* common1.h */,
 				68890E47244A13E900EC8D52 /* common.h */,
+				68890E4B244A13E900EC8D52 /* common1.h */,
 				68890E93244A13EA00EC8D52 /* constructCode.cpp */,
 				68890CF3244A13E700EC8D52 /* constructCode.h */,
+				68038273287B04E60086C780 /* cs_es.cpp */,
+				6803827B287B04E70086C780 /* cs_es.h */,
 				68890E3C244A13E900EC8D52 /* cs_ev.c */,
 				68890E42244A13E900EC8D52 /* cs_ev.h */,
+				6803827C287B04E70086C780 /* cs_german.cpp */,
+				68038279287B04E70086C780 /* cs_german.h */,
+				68038275287B04E70086C780 /* cs_jp.cpp */,
+				6803827A287B04E70086C780 /* cs_jp.h */,
 				68890D01244A13E800EC8D52 /* csocket.cpp */,
 				68890E8D244A13EA00EC8D52 /* csocket.h */,
 				68890CFB244A13E800EC8D52 /* dictionaryMore.h */,
@@ -190,6 +209,9 @@
 				68890CF7244A13E700EC8D52 /* mongodb.cpp */,
 				68891016244A13EB00EC8D52 /* mongodb.h */,
 				68890E26244A13E800EC8D52 /* mprintf.h */,
+				68038276287B04E70086C780 /* ms_sql.h */,
+				68038277287B04E70086C780 /* mssql_imp.h */,
+				68038274287B04E70086C780 /* mssql.cpp */,
 				68890E44244A13E900EC8D52 /* multi.h */,
 				68890E94244A13EA00EC8D52 /* my_sql.h */,
 				68890E3E244A13E900EC8D52 /* mysql.cpp */,
@@ -325,6 +347,7 @@
 				688910AB244A13EC00EC8D52 /* userSystem.cpp in Sources */,
 				68891095244A13EC00EC8D52 /* mysql.cpp in Sources */,
 				68891099244A13EC00EC8D52 /* testing.cpp in Sources */,
+				68038281287B04E70086C780 /* cs_german.cpp in Sources */,
 				68891094244A13EC00EC8D52 /* cs_ev.c in Sources */,
 				68891025244A13EC00EC8D52 /* userCache.cpp in Sources */,
 				68891020244A13EC00EC8D52 /* systemVariables.cpp in Sources */,
@@ -333,8 +356,10 @@
 				6889101E244A13EC00EC8D52 /* functionExecute.cpp in Sources */,
 				68891027244A13EC00EC8D52 /* english.cpp in Sources */,
 				6889101D244A13EC00EC8D52 /* postgres.cpp in Sources */,
+				6803827F287B04E70086C780 /* mssql.cpp in Sources */,
 				6889111B244A16B500EC8D52 /* duktape.cpp in Sources */,
 				68891096244A13EC00EC8D52 /* markSystem.cpp in Sources */,
+				6803827E287B04E70086C780 /* cs_es.cpp in Sources */,
 				6889101F244A13EC00EC8D52 /* mongodb.cpp in Sources */,
 				68891098244A13EC00EC8D52 /* dictionarySystem.cpp in Sources */,
 				68891097244A13EC00EC8D52 /* patternSystem.cpp in Sources */,
@@ -342,6 +367,7 @@
 				6889109A244A13EC00EC8D52 /* spellcheck.cpp in Sources */,
 				688910A9244A13EC00EC8D52 /* evserver.cpp in Sources */,
 				68891023244A13EC00EC8D52 /* tagger.cpp in Sources */,
+				68038280287B04E70086C780 /* cs_jp.cpp in Sources */,
 				688910A7244A13EC00EC8D52 /* mainSystem.cpp in Sources */,
 				6889108B244A13EC00EC8D52 /* infer.cpp in Sources */,
 				6889109B244A13EC00EC8D52 /* factSystem.cpp in Sources */,
@@ -382,6 +408,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
+					"DISCARD_TEXT_COMPRESSION=1",
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
