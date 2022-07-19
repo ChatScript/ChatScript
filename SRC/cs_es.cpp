@@ -386,23 +386,23 @@ bool PresentSpanish(char* original, WORDP& entry, WORDP& canonical)
 	}
 
 	// 2nd person plural   //		vosotros	(habl)áis		(com)éis	(abr)ís
-	if (FindSpanishInfinitive(original, "áis", "ar", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) /// él, ella, usted	habl + a	habla
+	if (FindSpanishInfinitive(original, u8"áis", "ar", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) /// él, ella, usted	habl + a	habla
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ais", "ar", "áis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) //USer MISSPELL
+	else if (FindSpanishInfinitive(original, "ais", "ar", u8"áis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) //USer MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "áis", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"áis", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "eis", "er", "éis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
+	else if (FindSpanishInfinitive(original, "eis", "er", u8"éis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ís", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"ís", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
@@ -456,7 +456,7 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "e", "ar", " ú", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // user misspell
+	else if (FindSpanishInfinitive(original, "e", "ar", u8" ú", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // user misspell
 	{
 		return true;
 	}
@@ -482,27 +482,27 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 		return true;
 	}
 	// 3rd person  //		él / ella			(habl)ó			(com)ió		(abr)ió
-	if (FindSpanishInfinitive(original, "ó", "ar", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
+	if (FindSpanishInfinitive(original, u8"ó", "ar", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "o", "ar", "ó", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "o", "ar", u8"ó", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ió", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, u8"ió", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "io", "er", "ió", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "io", "er", u8"ió", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ió", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, u8"ió", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "io", "ir", "ió", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "io", "ir", u8"ió", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
@@ -565,19 +565,19 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ías", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"ías", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ias", "er", "ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "ias", "er", u8"ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ías", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"ías", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ias", "ir", "ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // user misspell
+	else if (FindSpanishInfinitive(original, "ias", "ir", u8"ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // user misspell
 	{
 		return true;
 	}
@@ -586,44 +586,44 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ía", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
+	else if (FindSpanishInfinitive(original, u8"ía", "er", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ia", "er", "ía", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "ia", "er", u8"ía", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ía", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
+	else if (FindSpanishInfinitive(original, u8"ía", "ir", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ia", "ir", "ía", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "ia", "ir", u8"ía", entry, canonical, properties, PRONOUN_SINGULAR)) // USER MISSPELL
 	{
 		return true;
 	}
 	// 1st person plural //	nosotros		(habl)ábamos	(com)íamos
-	if (FindSpanishInfinitive(original, "ábamos", "ar", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
+	if (FindSpanishInfinitive(original, u8"ábamos", "ar", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "abamos", "ar", "ábamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "abamos", "ar", u8"ábamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "íamos", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
+	else if (FindSpanishInfinitive(original, u8"íamos", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iamos", "er", "íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "iamos", "er", u8"íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // USER MISSPELL
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "íamos", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
+	else if (FindSpanishInfinitive(original, u8"íamos", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iamos", "ir", "íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "iamos", "ir", u8"íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // 	USER MISSPELL
 	{
 		return true;
 	}
@@ -632,19 +632,19 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "íais", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"íais", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iais", "er", "íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
+	else if (FindSpanishInfinitive(original, "iais", "er", u8"íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "íais", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	else if (FindSpanishInfinitive(original, u8"íais", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iais", "ir", "íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "iais", "ir", u8"íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // 	USER MISSPELL
 	{
 		return true;
 	}
@@ -653,19 +653,19 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical)
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ían", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL))
+	else if (FindSpanishInfinitive(original, u8"ían", "er", NULL, entry, canonical, properties, PRONOUN_PLURAL))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ean", "er", "ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
+	else if (FindSpanishInfinitive(original, "ean", "er", u8"ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ían", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL))
+	else if (FindSpanishInfinitive(original, u8"ían", "ir", NULL, entry, canonical, properties, PRONOUN_PLURAL))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ian", "ir", "ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
+	else if (FindSpanishInfinitive(original, "ian", "ir", u8"ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
 	{
 		return true;
 	}
@@ -678,30 +678,30 @@ bool FutureSpanish(char* original, WORDP& entry, WORDP& canonical)
 	uint64 properties = PRONOUN_SUBJECT | AUX_VERB_FUTURE | SPANISH_FUTURE;
 	// 1st person //yo(hablar)é   all 3 verb types
 	// simple future
-	if (FindSpanishInfinitive(original, "é", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I))
+	if (FindSpanishInfinitive(original, u8"é", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "e", "", "ú", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "e", "", u8"ú", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // 	USER MISSPELL
 	{
 		return true;
 	}
 
 	// 2nd person //	tú(hablar)ás  all 3 verb types
-	if (FindSpanishInfinitive(original, "ás", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
+	if (FindSpanishInfinitive(original, u8"ás", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "as", "", "ás", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "as", "", u8"ás", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // 	USER MISSPELL
 	{
 		return true;
 	}
 	// 3rd person //él / ella(hablar)á  all 3  verb types
-	if (FindSpanishInfinitive(original, "á", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
+	if (FindSpanishInfinitive(original, u8"á", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "a", "", "á", entry, canonical, properties, PRONOUN_SINGULAR))// 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "a", "", u8"á", entry, canonical, properties, PRONOUN_SINGULAR))// 	USER MISSPELL
 	{
 		return true;
 	}
@@ -711,75 +711,75 @@ bool FutureSpanish(char* original, WORDP& entry, WORDP& canonical)
 		return true;
 	}
 	// 2nd person plural  //vosotros(hablar)áis  all 3 verb types
-	if (FindSpanishInfinitive(original, "áis", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	if (FindSpanishInfinitive(original, u8"áis", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ais", "", "áis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // 	USER MISSPELL
+	else if (FindSpanishInfinitive(original, "ais", "", u8"áis", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // 	USER MISSPELL
 	{
 		return true;
 	}
 	// 3rd person plural //ellos / ellas(hablar)án  all 3 verb types
-	if (FindSpanishInfinitive(original, "án", "", NULL, entry, canonical, properties, PRONOUN_PLURAL))
+	if (FindSpanishInfinitive(original, u8"án", "", NULL, entry, canonical, properties, PRONOUN_PLURAL))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "an", "", "án", entry, canonical, properties, PRONOUN_PLURAL))
+	else if (FindSpanishInfinitive(original, "an", "", u8"án", entry, canonical, properties, PRONOUN_PLURAL))
 	{
 		return true;
 	}
 	// conditional future 
 	// 1st person // yo(hablar)ía  all 3 types
-	if (FindSpanishInfinitive(original, "ía", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I))
+	if (FindSpanishInfinitive(original, u8"ía", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ia", "", "ía", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // USER MISSPELL
+	else if (FindSpanishInfinitive(original, "ia", "", u8"ía", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_I)) // USER MISSPELL
 	{
 		return true;
 	}
 	// 2nd person // tú(hablar)ías			 all 3 types
-	if (FindSpanishInfinitive(original, "ías", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
+	if (FindSpanishInfinitive(original, u8"ías", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ias", "", "ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // user MISSPELL
+	else if (FindSpanishInfinitive(original, "ias", "", u8"ías", entry, canonical, properties, PRONOUN_SINGULAR | PRONOUN_YOU)) // user MISSPELL
 	{
 		return true;
 	}
 	// 3rd person // él / ella(hablar)ía   all 3 types
-	if (FindSpanishInfinitive(original, "ía", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
+	if (FindSpanishInfinitive(original, u8"ía", "", NULL, entry, canonical, properties, PRONOUN_SINGULAR))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ia", "", "ía", entry, canonical, properties, PRONOUN_SINGULAR)) // user misspell
+	else if (FindSpanishInfinitive(original, "ia", "", u8"ía", entry, canonical, properties, PRONOUN_SINGULAR)) // user misspell
 	{
 		return true;
 	}
 	// 1st person plural // nosotros(hablar)íamos  all 3 types
-	if (FindSpanishInfinitive(original, "íamos", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
+	if (FindSpanishInfinitive(original, u8"íamos", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iamos", "", "íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // user misspell
+	else if (FindSpanishInfinitive(original, "iamos", "", u8"íamos", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_I)) // user misspell
 	{
 		return true;
 	}
 	// 2nd person plural // vosotros(hablar)íais  all 3 types
-	if (FindSpanishInfinitive(original, "íais", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
+	if (FindSpanishInfinitive(original, u8"íais", "", NULL, entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "iais", "", "íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
+	else if (FindSpanishInfinitive(original, "iais", "", u8"íais", entry, canonical, properties, PRONOUN_PLURAL | PRONOUN_YOU)) // user misspell
 	{
 		return true;
 	}
 	// 3rd person plural  //ellos / ellas(hablar)ían  all 3 types
-	if (FindSpanishInfinitive(original, "ían", "", NULL, entry, canonical, properties, PRONOUN_PLURAL))
+	if (FindSpanishInfinitive(original, u8"ían", "", NULL, entry, canonical, properties, PRONOUN_PLURAL))
 	{
 		return true;
 	}
-	else if (FindSpanishInfinitive(original, "ian", "a", "ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
+	else if (FindSpanishInfinitive(original, "ian", "a", u8"ían", entry, canonical, properties, PRONOUN_PLURAL)) // user misspell
 	{
 		return true;
 	}
@@ -863,7 +863,7 @@ uint64 ComputeSpanishNounGender(WORDP D)
 	char ending = word[len - 1];
 	uint64 properties = D->properties & (SPANISH_HE | SPANISH_SHE);
 	if (properties & (SPANISH_HE | SPANISH_SHE)) {}
-	else if (!stricmp(word, "sofá") || !stricmp(word, "mapa") || !stricmp(word, "dia") || !stricmp(word, "día")
+	else if (!stricmp(word, u8"sofá") || !stricmp(word, "mapa") || !stricmp(word, "dia") || !stricmp(word, u8"día")
 		|| !stricmp(word, "cura") || !stricmp(word, "planeta")
 		|| !stricmp(word, "corazón") || !stricmp(word, "buzón")
 		)  properties |= SPANISH_HE; // exception to next rule
@@ -871,13 +871,13 @@ uint64 ComputeSpanishNounGender(WORDP D)
 		|| !stricmp(word, "flor") || !stricmp(word, "leche") || !stricmp(word, "carne"))  properties |= SPANISH_SHE; // exception to next rule
 	else  if (!stricmp(word, "agua")) properties |= SPANISH_HE; // exception to next rule - masculine article but feminine adjective
 	else if (len > 2 &&
-		(!stricmp(word + len - 3, "ía") || !stricmp(word + len - 3, "ia")
-			|| !stricmp(word + len - 2, "ua") || !stricmp(word + len - 3, "úa") || !stricmp(word + len - 2, "ez")))
+		(!stricmp(word + len - 3, u8"ía") || !stricmp(word + len - 3, "ia")
+			|| !stricmp(word + len - 2, "ua") || !stricmp(word + len - 3, u8"úa") || !stricmp(word + len - 2, "ez")))
 	{
 		properties |= SPANISH_SHE;
 	}
 	else if (len > 2 &&
-		(!stricmp(word + len - 2, "or") || !stricmp(word + len - 3, "ío") || !stricmp(word + len - 3, "io")
+		(!stricmp(word + len - 2, "or") || !stricmp(word + len - 3, u8"ío") || !stricmp(word + len - 3, u8"io")
 			|| !stricmp(word + len - 2, "ma") || !stricmp(word + len - 2, "an")))
 	{
 		properties |= SPANISH_HE;
@@ -910,7 +910,7 @@ uint64 ComputeSpanishNounGender(WORDP D)
 	{
 		properties |= SPANISH_HE | SPANISH_SHE;
 	}
-	else if (len > 4 && (!stricmp(word + len - 5, "cíon") || !stricmp(word + len - 5, "síon")
+	else if (len > 4 && (!stricmp(word + len - 5, u8"cíon") || !stricmp(word + len - 5, u8"síon")
 		|| !stricmp(word + len - 4, "triz")))
 	{
 		properties |= SPANISH_SHE;
@@ -1057,7 +1057,7 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	}
 
 	// Adjectives that end in -or, -ora, -ón, or -ín do have feminine forms. Simply add a or -as to the masculine singular form and delete the written accent if necessary.
-	else if (!stricmp(canonical->word + len1 - 2, "ora") || !stricmp(canonical->word + len1 - 2, "or") || !stricmp(canonical->word + len1 - 3, "ón") || !stricmp(canonical->word + len1 - 3, "ín"))
+	else if (!stricmp(canonical->word + len1 - 2, "ora") || !stricmp(canonical->word + len1 - 2, "or") || !stricmp(canonical->word + len1 - 3, u8"ón") || !stricmp(canonical->word + len1 - 3, u8"ín"))
 	{
 		if (ending == 'a') // female singular
 		{
@@ -1075,7 +1075,7 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 			properties |= SPANISH_SINGULAR;
 		}
 	}
-	else if (!stricmp(canonical->word + len1 - 3, "óna") || !stricmp(canonical->word + len1 - 3, "ína"))
+	else if (!stricmp(canonical->word + len1 - 3, "óna") || !stricmp(canonical->word + len1 - 3, u8"ína"))
 	{
 		properties |= SPANISH_SHE;
 		properties |= SPANISH_SINGULAR;
@@ -1411,11 +1411,11 @@ uint64 ComputeSpanish(int at, char* original, WORDP& entry, WORDP& canonical, ui
 		if (base[len - 3] == 'c') base[len - 3] = 'z'; // z changed to c
 		// Singular nouns of more than one syllable which end in -en and don’t already have an accent, add one in the plural. los exámenes
 		// accent vowel before consonant at end
-		//if (base[len - 4] == 'a') strncpy(base + len - 4, "á", 2);
-		//else if (base[len - 4] == 'e') strncpy(base + len - 4, "é", 2); //BUGGY
-		//else if (base[len - 4] == 'i') strncpy(base + len - 4, "í", 2);
-		//else if (base[len - 4] == 'o') strncpy(base + len - 4, "ó", 2);
-		//else if (base[len - 4] == 'u') strncpy(base + len - 4, "ú", 2);
+		//if (base[len - 4] == 'a') strncpy(base + len - 4, u8"á", 2);
+		//else if (base[len - 4] == 'e') strncpy(base + len - 4, u8"é", 2); //BUGGY
+		//else if (base[len - 4] == 'i') strncpy(base + len - 4, u8"í", 2);
+		//else if (base[len - 4] == 'o') strncpy(base + len - 4, u8"ó", 2);
+		//else if (base[len - 4] == 'u') strncpy(base + len - 4, u8"ú", 2);
 		properties = FindSpanishSingular(original, base, entry, canonical, sysflags);
 		if (properties) return properties;
 	}
