@@ -231,7 +231,7 @@ And it may be a pain to remember to do this on all your outputs. Another way to 
 write code that rewrites your outputs according to the appropriate accent. This is something you can
 do in postprocessing. You can have it read your outputs and rewrite them.
 ```
-topic: POSTPROCESSING system repeat ()
+topic: ~POSTPROCESSING system repeat ()
 t: ()	
 	$_count = 0
 	Loop(%response)

@@ -1,6 +1,6 @@
 # ChatScript Command Line Parameters
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/20/2022 cs12.2
+<br>Revision 10/16/2022 cs12.3
 
 
 
@@ -31,6 +31,31 @@ may only require you name the parameter (they have no choices of values).
 
 Actual command line parameters have priority over config file values, and those have priority over http requested values.
 
+## Language options
+
+The command line parameter `language=` as shipped would be 
+```
+language=english
+```
+but it can consist of a series of languages separated by commas with the first language being the default
+until you use a command to change to some other language on the fly.
+This enables multi-dictionary behavior.
+```
+language=english,spanish,german,japanese
+```
+When compiling your scripts, you may want different things in different languages. For example
+here is a multi-language level 0 script that compiles std cs concepts simultaneously in different languages.
+```
+language: UNIVERSAL
+RAWDATA/ONTOLOGY/       # underlying vocabulary organization
+language: ENGLISH
+RAWDATA/ONTOLOGY/ENGLISH//
+RAWDATA/WORLDDATA/
+language: GERMAN
+RAWDATA/ONTOLOGY/GERMAN//
+language: SPANISH
+RAWDATA/ONTOLOGY/SPANISH//
+```
 
 ## Memory options
 

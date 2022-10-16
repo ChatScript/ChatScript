@@ -1,0 +1,147 @@
+https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-list-categories/
+
+albums:
+
+
+GET	/v1/albums/{id}	Get an Album	album
+GET	/v1/albums/{id}/tracks	Get an Album's Tracks	tracks
+GET	/v1/albums	Get Several Albums	albums
+
+lbum object (full)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+album_type	string	The type of the album: one of "album" , "single" , or "compilation".
+artists	array of simplified artist objects	The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
+available_markets	array of strings	The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
+copyrights	array of copyright objects	The copyright statements of the album.
+external_ids	an external ID object	Known external IDs for the album.
+external_urls	an external URL object	Known external URLs for this album.
+genres	array of strings	A list of the genres used to classify the album. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)
+href	string	A link to the Web API endpoint providing full details of the album.
+id	string	The Spotify ID for the album.
+images	array of image objects	The cover art for the album in various sizes, widest first.
+label	string	The label for the album.
+name	string	The name of the album. In case of an album takedown, the value may be an empty string.
+popularity	integer	The popularity of the album. The value will be between 0 and 100, with 100 being the most popular. The popularity is calculated from the popularity of the album’s individual tracks.
+release_date	string	The date the album was first released, for example "1981-12-15". Depending on the precision, it might be shown as "1981" or "1981-12".
+release_date_precision	string	The precision with which release_date value is known: "year" , "month" , or "day".
+tracks	array of simplified track objects inside a paging object	The tracks of the album.
+type	string	The object type: “album”
+uri	string	The Spotify URI for the album.
+
+track object (simplified)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+artists	an array of simple artist objects	The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
+available_markets	array of strings	A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.
+disc_number	integer	The disc number (usually 1 unless the album consists of more than one disc).
+duration_ms	integer	The track length in milliseconds.
+explicit	Boolean	Whether or not the track has explicit lyrics ( true = yes it does; false = no it does not OR unknown).
+external_urls	an external URL object	External URLs for this track.
+href	string	A link to the Web API endpoint providing full details of the track.
+id	string	The Spotify ID for the track.
+is_playable	boolean	Part of the response when Track Relinking is applied. If true , the track is playable in the given market. Otherwise false.
+linked_from	a linked track object	Part of the response when Track Relinking is applied and is only part of the response if the track linking, in fact, exists. The requested track has been replaced with a different track. The track in the linked_from object contains information about the originally requested track.
+name	string	The name of the track.
+preview_url	string	A URL to a 30 second preview (MP3 format) of the track.
+track_number	integer	The number of the track. If an album has several discs, the track number is the number on the specified disc.
+type	string	The object type: “track”.
+uri	string	The Spotify URI for the track.
+
+
+ARTISTS
+
+METHOD	ENDPOINT	USAGE	RETURNS
+GET	/v1/artists/{id}	Get an Artist	artist
+GET	/v1/artists/{id}/albums	Get an Artist's Albums	albums
+GET	/v1/artists/{id}/top-tracks	Get an Artist's Top Tracks	tracks
+GET	/v1/artists/{id}/related-artists	Get an Artist's Related Artists	artists
+
+Query Parameters for 	Get an Artist's Albums	albums
+QUERY PARAMETER	VALUE
+include_groups	Optional. A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:
+- album
+- single
+- appears_on
+- compilation
+For example: include_groups=album,single.
+
+(synonym: country)	Optional. An ISO 3166-1 alpha-2 country code.
+Supply this parameter to limit the response to one particular geographical market. For example, for albums available in Sweden: market=SE.
+If not given, results will be returned for all markets and you are likely to get duplicate results per album, one for each market in which the album is available!
+
+album object (simplified)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+album_group	string, optional	The field is present when getting an artist’s albums. Possible values are “album”, “single”, “compilation”, “appears_on”. Compare to album_type this field represents relationship between the artist and the album.
+album_type	string	The type of the album: one of “album”, “single”, or “compilation”.
+artists	array of simplified artist objects	The artists of the album. Each artist object includes a link in href to more detailed information about the artist.
+available_markets	array of strings	The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.
+external_urls	an external URL object	Known external URLs for this album.
+href	string	A link to the Web API endpoint providing full details of the album.
+id	string	The Spotify ID for the album.
+images	array of image objects	The cover art for the album in various sizes, widest first.
+name	string	The name of the album. In case of an album takedown, the value may be an empty string.
+type	string	The object type: “album”
+uri	string	The Spotify URI for the album.
+
+
+
+
+
+
+artist object (full)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+external_urls	an external URL object	Known external URLs for this artist.
+followers	A followers object	Information about the followers of the artist.
+genres	array of strings	A list of the genres the artist is associated with. For example: "Prog Rock" , "Post-Grunge". (If not yet classified, the array is empty.)
+href	string	A link to the Web API endpoint providing full details of the artist.
+id	string	The Spotify ID for the artist.
+images	array of image objects	Images of the artist in various sizes, widest first.
+name	string	The name of the artist
+popularity	int	The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist’s popularity is calculated from the popularity of all the artist’s tracks.
+type	string	The object type: "artist"
+uri	string	The Spotify URI for the artist.
+
+track object (full)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+album	a simplified album object	The album on which the track appears. The album object includes a link in href to full information about the album.
+artists	an array of simplified artist objects	The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.
+available_markets	array of strings	A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.
+disc_number	integer	The disc number (usually 1 unless the album consists of more than one disc).
+duration_ms	integer	The track length in milliseconds.
+explicit	Boolean	Whether or not the track has explicit lyrics ( true = yes it does; false = no it does not OR unknown).
+external_ids	an external ID object	Known external IDs for the track.
+external_urls	an external URL object	Known external URLs for this track.
+href	string	A link to the Web API endpoint providing full details of the track.
+id	string	The Spotify ID for the track.
+is_playable	boolean	Part of the response when Track Relinking is applied. If true , the track is playable in the given market. Otherwise false.
+linked_from	a linked track object	Part of the response when Track Relinking is applied, and the requested track has been replaced with different track. The track in the linked_from object contains information about the originally requested track.
+restrictions	a restrictions object	Part of the response when Track Relinking is applied, the original track is not available in the given market, and Spotify did not have any tracks to relink it with. The track response will still contain metadata for the original track, and a restrictions object containing the reason why the track is not available: "restrictions" : {"reason" : "market"}
+name	string	The name of the track.
+popularity	integer	The popularity of the track. The value will be between 0 and 100, with 100 being the most popular.
+The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
+Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. Note that the popularity value may lag actual popularity by a few days: the value is not updated in real time.
+preview_url	string	A link to a 30 second preview (MP3 format) of the track. Can be null
+track_number	integer	The number of the track. If an album has several discs, the track number is the number on the specified disc.
+type	string	The object type: “track”.
+uri	string	The Spotify URI for the track.
+
+https://api.spotify.com/v1/search?q=bob%20year:2014&type=album
+
+The query https://api.spotify.com/v1/search?q=bob%20year:2014&type=album Returns albums released in 2014 with their names or artist names containing “bob”. You can also use the tag:new field filter to get just these albums, as well as compilations and singles, released in the last 2 weeks.
+
+
+genre == category: 
+Path Parameters
+PATH PARAMETER	VALUE
+category_id	The Spotify category ID for the category.
+ategory object (full)
+KEY	VALUE TYPE	VALUE DESCRIPTION
+href	string	A link to the Web API endpoint returning full details of the category.
+icons	an array of image objects	The category icon, in various sizes.
+id	string	The Spotify category ID of the category.
+name	string	The name of the category.
+
+curl -i -X GET "https://api.spotify.com/v1/browse/categories/party" -H "Authorization: Bearer {your access token}"
+https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
+
+
+

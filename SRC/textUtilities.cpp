@@ -1,10 +1,10 @@
-﻿#include "common.h"
+#include "common.h"
 typedef struct JapanCharInfo
 {
 	const char* charword;		//  japanese 3 byte character
 	const unsigned char convert;		// ascii equivalent
 } JapanCharInfo;
-
+bool outputapicall = false;
 char* currentInput = NULL; // latest input we are processing from GetNextInput for error reporting
 static HEAPREF startSupplementalInput = NULL;
 int startSentence;
@@ -21,7 +21,7 @@ bool newline = false;
 int docSampleRate = 0;
 int docSample = 0;
 uint64 docVolleyStartTime = 0;
-bool hasHighChar = false;
+unsigned char hasHighChar = 0;
 char conditionalCompile[MAX_CONDITIONALS + 1][50];
 int conditionalCompiledIndex = 0;
 char numberComma = ',';
@@ -547,7 +547,7 @@ void InitTextUtilitiesByLanguage(char* lang)
 			else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER;
 			else if (!stricmp(kind, "REAL_NUMBER")) kindval = WORD_NUMBER;
 			else myexit("Bad number table");
-			char* w = StoreWord(word, AS_IS | ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER, NOUN_NODETERMINER)->word;
+			char* w = StoreFlaggedWord(word, AS_IS | ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER, NOUN_NODETERMINER)->word;
 			int index = Heap2Index(w);
 			*data++ = index;
 			*data++ = strlen(word);
@@ -616,6 +616,18 @@ void InitTextUtilitiesByLanguage(char* lang)
 		ReleaseInfiniteStack();
 		fclose(in);
 	}
+}
+
+char* FindJMSeparator(char* ptr, char c)
+{
+	char* at = ptr - 1;
+	bool quote = false;
+	while (*++at)
+	{
+		if (*at == '"') quote = !quote;
+		if (!quote && *at == c) return at; // found terminator not in quotes
+	}
+	return NULL;
 }
 
 void CopyParam(char* to, char* from, unsigned int limit)
@@ -741,11 +753,16 @@ bool IsFraction(char* token)
 
 bool IsAllUpper(char* ptr)
 {
+    bool foundDigit = false;
+    bool foundNonDigit = false;
 	--ptr;
 	while (*++ptr)
 	{
 		if (!IsUpperCase(*ptr) && *ptr != '&' && *ptr != '-' && *ptr != '_' && !IsDigit(*ptr)) break;
+        if (IsDigit(*ptr)) foundDigit = true;
+        else foundNonDigit = true;
 	}
+    if (foundDigit && !foundNonDigit) return false;  // can't be all digits
 	return (!*ptr);
 }
 
@@ -1058,7 +1075,7 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 		else if (*at == '\\')
 		{
 			const char* at1 = at + 1;
-			if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == 'u'))  // just pass it along
+            if (*at1 && (*at1 == 'n' || *at1 == 'r' || *at1 == 't' || *at1 == '"' || *at1 == '\\' || (*at1 == 'u' && IsHexDigit(at[2]) && IsHexDigit(at[3]) && IsHexDigit(at[4]) && IsHexDigit(at[5])) ))  // just pass it along
 			{
 				*to++ = *at;
 				*to++ = *++at;
@@ -1213,7 +1230,8 @@ void AcquireDefines(const char* fileName)
 				if (!value)  value = FindMiscValueByName(label);
 				if (!value)  value = FindParseValueByName(label);
 				xbuildDictionary = olddict;
-				if (!value)  ReportBug((char*)"missing modifier value for %s\r\n", label);
+				if (!value)  
+					ReportBug((char*)"missing modifier value for %s\r\n", label);
 					if (orop) result |= value;
 					else if (shiftop) result <<= value;
 					else if (plusop) result += value;
@@ -1391,7 +1409,7 @@ uint64 FindSystemValueByName(char* name)
 	word[0] = UNIQUEENTRY;
 	word[1] = UNIQUEENTRY;
 	MakeUpperCopy(word + 2, name);
-	WORDP D = FindWord(word);
+	WORDP D = FindWord(word,0, UPPERCASE_LOOKUP);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return D->properties;
 }
@@ -1406,7 +1424,7 @@ char* FindSystemNameByValue(uint64 val) // works for invertable system bits only
 #else
 	sprintf(word + 2, (char*)"%llu", val);
 #endif
-	WORDP D = FindWord(word);
+	WORDP D = FindWord(word,0, PRIMARY_CASE_ALLOWED);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return Meaning2Word(D->parseBits)->word + 2;
 }
@@ -1422,7 +1440,7 @@ char* FindParseNameByValue(uint64 val)
 #else
 	sprintf(word + 3, (char*)"%llu", val);
 #endif
-	WORDP D = FindWord(word);
+	WORDP D = FindWord(word,0, PRIMARY_CASE_ALLOWED);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return Meaning2Word(D->parseBits)->word + 3;
 }
@@ -1435,7 +1453,7 @@ uint64 FindParseValueByName(char* name)
 	word[1] = UNIQUEENTRY;
 	word[2] = UNIQUEENTRY;
 	MakeUpperCopy(word + 3, name);
-	WORDP D = FindWord(word);
+	WORDP D = FindWord(word,0, UPPERCASE_LOOKUP);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return D->properties;
 }
@@ -1449,7 +1467,7 @@ uint64 FindMiscValueByName(char* name)
 	word[2] = UNIQUEENTRY;
 	word[3] = UNIQUEENTRY;
 	MakeUpperCopy(word + 4, name);
-	WORDP D = FindWord(word);
+	WORDP D = FindWord(word,0, UPPERCASE_LOOKUP);
 	if (!D || !(D->internalBits & DEFINES))
 	{
 		if (xbuildDictionary) ReportBug((char*)"Failed to find misc value %s", name);
@@ -1910,10 +1928,11 @@ void ComputeWordData(char* word, WORDINFO* info) // how many characters in word
 
 unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simple digit number or word number or currency number
 {
-	if (!*num) return false;
+	if (!*num) return NOT_A_NUMBER;
+	if (*num == 'I' && !num[1]) return NOT_A_NUMBER; // never decode I to a number
 	char word[MAX_WORD_SIZE];
 	MakeLowerCopy(word, num); // accept number words in upper case as well
-	if (word[1] && (word[1] == ':' || word[2] == ':')) return false;	// 05:00 // time not allowed
+	if (word[1] && (word[1] == ':' || word[2] == ':')) return NOT_A_NUMBER;	// 05:00 // time not allowed
 	size_t len = strlen(word);
 	if (word[len - 1] == '%') word[len - 1] = 0;	// % after a number is still a number
 
@@ -2012,7 +2031,7 @@ bool IsPlaceNumber(char* word, int useNumberStyle) // place number and fraction 
 	char tok[MAX_WORD_SIZE];
 	strcpy(tok, word);
 	size_t size = 0;
-	if (stricmp(language, "english")) { ; }
+	if (stricmp(current_language, "english")) { ; }
 	else if (len > 4 && !strcmp(word + len - 5, (char*)"first")) size = 5;
 	else if (len > 5 && !strcmp(word + len - 6, (char*)"second")) size = 6;
 	else if (len > 4 && !strcmp(word + len - 5, (char*)"third")) size = 5;
@@ -2028,7 +2047,7 @@ bool IsPlaceNumber(char* word, int useNumberStyle) // place number and fraction 
 	}
 
 	// does it have proper endings?
-	if (stricmp(language, "english")) { ; }
+	if (stricmp(current_language, "english")) { ; }
 	else if (word[len - 2] == 's' && word[len - 1] == 't') { ; }  // 1st
 	else if (word[len - 2] == 'n' && word[len - 1] == 'd') // 2nd
 	{
@@ -2053,6 +2072,27 @@ bool IsPlaceNumber(char* word, int useNumberStyle) // place number and fraction 
 	return (IsNumber(num, useNumberStyle, false) == PLACETYPE_NUMBER) ? true : false; // show it is correctly a number - pass false to avoid recursion from IsNumber
 }
 
+char* GetActual(char* msg)
+{
+	char* actual = strstr(msg, "output\":"); // skip open quote
+	if (actual)
+	{
+		actual += 10;
+		char* endx = strstr(actual, "\",");
+		if (!endx) endx = strstr(actual, "\"}");
+		if (endx) *endx = 0;
+		size_t len = strlen(actual);
+		while (actual[len - 1] == ' ') actual[--len] = 0;
+		char* at1 = actual - 1;
+		while (*++at1)
+		{
+			if (*at1 == '\\') memmove(at1, at1 + 1, strlen(at1));
+		}
+	}
+	else actual = (char*)"";
+	return actual;
+}
+
 char* ReadTabField(char* buffer, char* storage)
 {
 	if (!buffer) return NULL;
@@ -2063,6 +2103,12 @@ char* ReadTabField(char* buffer, char* storage)
 	strcpy(storage, SkipWhitespace(buffer));
 	int len = strlen(storage);
 	while (storage[len - 1] == ' ') storage[--len] = 0;
+
+	char* at = storage - 1;
+	while (++at = strchr(at, '"'))
+	{
+		if (at[1] == '"') memmove(at + 1, at + 2, strlen(at + 1)); // remove doubled quotes
+	}
 	return end + 1;
 }
 
@@ -2136,6 +2182,8 @@ FunctionResult AnalyzeCode(char* buffer)
 		Log(USERLOG, "canonical Analyze: %s\r\n", canonical);
 		FreeBuffer();
 		FreeBuffer();
+		DumpTokenFlags((char*)"After parse");
+
 	}
 
 	RESTOREOLDCONTEXT()
@@ -2293,6 +2341,22 @@ char* WriteFloat(char* buffer, double value, int useNumberStyle)
 
 	FormatFloat(floatpart, buffer, useNumberStyle);
 	return buffer;
+}
+
+bool IsPureNumber(char* word)
+{
+	unsigned int periods = 0;
+	unsigned int commas = 0;
+	if (*word != '+' && *word != '-') --word;
+	while (*++word)
+	{
+		if (*word == '.') ++periods;
+		else if (*word == ',') ++commas;
+		else if (*word >= '0' && *word <= '9') {}
+		else return false;
+	}
+	// depending on language, this vary
+	return true;
 }
 
 char IsFloat(char* word, char* end, int useNumberStyle)
@@ -2501,6 +2565,15 @@ bool IsFileName(char* word)
 	char* ext = strrchr(word, '.');
 	if (!ext) return false;
 
+	// upreference
+	if (word[0] == '.' && word[1] == '.' && word[2] == '/') return true;
+	// local dir ref
+	if (word[0] == '.' && word[1] == '/' && IsAlphaUTF8(word[2])) return true;
+	// drive ref
+	if (word[0] == 'C' && word[1] == ':' && word[2] == '/') return true;
+	if (word[0] == 'D' && word[1] == ':' && word[2] == '/') return true;
+	if (word[0] == 'E' && word[1] == ':' && word[2] == '/') return true;
+
 	char* ptr = word - 1;
 	char* last = ptr + strlen(word);
 	char first = *word;
@@ -2569,7 +2642,7 @@ unsigned int IsMadeOfInitials(char* word, char* end)
 	WORDP D = FindWord(word);
 	if (D) // see if there are any legal allcaps forms
 	{
-		WORDP set[20];
+		WORDP set[GETWORDSLIMIT];
 		int n = GetWords(word, set, true);
 		while (n)
 		{
@@ -2786,7 +2859,7 @@ static bool ConditionalReadRejected(char* start, char*& buffer, bool revise)
 	if (!stricmp(word, "endif") || !stricmp(word, "include")) return false;
 
 	// a matching language declaration?
-	if (!stricmp(language, word))
+	if (!stricmp(current_language, word))
 	{
 		if (revise)
 		{
@@ -3078,24 +3151,31 @@ static void PurifyHTML(char c, char*& read, char*& write, bool withinquote)
 	else *write++ = c;
 }
 
+void CheckForOutputAPI(char* msg)
+{
+	if (!msg) return;
+	// check for output api call (compile or test)
+	char c = msg[60];
+	msg[60] = 0;
+	outputapicall = strstr(msg, "\"testoutput\"") ? true : false;
+	if (!outputapicall) outputapicall = strstr(msg, "\"compileoutput\"") ? true : false;
+	msg[60] = c;
+}
+
 char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 {
 	bool hasbadutf = false;
 	size = 0;
 	if (!input) return input;
-	if (kind == INPUT_PURIFY)
+
+	if (kind == INPUT_PURIFY && outputapicall) // but if this is api call, dont damage output data
 	{
-		char c = input[60];
-		input[60] = 0;
-		bool testoutput = strstr(input, "\"testoutput\"") ? true : false;
-		if (!testoutput) testoutput = strstr(input, "\"compileoutput\"") ? true : false;
-		input[60] = c;
-		if (testoutput) kind = INPUT_TESTOUTPUT_PURIFY; // dont clean testoutput
+		kind = INPUT_TESTOUTPUT_PURIFY; // dont clean testoutput (leave mdashs etc)
 	}
 
-	// stream can only shrink, so we rewrite in place as we go across
+	// stream can only shrink, so we rewrite in place potentially as we go across
 	char* write = copy;
-	char* read = SkipWhitespace(input);
+	char* read = input;
 	char* start = read--;
 	bool withinquote = false;
 	unsigned char c;
@@ -3188,7 +3268,7 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 			*write++ = *++read;
 			continue;
 		}
-		else if (c == '`') *write++ = '\''; // do not allow backtick from outside
+		else if (c == '`') *write++ = '\''; // do not allow backtick from outside, make forward
 		else if (c == '\t' && kind != TAB_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
 		else if (c < 32 && c != '\t' && kind != SYSTEM_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
 		else if (c == 0x92) *write++ = '\''; // windows smart quote not real unicode
@@ -3562,8 +3642,7 @@ char* SkipOOB(char* buffer)
 				}
 			}
 		}
-		size_t len = strlen(originalUserInput);
-		ReportBug("INFO: SkipOOB failed %d \r\n", len);
+		ReportBug("INFO: SkipOOB failed %d \r\n", strlen(originalUserInput));
 	}
 	return start; // didnt validate incoming oob
 }
@@ -3571,6 +3650,7 @@ char* SkipOOB(char* buffer)
 int ReadALine(char* buffer, FILE* in, unsigned int limit, bool returnEmptyLines, bool changeTabs, bool untouched)
 { //  reads text line stripping of cr/nl
 	currentFileLine = maxFileLine; // revert to best seen
+	char* startbuffer = buffer;
 	if (currentFileLine == 0)
 	{
 		BOM = (BOM == BOMSET) ? BOMSET : NOBOM; // start of file, set BOM to null
@@ -3627,9 +3707,10 @@ RESUME:
 		if (c & 0x80 && !untouched) // high order utf?
 		{
 			unsigned char convert = 0;
+			unsigned char x = 0;
 			if (!BOM && !hasutf && !server) // local mode might get extended ansi so transcribe to utf8 (but dont touch BOM)
 			{
-				unsigned char x = (unsigned char)c;
+				x = (unsigned char)c;
 				if (x == 147 || x == 148) convert = c = '"';
 				else if (x == 145 || x == 146) convert = c = '\'';
 				else if (x == 150 || x == 151) convert = c = '-';
@@ -3644,7 +3725,7 @@ RESUME:
 				}
 			}
 			if (!convert) hasutf = true;
-			else hasHighChar = true; // we change extended ansi to normal (not utf8)
+			else hasHighChar = x; // we change extended ansi to normal (not utf8)
 		}
 		else if (utf16) // possible \unnnn unicode character
 		{
@@ -4166,21 +4247,57 @@ static char* EatString(const char* ptr, char* word, char ender, char jsonactives
 
 char* ReadToken(const char* ptr, char* word)
 {
+	char* start = word;
+	// want entire token, but beware of :"D, ignore internal quotes not escaped.
+	// beware of \"xxx \"
+	// For "xxx xxx" we return the full including quotes around (should we?)
 	*word = 0;
 	if (!ptr) return NULL;
 	char c;
 	ptr = SkipWhitespace((char*)ptr);
-	bool quote = false;
+
+	if (*ptr == '`') //  bounded by ` 
+	{
+		const char* end = strchr(ptr + 1, '`');
+		if (end)
+		{
+			strncpy(word, ptr + 1, end - ptr - 1);
+			word[end - ptr - 1] = 0;
+			return (char*)(end + 1);
+		}
+	}
+
+	int quote = 0;
+	if (*ptr == '\'' && ptr[1] == '"') // single quoted quote string
+	{
+		*word++ = *ptr++;
+	}
+	if (*ptr == '"')
+	{
+		quote = 1; // starting quote
+		*word++ = *ptr++;
+	}
+	else if (*ptr == '\\' && ptr[1] == '"')
+	{
+		quote = 2; // escaped quote start
+		*word++ = *ptr++;
+		*word++ = *ptr++;
+	}
 	while ((c = *ptr))
 	{
 		if (c == '\\') // literal next
 		{
 			*word++ = *ptr++;
+			if (quote == 2 && *ptr == '"') quote = 0; // end escaped quoting
 			*word++ = *ptr++;
 			continue;
 		}
-		if (c == '\"') quote = !quote;
-		if (c == ' ' && !quote) break; // white space ended it
+		if (quote == 1 && c == '\"') quote = 0;
+		if ((c == ' ' || c == '\t') && !quote)
+		{
+			++ptr; // aim forward
+			break; // white space ended it
+		}
 		if (c == 0 || c == '\n') break;
 		*word++ = *ptr++;
 	}
@@ -4204,6 +4321,22 @@ char* ReadCompiledWord(const char* ptr, char* word, bool noquote, bool var, bool
 	char jsonactivestring = 0;
 	char* function = NULL;
 	char ender = 0;
+	if (*ptr == FUNCTIONSTRING && isAlphabeticDigitData[ptr[1]])
+	{
+		char* space = (char*)strchr(ptr, ' '); 
+		char* paren = (char*)strchr(ptr, '(');
+		if (paren) // its a function call
+		{
+			if (space && space < paren) {}// already its own token
+			else 
+			{
+				strncpy(word, ptr, paren - ptr);
+				word[paren - ptr] = 0;
+				ptr += paren - ptr ;
+				return (char*)ptr;
+			}
+		}
+	}
 	if ((*ptr == FUNCTIONSTRING && (ptr[1] == '\'' || ptr[1] == '"')) ||
 		(*ptr == '"' && ptr[1] == FUNCTIONSTRING) || (*ptr == '\'' && ptr[1] == FUNCTIONSTRING && !IsDigit(ptr[2]))) // compiled or uncompiled active string, but not raw version of argument
 	{
@@ -4259,11 +4392,15 @@ char* ReadCompiledWord(const char* ptr, char* word, bool noquote, bool var, bool
 	else // normal token, not some kind of string (but if pattern assign it could become)
 	{
 		bool bracket = false;
+
 		while ((c = *ptr) && c != ENDUNIT)
 		{ // worst case is in pattern $x:=^"^join(...)" where spaces are in fn call args inside of active string
 		  // may have quotes inside it, so have to clear the call before can find quote end of active string.
 		  // BUG if args themselves are active strings.
 		  // white space in active string or quoted string does not end token
+			
+		  // dont do below, so this still works: [{"dse": {"testoutput": {"output": "Just click <a id=\"dashboard-link\ href=\"http://my.justanswer.com/dashboard\ target=\"&#95;blank\">here</a> to ask something else."}}}]
+		  // if (c == '"' && priorchar != '^' && priorchar != '\\' && original != word) break;
 			++ptr;
 			if (IsWhiteSpace(c)) break;
 			if (special) // try to end a variable if not utf8 char or such
@@ -4300,9 +4437,36 @@ char* ReadCompiledWord(const char* ptr, char* word, bool noquote, bool var, bool
 		}
 	}
 	*word = 0; //   null terminate word
-	return (char*)ptr;
+
+    return (char*)ptr;
 }
 
+char* ReadCodeWord(const char* ptr, char* word, bool noquote, bool var, bool nolimit)
+{
+	char* original = word;
+	char* answer = ReadCompiledWord(ptr, word, noquote, var, nolimit);
+	size_t len = strlen(word);
+	char end = word[len - 1];
+
+	// dont break off a variable json reference
+	if (*original == '$' && end == ']') end = 0;
+	else if (strchr(original, '=')) end = 0; // dont break off assignments
+	else if (*original == '\\' && original[1] == end) end = 0; // dont break off escaped char
+	if (original[1] && (end == ']' || end == '}' || end == ')'))
+	{
+		*word = 0; // separate
+		end = *--ptr;
+		if (end != ']' && end != '}' && end != ')') --ptr;
+	}
+	else if (end == '>' && word[1] == '>')
+	{
+		*--word = 0; // separate
+		end = *--ptr;
+		if (end != '>') --ptr;
+		--ptr;
+	}
+	return answer;
+}
 char* BalanceParen(char* ptr, bool within, bool wildcards) // text starting with ((unless within is true), find the closing ) and point to next item after
 {
 	char* start = ptr;
@@ -4636,7 +4800,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	else if (c == '#' && IsDigitWord(number + 1, useNumberStyle)) return Convert2Integer(number + 1, useNumberStyle);
 	else if (!IsAlphaUTF8DigitNumeric(c) || c == decimalMark) return NOT_A_NUMBER; // not  0-9 letters + - 
 
-	bool csEnglish = !stricmp(language, "english");
+	bool csEnglish = !stricmp(current_language, "english");
 
 	size_t len = strlen(number);
 	uint64 valx;
@@ -4919,7 +5083,7 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	}
 
 	// now do tens and ones, which can include omitted hundreds label like two-fifty-two
-	bool isFrench = (!stricmp(language, "french")) ? true : false;
+	bool isFrench = (!stricmp(current_language, "french")) ? true : false;
 	hyphen = strchr(word, '-');
 	if (!hyphen) hyphen = strchr(word, '_');
 	int64 value = 0;
@@ -4976,6 +5140,1192 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 	return value + ((int64)billion * 1000000000) + ((int64)million * 1000000) + ((int64)thousand * 1000) + ((int64)hundred * 100);
 }
 
+static void LowerUTF8Char(char* ptr)
+{
+    unsigned char c1 = *ptr;
+    unsigned char c2 = ptr[1];
+    unsigned char c3 = (strlen(ptr) > 2) ? ptr[2] : 0;
+    unsigned char c4 = (strlen(ptr) > 3) ? ptr[3] : 0;
+
+    switch (c1)
+    {
+        case 0xc3: // Latin 1
+            if (c2 >= 0x80 && c2 <= 0x9e && c2 != 0x97) c2 += 0x20;
+            break;
+
+        case 0xc4: // Latin ext
+            if (c2 >= 0x80 && c2 <= 0xb7 && c2 != 0xb0 && IsEven(c2)) ++c2;
+            else if (c2 >= 0xb9 && c2 <= 0xbe && IsOdd(c2)) ++c2;
+            else if (c2 == 0xbf)
+            {
+                c1 = 0xc5;
+                c2 = 0x80;
+            }
+            break;
+
+        case 0xc5: // Latin ext
+            if (c2 >= 0x81 && c2 <= 0x88 && IsOdd(c2)) ++c2;
+            else if (c2 >= 0x8a && c2 <= 0xb7 && IsEven(c2)) ++c2;
+            else if (c2 == 0xb8)
+            {
+                c1 = 0xc3;
+                c2 = 0xbf;
+            }
+            else if (c2 >= 0xb9 && c2 <= 0xbe && IsOdd(c2)) ++c2;
+            break;
+
+        case 0xc6: // Latin ext
+            switch (c2)
+            {
+                case 0x81:
+                    c1 = 0xc9;
+                    c2 = 0x93;
+                    break;
+                case 0x86:
+                    c1 = 0xc9;
+                    c2 = 0x94;
+                    break;
+                case 0x89:
+                    c1 = 0xc9;
+                    c2 = 0x96;
+                    break;
+                case 0x8a:
+                    c1 = 0xc9;
+                    c2 = 0x97;
+                    break;
+                case 0x8e:
+                    c1 = 0xc9;
+                    c2 = 0x98;
+                    break;
+                case 0x8f:
+                    c1 = 0xc9;
+                    c2 = 0x99;
+                    break;
+                case 0x90:
+                    c1 = 0xc9;
+                    c2 = 0x9b;
+                    break;
+                case 0x93:
+                    c1 = 0xc9;
+                    c2 = 0xa0;
+                    break;
+                case 0x94:
+                    c1 = 0xc9;
+                    c2 = 0xa3;
+                    break;
+                case 0x96:
+                    c1 = 0xc9;
+                    c2 = 0xa9;
+                    break;
+                case 0x97:
+                    c1 = 0xc9;
+                    c2 = 0xa8;
+                    break;
+                case 0x9c:
+                    c1 = 0xc9;
+                    c2 = 0xaf;
+                    break;
+                case 0x9d:
+                    c1 = 0xc9;
+                    c2 = 0xb2;
+                    break;
+                case 0x9f:
+                    c1 = 0xc9;
+                    c2 = 0xb5;
+                    break;
+                case 0xa9:
+                    c1 = 0xca;
+                    c2 = 0x83;
+                    break;
+                case 0xae:
+                    c1 = 0xca;
+                    c2 = 0x88;
+                    break;
+                case 0xb1:
+                    c1 = 0xca;
+                    c2 = 0x8a;
+                    break;
+                case 0xb2:
+                    c1 = 0xca;
+                    c2 = 0x8b;
+                    break;
+                case 0xb7:
+                    c1 = 0xca;
+                    c2 = 0x92;
+                    break;
+                case 0x82:
+                case 0x84:
+                case 0x87:
+                case 0x8b:
+                case 0x91:
+                case 0x98:
+                case 0xa0:
+                case 0xa2:
+                case 0xa4:
+                case 0xa7:
+                case 0xac:
+                case 0xaf:
+                case 0xb3:
+                case 0xb5:
+                case 0xb8:
+                case 0xbc:
+                    c2++;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xc7: // Latin ext
+            if (c2 == 0x84) c2 = 0x86;
+            else if (c2 == 0x85) c2++;
+            else if (c2 == 0x87) c2 = 0x89;
+            else if (c2 == 0x88) c2++;
+            else if (c2 == 0x8a) c2 = 0x8c;
+            else if (c2 == 0x8b) c2++;
+            else if (c2 >= 0x8d && c2 <= 0x9c && IsOdd(c2)) c2++;
+            else if (c2 >= 0x9e && c2 <= 0xaf && IsEven(c2)) c2++;
+            else if (c2 == 0xb1) c2 = 0xb3;
+            else if (c2 == 0xb2) c2++;
+            else if (c2 == 0xb4) c2++;
+            else if (c2 == 0xb6)
+            {
+                c1 = 0xc6;
+                c2 = 0x95;
+            }
+            else if (c2 == 0xb7)
+            {
+                c1 = 0xc6;
+                c2 = 0xbf;
+            }
+            else if (c2 >= 0xb8 && c2 <= 0xbf && IsEven(c2)) c2++;
+            break;
+
+        case 0xc8: // Latin ext
+            if (c2 >= 0x80 && c2 <= 0x9f && IsEven(c2)) c2++;
+            else if (c2 == 0xa0)
+            {
+                c1 = 0xc6;
+                c2 = 0x9e;
+            }
+            else if (c2 >= 0xa2 && c2 <= 0xb3 && IsEven(c2)) c2++;
+            else if (c2 == 0xbb) c2++;
+            else if (c2 == 0xbd)
+            {
+                c1 = 0xc6;
+                c2 = 0x9a;
+            }
+            break;
+
+        case 0xc9: // Latin ext
+            if (c2 == 0x81) c2++;
+            else if (c2 == 0x83)
+            {
+                c1 = 0xc6;
+                c2 = 0x80;
+            }
+            else if (c2 == 0x84)
+            {
+                c1 = 0xca;
+                c2 = 0x89;
+            }
+            else if (c2 == 0x85)
+            {
+                c1 = 0xca;
+                c2 = 0x8c;
+            }
+            else if (c2 >= 0x86 && c2 <= 0x8f && IsEven(c2)) c2++;
+            break;
+
+        case 0xcd: // Greek & Coptic
+            switch (c2)
+            {
+                case 0xb0:
+                case 0xb2:
+                case 0xb6:
+                    c2++;
+                    break;
+                case 0xbf:
+                    c1 = 0xcf;
+                    c2 = 0xb3;
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 0xce: // Greek & Coptic
+            if (c2 == 0x86) c2 = 0xac;
+            else if (c2 == 0x88) c2 = 0xad;
+            else if (c2 == 0x89) c2 = 0xae;
+            else if (c2 == 0x8a) c2 = 0xaf;
+            else if (c2 == 0x8c)
+            {
+                c1 = 0xcf;
+                c2 = 0x8c;
+            }
+            else if (c2 == 0x8e)
+            {
+                c1 = 0xcf;
+                c2 = 0x8d;
+            }
+            else if (c2 == 0x8f)
+            {
+                c1 = 0xcf;
+                c2 = 0x8e;
+            }
+            else if (c2 >= 0x91 && c2 <= 0x9f) c2 += 0x20;
+            else if (c2 >= 0xa0 && c2 <= 0xab && c2 != 0xa2)
+            {
+                c1 = 0xcf;
+                c2 -= 0x20;
+            }
+            break;
+            
+        case 0xcf: // Greek & Coptic
+            if (c2 == 0x8f) c2 = 0x97;
+            else if (c2 >= 0x98 && c2 <= 0xaf && IsEven(c2)) c2++;
+            else if (c2 == 0xb4) c2 = 0x91;
+            else if (c2 == 0xb7) c2++;
+            else if (c2 == 0xb9) c2 = 0xb2;
+            else if (c2 == 0xba) c2++;
+            else if (c2 == 0xbd)
+            {
+                c1 = 0xcd;
+                c2 = 0xbb;
+            }
+            else if (c2 == 0xbe)
+            {
+                c1 = 0xcd;
+                c2 = 0xbc;
+            }
+            else if (c2 == 0xbf)
+            {
+                c1 = 0xcd;
+                c2 = 0xbd;
+            }
+            break;
+            
+        case 0xd0: // Cyrillic
+            if (c2 >= 0x80 && c2 <= 0x8f)
+            {
+                c1 = 0xd1;
+                c2 += 0x10;
+            }
+            else if (c2 >= 0x90 && c2 <= 0x9f) c2 += 0x20;
+            else if (c2 >= 0xa0 && c2 <= 0xaf)
+            {
+                c1 = 0xd1;
+                c2 -= 0x20;
+            }
+            break;
+            
+        case 0xd1: // Cyrillic supplement
+            if (c2 >= 0xa0 && c2 <= 0xbf && IsEven(c2)) c2++;
+            break;
+            
+        case 0xd2: // Cyrillic supplement
+            if (c2 == 0x80) c2++;
+            else if (c2 >= 0x8a && c2 <= 0xbf && IsEven(c2)) c2++;
+            break;
+            
+        case 0xd3: // Cyrillic supplement
+            if (c2 == 0x80) c2 = 0x8f;
+            else if (c2 >= 0x81 && c2 <= 0x8e && IsOdd(c2)) c2++;
+            else if (c2 >= 0x90 && c2 <= 0xbf && IsEven(c2)) c2++;
+            break;
+            
+        case 0xd4: // Cyrillic supplement & Armenian
+            if (c2 >= 0x80 && c2 <= 0xaf && IsEven(c2)) c2++;
+            else if (c2 >= 0xb1 && c2 <= 0xbf)
+            {
+                c1 = 0xd5;
+                c2 -= 0x10;
+            }
+            break;
+            
+        case 0xd5: // Armenian
+            if (c2 >= 0x80 && c2 <= 0x8f) c2 += 0x30;
+            else if (c2 >= 0x90 && c2 <= 0x96)
+            {
+                c1 = 0xd6;
+                c2 -= 0x10;
+            }
+            break;
+
+        case 0xe1: // Three byte code
+            switch (c2)
+            {
+                case 0x82: // Georgian asomtavruli
+                    if (c3 >= 0xa0 && c3 <= 0xbf)
+                    {
+                        c2 = 0x83;
+                        c3 -= 0x10;
+                    }
+                    break;
+                case 0x83: // Georgian asomtavruli
+                    if ((c3 >= 0x80 && c3 <= 0x85) || c3 == 0x87 || c3 == 0x8d) c3 += 0x30;
+                    break;
+                case 0x8e: // Cherokee
+                    if (c3 >= 0xa0 && c3 <= 0xaf)
+                    {
+                        c1 = 0xea;
+                        c2 = 0xad;
+                        c3 += 0x10;
+                    }
+                    else if (c3 >= 0xb0 && c3 <= 0xbf)
+                    {
+                        c1 = 0xea;
+                        c2 = 0xae;
+                        c3 -= 0x30;
+                    }
+                    break;
+                case 0x8f: // Cherokee
+                    if (c3 >= 0x80 && c3 <= 0xaf)
+                    {
+                        c1 = 0xea;
+                        c2 = 0xae;
+                        c3 += 0x10;
+                    }
+                    else if (c3 >= 0xb0 && c3 <= 0xb5) {
+                        c3 += 0x08;
+                    }
+                    break;
+                case 0xb2: // Georgian mtavruli
+                    if ((c3 >= 0x90 && c3 <= 0xba) || c3 == 0xbd || c3 == 0xbe || c3 == 0xbf) c2 = 0x83;
+                    break;
+                case 0xb8: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsEven(c3)) c3++;
+                    break;
+                case 0xb9: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsEven(c3)) c3++;
+                    break;
+                case 0xba: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0x94 && IsEven(c3)) c3++;
+                    else if (c3 == 0x9e) // German capital sharp S
+                    {
+                        c1 = 0xc3;
+                        c2 = 0x9f;
+                        c3 = 0;
+                    }
+                    else if (c3 >= 0xa0 && c3 <= 0xbf && IsEven(c3)) c3++;
+                    break;
+                case 0xbb: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsEven(c3)) c3++;
+                    break;
+                case 0xbc: // Greek ex
+                    if (c3 >= 0x88 && c3 <= 0x8f) c3 -= 0x08;
+                    else if (c3 >= 0x98 && c3 <= 0x9d) c3 -= 0x08;
+                    else if (c3 >= 0xa8 && c3 <= 0xaf) c3 -= 0x08;
+                    else if (c3 >= 0xb8 && c3 <= 0xbf) c3 -= 0x08;
+                    break;
+                case 0xbd: // Greek ex
+                    if (c3 >= 0x88 && c3 <= 0x8d) c3 -= 0x08;
+                    else if (c3 == 0x99 || c3 == 0x9b || c3 == 0x9d || c3 == 0x9f) c3 -= 0x08;
+                    else if (c3 >= 0xa8 && c3 <= 0xaf) c3 -= 0x08;
+                    break;
+                case 0xbe: // Greek ex
+                    if (c3 >= 0x88 && c3 <= 0x8f) c3 -= 0x08;
+                    else if (c3 >= 0x98 && c3 <= 0x9f) c3 -= 0x08;
+                    else if (c3 >= 0xa8 && c3 <= 0xaf) c3 -= 0x08;
+                    else if (c3 >= 0xb8 && c3 <= 0xb9) c3 -= 0x08;
+                    else if (c3 >= 0xba && c3 <= 0xbb)
+                    {
+                        c2 = 0xbd;
+                        c3 -= 0x0a;
+                    }
+                    else if (c3 == 0xbc) c3 -= 0x09;
+                    break;
+                case 0xbf: // Greek ex
+                    if (c3 >= 0x88 && c3 <= 0x8b)
+                    {
+                        c2 = 0xbd;
+                        c3 += 0x2a;
+                    }
+                    else if (c3 == 0x8c) c3 -= 0x09;
+                    else if (c3 >= 0x98 && c3 <= 0x99) c3 -= 0x08;
+                    else if (c3 >= 0x9a && c3 <= 0x9b)
+                    {
+                        c2 = 0xbd;
+                        c3 += 0x1c;
+                    }
+                    else if (c3 >= 0xa8 && c3 <= 0xa9) c3 -= 0x08;
+                    else if (c3 >= 0xaa && c3 <= 0xab)
+                    {
+                        c2 = 0xbd;
+                        c3 += 0x10;
+                    }
+                    else if (c3 == 0xac) c3 -= 0x07;
+                    else if (c3 >= 0xb8 && c3 <= 0xb9) c2 = 0xbd;
+                    else if (c3 >= 0xba && c3 <= 0xbb)
+                    {
+                        c2 = 0xbd;
+                        c3 += 0x02;
+                    }
+                    else if (c3 == 0xbc) c3 -= 0x09;
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 0xe2: // Three byte code
+            switch (c2)
+            {
+                case 0xb0: // Glagolitic
+                    if (c3 >= 0x80 && c3 <= 0x8f) c3 += 0x30;
+                    else if (c3 >= 0x90 && c3 <= 0xae)
+                    {
+                        c2 = 0xb1;
+                        c3 -= 0x10;
+                    }
+                    break;
+                case 0xb1: // Latin ext
+                    switch (c3)
+                    {
+                        case 0xa0:
+                        case 0xa7:
+                        case 0xa9:
+                        case 0xab:
+                        case 0xb2:
+                        case 0xb5:
+                            c3++;
+                            break;
+                        case 0xa2:
+                        case 0xa4:
+                        case 0xad:
+                        case 0xae:
+                        case 0xaf:
+                        case 0xb0:
+                        case 0xbe:
+                        case 0xbf:
+                            break;
+                        case 0xa3:
+                            c3 = 0xe1;
+                            c2 = 0xb5;
+                            c3 = 0xbd;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 0xb2: // Coptic
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsEven(c3)) c3++;
+                    break;
+                case 0xb3: // Coptic
+                    if ((c3 >= 0x80 && c3 <= 0xa3 && IsEven(c2)) || c3 == 0xab || c3 == 0xad || c3 == 0xb2) c3++;
+                    break;
+                case 0xb4: // Georgian nuskhuri
+                    if ((c3 >= 0x80 && c3 <= 0xa5) || c3 == 0xa7 || c3 == 0xad)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0x83;
+                        c3 += 0x10;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+            
+        case 0xea: // Three byte code
+            switch (c2)
+            {
+                case 0x99: // Cyrillic
+                    if (c3 >= 0x80 && c3 <= 0xad && IsEven(c3)) c3++;
+                    break;
+                case 0x9a: // Cyrillic
+                    if (c3 >= 0x80 && c3 <= 0x9b && IsEven(c3)) c3++;
+                    break;
+                case 0x9c: // Latin ext
+                    if (((c3 >= 0xa2 && c3 <= 0xaf) || (c3 >= 0xb2 && c3 <= 0xbf)) && IsEven(c3)) c3++;
+                    break;
+                case 0x9d: // Latin ext
+                    if ((c3 >= 0x80 && c3 <= 0xaf && IsEven(c3)) || c3 == 0xb9 || c3 == 0xbb || c3 == 0xbe) c3++;
+                    else if (c3 == 0xbd)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0xb5;
+                        c3 = 0xb9;
+                    }
+                    break;
+                case 0x9e: // Latin ext
+                    if ((((c3 >= 0x80 && c3 <= 0x87) || (c3 >= 0x96 && c3 <= 0xa9) || (c3 >= 0xb4 && c3 <= 0xbf)) && IsEven(c3)) || c3 == 0x8b || c3 == 0x90 || c3 == 0x92) c3++;
+                    else if (c3 == 0xb3)
+                    {
+                        c1 = 0xea;
+                        c2 = 0xad;
+                        c3 = 0x93;
+                    }
+                    break;
+                case 0x9f: // Latin ext
+                    if (c3 == 0x82 || c3 == 0x87 || c3 == 0x89 || c3 == 0xb5) c3++;
+                    else if (c3 == 0x84)
+                    {
+                        c1 = 0xea;
+                        c2 = 0x9e;
+                        c3 = 0x94;
+                    }
+                    else if (c3 == 0x86)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0xb6;
+                        c3 = 0x8e;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xef: // Three byte code
+            switch (c2)
+            {
+                case 0xbc: // Latin fullwidth
+                    if (c3 >= 0xa1 && c3 <= 0xba)
+                    {
+                        c2 = 0xbd;
+                        c3 -= 0x20;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xf0: // Four byte code
+            break;
+            
+        default:
+            break;
+    }
+    
+    *ptr++ = c1;
+    *ptr++ = c2;
+    if (c3) *ptr++ = c3;
+    if (c4) *ptr++ = c4;
+    *ptr = 0;
+}
+
+static void UpperUTF8Char(char* ptr)
+{
+    unsigned char c1 = *ptr;
+    unsigned char c2 = ptr[1];
+    unsigned char c3 = (strlen(ptr) > 2) ? ptr[2] : 0;
+    unsigned char c4 = (strlen(ptr) > 3) ? ptr[3] : 0;
+
+    switch (c1)
+    {
+        case 0xc3: // Latin 1
+            if (c2 == 0x9f) // German sharp S
+            {
+                c1 = 0xe1;
+                c2 = 0xba;
+                c3 = 0x9e;
+            }
+            else if (c2 >= 0xa0 && c2 <= 0xbe && c2 != 0xb7) c2 -= 0x20;
+            else if (c2 == 0xbf)
+            {
+                c1 = 0xc5;
+                c2 = 0xb8;
+            }
+            break;
+
+        case 0xc4: // Latin ext
+            if (c2 >= 0x80 && c2 <= 0xb7 && c2 != 0xb1 && IsOdd(c2)) c2--;
+            else if (c2 >= 0xb9 && c2 <= 0xbe && IsEven(c2)) c2--;
+            break;
+
+        case 0xc5: // Latin ext
+            if (c2 == 0x80)
+            {
+                c1 = 0xc4;
+                c2 = 0xbf;
+            }
+            else if (c2 >= 0x81 && c2 <= 0x88 && IsEven(c2)) c2--;
+            else if (c2 >= 0x8a && c2 <= 0xb7 && IsOdd(c2)) c2--;
+            else if (c2 == 0xb8)
+            {
+                c1 = 0xc5;
+                c2 = 0xb8;
+            }
+            else if (c2 >= 0xb9 && c2 <= 0xbe && IsEven(c2)) c2--;
+            break;
+
+        case 0xc6: // Latin ext
+            switch (c2)
+            {
+                case 0x83:
+                case 0x85:
+                case 0x88:
+                case 0x8c:
+                case 0x92:
+                case 0x99:
+                case 0xa1:
+                case 0xa3:
+                case 0xa5:
+                case 0xa8:
+                case 0xad:
+                case 0xb0:
+                case 0xb4:
+                case 0xb6:
+                case 0xb9:
+                case 0xbd:
+                    c2--;
+                    break;
+                case 0x80:
+                    c1 = 0xc9;
+                    c2 = 0x83;
+                    break;
+                case 0x95:
+                    c1 = 0xc7;
+                    c2 = 0xb6;
+                    break;
+                case 0x9a:
+                    c1 = 0xc8;
+                    c2 = 0xbd;
+                    break;
+                case 0x9e:
+                    c1 = 0xc8;
+                    c2 = 0xa0;
+                    break;
+                case 0xbf:
+                    c1 = 0xc7;
+                    c2 = 0xb7;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xc7: // Latin ext
+            if (c2 == 0x85) c2--;
+            else if (c2 == 0x86) c2 = 0x84;
+            else if (c2 == 0x88) c2--;
+            else if (c2 == 0x89) c2 = 0x87;
+            else if (c2 == 0x8b) c2--;
+            else if (c2 == 0x8c) c2 = 0x8a;
+            else if (c2 >= 0x8d && c2 <= 0x9c && IsEven(c2)) c2--;
+            else if (c2 >= 0x9e && c2 <= 0xaf && IsOdd(c2)) c2--;
+            else if (c2 == 0xb2) c2--;
+            else if (c2 == 0xb3) c2 = 0xb1;
+            else if (c2 == 0xb5) c2--;
+            else if (c2 >= 0xb9 && c2 <= 0xbf && IsOdd(c2)) c2--;
+            break;
+
+        case 0xc8: // Latin ext
+            if (c2 >= 0x80 && c2 <= 0x9f && IsOdd(c2)) c2--;
+            else if (c2 >= 0xa2 && c2 <= 0xb3 && IsOdd(c2)) c2--;
+            else if (c2 == 0xbc) c2--;
+            break;
+
+        case 0xc9: // Latin ext
+            switch (c2)
+            {
+                case 0x80:
+                case 0x90:
+                case 0x91:
+                case 0x92:
+                case 0x9c:
+                case 0xa1:
+                case 0xa5:
+                case 0xa6:
+                case 0xab:
+                case 0xac:
+                case 0xb1:
+                case 0xbd:
+                    break;
+                case 0x82:
+                    c2--;
+                    break;
+                case 0x93:
+                    c1 = 0xc6;
+                    c2 = 0x81;
+                    break;
+                case 0x94:
+                    c1 = 0xc6;
+                    c2 = 0x86;
+                    break;
+                case 0x96:
+                    c1 = 0xc6;
+                    c2 = 0x89;
+                    break;
+                case 0x97:
+                    c1 = 0xc6;
+                    c2 = 0x8a;
+                    break;
+                case 0x98:
+                    c1 = 0xc6;
+                    c2 = 0x8e;
+                    break;
+                case 0x99:
+                    c1 = 0xc6;
+                    c2 = 0x8f;
+                    break;
+                case 0x9b:
+                    c1 = 0xc6;
+                    c2 = 0x90;
+                    break;
+                case 0xa0:
+                    c1 = 0xc6;
+                    c2 = 0x93;
+                    break;
+                case 0xa3:
+                    c1 = 0xc6;
+                    c2 = 0x94;
+                    break;
+                case 0xa8:
+                    c1 = 0xc6;
+                    c2 = 0x97;
+                    break;
+                case 0xa9:
+                    c1 = 0xc6;
+                    c2 = 0x96;
+                    break;
+                case 0xaf:
+                    c1 = 0xc6;
+                    c2 = 0x9c;
+                    break;
+                case 0xb2:
+                    c1 = 0xc6;
+                    c2 = 0x9d;
+                    break;
+                case 0xb5:
+                    c1 = 0xc6;
+                    c2 = 0x9f;
+                    break;
+                default:
+                    if (c2 >= 0x87 && c2 <= 0x8f && IsOdd(c2)) c2--;
+                    break;
+            }
+            break;
+
+        case 0xca: // Latin ext
+            switch (c2)
+            {
+                case 0x82:
+                case 0x87:
+                case 0x9d:
+                case 0x9e:
+                    break;
+                case 0x83:
+                    c1 = 0xc6;
+                    c2 = 0xa9;
+                    break;
+                case 0x88:
+                    c1 = 0xc6;
+                    c2 = 0xae;
+                    break;
+                case 0x89:
+                    c1 = 0xc9;
+                    c2 = 0x84;
+                    break;
+                case 0x8a:
+                    c1 = 0xc6;
+                    c2 = 0xb1;
+                    break;
+                case 0x8b:
+                    c1 = 0xc6;
+                    c2 = 0xb2;
+                    break;
+                case 0x8c:
+                    c1 = 0xc9;
+                    c2 = 0x85;
+                    break;
+                case 0x92:
+                    c1 = 0xc6;
+                    c2 = 0xb7;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xcd: // Greek & Coptic
+            switch (c2)
+            {
+                case 0xb1:
+                case 0xb3:
+                case 0xb7:
+                    c2--;
+                    break;
+                case 0xbb:
+                    c1 = 0xcf;
+                    c2 = 0xbd;
+                    break;
+                case 0xbc:
+                    c1 = 0xcf;
+                    c2 = 0xbe;
+                    break;
+                case 0xbd:
+                    c1 = 0xcf;
+                    c2 = 0xbf;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xce: // Greek & Coptic
+            if (c2 == 0xac) c2 = 0x86;
+            else if (c2 == 0xad) c2 = 0x88;
+            else if (c2 == 0xae) c2 = 0x89;
+            else if (c2 == 0xaf) c2 = 0x8a;
+            else if (c2 >= 0xb1 && c2 <= 0xbf) c2 -= 0x20;
+            break;
+
+        case 0xcf: // Greek & Coptic
+            if (c2 == 0x82)
+            {
+                c1 = 0xce;
+                c2 = 0xa3;
+            }
+            else if (c2 >= 0x80 && c2 <= 0x8b)
+            {
+                c1 = 0xce;
+                c2 += 0x20;
+            }
+            else if (c2 == 0x8c)
+            {
+                c1 = 0xce;
+                c2 = 0x8c;
+            }
+            else if (c2 == 0x8d)
+            {
+                c1 = 0xce;
+                c2 = 0x8e;
+            }
+            else if (c2 == 0x8e)
+            {
+                c1 = 0xce;
+                c2 = 0x8f;
+            }
+            else if (c2 == 0x91) c2 = 0xb4;
+            else if (c2 == 0x97) c2 = 0x8f;
+            else if (c2 >= 0x98 && c2 <= 0xaf && IsOdd(c2)) c2--;
+            else if (c2 == 0xb2) c2 = 0xb9;
+            else if (c2 == 0xb3)
+            {
+                c1 = 0xcd;
+                c2 = 0xbf;
+            }
+            else if (c2 == 0xb8) c2--;
+            else if (c2 == 0xbb) c2--;
+            break;
+
+        case 0xd0: // Cyrillic
+            if (c2 >= 0xb0 && c2 <= 0xbf) c2 -= 0x20;
+            break;
+
+        case 0xd1: // Cyrillic supplement
+            if (c2 >= 0x80 && c2 <= 0x8f)
+            {
+                c1 = 0xd0;
+                c2 += 0x20;
+            }
+            else if (c2 >= 0x90 && c2 <= 0x9f)
+            {
+                c1 = 0xd0;
+                c2 -= 0x10;
+            }
+            else if (c2 >= 0xa0 && c2 <= 0xbf && IsOdd(c2)) c2--;
+            break;
+
+        case 0xd2: // Cyrillic supplement
+            if (c2 == 0x81) c2--;
+            else if (c2 >= 0x8a && c2 <= 0xbf && IsOdd(c2)) c2--;
+            break;
+
+        case 0xd3: // Cyrillic supplement
+            if (c2 >= 0x81 && c2 <= 0x8e && IsEven(c2)) c2--;
+            else if (c2 == 0x8f) c2 = 0x80;
+            else if (c2 >= 0x90 && c2 <= 0xbf && IsOdd(c2)) c2--;
+            break;
+
+        case 0xd4: // Cyrillic supplement & Armenian
+            if (c2 >= 0x80 && c2 <= 0xaf && IsOdd(c2)) c2--;
+            break;
+
+        case 0xd5: // Armenian
+            if (c2 >= 0xa1 && c2 <= 0xaf)
+            {
+                c1 = 0xd4;
+                c2 += 0x10;
+            }
+            else if (c2 >= 0xb0 && c2 <= 0xbf) c2 -= 0x30;
+            break;
+
+        case 0xd6: // Armenian
+            if (c2 >= 0x80 && c2 <= 0x86)
+            {
+                c1 = 0xd5;
+                c2 += 0x10;
+            }
+            break;
+
+        case 0xe1: // Three byte code
+            switch (c2)
+            {
+                case 0x82: // Georgian Asomtavruli
+                    if (c3 >= 0xa0 && c3 <= 0xbf)
+                    {
+                        c2 = 0xb2;
+                        c3 -= 0x10;
+                    }
+                    break;
+                case 0x83:
+                    // Georgian Asomtavruli
+                    if ((c3 >= 0x80 && c3 <= 0x85) || c3 == 0x87 || c3 == 0x8d)
+                    {
+                        c2 = 0xb2;
+                        c3 += 0x30;
+                    }
+                    // Georgian mkhedruli
+                    else if ((c3 >= 0x90 && c3 <= 0xba) || c3 == 0xbd || c3 == 0xbe || c3 == 0xbf)
+                    {
+                        c2 = 0xb2;
+                    }
+                    break;
+                case 0x8f: // Cherokee
+                    if (c3 >= 0xb8 && c3 <= 0xbd)
+                    {
+                        c3 -= 0x08;
+                    }
+                    break;
+                case 0xb5: // Latin ext
+                    if (c3 == 0xb9)
+                    {
+                        c1 = 0xea;
+                        c2 = 0x9d;
+                        c3 = 0xbd;
+                    }
+                    else if (c3 == 0xbd)
+                    {
+                        c1 = 0xe2;
+                        c2 = 0xb1;
+                        c3 = 0xa3;
+                    }
+                    break;
+                case 0xb6: // Latin ext
+                    if (c3 == 0x8e)
+                    {
+                        c1 = 0xea;
+                        c2 = 0x9f;
+                        c3 = 0x86;
+                    }
+                    break;
+                case 0xb8: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsOdd(c3)) c3--;
+                    break;
+                case 0xb9: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsOdd(c3)) c3--;
+                    break;
+                case 0xba: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0x95 && IsOdd(c3)) c3--;
+                    else if (c3 >= 0xa0 && c3 <= 0xbf && IsOdd(c3)) c3--;
+                    break;
+                case 0xbb: // Latin ext
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsOdd(c3)) c3--;
+                    break;
+                case 0xbc: // Greek ext
+                    if (c3 >= 0x80 && c3 <= 0x87) c3 += 0x08;
+                    else if (c3 >= 0x90 && c3 <= 0x95) c3 += 0x08;
+                    else if (c3 >= 0xa0 && c3 <= 0xa7) c3 += 0x08;
+                    else if (c3 >= 0xb0 && c3 <= 0xb7) c3 += 0x08;
+                    break;
+                case 0xbd: // Greek ext
+                    if (c3 >= 0x80 && c3 <= 0x85) c3 += 0x08;
+                    else if (c3 == 0x91 || c3 == 0x93 || c3 == 0x95 || c3 == 0x97) c3 += 0x08;
+                    else if (c3 >= 0xa0 && c3 <= 0xa7) c3 += 0x08;
+                    else if (c3 >= 0xb0 && c3 <= 0xb1)
+                    {
+                        c2 = 0xbe;
+                        c3 += 0x0a;
+                    }
+                    else if (c3 >= 0xb2 && c3 <= 0xb5)
+                    {
+                        c2 = 0xbf;
+                        c3 -= 0x2a;
+                    }
+                    else if (c3 >= 0xb6 && c3 <= 0xb7)
+                    {
+                        c2 = 0xbf;
+                        c3 -= 0x1c;
+                    }
+                    else if (c3 >= 0xb8 && c3 <= 0xb9)
+                    {
+                        c2 = 0xbf;
+                    }
+                    else if (c3 >= 0xba && c3 <= 0xbb)
+                    {
+                        c2 = 0xbf;
+                        c3 -= 0x10;
+                    }
+                    else if (c3 >= 0xbc && c3 <= 0xbd)
+                    {
+                        c2 = 0xbf;
+                        c3 -= 0x02;
+                    }
+                    break;
+                case 0xbe: // Greek ext
+                    if (c3 >= 0x80 && c3 <= 0x87) c3 += 0x08;
+                    else if (c3 >= 0x90 && c3 <= 0x97) c3 += 0x08;
+                    else if (c3 >= 0xa0 && c3 <= 0xa7) c3 += 0x08;
+                    else if (c3 >= 0xb0 && c3 <= 0xb1) c3 += 0x08;
+                    else if (c3 == 0xb3) c3 += 0x09;
+                    break;
+                case 0xbf: // Greek ext
+                    if (c3 == 0x83) c3 += 0x09;
+                    else if (c3 >= 0x90 && c3 <= 0x91) c3 += 0x08;
+                    else if (c3 >= 0xa0 && c3 <= 0xa1) c3 += 0x08;
+                    else if (c3 == 0xa5) c3 += 0x07;
+                    else if (c3 == 0xb3) c3 += 0x09;
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xe2: // Three byte code
+            switch (c2)
+            {
+                case 0xb0: // Glagolitic
+                    if (c3 >= 0xb0 && c3 <= 0xbf) c3 -= 0x30;
+                    break;
+                case 0xb1: // Glagolitic
+                    if (c3 >= 0x80 && c3 <= 0x9e)
+                    {
+                        c2 = 0xb0;
+                        c3 += 0x10;
+                    }
+                    else
+                    { // Latin ext
+                        switch (c3)
+                        {
+                            case 0xa1:
+                            case 0xa8:
+                            case 0xaa:
+                            case 0xac:
+                            case 0xb3:
+                            case 0xb6:
+                                c3--;
+                                break;
+                            case 0xa5:
+                            case 0xa6:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    break;
+                case 0xb2: // Coptic
+                    if (c3 >= 0x80 && c3 <= 0xbf && IsOdd(c3)) c3--;
+                    break;
+                case 0xb3: // Coptic
+                    if ((c3 >= 0x80 && c3 <= 0xa3 && IsOdd(c3)) || c3 == 0xac || c3 == 0xae || c3 == 0xb3) c3--;
+                    break;
+                case 0xb4: // Georgian
+                    if ((c3 >= 0x80 && c3 <= 0xa5) || c3 == 0xa7 || c3 == 0xad)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0xb2;
+                        c3 += 0x10;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xea: // Three byte code
+            switch (c2)
+            {
+                case 0x99: // Cyrillic
+                    if (c3 >= 0x80 && c3 <= 0xad && IsOdd(c3)) c3--;
+                    break;
+                case 0x9a: // Cyrillic
+                    if (c3 >= 0x80 && c3 <= 0x9b && IsOdd(c3)) c3--;
+                    break;
+                case 0x9c: // Latin ext
+                    if (((c3 >= 0xa2 && c3 <= 0xaf) || (c3 >= 0xb2 && c3 <= 0xbf)) && IsOdd(c3)) c3--;
+                    break;
+                case 0x9d: // Latin ext
+                    if ((c3 >= 0x80 && c3 <= 0xaf && IsOdd(c3)) || c3 == 0xba || c3 == 0xbc || c3 == 0xbf) c3--;
+                    break;
+                case 0x9e: // Latin ext
+                    if ((((c3 >= 0x80 && c3 <= 0x87) || (c3 >= 0x96 && c3 <= 0xa9) || (c3 >= 0xb4 && c3 <= 0xbf)) && IsOdd(c3)) || c3 == 0x8c || c3 == 0x91 || c3 == 0x93) c3--;
+                    else if (c3 == 0x94)
+                    {
+                        c1 = 0xea;
+                        c2 = 0x9f;
+                        c3 = 0x84;
+                    }
+                    break;
+                case 0x9f: // Latin ext
+                    if (c3 == 0x83 || c3 == 0x88 || c3 == 0x8a || c3 == 0xb6) c3--;
+                    break;
+                case 0xad:
+                    // Latin ext
+                    if (c3 == 0x93)
+                    {
+                        c2 = 0x9e;
+                        c3 = 0xb3;
+                    }
+                    // Cherokee
+                    else if (c3 >= 0xb0 && c3 <= 0xbf)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0x8e;
+                        c3 -= 0x10;
+                    }
+                    break;
+                case 0xae: // Cherokee
+                    if (c3 >= 0x80 && c3 <= 0x8f)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0x8e;
+                        c3 += 0x30;
+                    }
+                    else if (c3 >= 0x90 && c3 <= 0xbf)
+                    {
+                        c1 = 0xe1;
+                        c2 = 0x8f;
+                        c3 -= 0x10;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xef: // Three byte code
+            switch (c2)
+            {
+                case 0xbd: // Latin fullwidth
+                    if (c3 >= 0x81 && c3 <= 0x9a)
+                    {
+                        c2 = 0xbc;
+                        c3 += 0x20;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+
+        case 0xf0: // Four byte code
+            break;
+            
+        default:
+            break;
+    }
+
+    *ptr++ = c1;
+    *ptr++ = c2;
+    if (c3) *ptr++ = c3;
+    if (c4) *ptr++ = c4;
+    *ptr = 0;
+}
 
 void MakeLowerCase(char* ptr)
 {
@@ -4984,22 +6334,17 @@ void MakeLowerCase(char* ptr)
 	{
 		char utfcharacter[10];
 		char* x = IsUTF8(ptr, utfcharacter); // return after this character if it is valid.
-		if (utfcharacter[1] && *ptr == 0xc3 && (unsigned char)ptr[1] >= 0x80 && (unsigned char)ptr[1] <= 0x9e)
-		{
-			unsigned char c = (unsigned char)*++ptr; // get the cap form
-			if (c != 0x97) // multiplication sign doesn't change
-			{
-				c -= 0x80;
-				c += 0xa0; // get lower case form
-			}
-			*ptr = (char)c;
-		}
-		else if (utfcharacter[1] && *ptr >= 0xc4 && *ptr <= 0xc9)
-		{
-			unsigned char c = (unsigned char)*++ptr;
-			*ptr = (char)c | 1;
-		}
-		else if (utfcharacter[1]) ptr = x - 1;
+        if (utfcharacter[1])
+        {
+            size_t oldLen = strlen(utfcharacter);
+            LowerUTF8Char(utfcharacter);
+            size_t newLen = strlen(utfcharacter);
+            if (newLen > oldLen) memmove(ptr+newLen,ptr+oldLen,strlen(ptr+oldLen)+1);
+            strncpy(ptr, utfcharacter, newLen);
+            ptr += newLen;
+            if (newLen < oldLen) memmove(ptr,ptr+(oldLen-newLen),strlen(ptr+(oldLen-newLen))+1);
+            --ptr;
+        }
 		else *ptr = GetLowercaseData(*ptr);
 	}
 }
@@ -5011,22 +6356,17 @@ void MakeUpperCase(char* ptr)
 	{
 		char utfcharacter[10];
 		char* x = IsUTF8(ptr, utfcharacter); // return after this character if it is valid.
-		if (utfcharacter[1] && *ptr == 0xc3 && ptr[1] >= 0x9f && ptr[1] <= 0xbf)
-		{
-			unsigned char c = (unsigned char)*++ptr; // get the cap form
-			if (c != 0x9f && c != 0xb7) // sharp s and division sign don't change
-			{
-				c -= 0xa0;
-				c += 0x80; // get upper case form
-			}
-			*ptr = (char)c;
-		}
-		else if (utfcharacter[1] && *ptr >= 0xc4 && *ptr <= 0xc9)
-		{
-			unsigned char c = (unsigned char)*++ptr; // get the cap form
-			*ptr = (char)c & 0xfe;
-		}
-		else if (utfcharacter[1]) ptr = x - 1;
+        if (utfcharacter[1])
+        {
+            size_t oldLen = strlen(utfcharacter);
+            UpperUTF8Char(utfcharacter);
+            size_t newLen = strlen(utfcharacter);
+            if (newLen > oldLen) memmove(ptr+newLen,ptr+oldLen,strlen(ptr+oldLen)+1);
+            strncpy(ptr, utfcharacter, newLen);
+            ptr += newLen;
+            if (newLen < oldLen) memmove(ptr,ptr+(oldLen-newLen),strlen(ptr+(oldLen-newLen))+1);
+            --ptr;
+        }
 		else  *ptr = GetUppercaseData(*ptr);
 	}
 }
@@ -5068,30 +6408,13 @@ char* MakeLowerCopy(char* to, const char* from)
 	{
 		char utfcharacter[10];
 		char* x = IsUTF8((char*)from, utfcharacter); // return after this character if it is valid.
-		if (utfcharacter[1] && *from == 0xc3 && from[1] >= 0x80 && from[1] <= 0x9e)
-		{
-			*to++ = *from;
-			unsigned char c = from[1]; // get the cap form
-			if (c != 0x97) // multiplication sign doesn't change
-			{
-				c -= 0x80;
-				c += 0xa0; // get lower case form
-			}
-			*to++ = c;
-			from = x;
-		}
-		else if (utfcharacter[1] && *from >= 0xc4 && *from <= 0xc9)
-		{
-			*to++ = *from;
-			*to++ = from[1] | 1; // lowercase from cap
-			from = x;
-		}
-		else if (utfcharacter[1])
-		{
-			strcpy(to, utfcharacter);
-			to += strlen(to);
-			from = x;
-		}
+        if (utfcharacter[1])
+        {
+            LowerUTF8Char(utfcharacter);
+            strcpy(to, utfcharacter);
+            to += strlen(to);
+            from = x;
+        }
 		else *to++ = GetLowercaseData(*from++);
 	}
 	*to = 0;
@@ -5105,30 +6428,13 @@ char* MakeUpperCopy(char* to, const char* from)
 	{
 		char utfcharacter[10];
 		char* x = IsUTF8((char*)from, utfcharacter); // return after this character if it is valid.
-		if (utfcharacter[1] && *from == 0xc3 && from[1] >= 0x9f && from[1] <= 0xbf)
-		{
-			*to++ = *from;
-			unsigned char c = from[1]; // get the cap form
-			if (c != 0x9f && c != 0xb7) // sharp s and division sign don't change
-			{
-				c -= 0xa0;
-				c += 0x80; // get upper case form
-			}
-			*to++ = c;
-			from = x;
-		}
-		else if (utfcharacter[1] && (*from >= 0xc4 && *from <= 0xc9))
-		{
-			*to++ = *from;
-			*to++ = from[1] & 0xfe; // uppercase from small
-			from = x;
-		}
-		else if (utfcharacter[1])
-		{
-			strcpy(to, utfcharacter);
-			to += strlen(to);
-			from = x;
-		}
+        if (utfcharacter[1])
+        {
+            UpperUTF8Char(utfcharacter);
+            strcpy(to, utfcharacter);
+            to += strlen(to);
+            from = x;
+        }
 		else *to++ = GetUppercaseData(*from++);
 	}
 	*to = 0;
@@ -5272,7 +6578,7 @@ RETRY: // for sampling loopback
 			at = SkipWhitespace(documentBuffer);
 			if (*at == OOB_START)  // starts with OOB, add no more lines onto it.
 			{
-				strcpy(mainInputBuffer, at);
+				strcpy(ourMainInputBuffer, at);
 				*documentBuffer = 0;
 				break;
 			}

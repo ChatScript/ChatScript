@@ -1,0 +1,12590 @@
+[
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/childhood.top",
+"items" : [
+{
+"topic" : "~childhood",
+"line" : 2,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "t:",
+"label" : "",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "0.1",
+"kind" : "a:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "0.2",
+"kind" : "a:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "t:",
+"label" : "RUNAWAY",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "t:",
+"label" : "",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "2.1",
+"kind" : "a:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "2.2",
+"kind" : "a:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "2.3",
+"kind" : "a:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "2.4",
+"kind" : "a:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "2.5",
+"kind" : "a:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "2.6",
+"kind" : "a:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "2.7",
+"kind" : "a:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "2.8",
+"kind" : "a:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "2.9",
+"kind" : "b:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "2.10",
+"kind" : "b:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "t:",
+"label" : "SCARE",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "t:",
+"label" : "",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"label" : "HAPPY",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "u:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "u:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "u:",
+"line" : 68,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/introductions.top",
+"items" : [
+{
+"topic" : "~introductions",
+"line" : 2,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "t:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "t:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "t:",
+"label" : "",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "2.1",
+"kind" : "a:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "2.2",
+"kind" : "a:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 22,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/keywordless.top",
+"items" : [
+{
+"topic" : "~keywordless",
+"line" : 4,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/simplecontrol.top",
+"items" : [
+{
+"macro" : "^harry",
+"line" : 6,
+"complexity" : 1
+},
+{
+"topic" : "~control",
+"line" : 38,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "u:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "u:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "u:",
+"line" : 57,
+"complexity" : 17
+}]
+}
+,
+{
+"topic" : "~xpostprocess",
+"line" : 147,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "t:",
+"line" : 149,
+"complexity" : 3
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_because.top",
+"items" : [
+{
+"topic" : "~quibble_because",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "s:",
+"line" : 2,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "u:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.1",
+"kind" : "a:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "s:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "3.1",
+"kind" : "a:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "s:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "s:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "5.1",
+"kind" : "b:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "s:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "6.1",
+"kind" : "b:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "s:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "8.1",
+"kind" : "b:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "8.2",
+"kind" : "b:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "8.3",
+"kind" : "d:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "s:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "9.1",
+"kind" : "a:",
+"line" : 19,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_can.top",
+"items" : [
+{
+"topic" : "~quibble_will",
+"line" : 2,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+}]
+}
+,
+{
+"topic" : "~quibble_can",
+"line" : 9,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "s:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "s:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "s:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "7.1",
+"kind" : "b:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "7.2",
+"kind" : "c:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "22.1",
+"kind" : "a:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "37.1",
+"kind" : "a:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "72.1",
+"kind" : "b:",
+"line" : 88,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_do.top",
+"items" : [
+{
+"topic" : "~quibble_do",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"label" : "DO",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "4.1",
+"kind" : "b:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "4.2",
+"kind" : "b:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "4.3",
+"kind" : "d:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"label" : "DID",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"label" : "DOES",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "13.1",
+"kind" : "b:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"label" : "SUPPOSE",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "30.1",
+"kind" : "b:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "?:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "?:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "?:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "?:",
+"line" : 88,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 89,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "?:",
+"line" : 91,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "?:",
+"line" : 92,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "?:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "?:",
+"line" : 94,
+"complexity" : 1
+},
+{
+"rule" : "82.1",
+"kind" : "b:",
+"line" : 95,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "?:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "?:",
+"line" : 97,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "?:",
+"line" : 98,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "?:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "?:",
+"line" : 100,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "?:",
+"line" : 101,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "?:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "?:",
+"line" : 103,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "?:",
+"line" : 104,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "?:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "?:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "?:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "?:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "?:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "?:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "?:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "?:",
+"line" : 115,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_how.top",
+"items" : [
+{
+"topic" : "~quibble_howmuch",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "17.1",
+"kind" : "a:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+}]
+}
+,
+{
+"topic" : "~quibble_how",
+"line" : 36,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "1.1",
+"kind" : "a:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "17.1",
+"kind" : "b:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 88,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 89,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 91,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 92,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 94,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 95,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 97,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 98,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 100,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "s:",
+"line" : 101,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 103,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 104,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "?:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "u:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "u:",
+"line" : 115,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "s:",
+"line" : 116,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 117,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 118,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "?:",
+"line" : 119,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "?:",
+"line" : 120,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "?:",
+"line" : 121,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "?:",
+"line" : 122,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "?:",
+"line" : 123,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "?:",
+"line" : 124,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "?:",
+"line" : 125,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "?:",
+"line" : 126,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "?:",
+"line" : 127,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "?:",
+"line" : 128,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "?:",
+"line" : 129,
+"complexity" : 1
+},
+{
+"rule" : "89.1",
+"kind" : "b:",
+"line" : 130,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "?:",
+"line" : 131,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "?:",
+"line" : 132,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "?:",
+"line" : 133,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "?:",
+"line" : 134,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "?:",
+"line" : 135,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "?:",
+"line" : 136,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "?:",
+"line" : 137,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "?:",
+"line" : 138,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "?:",
+"line" : 139,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "?:",
+"line" : 140,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "?:",
+"line" : 141,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "?:",
+"line" : 142,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "?:",
+"line" : 143,
+"complexity" : 1
+},
+{
+"rule" : "103.0",
+"kind" : "?:",
+"line" : 144,
+"complexity" : 1
+},
+{
+"rule" : "104.0",
+"kind" : "?:",
+"line" : 145,
+"complexity" : 1
+},
+{
+"rule" : "105.0",
+"kind" : "?:",
+"line" : 146,
+"complexity" : 1
+},
+{
+"rule" : "106.0",
+"kind" : "?:",
+"line" : 147,
+"complexity" : 1
+},
+{
+"rule" : "107.0",
+"kind" : "?:",
+"line" : 148,
+"complexity" : 1
+},
+{
+"rule" : "108.0",
+"kind" : "?:",
+"line" : 149,
+"complexity" : 1
+},
+{
+"rule" : "109.0",
+"kind" : "?:",
+"line" : 150,
+"complexity" : 1
+},
+{
+"rule" : "110.0",
+"kind" : "?:",
+"line" : 151,
+"complexity" : 1
+},
+{
+"rule" : "111.0",
+"kind" : "?:",
+"line" : 152,
+"complexity" : 1
+},
+{
+"rule" : "112.0",
+"kind" : "?:",
+"line" : 153,
+"complexity" : 1
+},
+{
+"rule" : "113.0",
+"kind" : "u:",
+"line" : 154,
+"complexity" : 1
+},
+{
+"rule" : "114.0",
+"kind" : "?:",
+"line" : 155,
+"complexity" : 1
+},
+{
+"rule" : "115.0",
+"kind" : "?:",
+"line" : 156,
+"complexity" : 1
+},
+{
+"rule" : "116.0",
+"kind" : "?:",
+"line" : 157,
+"complexity" : 1
+},
+{
+"rule" : "117.0",
+"kind" : "u:",
+"line" : 158,
+"complexity" : 1
+},
+{
+"rule" : "118.0",
+"kind" : "?:",
+"line" : 159,
+"complexity" : 1
+},
+{
+"rule" : "119.0",
+"kind" : "?:",
+"line" : 160,
+"complexity" : 1
+},
+{
+"rule" : "120.0",
+"kind" : "?:",
+"line" : 161,
+"complexity" : 1
+},
+{
+"rule" : "121.0",
+"kind" : "?:",
+"line" : 162,
+"complexity" : 1
+},
+{
+"rule" : "122.0",
+"kind" : "?:",
+"line" : 163,
+"complexity" : 1
+},
+{
+"rule" : "123.0",
+"kind" : "?:",
+"line" : 164,
+"complexity" : 1
+},
+{
+"rule" : "124.0",
+"kind" : "?:",
+"line" : 165,
+"complexity" : 1
+},
+{
+"rule" : "125.0",
+"kind" : "?:",
+"line" : 166,
+"complexity" : 1
+},
+{
+"rule" : "126.0",
+"kind" : "?:",
+"line" : 167,
+"complexity" : 1
+},
+{
+"rule" : "127.0",
+"kind" : "?:",
+"line" : 168,
+"complexity" : 1
+},
+{
+"rule" : "128.0",
+"kind" : "?:",
+"line" : 169,
+"complexity" : 1
+},
+{
+"rule" : "129.0",
+"kind" : "?:",
+"line" : 170,
+"complexity" : 1
+},
+{
+"rule" : "130.0",
+"kind" : "?:",
+"line" : 171,
+"complexity" : 1
+},
+{
+"rule" : "131.0",
+"kind" : "?:",
+"line" : 172,
+"complexity" : 1
+},
+{
+"rule" : "132.0",
+"kind" : "?:",
+"line" : 173,
+"complexity" : 1
+},
+{
+"rule" : "133.0",
+"kind" : "?:",
+"line" : 174,
+"complexity" : 1
+},
+{
+"rule" : "134.0",
+"kind" : "?:",
+"line" : 175,
+"complexity" : 1
+},
+{
+"rule" : "135.0",
+"kind" : "?:",
+"line" : 176,
+"complexity" : 1
+},
+{
+"rule" : "136.0",
+"kind" : "?:",
+"line" : 177,
+"complexity" : 1
+},
+{
+"rule" : "137.0",
+"kind" : "?:",
+"line" : 178,
+"complexity" : 1
+},
+{
+"rule" : "138.0",
+"kind" : "?:",
+"line" : 179,
+"complexity" : 1
+},
+{
+"rule" : "139.0",
+"kind" : "?:",
+"line" : 180,
+"complexity" : 1
+},
+{
+"rule" : "140.0",
+"kind" : "?:",
+"line" : 181,
+"complexity" : 1
+},
+{
+"rule" : "141.0",
+"kind" : "?:",
+"line" : 182,
+"complexity" : 1
+},
+{
+"rule" : "142.0",
+"kind" : "?:",
+"line" : 183,
+"complexity" : 1
+},
+{
+"rule" : "143.0",
+"kind" : "?:",
+"line" : 184,
+"complexity" : 1
+},
+{
+"rule" : "144.0",
+"kind" : "?:",
+"line" : 185,
+"complexity" : 1
+},
+{
+"rule" : "145.0",
+"kind" : "?:",
+"line" : 186,
+"complexity" : 1
+},
+{
+"rule" : "146.0",
+"kind" : "?:",
+"line" : 187,
+"complexity" : 1
+},
+{
+"rule" : "147.0",
+"kind" : "?:",
+"line" : 188,
+"complexity" : 1
+},
+{
+"rule" : "148.0",
+"kind" : "?:",
+"line" : 189,
+"complexity" : 1
+},
+{
+"rule" : "149.0",
+"kind" : "?:",
+"line" : 190,
+"complexity" : 1
+},
+{
+"rule" : "150.0",
+"kind" : "?:",
+"line" : 191,
+"complexity" : 1
+},
+{
+"rule" : "151.0",
+"kind" : "?:",
+"line" : 192,
+"complexity" : 1
+},
+{
+"rule" : "152.0",
+"kind" : "?:",
+"line" : 193,
+"complexity" : 1
+},
+{
+"rule" : "153.0",
+"kind" : "?:",
+"line" : 194,
+"complexity" : 1
+},
+{
+"rule" : "154.0",
+"kind" : "?:",
+"line" : 195,
+"complexity" : 1
+},
+{
+"rule" : "155.0",
+"kind" : "?:",
+"line" : 196,
+"complexity" : 1
+},
+{
+"rule" : "156.0",
+"kind" : "?:",
+"line" : 197,
+"complexity" : 1
+},
+{
+"rule" : "157.0",
+"kind" : "?:",
+"line" : 198,
+"complexity" : 1
+},
+{
+"rule" : "158.0",
+"kind" : "?:",
+"line" : 199,
+"complexity" : 1
+},
+{
+"rule" : "159.0",
+"kind" : "?:",
+"line" : 200,
+"complexity" : 1
+},
+{
+"rule" : "160.0",
+"kind" : "?:",
+"line" : 201,
+"complexity" : 1
+},
+{
+"rule" : "161.0",
+"kind" : "?:",
+"line" : 202,
+"complexity" : 1
+},
+{
+"rule" : "162.0",
+"kind" : "?:",
+"line" : 203,
+"complexity" : 1
+},
+{
+"rule" : "163.0",
+"kind" : "?:",
+"line" : 204,
+"complexity" : 1
+},
+{
+"rule" : "164.0",
+"kind" : "?:",
+"line" : 205,
+"complexity" : 1
+},
+{
+"rule" : "165.0",
+"kind" : "?:",
+"line" : 206,
+"complexity" : 1
+},
+{
+"rule" : "166.0",
+"kind" : "?:",
+"line" : 207,
+"complexity" : 1
+},
+{
+"rule" : "167.0",
+"kind" : "?:",
+"line" : 208,
+"complexity" : 1
+},
+{
+"rule" : "168.0",
+"kind" : "?:",
+"line" : 209,
+"complexity" : 1
+},
+{
+"rule" : "169.0",
+"kind" : "?:",
+"line" : 210,
+"complexity" : 1
+},
+{
+"rule" : "170.0",
+"kind" : "?:",
+"line" : 211,
+"complexity" : 1
+},
+{
+"rule" : "171.0",
+"kind" : "?:",
+"line" : 212,
+"complexity" : 1
+},
+{
+"rule" : "172.0",
+"kind" : "?:",
+"line" : 213,
+"complexity" : 1
+},
+{
+"rule" : "173.0",
+"kind" : "?:",
+"line" : 214,
+"complexity" : 1
+},
+{
+"rule" : "174.0",
+"kind" : "?:",
+"line" : 215,
+"complexity" : 1
+},
+{
+"rule" : "175.0",
+"kind" : "?:",
+"line" : 216,
+"complexity" : 1
+},
+{
+"rule" : "176.0",
+"kind" : "?:",
+"line" : 217,
+"complexity" : 1
+},
+{
+"rule" : "177.0",
+"kind" : "?:",
+"line" : 218,
+"complexity" : 1
+},
+{
+"rule" : "178.0",
+"kind" : "?:",
+"line" : 219,
+"complexity" : 1
+},
+{
+"rule" : "179.0",
+"kind" : "?:",
+"line" : 220,
+"complexity" : 1
+},
+{
+"rule" : "180.0",
+"kind" : "?:",
+"line" : 221,
+"complexity" : 1
+},
+{
+"rule" : "181.0",
+"kind" : "?:",
+"line" : 222,
+"complexity" : 1
+},
+{
+"rule" : "182.0",
+"kind" : "?:",
+"line" : 223,
+"complexity" : 1
+},
+{
+"rule" : "183.0",
+"kind" : "?:",
+"line" : 224,
+"complexity" : 1
+},
+{
+"rule" : "184.0",
+"kind" : "?:",
+"line" : 225,
+"complexity" : 1
+},
+{
+"rule" : "185.0",
+"kind" : "?:",
+"line" : 226,
+"complexity" : 1
+},
+{
+"rule" : "186.0",
+"kind" : "?:",
+"line" : 227,
+"complexity" : 1
+},
+{
+"rule" : "186.1",
+"kind" : "b:",
+"line" : 228,
+"complexity" : 1
+},
+{
+"rule" : "186.2",
+"kind" : "b:",
+"line" : 229,
+"complexity" : 1
+},
+{
+"rule" : "187.0",
+"kind" : "?:",
+"line" : 230,
+"complexity" : 1
+},
+{
+"rule" : "188.0",
+"kind" : "?:",
+"line" : 231,
+"complexity" : 1
+},
+{
+"rule" : "189.0",
+"kind" : "?:",
+"line" : 232,
+"complexity" : 1
+},
+{
+"rule" : "190.0",
+"kind" : "?:",
+"line" : 233,
+"complexity" : 1
+},
+{
+"rule" : "191.0",
+"kind" : "?:",
+"line" : 234,
+"complexity" : 1
+},
+{
+"rule" : "192.0",
+"kind" : "?:",
+"line" : 235,
+"complexity" : 1
+},
+{
+"rule" : "193.0",
+"kind" : "?:",
+"line" : 236,
+"complexity" : 1
+},
+{
+"rule" : "194.0",
+"kind" : "?:",
+"label" : "KNOW",
+"line" : 237,
+"complexity" : 1
+},
+{
+"rule" : "195.0",
+"kind" : "?:",
+"line" : 238,
+"complexity" : 1
+},
+{
+"rule" : "195.1",
+"kind" : "c:",
+"line" : 239,
+"complexity" : 1
+},
+{
+"rule" : "196.0",
+"kind" : "?:",
+"line" : 240,
+"complexity" : 1
+},
+{
+"rule" : "197.0",
+"kind" : "?:",
+"line" : 241,
+"complexity" : 1
+},
+{
+"rule" : "198.0",
+"kind" : "?:",
+"line" : 244,
+"complexity" : 1
+},
+{
+"rule" : "199.0",
+"kind" : "?:",
+"line" : 245,
+"complexity" : 1
+},
+{
+"rule" : "200.0",
+"kind" : "?:",
+"line" : 246,
+"complexity" : 1
+},
+{
+"rule" : "201.0",
+"kind" : "?:",
+"line" : 247,
+"complexity" : 1
+},
+{
+"rule" : "202.0",
+"kind" : "?:",
+"line" : 248,
+"complexity" : 1
+},
+{
+"rule" : "203.0",
+"kind" : "?:",
+"line" : 249,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top",
+"items" : [
+{
+"topic" : "~quibble_misc",
+"line" : 3,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "u:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "u:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "u:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "u:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "u:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "s:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "u:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "s:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "u:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "u:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "u:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "s:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "s:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "s:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "s:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "s:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "u:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "s:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "s:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "s:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "s:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "34.1",
+"kind" : "b:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "s:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "s:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "s:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "u:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "s:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "s:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "u:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "s:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "s:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "u:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "s:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "s:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "u:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "s:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "u:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "u:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "u:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "u:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "u:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "u:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "u:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "u:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "u:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "u:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "u:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "u:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "s:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "u:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "u:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "u:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "u:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "s:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "u:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "s:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "u:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "u:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "72.1",
+"kind" : "b:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "s:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "s:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "u:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "s:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "s:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "u:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "s:",
+"line" : 88,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "s:",
+"line" : 89,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "s:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "s:",
+"line" : 91,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "s:",
+"line" : 92,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "s:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "u:",
+"line" : 94,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "u:",
+"line" : 95,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "u:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "u:",
+"line" : 97,
+"complexity" : 1
+},
+{
+"rule" : "90.1",
+"kind" : "b:",
+"line" : 98,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "s:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "u:",
+"line" : 100,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "s:",
+"line" : 101,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "s:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "s:",
+"line" : 103,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "u:",
+"line" : 104,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "?:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "s:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "?:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "?:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "101.1",
+"kind" : "b:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "103.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "104.0",
+"kind" : "u:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "105.0",
+"kind" : "s:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "106.0",
+"kind" : "?:",
+"line" : 115,
+"complexity" : 1
+},
+{
+"rule" : "107.0",
+"kind" : "s:",
+"line" : 116,
+"complexity" : 1
+},
+{
+"rule" : "108.0",
+"kind" : "?:",
+"line" : 117,
+"complexity" : 1
+},
+{
+"rule" : "109.0",
+"kind" : "?:",
+"line" : 118,
+"complexity" : 1
+},
+{
+"rule" : "110.0",
+"kind" : "u:",
+"line" : 119,
+"complexity" : 1
+},
+{
+"rule" : "111.0",
+"kind" : "s:",
+"line" : 120,
+"complexity" : 1
+},
+{
+"rule" : "112.0",
+"kind" : "s:",
+"line" : 121,
+"complexity" : 1
+},
+{
+"rule" : "113.0",
+"kind" : "s:",
+"line" : 122,
+"complexity" : 1
+},
+{
+"rule" : "114.0",
+"kind" : "s:",
+"line" : 123,
+"complexity" : 1
+},
+{
+"rule" : "115.0",
+"kind" : "s:",
+"line" : 124,
+"complexity" : 1
+},
+{
+"rule" : "116.0",
+"kind" : "s:",
+"line" : 125,
+"complexity" : 1
+},
+{
+"rule" : "117.0",
+"kind" : "s:",
+"line" : 126,
+"complexity" : 1
+},
+{
+"rule" : "118.0",
+"kind" : "s:",
+"line" : 127,
+"complexity" : 1
+},
+{
+"rule" : "119.0",
+"kind" : "s:",
+"line" : 128,
+"complexity" : 1
+},
+{
+"rule" : "120.0",
+"kind" : "u:",
+"line" : 129,
+"complexity" : 1
+},
+{
+"rule" : "121.0",
+"kind" : "s:",
+"line" : 130,
+"complexity" : 1
+},
+{
+"rule" : "122.0",
+"kind" : "s:",
+"line" : 131,
+"complexity" : 1
+},
+{
+"rule" : "123.0",
+"kind" : "s:",
+"line" : 132,
+"complexity" : 1
+},
+{
+"rule" : "124.0",
+"kind" : "s:",
+"line" : 133,
+"complexity" : 1
+},
+{
+"rule" : "125.0",
+"kind" : "s:",
+"line" : 134,
+"complexity" : 1
+},
+{
+"rule" : "126.0",
+"kind" : "?:",
+"line" : 135,
+"complexity" : 1
+},
+{
+"rule" : "126.1",
+"kind" : "a:",
+"line" : 136,
+"complexity" : 1
+},
+{
+"rule" : "127.0",
+"kind" : "s:",
+"line" : 137,
+"complexity" : 1
+},
+{
+"rule" : "128.0",
+"kind" : "s:",
+"line" : 140,
+"complexity" : 1
+},
+{
+"rule" : "129.0",
+"kind" : "s:",
+"line" : 141,
+"complexity" : 1
+},
+{
+"rule" : "130.0",
+"kind" : "s:",
+"line" : 142,
+"complexity" : 1
+},
+{
+"rule" : "131.0",
+"kind" : "?:",
+"line" : 144,
+"complexity" : 1
+},
+{
+"rule" : "132.0",
+"kind" : "?:",
+"line" : 146,
+"complexity" : 1
+},
+{
+"rule" : "133.0",
+"kind" : "s:",
+"line" : 148,
+"complexity" : 1
+},
+{
+"rule" : "134.0",
+"kind" : "?:",
+"line" : 149,
+"complexity" : 1
+},
+{
+"rule" : "135.0",
+"kind" : "s:",
+"line" : 150,
+"complexity" : 1
+},
+{
+"rule" : "136.0",
+"kind" : "s:",
+"line" : 152,
+"complexity" : 1
+},
+{
+"rule" : "137.0",
+"kind" : "s:",
+"line" : 153,
+"complexity" : 1
+},
+{
+"rule" : "138.0",
+"kind" : "?:",
+"line" : 154,
+"complexity" : 1
+},
+{
+"rule" : "139.0",
+"kind" : "s:",
+"line" : 155,
+"complexity" : 1
+},
+{
+"rule" : "140.0",
+"kind" : "?:",
+"line" : 156,
+"complexity" : 1
+},
+{
+"rule" : "141.0",
+"kind" : "?:",
+"line" : 158,
+"complexity" : 1
+},
+{
+"rule" : "142.0",
+"kind" : "s:",
+"line" : 160,
+"complexity" : 1
+},
+{
+"rule" : "143.0",
+"kind" : "?:",
+"label" : "HAVE",
+"line" : 163,
+"complexity" : 1
+},
+{
+"rule" : "143.1",
+"kind" : "b:",
+"line" : 164,
+"complexity" : 1
+},
+{
+"rule" : "143.2",
+"kind" : "b:",
+"line" : 165,
+"complexity" : 1
+},
+{
+"rule" : "144.0",
+"kind" : "?:",
+"label" : "HAS",
+"line" : 166,
+"complexity" : 1
+},
+{
+"rule" : "145.0",
+"kind" : "s:",
+"line" : 167,
+"complexity" : 1
+},
+{
+"rule" : "146.0",
+"kind" : "?:",
+"line" : 170,
+"complexity" : 1
+},
+{
+"rule" : "147.0",
+"kind" : "?:",
+"line" : 171,
+"complexity" : 1
+},
+{
+"rule" : "148.0",
+"kind" : "?:",
+"line" : 172,
+"complexity" : 1
+},
+{
+"rule" : "149.0",
+"kind" : "?:",
+"line" : 173,
+"complexity" : 1
+},
+{
+"rule" : "150.0",
+"kind" : "?:",
+"line" : 174,
+"complexity" : 1
+},
+{
+"rule" : "151.0",
+"kind" : "?:",
+"line" : 175,
+"complexity" : 1
+},
+{
+"rule" : "151.1",
+"kind" : "a:",
+"line" : 176,
+"complexity" : 1
+},
+{
+"rule" : "151.2",
+"kind" : "a:",
+"line" : 177,
+"complexity" : 1
+},
+{
+"rule" : "152.0",
+"kind" : "?:",
+"line" : 178,
+"complexity" : 1
+},
+{
+"rule" : "153.0",
+"kind" : "?:",
+"line" : 179,
+"complexity" : 1
+},
+{
+"rule" : "153.1",
+"kind" : "b:",
+"line" : 181,
+"complexity" : 1
+},
+{
+"rule" : "154.0",
+"kind" : "?:",
+"line" : 184,
+"complexity" : 1
+},
+{
+"rule" : "155.0",
+"kind" : "?:",
+"line" : 185,
+"complexity" : 1
+},
+{
+"rule" : "156.0",
+"kind" : "?:",
+"line" : 186,
+"complexity" : 1
+},
+{
+"rule" : "157.0",
+"kind" : "?:",
+"line" : 187,
+"complexity" : 1
+},
+{
+"rule" : "157.1",
+"kind" : "b:",
+"line" : 189,
+"complexity" : 1
+},
+{
+"rule" : "158.0",
+"kind" : "?:",
+"line" : 190,
+"complexity" : 1
+},
+{
+"rule" : "159.0",
+"kind" : "s:",
+"line" : 192,
+"complexity" : 1
+},
+{
+"rule" : "159.1",
+"kind" : "b:",
+"line" : 193,
+"complexity" : 1
+},
+{
+"rule" : "159.2",
+"kind" : "b:",
+"line" : 194,
+"complexity" : 1
+},
+{
+"rule" : "160.0",
+"kind" : "s:",
+"line" : 197,
+"complexity" : 1
+},
+{
+"rule" : "161.0",
+"kind" : "?:",
+"line" : 198,
+"complexity" : 1
+},
+{
+"rule" : "162.0",
+"kind" : "s:",
+"line" : 201,
+"complexity" : 1
+},
+{
+"rule" : "162.1",
+"kind" : "b:",
+"line" : 202,
+"complexity" : 1
+},
+{
+"rule" : "163.0",
+"kind" : "?:",
+"line" : 204,
+"complexity" : 1
+},
+{
+"rule" : "164.0",
+"kind" : "s:",
+"label" : "UNDERSTAND",
+"line" : 207,
+"complexity" : 1
+},
+{
+"rule" : "165.0",
+"kind" : "?:",
+"label" : "UNDERSTAND",
+"line" : 208,
+"complexity" : 1
+},
+{
+"rule" : "166.0",
+"kind" : "?:",
+"line" : 211,
+"complexity" : 1
+},
+{
+"rule" : "167.0",
+"kind" : "s:",
+"label" : "THINK",
+"line" : 212,
+"complexity" : 1
+},
+{
+"rule" : "168.0",
+"kind" : "s:",
+"label" : "THINK",
+"line" : 213,
+"complexity" : 1
+},
+{
+"rule" : "168.1",
+"kind" : "b:",
+"line" : 215,
+"complexity" : 1
+},
+{
+"rule" : "169.0",
+"kind" : "?:",
+"label" : "THINK",
+"line" : 216,
+"complexity" : 1
+},
+{
+"rule" : "170.0",
+"kind" : "?:",
+"label" : "KNOW",
+"line" : 217,
+"complexity" : 1
+},
+{
+"rule" : "171.0",
+"kind" : "?:",
+"label" : "KNOW",
+"line" : 218,
+"complexity" : 1
+},
+{
+"rule" : "172.0",
+"kind" : "s:",
+"label" : "KNOW",
+"line" : 219,
+"complexity" : 1
+},
+{
+"rule" : "173.0",
+"kind" : "?:",
+"line" : 220,
+"complexity" : 1
+},
+{
+"rule" : "174.0",
+"kind" : "s:",
+"line" : 221,
+"complexity" : 1
+},
+{
+"rule" : "175.0",
+"kind" : "s:",
+"line" : 222,
+"complexity" : 1
+},
+{
+"rule" : "176.0",
+"kind" : "s:",
+"line" : 225,
+"complexity" : 1
+},
+{
+"rule" : "177.0",
+"kind" : "s:",
+"label" : "PREFER",
+"line" : 230,
+"complexity" : 1
+},
+{
+"rule" : "178.0",
+"kind" : "s:",
+"label" : "PREFER1",
+"line" : 231,
+"complexity" : 1
+},
+{
+"rule" : "179.0",
+"kind" : "s:",
+"label" : "KNOW",
+"line" : 234,
+"complexity" : 1
+},
+{
+"rule" : "179.1",
+"kind" : "b:",
+"line" : 235,
+"complexity" : 1
+},
+{
+"rule" : "180.0",
+"kind" : "?:",
+"line" : 238,
+"complexity" : 1
+},
+{
+"rule" : "181.0",
+"kind" : "s:",
+"line" : 241,
+"complexity" : 1
+},
+{
+"rule" : "182.0",
+"kind" : "s:",
+"line" : 243,
+"complexity" : 1
+},
+{
+"rule" : "183.0",
+"kind" : "s:",
+"line" : 246,
+"complexity" : 1
+},
+{
+"rule" : "184.0",
+"kind" : "s:",
+"line" : 249,
+"complexity" : 1
+},
+{
+"rule" : "185.0",
+"kind" : "s:",
+"line" : 250,
+"complexity" : 1
+},
+{
+"rule" : "186.0",
+"kind" : "?:",
+"line" : 251,
+"complexity" : 1
+},
+{
+"rule" : "187.0",
+"kind" : "s:",
+"line" : 254,
+"complexity" : 1
+},
+{
+"rule" : "188.0",
+"kind" : "?:",
+"line" : 257,
+"complexity" : 1
+},
+{
+"rule" : "189.0",
+"kind" : "s:",
+"line" : 258,
+"complexity" : 1
+},
+{
+"rule" : "190.0",
+"kind" : "s:",
+"line" : 261,
+"complexity" : 1
+},
+{
+"rule" : "191.0",
+"kind" : "?:",
+"line" : 264,
+"complexity" : 1
+},
+{
+"rule" : "192.0",
+"kind" : "s:",
+"line" : 265,
+"complexity" : 1
+},
+{
+"rule" : "193.0",
+"kind" : "?:",
+"line" : 268,
+"complexity" : 1
+},
+{
+"rule" : "194.0",
+"kind" : "?:",
+"line" : 269,
+"complexity" : 1
+},
+{
+"rule" : "195.0",
+"kind" : "s:",
+"line" : 270,
+"complexity" : 1
+},
+{
+"rule" : "196.0",
+"kind" : "s:",
+"line" : 271,
+"complexity" : 1
+},
+{
+"rule" : "197.0",
+"kind" : "?:",
+"line" : 274,
+"complexity" : 1
+},
+{
+"rule" : "198.0",
+"kind" : "s:",
+"line" : 275,
+"complexity" : 1
+},
+{
+"rule" : "199.0",
+"kind" : "?:",
+"line" : 278,
+"complexity" : 1
+},
+{
+"rule" : "200.0",
+"kind" : "s:",
+"line" : 279,
+"complexity" : 1
+},
+{
+"rule" : "201.0",
+"kind" : "?:",
+"line" : 282,
+"complexity" : 1
+},
+{
+"rule" : "202.0",
+"kind" : "s:",
+"line" : 283,
+"complexity" : 1
+},
+{
+"rule" : "203.0",
+"kind" : "?:",
+"line" : 286,
+"complexity" : 1
+},
+{
+"rule" : "204.0",
+"kind" : "s:",
+"line" : 287,
+"complexity" : 1
+},
+{
+"rule" : "205.0",
+"kind" : "?:",
+"line" : 290,
+"complexity" : 1
+},
+{
+"rule" : "206.0",
+"kind" : "s:",
+"line" : 291,
+"complexity" : 1
+},
+{
+"rule" : "206.1",
+"kind" : "a:",
+"line" : 292,
+"complexity" : 1
+},
+{
+"rule" : "207.0",
+"kind" : "?:",
+"line" : 295,
+"complexity" : 1
+},
+{
+"rule" : "208.0",
+"kind" : "s:",
+"line" : 296,
+"complexity" : 1
+},
+{
+"rule" : "209.0",
+"kind" : "s:",
+"line" : 297,
+"complexity" : 1
+},
+{
+"rule" : "210.0",
+"kind" : "s:",
+"line" : 299,
+"complexity" : 1
+},
+{
+"rule" : "211.0",
+"kind" : "?:",
+"line" : 302,
+"complexity" : 1
+},
+{
+"rule" : "212.0",
+"kind" : "?:",
+"line" : 305,
+"complexity" : 1
+},
+{
+"rule" : "213.0",
+"kind" : "s:",
+"line" : 306,
+"complexity" : 1
+},
+{
+"rule" : "214.0",
+"kind" : "?:",
+"line" : 309,
+"complexity" : 1
+},
+{
+"rule" : "215.0",
+"kind" : "s:",
+"line" : 310,
+"complexity" : 1
+},
+{
+"rule" : "216.0",
+"kind" : "s:",
+"line" : 311,
+"complexity" : 1
+},
+{
+"rule" : "216.1",
+"kind" : "a:",
+"line" : 312,
+"complexity" : 1
+},
+{
+"rule" : "217.0",
+"kind" : "u:",
+"line" : 315,
+"complexity" : 1
+},
+{
+"rule" : "217.1",
+"kind" : "b:",
+"line" : 316,
+"complexity" : 1
+},
+{
+"rule" : "218.0",
+"kind" : "u:",
+"line" : 318,
+"complexity" : 1
+},
+{
+"rule" : "219.0",
+"kind" : "u:",
+"line" : 319,
+"complexity" : 1
+},
+{
+"rule" : "220.0",
+"kind" : "u:",
+"line" : 320,
+"complexity" : 1
+},
+{
+"rule" : "221.0",
+"kind" : "s:",
+"line" : 321,
+"complexity" : 1
+},
+{
+"rule" : "222.0",
+"kind" : "s:",
+"line" : 324,
+"complexity" : 1
+},
+{
+"rule" : "223.0",
+"kind" : "s:",
+"line" : 325,
+"complexity" : 1
+},
+{
+"rule" : "224.0",
+"kind" : "s:",
+"line" : 326,
+"complexity" : 1
+},
+{
+"rule" : "225.0",
+"kind" : "s:",
+"line" : 327,
+"complexity" : 1
+},
+{
+"rule" : "226.0",
+"kind" : "s:",
+"line" : 328,
+"complexity" : 1
+},
+{
+"rule" : "227.0",
+"kind" : "?:",
+"line" : 331,
+"complexity" : 1
+},
+{
+"rule" : "227.1",
+"kind" : "b:",
+"line" : 332,
+"complexity" : 1
+},
+{
+"rule" : "227.2",
+"kind" : "d:",
+"line" : 333,
+"complexity" : 1
+},
+{
+"rule" : "227.3",
+"kind" : "d:",
+"line" : 334,
+"complexity" : 1
+},
+{
+"rule" : "227.4",
+"kind" : "e:",
+"line" : 335,
+"complexity" : 1
+},
+{
+"rule" : "228.0",
+"kind" : "s:",
+"line" : 336,
+"complexity" : 1
+},
+{
+"rule" : "228.1",
+"kind" : "b:",
+"line" : 339,
+"complexity" : 1
+},
+{
+"rule" : "228.2",
+"kind" : "c:",
+"line" : 340,
+"complexity" : 1
+},
+{
+"rule" : "228.3",
+"kind" : "b:",
+"line" : 341,
+"complexity" : 1
+},
+{
+"rule" : "228.4",
+"kind" : "c:",
+"line" : 342,
+"complexity" : 1
+},
+{
+"rule" : "228.5",
+"kind" : "b:",
+"line" : 343,
+"complexity" : 1
+},
+{
+"rule" : "228.6",
+"kind" : "b:",
+"line" : 344,
+"complexity" : 1
+},
+{
+"rule" : "228.7",
+"kind" : "e:",
+"line" : 345,
+"complexity" : 1
+},
+{
+"rule" : "228.8",
+"kind" : "f:",
+"line" : 346,
+"complexity" : 1
+},
+{
+"rule" : "228.9",
+"kind" : "e:",
+"line" : 347,
+"complexity" : 1
+},
+{
+"rule" : "228.10",
+"kind" : "f:",
+"line" : 348,
+"complexity" : 1
+},
+{
+"rule" : "228.11",
+"kind" : "h:",
+"line" : 349,
+"complexity" : 1
+},
+{
+"rule" : "228.12",
+"kind" : "i:",
+"line" : 350,
+"complexity" : 1
+},
+{
+"rule" : "228.13",
+"kind" : "h:",
+"line" : 351,
+"complexity" : 1
+},
+{
+"rule" : "228.14",
+"kind" : "i:",
+"line" : 352,
+"complexity" : 1
+},
+{
+"rule" : "228.15",
+"kind" : "h:",
+"line" : 353,
+"complexity" : 1
+},
+{
+"rule" : "228.16",
+"kind" : "k:",
+"line" : 354,
+"complexity" : 1
+},
+{
+"rule" : "228.17",
+"kind" : "o:",
+"line" : 355,
+"complexity" : 1
+},
+{
+"rule" : "229.0",
+"kind" : "s:",
+"line" : 358,
+"complexity" : 1
+},
+{
+"rule" : "230.0",
+"kind" : "s:",
+"line" : 359,
+"complexity" : 1
+},
+{
+"rule" : "230.1",
+"kind" : "d:",
+"line" : 360,
+"complexity" : 1
+},
+{
+"rule" : "230.2",
+"kind" : "f:",
+"line" : 361,
+"complexity" : 1
+},
+{
+"rule" : "230.3",
+"kind" : "g:",
+"line" : 362,
+"complexity" : 1
+},
+{
+"rule" : "230.4",
+"kind" : "g:",
+"line" : 363,
+"complexity" : 1
+},
+{
+"rule" : "230.5",
+"kind" : "f:",
+"line" : 364,
+"complexity" : 1
+},
+{
+"rule" : "230.6",
+"kind" : "f:",
+"line" : 365,
+"complexity" : 1
+},
+{
+"rule" : "231.0",
+"kind" : "s:",
+"line" : 366,
+"complexity" : 1
+},
+{
+"rule" : "232.0",
+"kind" : "?:",
+"line" : 367,
+"complexity" : 1
+},
+{
+"rule" : "233.0",
+"kind" : "s:",
+"line" : 370,
+"complexity" : 1
+},
+{
+"rule" : "233.1",
+"kind" : "b:",
+"line" : 371,
+"complexity" : 1
+},
+{
+"rule" : "234.0",
+"kind" : "s:",
+"line" : 372,
+"complexity" : 1
+},
+{
+"rule" : "235.0",
+"kind" : "?:",
+"line" : 373,
+"complexity" : 1
+},
+{
+"rule" : "236.0",
+"kind" : "?:",
+"line" : 374,
+"complexity" : 1
+},
+{
+"rule" : "237.0",
+"kind" : "s:",
+"line" : 375,
+"complexity" : 1
+},
+{
+"rule" : "238.0",
+"kind" : "s:",
+"line" : 376,
+"complexity" : 1
+},
+{
+"rule" : "239.0",
+"kind" : "s:",
+"line" : 377,
+"complexity" : 1
+},
+{
+"rule" : "240.0",
+"kind" : "?:",
+"line" : 378,
+"complexity" : 1
+},
+{
+"rule" : "241.0",
+"kind" : "u:",
+"line" : 379,
+"complexity" : 1
+},
+{
+"rule" : "242.0",
+"kind" : "u:",
+"line" : 380,
+"complexity" : 1
+},
+{
+"rule" : "243.0",
+"kind" : "u:",
+"line" : 381,
+"complexity" : 1
+},
+{
+"rule" : "244.0",
+"kind" : "?:",
+"line" : 382,
+"complexity" : 1
+},
+{
+"rule" : "245.0",
+"kind" : "s:",
+"line" : 383,
+"complexity" : 1
+},
+{
+"rule" : "246.0",
+"kind" : "s:",
+"line" : 384,
+"complexity" : 1
+},
+{
+"rule" : "247.0",
+"kind" : "s:",
+"line" : 387,
+"complexity" : 1
+},
+{
+"rule" : "248.0",
+"kind" : "s:",
+"line" : 388,
+"complexity" : 1
+},
+{
+"rule" : "249.0",
+"kind" : "?:",
+"line" : 389,
+"complexity" : 1
+},
+{
+"rule" : "250.0",
+"kind" : "s:",
+"label" : "PROBABLY1",
+"line" : 392,
+"complexity" : 1
+},
+{
+"rule" : "251.0",
+"kind" : "?:",
+"label" : "PROBABLY2",
+"line" : 393,
+"complexity" : 1
+},
+{
+"rule" : "252.0",
+"kind" : "?:",
+"label" : "IF1",
+"line" : 394,
+"complexity" : 1
+},
+{
+"rule" : "253.0",
+"kind" : "?:",
+"label" : "IF2",
+"line" : 395,
+"complexity" : 1
+},
+{
+"rule" : "254.0",
+"kind" : "s:",
+"line" : 396,
+"complexity" : 1
+},
+{
+"rule" : "255.0",
+"kind" : "s:",
+"label" : "IF3",
+"line" : 397,
+"complexity" : 1
+},
+{
+"rule" : "256.0",
+"kind" : "s:",
+"label" : "MIGHT",
+"line" : 398,
+"complexity" : 1
+},
+{
+"rule" : "257.0",
+"kind" : "s:",
+"label" : "SHOULD1",
+"line" : 399,
+"complexity" : 1
+},
+{
+"rule" : "257.1",
+"kind" : "b:",
+"line" : 400,
+"complexity" : 1
+},
+{
+"rule" : "258.0",
+"kind" : "?:",
+"label" : "SHOULD2",
+"line" : 401,
+"complexity" : 1
+},
+{
+"rule" : "259.0",
+"kind" : "?:",
+"label" : "SHOULD2",
+"line" : 402,
+"complexity" : 1
+},
+{
+"rule" : "260.0",
+"kind" : "?:",
+"label" : "SHOULD3",
+"line" : 403,
+"complexity" : 1
+},
+{
+"rule" : "261.0",
+"kind" : "?:",
+"label" : "SHOULD4",
+"line" : 404,
+"complexity" : 1
+},
+{
+"rule" : "262.0",
+"kind" : "?:",
+"label" : "SHOULD5",
+"line" : 405,
+"complexity" : 1
+},
+{
+"rule" : "263.0",
+"kind" : "?:",
+"label" : "SHOULD6",
+"line" : 406,
+"complexity" : 1
+},
+{
+"rule" : "264.0",
+"kind" : "?:",
+"label" : "SHOULD7",
+"line" : 407,
+"complexity" : 1
+},
+{
+"rule" : "265.0",
+"kind" : "s:",
+"line" : 409,
+"complexity" : 1
+},
+{
+"rule" : "266.0",
+"kind" : "s:",
+"line" : 412,
+"complexity" : 1
+},
+{
+"rule" : "266.1",
+"kind" : "a:",
+"line" : 413,
+"complexity" : 1
+},
+{
+"rule" : "266.2",
+"kind" : "a:",
+"line" : 414,
+"complexity" : 1
+},
+{
+"rule" : "267.0",
+"kind" : "s:",
+"line" : 415,
+"complexity" : 1
+},
+{
+"rule" : "268.0",
+"kind" : "s:",
+"line" : 416,
+"complexity" : 1
+},
+{
+"rule" : "269.0",
+"kind" : "s:",
+"line" : 417,
+"complexity" : 1
+},
+{
+"rule" : "270.0",
+"kind" : "s:",
+"line" : 418,
+"complexity" : 1
+},
+{
+"rule" : "271.0",
+"kind" : "?:",
+"line" : 419,
+"complexity" : 1
+},
+{
+"rule" : "272.0",
+"kind" : "?:",
+"line" : 420,
+"complexity" : 1
+},
+{
+"rule" : "273.0",
+"kind" : "?:",
+"line" : 421,
+"complexity" : 1
+},
+{
+"rule" : "274.0",
+"kind" : "?:",
+"line" : 422,
+"complexity" : 1
+},
+{
+"rule" : "275.0",
+"kind" : "u:",
+"line" : 423,
+"complexity" : 1
+},
+{
+"rule" : "275.1",
+"kind" : "b:",
+"line" : 424,
+"complexity" : 1
+},
+{
+"rule" : "275.2",
+"kind" : "d:",
+"line" : 425,
+"complexity" : 1
+},
+{
+"rule" : "276.0",
+"kind" : "?:",
+"label" : "THAT",
+"line" : 428,
+"complexity" : 1
+},
+{
+"rule" : "277.0",
+"kind" : "?:",
+"label" : "THAT",
+"line" : 429,
+"complexity" : 1
+},
+{
+"rule" : "278.0",
+"kind" : "s:",
+"label" : "THAT",
+"line" : 430,
+"complexity" : 1
+},
+{
+"rule" : "279.0",
+"kind" : "?:",
+"label" : "THIS",
+"line" : 431,
+"complexity" : 1
+},
+{
+"rule" : "280.0",
+"kind" : "?:",
+"label" : "THIS",
+"line" : 432,
+"complexity" : 1
+},
+{
+"rule" : "281.0",
+"kind" : "?:",
+"label" : "US",
+"line" : 433,
+"complexity" : 1
+},
+{
+"rule" : "282.0",
+"kind" : "?:",
+"label" : "THEM",
+"line" : 434,
+"complexity" : 1
+},
+{
+"rule" : "283.0",
+"kind" : "?:",
+"label" : "THEY",
+"line" : 435,
+"complexity" : 1
+},
+{
+"rule" : "284.0",
+"kind" : "?:",
+"label" : "THOSE",
+"line" : 436,
+"complexity" : 1
+},
+{
+"rule" : "285.0",
+"kind" : "?:",
+"label" : "HIM",
+"line" : 437,
+"complexity" : 1
+},
+{
+"rule" : "286.0",
+"kind" : "?:",
+"label" : "HER",
+"line" : 438,
+"complexity" : 1
+},
+{
+"rule" : "287.0",
+"kind" : "?:",
+"label" : "SOMEONE",
+"line" : 439,
+"complexity" : 1
+},
+{
+"rule" : "288.0",
+"kind" : "?:",
+"label" : "ALL",
+"line" : 440,
+"complexity" : 1
+},
+{
+"rule" : "289.0",
+"kind" : "?:",
+"label" : "ANYONE",
+"line" : 441,
+"complexity" : 1
+},
+{
+"rule" : "290.0",
+"kind" : "?:",
+"label" : "ANYTHING",
+"line" : 442,
+"complexity" : 1
+},
+{
+"rule" : "291.0",
+"kind" : "?:",
+"label" : "no_one",
+"line" : 443,
+"complexity" : 1
+},
+{
+"rule" : "292.0",
+"kind" : "s:",
+"label" : "THERE",
+"line" : 444,
+"complexity" : 1
+},
+{
+"rule" : "293.0",
+"kind" : "s:",
+"label" : "THERE2",
+"line" : 445,
+"complexity" : 1
+},
+{
+"rule" : "294.0",
+"kind" : "?:",
+"label" : "WHICH",
+"line" : 446,
+"complexity" : 1
+},
+{
+"rule" : "294.1",
+"kind" : "b:",
+"line" : 447,
+"complexity" : 1
+},
+{
+"rule" : "295.0",
+"kind" : "s:",
+"line" : 448,
+"complexity" : 1
+},
+{
+"rule" : "296.0",
+"kind" : "s:",
+"line" : 451,
+"complexity" : 1
+},
+{
+"rule" : "296.1",
+"kind" : "b:",
+"line" : 452,
+"complexity" : 1
+},
+{
+"rule" : "297.0",
+"kind" : "s:",
+"line" : 453,
+"complexity" : 1
+},
+{
+"rule" : "297.1",
+"kind" : "b:",
+"line" : 454,
+"complexity" : 1
+},
+{
+"rule" : "298.0",
+"kind" : "s:",
+"line" : 457,
+"complexity" : 1
+},
+{
+"rule" : "299.0",
+"kind" : "s:",
+"line" : 460,
+"complexity" : 1
+},
+{
+"rule" : "300.0",
+"kind" : "?:",
+"line" : 462,
+"complexity" : 1
+},
+{
+"rule" : "301.0",
+"kind" : "?:",
+"label" : "THEY_SAY",
+"line" : 467,
+"complexity" : 1
+},
+{
+"rule" : "302.0",
+"kind" : "?:",
+"label" : "HAVE_LOT",
+"line" : 470,
+"complexity" : 1
+},
+{
+"rule" : "302.1",
+"kind" : "b:",
+"line" : 471,
+"complexity" : 1
+},
+{
+"rule" : "302.2",
+"kind" : "b:",
+"line" : 472,
+"complexity" : 1
+},
+{
+"rule" : "303.0",
+"kind" : "s:",
+"line" : 477,
+"complexity" : 1
+},
+{
+"rule" : "303.1",
+"kind" : "b:",
+"line" : 478,
+"complexity" : 1
+},
+{
+"rule" : "304.0",
+"kind" : "u:",
+"line" : 479,
+"complexity" : 1
+},
+{
+"rule" : "305.0",
+"kind" : "u:",
+"line" : 481,
+"complexity" : 1
+},
+{
+"rule" : "306.0",
+"kind" : "?:",
+"line" : 484,
+"complexity" : 1
+},
+{
+"rule" : "307.0",
+"kind" : "s:",
+"line" : 486,
+"complexity" : 1
+},
+{
+"rule" : "307.1",
+"kind" : "a:",
+"line" : 487,
+"complexity" : 1
+},
+{
+"rule" : "307.2",
+"kind" : "a:",
+"line" : 488,
+"complexity" : 1
+},
+{
+"rule" : "308.0",
+"kind" : "s:",
+"line" : 491,
+"complexity" : 1
+},
+{
+"rule" : "308.1",
+"kind" : "b:",
+"line" : 492,
+"complexity" : 1
+},
+{
+"rule" : "308.2",
+"kind" : "b:",
+"line" : 493,
+"complexity" : 1
+},
+{
+"rule" : "308.3",
+"kind" : "d:",
+"line" : 494,
+"complexity" : 1
+},
+{
+"rule" : "309.0",
+"kind" : "s:",
+"line" : 496,
+"complexity" : 1
+},
+{
+"rule" : "310.0",
+"kind" : "s:",
+"line" : 499,
+"complexity" : 1
+},
+{
+"rule" : "310.1",
+"kind" : "b:",
+"line" : 500,
+"complexity" : 1
+},
+{
+"rule" : "311.0",
+"kind" : "s:",
+"line" : 501,
+"complexity" : 1
+},
+{
+"rule" : "312.0",
+"kind" : "s:",
+"line" : 502,
+"complexity" : 1
+},
+{
+"rule" : "313.0",
+"kind" : "s:",
+"line" : 503,
+"complexity" : 1
+},
+{
+"rule" : "314.0",
+"kind" : "s:",
+"line" : 504,
+"complexity" : 1
+},
+{
+"rule" : "315.0",
+"kind" : "s:",
+"line" : 505,
+"complexity" : 1
+},
+{
+"rule" : "316.0",
+"kind" : "?:",
+"line" : 507,
+"complexity" : 1
+},
+{
+"rule" : "316.1",
+"kind" : "a:",
+"line" : 508,
+"complexity" : 1
+},
+{
+"rule" : "316.2",
+"kind" : "a:",
+"line" : 509,
+"complexity" : 1
+},
+{
+"rule" : "317.0",
+"kind" : "s:",
+"line" : 513,
+"complexity" : 1
+},
+{
+"rule" : "317.1",
+"kind" : "b:",
+"line" : 514,
+"complexity" : 1
+},
+{
+"rule" : "318.0",
+"kind" : "s:",
+"line" : 516,
+"complexity" : 1
+},
+{
+"rule" : "318.1",
+"kind" : "b:",
+"line" : 517,
+"complexity" : 1
+},
+{
+"rule" : "319.0",
+"kind" : "?:",
+"line" : 522,
+"complexity" : 1
+},
+{
+"rule" : "320.0",
+"kind" : "s:",
+"line" : 523,
+"complexity" : 1
+},
+{
+"rule" : "321.0",
+"kind" : "u:",
+"line" : 524,
+"complexity" : 1
+},
+{
+"rule" : "322.0",
+"kind" : "u:",
+"line" : 525,
+"complexity" : 1
+},
+{
+"rule" : "323.0",
+"kind" : "s:",
+"line" : 526,
+"complexity" : 1
+},
+{
+"rule" : "324.0",
+"kind" : "?:",
+"line" : 527,
+"complexity" : 1
+},
+{
+"rule" : "325.0",
+"kind" : "s:",
+"line" : 529,
+"complexity" : 1
+},
+{
+"rule" : "326.0",
+"kind" : "s:",
+"line" : 530,
+"complexity" : 1
+},
+{
+"rule" : "327.0",
+"kind" : "u:",
+"line" : 532,
+"complexity" : 1
+},
+{
+"rule" : "328.0",
+"kind" : "u:",
+"line" : 533,
+"complexity" : 1
+},
+{
+"rule" : "329.0",
+"kind" : "u:",
+"line" : 534,
+"complexity" : 1
+},
+{
+"rule" : "330.0",
+"kind" : "u:",
+"line" : 535,
+"complexity" : 1
+},
+{
+"rule" : "331.0",
+"kind" : "u:",
+"line" : 536,
+"complexity" : 1
+},
+{
+"rule" : "332.0",
+"kind" : "s:",
+"line" : 537,
+"complexity" : 1
+},
+{
+"rule" : "333.0",
+"kind" : "u:",
+"line" : 538,
+"complexity" : 1
+},
+{
+"rule" : "334.0",
+"kind" : "u:",
+"line" : 539,
+"complexity" : 1
+},
+{
+"rule" : "335.0",
+"kind" : "u:",
+"line" : 540,
+"complexity" : 1
+},
+{
+"rule" : "336.0",
+"kind" : "u:",
+"line" : 541,
+"complexity" : 1
+},
+{
+"rule" : "337.0",
+"kind" : "u:",
+"line" : 542,
+"complexity" : 1
+},
+{
+"rule" : "338.0",
+"kind" : "u:",
+"line" : 543,
+"complexity" : 1
+},
+{
+"rule" : "339.0",
+"kind" : "u:",
+"line" : 544,
+"complexity" : 1
+},
+{
+"rule" : "340.0",
+"kind" : "u:",
+"line" : 545,
+"complexity" : 1
+},
+{
+"rule" : "341.0",
+"kind" : "u:",
+"line" : 546,
+"complexity" : 1
+},
+{
+"rule" : "342.0",
+"kind" : "u:",
+"line" : 547,
+"complexity" : 1
+},
+{
+"rule" : "343.0",
+"kind" : "u:",
+"line" : 548,
+"complexity" : 1
+},
+{
+"rule" : "344.0",
+"kind" : "u:",
+"line" : 549,
+"complexity" : 1
+},
+{
+"rule" : "344.1",
+"kind" : "a:",
+"line" : 550,
+"complexity" : 1
+},
+{
+"rule" : "344.2",
+"kind" : "a:",
+"line" : 551,
+"complexity" : 1
+},
+{
+"rule" : "345.0",
+"kind" : "s:",
+"line" : 552,
+"complexity" : 1
+},
+{
+"rule" : "346.0",
+"kind" : "s:",
+"line" : 553,
+"complexity" : 1
+},
+{
+"rule" : "347.0",
+"kind" : "s:",
+"line" : 554,
+"complexity" : 1
+},
+{
+"rule" : "348.0",
+"kind" : "s:",
+"line" : 555,
+"complexity" : 1
+},
+{
+"rule" : "349.0",
+"kind" : "s:",
+"line" : 556,
+"complexity" : 1
+},
+{
+"rule" : "350.0",
+"kind" : "u:",
+"line" : 557,
+"complexity" : 1
+},
+{
+"rule" : "351.0",
+"kind" : "?:",
+"label" : "EACH",
+"line" : 560,
+"complexity" : 1
+},
+{
+"rule" : "352.0",
+"kind" : "?:",
+"label" : "EVERY",
+"line" : 561,
+"complexity" : 1
+},
+{
+"rule" : "352.1",
+"kind" : "a:",
+"line" : 562,
+"complexity" : 1
+},
+{
+"rule" : "353.0",
+"kind" : "?:",
+"label" : "EVER",
+"line" : 563,
+"complexity" : 1
+},
+{
+"rule" : "354.0",
+"kind" : "?:",
+"label" : "EVER1",
+"line" : 564,
+"complexity" : 1
+},
+{
+"rule" : "355.0",
+"kind" : "?:",
+"label" : "EVERYONE1",
+"line" : 565,
+"complexity" : 1
+},
+{
+"rule" : "355.1",
+"kind" : "a:",
+"line" : 566,
+"complexity" : 1
+},
+{
+"rule" : "356.0",
+"kind" : "?:",
+"label" : "EVERYONE2",
+"line" : 567,
+"complexity" : 1
+},
+{
+"rule" : "357.0",
+"kind" : "s:",
+"label" : "EVERYONE2",
+"line" : 568,
+"complexity" : 1
+},
+{
+"rule" : "358.0",
+"kind" : "u:",
+"label" : "EVERYTHING",
+"line" : 569,
+"complexity" : 1
+},
+{
+"rule" : "359.0",
+"kind" : "?:",
+"line" : 571,
+"complexity" : 1
+},
+{
+"rule" : "360.0",
+"kind" : "s:",
+"label" : "FEW",
+"line" : 572,
+"complexity" : 1
+},
+{
+"rule" : "361.0",
+"kind" : "s:",
+"label" : "DIFFERENT",
+"line" : 573,
+"complexity" : 1
+},
+{
+"rule" : "362.0",
+"kind" : "?:",
+"label" : "IMPORTANT1",
+"line" : 574,
+"complexity" : 1
+},
+{
+"rule" : "363.0",
+"kind" : "s:",
+"label" : "IMPORTANT2",
+"line" : 575,
+"complexity" : 1
+},
+{
+"rule" : "363.1",
+"kind" : "b:",
+"line" : 576,
+"complexity" : 1
+},
+{
+"rule" : "364.0",
+"kind" : "s:",
+"label" : "LATER",
+"line" : 577,
+"complexity" : 1
+},
+{
+"rule" : "365.0",
+"kind" : "?:",
+"label" : "ENOUGH",
+"line" : 578,
+"complexity" : 1
+},
+{
+"rule" : "366.0",
+"kind" : "s:",
+"label" : "ALMOST",
+"line" : 579,
+"complexity" : 1
+},
+{
+"rule" : "366.1",
+"kind" : "b:",
+"line" : 580,
+"complexity" : 1
+},
+{
+"rule" : "367.0",
+"kind" : "s:",
+"label" : "BUT",
+"line" : 581,
+"complexity" : 1
+},
+{
+"rule" : "368.0",
+"kind" : "s:",
+"label" : "WHATEVER",
+"line" : 582,
+"complexity" : 1
+},
+{
+"rule" : "368.1",
+"kind" : "a:",
+"line" : 583,
+"complexity" : 1
+},
+{
+"rule" : "369.0",
+"kind" : "s:",
+"label" : "AGAIN",
+"line" : 584,
+"complexity" : 1
+},
+{
+"rule" : "370.0",
+"kind" : "s:",
+"label" : "BYTHAT",
+"line" : 585,
+"complexity" : 1
+},
+{
+"rule" : "371.0",
+"kind" : "?:",
+"label" : "BYWHAT",
+"line" : 586,
+"complexity" : 1
+},
+{
+"rule" : "372.0",
+"kind" : "s:",
+"label" : "BYTHAT",
+"line" : 587,
+"complexity" : 1
+},
+{
+"rule" : "373.0",
+"kind" : "?:",
+"label" : "BYWHAT",
+"line" : 588,
+"complexity" : 1
+},
+{
+"rule" : "374.0",
+"kind" : "s:",
+"label" : "BYTHAT",
+"line" : 589,
+"complexity" : 1
+},
+{
+"rule" : "375.0",
+"kind" : "?:",
+"label" : "BYWHAT",
+"line" : 590,
+"complexity" : 1
+},
+{
+"rule" : "376.0",
+"kind" : "u:",
+"label" : "NECESSARY",
+"line" : 591,
+"complexity" : 1
+},
+{
+"rule" : "377.0",
+"kind" : "u:",
+"label" : "NATURAL",
+"line" : 592,
+"complexity" : 1
+},
+{
+"rule" : "377.1",
+"kind" : "b:",
+"line" : 593,
+"complexity" : 1
+},
+{
+"rule" : "377.2",
+"kind" : "b:",
+"line" : 594,
+"complexity" : 1
+},
+{
+"rule" : "377.3",
+"kind" : "c:",
+"line" : 595,
+"complexity" : 1
+},
+{
+"rule" : "378.0",
+"kind" : "?:",
+"label" : "PROBLEM",
+"line" : 596,
+"complexity" : 1
+},
+{
+"rule" : "379.0",
+"kind" : "s:",
+"label" : "PROBLEM",
+"line" : 597,
+"complexity" : 1
+},
+{
+"rule" : "379.1",
+"kind" : "b:",
+"line" : 598,
+"complexity" : 1
+},
+{
+"rule" : "380.0",
+"kind" : "s:",
+"line" : 600,
+"complexity" : 1
+},
+{
+"rule" : "381.0",
+"kind" : "s:",
+"line" : 602,
+"complexity" : 1
+},
+{
+"rule" : "381.1",
+"kind" : "b:",
+"line" : 603,
+"complexity" : 1
+},
+{
+"rule" : "381.2",
+"kind" : "b:",
+"line" : 604,
+"complexity" : 1
+},
+{
+"rule" : "382.0",
+"kind" : "s:",
+"line" : 606,
+"complexity" : 1
+},
+{
+"rule" : "382.1",
+"kind" : "a:",
+"line" : 607,
+"complexity" : 1
+},
+{
+"rule" : "382.2",
+"kind" : "a:",
+"line" : 608,
+"complexity" : 1
+},
+{
+"rule" : "383.0",
+"kind" : "?:",
+"line" : 610,
+"complexity" : 1
+},
+{
+"rule" : "383.1",
+"kind" : "b:",
+"line" : 611,
+"complexity" : 1
+},
+{
+"rule" : "384.0",
+"kind" : "s:",
+"line" : 613,
+"complexity" : 1
+},
+{
+"rule" : "385.0",
+"kind" : "?:",
+"line" : 614,
+"complexity" : 1
+},
+{
+"rule" : "386.0",
+"kind" : "?:",
+"line" : 616,
+"complexity" : 1
+},
+{
+"rule" : "386.1",
+"kind" : "b:",
+"line" : 617,
+"complexity" : 1
+},
+{
+"rule" : "387.0",
+"kind" : "s:",
+"line" : 618,
+"complexity" : 1
+},
+{
+"rule" : "387.1",
+"kind" : "b:",
+"line" : 619,
+"complexity" : 1
+},
+{
+"rule" : "388.0",
+"kind" : "s:",
+"line" : 621,
+"complexity" : 1
+},
+{
+"rule" : "388.1",
+"kind" : "a:",
+"line" : 622,
+"complexity" : 1
+},
+{
+"rule" : "389.0",
+"kind" : "u:",
+"line" : 624,
+"complexity" : 1
+},
+{
+"rule" : "390.0",
+"kind" : "u:",
+"line" : 625,
+"complexity" : 1
+},
+{
+"rule" : "391.0",
+"kind" : "u:",
+"line" : 626,
+"complexity" : 1
+},
+{
+"rule" : "392.0",
+"kind" : "u:",
+"line" : 628,
+"complexity" : 1
+},
+{
+"rule" : "393.0",
+"kind" : "u:",
+"line" : 629,
+"complexity" : 1
+},
+{
+"rule" : "394.0",
+"kind" : "s:",
+"line" : 631,
+"complexity" : 1
+},
+{
+"rule" : "395.0",
+"kind" : "?:",
+"line" : 633,
+"complexity" : 1
+},
+{
+"rule" : "396.0",
+"kind" : "?:",
+"line" : 635,
+"complexity" : 1
+},
+{
+"rule" : "397.0",
+"kind" : "s:",
+"line" : 637,
+"complexity" : 1
+},
+{
+"rule" : "397.1",
+"kind" : "b:",
+"line" : 638,
+"complexity" : 1
+},
+{
+"rule" : "397.2",
+"kind" : "b:",
+"line" : 639,
+"complexity" : 1
+},
+{
+"rule" : "398.0",
+"kind" : "s:",
+"line" : 640,
+"complexity" : 1
+},
+{
+"rule" : "399.0",
+"kind" : "s:",
+"line" : 642,
+"complexity" : 1
+},
+{
+"rule" : "400.0",
+"kind" : "s:",
+"line" : 643,
+"complexity" : 1
+},
+{
+"rule" : "400.1",
+"kind" : "b:",
+"line" : 644,
+"complexity" : 1
+},
+{
+"rule" : "401.0",
+"kind" : "s:",
+"line" : 646,
+"complexity" : 1
+},
+{
+"rule" : "402.0",
+"kind" : "s:",
+"line" : 648,
+"complexity" : 1
+},
+{
+"rule" : "403.0",
+"kind" : "?:",
+"line" : 650,
+"complexity" : 1
+},
+{
+"rule" : "403.1",
+"kind" : "b:",
+"line" : 651,
+"complexity" : 1
+},
+{
+"rule" : "403.2",
+"kind" : "b:",
+"line" : 652,
+"complexity" : 1
+},
+{
+"rule" : "404.0",
+"kind" : "s:",
+"line" : 655,
+"complexity" : 1
+},
+{
+"rule" : "405.0",
+"kind" : "?:",
+"line" : 656,
+"complexity" : 1
+},
+{
+"rule" : "406.0",
+"kind" : "s:",
+"line" : 658,
+"complexity" : 1
+},
+{
+"rule" : "406.1",
+"kind" : "b:",
+"line" : 659,
+"complexity" : 1
+},
+{
+"rule" : "407.0",
+"kind" : "s:",
+"line" : 661,
+"complexity" : 1
+},
+{
+"rule" : "408.0",
+"kind" : "s:",
+"line" : 663,
+"complexity" : 1
+},
+{
+"rule" : "409.0",
+"kind" : "s:",
+"line" : 664,
+"complexity" : 1
+},
+{
+"rule" : "410.0",
+"kind" : "s:",
+"line" : 667,
+"complexity" : 1
+},
+{
+"rule" : "411.0",
+"kind" : "s:",
+"line" : 670,
+"complexity" : 1
+},
+{
+"rule" : "412.0",
+"kind" : "?:",
+"line" : 672,
+"complexity" : 1
+},
+{
+"rule" : "413.0",
+"kind" : "s:",
+"line" : 674,
+"complexity" : 1
+},
+{
+"rule" : "414.0",
+"kind" : "s:",
+"line" : 676,
+"complexity" : 1
+},
+{
+"rule" : "414.1",
+"kind" : "a:",
+"line" : 677,
+"complexity" : 1
+},
+{
+"rule" : "415.0",
+"kind" : "s:",
+"line" : 679,
+"complexity" : 1
+},
+{
+"rule" : "416.0",
+"kind" : "?:",
+"line" : 680,
+"complexity" : 1
+},
+{
+"rule" : "417.0",
+"kind" : "s:",
+"line" : 682,
+"complexity" : 1
+},
+{
+"rule" : "418.0",
+"kind" : "?:",
+"line" : 684,
+"complexity" : 1
+},
+{
+"rule" : "419.0",
+"kind" : "s:",
+"line" : 686,
+"complexity" : 1
+},
+{
+"rule" : "420.0",
+"kind" : "?:",
+"line" : 688,
+"complexity" : 1
+},
+{
+"rule" : "421.0",
+"kind" : "s:",
+"line" : 690,
+"complexity" : 1
+},
+{
+"rule" : "422.0",
+"kind" : "?:",
+"line" : 691,
+"complexity" : 1
+},
+{
+"rule" : "423.0",
+"kind" : "s:",
+"line" : 693,
+"complexity" : 1
+},
+{
+"rule" : "424.0",
+"kind" : "s:",
+"line" : 694,
+"complexity" : 1
+},
+{
+"rule" : "425.0",
+"kind" : "u:",
+"line" : 696,
+"complexity" : 1
+},
+{
+"rule" : "426.0",
+"kind" : "s:",
+"line" : 697,
+"complexity" : 1
+},
+{
+"rule" : "427.0",
+"kind" : "?:",
+"line" : 698,
+"complexity" : 1
+},
+{
+"rule" : "428.0",
+"kind" : "s:",
+"line" : 699,
+"complexity" : 1
+},
+{
+"rule" : "429.0",
+"kind" : "s:",
+"line" : 700,
+"complexity" : 1
+},
+{
+"rule" : "430.0",
+"kind" : "s:",
+"line" : 701,
+"complexity" : 1
+},
+{
+"rule" : "431.0",
+"kind" : "s:",
+"line" : 702,
+"complexity" : 1
+},
+{
+"rule" : "432.0",
+"kind" : "?:",
+"line" : 703,
+"complexity" : 1
+},
+{
+"rule" : "433.0",
+"kind" : "s:",
+"line" : 704,
+"complexity" : 1
+},
+{
+"rule" : "434.0",
+"kind" : "?:",
+"line" : 705,
+"complexity" : 1
+},
+{
+"rule" : "435.0",
+"kind" : "s:",
+"line" : 706,
+"complexity" : 1
+},
+{
+"rule" : "436.0",
+"kind" : "?:",
+"line" : 707,
+"complexity" : 1
+},
+{
+"rule" : "437.0",
+"kind" : "?:",
+"line" : 708,
+"complexity" : 1
+},
+{
+"rule" : "438.0",
+"kind" : "u:",
+"line" : 710,
+"complexity" : 1
+},
+{
+"rule" : "439.0",
+"kind" : "u:",
+"line" : 711,
+"complexity" : 1
+},
+{
+"rule" : "440.0",
+"kind" : "s:",
+"line" : 712,
+"complexity" : 1
+},
+{
+"rule" : "441.0",
+"kind" : "?:",
+"line" : 713,
+"complexity" : 1
+},
+{
+"rule" : "442.0",
+"kind" : "?:",
+"line" : 714,
+"complexity" : 1
+},
+{
+"rule" : "443.0",
+"kind" : "?:",
+"line" : 715,
+"complexity" : 1
+},
+{
+"rule" : "444.0",
+"kind" : "s:",
+"line" : 716,
+"complexity" : 1
+},
+{
+"rule" : "445.0",
+"kind" : "s:",
+"line" : 717,
+"complexity" : 1
+},
+{
+"rule" : "446.0",
+"kind" : "s:",
+"line" : 719,
+"complexity" : 1
+},
+{
+"rule" : "447.0",
+"kind" : "s:",
+"line" : 720,
+"complexity" : 1
+},
+{
+"rule" : "448.0",
+"kind" : "s:",
+"line" : 721,
+"complexity" : 1
+},
+{
+"rule" : "449.0",
+"kind" : "?:",
+"line" : 722,
+"complexity" : 1
+},
+{
+"rule" : "450.0",
+"kind" : "s:",
+"line" : 723,
+"complexity" : 1
+},
+{
+"rule" : "451.0",
+"kind" : "s:",
+"line" : 724,
+"complexity" : 1
+},
+{
+"rule" : "452.0",
+"kind" : "s:",
+"line" : 725,
+"complexity" : 1
+},
+{
+"rule" : "453.0",
+"kind" : "s:",
+"line" : 726,
+"complexity" : 1
+},
+{
+"rule" : "454.0",
+"kind" : "s:",
+"line" : 727,
+"complexity" : 1
+},
+{
+"rule" : "455.0",
+"kind" : "s:",
+"line" : 729,
+"complexity" : 1
+},
+{
+"rule" : "456.0",
+"kind" : "s:",
+"line" : 730,
+"complexity" : 1
+},
+{
+"rule" : "457.0",
+"kind" : "s:",
+"line" : 731,
+"complexity" : 1
+},
+{
+"rule" : "458.0",
+"kind" : "s:",
+"line" : 732,
+"complexity" : 1
+},
+{
+"rule" : "459.0",
+"kind" : "s:",
+"line" : 733,
+"complexity" : 1
+},
+{
+"rule" : "460.0",
+"kind" : "s:",
+"line" : 734,
+"complexity" : 1
+},
+{
+"rule" : "461.0",
+"kind" : "s:",
+"line" : 735,
+"complexity" : 1
+},
+{
+"rule" : "462.0",
+"kind" : "s:",
+"line" : 737,
+"complexity" : 1
+},
+{
+"rule" : "462.1",
+"kind" : "b:",
+"line" : 738,
+"complexity" : 1
+},
+{
+"rule" : "463.0",
+"kind" : "s:",
+"line" : 740,
+"complexity" : 1
+},
+{
+"rule" : "464.0",
+"kind" : "s:",
+"line" : 742,
+"complexity" : 1
+},
+{
+"rule" : "465.0",
+"kind" : "u:",
+"line" : 744,
+"complexity" : 1
+},
+{
+"rule" : "466.0",
+"kind" : "s:",
+"line" : 745,
+"complexity" : 1
+},
+{
+"rule" : "467.0",
+"kind" : "s:",
+"line" : 746,
+"complexity" : 1
+},
+{
+"rule" : "468.0",
+"kind" : "?:",
+"line" : 747,
+"complexity" : 1
+},
+{
+"rule" : "469.0",
+"kind" : "?:",
+"line" : 748,
+"complexity" : 1
+},
+{
+"rule" : "470.0",
+"kind" : "?:",
+"line" : 749,
+"complexity" : 1
+},
+{
+"rule" : "471.0",
+"kind" : "u:",
+"line" : 750,
+"complexity" : 1
+},
+{
+"rule" : "472.0",
+"kind" : "u:",
+"line" : 752,
+"complexity" : 1
+},
+{
+"rule" : "473.0",
+"kind" : "u:",
+"line" : 753,
+"complexity" : 1
+},
+{
+"rule" : "474.0",
+"kind" : "?:",
+"line" : 755,
+"complexity" : 1
+},
+{
+"rule" : "475.0",
+"kind" : "?:",
+"line" : 756,
+"complexity" : 1
+},
+{
+"rule" : "476.0",
+"kind" : "?:",
+"line" : 757,
+"complexity" : 1
+},
+{
+"rule" : "477.0",
+"kind" : "?:",
+"line" : 758,
+"complexity" : 1
+},
+{
+"rule" : "478.0",
+"kind" : "?:",
+"line" : 759,
+"complexity" : 1
+},
+{
+"rule" : "479.0",
+"kind" : "?:",
+"line" : 760,
+"complexity" : 1
+},
+{
+"rule" : "480.0",
+"kind" : "?:",
+"line" : 761,
+"complexity" : 1
+},
+{
+"rule" : "481.0",
+"kind" : "?:",
+"line" : 762,
+"complexity" : 1
+},
+{
+"rule" : "482.0",
+"kind" : "?:",
+"line" : 763,
+"complexity" : 1
+},
+{
+"rule" : "483.0",
+"kind" : "?:",
+"line" : 764,
+"complexity" : 1
+},
+{
+"rule" : "483.1",
+"kind" : "a:",
+"line" : 765,
+"complexity" : 1
+},
+{
+"rule" : "483.2",
+"kind" : "a:",
+"line" : 766,
+"complexity" : 1
+},
+{
+"rule" : "484.0",
+"kind" : "?:",
+"line" : 767,
+"complexity" : 1
+},
+{
+"rule" : "485.0",
+"kind" : "?:",
+"line" : 768,
+"complexity" : 1
+},
+{
+"rule" : "486.0",
+"kind" : "?:",
+"line" : 769,
+"complexity" : 1
+},
+{
+"rule" : "487.0",
+"kind" : "?:",
+"line" : 770,
+"complexity" : 1
+},
+{
+"rule" : "488.0",
+"kind" : "?:",
+"line" : 771,
+"complexity" : 1
+},
+{
+"rule" : "489.0",
+"kind" : "?:",
+"line" : 772,
+"complexity" : 1
+},
+{
+"rule" : "490.0",
+"kind" : "?:",
+"line" : 773,
+"complexity" : 1
+},
+{
+"rule" : "491.0",
+"kind" : "?:",
+"line" : 774,
+"complexity" : 1
+},
+{
+"rule" : "492.0",
+"kind" : "?:",
+"line" : 775,
+"complexity" : 1
+},
+{
+"rule" : "493.0",
+"kind" : "?:",
+"line" : 777,
+"complexity" : 1
+},
+{
+"rule" : "494.0",
+"kind" : "?:",
+"line" : 778,
+"complexity" : 1
+},
+{
+"rule" : "495.0",
+"kind" : "?:",
+"line" : 780,
+"complexity" : 1
+},
+{
+"rule" : "496.0",
+"kind" : "?:",
+"line" : 781,
+"complexity" : 1
+},
+{
+"rule" : "497.0",
+"kind" : "?:",
+"line" : 782,
+"complexity" : 1
+},
+{
+"rule" : "498.0",
+"kind" : "?:",
+"line" : 783,
+"complexity" : 1
+},
+{
+"rule" : "499.0",
+"kind" : "?:",
+"line" : 784,
+"complexity" : 1
+},
+{
+"rule" : "500.0",
+"kind" : "?:",
+"line" : 785,
+"complexity" : 1
+},
+{
+"rule" : "501.0",
+"kind" : "?:",
+"line" : 786,
+"complexity" : 1
+},
+{
+"rule" : "502.0",
+"kind" : "?:",
+"line" : 787,
+"complexity" : 1
+},
+{
+"rule" : "503.0",
+"kind" : "?:",
+"line" : 788,
+"complexity" : 1
+},
+{
+"rule" : "504.0",
+"kind" : "?:",
+"line" : 789,
+"complexity" : 1
+},
+{
+"rule" : "505.0",
+"kind" : "?:",
+"line" : 790,
+"complexity" : 1
+},
+{
+"rule" : "506.0",
+"kind" : "?:",
+"line" : 791,
+"complexity" : 1
+},
+{
+"rule" : "507.0",
+"kind" : "?:",
+"line" : 792,
+"complexity" : 1
+},
+{
+"rule" : "508.0",
+"kind" : "?:",
+"line" : 793,
+"complexity" : 1
+},
+{
+"rule" : "509.0",
+"kind" : "?:",
+"line" : 794,
+"complexity" : 1
+},
+{
+"rule" : "510.0",
+"kind" : "?:",
+"line" : 795,
+"complexity" : 1
+},
+{
+"rule" : "511.0",
+"kind" : "?:",
+"line" : 796,
+"complexity" : 1
+},
+{
+"rule" : "512.0",
+"kind" : "?:",
+"line" : 797,
+"complexity" : 1
+},
+{
+"rule" : "513.0",
+"kind" : "?:",
+"line" : 798,
+"complexity" : 1
+},
+{
+"rule" : "514.0",
+"kind" : "?:",
+"line" : 800,
+"complexity" : 1
+},
+{
+"rule" : "515.0",
+"kind" : "?:",
+"line" : 801,
+"complexity" : 1
+},
+{
+"rule" : "516.0",
+"kind" : "?:",
+"line" : 802,
+"complexity" : 1
+},
+{
+"rule" : "517.0",
+"kind" : "?:",
+"line" : 803,
+"complexity" : 1
+},
+{
+"rule" : "518.0",
+"kind" : "?:",
+"line" : 804,
+"complexity" : 1
+},
+{
+"rule" : "519.0",
+"kind" : "?:",
+"line" : 805,
+"complexity" : 1
+},
+{
+"rule" : "520.0",
+"kind" : "?:",
+"line" : 806,
+"complexity" : 1
+},
+{
+"rule" : "521.0",
+"kind" : "?:",
+"line" : 807,
+"complexity" : 1
+},
+{
+"rule" : "522.0",
+"kind" : "s:",
+"line" : 809,
+"complexity" : 1
+},
+{
+"rule" : "523.0",
+"kind" : "?:",
+"line" : 810,
+"complexity" : 1
+},
+{
+"rule" : "524.0",
+"kind" : "?:",
+"line" : 811,
+"complexity" : 1
+},
+{
+"rule" : "525.0",
+"kind" : "?:",
+"line" : 812,
+"complexity" : 1
+},
+{
+"rule" : "526.0",
+"kind" : "?:",
+"line" : 813,
+"complexity" : 1
+},
+{
+"rule" : "527.0",
+"kind" : "?:",
+"line" : 814,
+"complexity" : 1
+},
+{
+"rule" : "528.0",
+"kind" : "?:",
+"line" : 815,
+"complexity" : 1
+},
+{
+"rule" : "529.0",
+"kind" : "?:",
+"line" : 816,
+"complexity" : 1
+},
+{
+"rule" : "530.0",
+"kind" : "?:",
+"line" : 817,
+"complexity" : 1
+},
+{
+"rule" : "531.0",
+"kind" : "?:",
+"line" : 818,
+"complexity" : 1
+},
+{
+"rule" : "532.0",
+"kind" : "?:",
+"line" : 819,
+"complexity" : 1
+},
+{
+"rule" : "533.0",
+"kind" : "?:",
+"line" : 820,
+"complexity" : 1
+},
+{
+"rule" : "534.0",
+"kind" : "?:",
+"line" : 821,
+"complexity" : 1
+},
+{
+"rule" : "535.0",
+"kind" : "?:",
+"line" : 822,
+"complexity" : 1
+},
+{
+"rule" : "536.0",
+"kind" : "?:",
+"line" : 823,
+"complexity" : 1
+},
+{
+"rule" : "537.0",
+"kind" : "?:",
+"line" : 824,
+"complexity" : 1
+},
+{
+"rule" : "538.0",
+"kind" : "?:",
+"line" : 825,
+"complexity" : 1
+},
+{
+"rule" : "539.0",
+"kind" : "?:",
+"line" : 826,
+"complexity" : 1
+},
+{
+"rule" : "540.0",
+"kind" : "?:",
+"line" : 827,
+"complexity" : 1
+},
+{
+"rule" : "541.0",
+"kind" : "?:",
+"line" : 828,
+"complexity" : 1
+},
+{
+"rule" : "542.0",
+"kind" : "?:",
+"line" : 829,
+"complexity" : 1
+},
+{
+"rule" : "543.0",
+"kind" : "?:",
+"line" : 830,
+"complexity" : 1
+},
+{
+"rule" : "544.0",
+"kind" : "?:",
+"line" : 831,
+"complexity" : 1
+},
+{
+"rule" : "545.0",
+"kind" : "?:",
+"line" : 832,
+"complexity" : 1
+},
+{
+"rule" : "546.0",
+"kind" : "?:",
+"line" : 833,
+"complexity" : 1
+},
+{
+"rule" : "547.0",
+"kind" : "?:",
+"line" : 834,
+"complexity" : 1
+},
+{
+"rule" : "548.0",
+"kind" : "?:",
+"line" : 835,
+"complexity" : 1
+},
+{
+"rule" : "549.0",
+"kind" : "?:",
+"line" : 836,
+"complexity" : 1
+},
+{
+"rule" : "550.0",
+"kind" : "?:",
+"line" : 837,
+"complexity" : 1
+},
+{
+"rule" : "551.0",
+"kind" : "?:",
+"line" : 838,
+"complexity" : 1
+},
+{
+"rule" : "552.0",
+"kind" : "?:",
+"line" : 839,
+"complexity" : 1
+},
+{
+"rule" : "553.0",
+"kind" : "?:",
+"line" : 840,
+"complexity" : 1
+},
+{
+"rule" : "554.0",
+"kind" : "?:",
+"line" : 841,
+"complexity" : 1
+},
+{
+"rule" : "555.0",
+"kind" : "?:",
+"line" : 842,
+"complexity" : 1
+},
+{
+"rule" : "556.0",
+"kind" : "?:",
+"line" : 843,
+"complexity" : 1
+},
+{
+"rule" : "557.0",
+"kind" : "?:",
+"label" : "WHY1",
+"line" : 847,
+"complexity" : 1
+},
+{
+"rule" : "558.0",
+"kind" : "?:",
+"label" : "WHY2",
+"line" : 848,
+"complexity" : 1
+},
+{
+"rule" : "559.0",
+"kind" : "?:",
+"label" : "STARTER",
+"line" : 851,
+"complexity" : 1
+},
+{
+"rule" : "560.0",
+"kind" : "?:",
+"line" : 852,
+"complexity" : 1
+},
+{
+"rule" : "561.0",
+"kind" : "u:",
+"line" : 855,
+"complexity" : 1
+},
+{
+"rule" : "562.0",
+"kind" : "s:",
+"line" : 856,
+"complexity" : 1
+},
+{
+"rule" : "563.0",
+"kind" : "s:",
+"line" : 857,
+"complexity" : 1
+},
+{
+"rule" : "564.0",
+"kind" : "u:",
+"line" : 859,
+"complexity" : 1
+},
+{
+"rule" : "564.1",
+"kind" : "b:",
+"line" : 860,
+"complexity" : 1
+},
+{
+"rule" : "565.0",
+"kind" : "s:",
+"line" : 861,
+"complexity" : 1
+},
+{
+"rule" : "566.0",
+"kind" : "s:",
+"line" : 863,
+"complexity" : 1
+},
+{
+"rule" : "567.0",
+"kind" : "?:",
+"line" : 864,
+"complexity" : 1
+},
+{
+"rule" : "568.0",
+"kind" : "s:",
+"line" : 866,
+"complexity" : 1
+},
+{
+"rule" : "569.0",
+"kind" : "s:",
+"line" : 867,
+"complexity" : 1
+},
+{
+"rule" : "570.0",
+"kind" : "s:",
+"line" : 869,
+"complexity" : 1
+},
+{
+"rule" : "571.0",
+"kind" : "s:",
+"line" : 870,
+"complexity" : 1
+},
+{
+"rule" : "572.0",
+"kind" : "s:",
+"line" : 871,
+"complexity" : 1
+},
+{
+"rule" : "573.0",
+"kind" : "?:",
+"line" : 872,
+"complexity" : 1
+},
+{
+"rule" : "574.0",
+"kind" : "?:",
+"line" : 873,
+"complexity" : 1
+},
+{
+"rule" : "575.0",
+"kind" : "?:",
+"line" : 874,
+"complexity" : 1
+},
+{
+"rule" : "576.0",
+"kind" : "?:",
+"line" : 875,
+"complexity" : 1
+},
+{
+"rule" : "577.0",
+"kind" : "?:",
+"line" : 876,
+"complexity" : 1
+},
+{
+"rule" : "578.0",
+"kind" : "?:",
+"line" : 877,
+"complexity" : 1
+},
+{
+"rule" : "579.0",
+"kind" : "?:",
+"line" : 878,
+"complexity" : 1
+},
+{
+"rule" : "580.0",
+"kind" : "?:",
+"line" : 879,
+"complexity" : 1
+},
+{
+"rule" : "581.0",
+"kind" : "?:",
+"line" : 880,
+"complexity" : 1
+},
+{
+"rule" : "582.0",
+"kind" : "?:",
+"line" : 881,
+"complexity" : 1
+},
+{
+"rule" : "583.0",
+"kind" : "?:",
+"line" : 882,
+"complexity" : 1
+},
+{
+"rule" : "584.0",
+"kind" : "?:",
+"line" : 883,
+"complexity" : 1
+},
+{
+"rule" : "585.0",
+"kind" : "?:",
+"line" : 884,
+"complexity" : 1
+},
+{
+"rule" : "586.0",
+"kind" : "?:",
+"line" : 885,
+"complexity" : 1
+},
+{
+"rule" : "587.0",
+"kind" : "?:",
+"line" : 886,
+"complexity" : 1
+},
+{
+"rule" : "588.0",
+"kind" : "?:",
+"line" : 887,
+"complexity" : 1
+},
+{
+"rule" : "589.0",
+"kind" : "?:",
+"line" : 888,
+"complexity" : 1
+},
+{
+"rule" : "590.0",
+"kind" : "?:",
+"line" : 889,
+"complexity" : 1
+},
+{
+"rule" : "591.0",
+"kind" : "?:",
+"line" : 890,
+"complexity" : 1
+},
+{
+"rule" : "592.0",
+"kind" : "?:",
+"line" : 891,
+"complexity" : 1
+},
+{
+"rule" : "593.0",
+"kind" : "?:",
+"line" : 892,
+"complexity" : 1
+},
+{
+"rule" : "594.0",
+"kind" : "?:",
+"line" : 893,
+"complexity" : 1
+},
+{
+"rule" : "595.0",
+"kind" : "?:",
+"line" : 894,
+"complexity" : 1
+},
+{
+"rule" : "596.0",
+"kind" : "?:",
+"line" : 895,
+"complexity" : 1
+},
+{
+"rule" : "597.0",
+"kind" : "?:",
+"line" : 896,
+"complexity" : 1
+},
+{
+"rule" : "598.0",
+"kind" : "?:",
+"line" : 897,
+"complexity" : 1
+},
+{
+"rule" : "599.0",
+"kind" : "?:",
+"line" : 898,
+"complexity" : 1
+},
+{
+"rule" : "600.0",
+"kind" : "u:",
+"line" : 899,
+"complexity" : 1
+},
+{
+"rule" : "601.0",
+"kind" : "s:",
+"line" : 900,
+"complexity" : 1
+},
+{
+"rule" : "602.0",
+"kind" : "s:",
+"line" : 901,
+"complexity" : 1
+},
+{
+"rule" : "603.0",
+"kind" : "s:",
+"line" : 902,
+"complexity" : 1
+},
+{
+"rule" : "604.0",
+"kind" : "s:",
+"line" : 903,
+"complexity" : 1
+},
+{
+"rule" : "605.0",
+"kind" : "s:",
+"line" : 904,
+"complexity" : 1
+},
+{
+"rule" : "606.0",
+"kind" : "?:",
+"line" : 905,
+"complexity" : 1
+},
+{
+"rule" : "607.0",
+"kind" : "s:",
+"line" : 906,
+"complexity" : 1
+},
+{
+"rule" : "608.0",
+"kind" : "s:",
+"line" : 907,
+"complexity" : 1
+},
+{
+"rule" : "609.0",
+"kind" : "s:",
+"line" : 908,
+"complexity" : 1
+},
+{
+"rule" : "610.0",
+"kind" : "s:",
+"line" : 909,
+"complexity" : 1
+},
+{
+"rule" : "611.0",
+"kind" : "u:",
+"line" : 911,
+"complexity" : 1
+},
+{
+"rule" : "612.0",
+"kind" : "u:",
+"line" : 913,
+"complexity" : 1
+},
+{
+"rule" : "613.0",
+"kind" : "u:",
+"line" : 914,
+"complexity" : 1
+},
+{
+"rule" : "614.0",
+"kind" : "u:",
+"line" : 915,
+"complexity" : 1
+},
+{
+"rule" : "615.0",
+"kind" : "s:",
+"line" : 916,
+"complexity" : 1
+},
+{
+"rule" : "616.0",
+"kind" : "?:",
+"line" : 917,
+"complexity" : 1
+},
+{
+"rule" : "617.0",
+"kind" : "?:",
+"line" : 918,
+"complexity" : 1
+},
+{
+"rule" : "618.0",
+"kind" : "s:",
+"line" : 920,
+"complexity" : 1
+},
+{
+"rule" : "619.0",
+"kind" : "s:",
+"line" : 922,
+"complexity" : 1
+},
+{
+"rule" : "620.0",
+"kind" : "s:",
+"line" : 923,
+"complexity" : 1
+},
+{
+"rule" : "621.0",
+"kind" : "s:",
+"line" : 924,
+"complexity" : 1
+},
+{
+"rule" : "622.0",
+"kind" : "u:",
+"line" : 925,
+"complexity" : 1
+},
+{
+"rule" : "623.0",
+"kind" : "s:",
+"line" : 926,
+"complexity" : 1
+},
+{
+"rule" : "624.0",
+"kind" : "s:",
+"line" : 927,
+"complexity" : 1
+},
+{
+"rule" : "625.0",
+"kind" : "s:",
+"line" : 928,
+"complexity" : 1
+},
+{
+"rule" : "626.0",
+"kind" : "u:",
+"line" : 929,
+"complexity" : 1
+},
+{
+"rule" : "627.0",
+"kind" : "s:",
+"line" : 930,
+"complexity" : 1
+},
+{
+"rule" : "628.0",
+"kind" : "s:",
+"line" : 931,
+"complexity" : 1
+},
+{
+"rule" : "629.0",
+"kind" : "s:",
+"line" : 932,
+"complexity" : 1
+},
+{
+"rule" : "630.0",
+"kind" : "?:",
+"line" : 933,
+"complexity" : 1
+},
+{
+"rule" : "631.0",
+"kind" : "?:",
+"line" : 934,
+"complexity" : 1
+},
+{
+"rule" : "632.0",
+"kind" : "u:",
+"line" : 935,
+"complexity" : 1
+},
+{
+"rule" : "633.0",
+"kind" : "u:",
+"line" : 936,
+"complexity" : 1
+},
+{
+"rule" : "633.1",
+"kind" : "b:",
+"line" : 945,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_not.top",
+"items" : [
+{
+"topic" : "~quibble_not",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "s:",
+"line" : 2,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "s:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "s:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "s:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "s:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "s:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "s:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "s:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "u:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "s:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "u:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "20.1",
+"kind" : "b:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "u:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "21.1",
+"kind" : "a:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "s:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "s:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "s:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "s:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "s:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "s:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "u:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "u:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "32.1",
+"kind" : "a:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "u:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "u:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "u:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "u:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "u:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "37.1",
+"kind" : "b:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "u:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "u:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "u:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "u:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "u:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "u:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "u:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "46.1",
+"kind" : "b:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "s:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "u:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "52.1",
+"kind" : "a:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "?:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "68.1",
+"kind" : "a:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "71.1",
+"kind" : "b:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "72.1",
+"kind" : "a:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "?:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "73.1",
+"kind" : "a:",
+"line" : 88,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "?:",
+"line" : 89,
+"complexity" : 1
+},
+{
+"rule" : "74.1",
+"kind" : "a:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "74.2",
+"kind" : "b:",
+"line" : 91,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "?:",
+"line" : 92,
+"complexity" : 1
+},
+{
+"rule" : "75.1",
+"kind" : "b:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "75.2",
+"kind" : "b:",
+"line" : 94,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "?:",
+"line" : 95,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "77.1",
+"kind" : "b:",
+"line" : 97,
+"complexity" : 1
+},
+{
+"rule" : "77.2",
+"kind" : "c:",
+"line" : 98,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "?:",
+"line" : 100,
+"complexity" : 1
+},
+{
+"rule" : "79.1",
+"kind" : "b:",
+"line" : 101,
+"complexity" : 1
+},
+{
+"rule" : "79.2",
+"kind" : "d:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "79.3",
+"kind" : "f:",
+"line" : 103,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "s:",
+"line" : 104,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "s:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "?:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "82.1",
+"kind" : "b:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "82.2",
+"kind" : "d:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "83.1",
+"kind" : "a:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "?:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "?:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "?:",
+"line" : 115,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "?:",
+"line" : 116,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "?:",
+"line" : 118,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "?:",
+"line" : 120,
+"complexity" : 1
+},
+{
+"rule" : "91.1",
+"kind" : "b:",
+"line" : 121,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "s:",
+"line" : 124,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "s:",
+"label" : "NEVER",
+"line" : 125,
+"complexity" : 1
+},
+{
+"rule" : "93.1",
+"kind" : "b:",
+"line" : 126,
+"complexity" : 1
+},
+{
+"rule" : "93.2",
+"kind" : "c:",
+"line" : 127,
+"complexity" : 1
+},
+{
+"rule" : "93.3",
+"kind" : "b:",
+"line" : 128,
+"complexity" : 1
+},
+{
+"rule" : "93.4",
+"kind" : "b:",
+"line" : 129,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "s:",
+"line" : 130,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "s:",
+"label" : "NEVER1",
+"line" : 131,
+"complexity" : 1
+},
+{
+"rule" : "95.1",
+"kind" : "b:",
+"line" : 132,
+"complexity" : 1
+},
+{
+"rule" : "95.2",
+"kind" : "b:",
+"line" : 133,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "s:",
+"line" : 134,
+"complexity" : 1
+},
+{
+"rule" : "96.1",
+"kind" : "b:",
+"line" : 135,
+"complexity" : 1
+},
+{
+"rule" : "96.2",
+"kind" : "d:",
+"line" : 136,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "u:",
+"label" : "WILLNOT1",
+"line" : 139,
+"complexity" : 1
+},
+{
+"rule" : "97.1",
+"kind" : "b:",
+"line" : 140,
+"complexity" : 1
+},
+{
+"rule" : "97.2",
+"kind" : "b:",
+"line" : 141,
+"complexity" : 1
+},
+{
+"rule" : "97.3",
+"kind" : "d:",
+"line" : 142,
+"complexity" : 1
+},
+{
+"rule" : "97.4",
+"kind" : "d:",
+"line" : 143,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "u:",
+"label" : "WILLNOT2",
+"line" : 144,
+"complexity" : 1
+},
+{
+"rule" : "98.1",
+"kind" : "b:",
+"line" : 145,
+"complexity" : 1
+},
+{
+"rule" : "98.2",
+"kind" : "d:",
+"line" : 146,
+"complexity" : 1
+},
+{
+"rule" : "98.3",
+"kind" : "f:",
+"line" : 147,
+"complexity" : 1
+},
+{
+"rule" : "98.4",
+"kind" : "f:",
+"line" : 148,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "u:",
+"label" : "WILLNOT3",
+"line" : 149,
+"complexity" : 1
+},
+{
+"rule" : "99.1",
+"kind" : "a:",
+"line" : 150,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "u:",
+"label" : "WOULDNT1",
+"line" : 153,
+"complexity" : 1
+},
+{
+"rule" : "100.1",
+"kind" : "b:",
+"line" : 154,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "u:",
+"label" : "WOULDNT2",
+"line" : 155,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "u:",
+"label" : "WOULDNT2",
+"line" : 156,
+"complexity" : 1
+},
+{
+"rule" : "103.0",
+"kind" : "?:",
+"line" : 157,
+"complexity" : 1
+},
+{
+"rule" : "104.0",
+"kind" : "u:",
+"label" : "COULDNT1",
+"line" : 160,
+"complexity" : 1
+},
+{
+"rule" : "105.0",
+"kind" : "u:",
+"label" : "COULDNT2",
+"line" : 161,
+"complexity" : 1
+},
+{
+"rule" : "106.0",
+"kind" : "u:",
+"label" : "COULDNT2",
+"line" : 162,
+"complexity" : 1
+},
+{
+"rule" : "107.0",
+"kind" : "s:",
+"line" : 165,
+"complexity" : 1
+},
+{
+"rule" : "108.0",
+"kind" : "s:",
+"label" : "DONT1",
+"line" : 166,
+"complexity" : 1
+},
+{
+"rule" : "108.1",
+"kind" : "b:",
+"line" : 167,
+"complexity" : 1
+},
+{
+"rule" : "109.0",
+"kind" : "s:",
+"label" : "DONT2",
+"line" : 168,
+"complexity" : 1
+},
+{
+"rule" : "109.1",
+"kind" : "b:",
+"line" : 169,
+"complexity" : 1
+},
+{
+"rule" : "110.0",
+"kind" : "s:",
+"label" : "DONT2",
+"line" : 170,
+"complexity" : 1
+},
+{
+"rule" : "110.1",
+"kind" : "b:",
+"line" : 171,
+"complexity" : 1
+},
+{
+"rule" : "111.0",
+"kind" : "s:",
+"label" : "DONT2",
+"line" : 172,
+"complexity" : 1
+},
+{
+"rule" : "112.0",
+"kind" : "s:",
+"label" : "DONTWANT",
+"line" : 173,
+"complexity" : 1
+},
+{
+"rule" : "113.0",
+"kind" : "s:",
+"label" : "DONTTHINK1",
+"line" : 174,
+"complexity" : 1
+},
+{
+"rule" : "114.0",
+"kind" : "u:",
+"label" : "DONTTHINK2",
+"line" : 175,
+"complexity" : 1
+},
+{
+"rule" : "115.0",
+"kind" : "s:",
+"label" : "DONTKNOW",
+"line" : 176,
+"complexity" : 1
+},
+{
+"rule" : "116.0",
+"kind" : "s:",
+"line" : 177,
+"complexity" : 1
+},
+{
+"rule" : "117.0",
+"kind" : "s:",
+"line" : 178,
+"complexity" : 1
+},
+{
+"rule" : "117.1",
+"kind" : "b:",
+"line" : 179,
+"complexity" : 1
+},
+{
+"rule" : "117.2",
+"kind" : "b:",
+"line" : 180,
+"complexity" : 1
+},
+{
+"rule" : "117.3",
+"kind" : "c:",
+"line" : 181,
+"complexity" : 1
+},
+{
+"rule" : "118.0",
+"kind" : "u:",
+"line" : 182,
+"complexity" : 1
+},
+{
+"rule" : "119.0",
+"kind" : "u:",
+"line" : 183,
+"complexity" : 1
+},
+{
+"rule" : "119.1",
+"kind" : "b:",
+"line" : 184,
+"complexity" : 1
+},
+{
+"rule" : "120.0",
+"kind" : "u:",
+"line" : 185,
+"complexity" : 1
+},
+{
+"rule" : "121.0",
+"kind" : "u:",
+"line" : 186,
+"complexity" : 1
+},
+{
+"rule" : "121.1",
+"kind" : "a:",
+"line" : 187,
+"complexity" : 1
+},
+{
+"rule" : "122.0",
+"kind" : "?:",
+"line" : 188,
+"complexity" : 1
+},
+{
+"rule" : "123.0",
+"kind" : "s:",
+"line" : 189,
+"complexity" : 1
+},
+{
+"rule" : "124.0",
+"kind" : "u:",
+"label" : "CANTYOU",
+"line" : 193,
+"complexity" : 1
+},
+{
+"rule" : "124.1",
+"kind" : "b:",
+"line" : 194,
+"complexity" : 1
+},
+{
+"rule" : "124.2",
+"kind" : "b:",
+"line" : 195,
+"complexity" : 1
+},
+{
+"rule" : "124.3",
+"kind" : "b:",
+"line" : 196,
+"complexity" : 1
+},
+{
+"rule" : "124.4",
+"kind" : "b:",
+"line" : 197,
+"complexity" : 1
+},
+{
+"rule" : "125.0",
+"kind" : "u:",
+"label" : "CANTI",
+"line" : 198,
+"complexity" : 1
+},
+{
+"rule" : "125.1",
+"kind" : "b:",
+"line" : 199,
+"complexity" : 1
+},
+{
+"rule" : "125.2",
+"kind" : "b:",
+"line" : 200,
+"complexity" : 1
+},
+{
+"rule" : "125.3",
+"kind" : "b:",
+"line" : 201,
+"complexity" : 1
+},
+{
+"rule" : "126.0",
+"kind" : "s:",
+"label" : "CANTALL",
+"line" : 202,
+"complexity" : 1
+},
+{
+"rule" : "127.0",
+"kind" : "s:",
+"line" : 203,
+"complexity" : 1
+},
+{
+"rule" : "128.0",
+"kind" : "u:",
+"label" : "MAYNOT1",
+"line" : 206,
+"complexity" : 1
+},
+{
+"rule" : "129.0",
+"kind" : "u:",
+"label" : "MAYNOT2",
+"line" : 207,
+"complexity" : 1
+},
+{
+"rule" : "130.0",
+"kind" : "u:",
+"label" : "MAYNOT3",
+"line" : 208,
+"complexity" : 1
+},
+{
+"rule" : "131.0",
+"kind" : "u:",
+"label" : "MUSTNOT1",
+"line" : 211,
+"complexity" : 1
+},
+{
+"rule" : "132.0",
+"kind" : "u:",
+"label" : "MUSTNOT2",
+"line" : 212,
+"complexity" : 1
+},
+{
+"rule" : "133.0",
+"kind" : "u:",
+"label" : "MUSTNOT3",
+"line" : 213,
+"complexity" : 1
+},
+{
+"rule" : "134.0",
+"kind" : "u:",
+"label" : "MIGHTNOT1",
+"line" : 216,
+"complexity" : 1
+},
+{
+"rule" : "135.0",
+"kind" : "u:",
+"label" : "MIGHTNOT2",
+"line" : 217,
+"complexity" : 1
+},
+{
+"rule" : "136.0",
+"kind" : "u:",
+"label" : "MIGHTNOT3",
+"line" : 218,
+"complexity" : 1
+},
+{
+"rule" : "137.0",
+"kind" : "u:",
+"label" : "DARENOT1",
+"line" : 221,
+"complexity" : 1
+},
+{
+"rule" : "138.0",
+"kind" : "u:",
+"label" : "DARENOT2",
+"line" : 222,
+"complexity" : 1
+},
+{
+"rule" : "139.0",
+"kind" : "u:",
+"label" : "DARENOT3",
+"line" : 223,
+"complexity" : 1
+},
+{
+"rule" : "140.0",
+"kind" : "u:",
+"line" : 226,
+"complexity" : 1
+},
+{
+"rule" : "141.0",
+"kind" : "u:",
+"line" : 227,
+"complexity" : 1
+},
+{
+"rule" : "142.0",
+"kind" : "u:",
+"label" : "BENOT1",
+"line" : 228,
+"complexity" : 1
+},
+{
+"rule" : "142.1",
+"kind" : "a:",
+"line" : 229,
+"complexity" : 1
+},
+{
+"rule" : "142.2",
+"kind" : "a:",
+"line" : 230,
+"complexity" : 1
+},
+{
+"rule" : "143.0",
+"kind" : "u:",
+"label" : "BENOT2",
+"line" : 231,
+"complexity" : 1
+},
+{
+"rule" : "143.1",
+"kind" : "b:",
+"line" : 232,
+"complexity" : 1
+},
+{
+"rule" : "144.0",
+"kind" : "u:",
+"label" : "BENOT2",
+"line" : 233,
+"complexity" : 1
+},
+{
+"rule" : "144.1",
+"kind" : "b:",
+"line" : 234,
+"complexity" : 1
+},
+{
+"rule" : "145.0",
+"kind" : "u:",
+"label" : "BENOT3",
+"line" : 235,
+"complexity" : 1
+},
+{
+"rule" : "145.1",
+"kind" : "b:",
+"line" : 236,
+"complexity" : 1
+},
+{
+"rule" : "146.0",
+"kind" : "u:",
+"label" : "BENOT",
+"line" : 237,
+"complexity" : 1
+},
+{
+"rule" : "147.0",
+"kind" : "?:",
+"line" : 239,
+"complexity" : 1
+},
+{
+"rule" : "148.0",
+"kind" : "s:",
+"line" : 241,
+"complexity" : 1
+},
+{
+"rule" : "149.0",
+"kind" : "?:",
+"label" : "WHYDONTI",
+"line" : 244,
+"complexity" : 1
+},
+{
+"rule" : "150.0",
+"kind" : "u:",
+"line" : 246,
+"complexity" : 1
+},
+{
+"rule" : "151.0",
+"kind" : "u:",
+"line" : 248,
+"complexity" : 1
+},
+{
+"rule" : "152.0",
+"kind" : "s:",
+"line" : 250,
+"complexity" : 1
+},
+{
+"rule" : "153.0",
+"kind" : "u:",
+"label" : "WHYNOT",
+"line" : 252,
+"complexity" : 1
+},
+{
+"rule" : "154.0",
+"kind" : "s:",
+"label" : "MISCNOT1",
+"line" : 255,
+"complexity" : 1
+},
+{
+"rule" : "154.1",
+"kind" : "b:",
+"line" : 256,
+"complexity" : 1
+},
+{
+"rule" : "155.0",
+"kind" : "?:",
+"label" : "MISCNOT2",
+"line" : 257,
+"complexity" : 1
+},
+{
+"rule" : "156.0",
+"kind" : "s:",
+"label" : "NOTBAD",
+"line" : 258,
+"complexity" : 1
+},
+{
+"rule" : "157.0",
+"kind" : "s:",
+"label" : "NOTEVERY",
+"line" : 261,
+"complexity" : 1
+},
+{
+"rule" : "158.0",
+"kind" : "s:",
+"label" : "NOTANY",
+"line" : 262,
+"complexity" : 1
+},
+{
+"rule" : "159.0",
+"kind" : "?:",
+"label" : "HOWMUCH1",
+"line" : 265,
+"complexity" : 1
+},
+{
+"rule" : "160.0",
+"kind" : "?:",
+"label" : "HOWMUCH2",
+"line" : 266,
+"complexity" : 1
+},
+{
+"rule" : "161.0",
+"kind" : "?:",
+"label" : "HOWMUCH3",
+"line" : 267,
+"complexity" : 1
+},
+{
+"rule" : "162.0",
+"kind" : "?:",
+"label" : "HOWMUCH4",
+"line" : 268,
+"complexity" : 1
+},
+{
+"rule" : "163.0",
+"kind" : "s:",
+"line" : 270,
+"complexity" : 1
+},
+{
+"rule" : "164.0",
+"kind" : "u:",
+"line" : 271,
+"complexity" : 1
+},
+{
+"rule" : "165.0",
+"kind" : "u:",
+"line" : 274,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_or.top",
+"items" : [
+{
+"topic" : "~quibble_or",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"label" : "WHY1",
+"line" : 2,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"label" : "WHY2",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"label" : "CHOICE11",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"label" : "CHOICE1",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.1",
+"kind" : "b:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "3.2",
+"kind" : "d:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"label" : "CHOICE1",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "4.1",
+"kind" : "b:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "4.2",
+"kind" : "d:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"label" : "CHOICE11",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"label" : "CHOICE2",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "6.1",
+"kind" : "b:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "6.2",
+"kind" : "d:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"label" : "CHOICE2",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "7.1",
+"kind" : "b:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "7.2",
+"kind" : "d:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"label" : "CHOICE3",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "8.1",
+"kind" : "b:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "8.2",
+"kind" : "d:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"label" : "CHOICE3",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "9.1",
+"kind" : "b:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "9.2",
+"kind" : "d:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"label" : "CHOICE4",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "10.1",
+"kind" : "b:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "10.2",
+"kind" : "d:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"label" : "CHOICE4",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "11.1",
+"kind" : "b:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "11.2",
+"kind" : "d:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"label" : "CHOICE5",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "12.1",
+"kind" : "b:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "12.2",
+"kind" : "d:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"label" : "CHOICE5",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "13.1",
+"kind" : "b:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "13.2",
+"kind" : "d:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"label" : "CHOICE6",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "14.1",
+"kind" : "b:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "14.2",
+"kind" : "d:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"label" : "CHOICE6",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "15.1",
+"kind" : "b:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "15.2",
+"kind" : "d:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"label" : "CHOICE7",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "16.1",
+"kind" : "b:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "16.2",
+"kind" : "d:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"label" : "CHOICE7",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "17.1",
+"kind" : "b:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "17.2",
+"kind" : "d:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"label" : "CHOICE8",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "18.1",
+"kind" : "b:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "18.2",
+"kind" : "d:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"label" : "CHOICE8",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "19.1",
+"kind" : "b:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "19.2",
+"kind" : "d:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"label" : "CHOICE9",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "20.1",
+"kind" : "b:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "20.2",
+"kind" : "d:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"label" : "CHOICE9",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "21.1",
+"kind" : "b:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "21.2",
+"kind" : "d:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"label" : "CHOICE12",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "22.1",
+"kind" : "b:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "22.2",
+"kind" : "d:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"label" : "CHOICE12",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "23.1",
+"kind" : "b:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "23.2",
+"kind" : "d:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"label" : "CHOICE10",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "24.1",
+"kind" : "b:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "24.2",
+"kind" : "d:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"label" : "CHOICE10",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "25.1",
+"kind" : "b:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "25.2",
+"kind" : "d:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"label" : "CHOICE11",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "26.1",
+"kind" : "a:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "27.1",
+"kind" : "a:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "28.1",
+"kind" : "a:",
+"line" : 84,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_what.top",
+"items" : [
+{
+"topic" : "~quibble_what",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "49.1",
+"kind" : "b:",
+"line" : 115,
+"complexity" : 1
+},
+{
+"rule" : "49.2",
+"kind" : "c:",
+"line" : 116,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 117,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 118,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 119,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 120,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 121,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 122,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 123,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 124,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 125,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 126,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 127,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "?:",
+"line" : 128,
+"complexity" : 1
+},
+{
+"rule" : "61.1",
+"kind" : "b:",
+"line" : 129,
+"complexity" : 1
+},
+{
+"rule" : "61.2",
+"kind" : "b:",
+"line" : 130,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 131,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 132,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 133,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 134,
+"complexity" : 1
+},
+{
+"rule" : "65.1",
+"kind" : "a:",
+"line" : 135,
+"complexity" : 1
+},
+{
+"rule" : "65.2",
+"kind" : "a:",
+"line" : 136,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 137,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 138,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 139,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 140,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 141,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 142,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 143,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "?:",
+"line" : 144,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "?:",
+"line" : 145,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "?:",
+"line" : 146,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "?:",
+"line" : 147,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 148,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 149,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "?:",
+"line" : 150,
+"complexity" : 1
+},
+{
+"rule" : "79.1",
+"kind" : "b:",
+"line" : 151,
+"complexity" : 1
+},
+{
+"rule" : "79.2",
+"kind" : "b:",
+"line" : 152,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "?:",
+"line" : 153,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "?:",
+"line" : 154,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "?:",
+"line" : 155,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "?:",
+"line" : 156,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "?:",
+"line" : 157,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "?:",
+"line" : 158,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "?:",
+"line" : 159,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "?:",
+"line" : 160,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "?:",
+"line" : 161,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "?:",
+"line" : 164,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "?:",
+"line" : 165,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "?:",
+"line" : 166,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "?:",
+"line" : 167,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "?:",
+"line" : 168,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "?:",
+"line" : 169,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "?:",
+"line" : 171,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "?:",
+"line" : 172,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "?:",
+"line" : 173,
+"complexity" : 1
+},
+{
+"rule" : "97.1",
+"kind" : "b:",
+"line" : 174,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "?:",
+"line" : 175,
+"complexity" : 1
+},
+{
+"rule" : "98.1",
+"kind" : "b:",
+"line" : 176,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "?:",
+"line" : 177,
+"complexity" : 1
+},
+{
+"rule" : "99.1",
+"kind" : "b:",
+"line" : 178,
+"complexity" : 1
+},
+{
+"rule" : "99.2",
+"kind" : "d:",
+"line" : 179,
+"complexity" : 1
+},
+{
+"rule" : "99.3",
+"kind" : "f:",
+"line" : 180,
+"complexity" : 1
+},
+{
+"rule" : "99.4",
+"kind" : "h:",
+"line" : 181,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "?:",
+"line" : 182,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "?:",
+"line" : 183,
+"complexity" : 1
+},
+{
+"rule" : "101.1",
+"kind" : "b:",
+"line" : 184,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "?:",
+"line" : 185,
+"complexity" : 1
+},
+{
+"rule" : "102.1",
+"kind" : "b:",
+"line" : 186,
+"complexity" : 1
+},
+{
+"rule" : "103.0",
+"kind" : "?:",
+"line" : 187,
+"complexity" : 1
+},
+{
+"rule" : "104.0",
+"kind" : "?:",
+"line" : 188,
+"complexity" : 1
+},
+{
+"rule" : "105.0",
+"kind" : "?:",
+"line" : 189,
+"complexity" : 1
+},
+{
+"rule" : "106.0",
+"kind" : "?:",
+"line" : 190,
+"complexity" : 1
+},
+{
+"rule" : "107.0",
+"kind" : "?:",
+"line" : 191,
+"complexity" : 1
+},
+{
+"rule" : "108.0",
+"kind" : "?:",
+"line" : 192,
+"complexity" : 1
+},
+{
+"rule" : "109.0",
+"kind" : "?:",
+"line" : 193,
+"complexity" : 1
+},
+{
+"rule" : "110.0",
+"kind" : "?:",
+"line" : 194,
+"complexity" : 1
+},
+{
+"rule" : "111.0",
+"kind" : "?:",
+"line" : 195,
+"complexity" : 1
+},
+{
+"rule" : "112.0",
+"kind" : "?:",
+"line" : 196,
+"complexity" : 1
+},
+{
+"rule" : "113.0",
+"kind" : "?:",
+"line" : 197,
+"complexity" : 1
+},
+{
+"rule" : "114.0",
+"kind" : "?:",
+"line" : 198,
+"complexity" : 1
+},
+{
+"rule" : "115.0",
+"kind" : "?:",
+"line" : 199,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_when.top",
+"items" : [
+{
+"topic" : "~quibble_when",
+"line" : 2,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "17.1",
+"kind" : "a:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "17.2",
+"kind" : "b:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "s:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "29.1",
+"kind" : "b:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_where.top",
+"items" : [
+{
+"topic" : "~quibble_where",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "u:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "38.1",
+"kind" : "a:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "39.1",
+"kind" : "a:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_who.top",
+"items" : [
+{
+"topic" : "~quibble_who",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "49.1",
+"kind" : "b:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_why.top",
+"items" : [
+{
+"topic" : "~quibble_why",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "?:",
+"label" : "LIE",
+"line" : 3,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "?:",
+"line" : 4,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "?:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 6,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "?:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "?:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 10,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 12,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "?:",
+"line" : 16,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 18,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "?:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "?:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "?:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "?:",
+"line" : 22,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "?:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "?:",
+"line" : 24,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "?:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "?:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "?:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "?:",
+"line" : 28,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 30,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "?:",
+"line" : 31,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "?:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 33,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 34,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "?:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 36,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "?:",
+"line" : 37,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "?:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "?:",
+"line" : 39,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "?:",
+"line" : 40,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "?:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "?:",
+"line" : 42,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "?:",
+"line" : 43,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "?:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "?:",
+"line" : 45,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "?:",
+"line" : 46,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "?:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "?:",
+"line" : 48,
+"complexity" : 1
+},
+{
+"rule" : "46.0",
+"kind" : "?:",
+"line" : 49,
+"complexity" : 1
+},
+{
+"rule" : "47.0",
+"kind" : "?:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "48.0",
+"kind" : "?:",
+"line" : 51,
+"complexity" : 1
+},
+{
+"rule" : "49.0",
+"kind" : "?:",
+"line" : 52,
+"complexity" : 1
+},
+{
+"rule" : "50.0",
+"kind" : "?:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "51.0",
+"kind" : "?:",
+"line" : 54,
+"complexity" : 1
+},
+{
+"rule" : "52.0",
+"kind" : "?:",
+"line" : 55,
+"complexity" : 1
+},
+{
+"rule" : "53.0",
+"kind" : "?:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "54.0",
+"kind" : "?:",
+"line" : 57,
+"complexity" : 1
+},
+{
+"rule" : "55.0",
+"kind" : "?:",
+"line" : 58,
+"complexity" : 1
+},
+{
+"rule" : "56.0",
+"kind" : "?:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "57.0",
+"kind" : "?:",
+"line" : 60,
+"complexity" : 1
+},
+{
+"rule" : "58.0",
+"kind" : "?:",
+"line" : 61,
+"complexity" : 1
+},
+{
+"rule" : "59.0",
+"kind" : "?:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "60.0",
+"kind" : "?:",
+"line" : 63,
+"complexity" : 1
+},
+{
+"rule" : "61.0",
+"kind" : "?:",
+"line" : 64,
+"complexity" : 1
+},
+{
+"rule" : "62.0",
+"kind" : "?:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "63.0",
+"kind" : "?:",
+"line" : 66,
+"complexity" : 1
+},
+{
+"rule" : "64.0",
+"kind" : "?:",
+"line" : 67,
+"complexity" : 1
+},
+{
+"rule" : "65.0",
+"kind" : "?:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "66.0",
+"kind" : "?:",
+"line" : 69,
+"complexity" : 1
+},
+{
+"rule" : "67.0",
+"kind" : "?:",
+"line" : 70,
+"complexity" : 1
+},
+{
+"rule" : "68.0",
+"kind" : "?:",
+"line" : 71,
+"complexity" : 1
+},
+{
+"rule" : "69.0",
+"kind" : "?:",
+"line" : 72,
+"complexity" : 1
+},
+{
+"rule" : "70.0",
+"kind" : "?:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "71.0",
+"kind" : "?:",
+"line" : 74,
+"complexity" : 1
+},
+{
+"rule" : "72.0",
+"kind" : "?:",
+"line" : 75,
+"complexity" : 1
+},
+{
+"rule" : "73.0",
+"kind" : "?:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "74.0",
+"kind" : "?:",
+"line" : 77,
+"complexity" : 1
+},
+{
+"rule" : "75.0",
+"kind" : "?:",
+"line" : 78,
+"complexity" : 1
+},
+{
+"rule" : "76.0",
+"kind" : "?:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "77.0",
+"kind" : "?:",
+"line" : 80,
+"complexity" : 1
+},
+{
+"rule" : "78.0",
+"kind" : "?:",
+"line" : 81,
+"complexity" : 1
+},
+{
+"rule" : "79.0",
+"kind" : "?:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "80.0",
+"kind" : "?:",
+"line" : 83,
+"complexity" : 1
+},
+{
+"rule" : "81.0",
+"kind" : "?:",
+"line" : 84,
+"complexity" : 1
+},
+{
+"rule" : "82.0",
+"kind" : "?:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "83.0",
+"kind" : "?:",
+"line" : 86,
+"complexity" : 1
+},
+{
+"rule" : "84.0",
+"kind" : "?:",
+"line" : 87,
+"complexity" : 1
+},
+{
+"rule" : "84.1",
+"kind" : "b:",
+"line" : 88,
+"complexity" : 1
+},
+{
+"rule" : "85.0",
+"kind" : "?:",
+"line" : 89,
+"complexity" : 1
+},
+{
+"rule" : "86.0",
+"kind" : "?:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "86.1",
+"kind" : "a:",
+"line" : 91,
+"complexity" : 1
+},
+{
+"rule" : "87.0",
+"kind" : "?:",
+"line" : 92,
+"complexity" : 1
+},
+{
+"rule" : "88.0",
+"kind" : "?:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "89.0",
+"kind" : "?:",
+"line" : 94,
+"complexity" : 1
+},
+{
+"rule" : "90.0",
+"kind" : "?:",
+"line" : 95,
+"complexity" : 1
+},
+{
+"rule" : "91.0",
+"kind" : "?:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "92.0",
+"kind" : "?:",
+"line" : 97,
+"complexity" : 1
+},
+{
+"rule" : "93.0",
+"kind" : "?:",
+"line" : 98,
+"complexity" : 1
+},
+{
+"rule" : "94.0",
+"kind" : "?:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "95.0",
+"kind" : "?:",
+"line" : 100,
+"complexity" : 1
+},
+{
+"rule" : "96.0",
+"kind" : "?:",
+"line" : 101,
+"complexity" : 1
+},
+{
+"rule" : "97.0",
+"kind" : "?:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "98.0",
+"kind" : "?:",
+"line" : 103,
+"complexity" : 1
+},
+{
+"rule" : "99.0",
+"kind" : "?:",
+"line" : 104,
+"complexity" : 1
+},
+{
+"rule" : "100.0",
+"kind" : "?:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "101.0",
+"kind" : "?:",
+"line" : 106,
+"complexity" : 1
+},
+{
+"rule" : "102.0",
+"kind" : "?:",
+"line" : 107,
+"complexity" : 1
+},
+{
+"rule" : "103.0",
+"kind" : "?:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "104.0",
+"kind" : "?:",
+"line" : 109,
+"complexity" : 1
+},
+{
+"rule" : "105.0",
+"kind" : "?:",
+"line" : 110,
+"complexity" : 1
+},
+{
+"rule" : "106.0",
+"kind" : "?:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "107.0",
+"kind" : "?:",
+"line" : 112,
+"complexity" : 1
+},
+{
+"rule" : "107.1",
+"kind" : "b:",
+"line" : 113,
+"complexity" : 1
+},
+{
+"rule" : "108.0",
+"kind" : "?:",
+"line" : 114,
+"complexity" : 1
+},
+{
+"rule" : "109.0",
+"kind" : "?:",
+"line" : 115,
+"complexity" : 1
+},
+{
+"rule" : "110.0",
+"kind" : "?:",
+"line" : 116,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/honest.top",
+"items" : [
+{
+"topic" : "~intent",
+"line" : 3,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "0.1",
+"kind" : "a:",
+"line" : 8,
+"complexity" : 1
+},
+{
+"rule" : "0.2",
+"kind" : "a:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "0.3",
+"kind" : "a:",
+"line" : 14,
+"complexity" : 1
+},
+{
+"rule" : "0.4",
+"kind" : "a:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "0.5",
+"kind" : "a:",
+"line" : 20,
+"complexity" : 1
+},
+{
+"rule" : "0.6",
+"kind" : "a:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "0.7",
+"kind" : "a:",
+"line" : 26,
+"complexity" : 1
+},
+{
+"rule" : "0.8",
+"kind" : "a:",
+"line" : 29,
+"complexity" : 1
+},
+{
+"rule" : "0.9",
+"kind" : "a:",
+"line" : 32,
+"complexity" : 1
+},
+{
+"rule" : "0.10",
+"kind" : "a:",
+"line" : 35,
+"complexity" : 1
+},
+{
+"rule" : "0.11",
+"kind" : "a:",
+"line" : 38,
+"complexity" : 1
+},
+{
+"rule" : "0.12",
+"kind" : "a:",
+"line" : 41,
+"complexity" : 1
+},
+{
+"rule" : "0.13",
+"kind" : "a:",
+"line" : 44,
+"complexity" : 1
+},
+{
+"rule" : "0.14",
+"kind" : "a:",
+"line" : 47,
+"complexity" : 1
+},
+{
+"rule" : "0.15",
+"kind" : "a:",
+"line" : 50,
+"complexity" : 1
+},
+{
+"rule" : "0.16",
+"kind" : "a:",
+"line" : 53,
+"complexity" : 1
+},
+{
+"rule" : "0.17",
+"kind" : "a:",
+"line" : 56,
+"complexity" : 1
+},
+{
+"rule" : "0.18",
+"kind" : "a:",
+"line" : 59,
+"complexity" : 1
+},
+{
+"rule" : "0.19",
+"kind" : "a:",
+"line" : 62,
+"complexity" : 1
+},
+{
+"rule" : "0.20",
+"kind" : "a:",
+"line" : 65,
+"complexity" : 1
+},
+{
+"rule" : "0.21",
+"kind" : "a:",
+"line" : 68,
+"complexity" : 1
+},
+{
+"rule" : "0.22",
+"kind" : "a:",
+"line" : 73,
+"complexity" : 1
+},
+{
+"rule" : "0.23",
+"kind" : "a:",
+"line" : 76,
+"complexity" : 1
+},
+{
+"rule" : "0.24",
+"kind" : "a:",
+"line" : 79,
+"complexity" : 1
+},
+{
+"rule" : "0.25",
+"kind" : "a:",
+"line" : 82,
+"complexity" : 1
+},
+{
+"rule" : "0.26",
+"kind" : "a:",
+"line" : 85,
+"complexity" : 1
+},
+{
+"rule" : "0.27",
+"kind" : "a:",
+"line" : 90,
+"complexity" : 1
+},
+{
+"rule" : "0.28",
+"kind" : "a:",
+"line" : 93,
+"complexity" : 1
+},
+{
+"rule" : "0.29",
+"kind" : "a:",
+"line" : 96,
+"complexity" : 1
+},
+{
+"rule" : "0.30",
+"kind" : "a:",
+"line" : 99,
+"complexity" : 1
+},
+{
+"rule" : "0.31",
+"kind" : "a:",
+"line" : 102,
+"complexity" : 1
+},
+{
+"rule" : "0.32",
+"kind" : "a:",
+"line" : 105,
+"complexity" : 1
+},
+{
+"rule" : "0.33",
+"kind" : "a:",
+"line" : 108,
+"complexity" : 1
+},
+{
+"rule" : "0.34",
+"kind" : "a:",
+"line" : 111,
+"complexity" : 1
+},
+{
+"rule" : "0.35",
+"kind" : "a:",
+"line" : 116,
+"complexity" : 1
+},
+{
+"rule" : "0.36",
+"kind" : "a:",
+"line" : 119,
+"complexity" : 1
+},
+{
+"rule" : "0.37",
+"kind" : "a:",
+"line" : 122,
+"complexity" : 1
+},
+{
+"rule" : "0.38",
+"kind" : "a:",
+"line" : 125,
+"complexity" : 1
+},
+{
+"rule" : "0.39",
+"kind" : "a:",
+"line" : 128,
+"complexity" : 1
+},
+{
+"rule" : "0.40",
+"kind" : "a:",
+"line" : 131,
+"complexity" : 1
+},
+{
+"rule" : "0.41",
+"kind" : "a:",
+"line" : 134,
+"complexity" : 1
+},
+{
+"rule" : "0.42",
+"kind" : "a:",
+"line" : 137,
+"complexity" : 1
+},
+{
+"rule" : "0.43",
+"kind" : "a:",
+"line" : 139,
+"complexity" : 1
+}]
+}
+,
+{
+"topic" : "~honest_response",
+"line" : 141,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 143,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "u:",
+"line" : 145,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 160,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "?:",
+"line" : 169,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 172,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 175,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "?:",
+"line" : 178,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "?:",
+"line" : 181,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "?:",
+"line" : 184,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "?:",
+"line" : 186,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "?:",
+"line" : 188,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "?:",
+"line" : 191,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "?:",
+"line" : 194,
+"complexity" : 1
+},
+{
+"rule" : "13.0",
+"kind" : "u:",
+"line" : 198,
+"complexity" : 1
+},
+{
+"rule" : "13.1",
+"kind" : "b:",
+"line" : 201,
+"complexity" : 1
+},
+{
+"rule" : "13.2",
+"kind" : "c:",
+"line" : 202,
+"complexity" : 1
+},
+{
+"rule" : "14.0",
+"kind" : "?:",
+"line" : 204,
+"complexity" : 1
+},
+{
+"rule" : "15.0",
+"kind" : "?:",
+"line" : 208,
+"complexity" : 1
+},
+{
+"rule" : "15.1",
+"kind" : "b:",
+"line" : 210,
+"complexity" : 1
+},
+{
+"rule" : "15.2",
+"kind" : "b:",
+"line" : 211,
+"complexity" : 1
+},
+{
+"rule" : "15.3",
+"kind" : "c:",
+"line" : 212,
+"complexity" : 1
+},
+{
+"rule" : "16.0",
+"kind" : "u:",
+"line" : 214,
+"complexity" : 1
+},
+{
+"rule" : "16.1",
+"kind" : "b:",
+"line" : 216,
+"complexity" : 1
+},
+{
+"rule" : "17.0",
+"kind" : "u:",
+"line" : 218,
+"complexity" : 1
+},
+{
+"rule" : "18.0",
+"kind" : "u:",
+"line" : 222,
+"complexity" : 1
+},
+{
+"rule" : "19.0",
+"kind" : "u:",
+"line" : 225,
+"complexity" : 1
+},
+{
+"rule" : "20.0",
+"kind" : "u:",
+"line" : 228,
+"complexity" : 1
+},
+{
+"rule" : "21.0",
+"kind" : "u:",
+"line" : 230,
+"complexity" : 1
+},
+{
+"rule" : "22.0",
+"kind" : "u:",
+"line" : 232,
+"complexity" : 1
+},
+{
+"rule" : "23.0",
+"kind" : "u:",
+"line" : 234,
+"complexity" : 1
+},
+{
+"rule" : "23.1",
+"kind" : "b:",
+"line" : 236,
+"complexity" : 1
+},
+{
+"rule" : "23.2",
+"kind" : "b:",
+"line" : 237,
+"complexity" : 1
+},
+{
+"rule" : "24.0",
+"kind" : "u:",
+"line" : 241,
+"complexity" : 1
+},
+{
+"rule" : "25.0",
+"kind" : "u:",
+"line" : 244,
+"complexity" : 1
+},
+{
+"rule" : "25.1",
+"kind" : "b:",
+"line" : 246,
+"complexity" : 1
+},
+{
+"rule" : "26.0",
+"kind" : "?:",
+"line" : 248,
+"complexity" : 1
+},
+{
+"rule" : "26.1",
+"kind" : "b:",
+"line" : 251,
+"complexity" : 1
+},
+{
+"rule" : "27.0",
+"kind" : "?:",
+"line" : 253,
+"complexity" : 1
+},
+{
+"rule" : "27.1",
+"kind" : "b:",
+"line" : 255,
+"complexity" : 1
+},
+{
+"rule" : "28.0",
+"kind" : "u:",
+"line" : 257,
+"complexity" : 1
+},
+{
+"rule" : "28.1",
+"kind" : "a:",
+"line" : 259,
+"complexity" : 1
+},
+{
+"rule" : "29.0",
+"kind" : "u:",
+"line" : 261,
+"complexity" : 1
+},
+{
+"rule" : "30.0",
+"kind" : "?:",
+"line" : 267,
+"complexity" : 1
+},
+{
+"rule" : "31.0",
+"kind" : "?:",
+"line" : 271,
+"complexity" : 1
+},
+{
+"rule" : "32.0",
+"kind" : "u:",
+"line" : 273,
+"complexity" : 1
+},
+{
+"rule" : "33.0",
+"kind" : "?:",
+"line" : 277,
+"complexity" : 1
+},
+{
+"rule" : "34.0",
+"kind" : "s:",
+"line" : 285,
+"complexity" : 1
+},
+{
+"rule" : "35.0",
+"kind" : "s:",
+"line" : 289,
+"complexity" : 1
+},
+{
+"rule" : "36.0",
+"kind" : "s:",
+"line" : 294,
+"complexity" : 1
+},
+{
+"rule" : "36.1",
+"kind" : "b:",
+"line" : 296,
+"complexity" : 1
+},
+{
+"rule" : "36.2",
+"kind" : "b:",
+"line" : 297,
+"complexity" : 1
+},
+{
+"rule" : "37.0",
+"kind" : "u:",
+"line" : 299,
+"complexity" : 1
+},
+{
+"rule" : "38.0",
+"kind" : "u:",
+"line" : 301,
+"complexity" : 1
+},
+{
+"rule" : "39.0",
+"kind" : "u:",
+"line" : 303,
+"complexity" : 1
+},
+{
+"rule" : "40.0",
+"kind" : "u:",
+"line" : 305,
+"complexity" : 1
+},
+{
+"rule" : "41.0",
+"kind" : "u:",
+"line" : 307,
+"complexity" : 1
+},
+{
+"rule" : "42.0",
+"kind" : "u:",
+"line" : 309,
+"complexity" : 1
+},
+{
+"rule" : "43.0",
+"kind" : "u:",
+"line" : 311,
+"complexity" : 1
+},
+{
+"rule" : "44.0",
+"kind" : "u:",
+"line" : 313,
+"complexity" : 1
+},
+{
+"rule" : "45.0",
+"kind" : "u:",
+"label" : "GRUNT",
+"line" : 315,
+"complexity" : 1
+}]
+}
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/quibble.top",
+"items" : [
+{
+"topic" : "~quibble_all",
+"line" : 1,
+"rules" : [
+{
+"rule" : "0.0",
+"kind" : "u:",
+"line" : 5,
+"complexity" : 1
+},
+{
+"rule" : "1.0",
+"kind" : "u:",
+"line" : 7,
+"complexity" : 1
+},
+{
+"rule" : "2.0",
+"kind" : "u:",
+"line" : 9,
+"complexity" : 1
+},
+{
+"rule" : "3.0",
+"kind" : "u:",
+"line" : 11,
+"complexity" : 1
+},
+{
+"rule" : "4.0",
+"kind" : "u:",
+"line" : 13,
+"complexity" : 1
+},
+{
+"rule" : "5.0",
+"kind" : "u:",
+"line" : 15,
+"complexity" : 1
+},
+{
+"rule" : "6.0",
+"kind" : "u:",
+"line" : 17,
+"complexity" : 1
+},
+{
+"rule" : "7.0",
+"kind" : "u:",
+"line" : 19,
+"complexity" : 1
+},
+{
+"rule" : "8.0",
+"kind" : "u:",
+"line" : 21,
+"complexity" : 1
+},
+{
+"rule" : "9.0",
+"kind" : "u:",
+"line" : 23,
+"complexity" : 1
+},
+{
+"rule" : "10.0",
+"kind" : "u:",
+"line" : 25,
+"complexity" : 1
+},
+{
+"rule" : "11.0",
+"kind" : "u:",
+"line" : 27,
+"complexity" : 1
+},
+{
+"rule" : "12.0",
+"kind" : "u:",
+"line" : 32,
+"complexity" : 1
+}]
+}
+
+]
+}]

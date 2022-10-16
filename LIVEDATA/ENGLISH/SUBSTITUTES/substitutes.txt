@@ -182,6 +182,7 @@ prof. professor
  <but_why why
  <do_you_know_about_the what+is+the
  <do_you_not do+you
+innit is+not+it
  <herself_,_she she
  <herself_she she
  <himself_,_he he
@@ -880,7 +881,6 @@ prof. professor
  I_,_myself_, I
   I_dun I+do+not
  I_heard_that_you you
- I_heard_you you
   I_imagine_you you
  I_myself I
  I_presume> %QUESTIONMARK

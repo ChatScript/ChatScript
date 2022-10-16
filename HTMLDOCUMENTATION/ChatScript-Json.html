@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -492,6 +492,7 @@ $$user_agent = ^&quot;User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT
 <p>^jsonopen automatically url-encodes headers and urls</p>
 <p>Note: CS blocks until the call is complete. On a production server if you expect that the call can take serious time, you are advised to send the request in OOB to your own additional layer which returns to CS immediately. Then it makes the call and when the call completes, makes a call back to CS with the results in OOB.</p>
 <p>You can set dynamic time limits on ^jsonopen. The variable $cs_jsontimeout sets a local seconds limit on the call. -1 means fail immediately.</p>
+<p>If you have a variable $correlation_id, this value will be passed to jsonopen as an additional header correlation-id: %s. Used to track across multiple calls in a system what the originating message was.</p>
 <h4 id="jsonopen-and-local-files"><code>JSONOpen and local files</code></h4>
 <p>JSONOpen is a wrapper around the <code>Curl</code> library, so you can use as an url a local file reference like <code>file:///c:/myfile.txt</code>. The file, of course, should be a JSON text string.</p>
 <h4 id="jsonopen-and-proxy-servers"><code>JSONOpen and proxy servers</code></h4>

@@ -179,7 +179,7 @@
     <ClCompile Include="..\SRC\constructCode.cpp" />
     <ClCompile Include="..\SRC\csocket.cpp" />
     <ClCompile Include="..\SRC\cs_es.cpp" />
-    <ClCompile Include="..\SRC\cs_ev.c" />
+    <ClCompile Include="..\SRC\cs_ev.cpp" />
     <ClCompile Include="..\SRC\cs_german.cpp" />
     <ClCompile Include="..\SRC\cs_jp.cpp" />
     <ClCompile Include="..\SRC\dictionarySystem.cpp" />
@@ -216,7 +216,6 @@
     <ClCompile Include="..\SRC\userSystem.cpp" />
     <ClCompile Include="..\SRC\variableSystem.cpp" />
     <ClCompile Include="..\SRC\zif.cpp" />
-    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FE8431D-E404-4E5C-8CC5-D17DDD8430C0}</ProjectGuid>
@@ -1034,7 +1033,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1224,7 +1223,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>NOMAIN;DLL;WIN64;DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;NOMAIN;DLL;WIN64;DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1394,7 +1393,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMYSQL;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;DISCARD_TEXT_COMPRESSION;DISCARDMYSQL;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1504,7 +1503,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1610,7 +1609,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMONGO;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;DISCARDMONGO;DISCARDMICROSOFTSQL;DISCARDPOSTGRES;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1775,7 +1774,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARDMONGO;DISCARDPOSTGRES;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_JAPANESE;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMICROSOFTSQL;SAFETIME;WIN32;_RELEASE;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1829,7 +1828,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;TREETAGGER;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DISCARD_TEXT_COMPRESSION;DISCARDMONGO;DISCARDPOSTGRES;DISCARDMYSQL;DISCARDMICROSOFTSQL;SAFETIME;DISCARD_JAPANESE;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -1844,7 +1843,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\BINARIES\$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalDependencies>$(SolutionDir)../BINARIES/treetagger.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;$(SolutionDir)../BINARIES/libmecab.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
       <AdditionalLibraryDirectories>$(SolutionDir)../treetagger</AdditionalLibraryDirectories>
     </Link>

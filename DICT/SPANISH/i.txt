@@ -47,7 +47,7 @@
  IMA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  IMAGINIZACIÓN ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  IMC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- IN ( NOUN NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=IN 
+ IN ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=IN 
  IND ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=IND 
  INMARSAT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  INOP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
@@ -126,10 +126,10 @@
  Interferon ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Interlex ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Internet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- Interrumpo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ Interrumpo ( NOUN NOUN_SINGULAR ) 
  Interventores ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Intro ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- Introdución ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ Introdución ( NOUN NOUN_SINGULAR ) 
  Invenianto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Invicto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  Inés ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
@@ -168,40 +168,40 @@
  Ixodes ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Ixtapa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  i ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER HAS_SUBSTITUTE ) lemma=i 
- iatreion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iatreion ( NOUN NOUN_SINGULAR ) 
  iba ( VERB ) lemma=ir 
  ibais ( VERB ) lemma=ir 
  iban ( VERB ) lemma=ir 
  ibas ( VERB ) lemma=ir 
- iberoamericana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iberoamericano 
+ iberoamericana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iberoamericano 
  iberoamericano ( ) 
- iberoamericanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iberoamericano 
- ibuprofén ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ibérica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=ibérico 
- ibérico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=ibérico 
- ibéricas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=ibérico 
- ibéricos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=ibérico 
- icarus ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iberoamericanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iberoamericano 
+ ibuprofén ( NOUN NOUN_SINGULAR ) 
+ ibérica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ibérico 
+ ibérico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ibérico 
+ ibéricas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ibérico 
+ ibéricos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ibérico 
+ icarus ( NOUN NOUN_SINGULAR ) 
  ice ( VERB ) lemma=izar 
  izar ( VERB_INFINITIVE VERB ) 
- iceberg ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iceberg ( NOUN NOUN_SINGULAR ) 
  icen ( VERB ) lemma=izar 
- icono ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- icosaedro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ icono ( NOUN NOUN_SINGULAR ) 
+ icosaedro ( NOUN NOUN_SINGULAR ) 
  icosaédrica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=icosaédrico 
  icosaédrico ( ) 
  icosaédricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=icosaédrico 
- ictericia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ictus ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ictericia ( NOUN NOUN_SINGULAR ) 
+ ictus ( NOUN NOUN_SINGULAR ) 
  ictérica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ictérico 
  ictérico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  icónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=icónico 
  icónico ( ) 
- id ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`id`ir` NC  VLfin 
- ida ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- idás ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ida`ir` NC  VLadj 
- idea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ideación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ id ( NOUN VERB NOUN_SINGULAR ) lemma=`id`ir` NC  VLfin 
+ ida ( NOUN NOUN_SINGULAR ) 
+ idás ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ida`ir` NC  VLadj 
+ idea ( NOUN NOUN_SINGULAR ) 
+ ideación ( NOUN NOUN_SINGULAR ) 
  ideada ( VERB_PAST_PARTICIPLE VERB ) lemma=idear 
  idear ( VERB_INFINITIVE VERB ) 
  ideadas ( VERB_PAST_PARTICIPLE VERB ) lemma=idear 
@@ -210,26 +210,26 @@
  ideales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ideal 
  idealicen ( VERB ) lemma=idealizar 
  idealizar ( VERB_INFINITIVE VERB ) 
- idealismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- idealista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=idealista 
- idealistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=idealista 
+ idealismo ( NOUN NOUN_SINGULAR ) 
+ idealista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=idealista 
+ idealistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=idealista 
  idealizada ( VERB_PAST_PARTICIPLE VERB ) lemma=idealizar 
  idealmente ( ADVERB ) lemma=ideal 
  ideando ( NOUN NOUN_GERUND ) lemma=idear 
- ideas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`idea`idear` NC  VLfin 
+ ideas ( NOUN VERB NOUN_SINGULAR ) lemma=`idea`idear` NC  VLfin 
  ideemos ( VERB ) lemma=idear 
  ideen ( VERB ) lemma=idear 
- idenficación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ idenficación ( NOUN NOUN_SINGULAR ) 
  identico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- identidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ identidad ( NOUN NOUN_SINGULAR ) 
  identificar ( VERB_INFINITIVE VERB ) 
  identificable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  identificables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=identificable 
- identificaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=identificación 
- identificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ identificaciones ( NOUN NOUN_SINGULAR ) lemma=identificación 
+ identificación ( NOUN NOUN_SINGULAR ) 
  identificada ( VERB_PAST_PARTICIPLE VERB ) lemma=identificar 
  identificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=identificar 
- identificador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=identificador 
+ identificador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=identificador 
  identificados ( VERB_PAST_PARTICIPLE VERB ) lemma=identificar 
  identificando ( NOUN NOUN_GERUND ) lemma=identificar 
  identificarlas (                 VERB ) lemma=identificar 
@@ -249,17 +249,17 @@
  identifique ( VERB ) lemma=identificar 
  identifiquen ( VERB ) lemma=identificar 
  identifiqué ( VERB ) lemma=identificar 
- ideograma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ideología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ideograma ( NOUN NOUN_SINGULAR ) 
+ ideología ( NOUN NOUN_SINGULAR ) 
  ideológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ideológico 
  ideológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ideológicamente ( ADVERB ) lemma=ideológico 
  ideológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ideológico 
  ideológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ideológico 
- ideoplasma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ideólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- idilio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- idioma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ideoplasma ( NOUN NOUN_SINGULAR ) 
+ ideólogo ( NOUN NOUN_SINGULAR ) 
+ idilio ( NOUN NOUN_SINGULAR ) 
+ idioma ( NOUN NOUN_SINGULAR ) 
  idiomáticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idiomático 
  idiomático ( ) 
  idiopática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idiopático 
@@ -267,16 +267,16 @@
  idiosincrásico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  idiota ( ADJECTIVE ADJECTIVE_NORMAL ) 
  idiotas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idiota 
- idiotipo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ idiotipo ( NOUN NOUN_SINGULAR ) 
  idiotiza ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=idiotizar 
  idiotizar ( ) 
  idiotípicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idiotípico 
  idiotípico ( ) 
- idl ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ idl ( NOUN NOUN_SINGULAR ) 
  ido ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=irse 
- idolatría ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- idolo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ídolo 
- idoneidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ idolatría ( NOUN NOUN_SINGULAR ) 
+ idolo ( NOUN NOUN_SINGULAR ) lemma=ídolo 
+ idoneidad ( NOUN NOUN_SINGULAR ) 
  idos ( VERB_PAST_PARTICIPLE VERB ) lemma=ir 
  idéntica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idéntico 
  idéntico ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -288,16 +288,16 @@
  idóneamente ( ADVERB ) lemma=idóneo 
  idóneas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idóneo 
  idóneos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=idóneo 
- if ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ifg ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- iglesia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- igm ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ignominia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ if ( NOUN NOUN_SINGULAR ) 
+ ifg ( NOUN NOUN_SINGULAR ) 
+ iglesia ( NOUN NOUN_SINGULAR ) 
+ igm ( NOUN NOUN_SINGULAR ) 
+ ignominia ( NOUN NOUN_SINGULAR ) 
  ignorar ( VERB_INFINITIVE VERB ) 
  ignorada ( VERB_PAST_PARTICIPLE VERB ) lemma=ignorar 
  ignoradas ( VERB_PAST_PARTICIPLE VERB ) lemma=ignorar 
  ignorados ( VERB_PAST_PARTICIPLE VERB ) lemma=ignorar 
- ignorancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ignorancia ( NOUN NOUN_SINGULAR ) 
  ignorando ( NOUN NOUN_GERUND ) lemma=ignorar 
  ignorante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ignorantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ignorante 
@@ -317,25 +317,25 @@
  ignórenlo ( VERB ) lemma=ignorar 
  igual ( ADJECTIVE ADJECTIVE_NORMAL ) 
  igualar ( VERB_INFINITIVE VERB ) 
- igualación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ igualación ( NOUN NOUN_SINGULAR ) 
  igualada ( VERB_PAST_PARTICIPLE VERB ) lemma=igualar 
  igualadas ( VERB_PAST_PARTICIPLE VERB ) lemma=igualar 
- igualador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ igualador ( NOUN NOUN_SINGULAR ) 
  igualados ( VERB_PAST_PARTICIPLE VERB ) lemma=igualar 
  igualando ( NOUN NOUN_GERUND ) lemma=igualar 
- igualdad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ igualdad ( NOUN NOUN_SINGULAR ) 
  igualen ( VERB ) lemma=igualar 
  iguales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=igual 
  igualita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=igual 
  igualito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=igual 
  igualmente ( ADVERB ) lemma=igual|igualmente 
  igual|igualmente ( ) 
- iguana ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ii ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_PLURAL NOUN NOUN_NUMBER ) lemma=ii 
+ iguana ( NOUN NOUN_SINGULAR ) 
+ ii ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN NOUN_NUMBER ) lemma=ii 
  iii ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
  ilegal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ilegales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilegal 
- ilegalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ilegalidad ( NOUN NOUN_SINGULAR ) 
  ilegalmente ( ADVERB ) lemma=ilegal 
  ilegible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ilegibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilegible 
@@ -356,8 +356,8 @@
  ilimitados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilimitado 
  iliotibial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  iluminar ( VERB_INFINITIVE VERB ) 
- iluminaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=iluminación 
- iluminación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iluminaciones ( NOUN NOUN_SINGULAR ) lemma=iluminación 
+ iluminación ( NOUN NOUN_SINGULAR ) 
  iluminada ( VERB_PAST_PARTICIPLE VERB ) lemma=iluminar 
  iluminadas ( VERB_PAST_PARTICIPLE VERB ) lemma=iluminar 
  iluminados ( VERB_PAST_PARTICIPLE VERB ) lemma=iluminar 
@@ -368,8 +368,8 @@
  ilusionados ( VERB_PAST_PARTICIPLE VERB ) lemma=ilusionar 
  ilusionando ( NOUN NOUN_GERUND ) lemma=ilusionar 
  ilusioné ( VERB ) lemma=ilusionar 
- ilusiones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ilusión`ilusionar` NC  VLfin 
- ilusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ilusiones ( NOUN VERB NOUN_SINGULAR ) lemma=`ilusión`ilusionar` NC  VLfin 
+ ilusión ( NOUN NOUN_SINGULAR ) 
  iluso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ilusoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilusorio 
  ilusorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -377,8 +377,8 @@
  ilusorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilusorio 
  ilusos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iluso 
  ilustrar ( VERB_INFINITIVE VERB ) 
- ilustraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ilustración 
- ilustración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ilustraciones ( NOUN NOUN_SINGULAR ) lemma=ilustración 
+ ilustración ( NOUN NOUN_SINGULAR ) 
  ilustrada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilustrado 
  ilustrado ( ) 
  ilustradas ( VERB_PAST_PARTICIPLE VERB ) lemma=ilustrar 
@@ -407,15 +407,15 @@
  ilógico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ilógicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilógico 
  ilógicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ilógico 
- imagen ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imagen ( NOUN NOUN_SINGULAR ) 
  imaginar ( VERB_INFINITIVE VERB ) 
  imaginable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imaginables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imaginable 
- imaginación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imaginación ( NOUN NOUN_SINGULAR ) 
  imaginad ( VERB ) lemma=imaginar 
  imaginando ( NOUN NOUN_GERUND ) lemma=imaginar 
  imaginaos ( VERB ) lemma=imaginar 
- imaginaría ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`imaginario`imaginaria` ADJ  NC 
+ imaginaría ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`imaginario`imaginaria` ADJ  NC 
  imaginarías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imaginario 
  imaginario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imaginarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imaginario 
@@ -430,8 +430,8 @@
  imaginativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imaginativo 
  imaginemos ( VERB ) lemma=imaginar 
  imaginen ( VERB ) lemma=imaginar 
- imaginería ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- imaginización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imaginería ( NOUN NOUN_SINGULAR ) 
+ imaginización ( NOUN NOUN_SINGULAR ) 
  imaginizar ( VERB_INFINITIVE VERB ) 
  imaginándolo ( VERB_PAST_PARTICIPLE VERB ) lemma=imaginar 
  imaginároslo (                 VERB ) lemma=imaginar 
@@ -444,9 +444,9 @@
  imagínatelos ( ) lemma=imaginarse 
  imagínense ( ) lemma=imaginarse 
  imagínese ( ) lemma=imaginarse 
- imanes ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`imán`imanar` NC  VLfin 
+ imanes ( NOUN VERB NOUN_SINGULAR ) lemma=`imán`imanar` NC  VLfin 
  imberbe ( ADJECTIVE ADJECTIVE_NORMAL ) 
- imbornales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imbornal 
+ imbornales ( NOUN NOUN_SINGULAR ) lemma=imbornal 
  imbornal ( ) 
  imborrable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imborrables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imborrable 
@@ -457,11 +457,11 @@
  imbuye ( VERB ) lemma=imbuir 
  imbécil ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imbéciles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imbécil 
- imhoff ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- imidazol ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imhoff ( NOUN NOUN_SINGULAR ) 
+ imidazol ( NOUN NOUN_SINGULAR ) 
  imitar ( VERB_INFINITIVE VERB ) 
- imitaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imitación 
- imitación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imitaciones ( NOUN NOUN_SINGULAR ) lemma=imitación 
+ imitación ( NOUN NOUN_SINGULAR ) 
  imitada ( VERB_PAST_PARTICIPLE VERB ) lemma=imitar 
  imitadas ( VERB_PAST_PARTICIPLE VERB ) lemma=imitar 
  imitados ( VERB_PAST_PARTICIPLE VERB ) lemma=imitar 
@@ -469,8 +469,8 @@
  imitarse ( VERB_INFINITIVE VERB ) 
  imiten ( VERB ) lemma=imitar 
  imm ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- imp ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impaciencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imp ( NOUN NOUN_SINGULAR ) 
+ impaciencia ( NOUN NOUN_SINGULAR ) 
  impacienta ( VERB ) lemma=impacientar 
  impacientar ( ) 
  impacientado ( VERB_PAST_PARTICIPLE VERB ) lemma=impacientar 
@@ -481,11 +481,11 @@
  impacienten ( VERB ) lemma=impacientar 
  impacientes ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`impaciente`impacientar` ADJ  VLfin 
  impaciento ( VERB ) lemma=impacientar 
- impactación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impactación ( NOUN NOUN_SINGULAR ) 
  impactada ( VERB_PAST_PARTICIPLE VERB ) lemma=impactar 
  impactan ( VERB ) lemma=impactar 
  impactante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- impacto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impacto ( NOUN NOUN_SINGULAR ) 
  impactó ( VERB ) lemma=impactar 
  impalpable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impar ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -494,7 +494,7 @@
  imparables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imparable 
  imparcial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imparciales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imparcial 
- imparcialidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imparcialidad ( NOUN NOUN_SINGULAR ) 
  imparcialmente ( ADVERB ) lemma=imparcial 
  impares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impar 
  imparta ( VERB ) lemma=impartir 
@@ -511,16 +511,16 @@
  impasible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impasiblemente ( ADVERB ) lemma=impasible 
  impasibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impasible 
- impasse ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impasse ( NOUN NOUN_SINGULAR ) 
  impecable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impecablemente ( ADVERB ) lemma=impecable 
  impecables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impecable 
- impedancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impedancia ( NOUN NOUN_SINGULAR ) 
  impedida ( VERB_PAST_PARTICIPLE VERB ) lemma=impedir 
  impedir ( VERB_INFINITIVE VERB ) 
  impedidas ( VERB_PAST_PARTICIPLE VERB ) lemma=impedir 
  impedidos ( VERB_PAST_PARTICIPLE VERB ) lemma=impedir 
- impedimento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impedimento ( NOUN NOUN_SINGULAR ) 
  impedirla (                 VERB ) lemma=impedir 
  impedirlas (                 VERB ) lemma=impedir 
  impedirle (                 VERB ) lemma=impedir 
@@ -549,19 +549,19 @@
  imperdonable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imperdonables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperdonable 
  imperen ( VERB ) lemma=imperar 
- imperfecciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imperfección 
- imperfección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imperfecciones ( NOUN NOUN_SINGULAR ) lemma=imperfección 
+ imperfección ( NOUN NOUN_SINGULAR ) 
  imperfecta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperfecto 
  imperfecto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imperfectamente ( ADVERB ) lemma=imperfecto 
  imperfectos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperfecto 
  imperial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imperiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperial 
- imperialismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- imperialista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=imperialista 
- imperialistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=imperialista 
- impericia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- imperio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imperialismo ( NOUN NOUN_SINGULAR ) 
+ imperialista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=imperialista 
+ imperialistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=imperialista 
+ impericia ( NOUN NOUN_SINGULAR ) 
+ imperio ( NOUN NOUN_SINGULAR ) 
  imperiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperioso 
  imperioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imperiosamente ( ADVERB ) lemma=imperioso 
@@ -569,11 +569,11 @@
  imperiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperioso 
  impermeabilizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=impermeabilizar 
  impermeabilizar ( ) 
- impermeable ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impermeable ( NOUN NOUN_SINGULAR ) 
  impersonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- impersonalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impertinencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- imperturbabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impersonalización ( NOUN NOUN_SINGULAR ) 
+ impertinencia ( NOUN NOUN_SINGULAR ) 
+ imperturbabilidad ( NOUN NOUN_SINGULAR ) 
  imperturbable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imperturbablemente ( ADVERB ) lemma=imperturbable 
  imperturbables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imperturbable 
@@ -601,26 +601,26 @@
  implacablemente ( ADVERB ) lemma=implacable 
  implacables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=implacable 
  implantar ( VERB_INFINITIVE VERB ) 
- implantaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=implantación 
- implantación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ implantaciones ( NOUN NOUN_SINGULAR ) lemma=implantación 
+ implantación ( NOUN NOUN_SINGULAR ) 
  implantada ( VERB_PAST_PARTICIPLE VERB ) lemma=implantar 
  implantadas ( VERB_PAST_PARTICIPLE VERB ) lemma=implantar 
  implantados ( VERB_PAST_PARTICIPLE VERB ) lemma=implantar 
  implantando ( NOUN NOUN_GERUND ) lemma=implantar 
- implanté ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`implante`implantar` NC  VLfin 
+ implanté ( NOUN VERB NOUN_SINGULAR ) lemma=`implante`implantar` NC  VLfin 
  implanten ( VERB ) lemma=implantar 
  implantes ( VERB ) lemma=implantar 
  implementar ( VERB_INFINITIVE VERB ) 
- implementaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=implementación 
- implementación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ implementaciones ( NOUN NOUN_SINGULAR ) lemma=implementación 
+ implementación ( NOUN NOUN_SINGULAR ) 
  implementadas ( VERB_PAST_PARTICIPLE VERB ) lemma=implementar 
  implementarla ( VERB ) lemma=implementar 
  implementen ( VERB ) lemma=implementar 
- implementos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=implemento 
+ implementos ( NOUN NOUN_SINGULAR ) lemma=implemento 
  implemento ( ) 
  implicar ( VERB_INFINITIVE VERB ) 
- implicaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=implicación 
- implicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ implicaciones ( NOUN NOUN_SINGULAR ) lemma=implicación 
+ implicación ( NOUN NOUN_SINGULAR ) 
  implicada ( VERB_PAST_PARTICIPLE VERB ) lemma=implicar 
  implicadas ( VERB_PAST_PARTICIPLE VERB ) lemma=implicar 
  implicados ( VERB_PAST_PARTICIPLE VERB ) lemma=implicar 
@@ -672,18 +672,18 @@
  imponérsela (                 VERB ) lemma=imponerse 
  imponérsele (                 VERB ) lemma=imponerse 
  imponérseles (                 VERB ) lemma=imponerse 
- impopularidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impopularidad ( NOUN NOUN_SINGULAR ) 
  importar ( VERB_INFINITIVE VERB ) 
- importaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=importación 
- importación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ importaciones ( NOUN NOUN_SINGULAR ) lemma=importación 
+ importación ( NOUN NOUN_SINGULAR ) 
  importada ( VERB_PAST_PARTICIPLE VERB ) lemma=importar 
  importadas ( VERB_PAST_PARTICIPLE VERB ) lemma=importar 
- importador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=importador 
- importadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=importador 
- importadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=importador 
- importadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=importador 
+ importador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=importador 
+ importadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=importador 
+ importadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=importador 
+ importadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=importador 
  importados ( VERB_PAST_PARTICIPLE VERB ) lemma=importar 
- importancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ importancia ( NOUN NOUN_SINGULAR ) 
  importando ( NOUN NOUN_GERUND ) lemma=importar 
  importante ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`importante`importar` ADJ  VLadj 
  importantemente ( ADVERB ) lemma=importante 
@@ -698,14 +698,14 @@
  importarlo (                 VERB ) lemma=importar 
  importarlos (                 VERB ) lemma=importar 
  importarnos (                 VERB ) lemma=importar 
- importe ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ importe ( NOUN NOUN_SINGULAR ) 
  importemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=importar 
  importen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=importar 
- importes ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`importe`importar` NC  VLfin 
+ importes ( NOUN VERB NOUN_SINGULAR ) lemma=`importe`importar` NC  VLfin 
  importándolas ( NOUN NOUN_GERUND ) lemma=importar 
  importándole ( NOUN NOUN_GERUND ) lemma=importar 
  importásemos ( VERB ) lemma=importar 
- imposibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imposibilidad ( NOUN NOUN_SINGULAR ) 
  imposibilita ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`imposible`imposibilitar` ADJ  VLfin 
  imposibilitar ( VERB_INFINITIVE VERB ) 
  imposibilitada ( VERB_PAST_PARTICIPLE VERB ) lemma=imposibilitar 
@@ -714,34 +714,34 @@
  imposibiliten ( VERB ) lemma=imposibilitar 
  imposible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imposibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imposible 
- imposiciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imposición 
- imposición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impositiva ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imposiciones ( NOUN NOUN_SINGULAR ) lemma=imposición 
+ imposición ( NOUN NOUN_SINGULAR ) 
+ impositiva ( NOUN NOUN_SINGULAR ) 
  impositivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impositivos ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impostergables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impostergable 
  impostergable ( ) 
- impotencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impotencia ( NOUN NOUN_SINGULAR ) 
  impotente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impotentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impotente 
  impracticable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imprecisa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impreciso 
  impreciso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imprecisas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impreciso 
- imprecisiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imprecisión 
+ imprecisiones ( NOUN NOUN_SINGULAR ) lemma=imprecisión 
  imprecisión ( ) 
  imprecisos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impreciso 
  impredecible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impredecibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impredecible 
  impregnar ( VERB_INFINITIVE VERB ) 
- impregnación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impregnación ( NOUN NOUN_SINGULAR ) 
  impregnada ( VERB_PAST_PARTICIPLE VERB ) lemma=impregnar 
  impregnadas ( VERB_PAST_PARTICIPLE VERB ) lemma=impregnar 
  impregnados ( VERB_PAST_PARTICIPLE VERB ) lemma=impregnar 
  impregnando ( NOUN NOUN_GERUND ) lemma=impregnar 
  impregnemos ( VERB ) lemma=impregnar 
  imprejuzgar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- imprenta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imprenta ( NOUN NOUN_SINGULAR ) 
  impresa ( VERB_PAST_PARTICIPLE VERB ) lemma=imprimir 
  imprimir ( VERB_INFINITIVE VERB ) 
  impresas ( VERB_PAST_PARTICIPLE VERB ) lemma=imprimir 
@@ -750,19 +750,19 @@
  imprescindibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imprescindible 
  impresentable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impresentables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impresentable 
- impresion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=impresión 
- impresión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impresion ( NOUN NOUN_SINGULAR ) lemma=impresión 
+ impresión ( NOUN NOUN_SINGULAR ) 
  impresionar ( VERB_INFINITIVE VERB ) 
  impresionada ( VERB_PAST_PARTICIPLE VERB ) lemma=impresionar 
  impresionados ( VERB_PAST_PARTICIPLE VERB ) lemma=impresionar 
  impresionante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impresionantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impresionante 
  impresionase ( VERB ) lemma=impresionar 
- impresiones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`impresión`impresionar` NC  VLfin 
+ impresiones ( NOUN VERB NOUN_SINGULAR ) lemma=`impresión`impresionar` NC  VLfin 
  impreso ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`impreso`imprimir` ADJ  VLadj 
- impresor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impresora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impresoras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=impresor 
+ impresor ( NOUN NOUN_SINGULAR ) 
+ impresora ( NOUN NOUN_SINGULAR ) 
+ impresoras ( NOUN NOUN_SINGULAR ) lemma=impresor 
  impresos ( VERB_PAST_PARTICIPLE VERB ) lemma=imprimir 
  imprevisible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imprevisibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imprevisible 
@@ -779,16 +779,16 @@
  imprimirse ( VERB_INFINITIVE VERB ) 
  improbable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  improbables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improbable 
- improcedencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ improcedencia ( NOUN NOUN_SINGULAR ) 
  improcedente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  improcedentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improcedente 
  improductiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improductivo 
  improductivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  improductivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improductivo 
  improductivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improductivo 
- impronta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impronta ( NOUN NOUN_SINGULAR ) 
  improntar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- improperios ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=improperio 
+ improperios ( NOUN NOUN_SINGULAR ) lemma=improperio 
  improperio ( ) 
  impropia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impropio 
  impropio ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -797,24 +797,24 @@
  impropios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impropio 
  improrrogable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  improrrogables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=improrrogable 
- improvisaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=improvisación 
- improvisación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ improvisaciones ( NOUN NOUN_SINGULAR ) lemma=improvisación 
+ improvisación ( NOUN NOUN_SINGULAR ) 
  improvisada ( VERB_PAST_PARTICIPLE VERB ) lemma=improvisar 
  improvisar ( VERB_INFINITIVE VERB ) 
  improvisadas ( VERB_PAST_PARTICIPLE VERB ) lemma=improvisar 
  improvisados ( VERB_PAST_PARTICIPLE VERB ) lemma=improvisar 
  improvisando ( NOUN NOUN_GERUND ) lemma=improvisar 
- imprudencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imprudencia ( NOUN NOUN_SINGULAR ) 
  imprudente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imprudentemente ( ADVERB ) lemma=imprudente 
  imprudentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imprudente 
  impuesta ( VERB_PAST_PARTICIPLE VERB ) lemma=imponer 
  impuestas ( VERB_PAST_PARTICIPLE VERB ) lemma=imponer 
  impuesto ( VERB_PAST_PARTICIPLE VERB ) lemma=imponer 
- impuestos ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`impuesto`imponer` NC  VLadj 
+ impuestos ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`impuesto`imponer` NC  VLadj 
  impugnar ( VERB_INFINITIVE VERB ) 
- impugnaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=impugnación 
- impugnación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impugnaciones ( NOUN NOUN_SINGULAR ) lemma=impugnación 
+ impugnación ( NOUN NOUN_SINGULAR ) 
  impugnada ( VERB_PAST_PARTICIPLE VERB ) lemma=impugnar 
  impugnadas ( VERB_PAST_PARTICIPLE VERB ) lemma=impugnar 
  impugnados ( VERB_PAST_PARTICIPLE VERB ) lemma=impugnar 
@@ -832,24 +832,24 @@
  impulsasen ( VERB ) lemma=impulsar 
  impulsemos ( VERB ) lemma=impulsar 
  impulsen ( VERB ) lemma=impulsar 
- impulsiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=impulsión 
- impulsión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impulsiones ( NOUN NOUN_SINGULAR ) lemma=impulsión 
+ impulsión ( NOUN NOUN_SINGULAR ) 
  impulsiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impulsivo 
  impulsivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impulsivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impulsivo 
- impulsividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impulsividad ( NOUN NOUN_SINGULAR ) 
  impulsivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impulsivo 
- impulso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- impulsor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impulso ( NOUN NOUN_SINGULAR ) 
+ impulsor ( NOUN NOUN_SINGULAR ) 
  impulsándolo ( VERB_PAST_PARTICIPLE VERB ) lemma=impulsar 
  impulsásemos ( VERB ) lemma=impulsar 
  impune ( ADJECTIVE ADJECTIVE_NORMAL ) 
  impunemente ( ADVERB ) lemma=impune 
  impunes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impune 
- impunidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ impunidad ( NOUN NOUN_SINGULAR ) 
  impura ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=impuro 
  impuro ( ) 
- impurezas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=impureza 
+ impurezas ( NOUN NOUN_SINGULAR ) lemma=impureza 
  impureza ( ) 
  impusiera ( VERB ) lemma=imponer 
  impusieran ( VERB ) lemma=imponer 
@@ -863,47 +863,47 @@
  imputar ( VERB_INFINITIVE VERB ) 
  imputable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  imputables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imputable 
- imputaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imputación 
- imputación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imputaciones ( NOUN NOUN_SINGULAR ) lemma=imputación 
+ imputación ( NOUN NOUN_SINGULAR ) 
  imputada ( VERB_PAST_PARTICIPLE VERB ) lemma=imputar 
  imputados ( VERB_PAST_PARTICIPLE VERB ) lemma=imputar 
  imputando ( NOUN NOUN_GERUND ) lemma=imputar 
  imputarse ( VERB_INFINITIVE VERB ) 
  imputen ( VERB ) lemma=imputar 
- imÁgenes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imagen 
- imágenes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=imagen 
- imán ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ imÁgenes ( NOUN NOUN_SINGULAR ) lemma=imagen 
+ imágenes ( NOUN NOUN_SINGULAR ) lemma=imagen 
+ imán ( NOUN NOUN_SINGULAR ) 
  in ( ADVERB ) 
  inabarcable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inacabable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inacabables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inacabable 
  inaccesible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inaccesibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inaccesible 
- inacción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inacción ( NOUN NOUN_SINGULAR ) 
  inaceptable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inaceptablemente ( ADVERB ) lemma=inaceptable 
  inaceptables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inaceptable 
  inactiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inactivo 
  inactivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inactivación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inactivación ( NOUN NOUN_SINGULAR ) 
  inactivadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inactivar 
  inactivar ( VERB_INFINITIVE VERB ) 
  inactivados ( VERB_PAST_PARTICIPLE VERB ) lemma=inactivar 
  inactivando ( NOUN NOUN_GERUND ) lemma=inactivar 
  inactivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inactivo 
- inactividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inactividad ( NOUN NOUN_SINGULAR ) 
  inactivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inactivo 
- inadecuación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inadecuación ( NOUN NOUN_SINGULAR ) 
  inadecuada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inadecuado 
  inadecuado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inadecuadamente ( ADVERB ) lemma=inadecuado 
  inadecuadas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inadecuado 
  inadecuados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inadecuado 
- inadmisibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inadmisibilidad ( NOUN NOUN_SINGULAR ) 
  inadmisible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inadmisiblemente ( ADVERB ) lemma=inadmisible 
  inadmisibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inadmisible 
- inadmisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inadmisión ( NOUN NOUN_SINGULAR ) 
  inadvertida ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inadvertido 
  inadvertido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inadvertidamente ( ADVERB ) lemma=inadvertido 
@@ -924,20 +924,20 @@
  inalámbricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inalámbrico 
  inalámbricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inalámbrico 
  inamovible ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inamovilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inanición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inamovilidad ( NOUN NOUN_SINGULAR ) 
+ inanición ( NOUN NOUN_SINGULAR ) 
  inaparente ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inaplicaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inaplicación 
- inaplicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inaplicaciones ( NOUN NOUN_SINGULAR ) lemma=inaplicación 
+ inaplicación ( NOUN NOUN_SINGULAR ) 
  inapropiada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inapropiado 
  inapropiado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inapropiadas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inapropiado 
  inapropiados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inapropiado 
- inaptitud ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inaptitud ( NOUN NOUN_SINGULAR ) 
  inapto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inasequible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inasequibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inasequible 
- inasistencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inasistencia ( NOUN NOUN_SINGULAR ) 
  inatacable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inaudibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inaudible 
  inaudible ( ) 
@@ -946,8 +946,8 @@
  inauditas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inaudito 
  inauditos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inaudito 
  inaugurar ( VERB_INFINITIVE VERB ) 
- inauguraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inauguración 
- inauguración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inauguraciones ( NOUN NOUN_SINGULAR ) lemma=inauguración 
+ inauguración ( NOUN NOUN_SINGULAR ) 
  inaugurada ( VERB_PAST_PARTICIPLE VERB ) lemma=inaugurar 
  inauguradas ( VERB_PAST_PARTICIPLE VERB ) lemma=inaugurar 
  inaugural ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -955,7 +955,7 @@
  inaugurando ( NOUN NOUN_GERUND ) lemma=inaugurar 
  inaugurarlo (                 VERB ) lemma=inaugurar 
  inaugurarse ( VERB_INFINITIVE VERB ) 
- inca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inca 
+ inca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inca 
  incalculable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incalculables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incalculable 
  incansable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -963,9 +963,9 @@
  incansables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incansable 
  incapaces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incapaz 
  incapaz ( ADJECTIVE ADJECTIVE_NORMAL ) 
- incapacidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incapacidad ( NOUN NOUN_SINGULAR ) 
  incapacita ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`incapaz`incapacitar` ADJ  VLfin 
- incapacitación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incapacitación ( NOUN NOUN_SINGULAR ) 
  incapacitada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`incapacitado`incapacitar` ADJ  VLadj 
  incapacitadas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`incapacitado`incapacitar` ADJ  VLadj 
  incapacitar ( VERB_INFINITIVE VERB ) 
@@ -974,9 +974,9 @@
  incapacitarlo ( VERB ) lemma=incapacitar 
  incardinada ( VERB_PAST_PARTICIPLE VERB ) lemma=incardinar 
  incardinar ( ) 
- incas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inca 
- incautaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incautación 
- incautación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inca 
+ incautaciones ( NOUN NOUN_SINGULAR ) lemma=incautación 
+ incautación ( NOUN NOUN_SINGULAR ) 
  incautada ( VERB_PAST_PARTICIPLE VERB ) lemma=incautar 
  incautar ( VERB_INFINITIVE VERB ) 
  incautadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incautar 
@@ -991,10 +991,10 @@
  incendiarías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incendiario 
  incendiarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incendiario 
  incendiarse ( VERB_INFINITIVE VERB ) 
- incendio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`incendio`incendiar` NC  VLfin 
+ incendio ( NOUN VERB NOUN_SINGULAR ) lemma=`incendio`incendiar` NC  VLfin 
  incendiándose ( NOUN NOUN_GERUND ) lemma=incendiarse 
  incentiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incentivo 
- incentivo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=incentivo 
+ incentivo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=incentivo 
  incentivar ( VERB_INFINITIVE VERB ) 
  incentivada ( VERB_PAST_PARTICIPLE VERB ) lemma=incentivar 
  incentivadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incentivar 
@@ -1003,30 +1003,30 @@
  incentivasen ( VERB ) lemma=incentivar 
  incentivemos ( VERB ) lemma=incentivar 
  incentiven ( VERB ) lemma=incentivar 
- incentivos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=incentivo 
- incertidumbre ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incentivos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=incentivo 
+ incertidumbre ( NOUN NOUN_SINGULAR ) 
  incesante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incesantemente ( ADVERB ) lemma=incesante 
  incesantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incesante 
- incesto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incesto ( NOUN NOUN_SINGULAR ) 
  incestuoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incida ( VERB ) lemma=incidir 
  incidir ( VERB_INFINITIVE VERB ) 
  incidan ( VERB ) lemma=incidir 
- incidencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incidencia ( NOUN NOUN_SINGULAR ) 
  incidental ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incidentales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incidental 
  incidentalmente ( ADVERB ) lemma=incidental 
- incidente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incidentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=incidente 
+ incidente ( NOUN NOUN_SINGULAR ) 
+ incidentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=incidente 
  incidiendo ( NOUN NOUN_GERUND ) lemma=incidir 
- incienso ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`incienso`incensar` NC  VLfin 
+ incienso ( NOUN VERB NOUN_SINGULAR ) lemma=`incienso`incensar` NC  VLfin 
  incierta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incierto 
  incierto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inciertas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incierto 
  inciertos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incierto 
- incineraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incineración 
- incineración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incineraciones ( NOUN NOUN_SINGULAR ) lemma=incineración 
+ incineración ( NOUN NOUN_SINGULAR ) 
  incinerar ( VERB_INFINITIVE VERB ) 
  incinerador ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incinerados ( VERB_PAST_PARTICIPLE VERB ) lemma=incinerar 
@@ -1034,25 +1034,25 @@
  incinerarlo (                 VERB ) lemma=incinerar 
  incipiente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incipientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incipiente 
- incisiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incisión 
- incisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incisiones ( NOUN NOUN_SINGULAR ) lemma=incisión 
+ incisión ( NOUN NOUN_SINGULAR ) 
  incisivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- incisivos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incisivo 
- inciso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incisos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inciso 
+ incisivos ( NOUN NOUN_SINGULAR ) lemma=incisivo 
+ inciso ( NOUN NOUN_SINGULAR ) 
+ incisos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inciso 
  incitar ( VERB_INFINITIVE VERB ) 
- incitaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incitación 
- incitación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incitaciones ( NOUN NOUN_SINGULAR ) lemma=incitación 
+ incitación ( NOUN NOUN_SINGULAR ) 
  incitada ( VERB_PAST_PARTICIPLE VERB ) lemma=incitar 
  incitadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incitar 
  incitados ( VERB_PAST_PARTICIPLE VERB ) lemma=incitar 
  incitando ( NOUN NOUN_GERUND ) lemma=incitar 
  inciten ( VERB ) lemma=incitar 
- inclemencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inclemencia ( NOUN NOUN_SINGULAR ) 
  inclemente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inclinar ( VERB_INFINITIVE VERB ) 
- inclinaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inclinación 
- inclinación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inclinaciones ( NOUN NOUN_SINGULAR ) lemma=inclinación 
+ inclinación ( NOUN NOUN_SINGULAR ) 
  inclinada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inclinado`inclinar` ADJ  VLadj 
  inclinadas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inclinado`inclinar` ADJ  VLadj 
  inclinado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inclinado`inclinar` ADJ  VLadj 
@@ -1073,8 +1073,8 @@
  incluirme (                 VERB ) lemma=incluir 
  incluirnos (                 VERB ) lemma=incluir 
  incluirse ( VERB_INFINITIVE VERB ) 
- inclusiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inclusión 
- inclusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inclusiones ( NOUN NOUN_SINGULAR ) lemma=inclusión 
+ inclusión ( NOUN NOUN_SINGULAR ) 
  inclusive ( ADVERB ) 
  incluso ( ADVERB ) 
  incluya ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=incluir 
@@ -1098,12 +1098,12 @@
  incluyéramos ( VERB ) lemma=incluir 
  incluyó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=incluir 
  incluí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=incluir 
- incoación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incoación ( NOUN NOUN_SINGULAR ) 
  incoadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incoar 
  incoar ( VERB_INFINITIVE VERB ) 
  incobrables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incobrable 
  incobrable ( ) 
- incoherencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incoherencia ( NOUN NOUN_SINGULAR ) 
  incoherente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incoherentemente ( ADVERB ) lemma=incoherente 
  incoherentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incoherente 
@@ -1113,20 +1113,20 @@
  incomestible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incomodar ( VERB_INFINITIVE VERB ) 
  incomodados ( VERB_PAST_PARTICIPLE VERB ) lemma=incomodar 
- incomodidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incomodidad ( NOUN NOUN_SINGULAR ) 
  incomodos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incómodo 
  incómodo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incomodísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incómodo 
  incomparable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incomparablemente ( ADVERB ) lemma=incomparable 
  incomparables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incomparable 
- incomparecencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incompatibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incomparecencia ( NOUN NOUN_SINGULAR ) 
+ incompatibilidad ( NOUN NOUN_SINGULAR ) 
  incompatible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incompatibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incompatible 
- incompetencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incompetente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=incompetente 
- incompetentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=incompetente 
+ incompetencia ( NOUN NOUN_SINGULAR ) 
+ incompetente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=incompetente 
+ incompetentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=incompetente 
  incompleta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incompleto 
  incompleto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incompletas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incompleto 
@@ -1134,9 +1134,9 @@
  incomprensible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incomprensiblemente ( ADVERB ) lemma=incomprensible 
  incomprensibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incomprensible 
- incomprensiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incomprensión 
- incomprensión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incomunicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incomprensiones ( NOUN NOUN_SINGULAR ) lemma=incomprensión 
+ incomprensión ( NOUN NOUN_SINGULAR ) 
+ incomunicación ( NOUN NOUN_SINGULAR ) 
  incomunicada ( VERB_PAST_PARTICIPLE VERB ) lemma=incomunicar 
  incomunicar ( ) 
  incomunicadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incomunicar 
@@ -1148,36 +1148,36 @@
  incondicionar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  inconfesable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconfesables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inconfesable 
- inconforme ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inconforme 
- inconformes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inconforme 
- inconformidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incongruencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inconforme ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inconforme 
+ inconformes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inconforme 
+ inconformidad ( NOUN NOUN_SINGULAR ) 
+ incongruencia ( NOUN NOUN_SINGULAR ) 
  incongruente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incongruentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incongruente 
  inconmensurable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconmensurables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inconmensurable 
  inconmovible ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inconsciencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inconsciencia ( NOUN NOUN_SINGULAR ) 
  inconsciente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconscientemente ( ADVERB ) lemma=inconsciente 
  inconscientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inconsciente 
- inconsecuencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inconsecuente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inconsecuente 
- inconsecuentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inconsecuente 
+ inconsecuencia ( NOUN NOUN_SINGULAR ) 
+ inconsecuente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inconsecuente 
+ inconsecuentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inconsecuente 
  inconsentido ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inconsistencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inconsistencia ( NOUN NOUN_SINGULAR ) 
  inconsistente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconsistentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inconsistente 
  inconstante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconstitucional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inconstitucionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inconstitucional 
- inconstitucionalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inconstitucionalidad ( NOUN NOUN_SINGULAR ) 
  incontable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incontables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontable 
  incontaminado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incontenible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incontenibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontenible 
- incontinencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incontinencia ( NOUN NOUN_SINGULAR ) 
  incontrolable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incontrolables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontrolable 
  incontrolada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontrolado 
@@ -1185,12 +1185,12 @@
  incontroladas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontrolado 
  incontrovertibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incontrovertible 
  incontrovertible ( ) 
- inconveniente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inconveniente ( NOUN NOUN_SINGULAR ) 
  incordiar ( VERB_INFINITIVE VERB ) 
  incordiando ( NOUN NOUN_GERUND ) lemma=incordiar 
  incorporar ( VERB_INFINITIVE VERB ) 
- incorporaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incorporación 
- incorporación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incorporaciones ( NOUN NOUN_SINGULAR ) lemma=incorporación 
+ incorporación ( NOUN NOUN_SINGULAR ) 
  incorporada ( VERB_PAST_PARTICIPLE VERB ) lemma=incorporar 
  incorporadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incorporar 
  incorporado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`incorporado`incorporar` ADJ  VLadj 
@@ -1202,7 +1202,7 @@
  incorporemos ( VERB ) lemma=incorporar 
  incorporen ( VERB ) lemma=incorporar 
  incorporándose ( NOUN NOUN_GERUND ) lemma=incorporarse 
- incorrección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incorrección ( NOUN NOUN_SINGULAR ) 
  incorrecta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incorrecto 
  incorrecto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incorrectamente ( ADVERB ) lemma=incorrecto 
@@ -1210,7 +1210,7 @@
  incorrectos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incorrecto 
  incorregible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incorregibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incorregible 
- incredulidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incredulidad ( NOUN NOUN_SINGULAR ) 
  increible ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=increíble 
  increíble ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incrementar ( VERB_INFINITIVE VERB ) 
@@ -1223,7 +1223,7 @@
  incrementarse ( VERB_INFINITIVE VERB ) 
  incrementemos ( VERB ) lemma=incrementar 
  incrementen ( VERB ) lemma=incrementar 
- incremento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incremento ( NOUN NOUN_SINGULAR ) 
  incrementándose ( VERB_PAST_PARTICIPLE VERB ) lemma=incrementar 
  increpar ( VERB_INFINITIVE VERB ) 
  increíblemente ( ADVERB ) lemma=increíble 
@@ -1237,7 +1237,7 @@
  incruento ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incruentas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incruento 
  incrusta ( VERB ) lemma=incrustar 
- incrustaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incrustación 
+ incrustaciones ( NOUN NOUN_SINGULAR ) lemma=incrustación 
  incrustación ( ) 
  incrustada ( VERB_PAST_PARTICIPLE VERB ) lemma=incrustar 
  incrustadas ( VERB_PAST_PARTICIPLE VERB ) lemma=incrustar 
@@ -1247,8 +1247,8 @@
  incrédulo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incrédulos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incrédulo 
  incubar ( VERB_INFINITIVE VERB ) 
- incubación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- incubadora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incubación ( NOUN NOUN_SINGULAR ) 
+ incubadora ( NOUN NOUN_SINGULAR ) 
  incubados ( VERB_PAST_PARTICIPLE VERB ) lemma=incubar 
  incuestionable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incuestionablemente ( ADVERB ) lemma=incuestionable 
@@ -1261,10 +1261,10 @@
  inculpados ( VERB_PAST_PARTICIPLE VERB ) lemma=inculpar 
  inculto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incultos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inculto 
- incultura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incultura ( NOUN NOUN_SINGULAR ) 
  incumba ( VERB ) lemma=incumbir 
  incumbir ( VERB_INFINITIVE VERB ) 
- incumbencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incumbencia ( NOUN NOUN_SINGULAR ) 
  incumbiendo ( NOUN NOUN_GERUND ) lemma=incumbir 
  incumpla ( VERB ) lemma=incumplir 
  incumplir ( VERB_INFINITIVE VERB ) 
@@ -1274,7 +1274,7 @@
  incumplidoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incumplidos ( VERB_PAST_PARTICIPLE VERB ) lemma=incumplir 
  incumpliendo ( NOUN NOUN_GERUND ) lemma=incumplir 
- incumplimiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incumplimiento ( NOUN NOUN_SINGULAR ) 
  incurable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  incurables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incurable 
  incurra ( VERB ) lemma=incurrir 
@@ -1285,8 +1285,8 @@
  incurriendo ( NOUN NOUN_GERUND ) lemma=incurrir 
  incurrieran ( VERB ) lemma=incurrir 
  incursionar ( VERB_INFINITIVE VERB ) 
- incursiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=incursión 
- incursión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ incursiones ( NOUN NOUN_SINGULAR ) lemma=incursión 
+ incursión ( NOUN NOUN_SINGULAR ) 
  incursos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incurso 
  incurso ( ) 
  incógnita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incógnito 
@@ -1297,8 +1297,8 @@
  incómodas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incómodo 
  incómodos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=incómodo 
  indagar ( VERB_INFINITIVE VERB ) 
- indagaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indagación 
- indagación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indagaciones ( NOUN NOUN_SINGULAR ) lemma=indagación 
+ indagación ( NOUN NOUN_SINGULAR ) 
  indagando ( NOUN NOUN_GERUND ) lemma=indagar 
  indagase ( VERB ) lemma=indagar 
  indague ( VERB ) lemma=indagar 
@@ -1311,15 +1311,15 @@
  indecisa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeciso 
  indeciso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indecisas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeciso 
- indecisiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indecisión 
- indecisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indecisiones ( NOUN NOUN_SINGULAR ) lemma=indecisión 
+ indecisión ( NOUN NOUN_SINGULAR ) 
  indecisos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeciso 
  indefectible ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=indefectible 
  indefectiblemente ( ADVERB ) lemma=indefectible 
  indefensa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indefenso 
  indefenso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indefensas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indefenso 
- indefensión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indefensión ( NOUN NOUN_SINGULAR ) 
  indefensos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indefenso 
  indefinida ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indefinido 
  indefinido ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1332,8 +1332,8 @@
  indemnes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indemne 
  indemnice ( VERB ) lemma=indemnizar 
  indemnizar ( VERB_INFINITIVE VERB ) 
- indemnizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indemnización 
- indemnización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indemnizaciones ( NOUN NOUN_SINGULAR ) lemma=indemnización 
+ indemnización ( NOUN NOUN_SINGULAR ) 
  indemnizada ( VERB_PAST_PARTICIPLE VERB ) lemma=indemnizar 
  indemnizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=indemnizar 
  indemnizados ( VERB_PAST_PARTICIPLE VERB ) lemma=indemnizar 
@@ -1341,9 +1341,9 @@
  indemnizarla (                 VERB ) lemma=indemnizar 
  indemnizarle (                 VERB ) lemma=indemnizar 
  indemnizarles (                 VERB ) lemma=indemnizar 
- independencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- independentista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=independentista 
- independentistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=independentista 
+ independencia ( NOUN NOUN_SINGULAR ) 
+ independentista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=independentista 
+ independentistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=independentista 
  independiente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  independientemente ( ADVERB HAS_SUBSTITUTE ) lemma=independiente|independientemente 
  independiente|independientemente ( ) 
@@ -1351,9 +1351,9 @@
  independizar ( VERB_INFINITIVE VERB ) 
  independizando ( NOUN NOUN_GERUND ) lemma=independizar 
  independizarse ( VERB_INFINITIVE VERB ) 
- inderogabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inderogabilidad ( NOUN NOUN_SINGULAR ) 
  indeseable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- indeseables ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indeseable 
+ indeseables ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indeseable 
  indeseada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeseado 
  indeseado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indeseadas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeseado 
@@ -1362,23 +1362,23 @@
  indeterminada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indeterminado 
  indeterminado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indexable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- indexación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indexación ( NOUN NOUN_SINGULAR ) 
  indexada ( VERB_PAST_PARTICIPLE VERB ) lemma=indexar 
  indexar ( VERB_INFINITIVE VERB ) 
  indexados ( VERB_PAST_PARTICIPLE VERB ) lemma=indexar 
- india ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indio 
- indio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indio 
- indiano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- indias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indio 
+ india ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indio 
+ indio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indio 
+ indiano ( NOUN NOUN_SINGULAR ) 
+ indias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indio 
  indicar ( VERB_INFINITIVE VERB ) 
- indicaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indicación 
- indicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indicaciones ( NOUN NOUN_SINGULAR ) lemma=indicación 
+ indicación ( NOUN NOUN_SINGULAR ) 
  indicada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indicado`indicar` ADJ  VLadj 
  indicadas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indicado`indicar` ADJ  VLadj 
  indicado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indicado`indicar` ADJ  VLadj 
- indicador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indicador 
+ indicador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indicador 
  indicadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indicador 
- indicadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indicador 
+ indicadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indicador 
  indicados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indicado`indicar` ADJ  VLadj 
  indicando ( NOUN NOUN_GERUND ) lemma=indicar 
  indicarlas (                 VERB ) lemma=indicar 
@@ -1392,39 +1392,39 @@
  indicase ( VERB ) lemma=indicar 
  indicasen ( VERB ) lemma=indicar 
  indicativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indicativo 
- indicativo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indicativo 
+ indicativo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indicativo 
  indicativamente ( ADVERB ) lemma=indicativo 
  indicativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indicativo 
  indicatorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indicatorio 
  indicatorio ( ) 
  indicé ( VERB ) lemma=indizar 
  indizar ( VERB_INFINITIVE VERB ) 
- indices ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indicé 
+ indices ( NOUN NOUN_SINGULAR ) lemma=indicé 
  indiciado ( VERB_PAST_PARTICIPLE VERB ) lemma=indiciar 
  indiciar ( ) 
- indicio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`indicio`indiciar` NC  VLfin 
+ indicio ( NOUN VERB NOUN_SINGULAR ) lemma=`indicio`indiciar` NC  VLfin 
  indicándole ( VERB_PAST_PARTICIPLE VERB ) lemma=indicar 
  indicándoles ( NOUN NOUN_GERUND ) lemma=indicar 
  indicándome ( NOUN NOUN_GERUND ) lemma=indicar 
  indicándonos ( VERB_PAST_PARTICIPLE VERB ) lemma=indicar 
  indicándose ( VERB_PAST_PARTICIPLE VERB ) lemma=indicar 
  indicáramos ( VERB ) lemma=indicar 
- indiecita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indio 
- indiferencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indiecita ( NOUN NOUN_SINGULAR ) lemma=indio 
+ indiferencia ( NOUN NOUN_SINGULAR ) 
  indiferenciado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indiferente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indiferentemente ( ADVERB ) lemma=indiferente 
  indiferentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indiferente 
- indigencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- indigenista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- indigente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indigencia ( NOUN NOUN_SINGULAR ) 
+ indigenista ( NOUN NOUN_SINGULAR ) 
+ indigente ( NOUN NOUN_SINGULAR ) 
  indigestas ( VERB ) lemma=indigestar 
  indigestar ( ) 
- indigestión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indigestión ( NOUN NOUN_SINGULAR ) 
  indigestó ( VERB ) lemma=indigestar 
  indigna ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indigno`indignar` ADJ  VLfin 
- indignaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=indignación 
- indignación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indignaciones ( NOUN NOUN_SINGULAR ) lemma=indignación 
+ indignación ( NOUN NOUN_SINGULAR ) 
  indignada ( VERB_PAST_PARTICIPLE VERB ) lemma=indignar 
  indignar ( ) 
  indignado ( VERB_PAST_PARTICIPLE VERB ) lemma=indignar 
@@ -1434,11 +1434,11 @@
  indignarán ( VERB ) lemma=indignar 
  indignas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indigno`indignar` ADJ  VLfin 
  indignen ( VERB ) lemma=indignar 
- indignidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indignidad ( NOUN NOUN_SINGULAR ) 
  indigno ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`indigno`indignar` ADJ  VLfin 
  indignos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indigno 
  indignó ( VERB ) lemma=indignar 
- indios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indio 
+ indios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indio 
  indique ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=indicar 
  indiquemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=indicar 
  indiquen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=indicar 
@@ -1468,7 +1468,7 @@
  indispensable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indispensablemente ( ADVERB ) lemma=indispensable 
  indispensables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indispensable 
- indisponibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indisponibilidad ( NOUN NOUN_SINGULAR ) 
  indisponible ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indisponible 
  indisponibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indisponible 
  indispuesta ( VERB_PAST_PARTICIPLE VERB ) lemma=indisponer 
@@ -1482,17 +1482,17 @@
  indistintamente ( ADVERB ) lemma=indistinto 
  individual ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=individual 
  individuales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=individual 
- individualidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- individualismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ individualidad ( NOUN NOUN_SINGULAR ) 
+ individualismo ( NOUN NOUN_SINGULAR ) 
  individualista ( ADJECTIVE ADJECTIVE_NORMAL ) 
  individualistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=individualista 
  individualizar ( VERB_INFINITIVE VERB ) 
- individualización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ individualización ( NOUN NOUN_SINGULAR ) 
  individualizada ( VERB_PAST_PARTICIPLE VERB ) lemma=individualizar 
  individualizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=individualizar 
  individualizados ( VERB_PAST_PARTICIPLE VERB ) lemma=individualizar 
  individualmente ( ADVERB ) lemma=individual 
- individuo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ individuo ( NOUN NOUN_SINGULAR ) 
  indivisa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indiviso 
  indiviso ( ) 
  indivisas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indiviso 
@@ -1502,33 +1502,33 @@
  indizada ( VERB_PAST_PARTICIPLE VERB ) lemma=indizar 
  indizado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indoblegable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- indocumentado ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indocumentado 
- indocumentados ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indocumentado 
+ indocumentado ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indocumentado 
+ indocumentados ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indocumentado 
  indoeuropea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indoeuropeo 
- indoeuropeo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indoeuropeo 
- indoeuropeos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indoeuropeo 
+ indoeuropeo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indoeuropeo 
+ indoeuropeos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indoeuropeo 
  indolente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indolentemente ( ADVERB ) lemma=indolente 
  indolentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indolente 
  indolora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indoloro 
  indoloro ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indoloros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indoloro 
- indonesia ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`indonesio`indonesia` ADJ  NC 
- indonesias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`indonesio`indonesia` ADJ  NC 
- indonesio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indonesio 
- indonesios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indonesio 
- inducciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inducción 
- inducción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ indonesia ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`indonesio`indonesia` ADJ  NC 
+ indonesias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`indonesio`indonesia` ADJ  NC 
+ indonesio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indonesio 
+ indonesios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indonesio 
+ inducciones ( NOUN NOUN_SINGULAR ) lemma=inducción 
+ inducción ( NOUN NOUN_SINGULAR ) 
  inducir ( VERB_INFINITIVE VERB ) 
  inducible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inducida ( VERB_PAST_PARTICIPLE VERB ) lemma=inducir 
  inducidas ( VERB_PAST_PARTICIPLE VERB ) lemma=inducir 
  inducidos ( VERB_PAST_PARTICIPLE VERB ) lemma=inducir 
  induciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=inducir 
- inductancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inductancia ( NOUN NOUN_SINGULAR ) 
  inductiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inductivo 
  inductivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inductor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inductor ( NOUN NOUN_SINGULAR ) 
  indudable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indudablemente ( ADVERB ) lemma=indudable 
  indudables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indudable 
@@ -1536,17 +1536,17 @@
  indujeran ( VERB ) lemma=inducir 
  indujeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=inducir 
  indujo ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=inducir 
- indulgencia ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`indulgencia`indulgenciar` NC  VLfin 
+ indulgencia ( NOUN VERB NOUN_SINGULAR ) lemma=`indulgencia`indulgenciar` NC  VLfin 
  indulgente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  indulgentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=indulgente 
  indultar ( VERB_INFINITIVE VERB ) 
  indultados ( VERB_PAST_PARTICIPLE VERB ) lemma=indultar 
- indulto ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`indulto`indultar` NC  VLfin 
- indumentaria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- industria ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`industria`industriar` NC  VLfin 
+ indulto ( NOUN VERB NOUN_SINGULAR ) lemma=`indulto`indultar` NC  VLfin 
+ indumentaria ( NOUN NOUN_SINGULAR ) 
+ industria ( NOUN VERB NOUN_SINGULAR ) lemma=`industria`industriar` NC  VLfin 
  industrial ( ADJECTIVE ADJECTIVE_NORMAL ) 
- industriales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=industrial 
- industrialización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ industriales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=industrial 
+ industrialización ( NOUN NOUN_SINGULAR ) 
  industrializada ( VERB_PAST_PARTICIPLE VERB ) lemma=industrializar 
  industrializar ( ) 
  industrializadas ( VERB_PAST_PARTICIPLE VERB ) lemma=industrializar 
@@ -1559,8 +1559,8 @@
  induzca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=inducir 
  induzcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=inducir 
  induzcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=inducir 
- indígena ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indígena 
- indígenas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=indígena 
+ indígena ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indígena 
+ indígenas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=indígena 
  inediatamente ( ADVERB ) lemma=inediato 
  inediato ( ) 
  inefable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1569,8 +1569,8 @@
  inefectivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inefectivo 
  ineficaces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ineficaz 
  ineficaz ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ineficacia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ineficiencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ineficacia ( NOUN NOUN_SINGULAR ) 
+ ineficiencia ( NOUN NOUN_SINGULAR ) 
  ineficiente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ineficientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ineficiente 
  ineludible ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1582,17 +1582,17 @@
  inepta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inepto 
  inepto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ineptas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inepto 
- ineptitud ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ineptitud ( NOUN NOUN_SINGULAR ) 
  ineptos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inepto 
  inequívoca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inequívoco 
  inequívoco ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inequívocamente ( ADVERB ) lemma=inequívoco 
  inequívocas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inequívoco 
  inequívocos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inequívoco 
- inercia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inercia ( NOUN NOUN_SINGULAR ) 
  inerte ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inertes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inerte 
- inervación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inervación ( NOUN NOUN_SINGULAR ) 
  inervar ( VERB_PAST_PARTICIPLE VERB ) lemma=inervar 
  inespecífico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inesperada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inesperado 
@@ -1600,7 +1600,7 @@
  inesperadamente ( ADVERB ) lemma=inesperado 
  inesperadas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inesperado 
  inesperados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inesperado 
- inestabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inestabilidad ( NOUN NOUN_SINGULAR ) 
  inestable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inestables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inestable 
  inestimable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1611,18 +1611,18 @@
  inexacta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexacto 
  inexacto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inexactas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexacto 
- inexactitud ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inexactitud ( NOUN NOUN_SINGULAR ) 
  inexactos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexacto 
  inexcusable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inexcusablemente ( ADVERB ) lemma=inexcusable 
  inexcusables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexcusable 
- inexistencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inexistencia ( NOUN NOUN_SINGULAR ) 
  inexistente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inexistentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexistente 
  inexorable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inexorablemente ( ADVERB ) lemma=inexorable 
  inexorables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexorable 
- inexperiencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inexperiencia ( NOUN NOUN_SINGULAR ) 
  inexperto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inexpertos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inexperto 
  inexplicable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1635,26 +1635,26 @@
  infaliblemente ( ADVERB ) lemma=infalible 
  infame ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`infame`infamar` ADJ  VLfin 
  infames ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`infame`infamar` ADJ  VLfin 
- infamia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- infancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- infante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- infantería ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infamia ( NOUN NOUN_SINGULAR ) 
+ infancia ( NOUN NOUN_SINGULAR ) 
+ infante ( NOUN NOUN_SINGULAR ) 
+ infantería ( NOUN NOUN_SINGULAR ) 
  infantil ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infantiles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infantil 
- infantilismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- infarto ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`infarto`infartar` NC  VLfin 
+ infantilismo ( NOUN NOUN_SINGULAR ) 
+ infarto ( NOUN VERB NOUN_SINGULAR ) lemma=`infarto`infartar` NC  VLfin 
  infatigable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infatigablemente ( ADVERB ) lemma=infatigable 
  infatigables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infatigable 
  infausta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infaustao 
  infaustao ( ) 
- infecciones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`infección`infeccionar` NC  VLfin 
+ infecciones ( NOUN VERB NOUN_SINGULAR ) lemma=`infección`infeccionar` NC  VLfin 
  infecciosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infeccioso 
  infeccioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infecciosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infeccioso 
- infecciosidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infecciosidad ( NOUN NOUN_SINGULAR ) 
  infecciosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infeccioso 
- infección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infección ( NOUN NOUN_SINGULAR ) 
  infectar ( VERB_INFINITIVE VERB ) 
  infectada ( VERB_PAST_PARTICIPLE VERB ) lemma=infectar 
  infectadas ( VERB_PAST_PARTICIPLE VERB ) lemma=infectar 
@@ -1666,19 +1666,19 @@
  infectocontagioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infelices ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infeliz 
  infeliz ( ADJECTIVE ADJECTIVE_NORMAL ) 
- infelicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inferencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infelicidad ( NOUN NOUN_SINGULAR ) 
+ inferencia ( NOUN NOUN_SINGULAR ) 
  inferencial ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inferfaz ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inferfaz ( NOUN NOUN_SINGULAR ) 
  inferir ( VERB_INFINITIVE VERB ) 
  inferió ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inferior 
  inferior ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inferiores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inferior 
- inferioridad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inferioridad ( NOUN NOUN_SINGULAR ) 
  inferiormente ( ADVERB ) 
  infernal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infernales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infernal 
- infernillo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infernillo ( NOUN NOUN_SINGULAR ) 
  inferolateral ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inferomedial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inferoposterior ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1686,56 +1686,56 @@
  infesta ( VERB ) lemma=infestar 
  infestar ( ) 
  infestaban ( VERB ) lemma=infestar 
- infestación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infestación ( NOUN NOUN_SINGULAR ) 
  infestadas ( VERB_PAST_PARTICIPLE VERB ) lemma=infestar 
  infestado ( VERB_PAST_PARTICIPLE VERB ) lemma=infestar 
  infestando ( NOUN NOUN_GERUND ) lemma=infestar 
  infiel ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infieles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infiel 
  infiere ( VERB ) lemma=inferir 
- infiernillo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=infierno 
- infierno ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`infierno`infernar` NC  VLfin 
+ infiernillo ( NOUN NOUN_SINGULAR ) lemma=infierno 
+ infierno ( NOUN VERB NOUN_SINGULAR ) lemma=`infierno`infernar` NC  VLfin 
  infiero ( VERB ) lemma=inferir 
  infiltrar ( VERB_INFINITIVE VERB ) 
- infiltraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=infiltración 
- infiltración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infiltraciones ( NOUN NOUN_SINGULAR ) lemma=infiltración 
+ infiltración ( NOUN NOUN_SINGULAR ) 
  infiltrada ( VERB_PAST_PARTICIPLE VERB ) lemma=infiltrar 
  infiltrados ( VERB_PAST_PARTICIPLE VERB ) lemma=infiltrar 
  infiltrando ( NOUN NOUN_GERUND ) lemma=infiltrar 
  infiltrarse ( VERB_INFINITIVE VERB ) 
- infinidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infinidad ( NOUN NOUN_SINGULAR ) 
  infinita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infinito 
  infinito ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infinitamente ( ADVERB ) lemma=infinito 
  infinitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infinito 
- infinitos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=infinito 
+ infinitos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=infinito 
  infinitésima ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inflacionaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflacionario 
  inflacionario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inflacionarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflacionario 
  inflacionarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflacionario 
- inflaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inflación 
- inflación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inflaciones ( NOUN NOUN_SINGULAR ) lemma=inflación 
+ inflación ( NOUN NOUN_SINGULAR ) 
  inflada ( VERB_PAST_PARTICIPLE VERB ) lemma=inflar 
  inflar ( VERB_INFINITIVE VERB ) 
  inflados ( VERB_PAST_PARTICIPLE VERB ) lemma=inflar 
- inflamabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inflamabilidad ( NOUN NOUN_SINGULAR ) 
  inflamable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inflamables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflamable 
- inflamaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inflamación 
- inflamación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inflamaciones ( NOUN NOUN_SINGULAR ) lemma=inflamación 
+ inflamación ( NOUN NOUN_SINGULAR ) 
  inflamados ( VERB_PAST_PARTICIPLE VERB ) lemma=inflamar 
  inflamar ( VERB_INFINITIVE VERB ) 
  inflamatoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflamatorio 
  inflamatorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inflamatorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflamatorio 
  inflamatorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflamatorio 
- inflecciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inflexión 
- inflexión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inflexibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inflecciones ( NOUN NOUN_SINGULAR ) lemma=inflexión 
+ inflexión ( NOUN NOUN_SINGULAR ) 
+ inflexibilidad ( NOUN NOUN_SINGULAR ) 
  inflexible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inflexibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inflexible 
- inflexiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inflexión 
+ inflexiones ( NOUN NOUN_SINGULAR ) lemma=inflexión 
  infligir ( VERB_INFINITIVE VERB ) 
  infligida ( VERB_PAST_PARTICIPLE VERB ) lemma=infligir 
  infligidas ( VERB_PAST_PARTICIPLE VERB ) lemma=infligir 
@@ -1743,18 +1743,18 @@
  infligiendo ( NOUN NOUN_GERUND ) lemma=infligir 
  inflija ( VERB ) lemma=infligir 
  inflijan ( VERB ) lemma=infligir 
- influencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ influencia ( NOUN NOUN_SINGULAR ) 
  influenciada ( VERB_PAST_PARTICIPLE VERB ) lemma=influenciar 
  influenciar ( VERB_INFINITIVE VERB ) 
  influenciadas ( VERB_PAST_PARTICIPLE VERB ) lemma=influenciar 
  influenciados ( VERB_PAST_PARTICIPLE VERB ) lemma=influenciar 
  influenciando ( NOUN NOUN_GERUND ) lemma=influenciar 
- influencias ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`influencia`influenciar` NC  VLfin 
+ influencias ( NOUN VERB NOUN_SINGULAR ) lemma=`influencia`influenciar` NC  VLfin 
  influida ( VERB_PAST_PARTICIPLE VERB ) lemma=influir 
  influir ( VERB_INFINITIVE VERB ) 
  influidas ( VERB_PAST_PARTICIPLE VERB ) lemma=influir 
  influidos ( VERB_PAST_PARTICIPLE VERB ) lemma=influir 
- influjos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=influjo 
+ influjos ( NOUN NOUN_SINGULAR ) lemma=influjo 
  influjo ( ) 
  influya ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=influir 
  influyan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=influir 
@@ -1767,14 +1767,14 @@
  influyeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=influir 
  influyesen ( VERB ) lemma=influir 
  influyó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=influir 
- info ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ info ( NOUN NOUN_SINGULAR ) 
  informar ( VERB_INFINITIVE VERB ) 
- informacion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=información 
- información ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ informacion ( NOUN NOUN_SINGULAR ) lemma=información 
+ información ( NOUN NOUN_SINGULAR ) 
  informacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  informacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informacional 
  informacionalmente ( ADVERB ) 
- informaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=información 
+ informaciones ( NOUN NOUN_SINGULAR ) lemma=información 
  informada ( VERB_PAST_PARTICIPLE VERB ) lemma=informar 
  informadas ( VERB_PAST_PARTICIPLE VERB ) lemma=informar 
  informados ( VERB_PAST_PARTICIPLE VERB ) lemma=informar 
@@ -1782,7 +1782,7 @@
  informales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informal 
  informalmente ( ADVERB ) lemma=informal 
  informando ( NOUN NOUN_GERUND ) lemma=informar 
- informante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ informante ( NOUN NOUN_SINGULAR ) 
  informarle (                 VERB ) lemma=informar 
  informarles (                 VERB ) lemma=informar 
  informarlo (                 VERB ) lemma=informar 
@@ -1794,16 +1794,16 @@
  informativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informativo 
  informativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  informativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informativo 
- informatividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ informatividad ( NOUN NOUN_SINGULAR ) 
  informativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informativo 
  informatizada ( VERB_PAST_PARTICIPLE VERB ) lemma=informatizar 
  informatizar ( VERB_INFINITIVE VERB ) 
  informatizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=informatizar 
  informatizados ( VERB_PAST_PARTICIPLE VERB ) lemma=informatizar 
- informé ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`informe`informar` NC  VLfin 
+ informé ( NOUN VERB NOUN_SINGULAR ) lemma=`informe`informar` NC  VLfin 
  informemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=informar 
  informen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=informar 
- informes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=informé 
+ informes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=informé 
  informándole ( NOUN NOUN_GERUND ) lemma=informar 
  informándoles ( NOUN NOUN_GERUND ) lemma=informar 
  informándolo ( NOUN NOUN_GERUND ) lemma=informar 
@@ -1811,25 +1811,25 @@
  informándonos ( NOUN NOUN_GERUND ) lemma=informar 
  informándose ( VERB_PAST_PARTICIPLE VERB ) lemma=informar 
  informársele (                 VERB ) lemma=informarse 
- informática ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ informática ( NOUN NOUN_SINGULAR ) 
  informáticamente ( ADVERB ) lemma=informático 
  informático ( ADJECTIVE ADJECTIVE_NORMAL ) 
  informáticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=informático 
  infortunado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infortunados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infortunado 
- infortunio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infortunio ( NOUN NOUN_SINGULAR ) 
  infraacústica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infraacústico 
  infraacústico ( ) 
  infracarbonífero ( ADJECTIVE ADJECTIVE_NORMAL ) 
- infracciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=infracción 
- infracción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infracciones ( NOUN NOUN_SINGULAR ) lemma=infracción 
+ infracción ( NOUN NOUN_SINGULAR ) 
  infraclavicular ( ADJECTIVE ADJECTIVE_NORMAL ) 
- infractor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infractor ( NOUN NOUN_SINGULAR ) 
  infraespinosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infraespinoso 
  infraespinoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- infraestructura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infraestructura ( NOUN NOUN_SINGULAR ) 
  infrapoplíteo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- infrarrojo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=infrarrojo 
+ infrarrojo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=infrarrojo 
  infratelefónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=infratelefónico 
  infratelefónico ( ) 
  infravalorar ( VERB_INFINITIVE VERB ) 
@@ -1861,26 +1861,26 @@
  infundirles (                 VERB ) lemma=infundir 
  infundirnos (                 VERB ) lemma=infundir 
  infundiéndoles ( NOUN NOUN_GERUND ) lemma=infundir 
- infundíbulo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- infusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ infundíbulo ( NOUN NOUN_SINGULAR ) 
+ infusión ( NOUN NOUN_SINGULAR ) 
  infértile ( ADJECTIVE ADJECTIVE_NORMAL ) 
  infórmate ( ) lemma=informar 
  ingenia ( VERB ) lemma=ingeniar 
  ingeniar ( ) 
- ingeniero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ingeniería ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ingenio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ingenio`ingeniar` NC  VLfin 
+ ingeniero ( NOUN NOUN_SINGULAR ) 
+ ingeniería ( NOUN NOUN_SINGULAR ) 
+ ingenio ( NOUN VERB NOUN_SINGULAR ) lemma=`ingenio`ingeniar` NC  VLfin 
  ingeniosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenioso 
  ingenioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ingeniosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenioso 
- ingeniosidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ingeniosidad ( NOUN NOUN_SINGULAR ) 
  ingeniosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenioso 
  ingente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ingenua ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenuo 
  ingenuo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ingenuamente ( ADVERB ) lemma=ingenuo 
  ingenuas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenuo 
- ingenuidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ingenuidad ( NOUN NOUN_SINGULAR ) 
  ingenuos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingenuo 
  ingerida ( VERB_PAST_PARTICIPLE VERB ) lemma=ingerir 
  ingerir ( VERB_INFINITIVE VERB ) 
@@ -1889,24 +1889,24 @@
  ingerirlo (                 VERB ) lemma=ingerir 
  ingerirme (                 VERB ) lemma=ingerir 
  ingerirnos (                 VERB ) lemma=ingerir 
- ingesta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ingestión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ingesta ( NOUN NOUN_SINGULAR ) 
+ ingestión ( NOUN NOUN_SINGULAR ) 
  ingieran ( VERB ) lemma=ingerir 
  ingiere ( VERB ) lemma=ingerir 
  ingieren ( VERB ) lemma=ingerir 
  ingiriendo ( NOUN NOUN_GERUND ) lemma=ingerir 
  ingirió ( VERB ) lemma=ingerir 
- ingle ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inglesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inglés 
- inglés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inglés 
- inglesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inglés 
- ingleses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inglés 
+ ingle ( NOUN NOUN_SINGULAR ) 
+ inglesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inglés 
+ inglés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inglés 
+ inglesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inglés 
+ ingleses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inglés 
  ingobernable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ingrata ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingrato 
  ingrato ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ingratas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingrato 
  ingratos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ingrato 
- ingrediente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ingrediente ( NOUN NOUN_SINGULAR ) 
  ingresar ( VERB_INFINITIVE VERB ) 
  ingresada ( VERB_PAST_PARTICIPLE VERB ) lemma=ingresar 
  ingresadas ( VERB_PAST_PARTICIPLE VERB ) lemma=ingresar 
@@ -1915,30 +1915,30 @@
  ingresarlo (                 VERB ) lemma=ingresar 
  ingresase ( VERB ) lemma=ingresar 
  ingresen ( VERB ) lemma=ingresar 
- ingreso ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ingreso`ingresar` NC  VLfin 
+ ingreso ( NOUN VERB NOUN_SINGULAR ) lemma=`ingreso`ingresar` NC  VLfin 
  inguinal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inguinales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inguinal 
  ingurgitar ( VERB_INFINITIVE VERB ) 
  inhabilitar ( VERB_INFINITIVE VERB ) 
- inhabilitación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inhabilitación ( NOUN NOUN_SINGULAR ) 
  inhabilitados ( VERB_PAST_PARTICIPLE VERB ) lemma=inhabilitar 
  inhabilitarla (                 VERB ) lemma=inhabilitar 
  inhalar ( VERB_INFINITIVE VERB ) 
- inhalación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inhalación ( NOUN NOUN_SINGULAR ) 
  inhaladas ( VERB_PAST_PARTICIPLE VERB ) lemma=inhalar 
- inhaladores ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inhalador 
+ inhaladores ( NOUN NOUN_SINGULAR ) lemma=inhalador 
  inhalador ( ) 
  inhalados ( VERB_PAST_PARTICIPLE VERB ) lemma=inhalar 
  inhalando ( NOUN NOUN_GERUND ) lemma=inhalar 
- inhalatorio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inhalatorio 
- inhaloterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inhalatorio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inhalatorio 
+ inhaloterapia ( NOUN NOUN_SINGULAR ) 
  inherente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inherentemente ( ADVERB ) lemma=inherente 
  inherentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inherente 
  inhiban ( VERB ) lemma=inhibir 
  inhibir ( VERB_INFINITIVE VERB ) 
- inhibiciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inhibición 
- inhibición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inhibiciones ( NOUN NOUN_SINGULAR ) lemma=inhibición 
+ inhibición ( NOUN NOUN_SINGULAR ) 
  inhibida ( VERB_PAST_PARTICIPLE VERB ) lemma=inhibir 
  inhibidor ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inhibidora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inhibidor 
@@ -1959,28 +1959,28 @@
  inicar ( VERB_INFINITIVE VERB ) 
  inicarse ( VERB_INFINITIVE VERB ) 
  iniciar ( VERB_INFINITIVE VERB ) 
- iniciaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=iniciación 
- iniciación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- iniciada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`iniciada`iniciar` NC  VLadj 
+ iniciaciones ( NOUN NOUN_SINGULAR ) lemma=iniciación 
+ iniciación ( NOUN NOUN_SINGULAR ) 
+ iniciada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`iniciada`iniciar` NC  VLadj 
  iniciadas ( VERB_PAST_PARTICIPLE VERB ) lemma=iniciar 
- iniciador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iniciador 
+ iniciador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iniciador 
  iniciadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iniciador 
  iniciadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iniciador 
- iniciadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iniciador 
+ iniciadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iniciador 
  iniciados ( VERB_PAST_PARTICIPLE VERB ) lemma=iniciar 
- inicial ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inicial 
+ inicial ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inicial 
  iniciales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inicial 
- inicialización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inicialización ( NOUN NOUN_SINGULAR ) 
  inicializar ( VERB_INFINITIVE VERB ) 
  inicialmente ( ADVERB ) lemma=inicial 
  iniciando ( NOUN NOUN_GERUND ) lemma=iniciar 
  iniciarse ( VERB_INFINITIVE VERB ) 
  iniciase ( VERB ) lemma=iniciar 
  iniciasen ( VERB ) lemma=iniciar 
- iniciativa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iniciativa ( NOUN NOUN_SINGULAR ) 
  iniciemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=iniciar 
  inicien ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=iniciar 
- inicio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`inicio`iniciar` NC  VLfin 
+ inicio ( NOUN VERB NOUN_SINGULAR ) lemma=`inicio`iniciar` NC  VLfin 
  iniciándose ( NOUN NOUN_GERUND ) 
  iniciáramos ( VERB ) lemma=iniciar 
  iniciásemos ( VERB ) lemma=iniciar 
@@ -1999,7 +1999,7 @@
  ininterrumpido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ininterrumpidamente ( ADVERB ) lemma=ininterrumpido 
  ininterrumpidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ininterrumpido 
- injerencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ injerencia ( NOUN NOUN_SINGULAR ) 
  injerta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`injerto`injertar` ADJ  VLfin 
  injertadas ( VERB_PAST_PARTICIPLE VERB ) lemma=injertar 
  injertar ( VERB_INFINITIVE VERB ) 
@@ -2015,7 +2015,7 @@
  injusto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  injustamente ( ADVERB ) lemma=injusto 
  injustas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=injusto 
- injusticia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ injusticia ( NOUN NOUN_SINGULAR ) 
  injustificada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=injustificado 
  injustificado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  injustificadamente ( ADVERB ) lemma=injustificado 
@@ -2027,18 +2027,18 @@
  inmadura ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmaduro 
  inmaduro ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmaduras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmaduro 
- inmadurez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmadurez ( NOUN NOUN_SINGULAR ) 
  inmaduros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmaduro 
  inmaterial ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmatriculación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmediaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inmediación 
+ inmatriculación ( NOUN NOUN_SINGULAR ) 
+ inmediaciones ( NOUN NOUN_SINGULAR ) lemma=inmediación 
  inmediación ( ) 
  inmediata ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmediato 
  inmediato ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmediatamente ( ADVERB ) lemma=inmediatamente|inmediato 
  inmediatamente|inmediato ( ) 
  inmediatas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmediato 
- inmediatez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmediatez ( NOUN NOUN_SINGULAR ) 
  inmediatos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmediato 
  inmejorable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmejorables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmejorable 
@@ -2048,18 +2048,18 @@
  inmenso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmensamente ( ADVERB ) lemma=inmenso 
  inmensas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmenso 
- inmensidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmensidad ( NOUN NOUN_SINGULAR ) 
  inmensos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmenso 
  inmersa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmerso 
  inmerso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmersas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmerso 
- inmersiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inmersión 
- inmersión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmersiones ( NOUN NOUN_SINGULAR ) lemma=inmersión 
+ inmersión ( NOUN NOUN_SINGULAR ) 
  inmersos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmerso 
- inmigraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inmigración 
- inmigración ( NOUN NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`inmigración`Inmigración` NC  NP 
- inmigrante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inminencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmigraciones ( NOUN NOUN_SINGULAR ) lemma=inmigración 
+ inmigración ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`inmigración`Inmigración` NC  NP 
+ inmigrante ( NOUN NOUN_SINGULAR ) 
+ inminencia ( NOUN NOUN_SINGULAR ) 
  inminente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inminentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inminente 
  inmiscuir ( VERB_INFINITIVE VERB ) 
@@ -2069,84 +2069,84 @@
  inmiscuyan ( VERB ) lemma=inmiscuir 
  inmiscuye ( VERB ) lemma=inmiscuir 
  inmiscuyen ( VERB ) lemma=inmiscuir 
- inmisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmobiliaria ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`inmobiliario`inmobiliaria` ADJ  NC 
- inmobiliarias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`inmobiliario`inmobiliaria` ADJ  NC 
+ inmisión ( NOUN NOUN_SINGULAR ) 
+ inmobiliaria ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`inmobiliario`inmobiliaria` ADJ  NC 
+ inmobiliarias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`inmobiliario`inmobiliaria` ADJ  NC 
  inmobiliario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmobiliarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmobiliario 
  inmodificable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmodificables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmodificable 
  inmoral ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmorales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmoral 
- inmoralidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmoralidad ( NOUN NOUN_SINGULAR ) 
  inmortal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmortales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmortal 
- inmortalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmortalidad ( NOUN NOUN_SINGULAR ) 
  inmortalizado ( VERB_PAST_PARTICIPLE VERB ) lemma=inmortalizar 
  inmortalizar ( ) 
  inmovil ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmovilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmovilizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inmovilización 
- inmovilización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmovilidad ( NOUN NOUN_SINGULAR ) 
+ inmovilizaciones ( NOUN NOUN_SINGULAR ) lemma=inmovilización 
+ inmovilización ( NOUN NOUN_SINGULAR ) 
  inmovilizada ( VERB_PAST_PARTICIPLE VERB ) lemma=inmovilizar 
  inmovilizar ( VERB_INFINITIVE VERB ) 
  inmovilizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inmovilizar 
  inmovilizados ( VERB_PAST_PARTICIPLE VERB ) lemma=inmovilizar 
  inmovilizando ( NOUN NOUN_GERUND ) lemma=inmovilizar 
- inmueble ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmuebles ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inmueble 
- inmundicia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmueble ( NOUN NOUN_SINGULAR ) 
+ inmuebles ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inmueble 
+ inmundicia ( NOUN NOUN_SINGULAR ) 
  inmune ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmune 
- inmunidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunidad ( NOUN NOUN_SINGULAR ) 
  inmunitaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunitario 
  inmunitario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunitarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunitario 
  inmunitarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunitario 
- inmunización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunización ( NOUN NOUN_SINGULAR ) 
  inmunizador ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunizados ( VERB_PAST_PARTICIPLE VERB ) lemma=inmunizar 
  inmunoalérgico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunocompetentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunocompetente 
  inmunocompetente ( ) 
- inmunocomplejos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inmunocomplejo 
+ inmunocomplejos ( NOUN NOUN_SINGULAR ) lemma=inmunocomplejo 
  inmunocomplejo ( ) 
- inmunodeficiencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunodepresión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunodeficiencia ( NOUN NOUN_SINGULAR ) 
+ inmunodepresión ( NOUN NOUN_SINGULAR ) 
  inmunodeprimir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- inmunodifusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunodifusión ( NOUN NOUN_SINGULAR ) 
  inmunoenzimático ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunoepidemiológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmunoestimuladora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunofluorescencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunogenicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunoestimuladora ( NOUN NOUN_SINGULAR ) 
+ inmunofluorescencia ( NOUN NOUN_SINGULAR ) 
+ inmunogenicidad ( NOUN NOUN_SINGULAR ) 
  inmunogenético ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmunoglobulina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunoglobulina ( NOUN NOUN_SINGULAR ) 
  inmunogénicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunogénico 
  inmunogénico ( ) 
  inmunohistoquímico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmunología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunología ( NOUN NOUN_SINGULAR ) 
  inmunológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunológico 
  inmunológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunológicamente ( ADVERB ) lemma=inmunológico 
  inmunológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunológico 
  inmunológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunológico 
- inmunomodulación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunonefelómetro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunopatología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunomodulación ( NOUN NOUN_SINGULAR ) 
+ inmunonefelómetro ( NOUN NOUN_SINGULAR ) 
+ inmunopatología ( NOUN NOUN_SINGULAR ) 
  inmunopatológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmunoperoxidasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunoplaca ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunoperoxidasa ( NOUN NOUN_SINGULAR ) 
+ inmunoplaca ( NOUN NOUN_SINGULAR ) 
  inmunoprecipitar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  inmunorreguladoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunorregulador 
  inmunorregulador ( ) 
  inmunosorbente ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inmunosupresión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunosupresión ( NOUN NOUN_SINGULAR ) 
  inmunosupresor ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmunosupresoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunosupresor 
  inmunosupresores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmunosupresor 
- inmunoterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inmunovigilancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inmunoterapia ( NOUN NOUN_SINGULAR ) 
+ inmunovigilancia ( NOUN NOUN_SINGULAR ) 
  inmunógeno ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmutable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inmutables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inmutable 
@@ -2168,8 +2168,8 @@
  innegables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=innegable 
  innominada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=innominado 
  innominado ( ) 
- innovaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=innovación 
- innovación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ innovaciones ( NOUN NOUN_SINGULAR ) lemma=innovación 
+ innovación ( NOUN NOUN_SINGULAR ) 
  innovada ( VERB_PAST_PARTICIPLE VERB ) lemma=innovar 
  innovar ( VERB_INFINITIVE VERB ) 
  innovadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=innovador 
@@ -2180,13 +2180,13 @@
  innumerable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  innumerables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=innumerable 
  inobtenible ( ADJECTIVE ADJECTIVE_NORMAL ) 
- inocencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inocente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inocente 
- inocentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inocente 
+ inocencia ( NOUN NOUN_SINGULAR ) 
+ inocente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inocente 
+ inocentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inocente 
  inocua ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inocuo 
  inocuo ( ) 
- inocuidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inoculación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inocuidad ( NOUN NOUN_SINGULAR ) 
+ inoculación ( NOUN NOUN_SINGULAR ) 
  inoculadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inocular 
  inocular ( ) 
  inoculan ( VERB ) lemma=inocular 
@@ -2195,7 +2195,7 @@
  inofensivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inofensivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inofensivo 
  inofensivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inofensivo 
- inoficiosidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inoficiosidad ( NOUN NOUN_SINGULAR ) 
  inolvidable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inoperable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inoperante ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2207,10 +2207,10 @@
  inorgánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inorgánicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inorgánico 
  inorgánicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inorgánico 
- inosinato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inosinato ( NOUN NOUN_SINGULAR ) 
  inoxidable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- input-output ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inputs ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=input 
+ input-output ( NOUN NOUN_SINGULAR ) 
+ inputs ( NOUN NOUN_SINGULAR ) lemma=input 
  input ( ) 
  inquebrantable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inquieta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inquieto`inquietar` ADJ  VLfin 
@@ -2223,28 +2223,28 @@
  inquieten ( VERB ) lemma=inquietar 
  inquieto ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inquieto`inquietar` ADJ  VLfin 
  inquietos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inquieto 
- inquietud ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inquilina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inquilino 
- inquilino ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inquilinato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inquilinismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inquietud ( NOUN NOUN_SINGULAR ) 
+ inquilina ( NOUN NOUN_SINGULAR ) lemma=inquilino 
+ inquilino ( NOUN NOUN_SINGULAR ) 
+ inquilinato ( NOUN NOUN_SINGULAR ) 
+ inquilinismo ( NOUN NOUN_SINGULAR ) 
  inquina ( VERB ) lemma=inquinar 
  inquinar ( ) 
  inquiriendo ( NOUN NOUN_GERUND ) lemma=inquirir 
  inquirir ( ) 
  inquirió ( VERB ) lemma=inquirir 
  inquiría ( VERB ) lemma=inquirir 
- inquisiciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inquisición 
- inquisición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inquisiciones ( NOUN NOUN_SINGULAR ) lemma=inquisición 
+ inquisición ( NOUN NOUN_SINGULAR ) 
  inquisidora ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inquisitivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inquisitivo 
  inquisitivo ( ) 
  insaciable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insaciables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insaciable 
- insaculación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insania ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insatisfacciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=insatisfacción 
- insatisfacción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insaculación ( NOUN NOUN_SINGULAR ) 
+ insania ( NOUN NOUN_SINGULAR ) 
+ insatisfacciones ( NOUN NOUN_SINGULAR ) lemma=insatisfacción 
+ insatisfacción ( NOUN NOUN_SINGULAR ) 
  insatisfactoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insatisfactorio 
  insatisfactorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insatisfactoriamente ( ADVERB ) lemma=insatisfactorio 
@@ -2254,7 +2254,7 @@
  insatisfecho ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insatisfechas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insatisfecho 
  insatisfechos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insatisfecho 
- insaturación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insaturación ( NOUN NOUN_SINGULAR ) 
  insaturado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inscriba ( VERB ) lemma=inscribir 
  inscribir ( VERB_INFINITIVE VERB ) 
@@ -2269,26 +2269,26 @@
  inscribirse ( VERB_INFINITIVE VERB ) 
  inscribiéndose ( NOUN NOUN_GERUND ) lemma=inscribirse 
  inscribí ( VERB ) lemma=inscribir 
- inscripciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inscripción 
- inscripción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inscripciones ( NOUN NOUN_SINGULAR ) lemma=inscripción 
+ inscripción ( NOUN NOUN_SINGULAR ) 
  inscrita ( VERB_PAST_PARTICIPLE VERB ) lemma=inscribir 
  inscritas ( VERB_PAST_PARTICIPLE VERB ) lemma=inscribir 
  inscrito ( VERB_PAST_PARTICIPLE VERB ) lemma=inscribir 
  inscritos ( VERB_PAST_PARTICIPLE VERB ) lemma=inscribir 
- insecto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insecto ( NOUN NOUN_SINGULAR ) 
  insegura ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inseguro 
  inseguro ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inseguras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inseguro 
- inseguridad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inseguridad ( NOUN NOUN_SINGULAR ) 
  inseguros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inseguro 
  insemina ( VERB ) lemma=inseminar 
  inseminar ( ) 
- inseminaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inseminación 
- inseminación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inseminaciones ( NOUN NOUN_SINGULAR ) lemma=inseminación 
+ inseminación ( NOUN NOUN_SINGULAR ) 
  insensata ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insensato 
  insensato ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insensatas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insensato 
- insensatez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insensatez ( NOUN NOUN_SINGULAR ) 
  insensatos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insensato 
  insensible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insensiblemente ( ADVERB ) lemma=insensible 
@@ -2296,8 +2296,8 @@
  inseparable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inseparablemente ( ADVERB ) lemma=inseparable 
  inseparables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inseparable 
- inserciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inserción 
- inserción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inserciones ( NOUN NOUN_SINGULAR ) lemma=inserción 
+ inserción ( NOUN NOUN_SINGULAR ) 
  inserta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`inserto`insertar` ADJ  VLfin 
  insertada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`insertado`insertar` ADJ  VLadj 
  insertadas ( VERB_PAST_PARTICIPLE VERB ) lemma=insertar 
@@ -2317,7 +2317,7 @@
  inservible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insesgado ( VERB_PAST_PARTICIPLE VERB ) lemma=insesgar 
  insesgar ( ) 
- insidia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insidia ( NOUN NOUN_SINGULAR ) 
  insidiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insidioso 
  insidioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insidiosamente ( ADVERB ) lemma=insidioso 
@@ -2335,7 +2335,7 @@
  insistamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=insistir 
  insistan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=insistir 
  insistematizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- insistencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insistencia ( NOUN NOUN_SINGULAR ) 
  insistente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insistentemente ( ADVERB ) lemma=insistente 
  insistentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insistente 
@@ -2344,13 +2344,13 @@
  insistieran ( VERB ) lemma=insistir 
  insistí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=insistir 
  insobornable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- insolación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insolación ( NOUN NOUN_SINGULAR ) 
  insoluble ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insolubles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insoluble 
- insolvencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insolvencia ( NOUN NOUN_SINGULAR ) 
  insomnes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insomne 
  insomne ( ) 
- insomnio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insomnio ( NOUN NOUN_SINGULAR ) 
  insondable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insondables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insondable 
  insoportable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2365,13 +2365,13 @@
  inspeccionando ( NOUN NOUN_GERUND ) lemma=inspeccionar 
  inspeccionarlo ( VERB ) lemma=inspeccionar 
  inspeccionen ( VERB ) lemma=inspeccionar 
- inspecciones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`inspección`inspeccionar` NC  VLfin 
- inspección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inspector ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inspectora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inspector 
+ inspecciones ( NOUN VERB NOUN_SINGULAR ) lemma=`inspección`inspeccionar` NC  VLfin 
+ inspección ( NOUN NOUN_SINGULAR ) 
+ inspector ( NOUN NOUN_SINGULAR ) 
+ inspectora ( NOUN NOUN_SINGULAR ) lemma=inspector 
  inspectoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inspector 
  inspirar ( VERB_INFINITIVE VERB ) 
- inspiración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inspiración ( NOUN NOUN_SINGULAR ) 
  inspirada ( VERB_PAST_PARTICIPLE VERB ) lemma=inspirar 
  inspiradas ( VERB_PAST_PARTICIPLE VERB ) lemma=inspirar 
  inspiradores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inspirador 
@@ -2387,8 +2387,8 @@
  instada ( VERB_PAST_PARTICIPLE VERB ) lemma=instar 
  instados ( VERB_PAST_PARTICIPLE VERB ) lemma=instar 
  instalar ( VERB_INFINITIVE VERB ) 
- instalaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=instalación 
- instalación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instalaciones ( NOUN NOUN_SINGULAR ) lemma=instalación 
+ instalación ( NOUN NOUN_SINGULAR ) 
  instalada ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  instaladas ( VERB_PAST_PARTICIPLE VERB ) lemma=instalar 
  instalados ( VERB_PAST_PARTICIPLE VERB ) lemma=instalar 
@@ -2401,10 +2401,10 @@
  instalasen ( VERB ) lemma=instalar 
  instalen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=instalar 
  instalándose ( NOUN NOUN_GERUND ) lemma=instalarse 
- instancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- instanciación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instancia ( NOUN NOUN_SINGULAR ) 
+ instanciación ( NOUN NOUN_SINGULAR ) 
  instando ( NOUN NOUN_GERUND ) lemma=instar 
- instante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instante ( NOUN NOUN_SINGULAR ) 
  instantánea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instantáneo 
  instantáneo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  instantáneamente ( ADVERB ) lemma=instantáneo 
@@ -2412,7 +2412,7 @@
  instantáneos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instantáneo 
  instase ( VERB ) lemma=instar 
  instaurar ( VERB_INFINITIVE VERB ) 
- instauración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instauración ( NOUN NOUN_SINGULAR ) 
  instaurada ( VERB_PAST_PARTICIPLE VERB ) lemma=instaurar 
  instaurados ( VERB_PAST_PARTICIPLE VERB ) lemma=instaurar 
  instaurando ( NOUN NOUN_GERUND ) lemma=instaurar 
@@ -2424,31 +2424,31 @@
  insten ( VERB ) lemma=instar 
  instigar ( VERB_INFINITIVE VERB ) 
  instigados ( VERB_PAST_PARTICIPLE VERB ) lemma=instigar 
- instilaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=instilación 
+ instilaciones ( NOUN NOUN_SINGULAR ) lemma=instilación 
  instilación ( ) 
  instintiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instintivo 
  instintivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  instintivamente ( ADVERB ) lemma=instintivo 
  instintivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instintivo 
- instinto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instinto ( NOUN NOUN_SINGULAR ) 
  institucional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  institucionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=institucional 
  institucionalice ( VERB ) lemma=institucionalizar 
  institucionalizar ( VERB_INFINITIVE VERB ) 
  institucionalicemos ( VERB ) lemma=institucionalizar 
- institucionalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ institucionalización ( NOUN NOUN_SINGULAR ) 
  institucionalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=institucionalizar 
  institucionalizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=institucionalizar 
  institucionalizando ( NOUN NOUN_GERUND ) lemma=institucionalizar 
  institucionalmente ( ADVERB ) lemma=institucional 
- instituciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=institución 
- institución ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instituciones ( NOUN NOUN_SINGULAR ) lemma=institución 
+ institución ( NOUN NOUN_SINGULAR ) 
  instituida ( VERB_PAST_PARTICIPLE VERB ) lemma=instituir 
  instituir ( VERB_INFINITIVE VERB ) 
  instituidas ( VERB_PAST_PARTICIPLE VERB ) lemma=instituir 
  instituidos ( VERB_PAST_PARTICIPLE VERB ) lemma=instituir 
  institutivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- instituto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instituto ( NOUN NOUN_SINGULAR ) 
  instituya ( VERB ) lemma=instituir 
  instituyamos ( VERB ) lemma=instituir 
  instituyan ( VERB ) lemma=instituir 
@@ -2461,23 +2461,23 @@
  instituyese ( VERB ) lemma=instituir 
  instituyésemos ( VERB ) lemma=instituir 
  instituyó ( VERB ) lemma=instituir 
- instruccción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- instrucciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=instrucción 
- instrucción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instruccción ( NOUN NOUN_SINGULAR ) 
+ instrucciones ( NOUN NOUN_SINGULAR ) lemma=instrucción 
+ instrucción ( NOUN NOUN_SINGULAR ) 
  instructiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instructivo 
  instructivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  instructivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instructivo 
- instructor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=instructor 
- instructora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=instructor 
+ instructor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=instructor 
+ instructora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=instructor 
  instructoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=instructor 
- instructores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=instructor 
+ instructores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=instructor 
  instruida ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`instruido`instruir` ADJ  VLadj 
  instruidas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`instruido`instruir` ADJ  VLadj 
  instruido ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`instruido`instruir` ADJ  VLadj 
  instruidos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`instruido`instruir` ADJ  VLadj 
  instruir ( VERB_INFINITIVE VERB ) 
  instrumentar ( VERB_INFINITIVE VERB ) 
- instrumentación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instrumentación ( NOUN NOUN_SINGULAR ) 
  instrumentada ( VERB_PAST_PARTICIPLE VERB ) lemma=instrumentar 
  instrumentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=instrumentar 
  instrumental ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2485,27 +2485,27 @@
  instrumentando ( NOUN NOUN_GERUND ) lemma=instrumentar 
  instrumentarse ( VERB_INFINITIVE VERB ) 
  instrumenten ( VERB ) lemma=instrumentar 
- instrumentista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- instrumento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ instrumentista ( NOUN NOUN_SINGULAR ) 
+ instrumento ( NOUN NOUN_SINGULAR ) 
  instruya ( VERB ) lemma=instruir 
  instruyan ( VERB ) lemma=instruir 
  instruye ( VERB ) lemma=instruir 
  instruyen ( VERB ) lemma=instruir 
  instruyó ( VERB ) lemma=instruir 
- insuficiencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insuficiencia ( NOUN NOUN_SINGULAR ) 
  insuficiente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  insuficientemente ( ADVERB ) lemma=insuficiente 
  insuficientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insuficiente 
  insular ( ADJECTIVE ADJECTIVE_NORMAL ) 
- insularidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insulina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insulinemia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insulino-dependiente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insulino-dependiente 
- insulinodependiente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insulinodependiente 
+ insularidad ( NOUN NOUN_SINGULAR ) 
+ insulina ( NOUN NOUN_SINGULAR ) 
+ insulinemia ( NOUN NOUN_SINGULAR ) 
+ insulino-dependiente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insulino-dependiente 
+ insulinodependiente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insulinodependiente 
  insulinoindependiente ( ADJECTIVE ADJECTIVE_NORMAL ) 
- insulinoresistencia-hiperinsulinemia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insulinorresistencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insulinoterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insulinoresistencia-hiperinsulinemia ( NOUN NOUN_SINGULAR ) 
+ insulinorresistencia ( NOUN NOUN_SINGULAR ) 
+ insulinoterapia ( NOUN NOUN_SINGULAR ) 
  insultar ( VERB_INFINITIVE VERB ) 
  insultada ( VERB_PAST_PARTICIPLE VERB ) lemma=insultar 
  insultadas ( VERB_PAST_PARTICIPLE VERB ) lemma=insultar 
@@ -2516,20 +2516,20 @@
  insultarles (                 VERB ) lemma=insultar 
  insultarnos (                 VERB ) lemma=insultar 
  insulten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=insultar 
- insulto ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`insulto`insultar` NC  VLfin 
+ insulto ( NOUN VERB NOUN_SINGULAR ) lemma=`insulto`insultar` NC  VLfin 
  insultándole ( VERB_PAST_PARTICIPLE VERB ) lemma=insultar 
  insultándolo ( NOUN NOUN_GERUND ) lemma=insultar 
- insulínico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insulínico 
- insumiso ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insumiso 
- insumisos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insumiso 
- insumo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insulínico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insulínico 
+ insumiso ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insumiso 
+ insumisos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insumiso 
+ insumo ( NOUN NOUN_SINGULAR ) 
  insuperable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- insurgencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- insurgente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insurgente 
- insurgentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=insurgente 
+ insurgencia ( NOUN NOUN_SINGULAR ) 
+ insurgente ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insurgente 
+ insurgentes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=insurgente 
  insurrecciones ( VERB ) lemma=insurreccionar 
  insurreccionar ( ) 
- insurrección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ insurrección ( NOUN NOUN_SINGULAR ) 
  insurrectos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=insurrecto 
  insurrecto ( ) 
  insustituible ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2548,8 +2548,8 @@
  intactos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intacto 
  intecontinentales ( ADJECTIVE ADJECTIVE_NORMAL ) 
  integrar ( VERB_INFINITIVE VERB ) 
- integraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=integración 
- integración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ integraciones ( NOUN NOUN_SINGULAR ) lemma=integración 
+ integración ( NOUN NOUN_SINGULAR ) 
  integrada ( VERB_PAST_PARTICIPLE VERB ) lemma=integrar 
  integradas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`integrado`integrar` ADJ  VLadj 
  integrado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`integrado`integrar` ADJ  VLadj 
@@ -2561,7 +2561,7 @@
  integralmente ( ADVERB ) lemma=integral 
  integrando ( NOUN NOUN_GERUND ) lemma=integrar 
  integrante ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`integrante`integrar` ADJ  VLadj 
- integrantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=integrante 
+ integrantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=integrante 
  integrarla (                 VERB ) lemma=integrar 
  integrarlas (                 VERB ) lemma=integrar 
  integrarles (                 VERB ) lemma=integrar 
@@ -2576,11 +2576,11 @@
  integrate ( ) lemma=integrated 
  integrated ( ) 
  integren ( VERB ) lemma=integrar 
- integridad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- integrinas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=integrina 
+ integridad ( NOUN NOUN_SINGULAR ) 
+ integrinas ( NOUN NOUN_SINGULAR ) lemma=integrina 
  integrina ( ) 
- integrista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=integrista 
- integristas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=integrista 
+ integrista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=integrista 
+ integristas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=integrista 
  integro ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`íntegro`integrar` ADJ  VLfin 
  integrándola ( NOUN NOUN_GERUND ) lemma=integrar 
  integrándolas ( NOUN NOUN_GERUND ) lemma=integrar 
@@ -2588,21 +2588,21 @@
  integrándolos ( NOUN NOUN_GERUND ) lemma=integrar 
  integrándose ( NOUN NOUN_GERUND ) lemma=integrarse 
  integrás ( VERB ) lemma=integrar 
- integumento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intelecto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ integumento ( NOUN NOUN_SINGULAR ) 
+ intelecto ( NOUN NOUN_SINGULAR ) 
  intelectual ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intelectuales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intelectual 
  intelectualillos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intelectual 
  intelectualmente ( ADVERB ) lemma=intelectual 
- inteligencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inteligencia ( NOUN NOUN_SINGULAR ) 
  inteligente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inteligentemente ( ADVERB ) lemma=inteligente 
  inteligentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inteligente 
  inteligentilla ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inteligente 
- inteligibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inteligibilidad ( NOUN NOUN_SINGULAR ) 
  inteligible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inteligibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inteligible 
- intemperie ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intemperie ( NOUN NOUN_SINGULAR ) 
  intempestiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intempestivo 
  intempestivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intempestivamente ( ADVERB ) lemma=intempestivo 
@@ -2610,8 +2610,8 @@
  intempestivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intempestivo 
  intemporal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intemporales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intemporal 
- intencion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intención 
- intención ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intencion ( NOUN NOUN_SINGULAR ) lemma=intención 
+ intención ( NOUN NOUN_SINGULAR ) 
  intencionada ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intencionado 
  intencionado ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intencionadamente ( ADVERB ) lemma=intencionado 
@@ -2619,23 +2619,23 @@
  intencionados ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intencionado 
  intencional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intencionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intencional 
- intencionalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intencionalidad ( NOUN NOUN_SINGULAR ) 
  intencionalmente ( ADVERB ) lemma=intencional 
- intenciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intención 
- intendencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intendente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intenciones ( NOUN NOUN_SINGULAR ) lemma=intención 
+ intendencia ( NOUN NOUN_SINGULAR ) 
+ intendente ( NOUN NOUN_SINGULAR ) 
  intensa ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`intenso`intensar` ADJ  VLfin 
  intensada ( VERB_PAST_PARTICIPLE VERB ) lemma=intensar 
  intensar ( ) 
  intensamente ( ADVERB ) lemma=intenso 
  intenso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intensas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`intenso`intensar` ADJ  VLfin 
- intensidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intensidad ( NOUN NOUN_SINGULAR ) 
  intensificar ( VERB_INFINITIVE VERB ) 
- intensificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intensificación ( NOUN NOUN_SINGULAR ) 
  intensificada ( VERB_PAST_PARTICIPLE VERB ) lemma=intensificar 
  intensificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=intensificar 
- intensificador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intensificador ( NOUN NOUN_SINGULAR ) 
  intensificados ( VERB_PAST_PARTICIPLE VERB ) lemma=intensificar 
  intensificando ( NOUN NOUN_GERUND ) lemma=intensificar 
  intensificarse ( VERB_INFINITIVE VERB ) 
@@ -2662,20 +2662,20 @@
  intentemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=intentar 
  intenten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=intentar 
  intentes ( VERB ) lemma=intentar 
- intento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intentona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intento ( NOUN NOUN_SINGULAR ) 
+ intentona ( NOUN NOUN_SINGULAR ) 
  intentándolo ( VERB_PAST_PARTICIPLE VERB ) lemma=intentar 
  intentáramos ( VERB ) lemma=intentar 
  intentásemos ( VERB ) lemma=intentar 
  intentéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=intentar 
  intentémoslo ( VERB ) lemma=intentar 
- inter-conversión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inter-conversión ( NOUN NOUN_SINGULAR ) 
  interaccionar ( VERB_INFINITIVE VERB ) 
  interaccionen ( VERB ) lemma=interaccionar 
- interacciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interacción 
- interacción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interacciones ( NOUN NOUN_SINGULAR ) lemma=interacción 
+ interacción ( NOUN NOUN_SINGULAR ) 
  interacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- interación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interación ( NOUN NOUN_SINGULAR ) 
  interactiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interactivo 
  interactivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interactivamente ( ADVERB ) lemma=interactivo 
@@ -2695,8 +2695,8 @@
  interbancaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interbancario 
  interbancario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interbancarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interbancario 
- interbanda ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`interbando`interbanda` ADJ  NC 
- interbrazo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interbanda ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`interbando`interbanda` ADJ  NC 
+ interbrazo ( NOUN NOUN_SINGULAR ) 
  intercala ( VERB ) lemma=intercalar 
  intercalada ( VERB_PAST_PARTICIPLE VERB ) lemma=intercalar 
  intercaladas ( VERB_PAST_PARTICIPLE VERB ) lemma=intercalar 
@@ -2709,13 +2709,13 @@
  intercambiar ( VERB_INFINITIVE VERB ) 
  intercambiada ( VERB_PAST_PARTICIPLE VERB ) lemma=intercambiar 
  intercambiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=intercambiar 
- intercambiador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intercambiador ( NOUN NOUN_SINGULAR ) 
  intercambiados ( VERB_PAST_PARTICIPLE VERB ) lemma=intercambiar 
  intercambiando ( NOUN NOUN_GERUND ) lemma=intercambiar 
  intercambiarse ( VERB_INFINITIVE VERB ) 
  intercambiemos ( VERB ) lemma=intercambiar 
  intercambien ( VERB ) lemma=intercambiar 
- intercambio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intercambio ( NOUN NOUN_SINGULAR ) 
  intercambiándose ( NOUN NOUN_GERUND ) lemma=intercambiarse 
  intercambiáramos ( VERB ) lemma=intercambiar 
  interceda ( VERB ) lemma=interceder 
@@ -2724,7 +2724,7 @@
  intercedieán ( VERB ) lemma=interceder 
  intercelular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intercelulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intercelular 
- intercepción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intercepción ( NOUN NOUN_SINGULAR ) 
  interceptar ( VERB_INFINITIVE VERB ) 
  interceptada ( VERB_PAST_PARTICIPLE VERB ) lemma=interceptar 
  interceptadas ( VERB_PAST_PARTICIPLE VERB ) lemma=interceptar 
@@ -2733,7 +2733,7 @@
  interceptivo ( ) 
  interchange ( VERB ) lemma=interchange 
  interclavicular ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intercomunicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intercomunicación ( NOUN NOUN_SINGULAR ) 
  interconectar ( VERB_INFINITIVE VERB ) 
  interconectada ( VERB_PAST_PARTICIPLE VERB ) lemma=interconectar 
  interconectadas ( VERB_PAST_PARTICIPLE VERB ) lemma=interconectar 
@@ -2742,32 +2742,32 @@
  interconectarlos (                 VERB ) lemma=interconectar 
  interconectarse ( VERB_INFINITIVE VERB ) 
  interconecten ( VERB ) lemma=interconectar 
- interconectividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interconexiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interconexión 
- interconexión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interconectividad ( NOUN NOUN_SINGULAR ) 
+ interconexiones ( NOUN NOUN_SINGULAR ) lemma=interconexión 
+ interconexión ( NOUN NOUN_SINGULAR ) 
  intercontinental ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intercontinental 
  intercontinentales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intercontinental 
- interconversión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interconversión ( NOUN NOUN_SINGULAR ) 
  interconvertar ( VERB_INFINITIVE VERB ) 
  intercooperativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intercostal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intercostales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intercostal 
- intercrisis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intercrisis ( NOUN NOUN_SINGULAR ) 
  intercurrente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intercurrentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intercurrente 
  interdepartamental ( ADJECTIVE ADJECTIVE_NORMAL ) 
- interdependencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interdependencia ( NOUN NOUN_SINGULAR ) 
  interdiario ( ADJECTIVE ADJECTIVE_NORMAL ) 
- interdicción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interdicción ( NOUN NOUN_SINGULAR ) 
  interdigitantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interdigitante 
  interdigitante ( ) 
  interdisciplinar ( ADJECTIVE ADJECTIVE_NORMAL ) 
- interdisciplinariedad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interdisciplinariedad ( NOUN NOUN_SINGULAR ) 
  interdisciplinario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interepidémico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interesar ( VERB_INFINITIVE VERB ) 
  interesada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`interesado`interesar` ADJ  VLadj 
- interesadas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`interesado`interesada`interesar` ADJ  NC  VLadj 
+ interesadas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`interesado`interesada`interesar` ADJ  NC  VLadj 
  interesado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`interesado`interesar` ADJ  VLadj 
  interesados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`interesado`interesar` ADJ  VLadj 
  interesadísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interesado 
@@ -2788,9 +2788,9 @@
  interescapular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interesemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=interesar 
  interesen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=interesar 
- intereses ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interés 
- interés ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interespacio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intereses ( NOUN NOUN_SINGULAR ) lemma=interés 
+ interés ( NOUN NOUN_SINGULAR ) 
+ interespacio ( NOUN NOUN_SINGULAR ) 
  interespecífica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interespecífico 
  interespecífico ( ) 
  interestatal ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2801,19 +2801,19 @@
  interesándose ( NOUN NOUN_GERUND ) lemma=interesarse 
  interesáramos ( VERB ) lemma=interesar 
  intereséis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=interesar 
- interfaces ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interfaz 
- interfaz ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interfaces ( NOUN NOUN_SINGULAR ) lemma=interfaz 
+ interfaz ( NOUN NOUN_SINGULAR ) 
  interfalángica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interfalángico 
  interfalángico ( ) 
  interfalángicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interfalángico 
- interfase ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interferencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interfase ( NOUN NOUN_SINGULAR ) 
+ interferencia ( NOUN NOUN_SINGULAR ) 
  interferente ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`interferente`interferir` ADJ  VLadj 
  interferentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interferente 
  interferida ( VERB_PAST_PARTICIPLE VERB ) lemma=interferir 
  interferir ( VERB_INFINITIVE VERB ) 
- interferones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interferón 
- interferón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interferones ( NOUN NOUN_SINGULAR ) lemma=interferón 
+ interferón ( NOUN NOUN_SINGULAR ) 
  interfiera ( VERB ) lemma=interferir 
  interfieran ( VERB ) lemma=interferir 
  interfiere ( VERB ) lemma=interferir 
@@ -2822,7 +2822,7 @@
  interfirió ( VERB ) lemma=interferir 
  interfolicular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interfuncionar ( VERB_INFINITIVE VERB ) 
- interfuncionamiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interfuncionamiento ( NOUN NOUN_SINGULAR ) 
  interfuncionen ( VERB ) lemma=interfuncionar 
  interfásica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interfásico 
  interfásico ( ) 
@@ -2837,69 +2837,69 @@
  interino ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`interino`interinar` ADJ  VLfin 
  interindividuale ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interinos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interino 
- interior ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=interior 
+ interior ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=interior 
  interior-exterior ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interiores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interior 
  interiorizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  interiormente ( ADVERB ) lemma=interior 
- interleucina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interleucina ( NOUN NOUN_SINGULAR ) 
  interlobulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interlobular 
  interlobular ( ) 
- interlocutor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interlocutora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=interlocutor 
+ interlocutor ( NOUN NOUN_SINGULAR ) 
+ interlocutora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=interlocutor 
  interlocutoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interlocutor 
- interlucina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interlucina ( NOUN NOUN_SINGULAR ) 
  intermedia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermedio 
- intermedio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intermedio 
- intermediaria ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intermediario 
- intermediario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intermediario 
- intermediarias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intermediario 
- intermediarios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intermediario 
+ intermedio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intermedio 
+ intermediaria ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intermediario 
+ intermediario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intermediario 
+ intermediarias ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intermediario 
+ intermediarios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intermediario 
  intermedias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermedio 
  intermedios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermedio 
  interminable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interminables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interminable 
  interministerial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interministeriales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interministerial 
- intermitencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intermitencia ( NOUN NOUN_SINGULAR ) 
  intermitente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intermitentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermitente 
- intermodulación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intermodulación ( NOUN NOUN_SINGULAR ) 
  intermoleculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermolecular 
  intermolecular ( ) 
  intermunicipale ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intermusculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intermuscular 
  intermuscular ( ) 
- interna ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`interno`interna` ADJ  NC 
+ interna ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`interno`interna` ADJ  NC 
  internacion ( VERB ) lemma=internación 
- internación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ internación ( NOUN NOUN_SINGULAR ) 
  internacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  internacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=internacional 
  internacionalice ( VERB ) lemma=internacionalizar 
  internacionalizar ( VERB_INFINITIVE VERB ) 
- internacionalismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ internacionalismo ( NOUN NOUN_SINGULAR ) 
  internacionalista ( ADJECTIVE ADJECTIVE_NORMAL ) 
- internacionalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ internacionalización ( NOUN NOUN_SINGULAR ) 
  internacionalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=internacionalizar 
  internacionalizando ( NOUN NOUN_GERUND ) lemma=internacionalizar 
  internacionalmente ( ADVERB ) lemma=internacional 
  internada ( VERB_PAST_PARTICIPLE VERB ) lemma=internar 
  internar ( VERB_INFINITIVE VERB ) 
  internadas ( VERB_PAST_PARTICIPLE VERB ) lemma=internar 
- internado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`internado`internar` NC  VLadj 
- internados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`internado`internar` NC  VLadj 
- internalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ internado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`internado`internar` NC  VLadj 
+ internados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`internado`internar` NC  VLadj 
+ internalización ( NOUN NOUN_SINGULAR ) 
  internalizar ( VERB_INFINITIVE VERB ) 
  internamente ( ADVERB ) lemma=interno 
- interno ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=interno 
- internamiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interno ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=interno 
+ internamiento ( NOUN NOUN_SINGULAR ) 
  internando ( NOUN NOUN_GERUND ) lemma=internar 
  internarse ( VERB_INFINITIVE VERB ) 
  internas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interno 
  internasal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  internemos ( VERB ) lemma=internar 
- internet ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- internic ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ internet ( NOUN NOUN_SINGULAR ) 
+ internic ( NOUN NOUN_SINGULAR ) 
  internos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interno 
  internuclear ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interobservador ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -2907,15 +2907,15 @@
  interorgánica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interorgánico 
  interorgánico ( ) 
  interpelar ( VERB_INFINITIVE VERB ) 
- interpelaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interpelación 
- interpelación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interpelaciones ( NOUN NOUN_SINGULAR ) lemma=interpelación 
+ interpelación ( NOUN NOUN_SINGULAR ) 
  interpelados ( VERB_PAST_PARTICIPLE VERB ) lemma=interpelar 
  interpelen ( VERB ) lemma=interpelar 
  interpersonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interpersonales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interpersonal 
  interplanetario ( ADJECTIVE ADJECTIVE_NORMAL ) 
- interpolaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interpolación 
- interpolación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interpolaciones ( NOUN NOUN_SINGULAR ) lemma=interpolación 
+ interpolación ( NOUN NOUN_SINGULAR ) 
  interpolada ( VERB_PAST_PARTICIPLE VERB ) lemma=interpolar 
  interpolar ( ) 
  interpondrá ( VERB ) lemma=interponer 
@@ -2923,10 +2923,10 @@
  interponga ( VERB ) lemma=interponer 
  interpongan ( VERB ) lemma=interponer 
  interponían ( VERB ) lemma=interponer 
- interposición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interposición ( NOUN NOUN_SINGULAR ) 
  interpretar ( VERB_INFINITIVE VERB ) 
- interpretaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interpretación 
- interpretación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interpretaciones ( NOUN NOUN_SINGULAR ) lemma=interpretación 
+ interpretación ( NOUN NOUN_SINGULAR ) 
  interpretada ( VERB_PAST_PARTICIPLE VERB ) lemma=interpretar 
  interpretadas ( VERB_PAST_PARTICIPLE VERB ) lemma=interpretar 
  interpretados ( VERB_PAST_PARTICIPLE VERB ) lemma=interpretar 
@@ -2956,15 +2956,15 @@
  interpusieren ( VERB ) lemma=interponer 
  interpusieron ( VERB ) lemma=interponer 
  interpuso ( VERB ) lemma=interponer 
- interred ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interredes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=interred 
+ interred ( NOUN NOUN_SINGULAR ) 
+ interredes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=interred 
  interregional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interregionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interregional 
- interrelaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interrelación 
- interrelación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interrelaciones ( NOUN NOUN_SINGULAR ) lemma=interrelación 
+ interrelación ( NOUN NOUN_SINGULAR ) 
  interrogar ( VERB_INFINITIVE VERB ) 
- interrogaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interrogación 
- interrogación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interrogaciones ( NOUN NOUN_SINGULAR ) lemma=interrogación 
+ interrogación ( NOUN NOUN_SINGULAR ) 
  interrogada ( VERB_PAST_PARTICIPLE VERB ) lemma=interrogar 
  interrogadas ( VERB_PAST_PARTICIPLE VERB ) lemma=interrogar 
  interrogados ( VERB_PAST_PARTICIPLE VERB ) lemma=interrogar 
@@ -2975,7 +2975,7 @@
  interrogarlo (                 VERB ) lemma=interrogar 
  interrogarme (                 VERB ) lemma=interrogar 
  interrogarnos (                 VERB ) lemma=interrogar 
- interrogatorio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interrogatorio ( NOUN NOUN_SINGULAR ) 
  interroguemos ( VERB ) lemma=interrogar 
  interrogué ( VERB ) lemma=interrogar 
  interrogándose ( NOUN NOUN_GERUND ) lemma=interrogar 
@@ -2997,21 +2997,21 @@
  interrumpirme (                 VERB ) lemma=interrumpir 
  interrumpirse ( VERB_INFINITIVE VERB ) 
  interrumpí ( VERB ) lemma=interrumpir 
- interrupciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=interrupción 
- interrupción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- interruptor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interrupciones ( NOUN NOUN_SINGULAR ) lemma=interrupción 
+ interrupción ( NOUN NOUN_SINGULAR ) 
+ interruptor ( NOUN NOUN_SINGULAR ) 
  interróguenme ( VERB ) lemma=interrogar 
- intersecciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intersección 
- intersección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intersecciones ( NOUN NOUN_SINGULAR ) lemma=intersección 
+ intersección ( NOUN NOUN_SINGULAR ) 
  intersecta ( VERB ) lemma=intersectar 
  intersectar ( ) 
  intersectados ( VERB_PAST_PARTICIPLE VERB ) lemma=intersectar 
  intersegmentario ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intersesión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intersesión ( NOUN NOUN_SINGULAR ) 
  intersindical ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intersticial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intersticiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intersticial 
- intersticio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intersticio ( NOUN NOUN_SINGULAR ) 
  intertarsale ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intertemporal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  interterritorial ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3021,10 +3021,10 @@
  interurbanas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interurbano 
  interurbanos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interurbano 
  interureteral ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intervalo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intervalo ( NOUN NOUN_SINGULAR ) 
  intervelloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intervenciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intervención 
- intervención ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intervenciones ( NOUN NOUN_SINGULAR ) lemma=intervención 
+ intervención ( NOUN NOUN_SINGULAR ) 
  intervendremos ( VERB ) lemma=intervenir 
  intervenir ( VERB_INFINITIVE VERB ) 
  intervendrá ( VERB ) lemma=intervenir 
@@ -3040,7 +3040,7 @@
  intervenida ( VERB_PAST_PARTICIPLE VERB ) lemma=intervenir 
  intervenidas ( VERB_PAST_PARTICIPLE VERB ) lemma=intervenir 
  intervenidos ( VERB_PAST_PARTICIPLE VERB ) lemma=intervenir 
- interventor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ interventor ( NOUN NOUN_SINGULAR ) 
  interventricular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intervertebral ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intervertebrales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intervertebral 
@@ -3063,15 +3063,15 @@
  interóseos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=interóseo 
  intestinal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intestinales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intestinal 
- intestino ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intimación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intestino ( NOUN NOUN_SINGULAR ) 
+ intimación ( NOUN NOUN_SINGULAR ) 
  intimidar ( VERB_INFINITIVE VERB ) 
- intimidaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intimidación 
- intimidación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intimidad ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`intimidad`intimidar` NC  VLfin 
+ intimidaciones ( NOUN NOUN_SINGULAR ) lemma=intimidación 
+ intimidación ( NOUN NOUN_SINGULAR ) 
+ intimidad ( NOUN VERB NOUN_SINGULAR ) lemma=`intimidad`intimidar` NC  VLfin 
  intimidadá ( VERB_PAST_PARTICIPLE VERB ) lemma=intimidar 
  intimidadás ( VERB_PAST_PARTICIPLE VERB ) lemma=intimidar 
- intimidador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intimidador ( NOUN NOUN_SINGULAR ) 
  intimidados ( VERB_PAST_PARTICIPLE VERB ) lemma=intimidar 
  intimidando ( NOUN NOUN_GERUND ) lemma=intimidar 
  intimiden ( VERB ) lemma=intimidar 
@@ -3081,10 +3081,10 @@
  intolerable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intolerablemente ( ADVERB ) lemma=intolerable 
  intolerables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intolerable 
- intolerancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intolerancia ( NOUN NOUN_SINGULAR ) 
  intoxicar ( VERB_INFINITIVE VERB ) 
- intoxicaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intoxicación 
- intoxicación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intoxicaciones ( NOUN NOUN_SINGULAR ) lemma=intoxicación 
+ intoxicación ( NOUN NOUN_SINGULAR ) 
  intoxicadas ( VERB_PAST_PARTICIPLE VERB ) lemma=intoxicar 
  intoxicados ( VERB_PAST_PARTICIPLE VERB ) lemma=intoxicar 
  intraabdominal ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3095,9 +3095,9 @@
  intrabanda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrabando 
  intrabando ( ) 
  intrabdominale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intrabrazo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intrabrazo ( NOUN NOUN_SINGULAR ) 
  intrabronquiale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intracambio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intracambio ( NOUN NOUN_SINGULAR ) 
  intracardíaco ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intracelular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intracelulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intracelular 
@@ -3106,8 +3106,8 @@
  intracomunitario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intracraneal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intracraneale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intradermorreacción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intradiálisis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intradermorreacción ( NOUN NOUN_SINGULAR ) 
+ intradiálisis ( NOUN NOUN_SINGULAR ) 
  intraductale ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intraepiteliales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intraepitelial 
  intraepitelial ( ) 
@@ -3115,11 +3115,11 @@
  intraespinoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intrafamiliar ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intrafusal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intragrupo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intragrupo ( NOUN NOUN_SINGULAR ) 
  intrahepático ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intrahospitalario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=intrahospitalario 
+ intrahospitalario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=intrahospitalario 
  intraluminale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intramembrana ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intramembrana ( NOUN NOUN_SINGULAR ) 
  intramolecular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intramoleculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intramolecular 
  intramural ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3128,11 +3128,11 @@
  intranquila ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intranquilo 
  intranquilo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intranquilas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intranquilo 
- intranquilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intranquilidad ( NOUN NOUN_SINGULAR ) 
  intranquilos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intranquilo 
  intransferible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intransferibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intransferible 
- intransigencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intransigencia ( NOUN NOUN_SINGULAR ) 
  intransigente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intransigentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intransigente 
  intraocular ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3150,14 +3150,14 @@
  intravenoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intravenosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intravenoso 
  intravenosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intravenoso 
- intriga ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`intriga`intrigar` NC  VLfin 
+ intriga ( NOUN VERB NOUN_SINGULAR ) lemma=`intriga`intrigar` NC  VLfin 
  intrigada ( VERB_PAST_PARTICIPLE VERB ) lemma=intrigar 
  intrigar ( ) 
  intrigado ( VERB_PAST_PARTICIPLE VERB ) lemma=intrigar 
  intrigados ( VERB_PAST_PARTICIPLE VERB ) lemma=intrigar 
  intrigando ( NOUN NOUN_GERUND ) lemma=intrigar 
  intrigante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- intrigas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`intriga`intrigar` NC  VLfin 
+ intrigas ( NOUN VERB NOUN_SINGULAR ) lemma=`intriga`intrigar` NC  VLfin 
  intrigue ( VERB ) lemma=intrigar 
  intrincaba ( VERB ) lemma=intrincar 
  intrincar ( ) 
@@ -3166,7 +3166,7 @@
  intrincados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`intrincado`intrincar` ADJ  VLadj 
  intrincadísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrincado 
  introcraneal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- introducción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ introducción ( NOUN NOUN_SINGULAR ) 
  introducir ( VERB_INFINITIVE VERB ) 
  introducida ( VERB_PAST_PARTICIPLE VERB ) lemma=introducir 
  introducidas ( VERB_PAST_PARTICIPLE VERB ) lemma=introducir 
@@ -3182,7 +3182,7 @@
  introduciéndole ( NOUN NOUN_GERUND ) lemma=introducir 
  introduciéndonos ( NOUN NOUN_GERUND ) lemma=introducir 
  introduciéndose ( NOUN NOUN_GERUND ) 
- introductor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ introductor ( NOUN NOUN_SINGULAR ) 
  introductorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=introductorio 
  introductorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  introduje ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=introducir 
@@ -3198,38 +3198,38 @@
  introduzcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=introducir 
  introduzcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=introducir 
  introduzco ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=introducir 
- intromisiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intromisión 
- intromisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intrones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intrón 
- intrón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- introspección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intromisiones ( NOUN NOUN_SINGULAR ) lemma=intromisión 
+ intromisión ( NOUN NOUN_SINGULAR ) 
+ intrones ( NOUN NOUN_SINGULAR ) lemma=intrón 
+ intrón ( NOUN NOUN_SINGULAR ) 
+ introspección ( NOUN NOUN_SINGULAR ) 
  introvertido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intrusa ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`intruso`intrusar` ADJ  VLfin 
- intrusismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intrusismo ( NOUN NOUN_SINGULAR ) 
  intrusivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrusivo 
  intrusivo ( ) 
- intrusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intrusión ( NOUN NOUN_SINGULAR ) 
  intruso ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`intruso`intrusar` ADJ  VLfin 
  intrusos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intruso 
  intrépido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intrépidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrépido 
- intríngulis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intríngulis ( NOUN NOUN_SINGULAR ) 
  intrínseca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrínseco 
  intrínseco ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intrínsecamente ( ADVERB ) lemma=intrínseco 
  intrínsecas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrínseco 
  intrínsecos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intrínseco 
- intubación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intuicion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intuición 
- intuición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- intuiciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=intuición 
+ intubación ( NOUN NOUN_SINGULAR ) 
+ intuicion ( NOUN NOUN_SINGULAR ) lemma=intuición 
+ intuición ( NOUN NOUN_SINGULAR ) 
+ intuiciones ( NOUN NOUN_SINGULAR ) lemma=intuición 
  intuida ( VERB_PAST_PARTICIPLE VERB ) lemma=intuir 
  intuir ( VERB_INFINITIVE VERB ) 
  intuitiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intuitivo 
  intuitivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  intuitivamente ( ADVERB ) 
  intuitivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=intuitivo 
- intususcepción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intususcepción ( NOUN NOUN_SINGULAR ) 
  intuye ( VERB ) lemma=intuir 
  intuyen ( VERB ) lemma=intuir 
  intuyendo ( NOUN NOUN_GERUND ) lemma=intuir 
@@ -3237,13 +3237,13 @@
  intuyó ( VERB ) lemma=intuir 
  inténtelo ( ) lemma=intentar 
  inténtenlo ( ) lemma=intentar 
- intérprete ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inulina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ intérprete ( NOUN NOUN_SINGULAR ) 
+ inulina ( NOUN NOUN_SINGULAR ) 
  inundar ( VERB_INFINITIVE VERB ) 
  inundables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inundable 
  inundable ( ) 
- inundaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inundación 
- inundación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inundaciones ( NOUN NOUN_SINGULAR ) lemma=inundación 
+ inundación ( NOUN NOUN_SINGULAR ) 
  inundada ( VERB_PAST_PARTICIPLE VERB ) lemma=inundar 
  inundadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inundar 
  inundados ( VERB_PAST_PARTICIPLE VERB ) lemma=inundar 
@@ -3257,7 +3257,7 @@
  inusual ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inusuales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inusual 
  inusualmente ( ADVERB ) 
- inutilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inutilidad ( NOUN NOUN_SINGULAR ) 
  inutilizar ( VERB_INFINITIVE VERB ) 
  inutilizable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inutilizables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inutilizable 
@@ -3274,8 +3274,8 @@
  invadiera ( VERB ) lemma=invadir 
  invadieran ( VERB ) lemma=invadir 
  invadiesen ( VERB ) lemma=invadir 
- invaginaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invaginación 
- invaginación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invaginaciones ( NOUN NOUN_SINGULAR ) lemma=invaginación 
+ invaginación ( NOUN NOUN_SINGULAR ) 
  invaginar ( VERB_PAST_PARTICIPLE VERB ) lemma=invaginar 
  invalidar ( VERB_INFINITIVE VERB ) 
  invalidada ( VERB_PAST_PARTICIPLE VERB ) lemma=invalidar 
@@ -3284,30 +3284,30 @@
  invalidante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invalidantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invalidante 
  invalidase ( VERB ) lemma=invalidar 
- invalidez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invalidez ( NOUN NOUN_SINGULAR ) 
  invariable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invariablemente ( ADVERB ) lemma=invariable 
  invariables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invariable 
  invariante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- invasiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invasión 
- invasión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- invasividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invasiones ( NOUN NOUN_SINGULAR ) lemma=invasión 
+ invasión ( NOUN NOUN_SINGULAR ) 
+ invasividad ( NOUN NOUN_SINGULAR ) 
  invasivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- invasor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=invasor 
- invasora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=invasor 
- invasoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=invasor 
- invasores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=invasor 
+ invasor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=invasor 
+ invasora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=invasor 
+ invasoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=invasor 
+ invasores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=invasor 
  invencible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invencibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invencible 
- invenciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invención 
- invención ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invenciones ( NOUN NOUN_SINGULAR ) lemma=invención 
+ invención ( NOUN NOUN_SINGULAR ) 
  inventar ( VERB_INFINITIVE VERB ) 
  inventada ( VERB_PAST_PARTICIPLE VERB ) lemma=inventar 
  inventadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inventar 
  inventados ( VERB_PAST_PARTICIPLE VERB ) lemma=inventar 
  inventando ( NOUN NOUN_GERUND ) lemma=inventar 
  inventariar ( VERB_INFINITIVE VERB ) 
- inventario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inventario ( NOUN NOUN_SINGULAR ) 
  inventarla (                 VERB ) lemma=inventar 
  inventarlas (                 VERB ) lemma=inventar 
  inventarlo (                 VERB ) lemma=inventar 
@@ -3317,12 +3317,12 @@
  inventemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=inventar 
  inventen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=inventar 
  inventes ( VERB ) lemma=inventar 
- inventiva ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- invento ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`invento`inventar` NC  VLfin 
- inventor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inventiva ( NOUN NOUN_SINGULAR ) 
+ invento ( NOUN VERB NOUN_SINGULAR ) lemma=`invento`inventar` NC  VLfin 
+ inventor ( NOUN NOUN_SINGULAR ) 
  invernada ( VERB_PAST_PARTICIPLE VERB ) lemma=invernar 
  invernar ( VERB_INFINITIVE VERB ) 
- invernadero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invernadero ( NOUN NOUN_SINGULAR ) 
  invernal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invernando ( NOUN NOUN_GERUND ) lemma=invernar 
  inverosímil ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3331,16 +3331,16 @@
  inverso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inversamente ( ADVERB ) lemma=inverso 
  inversas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inverso 
- inversiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inversión 
- inversión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inversionista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inversionista 
- inversionistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=inversionista 
- inversor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- inversora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inversor 
- inversoras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inversor 
+ inversiones ( NOUN NOUN_SINGULAR ) lemma=inversión 
+ inversión ( NOUN NOUN_SINGULAR ) 
+ inversionista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inversionista 
+ inversionistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=inversionista 
+ inversor ( NOUN NOUN_SINGULAR ) 
+ inversora ( NOUN NOUN_SINGULAR ) lemma=inversor 
+ inversoras ( NOUN NOUN_SINGULAR ) lemma=inversor 
  inversos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inverso 
- invertasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- invertebrados ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invertebrado 
+ invertasa ( NOUN NOUN_SINGULAR ) 
+ invertebrados ( NOUN NOUN_SINGULAR ) lemma=invertebrado 
  invertebrado ( ) 
  invertida ( VERB_PAST_PARTICIPLE VERB ) lemma=invertir 
  invertir ( VERB_INFINITIVE VERB ) 
@@ -3351,16 +3351,16 @@
  investida ( VERB_PAST_PARTICIPLE VERB ) lemma=investir 
  investir ( VERB_INFINITIVE VERB ) 
  investidos ( VERB_PAST_PARTICIPLE VERB ) lemma=investir 
- investidura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ investidura ( NOUN NOUN_SINGULAR ) 
  investigar ( VERB_INFINITIVE VERB ) 
- investigaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=investigación 
- investigación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ investigaciones ( NOUN NOUN_SINGULAR ) lemma=investigación 
+ investigación ( NOUN NOUN_SINGULAR ) 
  investigada ( VERB_PAST_PARTICIPLE VERB ) lemma=investigar 
  investigadas ( VERB_PAST_PARTICIPLE VERB ) lemma=investigar 
- investigador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=investigador 
- investigadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=investigador 
+ investigador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=investigador 
+ investigadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=investigador 
  investigadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=investigador 
- investigadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=investigador 
+ investigadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=investigador 
  investigados ( VERB_PAST_PARTICIPLE VERB ) lemma=investigar 
  investigando ( NOUN NOUN_GERUND ) lemma=investigar 
  investigarlas (                 VERB ) lemma=investigar 
@@ -3378,12 +3378,12 @@
  invicta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invicto 
  invicto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invictos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invicto 
- invierno ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`invierno`invernar` NC  VLfin 
+ invierno ( NOUN VERB NOUN_SINGULAR ) lemma=`invierno`invernar` NC  VLfin 
  invierta ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=invertir 
  inviertan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=invertir 
  inviertas ( VERB ) lemma=invertir 
  inviertes ( VERB ) lemma=invertir 
- inviolabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inviolabilidad ( NOUN NOUN_SINGULAR ) 
  inviolable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inviolables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inviolable 
  invirtamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=invertir 
@@ -3398,12 +3398,12 @@
  invisibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=invisible 
  inviste ( VERB ) lemma=investir 
  invitar ( VERB_INFINITIVE VERB ) 
- invitaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invitación 
- invitación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- invitada ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
- invitadas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
- invitado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
- invitados ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
+ invitaciones ( NOUN NOUN_SINGULAR ) lemma=invitación 
+ invitación ( NOUN NOUN_SINGULAR ) 
+ invitada ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
+ invitadas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
+ invitado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
+ invitados ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`invitado`invitado`invitar` ADJ  NC  VLadj 
  invitando ( NOUN NOUN_GERUND ) lemma=invitar 
  invitarla (                 VERB ) lemma=invitar 
  invitarle (                 VERB ) lemma=invitar 
@@ -3420,18 +3420,18 @@
  invitándoles ( VERB_PAST_PARTICIPLE VERB ) lemma=invitar 
  invitás ( VERB ) lemma=invitar 
  invocar ( VERB_INFINITIVE VERB ) 
- invocaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=invocación 
- invocación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invocaciones ( NOUN NOUN_SINGULAR ) lemma=invocación 
+ invocación ( NOUN NOUN_SINGULAR ) 
  invocada ( VERB_PAST_PARTICIPLE VERB ) lemma=invocar 
  invocadas ( VERB_PAST_PARTICIPLE VERB ) lemma=invocar 
- invocador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ invocador ( NOUN NOUN_SINGULAR ) 
  invocados ( VERB_PAST_PARTICIPLE VERB ) lemma=invocar 
  invocando ( NOUN NOUN_GERUND ) lemma=invocar 
  invocante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  invocarse ( VERB_INFINITIVE VERB ) 
  invocándose ( NOUN NOUN_GERUND ) lemma=invocarse 
  involucionar ( VERB_INFINITIVE VERB ) 
- involución ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ involución ( NOUN NOUN_SINGULAR ) 
  involucrar ( VERB_INFINITIVE VERB ) 
  involucrada ( VERB_PAST_PARTICIPLE VERB ) lemma=involucrar 
  involucradas ( VERB_PAST_PARTICIPLE VERB ) lemma=involucrar 
@@ -3452,12 +3452,12 @@
  inválida ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inválido 
  inválido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inválidas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inválido 
- inválidos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inválido 
+ inválidos ( NOUN NOUN_SINGULAR ) lemma=inválido 
  invéntate ( ) lemma=inventar 
  invítalo ( ) lemma=invitar 
  invíteme ( ) lemma=invitar 
- inyecciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=inyección 
- inyección ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inyecciones ( NOUN NOUN_SINGULAR ) lemma=inyección 
+ inyección ( NOUN NOUN_SINGULAR ) 
  inyectar ( VERB_INFINITIVE VERB ) 
  inyectada ( VERB_PAST_PARTICIPLE VERB ) lemma=inyectar 
  inyectadas ( VERB_PAST_PARTICIPLE VERB ) lemma=inyectar 
@@ -3473,58 +3473,58 @@
  inédito ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inéditas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inédito 
  inéditos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inédito 
- inóculo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ inóculo ( NOUN NOUN_SINGULAR ) 
  inútil ( ADJECTIVE ADJECTIVE_NORMAL ) 
  inútiles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=inútil 
  inútilmente ( ADVERB ) lemma=inútil 
- iodo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ion ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iodo ( NOUN NOUN_SINGULAR ) 
+ ion ( NOUN NOUN_SINGULAR ) 
  ionizable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ionización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ionización ( NOUN NOUN_SINGULAR ) 
  ionizada ( VERB_PAST_PARTICIPLE VERB ) lemma=ionizar 
  ionizar ( ) 
  ionizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=ionizar 
  ionizado ( VERB_PAST_PARTICIPLE VERB ) lemma=ionizar 
  ionizante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ionizantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ionizante 
- ionoforesis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ionoforesis ( NOUN NOUN_SINGULAR ) 
  ipratropio ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ipratroprio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ipratroprio ( NOUN NOUN_SINGULAR ) 
  ipsilateral ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ipx ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ipxcon ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- iquest ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ira ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ipx ( NOUN NOUN_SINGULAR ) 
+ ipxcon ( NOUN NOUN_SINGULAR ) 
+ iquest ( NOUN NOUN_SINGULAR ) 
+ ira ( NOUN NOUN_SINGULAR ) 
  iracundos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iracundo 
  iracundo ( ) 
- iraní ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iraní 
- iraníes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iraní 
- iraquí ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iraquí 
- iraquíes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=iraquí 
+ iraní ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iraní 
+ iraníes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iraní 
+ iraquí ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iraquí 
+ iraquíes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=iraquí 
  irguió ( VERB ) lemma=erguir 
  iridiano ( ADJECTIVE ADJECTIVE_NORMAL ) 
- iris ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- iritis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ iris ( NOUN NOUN_SINGULAR ) 
+ iritis ( NOUN NOUN_SINGULAR ) 
  irla (                 VERB ) lemma=ir 
- irlandesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=irlandés 
- irlandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=irlandés 
- irlandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=irlandés 
- irlandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=irlandés 
+ irlandesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=irlandés 
+ irlandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=irlandés 
+ irlandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=irlandés 
+ irlandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=irlandés 
  irlo (                 VERB ) lemma=ir 
  irme (                 VERB ) lemma=ir 
  irnos (                 VERB ) lemma=ir 
- ironía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ironía ( NOUN NOUN_SINGULAR ) 
  iros ( VERB ) lemma=ir 
  irracional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irracionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irracional 
- irracionalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irracionalidad ( NOUN NOUN_SINGULAR ) 
  irracionalmente ( ADVERB ) lemma=irracional 
  irradiar ( VERB_INFINITIVE VERB ) 
- irradiación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irradiación ( NOUN NOUN_SINGULAR ) 
  irradiada ( VERB_PAST_PARTICIPLE VERB ) lemma=irradiar 
  irradiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=irradiar 
  irradiados ( VERB_PAST_PARTICIPLE VERB ) lemma=irradiar 
- irradiancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irradiancia ( NOUN NOUN_SINGULAR ) 
  irradien ( VERB ) lemma=irradiar 
  irrazonable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irrazonablemente ( ADVERB ) lemma=irrazonable 
@@ -3543,9 +3543,9 @@
  irreg ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irregular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irregulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irregular 
- irregularidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irregularidad ( NOUN NOUN_SINGULAR ) 
  irregularmente ( ADVERB ) lemma=irregular 
- irrelevancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irrelevancia ( NOUN NOUN_SINGULAR ) 
  irrelevante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irrelevantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irrelevante 
  irremediable ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3562,21 +3562,21 @@
  irresecable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irresistible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irresistibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irresistible 
- irrespeto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- irresponsabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irrespeto ( NOUN NOUN_SINGULAR ) 
+ irresponsabilidad ( NOUN NOUN_SINGULAR ) 
  irresponsable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irresponsablemente ( ADVERB ) lemma=irresponsable 
  irresponsables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irresponsable 
  irreverente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irreverentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irreverente 
- irreversibilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irreversibilidad ( NOUN NOUN_SINGULAR ) 
  irreversible ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irreversiblemente ( ADVERB ) lemma=irreversible 
  irreversibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irreversible 
  irrevocable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irrevocablemente ( ADVERB ) lemma=irrevocable 
  irrevocables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irrevocable 
- irrigación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irrigación ( NOUN NOUN_SINGULAR ) 
  irrigar ( VERB_INFINITIVE VERB ) 
  irrisoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irrisorio 
  irrisorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -3584,22 +3584,22 @@
  irrisorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irrisorio 
  irrisorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irrisorio 
  irritar ( VERB_INFINITIVE VERB ) 
- irritabilidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irritabilidad ( NOUN NOUN_SINGULAR ) 
  irritable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  irritables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irritable 
- irritaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=irritación 
- irritación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irritaciones ( NOUN NOUN_SINGULAR ) lemma=irritación 
+ irritación ( NOUN NOUN_SINGULAR ) 
  irritada ( VERB_PAST_PARTICIPLE VERB ) lemma=irritar 
  irritadas ( VERB_PAST_PARTICIPLE VERB ) lemma=irritar 
  irritados ( VERB_PAST_PARTICIPLE VERB ) lemma=irritar 
  irritando ( NOUN NOUN_GERUND ) lemma=irritar 
- irritantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=irritante 
+ irritantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=irritante 
  irritante ( ) 
  irrumpan ( VERB ) lemma=irrumpir 
  irrumpir ( VERB_INFINITIVE VERB ) 
  irrumpiendo ( NOUN NOUN_GERUND ) lemma=irrumpir 
- irrupciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=irrupción 
- irrupción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ irrupciones ( NOUN NOUN_SINGULAR ) lemma=irrupción 
+ irrupción ( NOUN NOUN_SINGULAR ) 
  irte (                 VERB ) lemma=ir 
  iríais ( VERB ) lemma=ir 
  irónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irónico 
@@ -3607,37 +3607,37 @@
  irónicamente ( ADVERB ) lemma=irónico 
  irónicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irónico 
  irónicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=irónico 
- isla ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isla ( NOUN NOUN_SINGULAR ) 
  islamista ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=islamisto 
  islamisto ( ) 
  islamistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=islamisto 
- islandesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=islandés 
- islandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=islandés 
- islandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=islandés 
- islandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=islandés 
- isleña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=isleño 
- isleño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=isleño 
- isleñas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=isleño 
- isleños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=isleño 
- islote ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ islandesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=islandés 
+ islandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=islandés 
+ islandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=islandés 
+ islandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=islandés 
+ isleña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=isleño 
+ isleño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=isleño 
+ isleñas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=isleño 
+ isleños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=isleño 
+ islote ( NOUN NOUN_SINGULAR ) 
  islámica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=islámico 
  islámico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  islámicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=islámico 
  islámicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=islámico 
- isobutano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isocromosoma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isocuanta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isoelectroenfoque ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isobutano ( NOUN NOUN_SINGULAR ) 
+ isocromosoma ( NOUN NOUN_SINGULAR ) 
+ isocuanta ( NOUN NOUN_SINGULAR ) 
+ isoelectroenfoque ( NOUN NOUN_SINGULAR ) 
  isoelástico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isoeléctrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isoeléctricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isoeléctrico 
- isoenzima ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isoforma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isoenzima ( NOUN NOUN_SINGULAR ) 
+ isoforma ( NOUN NOUN_SINGULAR ) 
  isogénicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isogénico 
  isogénico ( ) 
- isoinjertos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=isoinjerto 
+ isoinjertos ( NOUN NOUN_SINGULAR ) lemma=isoinjerto 
  isoinjerto ( ) 
- isoleucina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isoleucina ( NOUN NOUN_SINGULAR ) 
  isomorfa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isomorfo 
  isomorfo ( ) 
  isométrica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isométrico 
@@ -3646,18 +3646,18 @@
  isoniacir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  isopotencial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isopropiltiogalactósir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- isoproterenol ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isostenuria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isoproterenol ( NOUN NOUN_SINGULAR ) 
+ isostenuria ( NOUN NOUN_SINGULAR ) 
  isotermos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isotermo 
  isotermo ( ) 
- isotipo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isotipo ( NOUN NOUN_SINGULAR ) 
  isotónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isotónico 
  isotónico ( ) 
  isotópica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isotópico 
  isotópico ( ) 
  isotópicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isotópico 
- isozima ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- isquemia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isozima ( NOUN NOUN_SINGULAR ) 
+ isquemia ( NOUN NOUN_SINGULAR ) 
  isquiocavernoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isquiopubiano ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isquiática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isquiático 
@@ -3668,45 +3668,45 @@
  isquémico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isquémicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isquémico 
  isquémicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isquémico 
- israelita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=israelita 
- israelitas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=israelita 
- israelí ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=israelí 
- israelíes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=israelí 
- istmo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ israelita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=israelita 
+ israelitas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=israelita 
+ israelí ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=israelí 
+ israelíes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=israelí 
+ istmo ( NOUN NOUN_SINGULAR ) 
  isócrona ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isócrono 
  isócrono ( ADJECTIVE ADJECTIVE_NORMAL ) 
  isócronas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isócrono 
  isócronos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isócrono 
  isófonas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=isófono 
  isófono ( ) 
- isótopo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- itadino ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- italiana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=italiano 
- italiano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=italiano 
- italianas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=italiano 
- italianos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=italiano 
- iteraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=iteración 
- iteración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ isótopo ( NOUN NOUN_SINGULAR ) 
+ itadino ( NOUN NOUN_SINGULAR ) 
+ italiana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=italiano 
+ italiano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=italiano 
+ italianas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=italiano 
+ italianos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=italiano 
+ iteraciones ( NOUN NOUN_SINGULAR ) lemma=iteración 
+ iteración ( NOUN NOUN_SINGULAR ) 
  iterativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iterativo 
  iterativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  iterativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iterativo 
- itinerancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ itinerancia ( NOUN NOUN_SINGULAR ) 
  itinerando ( NOUN NOUN_GERUND ) lemma=itinerar 
  itinerar ( ) 
- itinerante ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=itinerante 
+ itinerante ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=itinerante 
  itinerantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=itinerante 
- itinerario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- itraconazol ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- itsmo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ itinerario ( NOUN NOUN_SINGULAR ) 
+ itraconazol ( NOUN NOUN_SINGULAR ) 
+ itsmo ( NOUN NOUN_SINGULAR ) 
  iv ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
  ix ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
  izada ( VERB_PAST_PARTICIPLE VERB ) lemma=izar 
  izando ( NOUN NOUN_GERUND ) lemma=izar 
- izquierda ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`izquierdo`izquierda` ADJ  NC 
+ izquierda ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`izquierdo`izquierda` ADJ  NC 
  izquierdas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=izquierdo 
  izquierdo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- izquierdista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=izquierdista 
- izquierdistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=izquierdista 
+ izquierdista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=izquierdista 
+ izquierdistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=izquierdista 
  izquierdos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=izquierdo 
  iónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=iónico 
  iónico ( ADJECTIVE ADJECTIVE_NORMAL ) 

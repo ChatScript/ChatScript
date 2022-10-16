@@ -148,7 +148,7 @@ void ResetFunctionSystem();
 void SaveMark(char* buffer,unsigned int iterator);
 FunctionResult RegularReuse(int topic, int id, char* rule,char* buffer,char* arg3,bool crosstopic);
 void UpdateTrace(char* value);
-FunctionResult InternalCall(char* name, EXECUTEPTR fn, char* arg1, char* arg2, char* arg3, char* buffer);
+FunctionResult InternalCall(char* name, EXECUTEPTR fn, char* arg1, char* arg2, char* arg3, char* buffer, char* arg4 = NULL, char* arg5 = NULL);
 
 FunctionResult KeywordTopicsCode(char* buffer);
 void SetBaseMemory();

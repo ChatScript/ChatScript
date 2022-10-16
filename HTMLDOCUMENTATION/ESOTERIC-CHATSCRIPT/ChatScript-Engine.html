@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-engine">ChatScript Engine</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <ul>
 <li><a href="ChatScript-Engine-md#code-zones">Code Zones</a></li>
 <li><a href="ChatScript-Engine-md#data">Data</a></li>
@@ -272,7 +272,7 @@ typedef struct FACT
 <h2 id="spacing">Spacing</h2>
 <p>The script compiler normally forces separate things into separate tokens to allow fast uniform handling. E.g., <code>^call(bob hello)</code> becomes <code>^call ( bob hello )</code>. This allows the <code>ReadCompiledWord</code> function to grab tokens more easily.</p>
 <h2 id="prefix-characters">Prefix characters</h2>
-<p>The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script. The pattern prefixes are:</p>
+<p>The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script. This is added to user script during script compilation. The pattern prefixes are:</p>
 <pre><code>=   to designate a comparison operator
 !   to invert a Test
 ?   a unary existence operator (prefixing a variable)

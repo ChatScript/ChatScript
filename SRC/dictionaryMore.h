@@ -1,18 +1,20 @@
 
 #define MAX_SYNLOOP	60
-#define MAX_MULTIDICT 4	// 3 languages + universal or when no multi
+#define MAX_MULTIDICT 7	
 #define MAX_HASH_BUCKETS 215127 
 #define UNIQUEENTRY '`'				// leads words that wont clash with other dictionary entries
 #define MAX_HASH_DEPTH  80
 #define GETNEXTNODE(D) (D->nextNode & NODEBITS)		// top byte is the length of joined phrases of which this is header
 #define GETMULTIWORDHEADER(D)  (D->nextNode >> MULTIWORDHEADER_SHIFT)
 #define SETMULTIWORDHEADER(D,n) (  D->nextNode &= NODEBITS, D->nextNode |= n << MULTIWORDHEADER_SHIFT )
-
+#define SUPERCEDED_WORD 0x80000000 // added to word length data
+#define WORDLENGTH(D) (D->length & 0x7fffffff) // sans SUPERCEDED_WORD bit
 #define IS_NEW_WORD(x) (!x || (x >= dictionaryPreBuild[2] &&  !xbuildDictionary)) // created by user volley
-
+bool SUPERCEDED(WORDP D);
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
-
-#define CHECKSTAMP 9  // binary version id
+#define SUBSTITUTE_SEPARATOR '|'
+#define CHECKSTAMP 13  // binary version id  - affects dict*.bin, TOPIC (bin)
+#define CHECKSTAMPRAW 1  // if compile output format changes source version id  - affects  TOPIC (*.txt)
 
 // system internal bits on dictionary entries internalBits
 
@@ -82,17 +84,18 @@
 #define BUILD2									0x00800000		// comes from dynamic build layer data
 #define CONSTANT_IS_NEGATIVE		0x01000000	
 #define INTERNAL_MARK			0x02000000		// transient marker for Intersect coding and Country testing in :trim
-//	0x04000000	
+#define CONCEPT_UNIVERSAL 	0x04000000	// concept has some universal members
 #define VARIABLE_ARGS_TABLE	 0x08000000		// only for table macros and output macros
 #define UPPERCASE_MATCH			VARIABLE_ARGS_TABLE	// match on this concept should store canonical as upper case
-#define DEFINES								0x10000000		// word is a define, starts with `, uses ->properties and ->infermark as back and forth links
+#define DEFINES								0x80000000		// word is a define (has no language bits), starts with `, uses ->properties and ->infermark as back and forth links
 
-#define LANGUAGE_BITS				0x60000000	 // which language is this word from (applies only to ordinary words, not variables, etc)
-#define LANGUAGE_SHIFT			29 // matches FACT's use of LANGUAGE_SHIFT on opposite end
-// unused	pending language use			0x80000000
-
+#define LANGUAGE_BITS				0x70000000	 // which language is this word from (applies only to ordinary words, not variables, etc)
+#define LANGUAGE_SHIFT			28 // matches FACT's use of LANGUAGE_SHIFT on opposite end
 #define LANGUAGE_UNIVERSAL 0
-#define LANGUAGE_1 0x20000000
+#define LANGUAGE_1 0x10000000
+
+#define GETWORDSLIMIT 20
+
 #define FN_TRACE_BITS ( MACRO_TRACE | NOTRACE_FN )
 #define FN_TIME_BITS ( MACRO_TIME | NOTIME_FN )
 
@@ -164,15 +167,14 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 
 #define Index2Word(n) (dictionaryBase + (size_t)n)
 #define Word2Index(D) ((unsigned int) (D-dictionaryBase))
-#define GetMeanings(D) ((MEANING*) Index2Heap(D->meanings))
 MEANING GetMeaning(WORDP D, int index);
 #define GetMeaningsFromMeaning(T) (GetMeanings(Meaning2Word(T)))
 #define Meaning2Index(x) ( (((unsigned int)x) & INDEX_BITS)  >> INDEX_OFFSET) //   which dict entry meaning
 #define CommonLevel(x) ((int)((x & COMMONNESS) >> (uint64)(64-14)))
-extern char language[40];
+extern char current_language[150];
 extern unsigned int max_language;
 extern unsigned int max_fact_language;
-extern char language_list[200];
+extern char language_list[400];
 extern unsigned int language_bits;
 unsigned char* GetWhereInSentence(WORDP D); // always skips the linking field at front
 extern unsigned int* hashbuckets;
@@ -199,14 +201,16 @@ void SetCanonical(WORDP D,MEANING M);
 void ExportCurrentDictionary();
 uint64 GetTriedMeaning(WORDP D);
 void SetTriedMeaning(WORDP D,uint64 bits);
-bool LanguageRestrict(char* word);
+unsigned int LanguageRestrict(char* word);
 void ReverseDictionaryChanges(HEAPREF start);
+MEANING* GetMeanings(WORDP D);
 void SetTriedMeaningWithData(uint64 bits, unsigned int* data);
 void ReadSubstitutes(const char* name,unsigned int build,const char* layer,unsigned int fileFlag,bool filegiven = false);
 void Add2ConceptTopicList(HEAPREF list[256], WORDP D,int start,int end,bool unique);
 void SuffixMeaning(MEANING T,char* at, bool withPos);
 int UTFCharSize(char* utf);
-HEAPREF SetSubstitute(const char* name, char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list);
+bool IsUniversal(char* word, uint64 properties);
+HEAPREF SetSubstitute(char* original, char* replacement, unsigned int build, unsigned int fileFlag, HEAPREF list);
 // memory data
 extern WORDP dictionaryBase;
 extern uint64 maxDictEntries;
@@ -230,7 +234,7 @@ extern MEANING sysMeanings[64];
 extern bool xbuildDictionary;
 extern HEAPREF propertyRedefines;	// property changes on locked dictionary entries
 extern HEAPREF flagsRedefines;		// systemflags changes on locked dictionary entries
-
+WORDP Convert2Universal(WORDP D, uint64 properties, WORDP* oldwords, unsigned int oldwordcount);
 extern FACT* factLocked;
 extern char* stringLocked;
 
@@ -271,22 +275,25 @@ extern MEANING MgambitTopics;
 extern MEANING MadjectiveNoun;
 extern MEANING Mnumber;
 extern bool dictionaryBitsChanged;
-WORDP StoreWord(int);
+WORDP StoreIntWord(int);
 void ClearHeapThreads();
 void ClearWordMaps();
 bool TraceHierarchyTest(int x);
 void WriteDictDetailsBeforeLayer(int layer);
 WORDP StoreWord(const char* word, uint64 properties = 0);
-WORDP StoreWord(const char* word, uint64 properties, uint64 flags);
-WORDP FindWord(const char* word, unsigned int len = 0,uint64 caseAllowed = STANDARD_LOOKUP);
+WORDP StoreFlaggedWord(const char* word, uint64 properties, uint64 flags);
+WORDP FindWord(const char* word, unsigned int len = 0,uint64 caseAllowed = STANDARD_LOOKUP,bool exact = false);
 unsigned char BitCount(uint64 n);
 void ClearVolleyWordMaps();
 void ClearBacktracks();
 unsigned int* AllocateWhereInSentence(WORDP D);
 MEANING GetFactBack(WORDP D);
 void SetFactBack(WORDP D, MEANING M);
+void KillWord(WORDP D,bool complete);
+bool IsQuery(WORDP D);
+bool IsRename(WORDP D);
 bool ReadForeignPosTags(const char* fname);
-int GetWords(char* word, WORDP* set,bool strict);
+int GetWords(char* word, WORDP* set,bool strict,bool allvalid = false);
 bool StricmpUTF(char* w1, char* w2, int len);
 void ReadQueryLabels(char* file);
 void FreeDictionary();
@@ -294,7 +301,9 @@ void ClearWordWhere(WORDP D,int at);
 void RemoveConceptTopic(HEAPREF list[256],WORDP D, int at);
 char* UseDictionaryFile(const char* name,const char* list = NULL);
 void ClearWhereInSentence();
+char* WordWithLanguage(WORDP D);
 void LoadDictionary(char* heapstart);
+unsigned int GetHeaderWord(char* w);
 void ClearDictionaryFiles(bool tmp=false);
 HEAPINDEX CopyWhereInSentence(int oldindex);
 void RestorePropAndSystem(char* stringUsed);
@@ -323,7 +332,7 @@ void AddCircularEntry(WORDP base, unsigned int field,WORDP entry);
 void SetWordValue(WORDP D, int x);
 int GetWordValue(WORDP D);
 void ReadForeign();
-inline int GetMeaningCount(WORDP D) { return (D->meanings) ? GetMeaning(D,0) : 0;}
+inline int GetMeaningCount(WORDP D) { if (!D) return 0;  return (D->meanings) ? GetMeaning(D, 0) : 0; }
 inline int GetGlossCount(WORDP D) 
 {
 	return (D->w.glosses && *D->word != '~' && *D->word != '^' && *D->word != USERVAR_PREFIX && !(D->systemFlags & HAS_SUBSTITUTE) && !(D->internalBits & CONDITIONAL_IDIOM))  ? D->w.glosses[0] : 0;

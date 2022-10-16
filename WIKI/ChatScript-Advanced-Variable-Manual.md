@@ -1,6 +1,6 @@
 ﻿# ChatScript Advanced Variable Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 10/18/2020 cs10.7
+<br>Revision 10/16/2022 cs12.3
 
 
 # Advanced Variables
@@ -97,6 +97,14 @@ $$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1
 
 See also Indirect Pattern Elements in [ChatScript Pattern Redux](ChatScript-Pattern-Redux.md) manual.
 
+## Indirect function calls
+
+You can create a variable which is a function name, then make a call using it. It can only do runtime
+testing on the number of arguments you supply to the actual call.
+```
+	$_fn = ^join( ^testing  _ en_us)
+	$_text = ^$_fn($_tmp)
+```
 
 ## Bot variables (aka Server variables)
 

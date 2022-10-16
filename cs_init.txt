@@ -1,0 +1,4 @@
+serverlogging=none
+userlogging=true
+buglogging=stderr,file
+language=english

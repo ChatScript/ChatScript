@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -476,8 +476,10 @@ $_actualEnd = $_actual &amp; 255
 <h3 id="repeat"><code>^repeat ()</code></h3>
 <p>Allows this rule to generate output that may repeat what has been said recently by the chatbot.</p>
 <h3 id="reviseoutput-n-value"><code>^reviseOutput ( n value )</code></h3>
-<p>Allows you to replace a generated response with the given value.</p>
+<p>^setresponse(ID message) Allows you to replace a generated response with the given value.</p>
 <p><em>n</em> is one based and must be within range of given responses. One can use this, for example, alter output to create accents. Using <code>^response</code> to get an output, you can then use <code>^substitute</code> to generate a revised one and put it back using this function.</p>
+<h3 id="setresponse-n-value"><code>^setresponse ( n value )</code></h3>
+<p>Another name for ^reviseoutput.</p>
 <h2 id="output-access">Output Access</h2>
 <p>These functions allow you to find out what the chatbot has said and why.</p>
 <h3 id="response-id"><code>^response ( id )</code></h3>
@@ -711,6 +713,7 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p>This function is only used inside a pattern.</p>
 <p><em>label</em> can be a simple text label or a <code>topicname.textlabel</code>. The system tracks rule labels that generated output to the user or rules starting with the label <code>CX_</code> whether or not the rule generates output as long as it didn't fail during output.</p>
 <p><code>^inContext</code> will return how many volleys have happened since the referenced rule (normal return) if the label has output within the 5 prior volleys and will fail if not. It's like an extension of rejoinders. Rejoinders have a 1 volley context and must be placed immediately after a rule. This has a 5 volley context and are used in normal rule patterns.</p>
+<p>You can give an optional 2nd argument number, which is how many volleys later are acceptable. If the volley count is higher, you fail even within the 5 prior volleys.</p>
 <pre><code>u: (^incontext(PLAYTENNIS) why) because it was fun.</code></pre>
 <h3 id="stats-facts-dict-text-hashbuckets-unusedhashbuckets"><code>^stats ( FACTS / DICT / TEXT / HASHBUCKETS / UNUSEDHASHBUCKETS )</code></h3>
 <p><code>^stats ( WORDACCESS  / AVERAGEHASHDEPTH / PATTERNEVALUATION )</code> <code>^stats ( TIMESUMMARY  )</code> All ^stats calls can take an optional 2nd argument &quot;ECHO&quot; which sends the answers to the user log and echo on terminal.</p>

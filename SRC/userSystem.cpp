@@ -145,7 +145,14 @@ void ReadComputerID()
 		return;
 	}
 	strcpy(computerID,(char*)"anonymous");
-	WORDP D = FindWord((char*)"defaultbot",0); // do we have a FACT with the default bot in it as verb
+	unsigned int oldlang = language_bits;
+	WORDP D = FindWord((char*)"defaultbot", 0); // do we have a FACT with the default bot in it as verb
+	if (!D && language_bits) // regular language failed
+	{
+		language_bits = LANGUAGE_UNIVERSAL;
+		D = FindWord((char*)"defaultbot", 0); // do we have a FACT with the default bot in it as verb
+	}
+	language_bits = oldlang;
 	if (D)
 	{
 		FACT* F = GetVerbNondeadHead(D);
@@ -461,7 +468,7 @@ static void SaveJSON(WORDP D) // json structure head
 char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 {
 	if (!ptr) return NULL;
-	sprintf(ptr, "$cs_language=%s\r\n", language); // where we left off
+	sprintf(ptr, "$cs_language=%s\r\n", current_language); // where we left off
 	ptr += strlen(ptr);
 
     HEAPREF varthread = userVariableThreadList;
@@ -648,7 +655,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 
 void WriteUserData(time_t curr, bool nobackup)
 { // does not modify any data, just transcribes to file
-	if (!numberOfTopics)  return; //   no topics ever loaded or we are not responding
+	// if (!numberOfTopics)  return; //   no topics ever loaded or we are not responding
 	if (!userCacheCount) return;	// never save users - no history
 
 	uint64 start_time = ElapsedMilliseconds();
@@ -659,7 +666,7 @@ void WriteUserData(time_t curr, bool nobackup)
 	char filename[SMALL_WORD_SIZE];
 	// NOTE mongo does not allow . in a filename
 	sprintf(name, (char*)"%s/%stopic_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID);
-	if (!multidict && stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID, language);
+	if (!multidict && stricmp(current_language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, computerID, current_language);
 	strcpy(filename, name);
 	strcat(filename, "\r\n");
 	userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
@@ -675,7 +682,7 @@ void WriteUserData(time_t curr, bool nobackup)
 	{
 		char fname[MAX_WORD_SIZE];
 		sprintf(fname, (char*)"%s/backup-%s_%s.txt", tmpfolder, loginID, computerID);
-		if (!nobackup) CopyFile2File(fname, name, false);	// backup for debugging BUT NOT if callback of some kind...
+		if (!nobackup && !noretrybackup) CopyFile2File(fname, name, false);	// backup for debugging BUT NOT if callback of some kind...
 		if (redo) // multilevel backup enabled
 		{
 			sprintf(fname, (char*)"%s/backup%u-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
@@ -689,7 +696,7 @@ void WriteUserData(time_t curr, bool nobackup)
 	if (ptr && shared)
 	{
 		sprintf(name, (char*)"%s/%stopic_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, (char*)"share");
-		if (stricmp(language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, language, (char*)"share");
+		if (stricmp(current_language, "english")) sprintf(name, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, current_language, (char*)"share");
 		strcpy(filename, name);
 		strcat(filename, "\r\n");
 		userDataBase = FindUserCache(name); // have a buffer dedicated to him? (cant be safe with what was read in, because share involves 2 files)
@@ -703,7 +710,7 @@ void WriteUserData(time_t curr, bool nobackup)
 		if (!noretrybackup && filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 		{
 			sprintf(name, (char*)"%s/backup-share-%s_%s.txt", tmpfolder, loginID, computerID);
-			if (!nobackup) CopyFile2File(name, userDataBase, false);	// backup for debugging
+			if (!nobackup && !noretrybackup) CopyFile2File(name, userDataBase, false);	// backup for debugging
 			if (redo)
 			{
 				sprintf(name, (char*)"%s/backup%u-share-%s_%s.txt", tmpfolder, volleyCount, loginID, computerID);
@@ -879,13 +886,10 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 
 	// std defaults
 	tokenControl = (DO_SUBSTITUTE_SYSTEM | DO_INTERJECTION_SPLITTING | DO_PROPERNAME_MERGE | DO_NUMBER_MERGE | DO_SPELLCHECK );
-	if (!stricmp(language,"english")) tokenControl |= DO_PARSE;
+	if (!stricmp(current_language,"english")) tokenControl |= DO_PARSE;
 	responseControl = ALL_RESPONSES;
 	*wildcardSeparator = ' ';
 	wildcardSeparatorGiven = false;
-	numberStyle = AMERICAN_NUMBERS;
-	numberComma = ',';
-	numberPeriod = '.';
 
 	if (!ReadFileData(computerID))// read user file, if any, or get it from cache
 	{
@@ -910,13 +914,14 @@ void KillShare()
 	{
 		char buffer[MAX_WORD_SIZE];
 		sprintf(buffer,(char*)"%s/%stopic_%s_%s.txt",usersfolder,GetUserPath(loginID),loginID,(char*)"share");
-		if (stricmp(language,"english")) sprintf(buffer, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, language,(char*)"share");
+		if (stricmp(current_language,"english")) sprintf(buffer, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), loginID, current_language,(char*)"share");
 		unlink(buffer); // remove all shared data of this user
 	}
 }
 
 void ReadNewUser()
 {
+	unsigned int oldtrace = trace;
 	if (server) trace = 0;
 	if (trace & TRACE_USER) Log(USERLOG,"0 Ctrl:New User\r\n");
 
@@ -935,8 +940,8 @@ void ReadNewUser()
 	wildcardSeparatorGiven = false;
 
 	//   set his random seed
-	bool hasUpperCharacters;
-	bool hasUTF8Characters;
+	bool hasUpperCharacters = false;
+	bool hasUTF8Characters = false;
 	unsigned int rand = (unsigned int) Hashit((unsigned char *) loginID,strlen(loginID),hasUpperCharacters,hasUTF8Characters);
 	char word[MAX_WORD_SIZE];
 	oldRandIndex = randIndex = rand & 4095;
@@ -951,7 +956,7 @@ void ReadNewUser()
 	WORDP D = FindWord(readBuffer,0,LOWERCASE_LOOKUP);
 	if (!D) // no such bot
 	{
-		*computerID = 0;
+		/// *computerID = 0; // allow anonymous bot to remain, so debug commands can function w/o bot
 		return;
 	}
 	AllocateOutputBuffer();
@@ -965,6 +970,7 @@ void ReadNewUser()
 	char file[SMALL_WORD_SIZE];
 	sprintf(file,"%s-init.txt",loginName);
 	userInitFile = fopen(file,(char*)"rb"); 
+	trace = oldtrace;
 
 	if (traceUniversal) trace = traceUniversal;
 }

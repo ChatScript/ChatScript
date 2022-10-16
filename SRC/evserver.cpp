@@ -1,6 +1,6 @@
 #ifdef INFORMATION
 Copyright (C) 2011-2012 by Outfit7
-Further modifed by Bruce Wilcox 2014-2018
+Further modifed by Bruce Wilcox 2014-2022
 
 Released under Bruce Wilcox License as follows:
 

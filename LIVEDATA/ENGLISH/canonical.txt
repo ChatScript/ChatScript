@@ -2,14 +2,14 @@
 # these verbs should never reduce lower a base adj/adv. They aren't.
 number number
 customer customer
-lighter light
+light lighter 
 founder founder
 matter matter
 offer offer
 layer layer
 liter liter
-march March
-august August
+March march 
+August august 
 meter meter
 # lower lower  maybe
 buffer buffer
@@ -25,149 +25,89 @@ slaver slaver
 solder solder
 unsolder unsolder
 vest vest
-closer close
-
-'	's
-'s  's
-a A
-any a
+close closer 
+'s '	 's
+a A any an some that the these this those
 after after		# not aft
-born birth		# dont want animal bear
-an a
-anybody someone
-anyone someone
+birth born 		# dont want animal bear
+someone anybody anyone
 thus thus
-are be # avoids problems with noun form
-arts art
-b B
-become be
-became be
-better good
-c C
+be are  # avoids problems with noun form
+art arts 
+ B b
+be become became 
+good better 
+C c 
 can can
-clothes clothing
-could can
-d D
-dare dare
-dared dare
-dares dare
-daring dare
-drunk  drink	# even if a noun, use verb canonical
-e E
-eats eat
-eggs egg 
-f F
-fallen fall
-farther far # as a preposition
-farthest far # as a preposition
-fell fall
-felt feel
-found find  # found is also a present tense verb, confusing find
-g G
-get get
-gets get
-getting get
-got get
-h H
-had have
-has have
-have have
-having have
-he he
-her she
-hers she
-herself she
-him he
-himself he
-his he
+clothing clothes 
+can could 
+D d 
+dare dare dared dares daring
+drink drunk  	# even if a noun, use verb canonical
+E e 
+eat eats 
+egg eggs  
+F f 
+fall fallen  fell
+far farther  farthest # as a preposition
+feel felt 
+find found   # found is also a present tense verb, confusing find
+G g 
+get get gets getting got
+H h 
+ have had has have having
+he he him himself his
+she her hers herself
 His His
 how how 
-I I
-i I
-it it
-its it
-itself it
-j J
-k K
-kilo kilogram
-kilos kilogram
-l L
-least less
-lesser less
-m M
-married marry
+I I i  me mine myself my
+it it its itself
+J j 
+K k 
+ kilogram kilo
+ kilogram kilos
+L l 
+ less least lesser
+M m 
+ marry married
 matter matter
-may may
-me I
-might may
-mine I
+may may might
 must must
-my I
-myself I
-n N
-nearer near 	# as a preposition
-nearest near 	# as a preposition
+N n 
+near nearer  nearest 	# as a preposition
 number number
-o O
+O o 
 offer offer  # not off
-others other
+ other others
 ought ought
-our we
-ours we
-ourselves we 
-p P
+P p 
 pass pass	# not as plural of pas
-policies policy		# helps correct uppercase Policies
-q Q
-r be
-s S
-saving save
-saw see	# two verbs cannot normally find see
-shall shall
-she she
-should shall
-some a
-somebody someone
-someone someone
+policy	policies 	# helps correct uppercase Policies
+Q q 
+R r 
+S s 
+ save saving
+ see	saw # two verbs cannot normally find see
+should shall 
+she she her herself hers
+someone somebody  someone
 species species
-t T
-that a 
-the a
-their they
-theirs they
-them they
-themselves they
-these a
-they they
-this a
-those a
-u you
-us we
-v V
-v. versus
-vs. versus
-w W
-we we
-what what
-whatever what
-when when
-whenever when
-where where
-wherever where
-which which
-whichever which
-who who
-whoever who
-whom who
-whomever who
-whose who
+T t 
+they their  theirs them themselves they
+U u
+V v 
+versus v. vs.
+W w 
+we our  ours ourselves us
+what what whatever
+when when whenever
+where where wherever
+which which whichever
+who who whoever whom whomever whose
 why why
 will will
-would will
-x X
-y Y
-you you
-your you
-yours you
-yourself you
-z Z
+ will would
+X x 
+Y y 
+you you your yours yourself ye
+Z z 

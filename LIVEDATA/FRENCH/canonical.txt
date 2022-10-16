@@ -1,25 +1,31 @@
-a A
-b B
-c C
-d D
-e E
-f F
-g G
-h H
-i I
-j J
-k K
-m M
-n N
-o O
-p P
-q Q
-r R
-s S
-t T
-u U
-v V
-w W
-x X
-y Y
-z Z
+A a 
+B b 
+C c 
+D d 
+E e 
+F f 
+G g 
+H h 
+I i 
+J j 
+K k 
+M m 
+N n 
+ O o
+ P p
+ Q q
+ R r
+S s 
+T t 
+U u 
+V v 
+W w 
+X x 
+Y y 
+Z z 
+je moi mon mien  j'  # I ...
+tu  toi t' vos votre ta # you
+il lui-même l' son sa # he
+elle elle-même l' son # she
+nous notre on	# we
+ils les leurs # they

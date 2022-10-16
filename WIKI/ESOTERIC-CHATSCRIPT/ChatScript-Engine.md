@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 6/20/2022 cs12.2
+<br>Revision 10/16/2022 cs12.3
 
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
@@ -641,6 +641,7 @@ function to grab tokens more easily.
 ## Prefix characters
 
 The engine is heavily dependent upon the prefix character of a script token to tell the system how to process script.
+This is added to user script during script compilation.
 The pattern prefixes are:
 ```
 =   to designate a comparison operator

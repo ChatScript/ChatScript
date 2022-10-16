@@ -118,9 +118,9 @@ If at any time a call to utilize MsSQL fails, the CS server will abort itself. I
 automatic restart and retry mechanism, then maybe things will just work next time, or a different
 CS server will get invoked. Such a mechanism is done automatically by CS.
 
-From user script one can open a database with ^msqlinit($_params)  
-and close it with ^msqlclose().
-^msqlread($_username) and ^msqlwrite($_username $_value) perform db operations.
+From user script one can open a database with `^msqlinit($_params)`  
+and close it with `^msqlclose()`.
+`^msqlread($_username)` and `^msqlwrite($_username $_value)` perform db operations.
 Init Params are the same as for using such a db for a filesystem.
 
 ##  Mongo Fileserver and Database
@@ -138,15 +138,30 @@ or for user topic and ltm files
 ```
 mongo="mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm"
 ```
-or for a remote host with no ltm file
+or for a remote host with no ltm file.
 ```
 mongo=mongodb://127.0.0.1:27017 ChatScript topic:UserTopics
 ```
-or whatever. Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.
+Any `^import()` and `^export()` will check the file name for a match against a collection reference to allow for any document to be redirected to the database. For example, with the following definition any file names that cache will be saved in a MyCache collction in the Mongo database.
+```
+mongo="mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache"
+```
+
+Read preferences for queries on Mongo collections can be added to each collection definition. To specify the cache documents can be read from a secondary replica, but keeping the topic and ltm read from primary (the default), use definitions like
+```
+mongo="mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred"
+```
+or
+```
+mongo="mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred&readPreferenceTags=dc:east&readPreferenceTags=west"
+```
+The additional options follow the standard Mongo style used in URL definitions, see https://www.mongodb.com/docs/manual/reference/connection-string/#read-preference-options
+
+Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.
 
 
 Obviously put the correct data for your mongo machine. 
-CS will store user topic files in the Mongo machine and well as  `^export` and `^import` data. 
+CS will store user topic files in the Mongo machine and well as `^export` and `^import` data. 
 For user and server logs it will continue to store those on the local machine.
 You may have the same or different collection active, 
 one or two via filesystem replacement and once via normal script access.

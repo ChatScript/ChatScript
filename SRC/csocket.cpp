@@ -327,18 +327,6 @@ static void ReadSocket(TCPSocket* sock, char* response)
 	*base = 0;
 }
 
-static char* FindJMSeparator(char* ptr, char c)
-{
-	char* at = ptr - 1;
-	bool quote = false;
-	while (*++at)
-	{
-		if (*at == '"') quote = !quote;
-		if (!quote && *at == c) return at; // found terminator not in quotes
-	}
-	return NULL;
-}
-
 static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, char* data, size_t baselen, FILE* sourcefile, FILE* out, int& passcnt, int& failcnt)
 {
 	int line = 1;
@@ -353,6 +341,10 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 	while (1) // each line of regression file
 	{
 		++line;
+		if (line > 104)
+		{
+			int xx = 0;
+		}
 		ptr = data;
 		if (*second) // use queued up line
 		{
@@ -383,21 +375,19 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 		strcpy(copy, ptr);
 		strcpy(ptr, copy); // for debug loopback
 		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
-		
-		
+
+
 		char run[MAX_WORD_SIZE];
-		ptr = ReadTabField(ptr,  run);
-		if (stricmp(run, "yes")) continue; // not running                                                                                                                                               //RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 5th Response,
-		//API:RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
+		ptr = ReadTabField(ptr, run);
+		if (stricmp(run, "yes")) continue; // not running       
+//E2E (api==0): RunTest, Suite, Comment, Name, Category, Specialty, Location, ChatType, Source, OOB for the first message, WelcomeMessage, 1st Message, 1st Response, 2nd Message, 2nd Response, 3rd Message, 3rd Response, 4th Message, 5th Response,
+//Integration(api ==2): RunTest,Suite,Comment,Name,Input,Response,,,,,,,,
 		char suite[100];
 		ptr = ReadTabField(ptr, suite);
 		char comment[MAX_WORD_SIZE];
 		ptr = ReadTabField(ptr, comment);
 		char name[1000];
 		ptr = ReadTabField(ptr, name);
-		// integration(api==2): RunTest,Suite,Comment,Name,Input,Response
-		//API(api==1):RunTest,Suite,Comment,Name,Category,Specialty,Location,SipPivot,ChatType,Source, OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
-		//TCP (api==0):RunTest,Suite,Comment,Name,Category,Specialty,Location,ChatType,Source,OOB for first message,WelcomeMessage,1stMessage,1stResponse,2ndMessage,2ndResponse,3rdMessage,3rdResponse,4thMessage,4thResponse,5thMessage,5thResponse,6thMessage,6thResponse,7thMessage,7thResponse,8thMessage,8thResponse,9thMessage,9thResponse,10thMessage,10thResponse,11thMessage,11thResponse,12thMessage,12thResponse,13thMessage,13thResponse,14thMessage,14thResponse,15thMessage,15thResponse,16thMessage,16thResponse,17thMessage,17thResponse,18thMessage,18thResponse,19thMessage,19thResponse,20thMessage,20thResponse
 		char cat[MAX_WORD_SIZE];
 		char spec[MAX_WORD_SIZE];
 		char loc[MAX_WORD_SIZE];
@@ -429,36 +419,45 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 			if (*source) sprintf(sourcedata, " source: %s ", source);
 			else *sourcedata = 0;
 			if (!*spec) strcpy(spec, "all");
+			ptr = ReadTabField(ptr, oobmessage);
+			if (*oobmessage == '"') memmove(oobmessage, oobmessage + 1, strlen(oobmessage));
+			at = oobmessage - 1;
+			while (*++at)
+			{
+				if (*at == '"' && at[1] == '"') memmove(at, at + 1, strlen(at)); // doubled from dq of csv
+			}
+			size_t x = strlen(oobmessage);
+			if (x && oobmessage[x - 1] == '"') oobmessage[x - 1] = 0; // remove closing quote
+			ptr = ReadTabField(ptr, expect);
+			if (*expect == '[')
+			{
+				char* end = strrchr(expect, ']') + 1; // skip oob, aim into last expect msg
+				end = SkipWhitespace(end);
+				if (*end == '"') ++end; // skip quoted 
+				memmove(expect, end, strlen(end) + 1);
+				end += strlen(end);
+				if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote removed
+			}
 		}
-		ptr = ReadTabField(ptr, oobmessage);
-		if (*oobmessage == '"') memmove(oobmessage, oobmessage + 1, strlen(oobmessage));
-		at = oobmessage - 1;
-		while (*++at)
-		{
-			if (*at == '"' && at[1] == '"') memmove(at, at + 1, strlen(at)); // doubled from dq of csv
-		}
-		size_t x = strlen(oobmessage);
-		if (x && oobmessage[x - 1] == '"') oobmessage[x - 1] = 0; // remove closing quote
-		ptr = ReadTabField(ptr, expect);
-		if (*expect == '[')
-		{
-			char* end = strrchr(expect, ']') + 1; // skip oob, aim into last expect msg
-			end = SkipWhitespace(end);
-			if (*end == '"') ++end; // skip quoted 
-			memmove(expect, end, strlen(end) + 1);
-			end += strlen(end);
-			if (*(end - 1) == '"') *(end - 1) = 0; // trailing quote removed
-		}
-		
 		char init[MAX_WORD_SIZE];
-		char* input = init;
-
+		char* input;
 		if (api == 2) // integration
 		{
-			sprintf(init, "[%s]", oobmessage);
-			input = init;
+			char* at = ptr-1;
+			while (++at = strchr(at, '"'))
+			{
+				if (at[1] == '"') memmove(at + 1, at + 2, strlen(at + 1)); // remove doubled quotes
+			}
+			ptr = ReadTabField(ptr, init);
+			input = userinput =  init;
+			ptr = ReadTabField(ptr, expect);
+			*chattype = 0;
+			*source = 0;
+			*loc = 0;
+			*spec = 0;
+			*cat = 0;
+			*specialtydata = 0;
 		}
-
 		// set up base tcp or api message
 		else sprintf(init, ":reset: [ category: %s %s %s %s %s id: %s]", cat, specialtydata, locationdata, sourcedata, chattypedata,loginID);
 		
@@ -473,33 +472,18 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 			char* endoob = strrchr(response, ']');
 			if (!endoob)
 				break;
-			char* actual = strstr(response, "output\":"); // skip open quote
-			if (actual)
-			{
-				actual += 10;
-				char* endx = strstr(actual, "\",");
-				if (!endx) endx = strstr(actual, "\"}");
-				*endx = 0;
-				size_t len = strlen(actual);
-				while (actual[len - 1] == ' ') actual[--len] = 0;
-				char* at1 = actual - 1;
-				while (*++at1)
-				{
-					if (*at1 == '\\') memmove(at1, at1 + 1, strlen(at1));
-				}
-			}
-			else actual = (char*)"";
+			char* actual = GetActual(response);
 	
 			char* dq = expect;
 			while ((dq = strstr(dq, "\"\"")))
 			{ // never expect doubled quotes, thats csv thing
 				memmove(dq + 1, dq + 2, strlen(dq + 1));
 			}
-			dq = expect;
-			while ((dq = strchr(dq, '\\')))
-			{ // never expect 
-				memmove(dq , dq + 1, strlen(dq));
-			}
+		//	dq = expect;
+			//while ((dq = strchr(dq, '\\')))
+			//{ // never expect 
+			//	memmove(dq , dq + 1, strlen(dq));
+			//}
 			if (*expect == '[') expect = strchr(expect, ']') + 1; // skip initial oob
 			char* multi = strchr(expect, '|');
 			while (multi)
@@ -515,6 +499,19 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 				multi = strchr(expect, '|');
 			}
 			expect = TrimSpaces(expect);
+			if (api == 2)
+			{
+				if (*expect == '{') ++expect;
+				expect = TrimSpaces(expect);
+				char* end = strrchr(expect, '}');
+				*end-- = 0;
+				if (*end == ' ') *end-- = 0;
+				if (*end == '"') *end-- = 0;
+				if (*end == ' ') *end-- = 0;
+				if (*expect == '"' && expect[1] == '{') expect += 2;
+				char* code = strstr(actual, ": ");
+				if (code) memmove(code + 1, code + 2, strlen(code));
+			}
 			if (strcmp(actual, expect))
 			{
 				++failcnt;
@@ -527,7 +524,8 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 				++passcnt;
 				fprintf(out, "@%d %s  P/F: %d/%d   %s:%s  Input: %s  Output:%s \r\n\r\n", line, bot, passcnt, failcnt, cat, specialtydata, input, actual);
 			}
-			if (((passcnt + failcnt) % 100) == 0) printf("at %d  pass:%d fail:%d\r\n", passcnt + failcnt, passcnt, failcnt);
+			if (((passcnt + failcnt) % 100) == 0) 
+				printf("at %d  pass:%d fail:%d\r\n", passcnt + failcnt, passcnt, failcnt);
 			if (!ptr) break; // end of messages
 			ptr = ReadTabField(ptr, userinput);
 			input = userinput;
@@ -562,10 +560,11 @@ static void Jmetertestfile(int api,char* bot, char* sendbuffer, char* response, 
 static void ReadNextJmeter(char* name, uint64 value)
 {
 	int api = 0;
-	if (strstr(name, "/API/") || strstr(name, "/Integration/")) {
+	if (strstr(name, "/API/"))  // need JA api connection for this
+	{
 		api = 1;
 		return; // we cant access api from local and format for integration and it are different
-	}// need api connection for this
+	}
 	if (strstr(name, "Integration/")) api = 2;
 
 	FILE* out = (FILE*)value;
@@ -1113,9 +1112,6 @@ restart: // start with user
 					}
 					if (sourceFile) fclose(sourceFile);
 					printf("\r\ndone\r\n");
-					while (1) {
-						int xx = 0;
-					}
 					FreeBuffer();
 					FreeBuffer();
 #endif

@@ -1,3 +1,50 @@
+#  Version 12.3 October 16, 2022
+WARNING- You will need to recompile your script files! 
+Erase TOPIC folder and then run CS and rebuild.
+
+0. Dictionary size now can be doubled, to allow 4M words instead of 2M. 
+	Enabled one to load english, french, spanish, and german all at once.
+1. With extra multi-language abilities, when you use the replace: command
+	be sure it is done under the correct language. You can do something like:
+	language: english
+	replace: "my word"  mina_worda
+	Setting language lasts until you next change it.
+2. documenting existing ^setresponse which is merely a rename of ^reviseoutput. 
+	changes a queued message
+3. You can synthesize a function name and then call it, eg
+	$_fn = ^join( ^testing  _ en_us)
+	$_text = ^$_fn($_tmp)
+	Previously ^join would complain about a bad function call.
+4. CS has inbuilt support for spanish lemma and possible pos-tags detection and manages words with and without their appropriate accenting.
+	It has concepts to represent object plurality and gender.
+5. CS now allows you to name 7 language instead of 4 in cs_init files for what languages should be loaded.
+	In build files, you can designate what language is compiling what files, and include the language UNIVERSAL, which means a word
+	is visible to ALL languages and has the union of all its facts and properties from each language.
+	With an appropriate level 0 build file, you can load translated std cs concepts for multiple languages.
+	See Esoteric foreign language support LEVEL 0
+6 :ingestlog reads a cs log file, repeats its calls and reports differences in the results and outputs errors to tmp/ingesterr.txt
+7. The japanese mecab tagger and in-built nlp system will be applied to chinese if that is a named language.
+	Japanese requires installation of additional software and building executable without DISCARD_JAPANESE
+8. ^jsonopen header value correlation-id: %s  
+	If you have a variable $correlation_id, this value will be passed to remote call from jsonopen.
+	See Json manual.
+9  :splitlog takes a cs log file and creates  tmp/log.csv, whose columns are:
+	input, output, whyname, botname.  See ChatScript Analytics manual.
+10 ^incontext takes optional 2nd arg, an integer with how from  the volley to not fail
+	Default returning how far from volley we are is changed when this param is used to how far or fail.
+11 :verifylist, :verifyrun :verifymatch and associated #! VERIFY comments
+	A regression system that reads special comments in scripts, executes them always in the context 
+	of coming from the top level initially outside of any topic. Arrival at the correct rule is a match
+	regardless of what the output text is. See Finalizing a Bot manual.
+12 :translatetop - Reads a chatscript source file and outputs a corresponding one in the language you
+	request, using microsoft translate. See Esoteric ChatScript Foreign languages.
+13. :fact - similar to :word, display all facts with given word or meaning or in named fact set"
+14. :word - now accepts optional 2nd  argument which is the limit limit on number of facts to display
+15 :language sets current language or if given no language  returns the current language.
+	See also CS command line parameters  language= parameter.
+16 :ingestlog reads a cs log file, repeats its calls and reports differences in the results and outputs errors to tmp/ingesterr.txt
+
+
 #  Version 12.2 June 20, 2022
 
 1. added more about keywords in ChatScript Coding Standards

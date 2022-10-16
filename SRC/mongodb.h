@@ -15,10 +15,12 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #endif
 
 #ifndef DISCARDMONGO
-extern char mongodbparams[MAX_WORD_SIZE * 4];  // 4 parts: url database topic ltm
 
 #define MAX_COLLECTIONS_LIMIT 10
 #define MONGO_COLLECTION_NAME_LENGTH 256
+
+#define MONGO_DBPARAM_SIZE MAX_WORD_SIZE * (4 + MAX_COLLECTIONS_LIMIT)  // 4+ parts: url database topic ltm {additionalCollections} - can also include read preference data for each collection
+extern char mongodbparams[MONGO_DBPARAM_SIZE];
 
 const char* MongoVersion();
 void MongoSystemInit(char* params);

@@ -51,7 +51,7 @@ enum PurifyKind {
 #define NOSTYLE_NUMBERS -1
 #define AMERICAN_NUMBERS 0
 #define INDIAN_NUMBERS 1
-#define FRENCH_NUMBERS 2
+#define FRENCH_NUMBERS 2  // and german and spanish
 
 #define UNINIT -1
 
@@ -92,12 +92,13 @@ extern bool newline;
 extern int numberStyle;
 extern char conditionalCompile[MAX_CONDITIONALS+1][50];
 extern int conditionalCompiledIndex;
+void CheckForOutputAPI(char* msg);
 extern char numberComma;
 extern char numberPeriod;
 extern int startSentence;
 extern int endSentence;
 extern unsigned char toHex[16];
-extern bool hasHighChar;
+extern unsigned char hasHighChar;
 extern bool showBadUTF;
 extern char* userRecordSourceBuffer;
 extern char tmpWord[MAX_WORD_SIZE];
@@ -135,12 +136,15 @@ extern uint64 docVolleyStartTime;
 #define IsComparison(c) (isComparatorData[(unsigned char)c])
 #define IsSign(c) (c == '-' || c == '+')
 #define IsInvalidEmailCharacter(c) (punctuation[(unsigned char)c] == PUNCTUATIONS || punctuation[(unsigned char)c] == BRACKETS || punctuation[(unsigned char)c] == ENDERS) // arithmetic enders are OK
+#define IsOdd(c) (c % 2)
+#define IsEven(c) (!(c % 2))
 WORDP BUILDCONCEPT(char* word) ;
 void RemoveTilde(char* output);
 double Convert2Double(char* original,int useNumberStyle = AMERICAN_NUMBERS);
 char* RemoveEscapesWeAdded(char* at);
 bool IsComparator(char* word);
 void ConvertNL(char* ptr);
+char* FindJMSeparator(char* ptr, char c);
 void CopyParam(char* from, char* to, unsigned int limit = 100);
 char* IsSymbolCurrency(char* ptr);
 void ComputeWordData(char* word, WORDINFO* info);
@@ -166,6 +170,7 @@ void MoreToCome();
 void ClearNumbers();
 void EraseCurrentInput();
 bool LegalVarChar(char at);
+char* GetActual(char* msg);
 bool AddInput(char* buffer,int kind,bool clear = false);
 char* FindSystemNameByValue(uint64 val); // system flags
 uint64 FindSystemValueByName(char* name);
@@ -204,6 +209,7 @@ bool IsUrl(char* word, char* end);
 bool IsFileExtension(char* word);
 bool IsFileName(char* word);
 bool IsEmojiShortCode(char* word);
+bool IsPureNumber(char* word);
 unsigned int IsMadeOfInitials(char * word,char* end);
 bool IsNumericDate(char* word,char* end);
 char IsFloat(char* word, char* end, int useNumberStyle = AMERICAN_NUMBERS);

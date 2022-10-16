@@ -1,6 +1,6 @@
-# Foreign Language Support
+﻿# Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/20/2022 cs12.2
+<br>Revision 10/16/2022 cs12.3
 
 # Emoji
 
@@ -40,6 +40,14 @@ The effects of this parameter are generically these, unless special information 
 * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments).
 * The system will store the user's topic file suffixed by language as well.
 
+While concepts, topics, and functions can be owned by a bot, 
+only words and facts have a language affiliation. Concepts, topics, functions, variables, etc are all 
+commonly visible in all languages, having a language affiliation of UNIVERSAL. You can declare words
+to have language UNIVERSAL, in which case all other language copies of the word disappear and the facts based
+on them transferred to the UNIVERSAL form. Facts can never mix two languages (except where UNIVERSAL
+is one of them) and take on the language of any field that is language constrained.
+
+
 # Embedded Foreign Language Support
 
 Using a language generally means using the dictionary of that language and spell-checking in that language. It may also control recognition
@@ -47,10 +55,10 @@ of the numeric value of words (like dozen == 12), knowing the names of the month
 make available using the command line parameter "language=" . If you don't supply this, the default language is English. But you can for example
 say "language=german".  
 
-You can name up to four different languages (for which you have dictionaries) by listing them on that parameter
+You can name up to seven different languages (for which you have dictionaries) by listing them on that parameter
 "language=english,german,spanish,japanese". You need to use the same language sequence for all compilations and normal execution (hence its a parameter typically
 listed in cs_init.txt).   The first language listed
-is always the default language. 
+is always the default language (and if you have english, best to make that first).
 
 In addition, if you have Treetagger licenses, you can use multiple
 treetaggers by putting on a cs_init line something like:
@@ -76,6 +84,25 @@ as numeric conversions of words in that language.
 
 If `language=ideographic` is used, then spell check is disabled and tokenization will make each character be a token.
 This is useful for languages like Korean and Chinese. 
+
+## Words & Facts
+
+When you load multiple dictionaries, you can have multiple copies of the same word. Each exists independently
+and when a word is looked up, it is mated to the word found in that language.  Variables, concept names, and
+function names are not in the dictionaries that were loaded, and are considered universal names. Facts that get
+created are also specific to a language, so facts are flagged with what language they come from and when you
+retrieve any of its fields, they will be decoded from the language of the fact. This means that while a concept name
+is visible in any language, its members are specific to that language.  Two english words are considered universal words,
+and they are not listed in foreign dictionaries. (portugese). These are used for system facts relating to concept
+membership and english dictionary hierarchy.
+
+When you build, you can specify what language is to be used for some section of your files. This means that
+concepts, topics, and facts created will be accessible only from that language. There is, however, the language UNIVERSAL
+you can specify, which intends that the facts, topics, and words created from that will be accessible to all languages.
+Note the phrase "words created". Suppose we want to create a word "bacck" in universal. But it already exists
+for some language. If we use that word, it is not visible to other languages. But if we create a new word
+entry for the universal language, we now hide the other entries because universal word is found first and is
+acceptable for all languages. We will lose seeing definitions of english words from Wordnet. And pos-tags for them.
 
 ## Japanese
 ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. 
@@ -135,7 +162,8 @@ make
 sudo make install
 cd ..
 copy the static library up: cp mecab-0.996/src/.libs/libmecab.a .
-echo "/usr/local/lib" >> /etc/ld.so.conf
+echo "/usr/local/lib" >> /etc/ld.so.conf 
+(you may have to do echo after first write permitting the destination file)
 ldconfig
 ```
 
@@ -194,6 +222,8 @@ without compromising the 3-language limit.
 
 Variables, concept and topic names, numbers, operators and punctuation are
 language agnostic and always visible.
+
+## LEVEL 0
 
 The script compiler has `language: xxx` as a construct to allow you to mix
 compilation of data in various languages. One can write the files0.txt file
@@ -259,6 +289,34 @@ does not. A license (per language) is about $1000 for universal life-time use. Y
 CS ships with a Spanish and some other dictionaries that provides spelling of words (for spell correction) and parts of speech of words.
 It also ships with some ontologies like LIVEDATA/ONTOLOGY/SPANISH which you can do :build 0 if you have set language=SPANISH in cs_init.txt file.
 
+# Translating scripts
+There is built-in code to translate scripts using Microsoft Translate. 
+It requires you have an api key for it (but you can sign up for free and a bunch of credit. 
+The scripts are translated as follows:
+```
+1. topic keywords are translated individually
+2. pattern keywords that are not number or concept names or variable names are translated individually
+3. Output sentences are translated intact for sections between computations.
+4. #! sample inputs are translated
+```
+The original text is put in the output file in comments, along with the translation. This allows
+human translators to verify the translations. The arguments to this capability are:
+```
+:translatetop filename original_language new_language
+```
+The file will be written  to tmp/filename.  Languages use the MS/utf8 language naming conventions
+where english is en_US, german is de_DE, french canadian is fr_CA, and french french is fr_FR.
+If your topic name or concept names or rule labels seen have the name of language in them, they are translated to new
+name. Eg
+```
+# -- topic: ~QUIBBLE_en_US keep repeat nostay (beer)
+topic: ~QUIBBLE_de_DE keep repeat nostay (Bier)
+# -- #! awesome
+# #! Prima
+# -- u: QUIBBLE_en_US(<<[awesome great wonderful]>>) Agreed.
+u: QUIBBLE_de_DE(<<[prima Großartig wunderbar]>>)
+	Einverstanden.
+```
 
 # Translating concepts
 

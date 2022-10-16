@@ -2,16 +2,16 @@
 #define _DICTIONARYSYSTEM_H
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright(C)2011 - 2022 by Bruce Wilcox
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this softwareand associated documentation files(the "Software"), to deal
+in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions :
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright noticeand this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
 
@@ -82,7 +82,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NOUN_ADJECTIVE			0x0000000000000040ULL 	// adjective used as a noun - "the rich"   implied people as noun  -- also past verb: (char*)"the *dispossessed are fun"
 #define NOUN_SINGULAR			0x0000000000000020ULL	// Pennbank: NN
 #define NOUN_PLURAL				0x0000000000000010ULL	// Pennbank: NNS
-#define NOUN_PROPER_SINGULAR	0x0000000000000008ULL	//   A proper noun that is NOT a noun is a TITLE like Mr.	Pennbank: NP
+#define NOUN_PROPER_SINGULAR 	0x0000000000000008ULL	//   A proper noun that is NOT a noun is a TITLE like Mr.	Pennbank: NP
 #define NOUN_PROPER_PLURAL		0x0000000000000004ULL	// Pennbank: NPS
 #define NOUN_GERUND				0x0000000000000002ULL	// "Walking" is fun
 #define NOUN_NUMBER				0x0000000000000001ULL	// I followed the "20".
@@ -90,6 +90,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NOUN_PROPER	 ( NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL  )
 #define NORMAL_NOUN_BITS ( NOUN_SINGULAR | NOUN_PLURAL | NOUN_PROPER | NOUN_NUMBER  | NOUN_ADJECTIVE )
 #define NOUN_BITS ( NORMAL_NOUN_BITS | NOUN_GERUND | NOUN_INFINITIVE )
+#define NOUN_PLURALITY ( NOUN_SINGULAR | NOUN_PLURAL |  NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL  )
 
 // kinds of verbs (tenses)
 #define VERB_PRESENT			0x0000400000000000ULL	// present plural (usually infinitive)  Pennbank: VBP
@@ -165,7 +166,6 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // adjective bits and noun bits are those that classify the kind of them
 #define TAG_TEST ( INTERJECTION | IDIOM | PUNCTUATION | QUOTE | COMMA | CURRENCY | PAREN | PARTICLE | VERB_BITS | NOUN_BITS | FOREIGN_WORD | DETERMINER_BITS | ADJECTIVE_BITS | AUX_VERB | ADVERB  | PRONOUN_BITS | CONJUNCTION | POSSESSIVE_BITS | THERE_EXISTENTIAL | PREPOSITION | TO_INFINITIVE )
-
 #define NOUN_DESCRIPTION_BITS ( ADJECTIVE_BITS | DETERMINER_BITS  | ADVERB  | NOUN_BITS )
 
 // system flags -- THIS IS A REQUIRED MARKER FOR BELOW ZONE and also ends PROPERTIES flags   words marked ``value
@@ -190,6 +190,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define VERB_IMPERATIVE  COMMON_PARTICIPLE_VERB  // spanish
 
 #define NOCONCEPTLIST				0x0000000000000200ULL   // conceptlist should ignore this on a concept (keep in low order bits for query)
+#define PRONOUN_OBJECT_HE_SHE_IT  NOCONCEPTLIST // spanish
 #define PRONOUN_RELATIVE			0x0000000000000400ULL   
 
 // phrasal verb controls
@@ -203,10 +204,16 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define PRONOUN_INDIRECTOBJECT_YOU  PHRASAL_VERB // spanish
 
 // verb objects
-#define VERB_NOOBJECT  				0x0000000000008000ULL 	
+#define VERB_NOOBJECT  				0x0000000000008000ULL
+#define PRONOUN_INDIRECTOBJECT_HE_SHE_IT  VERB_NOOBJECT // spanish
+#define GERMAN_NOMINATIVE_CASE VERB_NOOBJECT
 #define VERB_INDIRECTOBJECT 		0x0000000000010000ULL	
+#define GERMAN_DATIVE_CASE VERB_INDIRECTOBJECT
 #define VERB_DIRECTOBJECT 			0x0000000000020000ULL	 
+#define GERMAN_ACCUSATIVE_CASE VERB_DIRECTOBJECT
 #define VERB_TAKES_GERUND			0x0000000000040000ULL	// "keep on" singing
+#define GERMAN_GENITIVE_CASE VERB_TAKES_GERUND
+
 #define VERB_TAKES_ADJECTIVE		0x0000000000080000ULL	//  be seem etc (copular/linking verb) links adjectives and adjective participles to subjects
 #define VERB_TAKES_INDIRECT_THEN_TOINFINITIVE	0x0000000000100000ULL    // proto 24  --  verbs taking to infinitive after object: (char*)"Somebody ----s somebody to INFINITIVE"  "I advise you *to go" + ~TO_INFINITIVE_OBJECT_verbs
 #define VERB_TAKES_INDIRECT_THEN_VERBINFINITIVE	0x0000000000200000ULL 	// proto 25  -  verbs that take direct infinitive after object  "Somebody ----s somebody INFINITIVE"  "i heard her sing"  + ~causal_directobject_infinitive_verbs
@@ -230,7 +237,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define PRONOUN_PLURAL				0x0000000100000000ULL	
 #define PRONOUN_SINGULAR			0x0000000200000000ULL	
 #define ACTUAL_TIME  				0x0000000400000000ULL // a time word like 14:00
-#define PREDETERMINER_TARGET		0x0000000800000000ULL	// predeterminer can come before these (a an the)
+#define PREDETERMINER_TARGET	 0x0000000800000000ULL	// predeterminer can come before these (a an the)
 
 #define ADJECTIVE_POSTPOSITIVE		0x0000001000000000ULL	// adjective can occur AFTER the noun (marked on adjective)
 #define DETERMINER_SINGULAR	0x0000002000000000ULL		
@@ -242,8 +249,8 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define GRADE1_2  								0x0000040000000000ULL
 #define KINDERGARTEN				( GRADE1_2 | GRADE3_4 | GRADE5_6 )
 #define AGE_LEARNED ( KINDERGARTEN | GRADE1_2 | GRADE3_4 | GRADE5_6 )  // adult is all the rest  (3 bits)
+#define PATTERN_WORD 					 0x0000080000000000ULL
 
-#define SUBSTITUTE_RECIPIENT			0x0000080000000000ULL
 #define NOUN_NODETERMINER			0x0000100000000000ULL	// nouns of location that require no determiner (like "Home is where the heart is") or mass nouns or numbers
 #define	WEB_URL										0x0000200000000000ULL	
 #define ORDINAL										0x0000400000000000ULL  // for adjectives and nouns labeled ADJECTIVE_NUMBER or NOUN_NUMBER, it is cardinal if not on and ordinal if it is	
@@ -268,10 +275,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define ADJECTIVE_ONLY_PREDICATE	0x0100000000000000ULL	
 #define PRONOUN_I								0x0200000000000000ULL	
 #define PRONOUN_YOU						0x0400000000000000ULL
+#define PRONOUN_HE_SHE_IT           ADJECTIVE_ONLY_PREDICATE
 #define NO_PROPER_MERGE				0x0800000000000000ULL	// do not merge this word into any proper name
 #define MARKED_WORD					0x1000000000000000ULL	// transient word marker that USER can store on word and find facts that connect to it && building dictionary uses it to mean save this word regardless
-#define PATTERN_WORD 					0x2000000000000000ULL
-
+#define SUBSTITUTE_RECIPIENT		0x2000000000000000ULL
 #define HAS_SUBSTITUTE					0x4000000000000000ULL		//   word has substitute attached 
 #define EXTENT_ADVERB					0x8000000000000000ULL	
 /////////////////////////////////////////////////////////////////////////////////
@@ -324,10 +331,10 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // flags on facts  FACT FLAGS
 
-#define FACTATTRIBUTE	    0x10000000  // fact is an attribute fact, object can vary while subject/verb should be fixed 
 // unused 0x80000000  
 #define RAWCASE_ONLY 0x40000000 // user MUST type in this case
 #define END_ONLY    		0x20000000	
+#define FACTATTRIBUTE	    0x10000000  // fact is an attribute fact, object can vary while subject/verb should be fixed 
 // DO NOT MOVE FLAGS AROUND, since user topic files assume them as they are
 // transient flags
 #define MARKED_FACT         0x08000000  //   TRANSIENT : used during inferencing sometimes to see if fact is marked, also in user save to avoid repeated save
@@ -368,8 +375,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTDUPLICATE		0x00000010	//   allow repeats of this fact
 
 //  0x00000008 
-//  0x00000004	
-#define FACTLANGUAGE 0x00000003 // what language is fact in
+#define FACTLANGUAGEBITS 0x00000007 // what language is fact in
 #define FACTLANGUAGE_1 0x00000001
 // matches DICT's use of LANGUAGE_SHIFT on opposite end
 
@@ -393,7 +399,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define CLAUSE 					0x00000100 	
 #define VERBAL 					0x00000200	 
 #define PHRASE					0x00000400	// true postnominal adjective or verbal that acts as postnominal adjective  (noun role is named also, so anonymous means adverb role)
-		 	
+
 #define QUOTATION_UTTERANCE  	0x00000800		
 #define OBJECT_COMPLEMENT		0x00001000	// can be noun or adjective or to/infinitive after direct object..."that should keep them *happy" "I knight you *Sir *Peter" (verb expects it)
 #define GERMAN_GENITIVE OBJECT_COMPLEMENT
@@ -601,7 +607,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 
 // values of parseFlags parseBits on dictionary  -- when you names add to these, you have to rebuild dict
-  
+
 // control over tokenization (tokenControl set from user $cs_token variable)
 // these values MIRRORED as resulting used values in %tokenflags (tokenFlags)
 #define DO_ESSENTIALS			0x0000000000000001ULL 

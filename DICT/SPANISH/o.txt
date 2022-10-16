@@ -20,7 +20,7 @@
  OEA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  OLP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  OP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- OPERADORA ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oPERADORA 
+ OPERADORA ( NOUN NOUN_SINGULAR ) lemma=oPERADORA 
  oPERADORA ( ) 
  OTAN ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Oakland ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
@@ -98,10 +98,10 @@
  Oxiel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Ozal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  o ( ADVERB CONJUNCTION_COORDINATE ) lemma=o 
- oasis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oaxaqueña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oaxaqueño 
- oaxaqueño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oaxaqueño 
- oaxaqueños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oaxaqueño 
+ oasis ( NOUN NOUN_SINGULAR ) 
+ oaxaqueña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oaxaqueño 
+ oaxaqueño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oaxaqueño 
+ oaxaqueños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oaxaqueño 
  obcecadas ( VERB_PAST_PARTICIPLE VERB ) lemma=obcecar 
  obcecar ( ) 
  obcecado ( VERB_PAST_PARTICIPLE VERB ) lemma=obcecar 
@@ -111,33 +111,33 @@
  obedecí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=obedecer 
  obedezca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=obedecer 
  obedezcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=obedecer 
- obediencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obediencia ( NOUN NOUN_SINGULAR ) 
  obediente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obedientemente ( ADVERB ) lemma=obediente 
  obedientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obediente 
  obesa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obeso 
  obeso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- obesidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obesidad ( NOUN NOUN_SINGULAR ) 
  obesos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obeso 
  obispado ( VERB_PAST_PARTICIPLE VERB ) lemma=obispar 
  obispar ( ) 
- obispo ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`obispo`obispar` NC  VLfin 
- objeciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=objeción 
- objeción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obispo ( NOUN VERB NOUN_SINGULAR ) lemma=`obispo`obispar` NC  VLfin 
+ objeciones ( NOUN NOUN_SINGULAR ) lemma=objeción 
+ objeción ( NOUN NOUN_SINGULAR ) 
  objetar ( VERB_INFINITIVE VERB ) 
  objetada ( VERB_PAST_PARTICIPLE VERB ) lemma=objetar 
  objetadas ( VERB_PAST_PARTICIPLE VERB ) lemma=objetar 
  objetando ( NOUN NOUN_GERUND ) lemma=objetar 
  objetemos ( VERB ) lemma=objetar 
  objetiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=objetivo 
- objetivo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=objetivo 
+ objetivo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=objetivo 
  objetivable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  objetivamente ( ADVERB ) lemma=objetivo 
  objetivar ( VERB_INFINITIVE VERB ) 
  objetivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=objetivo 
- objetividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- objetivos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=objetivo 
- objeto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ objetividad ( NOUN NOUN_SINGULAR ) 
+ objetivos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=objetivo 
+ objeto ( NOUN NOUN_SINGULAR ) 
  objeto-relacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oblare ( VERB ) lemma=oblar 
  oblar ( ) 
@@ -145,10 +145,10 @@
  oblicuo ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`oblicuo`oblicuar` ADJ  VLfin 
  oblicuamente ( ADVERB ) 
  oblicuas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oblicuo 
- oblicuidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- obligaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obligación 
- obligación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- obligacionista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oblicuidad ( NOUN NOUN_SINGULAR ) 
+ obligaciones ( NOUN NOUN_SINGULAR ) lemma=obligación 
+ obligación ( NOUN NOUN_SINGULAR ) 
+ obligacionista ( NOUN NOUN_SINGULAR ) 
  obligada ( VERB_PAST_PARTICIPLE VERB ) lemma=obligar 
  obligadamente ( ADVERB ) 
  obligadas ( VERB_PAST_PARTICIPLE VERB ) lemma=obligar 
@@ -166,7 +166,7 @@
  obligatorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obligatoriamente ( ADVERB ) lemma=obligatorio 
  obligatorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obligatorio 
- obligatoriedad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obligatoriedad ( NOUN NOUN_SINGULAR ) 
  obligatorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obligatorio 
  obligue ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=obligar 
  obliguemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=obligar 
@@ -176,26 +176,26 @@
  obligándolos ( NOUN NOUN_GERUND ) lemma=obligar 
  obligándonos ( NOUN NOUN_GERUND ) lemma=obligar 
  obligáramos ( VERB ) lemma=obligar 
- obliteración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obliteración ( NOUN NOUN_SINGULAR ) 
  obliterante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- obnubilación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- obra ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`obra`obrar` NC  VLfin 
+ obnubilación ( NOUN NOUN_SINGULAR ) 
+ obra ( NOUN VERB NOUN_SINGULAR ) lemma=`obra`obrar` NC  VLfin 
  obrar ( VERB_INFINITIVE VERB ) 
  obrando ( NOUN NOUN_GERUND ) lemma=obrar 
- obras ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`obra`obrar` NC  VLfin 
+ obras ( NOUN VERB NOUN_SINGULAR ) lemma=`obra`obrar` NC  VLfin 
  obraseis ( VERB ) lemma=obrar 
  obrasen ( VERB ) lemma=obrar 
  obremos ( VERB ) lemma=obrar 
  obren ( VERB ) lemma=obrar 
- obrera ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obrero 
- obrero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- obreras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obrero 
+ obrera ( NOUN NOUN_SINGULAR ) lemma=obrero 
+ obrero ( NOUN NOUN_SINGULAR ) 
+ obreras ( NOUN NOUN_SINGULAR ) lemma=obrero 
  obráramos ( VERB ) lemma=obrar 
  obscena ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsceno 
  obsceno ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obscenamente ( ADVERB ) lemma=obsceno 
  obscenas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsceno 
- obscenidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obscenidad ( NOUN NOUN_SINGULAR ) 
  obscenos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsceno 
  obscura ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obscuro 
  obscuro ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -204,29 +204,29 @@
  obscuros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obscuro 
  obsequiar ( VERB_INFINITIVE VERB ) 
  obsequiando ( NOUN NOUN_GERUND ) lemma=obsequiar 
- obsequio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`obsequio`obsequiar` NC  VLfin 
+ obsequio ( NOUN VERB NOUN_SINGULAR ) lemma=`obsequio`obsequiar` NC  VLfin 
  observar ( VERB_INFINITIVE VERB ) 
  observable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  observables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=observable 
  observacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- observaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=observación 
- observación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ observaciones ( NOUN NOUN_SINGULAR ) lemma=observación 
+ observación ( NOUN NOUN_SINGULAR ) 
  observad ( VERB ) lemma=observar 
  observadá ( VERB_PAST_PARTICIPLE VERB ) lemma=observar 
  observadás ( VERB_PAST_PARTICIPLE VERB ) lemma=observar 
- observador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- observadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=observador 
+ observador ( NOUN NOUN_SINGULAR ) 
+ observadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=observador 
  observadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=observador 
- observadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=observador 
+ observadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=observador 
  observados ( VERB_PAST_PARTICIPLE VERB ) lemma=observar 
- observancia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ observancia ( NOUN NOUN_SINGULAR ) 
  observando ( NOUN NOUN_GERUND ) lemma=observar 
  observarlas ( VERB ) lemma=observar 
  observarlo (                 VERB ) lemma=observar 
  observarse ( VERB_INFINITIVE VERB ) 
  observaréis ( VERB ) lemma=observar 
  observase ( VERB ) lemma=observar 
- observatorio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ observatorio ( NOUN NOUN_SINGULAR ) 
  observemos ( VERB ) lemma=observar 
  observen ( VERB ) lemma=observar 
  observándonos ( NOUN NOUN_GERUND ) lemma=observar 
@@ -236,12 +236,12 @@
  obsesionados ( VERB_PAST_PARTICIPLE VERB ) lemma=obsesionar 
  obsesionemos ( VERB ) lemma=obsesionar 
  obsesionen ( VERB ) lemma=obsesionar 
- obsesiones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`obsesión`obsesionar` NC  VLfin 
+ obsesiones ( NOUN VERB NOUN_SINGULAR ) lemma=`obsesión`obsesionar` NC  VLfin 
  obsesiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsesivo 
  obsesivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obsesivamente ( ADVERB ) lemma=obsesivo 
- obsesión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- obsolescencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obsesión ( NOUN NOUN_SINGULAR ) 
+ obsolescencia ( NOUN NOUN_SINGULAR ) 
  obsoleta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsoleto 
  obsoleto ( ) 
  obsoletas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obsoleto 
@@ -250,17 +250,17 @@
  obstaculice ( VERB ) lemma=obstaculizar 
  obstaculizar ( VERB_INFINITIVE VERB ) 
  obstaculicen ( VERB ) lemma=obstaculizar 
- obstaculización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obstaculización ( NOUN NOUN_SINGULAR ) 
  obstaculizada ( VERB_PAST_PARTICIPLE VERB ) lemma=obstaculizar 
  obstaculizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=obstaculizar 
  obstaculizados ( VERB_PAST_PARTICIPLE VERB ) lemma=obstaculizar 
  obstaculizando ( NOUN NOUN_GERUND ) lemma=obstaculizar 
  obstante ( ADVERB ) 
- obstetricia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obstetricia ( NOUN NOUN_SINGULAR ) 
  obstina ( VERB ) lemma=obstinar 
  obstinar ( ) 
- obstinaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obstinación 
- obstinación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obstinaciones ( NOUN NOUN_SINGULAR ) lemma=obstinación 
+ obstinación ( NOUN NOUN_SINGULAR ) 
  obstinada ( VERB_PAST_PARTICIPLE VERB ) lemma=obstinar 
  obstinadamente ( ADVERB ) 
  obstinadas ( VERB_PAST_PARTICIPLE VERB ) lemma=obstinar 
@@ -271,8 +271,8 @@
  obstinemos ( VERB ) lemma=obstinar 
  obstinen ( VERB ) lemma=obstinar 
  obstinó ( VERB ) lemma=obstinar 
- obstrucciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obstrucción 
- obstrucción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obstrucciones ( NOUN NOUN_SINGULAR ) lemma=obstrucción 
+ obstrucción ( NOUN NOUN_SINGULAR ) 
  obstructiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obstructivo 
  obstructivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obstructivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obstructivo 
@@ -288,15 +288,15 @@
  obstruyeron ( VERB ) lemma=obstruir 
  obstruyese ( VERB ) lemma=obstruir 
  obstruyó ( VERB ) lemma=obstruir 
- obstáculo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obstáculo ( NOUN NOUN_SINGULAR ) 
  obstétrica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obstétrico 
  obstétrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  obstétricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obstétrico 
  obstétricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obstétrico 
  obsérvalo ( ) lemma=observar 
  obsérvese ( ) lemma=observarse 
- obtenciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=obtención 
- obtención ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obtenciones ( NOUN NOUN_SINGULAR ) lemma=obtención 
+ obtención ( NOUN NOUN_SINGULAR ) 
  obtendremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=obtener 
  obtendrá ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma=obtener 
  obtendrán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=obtener 
@@ -319,7 +319,7 @@
  obteniendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=obtener 
  obteniéndose ( NOUN NOUN_GERUND ) lemma=obtenerse 
  obtienes ( VERB ) lemma=obtener 
- obturación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ obturación ( NOUN NOUN_SINGULAR ) 
  obturarlas ( VERB ) lemma=obturar 
  obturar ( ) 
  obtusa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obtuso 
@@ -345,7 +345,7 @@
  obviarlo (                 VERB ) lemma=obviar 
  obvias ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`obvio`obviar` ADJ  VLfin 
  obvios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=obvio 
- oca ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oca ( NOUN NOUN_SINGULAR ) 
  ocasionar ( VERB_INFINITIVE VERB ) 
  ocasionada ( VERB_PAST_PARTICIPLE VERB ) lemma=ocasionar 
  ocasionadas ( VERB_PAST_PARTICIPLE VERB ) lemma=ocasionar 
@@ -355,22 +355,22 @@
  ocasionalmente ( ADVERB ) lemma=ocasional 
  ocasionando ( NOUN NOUN_GERUND ) lemma=ocasionar 
  ocasionen ( VERB ) lemma=ocasionar 
- ocasiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ocasión 
- ocasión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ocaso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocasiones ( NOUN NOUN_SINGULAR ) lemma=ocasión 
+ ocasión ( NOUN NOUN_SINGULAR ) 
+ ocaso ( NOUN NOUN_SINGULAR ) 
  occidental ( ADJECTIVE ADJECTIVE_NORMAL ) 
  occidentales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=occidental 
- occidentalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ occidentalización ( NOUN NOUN_SINGULAR ) 
  occidentalizado ( VERB_PAST_PARTICIPLE VERB ) lemma=occidentalizar 
  occidentalizar ( ) 
- occidente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ occidente ( NOUN NOUN_SINGULAR ) 
  occipital ( ADJECTIVE ADJECTIVE_NORMAL ) 
  occipitales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=occipital 
- occipucio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ occipucio ( NOUN NOUN_SINGULAR ) 
  occisa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=occiso 
  occiso ( ) 
  occisos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=occiso 
- oceanografía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oceanografía ( NOUN NOUN_SINGULAR ) 
  oceánica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oceánico 
  oceánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oceánicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oceánico 
@@ -384,33 +384,33 @@
  ociosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocioso 
  ocioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ociosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocioso 
- ociosidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ociosidad ( NOUN NOUN_SINGULAR ) 
  ociosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocioso 
  ocluida ( VERB_PAST_PARTICIPLE VERB ) lemma=ocluir 
  ocluir ( VERB_INFINITIVE VERB ) 
  ocluidas ( VERB_PAST_PARTICIPLE VERB ) lemma=ocluir 
- oclusiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oclusión 
- oclusión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oclusiones ( NOUN NOUN_SINGULAR ) lemma=oclusión 
+ oclusión ( NOUN NOUN_SINGULAR ) 
  oclusivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oclusivo 
  oclusivo ( ) 
  oclusivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oclusivo 
- ocluyente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocluyente ( NOUN NOUN_SINGULAR ) 
  ocluyó ( VERB ) lemma=ocluir 
  octales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=octal 
  octal ( ) 
- octava ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_PLURAL NOUN NOUN_NUMBER ) lemma=`octava`octavo` NC  ORD 
- octavilla ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`octavo`octava` ADJ  NC 
- octavillas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`octavo`octava` ADJ  NC 
+ octava ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN NOUN_NUMBER ) lemma=`octava`octavo` NC  ORD 
+ octavilla ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`octavo`octava` ADJ  NC 
+ octavillas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`octavo`octava` ADJ  NC 
  octavo ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
- octavos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=octavo 
- octeto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ octavos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=octavo 
+ octeto ( NOUN NOUN_SINGULAR ) 
  octubre ( NOUN NOUN_SINGULAR ) 
  ocular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocular 
- oculista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oculista ( NOUN NOUN_SINGULAR ) 
  ocultar ( VERB_INFINITIVE VERB ) 
- ocultaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ocultación 
- ocultación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocultaciones ( NOUN NOUN_SINGULAR ) lemma=ocultación 
+ ocultación ( NOUN NOUN_SINGULAR ) 
  ocultada ( VERB_PAST_PARTICIPLE VERB ) lemma=ocultar 
  ocultados ( VERB_PAST_PARTICIPLE VERB ) lemma=ocultar 
  ocultando ( NOUN NOUN_GERUND ) lemma=ocultar 
@@ -431,8 +431,8 @@
  ocupar ( VERB_INFINITIVE VERB ) 
  ocupacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ocupacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocupacional 
- ocupaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ocupación 
- ocupación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocupaciones ( NOUN NOUN_SINGULAR ) lemma=ocupación 
+ ocupación ( NOUN NOUN_SINGULAR ) 
  ocupada ( VERB_PAST_PARTICIPLE VERB ) lemma=ocupar 
  ocupadas ( VERB_PAST_PARTICIPLE VERB ) lemma=ocupar 
  ocupado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`ocupado`ocupar` ADJ  VLadj 
@@ -440,7 +440,7 @@
  ocupadísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocupado 
  ocupadísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ocupado 
  ocupando ( NOUN NOUN_GERUND ) lemma=ocupar 
- ocupante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocupante ( NOUN NOUN_SINGULAR ) 
  ocuparla (                 VERB ) lemma=ocupar 
  ocuparlo (                 VERB ) lemma=ocupar 
  ocuparlos (                 VERB ) lemma=ocupar 
@@ -460,9 +460,9 @@
  ocupémonos ( VERB ) lemma=ocupar 
  ocurra ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=ocurrir 
  ocurran ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=ocurrir 
- ocurrencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ocurrencia ( NOUN NOUN_SINGULAR ) 
  ocurrente ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ocurrida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ocurrida`ocurrir` NC  VLadj 
+ ocurrida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ocurrida`ocurrir` NC  VLadj 
  ocurridas ( VERB_PAST_PARTICIPLE VERB ) lemma=ocurrir 
  ocurridos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`ocurrido`ocurrir` ADJ  VLadj 
  ocurriendo ( VERB_PRESENT VERB_PAST PRONOUN_SUBJECT AUX_VERB_FUTURE NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_SINGULAR PRONOUN_PLURAL ) lemma=ocurrir 
@@ -471,43 +471,43 @@
  ocurriese ( VERB ) lemma=ocurrir 
  ocurriesen ( VERB ) lemma=ocurrir 
  ocurrirte (                 VERB ) lemma=ocurrir 
- océano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ océano ( NOUN NOUN_SINGULAR ) 
  ocúpense ( VERB ) lemma=ocupar 
- odalisca ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- odeillo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ odalisca ( NOUN NOUN_SINGULAR ) 
+ odeillo ( NOUN NOUN_SINGULAR ) 
  odiada ( VERB_PAST_PARTICIPLE VERB ) lemma=odiar 
  odiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=odiar 
  odiarme (                 VERB ) lemma=odiar 
- odinsup ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ odinsup ( NOUN NOUN_SINGULAR ) 
  odiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=odioso 
  odioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  odiosamente ( ADVERB ) lemma=odioso 
  odiosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=odioso 
  odiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=odioso 
- odisea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ odisea ( NOUN NOUN_SINGULAR ) 
  odontoide ( ADJECTIVE ADJECTIVE_NORMAL ) 
- odontología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ odontología ( NOUN NOUN_SINGULAR ) 
  odontológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- odontólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ odontólogo ( NOUN NOUN_SINGULAR ) 
  odoríferas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=odorífero 
  odorífero ( ) 
- oeste ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oeste ( NOUN NOUN_SINGULAR ) 
  ofenda ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=ofender 
  ofendamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=ofender 
  ofendan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=ofender 
- ofendida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ofendido`ofender` NC  VLadj 
+ ofendida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ofendido`ofender` NC  VLadj 
  ofendidos ( VERB_PAST_PARTICIPLE VERB ) lemma=ofender 
  ofendiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=ofender 
  ofendieán ( VERB ) lemma=ofender 
  ofendí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=ofender 
- ofensa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ofensa ( NOUN NOUN_SINGULAR ) 
  ofensiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ofensivo 
  ofensivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ofensivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ofensivo 
  ofensivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ofensivo 
- oferentes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oferente 
+ oferentes ( NOUN NOUN_SINGULAR ) lemma=oferente 
  oferente ( ) 
- oferta ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oferta`ofertar` NC  VLfin 
+ oferta ( NOUN VERB NOUN_SINGULAR ) lemma=`oferta`ofertar` NC  VLfin 
  ofertada ( VERB_PAST_PARTICIPLE VERB ) lemma=ofertar 
  ofertar ( VERB_INFINITIVE VERB ) 
  ofertadas ( VERB_PAST_PARTICIPLE VERB ) lemma=ofertar 
@@ -515,27 +515,27 @@
  ofertando ( NOUN NOUN_GERUND ) lemma=ofertar 
  ofertarnos (                 VERB ) lemma=ofertar 
  ofertarse ( VERB_INFINITIVE VERB ) 
- off-side ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- offside ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ off-side ( NOUN NOUN_SINGULAR ) 
+ offside ( NOUN NOUN_SINGULAR ) 
  oficiar ( VERB_INFINITIVE VERB ) 
  oficiada ( VERB_PAST_PARTICIPLE VERB ) lemma=oficiar 
  oficial ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oficiales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oficial 
- oficialismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oficiales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oficial 
+ oficialismo ( NOUN NOUN_SINGULAR ) 
  oficialista ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oficialistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oficialista 
  oficializar ( VERB_INFINITIVE VERB ) 
  oficializada ( VERB_PAST_PARTICIPLE VERB ) lemma=oficializar 
  oficialmente ( ADVERB ) lemma=oficial 
- oficina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oficinista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oficio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oficio`oficiar` NC  VLfin 
+ oficina ( NOUN NOUN_SINGULAR ) 
+ oficinista ( NOUN NOUN_SINGULAR ) 
+ oficio ( NOUN VERB NOUN_SINGULAR ) lemma=`oficio`oficiar` NC  VLfin 
  oficiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oficioso 
  oficioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oficiosamente ( ADVERB ) lemma=oficioso 
  oficiosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oficioso 
  oficiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oficioso 
- ofimática ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ofimática ( NOUN NOUN_SINGULAR ) 
  ofrecerle (                 VERB ) lemma=ofrecer 
  ofrecerles (                 VERB ) lemma=ofrecer 
  ofrecerlo (                 VERB ) lemma=ofrecer 
@@ -551,7 +551,7 @@
  ofrecieán ( VERB ) lemma=ofrecer 
  ofreciese ( VERB ) lemma=ofrecer 
  ofreciesen ( VERB ) lemma=ofrecer 
- ofrecimiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ofrecimiento ( NOUN NOUN_SINGULAR ) 
  ofreciéndoles ( VERB_PAST_PARTICIPLE VERB ) lemma=ofrecer 
  ofreciéndonos ( NOUN NOUN_GERUND ) lemma=ofrecer 
  ofreciéndose ( NOUN NOUN_GERUND ) lemma=ofrecerse 
@@ -569,16 +569,16 @@
  oftalmológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oftalmológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oftalmológico 
  oftalmológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oftalmológico 
- oftalmopatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oftalmoplejía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oftalmoscopia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oftalmopatía ( NOUN NOUN_SINGULAR ) 
+ oftalmoplejía ( NOUN NOUN_SINGULAR ) 
+ oftalmoscopia ( NOUN NOUN_SINGULAR ) 
  oftalmoscópico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ofuscación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ofuscación ( NOUN NOUN_SINGULAR ) 
  ofuscó ( VERB ) lemma=ofuscar 
  ofuscar ( ) 
- ogonek ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ogonek ( NOUN NOUN_SINGULAR ) 
  oh ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL HAS_SUBSTITUTE ) 
- ohmio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ohmio ( NOUN NOUN_SINGULAR ) 
  oiga ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=oír 
  oigamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=oír 
  oigan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=oír 
@@ -589,73 +589,73 @@
  oirán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=oír 
  oiría ( VERB ) lemma=oír 
  oirías ( VERB ) lemma=oír 
- ojal ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ojal ( NOUN NOUN_SINGULAR ) 
  ojala ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  ojalá ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  ojeada ( VERB_PAST_PARTICIPLE VERB ) lemma=ojear 
  ojear ( VERB_INFINITIVE VERB ) 
- ojete ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ojitos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ojo 
- ojo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ojivas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ojiva 
+ ojete ( NOUN NOUN_SINGULAR ) 
+ ojitos ( NOUN NOUN_SINGULAR ) lemma=ojo 
+ ojo ( NOUN NOUN_SINGULAR ) 
+ ojivas ( NOUN NOUN_SINGULAR ) lemma=ojiva 
  ojiva ( ) 
- ojotas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ojota 
+ ojotas ( NOUN NOUN_SINGULAR ) lemma=ojota 
  ojota ( ) 
  okey ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- ola ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ole ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oleada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oleada`olear` NC  VLadj 
- oleadas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oleada`olear` NC  VLadj 
+ ola ( NOUN NOUN_SINGULAR ) 
+ ole ( NOUN NOUN_SINGULAR ) 
+ oleada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`oleada`olear` NC  VLadj 
+ oleadas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`oleada`olear` NC  VLadj 
  oleaginosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oleaginoso 
  oleaginoso ( ) 
- oleaje ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- olecranon ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oleaje ( NOUN NOUN_SINGULAR ) 
+ olecranon ( NOUN NOUN_SINGULAR ) 
  oleico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oleoducto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oleoducto ( NOUN NOUN_SINGULAR ) 
  oleosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oleoso 
  oleoso ( ) 
  olerlo (                 VERB ) lemma=oler 
  olerte (                 VERB ) lemma=oler 
- olfacción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ olfacción ( NOUN NOUN_SINGULAR ) 
  olfativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olfativo 
  olfativo ( ) 
- olfato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ olfato ( NOUN NOUN_SINGULAR ) 
  olfatoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olfatorio 
  olfatorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  olfatorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olfatorio 
  olfatorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olfatorio 
- oligodendrocito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligodendroglia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligoelementos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oligoelemento 
+ oligodendrocito ( NOUN NOUN_SINGULAR ) 
+ oligodendroglia ( NOUN NOUN_SINGULAR ) 
+ oligoelementos ( NOUN NOUN_SINGULAR ) lemma=oligoelemento 
  oligoelemento ( ) 
- oligomenorrea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligonucleótido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligopolio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oligomenorrea ( NOUN NOUN_SINGULAR ) 
+ oligonucleótido ( NOUN NOUN_SINGULAR ) 
+ oligopolio ( NOUN NOUN_SINGULAR ) 
  oligopolístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oligosacárida ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligosacárido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oliguria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oligómeros ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oligómero 
+ oligosacárida ( NOUN NOUN_SINGULAR ) 
+ oligosacárido ( NOUN NOUN_SINGULAR ) 
+ oliguria ( NOUN NOUN_SINGULAR ) 
+ oligómeros ( NOUN NOUN_SINGULAR ) lemma=oligómero 
  oligómero ( ) 
- olimpiadas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=olimpiada 
+ olimpiadas ( NOUN NOUN_SINGULAR ) lemma=olimpiada 
  olimpiada ( ) 
- olimpico ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=olímpico 
+ olimpico ( NOUN NOUN_SINGULAR ) lemma=olímpico 
  olímpico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- olimpíada ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- olita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ola 
- oliva ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oliva`olivar` NC  VLfin 
+ olimpíada ( NOUN NOUN_SINGULAR ) 
+ olita ( NOUN NOUN_SINGULAR ) lemma=ola 
+ oliva ( NOUN VERB NOUN_SINGULAR ) lemma=`oliva`olivar` NC  VLfin 
  olivar ( VERB_INFINITIVE VERB ) 
- olivares ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=olivar 
- olivas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oliva`olivar` NC  VLfin 
+ olivares ( NOUN VERB NOUN_SINGULAR ) lemma=olivar 
+ olivas ( NOUN VERB NOUN_SINGULAR ) lemma=`oliva`olivar` NC  VLfin 
  olivera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olivero 
  olivero ( ) 
- olivo ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`olivo`olivar` NC  VLfin 
- olla ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- olmeca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=olmeca 
- olmecas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=olmeca 
- olmo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- olor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- olorcito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=olor 
+ olivo ( NOUN VERB NOUN_SINGULAR ) lemma=`olivo`olivar` NC  VLfin 
+ olla ( NOUN NOUN_SINGULAR ) 
+ olmeca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=olmeca 
+ olmecas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=olmeca 
+ olmo ( NOUN NOUN_SINGULAR ) 
+ olor ( NOUN NOUN_SINGULAR ) 
+ olorcito ( NOUN NOUN_SINGULAR ) lemma=olor 
  olorosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oloroso 
  oloroso ( ) 
  olvidada ( VERB_PAST_PARTICIPLE VERB ) lemma=olvidar 
@@ -677,7 +677,7 @@
  olvidemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=olvidar 
  olviden ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=olvidar 
  olvides ( VERB ) lemma=olvidar 
- olvidos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=olvido 
+ olvidos ( NOUN NOUN_SINGULAR ) lemma=olvido 
  olvido ( ) 
  olvidándolas ( NOUN NOUN_GERUND ) lemma=olvidar 
  olvidándome ( VERB_PAST_PARTICIPLE VERB ) lemma=olvidar 
@@ -696,11 +696,11 @@
  olímpicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olímpico 
  olímpicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=olímpico 
  ológrafo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ombligo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- omc ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ombligo ( NOUN NOUN_SINGULAR ) 
+ omc ( NOUN NOUN_SINGULAR ) 
  ominoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- omisiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=omisión 
- omisión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ omisiones ( NOUN NOUN_SINGULAR ) lemma=omisión 
+ omisión ( NOUN NOUN_SINGULAR ) 
  omiso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  omita ( VERB ) lemma=omitir 
  omitir ( VERB_INFINITIVE VERB ) 
@@ -717,33 +717,33 @@
  omnipresente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  omnipresentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=omnipresente 
  omohioideo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- omoplato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- omóplatos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=omóplato 
+ omoplato ( NOUN NOUN_SINGULAR ) 
+ omóplatos ( NOUN NOUN_SINGULAR ) lemma=omóplato 
  omóplato ( ) 
  on-line ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=on 
  on ( ) 
  once ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
  oncoasociar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- oncogenes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oncogén 
- oncogén ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oncogenesis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oncogenicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oncogenes ( NOUN NOUN_SINGULAR ) lemma=oncogén 
+ oncogén ( NOUN NOUN_SINGULAR ) 
+ oncogenesis ( NOUN NOUN_SINGULAR ) 
+ oncogenicidad ( NOUN NOUN_SINGULAR ) 
  oncogénica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oncogénico 
  oncogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oncogénicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oncogénico 
  oncogénicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oncógeno 
  oncógeno ( ) 
  oncológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oncoproteína ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oncoproteína ( NOUN NOUN_SINGULAR ) 
  oncógenos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oncógeno 
  oncótica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oncótico 
  oncótico ( ) 
- onda ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ onda ( NOUN NOUN_SINGULAR ) 
  ondear ( VERB_INFINITIVE VERB ) 
  ondeando ( NOUN NOUN_GERUND ) lemma=ondear 
  ondeantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ondeante 
  ondeante ( ) 
- ondonadas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=hondonada 
+ ondonadas ( NOUN NOUN_SINGULAR ) lemma=hondonada 
  ondulado ( VERB_PAST_PARTICIPLE VERB ) lemma=ondular 
  ondular ( ) 
  ondulante ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -755,39 +755,39 @@
  oneroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  onerosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oneroso 
  onerosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oneroso 
- ontogenia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- onza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oocito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ontogenia ( NOUN NOUN_SINGULAR ) 
+ onza ( NOUN NOUN_SINGULAR ) 
+ oocito ( NOUN NOUN_SINGULAR ) 
  opaca ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`opaco`opacar` ADJ  VLfin 
  opacada ( VERB_PAST_PARTICIPLE VERB ) lemma=opacar 
  opacar ( VERB_INFINITIVE VERB ) 
- opacidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- opacificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opacidad ( NOUN NOUN_SINGULAR ) 
+ opacificación ( NOUN NOUN_SINGULAR ) 
  opacificar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  opaco ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`opaco`opacar` ADJ  VLfin 
  opacos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=opaco 
  opal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- opalwax ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opalwax ( NOUN NOUN_SINGULAR ) 
  opcional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  opcionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=opcional 
  opcionalmente ( ADVERB ) lemma=opcional 
- opciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=opción 
- opción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- opcódigo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opciones ( NOUN NOUN_SINGULAR ) lemma=opción 
+ opción ( NOUN NOUN_SINGULAR ) 
+ opcódigo ( NOUN NOUN_SINGULAR ) 
  operar ( VERB_INFINITIVE VERB ) 
  operable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  operacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  operacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=operacional 
- operaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=operación 
- operación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ operaciones ( NOUN NOUN_SINGULAR ) lemma=operación 
+ operación ( NOUN NOUN_SINGULAR ) 
  operada ( VERB_PAST_PARTICIPLE VERB ) lemma=operar 
  operadas ( VERB_PAST_PARTICIPLE VERB ) lemma=operar 
- operador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- operadora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- operadoras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=operador 
+ operador ( NOUN NOUN_SINGULAR ) 
+ operadora ( NOUN NOUN_SINGULAR ) 
+ operadoras ( NOUN NOUN_SINGULAR ) lemma=operador 
  operados ( VERB_PAST_PARTICIPLE VERB ) lemma=operar 
- operando ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- operario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ operando ( NOUN NOUN_SINGULAR ) 
+ operario ( NOUN NOUN_SINGULAR ) 
  operarle (                 VERB ) lemma=operar 
  operarlo (                 VERB ) lemma=operar 
  operarme (                 VERB ) lemma=operar 
@@ -799,22 +799,22 @@
  operativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  operativamente ( ADVERB ) lemma=operativo 
  operativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=operativo 
- operatividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ operatividad ( NOUN NOUN_SINGULAR ) 
  operativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=operativo 
  operatoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=operatorio 
  operatorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  operatorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=operatorio 
  operemos ( VERB ) lemma=operar 
  operen ( VERB ) lemma=operar 
- operones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=operón 
- operón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ operones ( NOUN NOUN_SINGULAR ) lemma=operón 
+ operón ( NOUN NOUN_SINGULAR ) 
  opinar ( VERB_INFINITIVE VERB ) 
  opinando ( NOUN NOUN_GERUND ) lemma=opinar 
  opinemos ( VERB ) lemma=opinar 
  opinen ( VERB ) lemma=opinar 
- opiniones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=opinión 
- opinión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- opio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opiniones ( NOUN NOUN_SINGULAR ) lemma=opinión 
+ opinión ( NOUN NOUN_SINGULAR ) 
+ opio ( NOUN NOUN_SINGULAR ) 
  opioide ( ADJECTIVE ADJECTIVE_NORMAL ) 
  opiáceos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=opiáceo 
  opiáceo ( ) 
@@ -839,30 +839,30 @@
  oportuno ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oportunamente ( ADVERB ) lemma=oportuno 
  oportunas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oportuno 
- oportunidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oportunismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oportunidad ( NOUN NOUN_SINGULAR ) 
+ oportunismo ( NOUN NOUN_SINGULAR ) 
  oportunista ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oportunistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oportunista 
  oportunos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oportuno 
  oportunísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oportuno 
  oportunísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oportuno 
- oposiciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oposición 
- oposición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- opositor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- opositora ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=opositor 
- opositoras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=opositor 
- opresiones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=opresión 
- opresión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oposiciones ( NOUN NOUN_SINGULAR ) lemma=oposición 
+ oposición ( NOUN NOUN_SINGULAR ) 
+ opositor ( NOUN NOUN_SINGULAR ) 
+ opositora ( NOUN NOUN_SINGULAR ) lemma=opositor 
+ opositoras ( NOUN NOUN_SINGULAR ) lemma=opositor 
+ opresiones ( NOUN NOUN_SINGULAR ) lemma=opresión 
+ opresión ( NOUN NOUN_SINGULAR ) 
  oprima ( VERB ) lemma=oprimir 
  oprimir ( VERB_INFINITIVE VERB ) 
  oprimida ( VERB_PAST_PARTICIPLE VERB ) lemma=oprimir 
  oprimidas ( VERB_PAST_PARTICIPLE VERB ) lemma=oprimir 
- oprimidas-minoría ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oprimidas-minoría ( NOUN NOUN_SINGULAR ) 
  oprimidos ( VERB_PAST_PARTICIPLE VERB ) lemma=oprimir 
  oprimiendo ( NOUN NOUN_GERUND ) lemma=oprimir 
  oprobio ( VERB ) lemma=oprobiar 
  oprobiar ( ) 
- opsonizarlo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opsonizarlo ( NOUN NOUN_SINGULAR ) 
  optar ( VERB_INFINITIVE VERB ) 
  optando ( NOUN NOUN_GERUND ) lemma=optar 
  optase ( VERB ) lemma=optar 
@@ -875,19 +875,19 @@
  opten ( VERB ) lemma=optar 
  optica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=optico 
  optico ( ) 
- optimación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- optimador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=optimador 
+ optimación ( NOUN NOUN_SINGULAR ) 
+ optimador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=optimador 
  optimal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- optimalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ optimalidad ( NOUN NOUN_SINGULAR ) 
  optimar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  optimice ( VERB ) lemma=optimizar 
  optimizar ( VERB_INFINITIVE VERB ) 
  optimicen ( VERB ) lemma=optimizar 
- optimismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- optimista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=optimista 
+ optimismo ( NOUN NOUN_SINGULAR ) 
+ optimista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=optimista 
  optimistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=optimisto 
  optimisto ( ) 
- optimización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ optimización ( NOUN NOUN_SINGULAR ) 
  optimizada ( VERB_PAST_PARTICIPLE VERB ) lemma=optimizar 
  optimizando ( NOUN NOUN_GERUND ) lemma=optimizar 
  optimizarse ( VERB_INFINITIVE VERB ) 
@@ -896,7 +896,7 @@
  opuestas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`opuesto`oponer` ADJ  VLadj 
  opuesto ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_GERUND ) lemma=oponerse 
  opuestos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`opuesto`oponer` ADJ  VLadj 
- opulencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ opulencia ( NOUN NOUN_SINGULAR ) 
  opulento ( ADJECTIVE ADJECTIVE_NORMAL ) 
  opuse ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=oponer 
  opusiera ( VERB ) lemma=oponer 
@@ -906,19 +906,19 @@
  opusimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=oponer 
  opusiéramos ( VERB ) lemma=oponer 
  opuso ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=oponer 
- opódigo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- or ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=or 
+ opódigo ( NOUN NOUN_SINGULAR ) 
+ or ( NOUN NOUN_SINGULAR ) lemma=or 
  orar ( VERB_INFINITIVE VERB ) 
- oraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oración 
- oración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oraciones ( NOUN NOUN_SINGULAR ) lemma=oración 
+ oración ( NOUN NOUN_SINGULAR ) 
+ orador ( NOUN NOUN_SINGULAR ) 
  oral ( ADJECTIVE ADJECTIVE_NORMAL ) 
  orale ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  orales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oral 
- oralidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oralidad ( NOUN NOUN_SINGULAR ) 
  oralmente ( ADVERB ) lemma=oral 
  orando ( NOUN NOUN_GERUND ) lemma=orar 
- orangutanes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orangután 
+ orangutanes ( NOUN NOUN_SINGULAR ) lemma=orangután 
  orangután ( ) 
  orase ( VERB ) lemma=orar 
  orasen ( VERB ) lemma=orar 
@@ -927,27 +927,27 @@
  oratorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oratorio 
  oratorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oratorio 
  orbicular ( ADJECTIVE ADJECTIVE_NORMAL ) 
- orbitales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orbital 
+ orbitales ( NOUN NOUN_SINGULAR ) lemma=orbital 
  orbital ( ) 
  orbitaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orbitario 
  orbitario ( ) 
- orden ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orden ( NOUN NOUN_SINGULAR ) 
  ordenar ( VERB_INFINITIVE VERB ) 
- ordenaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ordenación 
- ordenación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ordenaciones ( NOUN NOUN_SINGULAR ) lemma=ordenación 
+ ordenación ( NOUN NOUN_SINGULAR ) 
  ordenada ( VERB_PAST_PARTICIPLE VERB ) lemma=ordenar 
  ordenadamente ( ADVERB ) 
- ordenadas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ordenada`ordenar` NC  VLadj 
- ordenador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ordenadas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`ordenada`ordenar` NC  VLadj 
+ ordenador ( NOUN NOUN_SINGULAR ) 
  ordenados ( VERB_PAST_PARTICIPLE VERB ) lemma=ordenar 
- ordenamiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ordenamiento ( NOUN NOUN_SINGULAR ) 
  ordenando ( NOUN NOUN_GERUND ) lemma=ordenar 
- ordenanza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ordenanza ( NOUN NOUN_SINGULAR ) 
  ordenes ( VERB ) lemma=ordenar 
  ordeñar ( VERB_INFINITIVE VERB ) 
  ordeñada ( VERB_PAST_PARTICIPLE VERB ) lemma=ordeñar 
  ordinal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ordinales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=ordinal 
+ ordinales ( NOUN NOUN_SINGULAR ) lemma=ordinal 
  ordinaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ordinario 
  ordinario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ordinariamente ( ADVERB ) 
@@ -955,37 +955,37 @@
  ordinarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ordinario 
  orearan ( VERB ) lemma=orear 
  orear ( ) 
- oreja ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orejas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oreja`orejar` NC  VLfin 
- orejeras ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orejera 
+ oreja ( NOUN NOUN_SINGULAR ) 
+ orejas ( NOUN VERB NOUN_SINGULAR ) lemma=`oreja`orejar` NC  VLfin 
+ orejeras ( NOUN NOUN_SINGULAR ) lemma=orejera 
  orejera ( ) 
- orejita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oreja 
- orejuela ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orensana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=orensano 
+ orejita ( NOUN NOUN_SINGULAR ) lemma=oreja 
+ orejuela ( NOUN NOUN_SINGULAR ) 
+ orensana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=orensano 
  orensano ( ) 
- orfandad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orfebrería ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orfelinatos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orfelinato 
+ orfandad ( NOUN NOUN_SINGULAR ) 
+ orfebrería ( NOUN NOUN_SINGULAR ) 
+ orfelinatos ( NOUN NOUN_SINGULAR ) lemma=orfelinato 
  orfelinato ( ) 
- organela ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- organelo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ organela ( NOUN NOUN_SINGULAR ) 
+ organelo ( NOUN NOUN_SINGULAR ) 
  organice ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=organizar 
  organicemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=organizar 
  organicen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=organizar 
  organicé ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=organizar 
- organigrama ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- organillos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=órgano 
- organismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ organigrama ( NOUN NOUN_SINGULAR ) 
+ organillos ( NOUN NOUN_SINGULAR ) lemma=órgano 
+ organismo ( NOUN NOUN_SINGULAR ) 
  organizacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- organizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=organización 
- organización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ organizaciones ( NOUN NOUN_SINGULAR ) lemma=organización 
+ organización ( NOUN NOUN_SINGULAR ) 
  organizada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`organizado`organizar` ADJ  VLadj 
  organizadas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`organizado`organizar` ADJ  VLadj 
  organizado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`organizado`organizar` ADJ  VLadj 
- organizador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=organizador 
- organizadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=organizador 
- organizadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=organizador 
- organizadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=organizador 
+ organizador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=organizador 
+ organizadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=organizador 
+ organizadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=organizador 
+ organizadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=organizador 
  organizados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`organizado`organizar` ADJ  VLadj 
  organizando ( NOUN NOUN_GERUND ) lemma=organizar 
  organizarla (                 VERB ) lemma=organizar 
@@ -1002,10 +1002,10 @@
  organizándola ( NOUN NOUN_GERUND ) lemma=organizar 
  organizándose ( NOUN NOUN_GERUND ) lemma=organizarse 
  organizásemos ( VERB ) lemma=organizar 
- organogénesis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ organogénesis ( NOUN NOUN_SINGULAR ) 
  organoléptica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=organoléptico 
  organoléptico ( ) 
- orgullo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orgullo ( NOUN NOUN_SINGULAR ) 
  orgullosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orgulloso 
  orgulloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  orgullosamente ( ADVERB ) lemma=orgulloso 
@@ -1016,12 +1016,12 @@
  orgánicamente ( ADVERB ) lemma=orgánico 
  orgánicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orgánico 
  orgánicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orgánico 
- orgánulo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orgía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oric ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orgánulo ( NOUN NOUN_SINGULAR ) 
+ orgía ( NOUN NOUN_SINGULAR ) 
+ oric ( NOUN NOUN_SINGULAR ) 
  orientar ( VERB_INFINITIVE VERB ) 
- orientaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orientación 
- orientación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orientaciones ( NOUN NOUN_SINGULAR ) lemma=orientación 
+ orientación ( NOUN NOUN_SINGULAR ) 
  orientada ( VERB_PAST_PARTICIPLE VERB ) lemma=orientar 
  orientadas ( VERB_PAST_PARTICIPLE VERB ) lemma=orientar 
  orientador ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1029,8 +1029,8 @@
  orientadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orientador 
  orientadores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orientador 
  orientados ( VERB_PAST_PARTICIPLE VERB ) lemma=orientar 
- oriental ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oriental 
- orientales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oriental 
+ oriental ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oriental 
+ orientales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oriental 
  orientando ( NOUN NOUN_GERUND ) lemma=orientar 
  orientarla (                 VERB ) lemma=orientar 
  orientarles (                 VERB ) lemma=orientar 
@@ -1048,17 +1048,17 @@
  orientándonos ( NOUN NOUN_GERUND ) lemma=orientar 
  orientándose ( NOUN NOUN_GERUND ) lemma=orientarse 
  orientásemos ( VERB ) lemma=orientar 
- orificio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- origen ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orificio ( NOUN NOUN_SINGULAR ) 
+ origen ( NOUN NOUN_SINGULAR ) 
  originar ( VERB_INFINITIVE VERB ) 
- originación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ originación ( NOUN NOUN_SINGULAR ) 
  originada ( VERB_PAST_PARTICIPLE VERB ) lemma=originar 
  originadas ( VERB_PAST_PARTICIPLE VERB ) lemma=originar 
- originador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ originador ( NOUN NOUN_SINGULAR ) 
  originados ( VERB_PAST_PARTICIPLE VERB ) lemma=originar 
  original ( ADJECTIVE ADJECTIVE_NORMAL ) 
  originales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=original 
- originalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ originalidad ( NOUN NOUN_SINGULAR ) 
  originalmente ( ADVERB ) lemma=original 
  originando ( NOUN NOUN_GERUND ) lemma=originar 
  originaría ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=originario 
@@ -1072,19 +1072,19 @@
  originé ( VERB ) lemma=`origine`originar` PE  VLfin 
  originen ( VERB ) lemma=originar 
  originándose ( NOUN NOUN_GERUND ) lemma=originarse 
- orilla ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`orilla`orillar` NC  VLfin 
+ orilla ( NOUN VERB NOUN_SINGULAR ) lemma=`orilla`orillar` NC  VLfin 
  orillar ( VERB_INFINITIVE VERB ) 
- orillas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`orilla`orillar` NC  VLfin 
+ orillas ( NOUN VERB NOUN_SINGULAR ) lemma=`orilla`orillar` NC  VLfin 
  orina ( VERB ) lemma=orinar 
  orinar ( ) 
  orinando ( NOUN NOUN_GERUND ) lemma=orinar 
  orinaron ( VERB ) lemma=orinar 
  orinarse ( VERB ) lemma=orinar 
- orinas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=orina 
- ornitina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ornitólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oro ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oro`orar` NC  VLfin 
- orogenia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orinas ( NOUN NOUN_SINGULAR ) lemma=orina 
+ ornitina ( NOUN NOUN_SINGULAR ) 
+ ornitólogo ( NOUN NOUN_SINGULAR ) 
+ oro ( NOUN VERB NOUN_SINGULAR ) lemma=`oro`orar` NC  VLfin 
+ orogenia ( NOUN NOUN_SINGULAR ) 
  orogénicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=orogénico 
  orogénico ( ) 
  orotraqueal ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -1093,57 +1093,57 @@
  orquestadas ( VERB_PAST_PARTICIPLE VERB ) lemma=orquestar 
  orquestados ( VERB_PAST_PARTICIPLE VERB ) lemma=orquestar 
  orquestando ( NOUN NOUN_GERUND ) lemma=orquestar 
- orquídea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ortesis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orquídea ( NOUN NOUN_SINGULAR ) 
+ ortesis ( NOUN NOUN_SINGULAR ) 
+ orto ( NOUN NOUN_SINGULAR ) 
  ortodoxa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortodoxo 
  ortodoxo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ortodoxas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortodoxo 
- ortodoxia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ortodoxia ( NOUN NOUN_SINGULAR ) 
  ortodoxos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortodoxo 
- ortofosfato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ortofosfato ( NOUN NOUN_SINGULAR ) 
  ortogonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ortograficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortográfico 
  ortográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ortografía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ortografía ( NOUN NOUN_SINGULAR ) 
  ortográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortográfico 
  ortográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortográfico 
- ortogénesis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ortogénesis ( NOUN NOUN_SINGULAR ) 
  ortopédica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortopédico 
  ortopédico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ortopédicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortopédico 
  ortopédicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortopédico 
- ortostatismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ortostatismo ( NOUN NOUN_SINGULAR ) 
  ortostático ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ortotelefónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortotelefónico 
  ortotelefónico ( ) 
  ortotelefónicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ortotelefónico 
  ortotópico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- orugas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oruga 
+ orugas ( NOUN NOUN_SINGULAR ) lemma=oruga 
  oruga ( ) 
- orujo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ orujo ( NOUN NOUN_SINGULAR ) 
  orza ( VERB ) lemma=orzar 
  orzar ( ) 
- orégano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- orígenes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=origen 
+ orégano ( NOUN NOUN_SINGULAR ) 
+ orígenes ( NOUN NOUN_SINGULAR ) lemma=origen 
  os ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_INDIRECTOBJECT ) 
- osa ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oso`osar` NC  VLfin 
+ osa ( NOUN VERB NOUN_SINGULAR ) lemma=`oso`osar` NC  VLfin 
  osada ( VERB_PAST_PARTICIPLE VERB ) lemma=osar 
  osar ( ) 
  osadas ( VERB_PAST_PARTICIPLE VERB ) lemma=osar 
  osado ( VERB_PAST_PARTICIPLE VERB ) lemma=osar 
  osados ( VERB_PAST_PARTICIPLE VERB ) lemma=osar 
- osamentas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=osamenta 
+ osamentas ( NOUN NOUN_SINGULAR ) lemma=osamenta 
  osamenta ( ) 
  osan ( VERB ) lemma=osar 
  osara ( VERB ) lemma=osar 
  osaran ( VERB ) lemma=osar 
  osará ( VERB ) lemma=osar 
- oscense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oscense 
+ oscense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oscense 
  oscilar ( VERB_INFINITIVE VERB ) 
- oscilaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oscilación 
- oscilación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oscilador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oscilaciones ( NOUN NOUN_SINGULAR ) lemma=oscilación 
+ oscilación ( NOUN NOUN_SINGULAR ) 
+ oscilador ( NOUN NOUN_SINGULAR ) 
  oscilando ( NOUN NOUN_GERUND ) lemma=oscilar 
  oscilante ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oscilantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oscilante 
@@ -1156,25 +1156,25 @@
  oscurecida ( VERB_PAST_PARTICIPLE VERB ) lemma=oscurecer 
  oscurecidas ( VERB_PAST_PARTICIPLE VERB ) lemma=oscurecer 
  oscureciendo ( NOUN NOUN_GERUND ) lemma=oscurecer 
- oscurecimiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oscurecimiento ( NOUN NOUN_SINGULAR ) 
  oscurezca ( VERB ) lemma=oscurecer 
- oscuridad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oscuridad ( NOUN NOUN_SINGULAR ) 
  oscuro-púrpuro ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oscuros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oscuro 
  osea ( VERB ) lemma=osear 
  osear ( ) 
  osease ( VERB ) lemma=osear 
  osemos ( VERB ) lemma=osar 
- osificaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=osificación 
- osificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ osificaciones ( NOUN NOUN_SINGULAR ) lemma=osificación 
+ osificación ( NOUN NOUN_SINGULAR ) 
  osificado ( VERB_PAST_PARTICIPLE VERB ) lemma=osificar 
  osificar ( ) 
- osito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oso 
- oso ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oso`osar` NC  VLfin 
- ositos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oso 
- osmolalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osmolaridad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osmorreceptor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ osito ( NOUN NOUN_SINGULAR ) lemma=oso 
+ oso ( NOUN VERB NOUN_SINGULAR ) lemma=`oso`osar` NC  VLfin 
+ ositos ( NOUN NOUN_SINGULAR ) lemma=oso 
+ osmolalidad ( NOUN NOUN_SINGULAR ) 
+ osmolaridad ( NOUN NOUN_SINGULAR ) 
+ osmorreceptor ( NOUN NOUN_SINGULAR ) 
  osmótica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=osmótico 
  osmótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  osmóticamente ( ADVERB ) 
@@ -1191,38 +1191,38 @@
  ostentoso ( ) 
  ostentosamente ( ADVERB ) lemma=ostentoso 
  ostentosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ostentoso 
- osteoartropatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteoartrosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteoblastos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=osteoblasto 
+ osteoartropatía ( NOUN NOUN_SINGULAR ) 
+ osteoartrosis ( NOUN NOUN_SINGULAR ) 
+ osteoblastos ( NOUN NOUN_SINGULAR ) lemma=osteoblasto 
  osteoblasto ( ) 
  osteoblástico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- osteocalcina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteocito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteoclastos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=osteoclasto 
+ osteocalcina ( NOUN NOUN_SINGULAR ) 
+ osteocito ( NOUN NOUN_SINGULAR ) 
+ osteoclastos ( NOUN NOUN_SINGULAR ) lemma=osteoclasto 
  osteoclasto ( ) 
  osteogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- osteoide ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ osteoide ( NOUN NOUN_SINGULAR ) 
  osteolítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- osteomalacia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteomielitis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteopatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- osteoporosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ osteomalacia ( NOUN NOUN_SINGULAR ) 
+ osteomielitis ( NOUN NOUN_SINGULAR ) 
+ osteopatía ( NOUN NOUN_SINGULAR ) 
+ osteoporosis ( NOUN NOUN_SINGULAR ) 
  osteoporótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- osteosclerosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ osteosclerosis ( NOUN NOUN_SINGULAR ) 
  osteotendinoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ostra ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ostracismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ostra ( NOUN NOUN_SINGULAR ) 
+ ostracismo ( NOUN NOUN_SINGULAR ) 
  otario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  otea ( VERB ) lemma=otear 
  otear ( ) 
- otitis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ otitis ( NOUN NOUN_SINGULAR ) 
  otorgar ( VERB_INFINITIVE VERB ) 
  otorgada ( VERB_PAST_PARTICIPLE VERB ) lemma=otorgar 
  otorgadas ( VERB_PAST_PARTICIPLE VERB ) lemma=otorgar 
  otorgados ( VERB_PAST_PARTICIPLE VERB ) lemma=otorgar 
- otorgamiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ otorgamiento ( NOUN NOUN_SINGULAR ) 
  otorgando ( NOUN NOUN_GERUND ) lemma=otorgar 
- otorgante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ otorgante ( NOUN NOUN_SINGULAR ) 
  otorgarla (                 VERB ) lemma=otorgar 
  otorgarlas (                 VERB ) lemma=otorgar 
  otorgarle (                 VERB ) lemma=otorgar 
@@ -1236,81 +1236,81 @@
  otorgándome ( NOUN NOUN_GERUND ) lemma=otorgar 
  otorgársela (                 VERB ) lemma=otorgarse 
  otorrinolaringológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- otorrinolaringólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- otoscopio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- otoño ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ otorrinolaringólogo ( NOUN NOUN_SINGULAR ) 
+ otoscopio ( NOUN NOUN_SINGULAR ) 
+ otoño ( NOUN NOUN_SINGULAR ) 
  otra ( ) lemma=otro 
  otro ( ) 
  otras ( ) lemma=otro 
  otros ( ) lemma=otro 
  ouabaíno ( ADJECTIVE ADJECTIVE_NORMAL ) 
- outplacement ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- outputs ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=output 
+ outplacement ( NOUN NOUN_SINGULAR ) 
+ outputs ( NOUN NOUN_SINGULAR ) lemma=output 
  output ( ) 
  ovacionado ( VERB_PAST_PARTICIPLE VERB ) lemma=ovacionar 
  ovacionar ( ) 
  ovacionados ( VERB_PAST_PARTICIPLE VERB ) lemma=ovacionar 
  ovacionaron ( VERB ) lemma=ovacionar 
- ovaciones ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`ovación`ovacionar` NC  VLfin 
+ ovaciones ( NOUN VERB NOUN_SINGULAR ) lemma=`ovación`ovacionar` NC  VLfin 
  ovacionó ( VERB ) lemma=ovacionar 
- ovación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ovación ( NOUN NOUN_SINGULAR ) 
  oval ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ovalada ( VERB_PAST_PARTICIPLE VERB ) lemma=ovalar 
  ovalar ( ) 
  ovalado ( VERB_PAST_PARTICIPLE VERB ) lemma=ovalar 
- ovario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ovario ( NOUN NOUN_SINGULAR ) 
  ovas ( VERB ) lemma=ovar 
  ovar ( ) 
  ove ( VERB ) lemma=ovar 
- oveja ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- overoles ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=overol 
+ oveja ( NOUN NOUN_SINGULAR ) 
+ overoles ( NOUN NOUN_SINGULAR ) lemma=overol 
  overol ( ) 
- oviducto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oviducto ( NOUN NOUN_SINGULAR ) 
  ovina ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ovino 
  ovino ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ovinas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ovino 
  ovinos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ovino 
- ovoalbúmina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ovocito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ovulación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ovoalbúmina ( NOUN NOUN_SINGULAR ) 
+ ovocito ( NOUN NOUN_SINGULAR ) 
+ ovulación ( NOUN NOUN_SINGULAR ) 
  ovular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ovárico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  ováricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ovárico 
- oxalacetato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxalacetato ( NOUN NOUN_SINGULAR ) 
  oxalatar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- oxandialona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxandialona ( NOUN NOUN_SINGULAR ) 
  oxidar ( VERB_INFINITIVE VERB ) 
- oxidaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=oxidación 
- oxidación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oxidación-reducción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxidaciones ( NOUN NOUN_SINGULAR ) lemma=oxidación 
+ oxidación ( NOUN NOUN_SINGULAR ) 
+ oxidación-reducción ( NOUN NOUN_SINGULAR ) 
  oxidada ( VERB_PAST_PARTICIPLE VERB ) lemma=oxidar 
  oxidadas ( VERB_PAST_PARTICIPLE VERB ) lemma=oxidar 
  oxidados ( VERB_PAST_PARTICIPLE VERB ) lemma=oxidar 
  oxidando ( NOUN NOUN_GERUND ) lemma=oxidar 
- oxidantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=oxidante 
+ oxidantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=oxidante 
  oxidante ( ) 
- oxidasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxidasa ( NOUN NOUN_SINGULAR ) 
  oxidativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oxidativo 
  oxidativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  oxidativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oxidativo 
  oxidativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=oxidativo 
- oxifenisatina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oxigenación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxifenisatina ( NOUN NOUN_SINGULAR ) 
+ oxigenación ( NOUN NOUN_SINGULAR ) 
  oxigenada ( VERB_PAST_PARTICIPLE VERB ) lemma=oxigenar 
  oxigenar ( VERB_INFINITIVE VERB ) 
  oxigenados ( VERB_PAST_PARTICIPLE VERB ) lemma=oxigenar 
- oxigenoterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxigenoterapia ( NOUN NOUN_SINGULAR ) 
  oxigénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oxihemoglobina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oxitocina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- oxopurínico ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxihemoglobina ( NOUN NOUN_SINGULAR ) 
+ oxitocina ( NOUN NOUN_SINGULAR ) 
+ oxopurínico ( NOUN NOUN_SINGULAR ) 
  oxálico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- oxígeno ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ oxígeno ( NOUN NOUN_SINGULAR ) 
  oy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL HAS_SUBSTITUTE ) 
  oye ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=oír 
  oyen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=oír 
  oyendo ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=oír 
- oyente ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`oyente`oír` NC  VLadj 
+ oyente ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`oyente`oír` NC  VLadj 
  oyera ( VERB ) lemma=oír 
  oyeran ( VERB ) lemma=oír 
  oyeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=oír 
@@ -1318,14 +1318,14 @@
  oyese ( VERB ) lemma=oír 
  oyéndose ( NOUN NOUN_GERUND ) lemma=oír 
  oyó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=oír 
- ozono ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ ozono ( NOUN NOUN_SINGULAR ) 
  oí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=oír 
  oíá ( VERB ) lemma=oír 
  oíamos ( VERB ) lemma=oír 
  oíán ( VERB ) lemma=oír 
  oída ( VERB_PAST_PARTICIPLE VERB ) lemma=oír 
  oídas ( VERB_PAST_PARTICIPLE VERB ) lemma=oír 
- oído ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL NOUN_GERUND ) lemma=oír 
+ oído ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_GERUND ) lemma=oír 
  oíme ( VERB ) lemma=oír 
  oímos ( VERB_PRESENT VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=oír 
  oírla (                 VERB ) lemma=oír 

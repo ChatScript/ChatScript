@@ -1,11 +1,14 @@
 # ChatScript Finalizing a Bot Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 6/20/2022 cs12.2
+<br>Revision 10/16/2022 cs12.3
 
 OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should
 polish it. There are a bunch of tools to do this.
 
-## Verification (`:verify`)
+## Verification (`:verify` and `:verifylist :verifyrun :verifymatch`)
+
+There are two verification systems with slightly different purposes and abilities. They
+both depend on sample input comments.  
 
 When I write a topic, before every rejoinder and every responder, I put a sample input
 comment. This has #! as a prefix. E.g.,
@@ -25,17 +28,64 @@ s: (I * ~hate * food) Too bad.
 ```
 
 This serves two functions. First, it makes it easy to read a topic-- you don't have to
-interpret pattern code to see what is intended. Second, it allows the system to verify your
+interpret pattern code to see what is intended. And you can use :abstract to give people 
+a written abstract of your bot sans a bunch of actual code.
+
+Second, it allows the system to verify your
 code in various ways. It is the "unit test" of a rule. If you've annotated your topics in this
-way, you can issue :verify commands.
+way, you can issue different :verify commands. You can run this regularly on your bot to 
+prove you haven't broken things as you continue to modify it.
 
-### Generic :verify
+The basic `:verify` command can check your sample inputs in a number of ways (to be described)
+but has a limited ability to set up the conversation environment before the test. The more elaborate
+`:verifylist, :verifyrun, :verifymatch` trilogy has much more control.
 
-You can ask ChatScript to execute all of your verify data as sample inputs. `:verifyList` will generate
-all of your verification data as sample inputs in tmp/tmp.txt (by default or you can name a file).
-You can then issue :verifyRun (defaults to tmp/tmp.txt or you can name a file). This will execute
-each input as though coming in with no current topic (all topics will be treated as nostay).
-:verifyMatch will then tell you all the inputs that didn't output from the expected rule.
+Some bots can support multiple languages, changed on the fly. Or multiple personas that all share
+the same bot. Regressing these requires such control.  One uses special VERIFY commands which
+can call functions or set variables during a test run. Here is a sample file which normally 
+requires you be in english before you can use this topic (there are corresponding topics for other
+languages).
+```
+topic: ~SOCCER_en_US  system REPEAT (CHAT-TOPIC)
+
+#! VERIFY ^setlanguagecontext(en_US)
+u: () ^check_language(en_US)
+
+#! What's your favorite soccer team?
+?: (<<[best fave favorite] soccer [team club organization]>>) Madrid Real of course!
+
+#! Do you like soccer?
+?: (<<like soccer>>) Sure, what is your favorite club?
+
+#! Who's your favorite soccer player?
+?: (<<[best fave favorite]  soccer player>>) No one can bend it like Pele!
+
+#! VERIFY ^setlanguagecontext(null)
+```
+When regression runs this topic, it will set the language to english, run the test,
+and then set the language back to what it was before.
+
+These #! VERIFY comments can be stacked in succession  and also accept:
+```
+#! VERIFY $var = value
+#! VERIFY %time = value
+#! VERIFY trace = all
+#! VERIFY trace = none
+#!  Do you like this?
+```
+To use this system, you start by doing `:verifylist` which will read your compiled bot and generate
+the file tmp/tmp.txt with top level rule commands to execute and expectations of where they end up.  
+It does not generate tests on rejoinders. Then if you say `:verifyrun` those commands are
+executed, generating a user log file. Then `:verifymatch` will generate a csv file whose columns are:
+Expected, Actual, Input, Persona, Response. Expected and Actual are rule labels. Input is from the
+verification sample input. If your bot as part of its oob output has a field of bot: and a botname (personality)
+then that is listed here as who said it. And finally the actual text of the response is shown.  By
+default this file only contains failing tests. You can limit the csv to a specific language and/or bot
+and can request all tests be shown. The result of :verifyrun is the full data, so :verifymatch can be run
+multiple times to get different slices of the results.
+```
+:verifymatch language:en_us bot:roger all
+```
 
 There is a special verification input you can issue:
 ```
@@ -44,6 +94,7 @@ There is a special verification input you can issue:
 When execution of a verify input is being done, when the topic with the name of the ~topicname sees this
 input, it will perform an assignment of the named variable with the named value. This is useful for enabling 
 and disabling topics that might conflict.  Eg.
+
 ```
 topic: ~awe_en_US keep repeat ()
 #! ~awe_event $event_context = awe_event
@@ -58,15 +109,20 @@ will not react during this topic's verify input.)  At the end of the topic we ha
 u: ()
 ```
 
-This turns off the context set during verify.
-
 ### Detailed :Verify
+
+The :verifylist/:verifyrun/:verifymatch system has good control over the running environment
+but limits itself to telling you something doesn't match. You have to debug why yourself.
+
+The simple `:verify` command can perform different test analyses.
 
 Typically I start with proving the patterns work everywhere.
 
 ```
 :verify pattern
 ```
+The shows that all rule's patterns would actually match the sample input. At a minimum your
+pattern MUST do that.
 
 Then I confirm keywords to access topics are OK.
 

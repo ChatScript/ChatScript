@@ -9,7 +9,7 @@ t: ( %input<%userfirstline %input>0 )
 #!x matches every time on startup of a new conversation
 t: ( %input<%userfirstline ) 
 	^keep()   
-	Welcome to ChatScript.
+	Welcome to ChatScript. 
 
 #!x issued only once, then erased
 t: Have you been here before?

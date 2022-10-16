@@ -458,7 +458,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 	if (IsDate(original))
 	{
 		uint64 properties = NOUN | NOUN_SINGULAR;
-		canonical = entry = StoreWord(original, properties, TIMEWORD);
+		canonical = entry = StoreFlaggedWord(original, properties, TIMEWORD);
 		cansysflags = sysflags = entry->systemFlags | TIMEWORD;
 		return properties;
 	}
@@ -482,8 +482,8 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		if (*word)
 		{
 			properties = NOUN | NOUN_NUMBER | ADJECTIVE | ADJECTIVE_NUMBER;
-			entry = StoreWord(original, properties, TIMEWORD);
-			canonical = StoreWord(word, properties, TIMEWORD);
+			entry = StoreFlaggedWord(original, properties, TIMEWORD);
+			canonical = StoreFlaggedWord(word, properties, TIMEWORD);
 			sysflags = entry->systemFlags | TIMEWORD| NOUN_NODETERMINER;
 			cansysflags = canonical->systemFlags | TIMEWORD;
 			return properties;
@@ -509,7 +509,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		if (!*at && colon == 1) // was completely digits and a single colon
 		{
 			properties = NOUN | NOUN_NUMBER | ADJECTIVE | ADJECTIVE_NUMBER;
-			entry = canonical = StoreWord(original, properties, NOUN_NODETERMINER);
+			entry = canonical = StoreFlaggedWord(original, properties, NOUN_NODETERMINER);
 			return properties;
 		}
 
@@ -559,7 +559,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 				val += basenumber;
 				WriteFloat(number, val);
 				properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
-				if (!entry) entry = StoreWord(original, properties, NOUN_NODETERMINER);
+				if (!entry) entry = StoreFlaggedWord(original, properties, NOUN_NODETERMINER);
 				canonical = FindWord(number, 0, PRIMARY_CASE_ALLOWED);
 				if (canonical) properties |= canonical->properties;
 				else canonical = StoreWord(number, properties);
@@ -606,7 +606,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		double val = (double)(val1 / 100.0);
 		WriteFloat(number,  val);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
-		entry = StoreWord(original, properties, NOUN_NODETERMINER);
+		entry = StoreFlaggedWord(original, properties, NOUN_NODETERMINER);
 		canonical = StoreWord(number, properties);
 		properties |= canonical->properties;
 		sysflags = entry->systemFlags| NOUN_NODETERMINER;
@@ -633,8 +633,8 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		WriteFloat(number, val);
 		properties = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER;
 		*br = c;
-		entry = StoreWord(original, properties, NOUN_NODETERMINER);
-		canonical = StoreWord(number, properties, NOUN_NODETERMINER);
+		entry = StoreFlaggedWord(original, properties, NOUN_NODETERMINER);
+		canonical = StoreFlaggedWord(number, properties, NOUN_NODETERMINER);
 		properties |= canonical->properties;
 		sysflags = entry->systemFlags| NOUN_NODETERMINER;
 		cansysflags = canonical->systemFlags| NOUN_NODETERMINER;
@@ -730,7 +730,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		}
 		if (percent) original[len - 1] = '%';
 	}
-	canonical = StoreWord(number, properties, sysflags);
+	canonical = StoreFlaggedWord(number, properties, sysflags);
 	cansysflags |= sysflags;
 
 	// other data already existing on the number
@@ -784,7 +784,7 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 			entry = FindWord((char*)"'s", 0, PRIMARY_CASE_ALLOWED);
 		}
 	}
-	entry = StoreWord(original, properties, sysflags);
+	entry = StoreFlaggedWord(original, properties, sysflags);
 	sysflags |= entry->systemFlags;
 	cansysflags |= canonical->systemFlags;
 	return properties;
@@ -799,7 +799,7 @@ bool KnownUsefulWord(WORDP entry)
 		FACT* F = GetSubjectNondeadHead(entry);
 		while (F)
 		{
-			if (ValidMemberFact(F))
+			if (F->verb == Mmember)
 			{
 				known = true;
 				break;
@@ -869,7 +869,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
 	canonical = NULL;  
-	if (at < 1) { ; } // not from sentence
+	if (at < 1) { } // not from sentence
 	else if (canonicalLower[at]) canonical = canonicalLower[at];  // note canonicalLower may already be set by external postagging
 	else if (canonicalUpper[at]) canonical = canonicalUpper[at];  // note canonicalUpper may already be set by external postagging
 	entry = 0;
@@ -900,9 +900,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		}
 	}
 
-	bool csEnglish = !stricmp(language, "english");
-	bool isGerman = !stricmp(language, "german");
-	bool isSpanish = !stricmp(language, "spanish");
+	bool csEnglish = !stricmp(current_language, "english");
+	bool isGerman = !stricmp(current_language, "german");
+	bool isSpanish = !stricmp(current_language, "spanish");
 
 	// number processing has happened
 	int numberkind = IsNumber(original, numberStyle);
@@ -980,8 +980,8 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 
 	if (entry && entry->internalBits & CONDITIONAL_IDIOM) 
 	{
-		char* script = entry->w.conditionalIdiom;
-		if (script[1] != '=') return entry->properties; // has conditions, is not absolute and may be overruled
+		char* script = entry->w.conditionalIdiom->word;
+		if (script && script[1] != '=') return entry->properties; // has conditions, is not absolute and may be overruled
 	}
 	if (entry && !KnownUsefulWord(entry)) entry = 0; // not a word we actually know (might be phrase starter like Wait)
 
@@ -1035,7 +1035,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			else startOfTail = domainEnd - original;
 			PartialLowerCopy(word,original,startOfTail,strlen(original) - 1);
 		}
-		entry = canonical = StoreWord(word,properties,WEB_URL); 
+		entry = canonical = StoreFlaggedWord(word,properties,WEB_URL);
 		cansysflags = sysflags = WEB_URL;
 		return properties;
 	}
@@ -1188,20 +1188,14 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	{
 		if (!entry) entry = FindWord(original, 0, SECONDARY_CASE_ALLOWED); // Try harder to find the foreign word, e.g. German wochentag -> Wochentag
 		if (entry && !properties) canonical = GetCanonical(entry);
-#ifdef NEVER_RUN
-		if (false && entry) // need dynamic pronoun data
-		{
-			sysflags = entry->systemFlags;
-			return entry->properties;
-		}
-#endif 
 		return ComputeSpanish(at, original, entry, canonical, sysflags);
 	}
 
 	/////// WHETHER OR NOT WE KNOW THE WORD, IT MIGHT BE ALSO SOME OTHER WORD IN ALTERED FORM (like plural noun or comparative adjective)
 	char lower[MAX_WORD_SIZE];
-
-	if (csEnglish && !(properties & VERB_BITS) && (at == start || !IsUpperCase(*original))) // could it be a verb we dont know directly (even if we know the word)
+	// multidict might set verb on other language but not proper tensing for english
+	// eg filling in english is noun in dict, not listed as verb, but spanish lists it as verb (with no tense)
+	if (csEnglish && (multidict || !(properties & VERB_BITS)) && (at == start || !IsUpperCase(*original))) // could it be a verb we dont know directly (even if we know the word)
 	{
 		MakeLowerCopy(lower,original);
 		char* verb =  GetInfinitive(lower,true); 
@@ -1219,7 +1213,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		}
 	}
 	
-	if (csEnglish && !(properties & (NOUN_BITS|PRONOUN_BITS))) // could it be plural noun we dont know directly -- eg dogs or the plural of a singular we know differently-- "arms is both singular and plural" - avoid pronouns like "his" or "hers"
+	if (csEnglish && (multidict || !(properties & (NOUN_BITS|PRONOUN_BITS)))) // could it be plural noun we dont know directly -- eg dogs or the plural of a singular we know differently-- "arms is both singular and plural" - avoid pronouns like "his" or "hers"
 	{
 		MakeLowerCopy(lower,original);
 		WORDP X = FindWord(original,0,LOWERCASE_LOOKUP);
@@ -1228,38 +1222,42 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			properties |= X->properties & NOUN_BITS;
 			if (!entry) entry = canonical = X;
 		}
-		char* noun = GetSingularNoun(original, true, true);
-		if (noun) // we know it's root as a noun
+		char* lcnoun = GetSingularNoun(original, true, true);
+		if (lcnoun) // we know it's root as a noun
 		{
 			X = StoreWord(original, NOUN);
-			if (!entry)
+			uint64 which = NOUN_SINGULAR;
+			if (!canonical)
 			{
-				canonical = StoreWord(noun, NOUN | NOUN_SINGULAR);
-				entry = X;
+				if (X->internalBits & UPPERCASE_HASH)  which = NOUN_PROPER_SINGULAR;
+				canonical = StoreWord(lcnoun, NOUN | which);
 			}
-			uint64 which;
-			if (original[len-1] == 's') which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_PLURAL : NOUN_PLURAL;
-			else which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_SINGULAR : NOUN_SINGULAR;
-			AddProperty(X, which);
+			if (!entry) entry = X;
+			if (strcmp(original, lcnoun)) // orig must be plural
+			{
+				if (original[len - 1] == 's') which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_PLURAL : NOUN_PLURAL;
+				else which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_PLURAL : NOUN_PLURAL;
+			}
 			properties |= NOUN | which;
+			AddProperty(X, which);
 		}
 		else if (original[len-1] == 's')
 		{
-			if (noun && strcmp(noun,original)) 
+			if (lcnoun && strcmp(lcnoun,original)) 
 			{
 				X = StoreWord(original,NOUN);
 				if (!entry) entry = X;
 				uint64 which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_PLURAL : NOUN_PLURAL;
 				AddProperty(X,which);
 				properties |= NOUN|which;
-				if (!canonical) canonical = FindWord(noun,0,PRIMARY_CASE_ALLOWED); // 2ndary preference for canonical is noun
+				if (!canonical) canonical = FindWord(lcnoun,0,PRIMARY_CASE_ALLOWED); // 2ndary preference for canonical is noun
 
 				// can it be a number?
-				unsigned int kind =  IsNumber(noun, numberStyle);
+				unsigned int kind =  IsNumber(lcnoun, numberStyle);
 				char number[MAX_WORD_SIZE];
 				if (kind != NOT_A_NUMBER && kind != PLACETYPE_NUMBER) // do not decode seconds to second Place, but tenths can go to tenth
 				{
-					int64 val = Convert2Integer(noun, numberStyle);
+					int64 val = Convert2Integer(lcnoun, numberStyle);
 					if (val < 1000000000 && val >  -1000000000)
 					{
 						int smallval = (int) val;
@@ -1274,13 +1272,13 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		#endif
 					}
 					properties = NOUN|NOUN_NUMBER;
-					canonical = StoreWord(number,properties,sysflags);
+					canonical = StoreFlaggedWord(number,properties,sysflags);
 				}
 			}
 		}
 	}
 
-	if (csEnglish && !(properties & ADJECTIVE_BITS) && (at == start || !IsUpperCase(*original)) && len > 3) // could it be comparative adjective we werent recognizing even if we know the word
+	if (csEnglish && (multidict || !(properties & ADJECTIVE_BITS)) && (at == start || !IsUpperCase(*original)) && len > 3) // could it be comparative adjective we werent recognizing even if we know the word
 	{
 		MakeLowerCopy(lower,original);
 		if (lower[len-1] == 'r' && lower[len-2] == 'e' && !canonical) // if canonical its like "slaver" and should never be reduced
@@ -1309,7 +1307,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		}
 	}
 
-	if (csEnglish && !(properties & ADVERB) && !(properties & (NOUN|VERB)) && (at == start || !IsUpperCase(*original)) && len > 3) // could it be comparative adverb even if we know the word
+	if (csEnglish && (multidict || (!(properties & ADVERB) && !(properties & (NOUN|VERB))))  && (at == start || !IsUpperCase(*original)) && len > 3) // could it be comparative adverb even if we know the word
 	{
 		MakeLowerCopy(lower,original);
 		if (lower[len-1] == 'r' && lower[len-2] == 'e'  && !canonical)
@@ -1344,7 +1342,11 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		if (properties & (VERB | NOUN_GERUND))
 		{
 			char* inf = GetInfinitive(original, true);
-			if (inf) canonical = FindWord(inf, 0, PRIMARY_CASE_ALLOWED); // verb or known gerund (ing) or noun plural (s) which might be a verb instead
+			if (inf)
+			{
+				canonical = FindWord(inf, 0, PRIMARY_CASE_ALLOWED); // verb or known gerund (ing) or noun plural (s) which might be a verb instead
+				properties |= verbFormat;
+			}
 		}
 		if (!canonical && properties & (MORE_FORM | MOST_FORM)) // get base form
 		{
@@ -1556,13 +1558,14 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 						sysflags |= X->systemFlags & (NOUN_NODETERMINER);
 					}
 
-					entry = StoreWord(original,properties,sysflags);
+					entry = StoreFlaggedWord(original,properties,sysflags);
 					strcpy(tmpword,original);
 					strcpy(tmpword+(hyphen+1-original),noun);
-					if (!canonical || !stricmp(canonical->word,original)) canonical = StoreWord(tmpword,NOUN|NOUN_SINGULAR,sysflags);
+					if (!canonical || !stricmp(canonical->word,original)) canonical = StoreFlaggedWord(tmpword,NOUN|NOUN_SINGULAR,sysflags);
 				}
 			}
-			char* verb = GetInfinitive(hyphen+1,true);
+			char* verb = NULL;
+			if (strncmp(original,"ex-",3)) 	verb = GetInfinitive(hyphen + 1, true);
 			if (verb)
 			{
 				X = FindWord(verb,0,PRIMARY_CASE_ALLOWED);
@@ -1593,8 +1596,8 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 #endif
 					*hyphen = '-';
 					properties = NOUN|NOUN_NUMBER|ADJECTIVE|ADJECTIVE_NUMBER;
-					entry = StoreWord(original,properties,TIMEWORD|MODEL_NUMBER);
-					canonical = StoreWord(tmpword,properties,TIMEWORD|MODEL_NUMBER);
+					entry = StoreFlaggedWord(original,properties,TIMEWORD|MODEL_NUMBER);
+					canonical = StoreFlaggedWord(tmpword,properties,TIMEWORD|MODEL_NUMBER);
 					sysflags |= MODEL_NUMBER | TIMEWORD;
 					cansysflags |= MODEL_NUMBER|TIMEWORD;
 					return properties;
@@ -1798,7 +1801,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	//if (properties & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL) && *wordStarts[at+1] == '\'' && (wordStarts[at+1][1] == 0 || wordStarts[at+1][1] == 's')) flags |= ADJECTIVE_NOUN; 
 	//if (properties & NOUN_PROPER_SINGULAR && !(tokenControl & TOKEN_AS_IS)) flags |= ADJECTIVE_NOUN; // could be before "*US president"
 
-	if (properties & VERB_INFINITIVE) properties |= NOUN_INFINITIVE;
+	// life-guard has guard, but we dont think it will become a noun-infinitive
+	if (properties & VERB_INFINITIVE && !strchr(original,'-'))
+		properties |= NOUN_INFINITIVE;
 	if (properties & (VERB_PRESENT_PARTICIPLE|VERB_PAST_PARTICIPLE) && !(properties & AUX_VERB)) // potential aux verbs will never be adjective participle
 	{
 		properties |= ADJECTIVE_PARTICIPLE|ADJECTIVE;
@@ -1809,7 +1814,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (entry) sysflags |= entry->systemFlags;
 
 	// adjective noun?
-	if (!compiling && properties & NOUN_BITS)
+	if (!compiling && properties & NOUN_BITS && at > 0)
 	{
 		if (*wordStarts[at + 1] == '\'') properties |= ADJECTIVE_NOUN;
 	}
@@ -2363,6 +2368,12 @@ WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 b
 	if (stricmp(word + lenword - lensuffix, suffix)) return NULL; // not possible does not end
 	strcpy(copy, word);
 
+	if (!stricmp(suffix, "ed"))
+	{
+		D = FindWord(word, strlen(word) - 2, LOWERCASE_LOOKUP); // banked
+		if (D && D->properties & bits) return D;
+	}
+
 	if (!stricmp(suffix, "ing") && copy[lenword - lensuffix - 1] == 'k') // possible k replacing c or added after c
 	{
         int lenprefix = lenword - lensuffix;
@@ -2435,7 +2446,10 @@ WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 b
 
 	if (copy[lenword - lensuffix - 1] == 'k' ) // possible k replacing c or added after c
 	{
-		D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouacked
+        D = FindWord(copy, lenword - lensuffix, LOWERCASE_LOOKUP); // talked not talc
+        if (D && D->properties & bits) return D;
+
+        D = FindWord(copy, lenword - lensuffix - 1, LOWERCASE_LOOKUP); // bivouacked
 		size_t l = (D) ? strlen(D->word) : 0;
 		if (D && D->properties & bits && D->word[l-1] == 'c') return D; // k added AFTER c
 		
@@ -2464,7 +2478,7 @@ WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 b
 			{
 				char newword[MAX_WORD_SIZE];
 				sprintf(newword, "%s%s", X->word, hyphen);
-				return StoreWord(newword, AS_IS | X->properties,X->systemFlags);
+				return StoreFlaggedWord(newword, AS_IS | X->properties,X->systemFlags);
 			}
 		}
 	}
@@ -2772,6 +2786,7 @@ char* GetInfinitive(char* word, bool nonew)
 		for (int i = 0; i < cnt; ++i) //   get its components  dash-it
 		{
 			strcpy(words[i],GetBurstWord(i));
+			if (!strcmp(words[i], "ex")) return NULL; // ex whatever will be noun
 			lens[i] = strlen(words[i]);
 			lenx += lens[i];
 			if ((i+1) == cnt) separators[i] = 0; // no final separator
@@ -2866,6 +2881,7 @@ char* GetPluralNoun(char* noun,char* plu)
 	 char* underscore = strrchr(noun, '_');
 	 if (underscore)
 	 {
+         if (!*(underscore + 1)) return NULL;
 		 char extra[MAX_WORD_SIZE];
 		 char* plur = GetPluralNoun(underscore + 1, extra);
 		 if (plur)
@@ -3056,20 +3072,47 @@ uint64 ProbableNoun(char* original,unsigned int len) // from suffix might it be 
 }
 
 char* GetSingularNoun(char* word, bool initial, bool nonew)
-{ 
+{ // multidict merging onto universal may cause extraneous noun properties, leaving us more confused.
  	if (!word || !*word || *word == '~') return NULL;
 	uint64 controls = PRIMARY_CASE_ALLOWED;
 	nounFormat = 0;
     size_t len = strlen(word);
     WORDP D = FindWord(word,0,controls);
 	if (IS_NEW_WORD(D) || !(D->properties & NOUN_BITS)) D = NULL;
-	nounFormat = NOUN_SINGULAR;
-	if (D && D->properties & NOUN_PROPER_SINGULAR) //   is already singular
-	{
-		nounFormat = NOUN_PROPER_SINGULAR;
-		return D->word;
-	}
 
+	// try for easy wins
+	if (D)
+	{
+		// clearly defined bits on our entry
+		if ((D->properties & NOUN_PLURALITY) == NOUN_PROPER_SINGULAR) //   is already singular
+		{
+			nounFormat = NOUN_PROPER_SINGULAR;
+			return D->word;
+		}
+		if ((D->properties & NOUN_PLURALITY) == NOUN_SINGULAR) //   is already singular
+		{
+			nounFormat = NOUN_SINGULAR;
+			return D->word;
+		}
+		// noun proper plural not tested, rare
+
+		WORDP plurality = GetPlural(D);
+		if (plurality) // this will yield the opposite plurality from currently, if irregular noun
+		{
+			// clear bits on the opposite entry
+			if ((plurality->properties & NOUN_PLURALITY) == NOUN_SINGULAR)
+			{
+				nounFormat = NOUN_SINGULAR;  // we were plural
+				return plurality->word;
+			}
+			if ((plurality->properties & NOUN_PLURALITY) == NOUN_PLURAL)
+			{
+				nounFormat = NOUN_SINGULAR; // we were already singular
+				return D->word;
+			}
+		}
+	}
+	nounFormat = NOUN_SINGULAR;
 	char* underscore = strrchr(word, '_');
 	if (!D && underscore)
 	{
@@ -3087,7 +3130,6 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 			if (X->properties & (NOUN_PLURAL | NOUN_PROPER_PLURAL))
 				return NULL; // this is plural, we couldnt get a singular
 		}
-
 		D = NULL;
 	}
 
@@ -3107,7 +3149,7 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 		}
 
         //   HOWEVER, some singulars are plurals--- words has its own meaning as well
-        unsigned int lenx = D->length;
+        unsigned int lenx = WORDLENGTH(D);
         if (lenx > 4 && D->word[lenx-1] == 's')
         {
             WORDP F = FindWord(D->word,lenx-1,controls);
@@ -3115,12 +3157,7 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
         }
         return D->word; 
     }
-	WORDP plural = (D) ? GetPlural(D) : NULL;
-    if (D  && D->properties & NOUN_PLURAL && plural) 
-	{
-		nounFormat = NOUN_PLURAL;
-		return plural->word; //   get singular form from plural noun
-	}
+    
 
 	if (D && D->properties & NOUN && !(D->properties & NOUN_PLURAL) && !(D->properties & (NOUN_PROPER_SINGULAR|NOUN_PROPER_PLURAL))) return D->word; //   unmarked as plural, it must be singular unless its a name
     if (!D && IsNumber(word, numberStyle) != NOT_A_NUMBER)  return word;
@@ -3183,7 +3220,6 @@ char* GetSingularNoun(char* word, bool initial, bool nonew)
 	return InferNoun(word,len);
 }
 
-
 static char* InferAdverb(char* original, unsigned int len) // might it be adverb based on suffix? if so, enter into dictionary
 {
 	char word[MAX_WORD_SIZE];
@@ -3204,7 +3240,7 @@ static char* InferAdverb(char* original, unsigned int len) // might it be adverb
 			char word1[MAX_WORD_SIZE];
 			strcpy(word1,word);
 			word1[len-2] = 0;
-			base =  StoreWord(word,ADVERB,0);
+			base =  StoreFlaggedWord(word,ADVERB,0);
 			//SetComparison(E,MakeMeaning(base));
 			//SetComparison(base,MakeMeaning(E));
 		}
@@ -3221,7 +3257,7 @@ static char* InferAdverb(char* original, unsigned int len) // might it be adverb
 			char word1[MAX_WORD_SIZE];
 			strcpy(word1,word);
 			word1[len-2] = 0;
-			base =  StoreWord(word,ADVERB,0);
+			base =  StoreFlaggedWord(word,ADVERB,0);
 			//SetComparison(E,MakeMeaning(base));
 			//SetComparison(base,MakeMeaning(E));
 		}
@@ -3229,7 +3265,7 @@ static char* InferAdverb(char* original, unsigned int len) // might it be adverb
 	}
 	if (flags) 
 	{
-		WORDP E = StoreWord(word,flags,PROBABLE_ADVERB|expectedBase);
+		WORDP E = StoreFlaggedWord(word,flags,PROBABLE_ADVERB|expectedBase);
 		return E->word;
 	}
 
@@ -3449,7 +3485,7 @@ static char* InferAdjective(char* original, unsigned int len) // might it be adj
 			char word1[MAX_WORD_SIZE];
 			strcpy(word1,word);
 			word1[len-3] = 0;
-			base =  StoreWord(word,ADJECTIVE|ADJECTIVE_NORMAL,0);
+			base =  StoreFlaggedWord(word,ADJECTIVE|ADJECTIVE_NORMAL,0);
 			//SetComparison(E,MakeMeaning(base));
 			//SetComparison(base,MakeMeaning(E));
 		}
@@ -3470,7 +3506,7 @@ static char* InferAdjective(char* original, unsigned int len) // might it be adj
 			char word1[MAX_WORD_SIZE];
 			strcpy(word1,word);
 			word1[len-2] = 0;
-			base =  StoreWord(word,ADJECTIVE|ADJECTIVE_NORMAL,0);
+			base =  StoreFlaggedWord(word,ADJECTIVE|ADJECTIVE_NORMAL,0);
 			//SetComparison(E,MakeMeaning(base));
 			//SetComparison(base,MakeMeaning(E));
 		}

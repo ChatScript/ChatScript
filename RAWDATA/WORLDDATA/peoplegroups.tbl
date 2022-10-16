@@ -8,7 +8,7 @@ concept: ~nfc-south_football_team()
 concept: ~aFC-South_football_team()
 concept: ~afc-north_football_team()
 concept: ~football_teams NOUN NOUN_PROPER_SINGULAR (~AFC-EAST_FOOTBALL_TEAM ~AFC-NORTH_FOOTBALL_TEAM ~AFC-SOUTH_FOOTBALL_TEAM ~AFC-WEST_FOOTBALL_TEAM ~NFC-EAST_FOOTBALL_TEAM ~NFC-NORTH_FOOTBALL_TEAM ~NFC-SOUTH_FOOTBALL_TEAM 
-          ~NFC-WEST_FOOTBALL_TEAM 49ers Bears Colts Patriots Ravens Saints Steelers Vikings )
+          ~NFC-WEST_FOOTBALL_TEAM 49ers Bears Colts Patriots Ravens Saints Steelers Vikings Seahawks)
 
 table: ~groups  ( ^set ^group)
 ^addproperty(^group NOUN_HUMANGROUP NOUN NOUN_PROPER_SINGULAR)

@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1 id="chatscript-analytics-manual">ChatScript Analytics Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com <br>Revision 1/31/2018 cs8.0 <br> <br> Your bot has been written and debugged and released. You are getting log files from users. What can you learn from them? That's the job of the analytics tools.</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com <br>Revision 10/16/2022 cs12.3</p>
+<p><br> <br> Your bot has been written and debugged and released. You are getting log files from users. What can you learn from them? That's the job of the analytics tools.</p>
 <h1 id="components-of-a-log-file">Components of a log file</h1>
 <p>A typical log file will have one or more “Start” lines and some number of “Respond” lines.</p>
 <pre><code>Start: user:test bot:rose ip: rand:3089 (~introductions) 0 ==&gt; Hello, I&#39;m Rose. When:Jan15&#39;16-17:03:44 Version:6.02 Build0:Jan15&#39;16-15:39:48
@@ -60,6 +61,8 @@ s: &quot;Knock&quot; =&gt; Who&#39;s there? </code></pre>
 <p>will prettyprint and rewrite patterns using the canonical form of words.</p>
 <pre><code>:abstract nocode </code></pre>
 <p>will not display rules that only have code output You can do all topics in a file by naming the file name instead of the topicname. Don't use the full path, just the actual name of the file.</p>
+<h1 id="what-happened---splitlog">What happened - <code>:splitlog</code></h1>
+<p>Given a cs log file , it will create a csv file tmp/log.csv which contains each volley with columns input, output, why (rulename of rule generating output), and botname.</p>
 <h1 id="time-view-over-log-file---timelog">Time View over Log file - <code>:timelog</code></h1>
 <p>Given a log file (usually a server log), it will compute the average, min, and max NLU engine response times of the volleys. And for LINUX, how long it took from first detection of incoming connection to get to the engine (including reading incoming data).</p>
 <h1 id="views-over-user-logs---trim">Views over User Logs - <code>:trim</code></h1>

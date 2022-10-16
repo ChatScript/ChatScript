@@ -3,11 +3,8 @@
 
 /*
 	©2012–2015 · Serge Zaitsev · zaitsev DOT serge AT gmail DOT com
-
 	Released under the MIT license.  For further information, please visit this page
-
 		http://zserge.com/jsmn.html
-
 */
 
 #ifdef __cplusplus

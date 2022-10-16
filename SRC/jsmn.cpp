@@ -14,8 +14,7 @@ Revised by Bruce Wilcox
  * Allocates a fresh unused token from the token pull.
  */
 static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser,  jsmntok_t *tokens) {
-	jsmntok_t *tok;
-	tok = &tokens[parser->toknext++];
+	jsmntok_t *tok = &tokens[parser->toknext++];
 	tok->start = tok->end = -1;
 	tok->size = 0;
 	tok->parent = -1;
@@ -25,11 +24,14 @@ static jsmntok_t *jsmn_alloc_token(jsmn_parser *parser,  jsmntok_t *tokens) {
 /**
  * Fills token type and boundaries.
  */
-static void jsmn_fill_token(jsmntok_t *token, jsmntype_t type,  int start, int end) {
+static jsmntok_t* jsmn_fill_token(jsmn_parser* parser, jsmntok_t* tokens,jsmntype_t type,  int start, int end) {
+	jsmntok_t* token = &tokens[parser->toknext++];
 	token->type = type;
 	token->start = start;
 	token->end = end;
 	token->size = 0;
+	token->parent = parser->toksuper;
+	return token;
 }
 
 /**
@@ -39,7 +41,6 @@ static void jsmn_fill_token(jsmntok_t *token, jsmntype_t type,  int start, int e
  * masquerading as a number.
  */
 static jsmnerr_t jsmn_parse_primitive(jsmn_parser *parser, const char *js, size_t len, jsmntok_t *tokens) {
-	jsmntok_t *token;
 	int start;
 
 	start = parser->pos;
@@ -68,9 +69,7 @@ static jsmnerr_t jsmn_parse_primitive(jsmn_parser *parser, const char *js, size_
 	}
 
 found:
-	token = jsmn_alloc_token(parser, tokens);
-	jsmn_fill_token(token, JSMN_PRIMITIVE, start, parser->pos);
-	token->parent = parser->toksuper;
+	jsmn_fill_token(parser,tokens, JSMN_PRIMITIVE, start, parser->pos);
 	parser->pos--;
 	return (jsmnerr_t) 0;
 }
@@ -79,21 +78,17 @@ found:
  * Filsl next token with JSON string.
  */
 static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t len, jsmntok_t *tokens) {
-	jsmntok_t *token;
-
 	int start = parser->pos;
-
 	parser->pos++;
 
 	/* Skip starting quote */
 	char c;
-	for (; parser->pos < len && js[parser->pos]; parser->pos++) {
+	for (; parser->pos < len && js[parser->pos]; parser->pos++) 
+	{
 		c = js[parser->pos];
 		/* Quote: end of string */
 		if (c == '\"') {
-			token = jsmn_alloc_token(parser, tokens);
-			jsmn_fill_token(token, JSMN_STRING, start+1, parser->pos);
-			token->parent = parser->toksuper;
+			jsmn_fill_token(parser,tokens,JSMN_STRING, start+1, parser->pos);
 			return (jsmnerr_t) 0;
 		}
 
@@ -107,10 +102,7 @@ static jsmnerr_t jsmn_parse_string(jsmn_parser *parser, const char *js, size_t l
 					for (int i = 0; i < 4 && js[parser->pos]; i++) 
 					{
 						c = js[parser->pos];
-						if ((c >= '0' && c <= '9') ||  	(c >= 'A' && c <= 'F') ||  (c >= 'a' && c <= 'f'))  
-						{
-							parser->pos++;
-						}
+						if ((c >= '0' && c <= '9') ||  	(c >= 'A' && c <= 'F') ||  (c >= 'a' && c <= 'f'))   parser->pos++;
 						else /* If it isn't a hex character we have an error */
 						{
 							parser->pos = start;
@@ -138,7 +130,8 @@ jsmnerr_t jsmn_parse(jsmn_parser *parser, const char *js, size_t len, jsmntok_t 
 	jsmntok_t *token;
 	int count = 0;
 	char c;
-	for (; parser->pos < len && js[parser->pos]; parser->pos++) 
+    if ((unsigned char)js[0] == 0xEF && (unsigned char)js[1] == 0xBB && (unsigned char)js[2] == 0xBF) parser->pos += 3;// UTF8 BOM
+	for (; parser->pos < len && js[parser->pos]; parser->pos++)
 	{
 		c = js[parser->pos];
 		jsmntype_t type;

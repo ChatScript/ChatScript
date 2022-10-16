@@ -53,6 +53,8 @@ extern bool seeAllFacts;
 
 typedef void (*FACT_FUNCTION)(FACT* F, uint64 data);
 
+inline unsigned int FactLanguage(FACT* F) { if (!F) return 0;  return (F->flags & FACTLANGUAGEBITS) << LANGUAGE_SHIFT; }
+
 // fact index accessing
 FACTOID Fact2Index(FACT* F);
 FACT* Index2Fact(FACTOID e);
@@ -66,6 +68,11 @@ void UnweaveFactSubject(FACT* F);
 void UnweaveFactVerb(FACT* F);
 void UnweaveFactObject(FACT* F);
 FACT* EarliestFact(MEANING M);
+FACT* EarliestObjectFact(MEANING M);
+int FindRecentMember(WORDP concept, char* word);
+int FindEarliestMember(WORDP concept, char* word);
+WORDP NthEarliestMember(WORDP concept, int n);
+WORDP NthRecentMember(WORDP concept,  int n);
 
 // fact system startup and shutdown
 void InitFacts();
@@ -73,29 +80,34 @@ void CloseFacts();
 void ResetFactSystem(FACT* locked);
 void InitFactWords();
 void AutoKillFact(MEANING M);
-bool ValidMemberFact(FACT* F);
 void VerifyFacts();
-bool UnacceptableFact(FACT* F);
+bool AcceptableFact(FACT* F);
 
 // fact creation and destruction
-FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties = 0);
+FACT* FindFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties = 0,uint64 bot = myBot);
 FACT* CreateFact(FACTOID_OR_MEANING subject,FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned int properties = 0);
-FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties);
+FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object, unsigned int properties,uint64 bot = myBot);
 void KillFact(FACT* F,bool jsonrecurse = true, bool autoreviseArray = true);
 FACT* SpecialFact(FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned int flags);
 void FreeFact(FACT* F);
 char* GetSetEnd(char* x);
 
+void C_Fact(char* word);
+void AdjustFactLanguage(FACT* F,MEANING M, unsigned int field);
 // fact reading and writing
+unsigned int GetFullFactLanguage(FACT* F);
 char* ReadField(char* ptr,char* field,char fieldkind,unsigned int& flags);
 char* EatFact(char* ptr,char* buffer,unsigned int flags = 0,bool attribute = false);
 FACT* ReadFact(char* &ptr,unsigned int build);
-void ReadFacts(const char* name,const char* layer,unsigned int build,bool user = false);
+void ReadFacts(const char* name,const char* layer,int build,bool user = false);
 char* WriteFact(FACT* F,bool comments,char* buffer,bool ignoreDead = false,bool eol = false,bool displayonly = false);
-void WriteFacts(FILE* out,FACT* from,int flags = 0);
-bool ReadBinaryFacts(FILE* in,bool dictionary);
-void WriteBinaryFacts(FILE* out,FACT* F);
+FILE* WriteFacts(FILE* out,FACT* from);
+int ReadBinaryFacts(FILE* in,bool dictionary,unsigned int base);
+void WriteBinaryFacts(FILE* out,FACT* F,unsigned int base);
 void ClearUserFacts();
+void WriteDeadFacts(FILE* out);
+void WriteLanguageAdjustedFacts(FILE* out);
+void LostFact(FACT* F);
 extern char traceSubject[100];
 extern char traceVerb[100];
 extern char traceObject[100];
@@ -142,10 +154,10 @@ FACT* GetObjectNext(FACT* F) ;
 void SetSubjectNext(FACT* F, FACT* value);
 void SetVerbNext(FACT* F, FACT* value);
 void SetObjectNext(FACT* F, FACT* value);
-
-inline FACT* GetSubjectHead(WORDP D) {return Index2Fact(D->subjectHead);}
-inline FACT* GetVerbHead(WORDP D) {return Index2Fact(D->verbHead);}
-inline FACT* GetObjectHead(WORDP D)  {return Index2Fact(D->objectHead);}
+void UniveralizeConcept(FACT* F);
+inline FACT* GetSubjectHead(WORDP D) { if (!D) return NULL;  return Index2Fact(D->subjectHead); }
+inline FACT* GetVerbHead(WORDP D) { if (!D) return NULL;  return Index2Fact(D->verbHead);}
+inline FACT* GetObjectHead(WORDP D)  { if (!D) return NULL;  return Index2Fact(D->objectHead);}
 
 FACT* GetSubjectNondeadHead(WORDP D);
 FACT* GetVerbNondeadHead(WORDP D);

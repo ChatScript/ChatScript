@@ -14,6 +14,7 @@ extern int fnVarbase;
 #define FNVAR(n) callArgumentList[fnVarbase+atoi(n)+1] // ^0 is index 1
 char* ReadCompiledWord(const char* ptr, char* word,bool noquote = false,bool var = false,bool nolimit = false);
 char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var = false);
+char* ReadCodeWord(const char* ptr, char* word, bool noquote = false, bool var = false, bool nolimit = false);
 #define MAX_BUFFER_SIZE		80000 // default
 
 #define NUMBER_OF_LAYERS 4 // 0,1,boot,user
@@ -21,21 +22,23 @@ char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var
 #define MAX_CONFIG_LINES 200
 
 typedef unsigned int MEANING;					//   a flagged indexed dict ptr
-#define MAX_DICTIONARY	 0x001fffff				//   2M word vocabulary limit 
-#define NODEBITS 0x00ffffff
-#define MULTIWORDHEADER_SHIFT 24
-#define MULTIHEADERBITS 0xFF000000
+#define MAX_DICTIONARY	 0x003fffff	//   4M word vocabulary limit 
 
-#define MAX_MEANING			63
-#define MEANING_BASE		0x001fffff	//   the index of the dictionary item 
-#define SYNSET_MARKER		0x00200000  // this meaning is a synset head - on keyword import, its quote flag for binary read
-#define INDEX_BITS          0x0fC00000  //   6 bits of ontology meaning indexing ability  63 possible meanings allowed, generic uses value 0
-#define INDEX_MINUS			0x00400000  // what to decrement to decrement the meaning index
-#define INDEX_OFFSET        22          //   shift for ontoindex  (rang 0..63)  
+
+// A meaning = TYPE_RESTRICTION(4 bit) + INDEX_BITS (5 bits) + SYNSET_MARKER(1 bit) + MEANING_BASE(22 bits) 
+#define MEANING_BASE		MAX_DICTIONARY 	//   the index of the dictionary item 
+#define MAX_MEANING			31  // limit on index_bits break has around 64.
+#define SYNSET_MARKER		0x00400000  // this meaning is a synset head - on keyword import, its quote flag for binary read
+#define INDEX_BITS          0x0f800000  //   5 bits of ontology meaning indexing ability  63 possible meanings allowed, generic uses value 0
+#define INDEX_MINUS			0x00800000  // what to decrement to decrement the meaning index
+#define INDEX_OFFSET        23          //   shift for ontoindex  (rang 0..31)  
 #define TYPE_RESTRICTION	0xf0000000  // corresponds to noun,verb,adj,adv  (cannot merge adj/adv or breaks wordnet dictionary data) 
 #define TYPE_RESTRICTION_SHIFT 0
 
-// A meaning = TYPE_RESTRICTION(4 bit) + INDEX_BITS (6 bits) + MEANING_BASE(21 bits) + SYNSET_MARKER(1 bit)
+// dictionary bucket next node pointers:
+#define NODEBITS 0x00ffffff  // dict word link index
+#define MULTIWORDHEADER_SHIFT 24
+#define MULTIHEADERBITS 0xFF000000
 
 #define SYSVAR_PREFIX '%'
 #define MATCHVAR_PREFIX '_'

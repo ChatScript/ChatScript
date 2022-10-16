@@ -137,21 +137,21 @@
  Novell ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Noé ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Ns ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- Nueva ( NOUN NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+ Nueva ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Nuria ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Nury ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Nápoles ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Níger ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Núñez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  n-ario ( ADJECTIVE ADJECTIVE_NORMAL ) 
- n-glicosídico ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- n-ra ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ n-glicosídico ( NOUN NOUN_SINGULAR ) 
+ n-ra ( NOUN NOUN_SINGULAR ) 
  n-terminal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- n.o ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=número 
- número ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- n.os ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=número 
+ n.o ( NOUN NOUN_SINGULAR ) lemma=número 
+ número ( NOUN NOUN_SINGULAR ) 
+ n.os ( NOUN NOUN_SINGULAR ) lemma=número 
  na ( ADVERB ) lemma=nada 
- nabo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nabo ( NOUN NOUN_SINGULAR ) 
  nacida ( VERB_PAST_PARTICIPLE VERB ) lemma=nacer 
  nacidas ( VERB_PAST_PARTICIPLE VERB ) lemma=nacer 
  nacidos ( VERB_PAST_PARTICIPLE VERB ) lemma=nacer 
@@ -159,153 +159,153 @@
  naciente ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nacientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=naciente 
  nacieá ( VERB ) lemma=nacer 
- nacimiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nacimiento ( NOUN NOUN_SINGULAR ) 
  nacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nacional 
- nacionalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nacionalismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nacionalista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nacionalidad ( NOUN NOUN_SINGULAR ) 
+ nacionalismo ( NOUN NOUN_SINGULAR ) 
+ nacionalista ( NOUN NOUN_SINGULAR ) 
  nacionalizar ( VERB_INFINITIVE VERB ) 
  nacionalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=nacionalizar 
  nacionalizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=nacionalizar 
  nacionalizados ( VERB_PAST_PARTICIPLE VERB ) lemma=nacionalizar 
  nacionalmente ( ADVERB ) lemma=nacional 
- naciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nación 
- nación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ naciones ( NOUN NOUN_SINGULAR ) lemma=nación 
+ nación ( NOUN NOUN_SINGULAR ) 
  nací ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=nacer 
  nadar ( VERB_INFINITIVE VERB ) 
- nadador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nadador 
- nadadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nadador 
- nadadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nadador 
- nadadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nadador 
+ nadador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nadador 
+ nadadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nadador 
+ nadadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nadador 
+ nadadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nadador 
  nadando ( NOUN NOUN_GERUND ) lemma=nadar 
- nadie ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nailon ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- naipes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=naipe 
+ nadie ( NOUN NOUN_SINGULAR ) 
+ nailon ( NOUN NOUN_SINGULAR ) 
+ naipes ( NOUN NOUN_SINGULAR ) lemma=naipe 
  naipe ( ) 
- nalga ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nalga ( NOUN NOUN_SINGULAR ) 
  nalidíxico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- naloxona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nana ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nanita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nana 
- nanito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nana 
- nanosegundos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nanosegundo 
+ naloxona ( NOUN NOUN_SINGULAR ) 
+ nana ( NOUN NOUN_SINGULAR ) 
+ nanita ( NOUN NOUN_SINGULAR ) lemma=nana 
+ nanito ( NOUN NOUN_SINGULAR ) lemma=nana 
+ nanosegundos ( NOUN NOUN_SINGULAR ) lemma=nanosegundo 
  nanosegundo ( ) 
- nanómetros ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nanómetro 
+ nanómetros ( NOUN NOUN_SINGULAR ) lemma=nanómetro 
  nanómetro ( ) 
- napolitana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=napolitano 
- napolitano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=napolitano 
- napolitanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=napolitano 
- naranja ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- naranjo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- narcisismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- narciso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- narcotraficante ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- narcotráfico ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ napolitana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=napolitano 
+ napolitano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=napolitano 
+ napolitanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=napolitano 
+ naranja ( NOUN NOUN_SINGULAR ) 
+ naranjo ( NOUN NOUN_SINGULAR ) 
+ narcisismo ( NOUN NOUN_SINGULAR ) 
+ narciso ( NOUN NOUN_SINGULAR ) 
+ narcotraficante ( NOUN NOUN_SINGULAR ) 
+ narcotráfico ( NOUN NOUN_SINGULAR ) 
  narcóticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=narcótico 
  narcótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  narcóticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=narcótico 
  nare ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nariz ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nariz ( NOUN NOUN_SINGULAR ) 
  narrar ( VERB_INFINITIVE VERB ) 
- narraciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=narración 
- narración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ narraciones ( NOUN NOUN_SINGULAR ) lemma=narración 
+ narración ( NOUN NOUN_SINGULAR ) 
  narrada ( VERB_PAST_PARTICIPLE VERB ) lemma=narrar 
- narrador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ narrador ( NOUN NOUN_SINGULAR ) 
  narrativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=narrativo 
  narrativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  narrativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=narrativo 
  nasal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nasales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nasal 
- nasión ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nasofaringe ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nasión ( NOUN NOUN_SINGULAR ) 
+ nasofaringe ( NOUN NOUN_SINGULAR ) 
  nasofaríngeas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nasofaríngeo 
  nasofaríngeo ( ) 
- nata ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`nato`nata` ADJ  NC 
- natación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nata ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`nato`nata` ADJ  NC 
+ natación ( NOUN NOUN_SINGULAR ) 
  natal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  natales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=natal 
- natalicios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=natalicio 
+ natalicios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=natalicio 
  natalicio ( ) 
- natalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ natalidad ( NOUN NOUN_SINGULAR ) 
  natatoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=natatorio 
  natatorio ( ) 
  natatorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=natatorio 
- natillas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=natilla 
+ natillas ( NOUN NOUN_SINGULAR ) lemma=natilla 
  natilla ( ) 
  nativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nativo 
- nativo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nativo 
+ nativo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nativo 
  nativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nativo 
- nativos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nativo 
+ nativos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nativo 
  nato ( ADJECTIVE ADJECTIVE_NORMAL ) 
  natos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nato 
- natremia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- natriuria ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ natremia ( NOUN NOUN_SINGULAR ) 
+ natriuria ( NOUN NOUN_SINGULAR ) 
  natural ( ADJECTIVE ADJECTIVE_NORMAL ) 
  naturales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=natural 
- naturaleza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- naturalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- naturalismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- naturalizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=naturalización 
- naturalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ naturaleza ( NOUN NOUN_SINGULAR ) 
+ naturalidad ( NOUN NOUN_SINGULAR ) 
+ naturalismo ( NOUN NOUN_SINGULAR ) 
+ naturalizaciones ( NOUN NOUN_SINGULAR ) lemma=naturalización 
+ naturalización ( NOUN NOUN_SINGULAR ) 
  naturalizado ( VERB_PAST_PARTICIPLE VERB ) lemma=naturalizar 
  naturalizar ( ) 
  naturalizarse ( VERB ) lemma=naturalizar 
  naturalmente ( ADVERB HAS_SUBSTITUTE ) lemma=natural 
- naturista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ naturista ( NOUN NOUN_SINGULAR ) 
  naufragar ( VERB_INFINITIVE VERB ) 
- naufragio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ naufragio ( NOUN NOUN_SINGULAR ) 
  naufraguen ( VERB ) lemma=naufragar 
- nauseabunda ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nauseabunda ( NOUN NOUN_SINGULAR ) 
  nauseabundo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nautimoza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- navaja ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- navajita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=navaja 
+ nautimoza ( NOUN NOUN_SINGULAR ) 
+ navaja ( NOUN NOUN_SINGULAR ) 
+ navajita ( NOUN NOUN_SINGULAR ) lemma=navaja 
  naval ( ADJECTIVE ADJECTIVE_NORMAL ) 
  navales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=naval 
  navarra ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=navarro 
- navarro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nave ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ navarro ( NOUN NOUN_SINGULAR ) 
+ nave ( NOUN NOUN_SINGULAR ) 
  navegar ( VERB_INFINITIVE VERB ) 
  navegables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=navegable 
  navegable ( ) 
- navegación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- navegador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ navegación ( NOUN NOUN_SINGULAR ) 
+ navegador ( NOUN NOUN_SINGULAR ) 
  navegando ( NOUN NOUN_GERUND ) lemma=navegar 
- navegantes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=navegante 
+ navegantes ( NOUN NOUN_SINGULAR ) lemma=navegante 
  navegante ( ) 
  navegue ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=navegar 
  naveguen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=navegar 
- navidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ navidad ( NOUN NOUN_SINGULAR ) 
  navideña ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=navideño 
  navideño ( ADJECTIVE ADJECTIVE_NORMAL ) 
  navideñas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=navideño 
  navideños ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=navideño 
- naviero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- navío ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nayarita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nayarita 
- nayaritas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nayarita 
+ naviero ( NOUN NOUN_SINGULAR ) 
+ navío ( NOUN NOUN_SINGULAR ) 
+ nayarita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nayarita 
+ nayaritas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nayarita 
  nazca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=nacer 
  nazcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=nacer 
- nazi ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nazi 
- nazis ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nazi 
- nazismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neblina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nebulizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nebulización 
- nebulización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nazi ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nazi 
+ nazis ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nazi 
+ nazismo ( NOUN NOUN_SINGULAR ) 
+ neblina ( NOUN NOUN_SINGULAR ) 
+ nebulizaciones ( NOUN NOUN_SINGULAR ) lemma=nebulización 
+ nebulización ( NOUN NOUN_SINGULAR ) 
  nebulizador ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nebulizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
  nebulosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nebuloso 
  nebuloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nebulosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nebuloso 
  nebulosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nebuloso 
- necedad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ necedad ( NOUN NOUN_SINGULAR ) 
  necesaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=necesario 
  necesario ( ADJECTIVE ADJECTIVE_NORMAL ) 
  necesariamente ( ADVERB ) lemma=necesario 
  necesarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=necesario 
  necesarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=necesario 
- necesidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ necesidad ( NOUN NOUN_SINGULAR ) 
  necesitar ( VERB_INFINITIVE VERB ) 
  necesitad ( VERB ) lemma=necesitar 
  necesitadá ( VERB_PAST_PARTICIPLE VERB ) lemma=necesitar 
@@ -321,43 +321,43 @@
  necesitándose ( NOUN NOUN_GERUND ) lemma=necesitarse 
  necesités ( VERB ) lemma=necesitar 
  necia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=necio 
- necio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=necio 
+ necio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=necio 
  neciamente ( ADVERB ) lemma=necio 
- necios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=necio 
- necromasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- necropsia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ necios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=necio 
+ necromasa ( NOUN NOUN_SINGULAR ) 
+ necropsia ( NOUN NOUN_SINGULAR ) 
  necrosado ( ADJECTIVE ADJECTIVE_NORMAL ) 
- necrosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ necrosis ( NOUN NOUN_SINGULAR ) 
  necrotizante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- necrópsico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=necrópsico 
- neerlandesa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=neerlandés 
- neerlandés ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neerlandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neerlandés 
- neerlandeses ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=neerlandés 
+ necrópsico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=necrópsico 
+ neerlandesa ( NOUN NOUN_SINGULAR ) lemma=neerlandés 
+ neerlandés ( NOUN NOUN_SINGULAR ) 
+ neerlandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neerlandés 
+ neerlandeses ( NOUN NOUN_SINGULAR ) lemma=neerlandés 
  nefasta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nefasto 
  nefasto ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nefastas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nefasto 
  nefastos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nefasto 
- nefelometría ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefelométricos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nefelómetro 
- nefelómetro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefritis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefrocalcinosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nefelometría ( NOUN NOUN_SINGULAR ) 
+ nefelométricos ( NOUN NOUN_SINGULAR ) lemma=nefelómetro 
+ nefelómetro ( NOUN NOUN_SINGULAR ) 
+ nefritis ( NOUN NOUN_SINGULAR ) 
+ nefrocalcinosis ( NOUN NOUN_SINGULAR ) 
  nefrogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nefrolitiasis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefrología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nefrolitiasis ( NOUN NOUN_SINGULAR ) 
+ nefrología ( NOUN NOUN_SINGULAR ) 
  nefrológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nefrona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefropatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefrosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefrotoxicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nefrona ( NOUN NOUN_SINGULAR ) 
+ nefropatía ( NOUN NOUN_SINGULAR ) 
+ nefrosis ( NOUN NOUN_SINGULAR ) 
+ nefrotoxicidad ( NOUN NOUN_SINGULAR ) 
  nefrítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nefrógena ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nefrón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nefrógena ( NOUN NOUN_SINGULAR ) 
+ nefrón ( NOUN NOUN_SINGULAR ) 
  nefrónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nefrótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- negaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=negación 
- negación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ negaciones ( NOUN NOUN_SINGULAR ) lemma=negación 
+ negación ( NOUN NOUN_SINGULAR ) 
  negada ( VERB_PAST_PARTICIPLE VERB ) lemma=negar 
  negado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=negarse 
  negados ( VERB_PAST_PARTICIPLE VERB ) lemma=negar 
@@ -374,38 +374,38 @@
  negativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  negativamente ( ADVERB ) lemma=negativo 
  negativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negativo 
- negatividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- negativismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- negativización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ negatividad ( NOUN NOUN_SINGULAR ) 
+ negativismo ( NOUN NOUN_SINGULAR ) 
+ negativización ( NOUN NOUN_SINGULAR ) 
  negativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negativo 
- negligencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ negligencia ( NOUN NOUN_SINGULAR ) 
  negociar ( VERB_INFINITIVE VERB ) 
  negociable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  negociables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negociable 
- negociaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=negociación 
- negociación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ negociaciones ( NOUN NOUN_SINGULAR ) lemma=negociación 
+ negociación ( NOUN NOUN_SINGULAR ) 
  negociada ( VERB_PAST_PARTICIPLE VERB ) lemma=negociar 
  negociadas ( VERB_PAST_PARTICIPLE VERB ) lemma=negociar 
- negociador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negociador 
- negociadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negociador 
- negociadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negociador 
- negociadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negociador 
+ negociador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negociador 
+ negociadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negociador 
+ negociadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negociador 
+ negociadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negociador 
  negociados ( VERB_PAST_PARTICIPLE VERB ) lemma=negociar 
  negociando ( NOUN NOUN_GERUND ) lemma=negociar 
  negociarse ( VERB_INFINITIVE VERB ) 
  negociemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=negociar 
  negocien ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=negociar 
- negocio ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`negocio`negociar` NC  VLfin 
+ negocio ( NOUN VERB NOUN_SINGULAR ) lemma=`negocio`negociar` NC  VLfin 
  negociándose ( NOUN NOUN_GERUND ) lemma=negociarse 
  negra ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negro 
- negro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=negro 
+ negro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=negro 
  negras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negro 
- negrillas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=negrilla 
+ negrillas ( NOUN NOUN_SINGULAR ) lemma=negrilla 
  negrilla ( ) 
- negrita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negro 
- negrito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negro 
- negros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=negro 
- negrura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ negrita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negro 
+ negrito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negro 
+ negros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=negro 
+ negrura ( NOUN NOUN_SINGULAR ) 
  negrísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=negro 
  neguemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=negar 
  negué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=negar 
@@ -419,46 +419,46 @@
  negándoseles ( NOUN NOUN_GERUND ) lemma=negarse 
  negáramos ( VERB ) lemma=negar 
  negárselo (                 VERB ) lemma=negarse 
- negó ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=negar 
- nematodos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nematodo 
+ negó ( NOUN VERB NOUN_SINGULAR ) lemma=negar 
+ nematodos ( NOUN NOUN_SINGULAR ) lemma=nematodo 
  nematodo ( ) 
- nemotécnica ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nemátodo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nena ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nene 
- nene ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nenas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nene 
- nenito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nene 
- neo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nemotécnica ( NOUN NOUN_SINGULAR ) 
+ nemátodo ( NOUN NOUN_SINGULAR ) 
+ nena ( NOUN NOUN_SINGULAR ) lemma=nene 
+ nene ( NOUN NOUN_SINGULAR ) 
+ nenas ( NOUN NOUN_SINGULAR ) lemma=nene 
+ nenito ( NOUN NOUN_SINGULAR ) lemma=nene 
+ neo ( NOUN NOUN_SINGULAR ) 
  neoclásica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neoclásico 
  neoclásico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neoclásicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neoclásico 
  neoclásicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neoclásico 
- neofascista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neofascista 
- neofascistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neofascista 
- neoguineano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neofascista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neofascista 
+ neofascistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neofascista 
+ neoguineano ( NOUN NOUN_SINGULAR ) 
  neoliberal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neolítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neonatal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neonato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neonato ( NOUN NOUN_SINGULAR ) 
  neonazi ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neonazis ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neonazi 
- neoplasia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neonazis ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neonazi 
+ neoplasia ( NOUN NOUN_SINGULAR ) 
  neoplásico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neovascular ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neovascularización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neoyorquina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neoyorquino 
- neoyorquino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neoyorquino 
- neoyorquinos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neoyorquino 
- neozelandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neozelandés 
- neozelandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neozelandés 
+ neovascularización ( NOUN NOUN_SINGULAR ) 
+ neoyorquina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neoyorquino 
+ neoyorquino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neoyorquino 
+ neoyorquinos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neoyorquino 
+ neozelandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neozelandés 
+ neozelandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neozelandés 
  neperiano ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nerolite ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nervio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nerolite ( NOUN NOUN_SINGULAR ) 
+ nervio ( NOUN NOUN_SINGULAR ) 
  nerviosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
  nervioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nerviosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
  nerviosillos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
- nerviosismo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nerviosismo ( NOUN NOUN_SINGULAR ) 
  nerviosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
  nerviosísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
  nerviosísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nervioso 
@@ -468,40 +468,40 @@
  netas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neto 
  netbio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  netos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neto 
- neumatosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neumococo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neumoconiosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neumatosis ( NOUN NOUN_SINGULAR ) 
+ neumococo ( NOUN NOUN_SINGULAR ) 
+ neumoconiosis ( NOUN NOUN_SINGULAR ) 
  neumogástricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neumogástrico 
  neumogástrico ( ) 
- neumología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neumología ( NOUN NOUN_SINGULAR ) 
  neumológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neumonitis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neumonía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neumopatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neumotórax ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neumonitis ( NOUN NOUN_SINGULAR ) 
+ neumonía ( NOUN NOUN_SINGULAR ) 
+ neumopatía ( NOUN NOUN_SINGULAR ) 
+ neumotórax ( NOUN NOUN_SINGULAR ) 
  neumática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neumático 
- neumático ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neumático 
+ neumático ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neumático 
  neumáticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neumático 
- neumáticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neumático 
+ neumáticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neumático 
  neumónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neura ( NOUN NOUN_SINGULAR ) 
  neural ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neural 
- neuraminidasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neuraminidasa ( NOUN NOUN_SINGULAR ) 
  neuramínico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neurilema ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neuritis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurobiología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurilema ( NOUN NOUN_SINGULAR ) 
+ neuritis ( NOUN NOUN_SINGULAR ) 
+ neurobiología ( NOUN NOUN_SINGULAR ) 
  neurocardiogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neurociencia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurocirugía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neuroconducción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neuroeje ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neuroendocrinología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neuroexocitosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurofarmacología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurofibromatosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurofilamentos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=neurofilamento 
+ neurociencia ( NOUN NOUN_SINGULAR ) 
+ neurocirugía ( NOUN NOUN_SINGULAR ) 
+ neuroconducción ( NOUN NOUN_SINGULAR ) 
+ neuroeje ( NOUN NOUN_SINGULAR ) 
+ neuroendocrinología ( NOUN NOUN_SINGULAR ) 
+ neuroexocitosis ( NOUN NOUN_SINGULAR ) 
+ neurofarmacología ( NOUN NOUN_SINGULAR ) 
+ neurofibromatosis ( NOUN NOUN_SINGULAR ) 
+ neurofilamentos ( NOUN NOUN_SINGULAR ) lemma=neurofilamento 
  neurofilamento ( ) 
  neurofisiológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neuroglial ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -509,51 +509,51 @@
  neurógeno ( ) 
  neurogénico ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurógeno 
  neurohipofisario ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neurohipófisis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurohipófisis ( NOUN NOUN_SINGULAR ) 
  neurohormonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurohormonale ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurohumoral ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neurología ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurología ( NOUN NOUN_SINGULAR ) 
  neuroléptico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurológico 
  neurológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurológico 
  neurológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurológico 
- neuromodulador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neuromodulador ( NOUN NOUN_SINGULAR ) 
  neuromuscular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neuromusculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neuromuscular 
- neurona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurona ( NOUN NOUN_SINGULAR ) 
  neuronal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neuronales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neuronal 
- neuropatía ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neuropatía ( NOUN NOUN_SINGULAR ) 
  neuropsiquiátrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neuropéptico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neuropéptido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurosis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurotoxicidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurotoxina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neurotransmisor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neuropéptido ( NOUN NOUN_SINGULAR ) 
+ neurosis ( NOUN NOUN_SINGULAR ) 
+ neurotoxicidad ( NOUN NOUN_SINGULAR ) 
+ neurotoxina ( NOUN NOUN_SINGULAR ) 
+ neurotransmisor ( NOUN NOUN_SINGULAR ) 
  neurotóxico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurovascular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neurovegetativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neurulación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurulación ( NOUN NOUN_SINGULAR ) 
  neurálgica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurálgico 
  neurálgico ( ) 
  neurógena ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurógeno 
  neurógenas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurógeno 
  neurógenos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neurógeno 
- neurólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neurólogo ( NOUN NOUN_SINGULAR ) 
  neurótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neuróticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neurótico 
+ neuróticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neurótico 
  neutra ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neutro 
  neutro ( ADJECTIVE ADJECTIVE_NORMAL ) 
- neutral ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neutral 
- neutrales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=neutral 
+ neutral ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neutral 
+ neutrales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=neutral 
  neutralice ( VERB ) lemma=neutralizar 
  neutralizar ( VERB_INFINITIVE VERB ) 
  neutralicen ( VERB ) lemma=neutralizar 
- neutralidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neutralización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neutralidad ( NOUN NOUN_SINGULAR ) 
+ neutralización ( NOUN NOUN_SINGULAR ) 
  neutralizada ( VERB_PAST_PARTICIPLE VERB ) lemma=neutralizar 
  neutralizados ( VERB_PAST_PARTICIPLE VERB ) lemma=neutralizar 
  neutralizando ( NOUN NOUN_GERUND ) lemma=neutralizar 
@@ -561,120 +561,120 @@
  neutralizarse ( VERB_INFINITIVE VERB ) 
  neutralmente ( ADVERB ) lemma=neutral 
  neutras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neutro 
- neutrofilia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neutrofilia ( NOUN NOUN_SINGULAR ) 
  neutrofílica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neutrófilo 
  neutrófilo ( ) 
- neutrones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=neutrón 
- neutrón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neutropenia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ neutrones ( NOUN NOUN_SINGULAR ) lemma=neutrón 
+ neutrón ( NOUN NOUN_SINGULAR ) 
+ neutropenia ( NOUN NOUN_SINGULAR ) 
  neutropénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  neutros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=neutro 
- neutrófilos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=neutrófilo 
- nevada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nevada`nevar` NC  VLadj 
+ neutrófilos ( NOUN NOUN_SINGULAR ) lemma=neutrófilo 
+ nevada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nevada`nevar` NC  VLadj 
  nevadas ( VERB_PAST_PARTICIPLE VERB ) lemma=nevar 
  nevar ( VERB_INFINITIVE VERB ) 
  nevando ( NOUN NOUN_GERUND ) lemma=nevar 
- nevera ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- new ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- newshost ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- newsrc ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- newton ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nevera ( NOUN NOUN_SINGULAR ) 
+ new ( NOUN NOUN_SINGULAR ) 
+ newshost ( NOUN NOUN_SINGULAR ) 
+ newsrc ( NOUN NOUN_SINGULAR ) 
+ newton ( NOUN NOUN_SINGULAR ) 
  newtoniano ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nexo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- next ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- neófito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nic ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nicaragüense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nicaragüense 
- nicaragüenses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nicaragüense 
- nicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nica 
+ nexo ( NOUN NOUN_SINGULAR ) 
+ next ( NOUN NOUN_SINGULAR ) 
+ neófito ( NOUN NOUN_SINGULAR ) 
+ nic ( NOUN NOUN_SINGULAR ) 
+ nicaragüense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nicaragüense 
+ nicaragüenses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nicaragüense 
+ nicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nica 
  nica ( ) 
- nicho ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nicotina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nicho ( NOUN NOUN_SINGULAR ) 
+ nicotina ( NOUN NOUN_SINGULAR ) 
  nicotínico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nicturia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nicturia ( NOUN NOUN_SINGULAR ) 
  nidificante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- niebla ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nido ( NOUN NOUN_SINGULAR ) 
+ niebla ( NOUN NOUN_SINGULAR ) 
  niegue ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=negar 
  nieguen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=negar 
- nieta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nieto 
- nieto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nietas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nieto 
- nietito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nieto 
- nieé ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR NOUN_PLURAL PRONOUN_I PRONOUN_SINGULAR ) lemma=nevar 
- nifedipino ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nieta ( NOUN NOUN_SINGULAR ) lemma=nieto 
+ nieto ( NOUN NOUN_SINGULAR ) 
+ nietas ( NOUN NOUN_SINGULAR ) lemma=nieto 
+ nietito ( NOUN NOUN_SINGULAR ) lemma=nieto 
+ nieé ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=nevar 
+ nifedipino ( NOUN NOUN_SINGULAR ) 
  nigeriana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nigeriano 
- nigeriano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nigeriano 
+ nigeriano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nigeriano 
  nigerianas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nigeriano 
- nigerianos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nigeriano 
- nigra ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nigerianos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nigeriano 
+ nigra ( NOUN NOUN_SINGULAR ) 
  ninguna ( ) lemma=ninguno 
  ninguno ( ) 
  ningunas ( ) lemma=ninguno 
  ningunos ( ) lemma=ninguno 
  ningún ( ) lemma=ninguno 
- nipona ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nipón 
- nipón ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nipón 
- niponas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nipón 
- nipones ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nipón 
- nirvana ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nitidez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nipona ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nipón 
+ nipón ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nipón 
+ niponas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nipón 
+ nipones ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nipón 
+ nirvana ( NOUN NOUN_SINGULAR ) 
+ nitidez ( NOUN NOUN_SINGULAR ) 
  nitrar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- nitrato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nitrificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nitrato ( NOUN NOUN_SINGULAR ) 
+ nitrificación ( NOUN NOUN_SINGULAR ) 
  nitrificantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nitrificante 
  nitrificante ( ) 
- nitritos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nitrito 
+ nitritos ( NOUN NOUN_SINGULAR ) lemma=nitrito 
  nitrito ( ) 
- nitrocelulosa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nitrofurantoína ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nitrocelulosa ( NOUN NOUN_SINGULAR ) 
+ nitrofurantoína ( NOUN NOUN_SINGULAR ) 
  nitrogenada ( VERB_PAST_PARTICIPLE VERB ) lemma=nitrogenar 
  nitrogenar ( ) 
  nitrogenadas ( VERB_PAST_PARTICIPLE VERB ) lemma=nitrogenar 
  nitrogenado ( VERB_PAST_PARTICIPLE VERB ) lemma=nitrogenar 
  nitrogenados ( VERB_PAST_PARTICIPLE VERB ) lemma=nitrogenar 
- nitrogenasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nitrosamina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nitrogenasa ( NOUN NOUN_SINGULAR ) 
+ nitrosamina ( NOUN NOUN_SINGULAR ) 
  nitrosar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- nitrosourea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nitrógeno ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nivel ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nivelaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nivelación 
- nivelación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nitrosourea ( NOUN NOUN_SINGULAR ) 
+ nitrógeno ( NOUN NOUN_SINGULAR ) 
+ nivel ( NOUN NOUN_SINGULAR ) 
+ nivelaciones ( NOUN NOUN_SINGULAR ) lemma=nivelación 
+ nivelación ( NOUN NOUN_SINGULAR ) 
  nivelada ( VERB_PAST_PARTICIPLE VERB ) lemma=nivelar 
  nivelar ( VERB_INFINITIVE VERB ) 
  nivelando ( NOUN NOUN_GERUND ) lemma=nivelar 
  nivelarnos (                 VERB ) lemma=nivelar 
  nivelarse ( VERB_INFINITIVE VERB ) 
  nivelásemos ( VERB ) lemma=nivelar 
- niña ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- niño ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- niñas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- niñez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- niñita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- niñitas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- niñito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- niñitos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=niño 
- nm ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ niña ( NOUN NOUN_SINGULAR ) lemma=niño 
+ niño ( NOUN NOUN_SINGULAR ) 
+ niñas ( NOUN NOUN_SINGULAR ) lemma=niño 
+ niñez ( NOUN NOUN_SINGULAR ) 
+ niñita ( NOUN NOUN_SINGULAR ) lemma=niño 
+ niñitas ( NOUN NOUN_SINGULAR ) lemma=niño 
+ niñito ( NOUN NOUN_SINGULAR ) lemma=niño 
+ niñitos ( NOUN NOUN_SINGULAR ) lemma=niño 
+ nm ( NOUN NOUN_SINGULAR ) 
  nmo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=número 
  no ( PRONOUN_OBJECT ADVERB PRONOUN_INDIRECTOBJECT ) lemma=no 
- no-b ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- no-control ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- no-frontera ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ no-b ( NOUN NOUN_SINGULAR ) 
+ no-control ( NOUN NOUN_SINGULAR ) 
+ no-frontera ( NOUN NOUN_SINGULAR ) 
  no-libre ( ADJECTIVE ADJECTIVE_NORMAL ) 
  no-o ( ADJECTIVE ADJECTIVE_NORMAL ) 
- noa-nob ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ noa-nob ( NOUN NOUN_SINGULAR ) 
  noble ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nobles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=noble 
- nobleza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nocardia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nobleza ( NOUN NOUN_SINGULAR ) 
+ nocardia ( NOUN NOUN_SINGULAR ) 
  nocardiósico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- noche ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nochebuena ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nochecita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=noche 
+ noche ( NOUN NOUN_SINGULAR ) 
+ nochebuena ( NOUN NOUN_SINGULAR ) 
+ nochecita ( NOUN NOUN_SINGULAR ) lemma=noche 
  nocional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nociones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=noción 
- noción ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nociones ( NOUN NOUN_SINGULAR ) lemma=noción 
+ noción ( NOUN NOUN_SINGULAR ) 
  nociva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nocivo 
  nocivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nocivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nocivo 
@@ -685,31 +685,31 @@
  nocturnos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nocturno 
  nodales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nodal 
  nodal ( ) 
- nodo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nodriza ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nodo ( NOUN NOUN_SINGULAR ) 
+ nodriza ( NOUN NOUN_SINGULAR ) 
  nodular ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nodulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nodular 
- nogal ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nogal ( NOUN NOUN_SINGULAR ) 
  nombrar ( VERB_INFINITIVE VERB ) 
  nombrable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nombrada ( VERB_PAST_PARTICIPLE VERB ) lemma=nombrar 
  nombradas ( VERB_PAST_PARTICIPLE VERB ) lemma=nombrar 
  nombrados ( VERB_PAST_PARTICIPLE VERB ) lemma=nombrar 
- nombramiento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nombramiento ( NOUN NOUN_SINGULAR ) 
  nombrando ( NOUN NOUN_GERUND ) lemma=nombrar 
  nombrarla (                 VERB ) lemma=nombrar 
  nombrarles (                 VERB ) lemma=nombrar 
  nombrarlo (                 VERB ) lemma=nombrar 
  nombrarlos (                 VERB ) lemma=nombrar 
  nombrase ( VERB ) lemma=nombrar 
- nombre ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nombre ( NOUN NOUN_SINGULAR ) 
  nombren ( VERB ) lemma=nombrar 
- nombreprotocolo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nombreprotocolo ( NOUN NOUN_SINGULAR ) 
  nombrándolo ( NOUN NOUN_GERUND ) lemma=nombrar 
- nomenclatura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nomenclatura ( NOUN NOUN_SINGULAR ) 
  nominar ( VERB_INFINITIVE VERB ) 
- nominaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nominación 
- nominación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nominaciones ( NOUN NOUN_SINGULAR ) lemma=nominación 
+ nominación ( NOUN NOUN_SINGULAR ) 
  nominada ( VERB_PAST_PARTICIPLE VERB ) lemma=nominar 
  nominadas ( VERB_PAST_PARTICIPLE VERB ) lemma=nominar 
  nominados ( VERB_PAST_PARTICIPLE VERB ) lemma=nominar 
@@ -721,27 +721,27 @@
  nomás ( ADVERB ) 
  nono ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nonos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nono 
- nopal ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nopal ( NOUN NOUN_SINGULAR ) 
  noquear ( VERB_INFINITIVE VERB ) 
- noradrenalina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- norcoreana ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=norcoreano 
- norcoreano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norcoreano 
- norcoreanas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norcoreano 
- norcoreanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norcoreano 
- nordeste ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- norepinefrina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ noradrenalina ( NOUN NOUN_SINGULAR ) 
+ norcoreana ( NOUN NOUN_SINGULAR ) lemma=norcoreano 
+ norcoreano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norcoreano 
+ norcoreanas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norcoreano 
+ norcoreanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norcoreano 
+ nordeste ( NOUN NOUN_SINGULAR ) 
+ norepinefrina ( NOUN NOUN_SINGULAR ) 
  noreste ( ADJECTIVE ADJECTIVE_NORMAL ) 
- norfloxacina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- norma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ norfloxacina ( NOUN NOUN_SINGULAR ) 
+ norma ( NOUN NOUN_SINGULAR ) 
  normal ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normal 
  normales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normal 
  normalice ( VERB ) lemma=normalizar 
  normalizar ( VERB_INFINITIVE VERB ) 
- normalidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ normalidad ( NOUN NOUN_SINGULAR ) 
  normalita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normal 
  normalito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normal 
- normalizaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=normalización 
- normalización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ normalizaciones ( NOUN NOUN_SINGULAR ) lemma=normalización 
+ normalización ( NOUN NOUN_SINGULAR ) 
  normalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=normalizar 
  normalizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=normalizar 
  normalizados ( VERB_PAST_PARTICIPLE VERB ) lemma=normalizar 
@@ -751,61 +751,61 @@
  normal|normalmente ( ) 
  normalísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normal 
  normar ( VERB_INFINITIVE VERB ) 
- normas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=norma 
- normativa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`normativo`normativa` ADJ  NC 
+ normas ( NOUN NOUN_SINGULAR ) lemma=norma 
+ normativa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`normativo`normativa` ADJ  NC 
  normativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normativo 
  normativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- normatividad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ normatividad ( NOUN NOUN_SINGULAR ) 
  normativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=normativo 
  normocrómico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  normocítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- noroeste ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ noroeste ( NOUN NOUN_SINGULAR ) 
  nororiental ( ADJECTIVE ADJECTIVE_NORMAL ) 
- norte ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ norte ( NOUN NOUN_SINGULAR ) 
  norteamericana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=norteamericano 
- norteamericano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norteamericano 
+ norteamericano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norteamericano 
  norteamericanas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=norteamericano 
  norteamericanos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=norteamericano 
- norteña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norteño 
- norteño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norteño 
- norteñas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norteño 
- norteños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=norteño 
- noruega ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noruego 
- noruego ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noruego 
- noruegas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noruego 
- noruegos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noruego 
+ norteña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norteño 
+ norteño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norteño 
+ norteñas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norteño 
+ norteños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=norteño 
+ noruega ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noruego 
+ noruego ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noruego 
+ noruegas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noruego 
+ noruegos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noruego 
  nos ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=nosotros 
  nosotros ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_I PRONOUN_PLURAL ) 
  nosocomial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nosocomiale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nosocomio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nosocomio ( NOUN NOUN_SINGULAR ) 
  nosológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nosotras ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_I PRONOUN_PLURAL ) 
- nostalgia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nostalgia ( NOUN NOUN_SINGULAR ) 
  nostálgica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nostálgico 
  nostálgico ( ) 
  nostálgicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nostálgico 
- nota ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nota`notar` NC  VLfin 
+ nota ( NOUN VERB NOUN_SINGULAR ) lemma=`nota`notar` NC  VLfin 
  notar ( VERB_INFINITIVE VERB ) 
  notabilísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notable 
  notable ( ADJECTIVE ADJECTIVE_NORMAL ) 
  notabilísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notable 
  notablemente ( ADVERB ) lemma=notable 
  notables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notable 
- notaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=notación 
- notación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ notaciones ( NOUN NOUN_SINGULAR ) lemma=notación 
+ notación ( NOUN NOUN_SINGULAR ) 
  notando ( NOUN NOUN_GERUND ) lemma=notar 
  notarial ( ADJECTIVE ADJECTIVE_NORMAL ) 
  notariales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notarial 
- notario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ notario ( NOUN NOUN_SINGULAR ) 
  notarlo (                 VERB ) lemma=notar 
  notarse ( VERB_INFINITIVE VERB ) 
- notas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nota 
+ notas ( NOUN NOUN_SINGULAR ) lemma=nota 
  notemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=notar 
  noten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=notar 
  notes ( VERB ) lemma=notar 
- noticia ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`noticia`noticiar` NC  VLfin 
- noticiario ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ noticia ( NOUN VERB NOUN_SINGULAR ) lemma=`noticia`noticiar` NC  VLfin 
+ noticiario ( NOUN NOUN_SINGULAR ) 
  noticias ( VERB ) lemma=noticiar 
  noticiar ( ) 
  noticiero ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -815,8 +815,8 @@
  noticiosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=noticioso 
  noticiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=noticioso 
  notificar ( VERB_INFINITIVE VERB ) 
- notificaciones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=notificación 
- notificación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ notificaciones ( NOUN NOUN_SINGULAR ) lemma=notificación 
+ notificación ( NOUN NOUN_SINGULAR ) 
  notificada ( VERB_PAST_PARTICIPLE VERB ) lemma=notificar 
  notificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=notificar 
  notificados ( VERB_PAST_PARTICIPLE VERB ) lemma=notificar 
@@ -828,24 +828,24 @@
  notifique ( VERB ) lemma=notificar 
  notifiquen ( VERB ) lemma=notificar 
  notifiqué ( VERB ) lemma=notificar 
- notita ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nota 
- notocordio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ notita ( NOUN NOUN_SINGULAR ) lemma=nota 
+ notocordio ( NOUN NOUN_SINGULAR ) 
  notocordo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  notoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notorio 
  notorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
  notoriamente ( ADVERB ) lemma=notorio 
  notorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notorio 
- notoriedad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ notoriedad ( NOUN NOUN_SINGULAR ) 
  notorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=notorio 
  nova ( VERB ) lemma=novar 
  novar ( ) 
- novata ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=novato 
- novato ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=novato 
- novatos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=novato 
+ novata ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=novato 
+ novato ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=novato 
+ novatos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=novato 
  nove ( VERB ) lemma=novar 
  novecientas ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=novecientos 
  novecientos ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
- novedad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ novedad ( NOUN NOUN_SINGULAR ) 
  novedosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=novedoso 
  novedoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  novedosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=novedoso 
@@ -856,104 +856,104 @@
  novelado ( VERB_PAST_PARTICIPLE VERB ) lemma=novelar 
  novelas ( VERB ) lemma=novelar 
  noveles ( VERB ) lemma=novelar 
- novelista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- novell ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ novelista ( NOUN NOUN_SINGULAR ) 
+ novell ( NOUN NOUN_SINGULAR ) 
  noven ( VERB ) lemma=novar 
- novená ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noveno 
- noveno ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=noveno 
- novenás ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma= 
+ novená ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noveno 
+ noveno ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=noveno 
+ novenás ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma= 
  noventa ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
  noves ( VERB ) lemma=novar 
- novia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=novio 
- novio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- novias ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=novio 
- noviazgo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ novia ( NOUN NOUN_SINGULAR ) lemma=novio 
+ novio ( NOUN NOUN_SINGULAR ) 
+ novias ( NOUN NOUN_SINGULAR ) lemma=novio 
+ noviazgo ( NOUN NOUN_SINGULAR ) 
  noviembre ( NOUN NOUN_SINGULAR ) 
- novillada ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- novillero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- novillo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ novillada ( NOUN NOUN_SINGULAR ) 
+ novillero ( NOUN NOUN_SINGULAR ) 
+ novillo ( NOUN NOUN_SINGULAR ) 
  novo ( VERB ) lemma=novar 
- noxa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nren ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nubarrones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nubarrón 
+ noxa ( NOUN NOUN_SINGULAR ) 
+ nren ( NOUN NOUN_SINGULAR ) 
+ nubarrones ( NOUN NOUN_SINGULAR ) lemma=nubarrón 
  nubarrón ( ) 
- nube ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nube ( NOUN NOUN_SINGULAR ) 
  nubla ( VERB ) lemma=nublar 
- nubladillo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nublado 
- nublado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nublado`nublar` NC  VLadj 
- nublados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`nublado`nublar` NC  VLadj 
+ nubladillo ( NOUN NOUN_SINGULAR ) lemma=nublado 
+ nublado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nublado`nublar` NC  VLadj 
+ nublados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`nublado`nublar` NC  VLadj 
  nublen ( VERB ) lemma=nublar 
  nubló ( VERB ) lemma=nublar 
- nubosidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nuca ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nubosidad ( NOUN NOUN_SINGULAR ) 
+ nuca ( NOUN NOUN_SINGULAR ) 
  nucal ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nucleación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleación ( NOUN NOUN_SINGULAR ) 
  nuclear ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=nuclear 
  nucleares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nuclear 
  nuclearmente ( ADVERB ) lemma=nuclear 
- nucleasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleasa ( NOUN NOUN_SINGULAR ) 
  nucleicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nucleico 
  nucleico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nucleicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nucleico 
- nucleoide ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleoide ( NOUN NOUN_SINGULAR ) 
  nucleolar ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=nucleolar 
  nucleolares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nucleolar 
- nucleolo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nucleones ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nucleón 
- nucleón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nucleoplasma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleolo ( NOUN NOUN_SINGULAR ) 
+ nucleones ( NOUN NOUN_SINGULAR ) lemma=nucleón 
+ nucleón ( NOUN NOUN_SINGULAR ) 
+ nucleoplasma ( NOUN NOUN_SINGULAR ) 
  nucleoproteico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nucleoproteína ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nucleosoma ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleoproteína ( NOUN NOUN_SINGULAR ) 
+ nucleosoma ( NOUN NOUN_SINGULAR ) 
  nucleosómico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nucleotídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nucleotídicos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nucleótido 
- nucleótido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleotídicos ( NOUN NOUN_SINGULAR ) lemma=nucleótido 
+ nucleótido ( NOUN NOUN_SINGULAR ) 
  nucleófilos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nucleófilo 
  nucleófilo ( ) 
- nucleósido ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nucleósido-azúcar ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nucléolo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nucleósido ( NOUN NOUN_SINGULAR ) 
+ nucleósido-azúcar ( NOUN NOUN_SINGULAR ) 
+ nucléolo ( NOUN NOUN_SINGULAR ) 
  nudillos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nudo 
- nudo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nudo 
- nudista ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nudo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nudo 
+ nudista ( NOUN NOUN_SINGULAR ) 
  nudos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nudo 
  nudosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nudoso 
  nudoso ( ) 
- nuez ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nuera ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nuez ( NOUN NOUN_SINGULAR ) 
+ nuera ( NOUN NOUN_SINGULAR ) 
  nuestra ( PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADJECTIVE_NORMAL ) lemma=nuestro 
  nuestro ( PRONOUN_SUBJECT PRONOUN_OBJECT ADJECTIVE ADJECTIVE_NORMAL ) lemma=nuestro 
  nuestras ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=nuestro 
  nuestros ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=nuestro 
- nueva ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`nuevo`nueva` ADJ  NC 
+ nueva ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`nuevo`nueva` ADJ  NC 
  nuevamente ( ADVERB ) lemma=nuevo 
  nuevo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nuevas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`nuevo`nueva` ADJ  NC 
+ nuevas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`nuevo`nueva` ADJ  NC 
  nueve ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
- nuevito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nuevo 
- nuevoleonesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nuevoleonés 
- nuevoleonés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nuevoleonés 
- nuevoleonesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nuevoleonés 
- nuevoleoneses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=nuevoleonés 
+ nuevito ( NOUN NOUN_SINGULAR ) lemma=nuevo 
+ nuevoleonesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nuevoleonés 
+ nuevoleonés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nuevoleonés 
+ nuevoleonesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nuevoleonés 
+ nuevoleoneses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=nuevoleonés 
  nuevos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nuevo 
  nula ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nulo 
  nulo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nulas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nulo 
- nulidad ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nulidad ( NOUN NOUN_SINGULAR ) 
  nulos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nulo 
- numeración ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ numeración ( NOUN NOUN_SINGULAR ) 
  numerada ( VERB_PAST_PARTICIPLE VERB ) lemma=numerar 
  numerar ( VERB_INFINITIVE VERB ) 
  numeradas ( VERB_PAST_PARTICIPLE VERB ) lemma=numerar 
- numerador ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ numerador ( NOUN NOUN_SINGULAR ) 
  numerados ( VERB_PAST_PARTICIPLE VERB ) lemma=numerar 
- numerales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=numeral 
+ numerales ( NOUN NOUN_SINGULAR ) lemma=numeral 
  numeral ( ) 
  numerarse ( VERB_INFINITIVE VERB ) 
  numeren ( VERB ) lemma=numerar 
- numerito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=número 
- numero ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`número`numerar` NC  VLfin 
+ numerito ( NOUN NOUN_SINGULAR ) lemma=número 
+ numero ( NOUN VERB NOUN_SINGULAR ) lemma=`número`numerar` NC  VLfin 
  numerosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=numeroso 
  numeroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  numerosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=numeroso 
@@ -971,51 +971,51 @@
  nutricio ( ) 
  nutricional ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nutricionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nutricional 
- nutrición ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nutrición ( NOUN NOUN_SINGULAR ) 
  nutrida ( VERB_PAST_PARTICIPLE VERB ) lemma=nutrir 
  nutridas ( VERB_PAST_PARTICIPLE VERB ) lemma=nutrir 
  nutridos ( VERB_PAST_PARTICIPLE VERB ) lemma=nutrir 
  nutriendo ( NOUN NOUN_GERUND ) lemma=nutrir 
- nutriente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nutriente ( NOUN NOUN_SINGULAR ) 
  nutriera ( VERB ) lemma=nutrir 
- nutrimento ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nutrimento ( NOUN NOUN_SINGULAR ) 
  nutritiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nutritivo 
  nutritivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nutritivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nutritivo 
  nutritivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nutritivo 
- nylon ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nylon ( NOUN NOUN_SINGULAR ) 
  nácar ( ADJECTIVE ADJECTIVE_NORMAL ) 
- náufragos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=náufrago 
+ náufragos ( NOUN NOUN_SINGULAR ) lemma=náufrago 
  náufrago ( ) 
- náusea ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- néctar ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- néurula ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- níquel ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ náusea ( NOUN NOUN_SINGULAR ) 
+ néctar ( NOUN NOUN_SINGULAR ) 
+ néurula ( NOUN NOUN_SINGULAR ) 
+ níquel ( NOUN NOUN_SINGULAR ) 
  nítida ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nítido 
  nítido ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nítidamente ( ADVERB ) lemma=nítido 
  nítidas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nítido 
  nítidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nítido 
  nítrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- nódulo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- nómadas ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=nómada 
+ nódulo ( NOUN NOUN_SINGULAR ) 
+ nómadas ( NOUN NOUN_SINGULAR ) lemma=nómada 
  nómada ( ) 
- nómina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ nómina ( NOUN NOUN_SINGULAR ) 
  nórdica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nórdico 
  nórdico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  nórdicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nórdico 
  nórdicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=nórdico 
  nótese ( VERB ) lemma=notar 
- núcleo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- númeroprotocolo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- númeropuerto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ núcleo ( NOUN NOUN_SINGULAR ) 
+ númeroprotocolo ( NOUN NOUN_SINGULAR ) 
+ númeropuerto ( NOUN NOUN_SINGULAR ) 
  Naciones_Unidas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Naciones~Unidas 
  Naciones~Unidas ( ) 
  No_obstante ( ADVERB ) lemma=no~obstante 
  no~obstante ( ) 
  Nueva_Caledonia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Nueva~Caledonia 
  Nueva~Caledonia ( ) 
- Nueva_Delhi ( NOUN NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Nueva~Delhi 
+ Nueva_Delhi ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Nueva~Delhi 
  Nueva~Delhi ( ) 
  Nueva_York ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Nueva~York 
  Nueva~York ( ) 

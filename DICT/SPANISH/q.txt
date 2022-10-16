@@ -24,14 +24,14 @@
  Quintero ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Quique ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Enrique 
  Quiroga ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- qi ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- qintex ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quango ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quanta ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ qi ( NOUN NOUN_SINGULAR ) 
+ qintex ( NOUN NOUN_SINGULAR ) 
+ quango ( NOUN NOUN_SINGULAR ) 
+ quanta ( NOUN NOUN_SINGULAR ) 
  que ( ) lemma=que 
  quebrada ( VERB_PAST_PARTICIPLE VERB ) lemma=quebrar 
  quebradas ( VERB_PAST_PARTICIPLE VERB ) lemma=quebrar 
- quebradero ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quebradero ( NOUN NOUN_SINGULAR ) 
  quebradizas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quebradizo 
  quebradizo ( ADJECTIVE ADJECTIVE_NORMAL ) 
  quebrado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=quebrarse 
@@ -43,7 +43,7 @@
  quebrantados ( VERB_PAST_PARTICIPLE VERB ) lemma=quebrantar 
  quebrantando ( NOUN NOUN_GERUND ) lemma=quebrantar 
  quebranten ( VERB ) lemma=quebrantar 
- queda ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`queda`quedar` NC  VLfin 
+ queda ( NOUN VERB NOUN_SINGULAR ) lemma=`queda`quedar` NC  VLfin 
  quedad ( VERB ) lemma=quedar 
  quedado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=quedarse 
  quedando ( NOUN NOUN_GERUND ) lemma=quedar 
@@ -52,7 +52,7 @@
  quedarme (                 VERB ) lemma=quedar 
  quedarnos (                 VERB ) lemma=quedar 
  quedarte (                 VERB ) lemma=quedar 
- quedas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`quedo`queda`quedar` ADJ  NC  VLfin 
+ quedas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`quedo`queda`quedar` ADJ  NC  VLfin 
  quedase ( VERB ) lemma=quedar 
  quedasen ( VERB ) lemma=quedar 
  quedemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=quedar 
@@ -64,32 +64,32 @@
  quedándose ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=quedarse 
  quedáramos ( VERB ) lemma=quedar 
  quedéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=quedar 
- quehacer ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quehacer ( NOUN NOUN_SINGULAR ) 
  quejar ( VERB_INFINITIVE VERB ) 
  quejado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=quejarse 
  quejando ( NOUN NOUN_GERUND ) lemma=quejar 
- quejas ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`queja`quejar` NC  VLfin 
+ quejas ( NOUN VERB NOUN_SINGULAR ) lemma=`queja`quejar` NC  VLfin 
  quejen ( VERB ) lemma=quejar 
  quejes ( VERB ) lemma=quejar 
- quejidos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quejido 
+ quejidos ( NOUN NOUN_SINGULAR ) lemma=quejido 
  quejido ( ) 
  quejosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quejoso 
  quejoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
  quejosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quejoso 
  quejosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quejoso 
  quejándose ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=quejarse 
- quelación ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quelación ( NOUN NOUN_SINGULAR ) 
  quelantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quelante 
  quelante ( ) 
- quelato ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quema ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`quema`quemar` NC  VLfin 
+ quelato ( NOUN NOUN_SINGULAR ) 
+ quema ( NOUN VERB NOUN_SINGULAR ) lemma=`quema`quemar` NC  VLfin 
  quemada ( VERB_PAST_PARTICIPLE VERB ) lemma=quemar 
  quemadas ( VERB_PAST_PARTICIPLE VERB ) lemma=quemar 
  quemado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=quemarse 
- quemadores ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quemador 
+ quemadores ( NOUN NOUN_SINGULAR ) lemma=quemador 
  quemador ( ) 
  quemados ( VERB_PAST_PARTICIPLE VERB ) lemma=quemar 
- quemadura ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quemadura ( NOUN NOUN_SINGULAR ) 
  quemando ( NOUN NOUN_GERUND ) lemma=quemar 
  quemarla (                 VERB ) lemma=quemar 
  quemarles (                 VERB ) lemma=quemar 
@@ -100,13 +100,13 @@
  quepa ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=caber 
  quepan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=caber 
  queramos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=querer 
- queratina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- queratinización ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ queratina ( NOUN NOUN_SINGULAR ) 
+ queratinización ( NOUN NOUN_SINGULAR ) 
  queratinizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- queratinocito ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ queratinocito ( NOUN NOUN_SINGULAR ) 
  queratítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- querella ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- querellantes ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=querellante 
+ querella ( NOUN NOUN_SINGULAR ) 
+ querellantes ( NOUN NOUN_SINGULAR ) lemma=querellante 
  querellante ( ) 
  querellarse ( VERB ) lemma=querellar 
  querellar ( ) 
@@ -117,13 +117,13 @@
  querernos (                 VERB ) lemma=querer 
  quererse ( VERB_INFINITIVE VERB ) 
  quererte (                 VERB ) lemma=querer 
- queretana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=queretano 
- queretano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=queretano 
- queretanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=queretano 
- querida ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
- queridas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
- querido ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
- queridos ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
+ queretana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=queretano 
+ queretano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=queretano 
+ queretanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=queretano 
+ querida ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
+ queridas ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
+ querido ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
+ queridos ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`querido`querido`querer` ADJ  NC  VLadj 
  queridísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=querido 
  queriendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=querer 
  queriéndose ( VERB_PAST_PARTICIPLE VERB ) lemma=querer 
@@ -139,14 +139,14 @@
  querámoslo ( VERB ) lemma=querer 
  querés ( VERB ) lemma=querer 
  querís ( VERB ) lemma=querer 
- queso ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quest ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quetzales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quetzal 
+ queso ( NOUN NOUN_SINGULAR ) 
+ quest ( NOUN NOUN_SINGULAR ) 
+ quetzales ( NOUN NOUN_SINGULAR ) lemma=quetzal 
  quetzal ( ) 
- quicio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quicklist ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quid ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quiebras ( NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma=`quiebra`quebrar` NC  VLfin 
+ quicio ( NOUN NOUN_SINGULAR ) 
+ quicklist ( NOUN NOUN_SINGULAR ) 
+ quid ( NOUN NOUN_SINGULAR ) 
+ quiebras ( NOUN VERB NOUN_SINGULAR ) lemma=`quiebra`quebrar` NC  VLfin 
  quiebren ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=quebrar 
  quien ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
  quienes ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=quien 
@@ -158,59 +158,59 @@
  quieta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`quieto`quietar` ADJ  VLfin 
  quieto ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`quieto`quietar` ADJ  VLfin 
  quietos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quieto 
- quijada ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quijote ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quilates ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quilate 
+ quijada ( NOUN NOUN_SINGULAR ) 
+ quijote ( NOUN NOUN_SINGULAR ) 
+ quilates ( NOUN NOUN_SINGULAR ) lemma=quilate 
  quilate ( ) 
- quilla ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quilombo ( NOUN NOUN_SINGULAR NOUN_PLURAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=quilombo 
- quilomicrón ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimera ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimioatrayente ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimiocina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quilla ( NOUN NOUN_SINGULAR ) 
+ quilombo ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=quilombo 
+ quilomicrón ( NOUN NOUN_SINGULAR ) 
+ quimera ( NOUN NOUN_SINGULAR ) 
+ quimioatrayente ( NOUN NOUN_SINGULAR ) 
+ quimiocina ( NOUN NOUN_SINGULAR ) 
  quimiomecánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- quimioprofilaxia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimioprofilaxis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimioquina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimiorreceptores ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quimiorreceptor 
+ quimioprofilaxia ( NOUN NOUN_SINGULAR ) 
+ quimioprofilaxis ( NOUN NOUN_SINGULAR ) 
+ quimioquina ( NOUN NOUN_SINGULAR ) 
+ quimiorreceptores ( NOUN NOUN_SINGULAR ) lemma=quimiorreceptor 
  quimiorreceptor ( ) 
  quimiosintético ( ADJECTIVE ADJECTIVE_NORMAL ) 
- quimiotaxis ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quimioterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quimiotaxis ( NOUN NOUN_SINGULAR ) 
+ quimioterapia ( NOUN NOUN_SINGULAR ) 
  quimioterapéuticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quimioterapéutico 
  quimioterapéutico ( ) 
  quimiotácticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quimiotáctico 
  quimiotáctico ( ) 
- quimo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quimo ( NOUN NOUN_SINGULAR ) 
  quimopapaíno ( ADJECTIVE ADJECTIVE_NORMAL ) 
- quimotripsina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinacrina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinasa ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quimotripsina ( NOUN NOUN_SINGULAR ) 
+ quina ( NOUN NOUN_SINGULAR ) 
+ quinacrina ( NOUN NOUN_SINGULAR ) 
+ quinasa ( NOUN NOUN_SINGULAR ) 
  quince ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
- quincena ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quincena ( NOUN NOUN_SINGULAR ) 
  quincenal ( ADJECTIVE ADJECTIVE_NORMAL ) 
  quincenales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quincenal 
- quincho ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quincho ( NOUN NOUN_SINGULAR ) 
  quincuagésima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quincuagésimo 
  quincuagésimo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- quinetoplasto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quinetoplasto ( NOUN NOUN_SINGULAR ) 
  quinientas ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=quinientos 
  quinientos ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
- quinina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinolona ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinoto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinquenio ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quinta ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN_PLURAL NOUN NOUN_NUMBER ) lemma=`quinta`quinto` NC  ORD 
- quintal ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quintas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`quinto`quinta`quintar` ADJ  NC  VLfin 
- quinteto ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quinina ( NOUN NOUN_SINGULAR ) 
+ quinolona ( NOUN NOUN_SINGULAR ) 
+ quinoto ( NOUN NOUN_SINGULAR ) 
+ quinquenio ( NOUN NOUN_SINGULAR ) 
+ quinta ( NOUN ADJECTIVE ADJECTIVE_NUMBER NOUN_SINGULAR NOUN NOUN_NUMBER ) lemma=`quinta`quinto` NC  ORD 
+ quintal ( NOUN NOUN_SINGULAR ) 
+ quintas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`quinto`quinta`quintar` ADJ  NC  VLfin 
+ quinteto ( NOUN NOUN_SINGULAR ) 
  quinto ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
- quintos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=quinto 
+ quintos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=quinto 
  quintuplica ( VERB ) lemma=quintuplicar 
  quintuplicar ( ) 
- quiosco ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- quirófano ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quiosco ( NOUN NOUN_SINGULAR ) 
+ quirófano ( NOUN NOUN_SINGULAR ) 
  quirúrgica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quirúrgico 
  quirúrgico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  quirúrgicamente ( ADVERB ) lemma=quirúrgico 
@@ -229,12 +229,12 @@
  quisiste ( VERB ) lemma=querer 
  quisiéramos ( VERB ) lemma=querer 
  quiso ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=querer 
- quiste ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quiste ( NOUN NOUN_SINGULAR ) 
  quitar ( VERB_INFINITIVE VERB ) 
  quitada ( VERB_PAST_PARTICIPLE VERB ) lemma=quitar 
  quitados ( VERB_PAST_PARTICIPLE VERB ) lemma=quitar 
  quitando ( NOUN NOUN_GERUND ) lemma=quitar 
- quitanieves ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quitanieves ( NOUN NOUN_SINGULAR ) 
  quitarla (                 VERB ) lemma=quitar 
  quitarle (                 VERB ) lemma=quitar 
  quitarles (                 VERB ) lemma=quitar 
@@ -244,12 +244,12 @@
  quitarse ( VERB_INFINITIVE VERB ) 
  quitarte (                 VERB ) lemma=quitar 
  quitase ( VERB ) lemma=quitar 
- quitasoles ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=quitasol 
+ quitasoles ( NOUN NOUN_SINGULAR ) lemma=quitasol 
  quitasol ( ) 
  quitemos ( VERB ) lemma=quitar 
  quiten ( VERB ) lemma=quitar 
  quites ( VERB ) lemma=quitar 
- quitina ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quitina ( NOUN NOUN_SINGULAR ) 
  quitándole ( NOUN NOUN_GERUND ) lemma=quitar 
  quitándoles ( NOUN NOUN_GERUND ) lemma=quitar 
  quitándonos ( NOUN NOUN_GERUND ) lemma=quitar 
@@ -267,10 +267,10 @@
  quiúbo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  quédate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=quedarse 
  quédense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=quedarse 
- química ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`químico`química` ADJ  NC 
+ química ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`químico`química` ADJ  NC 
  químicamente ( ADVERB ) lemma=químico 
  químico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- químicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR NOUN_PLURAL ) lemma=`químico`química` ADJ  NC 
+ químicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`químico`química` ADJ  NC 
  químicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=químico 
  quística ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=quístico 
  quístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
@@ -278,7 +278,7 @@
  quítale ( ) lemma=quitar 
  quítame ( ) lemma=quitar 
  quítate ( ) lemma=quitar 
- quórum ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ quórum ( NOUN NOUN_SINGULAR ) 
  quepo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=caber 
  quepamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=caber 
  quepáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=caber 

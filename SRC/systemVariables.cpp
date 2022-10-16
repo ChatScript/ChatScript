@@ -411,7 +411,7 @@ static char* Slanguage(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	strcpy(systemValue,language);
+	strcpy(systemValue, current_language);
     return systemValue;
 }
 static char* Sos(char* value)
@@ -960,13 +960,7 @@ char* SoriginalInput(char* value)
 	}
 	if (*hold != '.') return hold; // simple override
 	if (sentencehold) return sentencehold;// testpattern override for long inputs
-	char* input = SkipWhitespace(originalUserInput);
-	while ((unsigned char)input[0] == 0xEF && (unsigned char)input[1] == 0xBB && (unsigned char)input[2] == 0xBF)
-	{
-		input += 3; // skip UTF8 BOM (from file)
-	}
-	char* at = SkipOOB(input);
-    return SkipWhitespace(at);
+    return originalUserMessage;
 }   
 
 static char* SoriginalSentence(char* value)
@@ -1221,8 +1215,28 @@ static char* SlastQuestion(char* value)
  	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
 	if (!responseIndex) return "";
-	char* sentence = responseData[responseOrder[responseIndex-1]].response;
-	return (strchr(sentence, '?')) ? (char*)"1" : (char*)"";
+	char* sentence = SkipWhitespace(responseData[responseOrder[responseIndex-1]].response);
+	char* end = strchr(sentence, '?');
+	bool c = (end) ? true : false;
+	if (!c) // imperatives?
+	{
+		if (!strnicmp(sentence, "tell",4)) c = 1;
+		else if (!strnicmp(sentence, "please", 6)) c = 1;
+		else if (!strnicmp(sentence, "give", 4)) c = 1;
+		else // imperative?
+		{
+			char word[MAX_WORD_SIZE];
+			char* x = ReadToken(sentence, word); //  command
+			WORDP D = FindWord(word);
+			if (D && D->properties & VERB_INFINITIVE)
+			{
+				ReadToken(sentence, word); // check for pronoun (me etc) // overly general eg Throw him the ball. better if talking verb
+				D = FindWord(word);
+				if (D && D->properties & PRONOUN_BITS) c = 1;
+			}
+		}
+	}
+	return (c) ? (char*)"1" : (char*)"";
 }
 
 static char* SoutputRejoinder(char* value)

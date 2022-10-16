@@ -110,7 +110,7 @@ u: RHINO (_rhino)  I matched &#39;_0</code></pre>
     $_prior = $_tmp
     ^retry(RULE)</code></pre>
 <p>The above code walks each word of the sentence as seen by script. It grabs what the user actually typed (prior to any spelling corrections of any kind) and if it is different from the prior word, it prints it out. Multiple words in a sentence may all result from the same correction, so testing against the prior correction derivation is needed.</p>
-<p>And you can also grab %originalInput for the entire raw text of what the user typed for this volley.</p>
+<p>And you can also grab %originalInput for the entire raw text of what the user typed for this volley (no oob included).</p>
 <h2 id="adding-and-subtracting-meaning">Adding and subtracting meaning</h2>
 <p>Sometimes it's not that the word is wrong, it's just that words have multiple meanings and in some context you don't want to detect such a meaning. For that I often use ^mark and ^unmark. For example, if I am going to detect a country, I don't want &quot;guinea pig&quot; to be conflated with Guinea the country. So I can detect and kill off the ~country mark on the word.</p>
 <pre><code>u: NOCOUNTRY (_guinea pig) ^unmark(~country _0) ^retry(RULE)

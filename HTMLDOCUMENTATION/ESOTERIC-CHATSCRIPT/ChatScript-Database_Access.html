@@ -60,16 +60,24 @@ CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, [file] VARBINARY(max), 
 <p>The table name &quot;userfiles&quot; and the field names are fixed. ChatScript assumes them. userid: a limit of 64 is more than enough file: in our world we are going to have less than 500K bytes of data stored: CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.</p>
 <h3 id="mssql-termination">MsSQL Termination:</h3>
 <p>If at any time a call to utilize MsSQL fails, the CS server will abort itself. If you have an automatic restart and retry mechanism, then maybe things will just work next time, or a different CS server will get invoked. Such a mechanism is done automatically by CS.</p>
-<p>From user script one can open a database with ^msqlinit(<span class="math inline"><em></em><sub><em>p</em></sub><em>a</em><em>r</em><em>a</em><em>m</em><em>s</em>)<em>a</em><em>n</em><em>d</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em><em>i</em><em>t</em><em>w</em><em>i</em><em>t</em><em>h</em><sup><em>m</em></sup><em>s</em><em>q</em><em>l</em><em>c</em><em>l</em><em>o</em><em>s</em><em>e</em>().<sup><em>m</em></sup><em>s</em><em>q</em><em>l</em><em>r</em><em>e</em><em>a</em><em>d</em>(</span>_username) and ^msqlwrite($_username $_value) perform db operations. Init Params are the same as for using such a db for a filesystem.</p>
+<p>From user script one can open a database with <code>^msqlinit($_params)</code><br />
+and close it with <code>^msqlclose()</code>. <code>^msqlread($_username)</code> and <code>^msqlwrite($_username $_value)</code> perform db operations. Init Params are the same as for using such a db for a filesystem.</p>
 <h2 id="mongo-fileserver-and-database">Mongo Fileserver and Database</h2>
 <p>Aside from using Mongo to store data for a chatbot to look up, one can also use Mongo as a replacement for the local file system of the USERS directory. Log files will remain local but the <code>USERS/topicxxxxx</code> will be rerouted, as will any <code>^export</code> or <code>^import</code> request. If you name your file <code>USERS/ltm-xxxxx</code> then that will be routed to its own collection, otherwise it will go into the same collection as the topic file.</p>
 <p>To set collections, on the command line use:</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection&quot;</code></pre>
 <p>or for user topic and ltm files</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm&quot;</code></pre>
-<p>or for a remote host with no ltm file</p>
+<p>or for a remote host with no ltm file.</p>
 <pre><code>mongo=mongodb://127.0.0.1:27017 ChatScript topic:UserTopics</code></pre>
-<p>or whatever. Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.</p>
+<p>Any <code>^import()</code> and <code>^export()</code> will check the file name for a match against a collection reference to allow for any document to be redirected to the database. For example, with the following definition any file names that cache will be saved in a MyCache collction in the Mongo database.</p>
+<pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache&quot;</code></pre>
+<p>Read preferences for queries on Mongo collections can be added to each collection definition. To specify the cache documents can be read from a secondary replica, but keeping the topic and ltm read from primary (the default), use definitions like</p>
+<pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred&quot;</code></pre>
+<p>or</p>
+<pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred&amp;readPreferenceTags=dc:east&amp;readPreferenceTags=west&quot;</code></pre>
+<p>The additional options follow the standard Mongo style used in URL definitions, see https://www.mongodb.com/docs/manual/reference/connection-string/#read-preference-options</p>
+<p>Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.</p>
 <p>Obviously put the correct data for your mongo machine. CS will store user topic files in the Mongo machine and well as <code>^export</code> and <code>^import</code> data. For user and server logs it will continue to store those on the local machine. You may have the same or different collection active, one or two via filesystem replacement and once via normal script access.</p>
 <h3 id="access-a-mongo-database">Access A Mongo Database</h3>
 <p>There are only a couple of functions you need.</p>

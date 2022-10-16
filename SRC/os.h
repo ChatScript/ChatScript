@@ -48,7 +48,7 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
         char* userValue;			//  if a $uservar (start with $) OR if a query label is query string
         WORDP substitutes;			//  words (with systemFlags HAS_SUBSTITUTE) that should be adjusted to during tokenization
         MEANING*  glosses;			//  for ordinary words: list of glosses for synset head meanings - is offset to allocstring and id index of meaning involved.
-        char* conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
+        WORDP conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
     }w;
 
     FACTOID subjectHead;		//  start threads for facts run thru here 
@@ -56,7 +56,7 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
     FACTOID objectHead;			//  start threads for facts run thru here 
 
     MEANING  meanings;			//  list of meanings (synsets) of this word - Will be wordnet synset id OR self ptr -- 1-based since 0th meaning means all meanings
-    unsigned int length;		//  length of the word
+    unsigned int length;		//  length of the word (top bit is SUPERCEDED) - used only to improve lookup speed
     unsigned int inferMark;		// (functions use as trace control bits) no need to erase been here marker during marking facts, inferencing (for propogation) and during scriptcompile 
     MEANING spellNode;			// next word of same length as this - not used for function names (time tracing bits go here) and concept names
     unsigned int nextNode;		// bucket-link for dictionary hash + top bye GETMULTIWORDHEADER // can this word lead a phrase to be joined - can vary based on :build state -- really only needs 4 bits

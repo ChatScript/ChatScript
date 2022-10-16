@@ -13,9 +13,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
-
+void C_ComputeSpanish(char* word);
 uint64 GetSpanishLemmaBits(char* word);
 void MarkSpanishTags(WORDP OL,int i);
+uint64 KnownSpanishUnaccented(char* original, WORDP& entry,uint64& sysflags);
+uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags); // case sensitive, may add word to dictionary, will not augment flags of existing words
 
-uint64 ComputeSpanish(int at, char* original, WORDP& entry, WORDP& canonical, uint64& sysflags); // case sensitive, may add word to dictionary, will not augment flags of existing words
+#ifdef JA_UNITTEST
+void C_JaUnittest(char* word);
+#endif // JA_UNITTEST
+
 #endif // SPANISH_H

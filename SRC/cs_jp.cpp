@@ -1,4 +1,4 @@
-/*** Tokenizes for japanese chars */
+/*** Tokenizes for japanese/chinese chars */
 #include "common.h"
 #include <stdio.h>
 #ifndef DISCARD_JAPANESE
@@ -8,6 +8,10 @@ static MeCab::Tagger* tagger;
 
 // structure for japanese parsing.
 static jp_tokens_t jpt;
+
+#ifdef WIN32
+#pragma comment(lib, "../BINARIES/libmecab.lib")
+#endif
 
 
 int malloc_jp_token_buffers() {

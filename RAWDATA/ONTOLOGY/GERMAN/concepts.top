@@ -335,7 +335,7 @@
 #GERMAN concept: ~FAIRYTALE_CHARACTERS PROBABLE_NOUN (      Drachen Frosch König Ritter Prinz Prinzessin Königin Assistent   )
 #GERMAN concept: ~FAKE_RELIGIOUS_SECT (      "Christian Science" "Christian Scientist" Freimaurer Freimaurerei Moonie Satanismus Satanist Scientologe Scientology Vereinigungskirche Wicca Wicca Hexe Hexerei   )
 #GERMAN concept: ~FAMILY_ADULT PROBABLE_NOUN ANIMATE_BEING ( ~family_adult_female ~family_adult_generic ~family_adult_male        )
-#GERMAN concept: ~FAMILY_ADULT_FEMALE PROBABLE_NOUN ANIMATE_BEING ( ~mother      Tante Tante Schwiegertochter Ex-Frau Verlobte Freundin Patin gran Oma grandmom Oma Oma Matriarchin Herrin Schwiegermutter Partner Jungfer Stiefmutter Stiefmutter Witwe Ehefrau   )
+#GERMAN concept: ~FAMILY_ADULT_FEMALE PROBABLE_NOUN ANIMATE_BEING ( ~mother      Tante Tante Schwiegertochter Ex-Frau Verlobte Freundin Patin gran Oma grandmom Oma Oma Matriarchin Herrin Schwiegermutter  Jungfer Stiefmutter Stiefmutter Witwe Ehefrau   )
 #GERMAN concept: ~FAMILY_ADULT_GENERIC NOUN_HUMAN PROBABLE_NOUN ANIMATE_BEING (      Vorfahr Clan Cousin Nachkomme Nachfahre Älteren Leute Großeltern Erbe Elternteil Partner Ehepartner Stiefeltern Stamm   )
 #GERMAN concept: ~FAMILY_ADULT_MALE PROBABLE_NOUN ANIMATE_BEING ( ~brother ~family_grandfather ~father      Freund Schwager "ex Mann" Schwiegervater Verlobter Ehemann Mann Patriarch Spross Schwiegersohn Stiefvater Stiefvater Onkel Witwer   )
 #GERMAN concept: ~FAMILY_CHILDREN PROBABLE_NOUN ANIMATE_BEING ( ~family_children_female ~family_children_generic ~family_children_male        )

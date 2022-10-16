@@ -9,9 +9,10 @@
 </head>
 <body>
 <h1 id="chatscript-finalizing-a-bot-manual">ChatScript Finalizing a Bot Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
 <p>OK. You've written a bot. It sort of seems to work. Now, before releasing it, you should polish it. There are a bunch of tools to do this.</p>
-<h2 id="verification-verify">Verification (<code>:verify</code>)</h2>
+<h2 id="verification-verify-and-verifylist-verifyrun-verifymatch">Verification (<code>:verify</code> and <code>:verifylist :verifyrun :verifymatch</code>)</h2>
+<p>There are two verification systems with slightly different purposes and abilities. They both depend on sample input comments.</p>
 <p>When I write a topic, before every rejoinder and every responder, I put a sample input comment. This has #! as a prefix. E.g.,</p>
 <pre><code>topic: ~mytopic (keyword)
 
@@ -24,9 +25,35 @@ t: This is my topic.
 
 #! I hate food
 s: (I * ~hate * food) Too bad.</code></pre>
-<p>This serves two functions. First, it makes it easy to read a topic-- you don't have to interpret pattern code to see what is intended. Second, it allows the system to verify your code in various ways. It is the &quot;unit test&quot; of a rule. If you've annotated your topics in this way, you can issue :verify commands.</p>
-<h3 id="generic-verify">Generic :verify</h3>
-<p>You can ask ChatScript to execute all of your verify data as sample inputs. <code>:verifyList</code> will generate all of your verification data as sample inputs in tmp/tmp.txt (by default or you can name a file). You can then issue :verifyRun (defaults to tmp/tmp.txt or you can name a file). This will execute each input as though coming in with no current topic (all topics will be treated as nostay). :verifyMatch will then tell you all the inputs that didn't output from the expected rule.</p>
+<p>This serves two functions. First, it makes it easy to read a topic-- you don't have to interpret pattern code to see what is intended. And you can use :abstract to give people a written abstract of your bot sans a bunch of actual code.</p>
+<p>Second, it allows the system to verify your code in various ways. It is the &quot;unit test&quot; of a rule. If you've annotated your topics in this way, you can issue different :verify commands. You can run this regularly on your bot to prove you haven't broken things as you continue to modify it.</p>
+<p>The basic <code>:verify</code> command can check your sample inputs in a number of ways (to be described) but has a limited ability to set up the conversation environment before the test. The more elaborate <code>:verifylist, :verifyrun, :verifymatch</code> trilogy has much more control.</p>
+<p>Some bots can support multiple languages, changed on the fly. Or multiple personas that all share the same bot. Regressing these requires such control. One uses special VERIFY commands which can call functions or set variables during a test run. Here is a sample file which normally requires you be in english before you can use this topic (there are corresponding topics for other languages).</p>
+<pre><code>topic: ~SOCCER_en_US  system REPEAT (CHAT-TOPIC)
+
+#! VERIFY ^setlanguagecontext(en_US)
+u: () ^check_language(en_US)
+
+#! What&#39;s your favorite soccer team?
+?: (&lt;&lt;[best fave favorite] soccer [team club organization]&gt;&gt;) Madrid Real of course!
+
+#! Do you like soccer?
+?: (&lt;&lt;like soccer&gt;&gt;) Sure, what is your favorite club?
+
+#! Who&#39;s your favorite soccer player?
+?: (&lt;&lt;[best fave favorite]  soccer player&gt;&gt;) No one can bend it like Pele!
+
+#! VERIFY ^setlanguagecontext(null)</code></pre>
+<p>When regression runs this topic, it will set the language to english, run the test, and then set the language back to what it was before.</p>
+<p>These #! VERIFY comments can be stacked in succession and also accept:</p>
+<pre><code>#! VERIFY $var = value
+#! VERIFY %time = value
+#! VERIFY trace = all
+#! VERIFY trace = none
+#!  Do you like this?</code></pre>
+<p>To use this system, you start by doing <code>:verifylist</code> which will read your compiled bot and generate the file tmp/tmp.txt with top level rule commands to execute and expectations of where they end up.<br />
+It does not generate tests on rejoinders. Then if you say <code>:verifyrun</code> those commands are executed, generating a user log file. Then <code>:verifymatch</code> will generate a csv file whose columns are: Expected, Actual, Input, Persona, Response. Expected and Actual are rule labels. Input is from the verification sample input. If your bot as part of its oob output has a field of bot: and a botname (personality) then that is listed here as who said it. And finally the actual text of the response is shown. By default this file only contains failing tests. You can limit the csv to a specific language and/or bot and can request all tests be shown. The result of :verifyrun is the full data, so :verifymatch can be run multiple times to get different slices of the results.</p>
+<pre><code>:verifymatch language:en_us bot:roger all</code></pre>
 <p>There is a special verification input you can issue:</p>
 <pre><code>#! ~topicname $variable = value</code></pre>
 <p>When execution of a verify input is being done, when the topic with the name of the ~topicname sees this input, it will perform an assignment of the named variable with the named value. This is useful for enabling and disabling topics that might conflict. Eg.</p>
@@ -36,10 +63,12 @@ u: () ^check_event(awe_event)</code></pre>
 <p>Normally this topic checks to see if the event context has been set to the event for this topic. If not, the code in ^check_event executes a ^fail(TOPIC) and this topic will not react. But we WANT it to react during testing, so the comment will turn on this context to allow the topic to work (and other topics controlled by different events will not react during this topic's verify input.) At the end of the topic we have this:</p>
 <pre><code>#! ~awe_event $event_context = null
 u: ()</code></pre>
-<p>This turns off the context set during verify.</p>
 <h3 id="detailed-verify">Detailed :Verify</h3>
+<p>The :verifylist/:verifyrun/:verifymatch system has good control over the running environment but limits itself to telling you something doesn't match. You have to debug why yourself.</p>
+<p>The simple <code>:verify</code> command can perform different test analyses.</p>
 <p>Typically I start with proving the patterns work everywhere.</p>
 <pre><code>:verify pattern</code></pre>
+<p>The shows that all rule's patterns would actually match the sample input. At a minimum your pattern MUST do that.</p>
 <p>Then I confirm keywords to access topics are OK.</p>
 <pre><code>:verify keyword</code></pre>
 <p>Then I verify rules don't block each other in a topic.</p>

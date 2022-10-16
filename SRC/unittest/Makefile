@@ -16,7 +16,9 @@ VPATH = . .. ../duktape ./$(OBJDIR)
 
 SOURCES := \
 	constructCode.cpp \
+	cs_es.cpp \
 	cs_ev.cpp \
+	cs_german.cpp \
 	cs_jp.cpp \
 	csocket.cpp  \
 	dictionarySystem.cpp  \
@@ -53,12 +55,13 @@ SOURCES := \
 	userSystem.cpp  \
 	variableSystem.cpp  \
 	zif.cpp  \
-	test_mssql.cpp \
-	test_scriptCompile.cpp \
-	test_zif.cpp \
-	test_main.cpp \
 	test_jp.cpp \
 	test_json.cpp \
+	test_main.cpp \
+	test_mssql.cpp \
+	test_scriptCompile.cpp \
+	test_testing.cpp \
+	test_zif.cpp \
 	timer.cpp
 
 OBJECTS_CPP=$(SOURCES:%.cpp=$(OBJDIR)/%.o)

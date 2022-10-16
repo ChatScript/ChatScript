@@ -10,18 +10,18 @@ static unsigned int oldOutputLimit[MAX_OUTPUT_NEST];
 char* outputCode[MAX_GLOBAL];
 int oldOutputIndex = 0;
 unsigned int outputNest = 0;
-static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int controls);
+static char* ProcessChoice(char* ptr, char* buffer, FunctionResult& result, int controls);
 static char* Output_Function(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once);
 static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once, bool nojson);
 #ifdef JUNK
 Special strings :
 
-When you put ^"xxxx" as a string in a normal output field, it is a format string.By definition you didnt need it compileable.
+When you put ^ "xxxx" as a string in a normal output field, it is a format string.By definition you didnt need it compileable.
 It will be treated...
 
 When you use it as an argument to a function(top level), it is compiled.
 
-When you put ^"xxxx" as a string in a table, it will be compiled and be either a pattern compile or an output compile.
+When you put ^ "xxxx" as a string in a table, it will be compiledand be either a pattern compile or an output compile.
 Internally that becomes "^xxx" which is fully executable.
 
 
@@ -33,7 +33,7 @@ bool SafeCopy(char* output, char* word, bool space)
     if (((output - currentOutputBase) + len) > (currentOutputLimit - 200))
     {
         ReportBug((char*)"output buffer too big for copy %s\r\n", output); // buffer overflow
-            return false;
+        return false;
     }
     if (space) { *output++ = ' '; *output = 0; }
     strcpy(output, word);
@@ -121,7 +121,7 @@ char* ReadFunctionCommandArg(char* ptr, char* buffer, FunctionResult& result, bo
 
     char* answer = ReadShortCommandArg(at, buffer, result, OUTPUT_NOQUOTES);
     if (result != NOPROBLEM_BIT) return answer;
-    
+
     if (!stricmp(buffer, (char*)"null") && optional)
     {
         *buffer = 0;
@@ -138,7 +138,7 @@ char* ReadFunctionCommandArg(char* ptr, char* buffer, FunctionResult& result, bo
     {
         result = FAILRULE_BIT;
     }
-    
+
     return answer;
 }
 
@@ -173,12 +173,12 @@ static char* ReadUserVariable(char* input, char* var)
                     break;
                 }
             }
-			else if (!LegalVarChar(input[1]) && input[1] != '$' && input[1] != '[' && input[1] != '.')
-			{
-				if (*input == ']') ++input;  // add to var this closing
-				break; // not a var dot, just an ordinary one 
-			}
-		}
+            else if (!LegalVarChar(input[1]) && input[1] != '$' && input[1] != '[' && input[1] != '.')
+            {
+                if (*input == ']') ++input;  // add to var this closing
+                break; // not a var dot, just an ordinary one 
+            }
+        }
     }
     strncpy(var, at, input - at);
     var[input - at] = 0;
@@ -204,7 +204,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
     --len;
     char c = input[len];
     char* original = input;
-	char* origoutput = output;
+    char* origoutput = output;
     input[len] = 0;	// remove closing "
     if (*input == ':') // has been compiled by script compiler. safe to execute fully. actual string is "^:xxxxx" 
     {
@@ -487,7 +487,7 @@ char* StdIntOutput(int n)
     return answer;
 }
 
-static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int controls) //   given block of  [xx] [yy] [zz]  randomly pick one
+static char* ProcessChoice(char* ptr, char* buffer, FunctionResult& result, int controls) //   given block of  [xx] [yy] [zz]  randomly pick one
 {
     char* choice[CHOICE_LIMIT];
     char** choiceset = choice;
@@ -553,7 +553,7 @@ static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int 
                                       // is choice a repeat of something already said... if so try again
         if (*buffer && HasAlreadySaid(buffer))
         {
-            if (trace & TRACE_OUTPUT) Log(USERLOG,"Choice %s already said\r\n", buffer);
+            if (trace & TRACE_OUTPUT) Log(USERLOG, "Choice %s already said\r\n", buffer);
             *buffer = 0;
             choiceset[r] = choiceset[--count];
         }
@@ -566,7 +566,7 @@ static char* ProcessChoice(char* ptr, char* buffer, FunctionResult &result, int 
     return (endptr[1]) ? (endptr + 2) : (endptr + 1); //   skip to end of rand past the ] and space
 }
 
-char* FreshOutput(char* ptr, char* buffer, FunctionResult &result, int controls, unsigned int limit)
+char* FreshOutput(char* ptr, char* buffer, FunctionResult& result, int controls, unsigned int limit)
 { // used to get isolated values not normally part of real output stream
     ++outputNest;
     if (limit != maxBufferSize) AllocateOutputBuffer(); // where he wants to put it is SMALL and we're not ready for that. allocate a big bufer can copy later
@@ -594,20 +594,20 @@ char* FreshOutput(char* ptr, char* buffer, FunctionResult &result, int controls,
 }
 
 #ifdef INFORMATION
-There are two kinds of output streams.The ONCE only stream expects to read an item and return.
+There are two kinds of output streams.The ONCE only stream expects to read an itemand return.
 If a fail code is hit when processing an item, then if the stream is ONCE only, it will be done
 and return a ptr to the rest.If a general stream hits an error, it has to flush all the remaining
-tokens and return a ptr to the end.
+tokensand return a ptr to the end.
 #endif
 
-static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)
+static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once)
 {
     // Handles system variables:  %date
     // Handles any other % item - %
     if (IsAlphaUTF8(word[1])) // must be a system variable
     {
         if (!once && IsAssignmentOperator(ptr)) return PerformAssignment(word, ptr, buffer, result); //   =  or *= kind of construction
-        
+
         if (!stricmp(word, "%trace_on"))
         {
             if (!blockapitrace && (!server || VerifyAuthorization(FopenReadOnly((char*)"authorizedIP.txt"))))   trace = (unsigned int)-1;
@@ -619,7 +619,7 @@ static char* Output_Percent(char* word, char* ptr, char* space, char*& buffer, u
     return ptr;
 }
 
-static char* Output_Backslash(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result,bool &nospace)
+static char* Output_Backslash(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool& nospace)
 {
     // handles newline:  \n and equivalent \r
     // handles backslashed strings: \"testing"  means dump the rest of the token out
@@ -654,13 +654,13 @@ static char* ResetOutputPtr(char* start, char* buffer)
     if (!at) return start;
     size_t len = strlen(at + 1);
     memmove(start, at + 1, len + 1);	// shift new data back to start
-    if (currentOutputBase != start && start[len - 1] == ' ') 
-		--len;	// output ended with a space, remove it
+    if (currentOutputBase != start && start[len - 1] == ' ')
+        --len;	// output ended with a space, remove it
     start[len] = 0;
     return start + len; // resume back at original buffer location
 }
 
-static char* Output_FunctionVariable(char* word, char* ptr, char*& buffer, FunctionResult& result, bool once)
+static char* Output_FunctionVariable(char* word, char* ptr, char*& buffer, FunctionResult & result, bool once)
 {
     if (!once && IsAssignmentOperator(ptr)) ptr = PerformAssignment(word, ptr, buffer, result);
 
@@ -694,7 +694,7 @@ static char* Output_FunctionVariable(char* word, char* ptr, char*& buffer, Funct
     return ptr;
 }
 
-static char* Output_User_Match_and_Function_Vars(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)
+static char* Output_User_Match_and_Function_Vars(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once)
 {
     if (!once && IsAssignmentOperator(ptr)) // we are lefthand side indirect
     {
@@ -714,16 +714,16 @@ static char* Output_User_Match_and_Function_Vars(char* word, char* ptr, char* sp
             *buffer = 0;
             Output_Dollar(word, "", space, buffer, controls, result, false, false); // allow json processing
         }
-        else 
+        else
         {
             Output(word + 1, buffer, result, controls); // no leading space  - we now have the variable value from the indirection
             *word = ENDUNIT;	// marker for retry
-         }
+        }
     }
     return ptr;
 }
 
-static char* Output_VariableIndirect(char* word, char* ptr, char*& buffer, FunctionResult& result, bool once)
+static char* Output_VariableIndirect(char* word, char* ptr, char*& buffer, FunctionResult & result, bool once)
 {
     if (!once && IsAssignmentOperator(ptr))
         ptr = PerformAssignment(word, ptr, buffer, result); //   =  or *= kind of construction
@@ -732,7 +732,7 @@ static char* Output_VariableIndirect(char* word, char* ptr, char*& buffer, Funct
     return ptr;
 }
 
-static char* Output_OrdinaryFunction(char* word, char* ptr, char* space, char*& buffer, FunctionResult& result)
+static char* Output_OrdinaryFunction(char* word, char* ptr, char* space, char*& buffer, FunctionResult & result)
 {
     char* start = buffer;
     if (*currentRuleOutputBase &&
@@ -762,7 +762,7 @@ static char* Output_OrdinaryFunction(char* word, char* ptr, char* space, char*& 
     return ptr;
 }
 
-static char* Output_Function(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)
+static char* Output_Function(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once)
 {
     char* start = buffer;
     if (IsDigit(word[1])) ptr = Output_FunctionVariable(word, ptr, buffer, result, once);
@@ -774,19 +774,19 @@ static char* Output_Function(char* word, char* ptr, char* space, char*& buffer, 
     else if (!strcmp(word, (char*)"^if")) ptr = HandleIf(ptr, buffer, result);
     else if (!strcmp(word, (char*)"^loop")) ptr = HandleLoop(ptr, buffer, result, false);
     else if (!strcmp(word, (char*)"^jsonloop")) ptr = HandleLoop(ptr, buffer, result, true);
-    else if (word[1] == '^') ptr =  Output_VariableIndirect(word, ptr, buffer, result, once);
+    else if (word[1] == '^') ptr = Output_VariableIndirect(word, ptr, buffer, result, once);
     else if (*ptr != '(' || !word[1]) strcpy(buffer, word); // a non function
     else ptr = Output_OrdinaryFunction(word, ptr, space, buffer, result);
     return ptr;
 }
 
-static char* Output_AttachedPunctuation(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_AttachedPunctuation(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result)
 {
     strcpy(buffer, word);
     return ptr;
 }
 
-static char* Output_Text(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_Text(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result)
 {
     // handles text or script
     if (*ptr != '(' || controls & OUTPUT_FACTREAD || IsDigit(*word)) StdNumber(word, buffer, controls); //   SIMPLE word  - paren if any is a nested fact read, or number before ( which cant be ^number
@@ -799,11 +799,11 @@ static char* Output_Text(char* word, char* ptr, char* space, char*& buffer, unsi
         WORDP D = FindWord(copy, 0, LOWERCASE_LOOKUP);
         if (!D || !(D->internalBits & FUNCTION_NAME) || csapicall == TEST_OUTPUT) StdNumber(word, buffer, controls);
         else ptr = Output_Function(copy, ptr, space, buffer, controls, result, false);
-     }
-     return ptr;
+    }
+    return ptr;
 }
 
-static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)
+static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once)
 {
     // handles factset assignement: @3 = @2
     // handles factset field: @3object
@@ -859,7 +859,7 @@ static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, un
     return ptr;
 }
 
-static char* Output_Bracket(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_Bracket(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result)
 {
     // handles normal token: [ice 
     // handles choice: [ this is data ]
@@ -872,7 +872,7 @@ static char* Output_Bracket(char* word, char* ptr, char* space, char*& buffer, u
     return ptr;
 }
 
-static char* Output_Quote(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_Quote(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result)
 {
     // handles possessive: 's
     // handles original wildcard: '_2
@@ -914,7 +914,7 @@ static char* Output_Quote(char* word, char* ptr, char* space, char*& buffer, uns
 }
 
 
-static char* Output_String(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result)
+static char* Output_String(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result)
 {
     // handles function string: (char*)"^ .... "  which means go eval the contents of the string
     // handles simple string: (char*)"this is a string"  which means just put it out (with or without quotes depending on controls)
@@ -936,7 +936,7 @@ static char* Output_String(char* word, char* ptr, char* space, char*& buffer, un
     return ptr;
 }
 
-static char* Output_Underscore(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once)
+static char* Output_Underscore(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once)
 {
     // handles wildcard assigment: _10 = hello
     // handles wildcard: _19
@@ -965,7 +965,7 @@ static char* Output_Underscore(char* word, char* ptr, char* space, char*& buffer
     return ptr;
 }
 
-static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult& result, bool once, bool nojson)
+static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, unsigned int controls, FunctionResult & result, bool once, bool nojson)
 {
     // handles user variable assignment: $myvar = 4
     // handles user variables:  $myvar
@@ -987,8 +987,8 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
             while (*at1 == '_' || *at1 == '$') ++at1;
             while (*++at1)
             {
-				if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']' || *at1 == '$'); // find real end of var allowing json references
-				else if (*at1 == '\\'); // escaped variable so not considered variable, its actually the name 
+                if (IsLegalNameCharacter(*++at1) || *at1 == '.' || *at1 == '[' || *at1 == ']' || *at1 == '$'); // find real end of var allowing json references
+                else if (*at1 == '\\'); // escaped variable so not considered variable, its actually the name 
                 else if ((*at1 == '$') && (*(at1 - 1) == '[' || *(at1 - 1) == '.')) { ; } // allowed variable json ref
                 else break;
             }
@@ -999,7 +999,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
                 ptr = ptr - len;
             }
 
-            char* value = GetUserVariable(word, nojson,true);
+            char* value = GetUserVariable(word, nojson, true);
             StdNumber(value, buffer, controls);
             char* at = SkipWhitespace(buffer);
             if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from a variable's data
@@ -1018,7 +1018,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
     return ptr;
 }
 
-char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
+char* Output(char* ptr, char* buffer, FunctionResult & result, int controls)
 { // moves any special stuff to front of buffer
   //   an output stream consists of words, special words, [] random zones, commands, C-style script. It autoformats whitespace.
     *buffer = 0;
@@ -1069,7 +1069,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         char* priorPtr = ptr;
         ptr = ReadCompiledWord(ptr, word, false, true);  // stop when $var %var _var @nvar end normally- insure no ) ] } lingers on word in case it wasnt compiled
         size_t len = strlen(word);
- 
+
         if (*word == '$' && *ptr == '[' && ptr[1] == ']') // merge $word[]
         {
             strcat(word, "[]");
@@ -1081,9 +1081,9 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         ptr = SkipWhitespace(ptr);		// find next token to tes for assignment and  the like
 
         if (!*word && !paren) break; // end of data or choice or body
-        if (!(controls & OUTPUT_RAW) && (*word == ')' || *word == ']' || *word == '}') && !paren) 
+        if (!(controls & OUTPUT_RAW) && (*word == ')' || *word == ']' || *word == '}') && !paren)
             break; // end of data or choice or body
- 
+
         if (*word == '[' && word[1]) // break apart uncompiled choice
         {
             ptr = SkipWhitespace(priorPtr) + 1;
@@ -1124,7 +1124,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
                 allow = false;
                 startQuoted = NULL;
             }
-            else if (!stricmp(language, "french") && (*word == ':' || *word == ';' || *word == '!' || *word == '?')) { ; }
+            else if (!stricmp(current_language, "french") && (*word == ':' || *word == ';' || *word == '!' || *word == '?')) { ; }
             else if (quoted && *word == '\\' && word[1] == '"') allow = false; // ending quoted
                                                                                // dont space after $   or [ or ( or " or / e   USERVAR_PREFIX
             else if (c == '(' || c == '[' || c == '{' || c == '$' || c == '/' || c == '`' || c == '\n') allow = false; //erased text is `
@@ -1143,8 +1143,8 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
                 *buffer = 0;
             }
         }
-         len = strlen(word);
-        if (len > 2 && word[len - 2] == '\\' && word[len-3] != '\\') // escaped tail, separate it.
+        len = strlen(word);
+        if (len > 2 && word[len - 2] == '\\' && word[len - 3] != '\\') // escaped tail, separate it.
         {
             ptr = startptr - 2;
             if (*ptr != '\\') --ptr;
@@ -1208,7 +1208,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
 
             // prefixes:  quote, backslash
         case '\\':  //   backslash needed for new line  () [ ]   
-            ptr = Output_Backslash(word, ptr, space, buffer, (quoted) ? (controls | OUTPUT_DQUOTE_FLIP) : controls, result,nospace);
+            ptr = Output_Backslash(word, ptr, space, buffer, (quoted) ? (controls | OUTPUT_DQUOTE_FLIP) : controls, result, nospace);
             if (word[1] == '"') quoted = !quoted; // no space on 1st thing following quoted
             break;
         case '\'': //   quoted item
@@ -1222,33 +1222,33 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         case ':': // a debug command?
         {
 #ifndef DISCARDTESTING
-			if (!(controls & OUTPUT_NODEBUG))
-			{
-				unsigned int oldtopicid = currentTopicID;
-				char* oldrule = currentRule;
-				int oldruleid = currentRuleID;
-				int oldruletopic = currentRuleTopic;
-				char* c = ptr - strlen(word);
-				while (*c != ':') { --c; }
-				TestMode answer = Command(c, NULL, true);
-				if (answer == RESTART) result = RESTART_BIT;	// end it all now
-				currentTopicID = oldtopicid;
-				currentRule = oldrule;
-				currentRuleID = oldruleid;
-				currentRuleTopic = oldruletopic;
-				if (quitting == true)
-				{
-					result = FAILINPUT_BIT;
-					FreeBuffer("output1");
-					--outputlevel;
-					return NULL;
-				}
-				if (FAILCOMMAND != answer)
-				{
-					ptr = NULL;
-					break; // just abort flow after this since we did a command
-				}
-			}
+            if (!(controls & OUTPUT_NODEBUG))
+            {
+                unsigned int oldtopicid = currentTopicID;
+                char* oldrule = currentRule;
+                int oldruleid = currentRuleID;
+                int oldruletopic = currentRuleTopic;
+                char* c = ptr - strlen(word);
+                while (*c != ':') { --c; }
+                TestMode answer = Command(c, NULL, true);
+                if (answer == RESTART) result = RESTART_BIT;	// end it all now
+                currentTopicID = oldtopicid;
+                currentRule = oldrule;
+                currentRuleID = oldruleid;
+                currentRuleTopic = oldruletopic;
+                if (quitting == true)
+                {
+                    result = FAILINPUT_BIT;
+                    FreeBuffer("output1");
+                    --outputlevel;
+                    return NULL;
+                }
+                if (FAILCOMMAND != answer)
+                {
+                    ptr = NULL;
+                    break; // just abort flow after this since we did a command
+                }
+            }
 #endif
             // ordinary :
             // Handles spacing after a number:  2 .  
@@ -1291,7 +1291,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
         if (quoted && !startQuoted) startQuoted = buffer;
         unsigned int size = (buffer - currentOutputBase);
         if (currentOutputBase == ourMainOutputBuffer && size > maxOutputUsed) maxOutputUsed = size;
-        if (size >= currentOutputLimit) 
+        if (size >= currentOutputLimit)
         {
             char hold[100];
             *hold = 0;
@@ -1302,7 +1302,7 @@ char* Output(char* ptr, char* buffer, FunctionResult &result, int controls)
             hold1[50] = 0;
             ReportBug((char*)"Output overflowed %d > %d on rule %s output: %s\r\n", size, currentOutputLimit, hold, hold1);
         }
-        if (size >= (currentOutputLimit - 200) && !(result  & FAILCODES))
+        if (size >= (currentOutputLimit - 200) && !(result & FAILCODES))
         {
             result = FAILRULE_BIT;
         }

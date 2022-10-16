@@ -5,6 +5,52 @@
 #include <time.h>
 
 #include "common.h"
+char mssqlparams[300];          // global variable storing params
+
+#ifdef DISCARDMICROSOFTSQL
+
+FunctionResult MsSqlScriptDummyInitCode(char* buffer)
+{
+    return NOPROBLEM_BIT;
+}
+FunctionResult MsSqlScriptDummyCloseCode(char* buffer)
+{
+    return NOPROBLEM_BIT;
+}
+
+FunctionResult MsSqlScriptDummyReadCode(char* buffer)
+{
+    char* key = ARGUMENT(1);
+    FILE* in = FopenUTF8Write(key);
+    if (!in) return FAILRULE_BIT;
+
+    fseek(in, 0, SEEK_END);
+    unsigned long size = ftell(in); // bytes
+    fseek(in, 0, SEEK_SET);
+    fread(buffer, size, 1, in);
+    FClose(in);
+
+    return NOPROBLEM_BIT;
+}
+
+FunctionResult MsSqlScriptDummyWriteCode(char* buffer)
+{
+    char* key = ARGUMENT(1);
+    char* data = ARGUMENT(2);
+    FILE* out = FopenUTF8Write(key);
+    if (!out) return FAILRULE_BIT;
+
+    size_t size = strlen(data) + 1;
+    if (size == 3 && data[0] == data[1] && data[0] == '"') // empty string
+    {
+        *data = 0;
+        size = 1;
+    }
+    fwrite(data, size, 1, out);
+    FClose(out);
+    return NOPROBLEM_BIT;
+}
+#endif
 
 #ifndef DISCARDMICROSOFTSQL
 #include "mssql_imp.h"
@@ -21,7 +67,6 @@
 #endif
 
 char mssqlUserFilename[MAX_WORD_SIZE]; // current topic file name for user
-char mssqlparams[300];          // global variable storing params
 static char mssqlhost[100];
 static char mssqlport[100];
 static char mssqluser[100];

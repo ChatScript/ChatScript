@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 6/20/2022 cs12.2
+<br>Revision 10/16/2022 cs12.3
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -19,6 +19,10 @@ If you don't have Windows, then debugging mostly done by issuing
 debug commands to the engine, as opposed to chatting. If you have
 windows, you can run your program under ChatScriptIDE to debug 
 it interactively. See the ChatScript-Debugger manual.
+
+Debugging commands only show their data if user logging is enabled.
+In cs_init.txt you can put 'userlogging-file' or create at top level the file
+'userlogging.txt'.
 
 If the system detects bugs during execution, they go into `TMP/bugs.txt` 
 You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem. 
@@ -61,6 +65,7 @@ the above : statement show the list:
 :why       - Show rules causing most recent output
 :authorize - Flip authorization for all debug commands
 :comparelog - given path/names of 2 log files, show entries that are different
+:ingestlog - given name of log file, reexecutes it and reports differences from log
 
 ---- Fact info -
 :allfacts  - Write all facts to TMP/facts.tmp for current bot current language.  :allfacts all does all bots and all languages.
@@ -114,6 +119,7 @@ the above : statement show the list:
 :crash   - Simulate a server crash
 :debug   - Initiate debugger
 :flush   - Flush server cached user data to files
+:language - set current language to one names on the command line param language=. or return current langauge
 :quit    - Exit ChatScript
 :reset   - Start user all over again, flushing his history
 :restart - Restart Chatscript
@@ -131,6 +137,7 @@ the above : statement show the list:
 :testtopic   - Try named topic responders on input
 :verify      - Given test type & topic, test that rules are accessible. 
                Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all.
+:verifylist, :verifyrun, :verifymatch - Tests system to show rules are accessed when outside the topic.
 
 ---- Document Processing -
 :document - Switch input to named file/directory as a document {single, echo}
@@ -144,6 +151,7 @@ the above : statement show the list:
 :diff         - match 2 files and report lines that differ
 :trim         - Strip excess off chatlog file to make simple file TMP/tmp.txt
 :timelog      - read a log file (like system log) and compute average, min and max times of NLU engine and server q 
+:splitlog      - read a log file (like system log) and create csv of input, output, bot, why
 
 ---- internal support -
 :spellit		  - given sentence provide explanation for spelling corrections
@@ -333,6 +341,13 @@ Erases current user's log file.
 Will read both logs in parallel and list into user log significant differences (assumption is that
 both logs represent the same inputs against different versions of CS).
 
+
+### `:ingestlog  filename`
+```
+:ingestlog LOGS/serverlog1024.txt  
+```
+Will read named cs log file and re-execute it. Differences will be reported in tmp/ingesterr.txt as well
+as user log when enabled and briefly onscreen.
 
 ## Trace
 
@@ -835,6 +850,18 @@ Given a word, this displays the dictionary entry for it as well some data up it'
 The word is case sensitive and if you want to check out a composite word, you need to
 use underscores instead of blanks. So `:word TV_star`.
 
+Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts
+can limit or expand how many are shown.
+
+### `:fact apple`
+Given a word, this displays facts which have that as one of the fields.
+The word is case sensitive and if you want to check out a composite word, you need to
+use underscores instead of blanks. So `:word TV_star`.  If the word is a fact set id like @1, then
+all facts in that set are displayed.
+
+Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts
+can limit or expand how many are shown.
+
 ### `:dualupper`
 Lists words that have multiple upper-case spellings. Ideally there would be only one such spelling.
 
@@ -912,6 +939,10 @@ a build file may build a single bot or lots of bots or a common set of data or w
 ### `:bot sue`
 Change focus to conversing with the named bot (presuming you have such a bot). It
 resets the user back to complete new, flushing the users history, variables, etc.
+
+### `:language french`
+Change current language of user to named language which must be in the language= command line
+parameter. Given no argument, it returns the current language.
 
 ### `:reset`
 Flush the current user's total history (erases the `USER/TOPIC` file) and reruns the bot definition macro,

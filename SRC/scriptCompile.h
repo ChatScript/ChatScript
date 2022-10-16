@@ -27,7 +27,6 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 #define ARGSETLIMIT 40 // ^0...^39
 extern unsigned int buildID; // build 0 or build 1
 extern char* newScriptBuffer;
-extern bool disablePatternOptimization;
 extern char* oldScriptBuffer;
 extern CompileStatus compiling;
 extern char scopeBotName[MAX_WORD_SIZE]; // current botname being compiled
@@ -70,6 +69,8 @@ void ScriptWarn();
 #endif
 
 // ALWAYS AVAILABLE
+extern HEAPREF deadfacts;
+extern HEAPREF languageadjustedfacts;
 extern unsigned int hasErrors;
 void UnbindBeenHere();
 void AddWarning(char* buffer);

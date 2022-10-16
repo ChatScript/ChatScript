@@ -39,6 +39,7 @@ static SUFFIX stems_french[] =
 	{ (char*)"ard",ADJECTIVE},
 	{ (char*)"aud",ADJECTIVE},
 	{ (char*)"ère",NOUN},
+	{ (char*)u8"\xC3\xA9""e",NOUN},
 	{ (char*)"el",ADJECTIVE},
 	{ (char*)"et",ADJECTIVE},
 	{ (char*)"esse",NOUN},
@@ -71,7 +72,7 @@ static SUFFIX stems_french[] =
 	{ (char*)"ure",NOUN},
 	{ (char*)"logue",NOUN},
 	{ (char*)"logie",NOUN},
-	{ (char*)"gène",NOUN},
+	{ (char*)u8"gène",NOUN},
 	{ (char*)"gramme",NOUN},
 	{ (char*)"manie",NOUN},
 	{ (char*)"phobe",NOUN},
@@ -90,7 +91,7 @@ void InitSpellCheck()
 	{
 		if (D->properties & PART_OF_SPEECH || D->systemFlags & PATTERN_WORD)
 		{
-			if (!IsAlphaUTF8(*D->word) || D->length >= 50   || strchr(D->word, ' ') || strchr(D->word, '_')) continue;
+			if (!IsAlphaUTF8(*D->word) || WORDLENGTH(D) >= 50   || strchr(D->word, ' ') || strchr(D->word, '_')) continue;
 			
 			WORDINFO wordData;
             ComputeWordData(D->word, &wordData);
@@ -149,8 +150,8 @@ int SplitWord(char* word,int i)
 	// dont split acronyms
 
 	//  try all combinations of breaking the word into two known words
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
-    bool isFrench = (!stricmp(language, "french") ? true : false);
+    bool isEnglish = (!stricmp(current_language, "english") ? true : false);
+    bool isFrench = (!stricmp(current_language, "french") ? true : false);
 	breakAt = 0;
 	size_t len = strlen(word);
     for (unsigned int k = 1; k < len-1; ++k)
@@ -316,7 +317,7 @@ char* ProbableKnownWord(char* word)
 		if (D->properties & FOREIGN_WORD || *D->word == '~' || D->systemFlags & PATTERN_WORD) return D->word;	// we know this word clearly or its a concept set ref emotion
 		if (D->properties & PART_OF_SPEECH && !IS_NEW_WORD(D)) return D->word; // old word we know
 		if (D <= dictionaryPreBuild[LAYER_0]) return D->word; // in dictionary
-		if (stricmp(language,"English") && !IS_NEW_WORD(D)) return D->word; // foreign word we know
+		if (stricmp(current_language,"English") && !IS_NEW_WORD(D)) return D->word; // foreign word we know
 		if (IsConceptMember(D)) return D->word;
 
 		// are there facts using this word?
@@ -333,7 +334,7 @@ char* ProbableKnownWord(char* word)
 		if (D->properties & FOREIGN_WORD || *D->word == '~' || D->systemFlags & PATTERN_WORD) return D->word;	// we know this word clearly or its a concept set ref emotion
 		if (D->properties & PART_OF_SPEECH && !IS_NEW_WORD(D)) return D->word; // old word we know
 		if (D <= dictionaryPreBuild[LAYER_0]) return D->word; // in dictionary
-		if (stricmp(language,"English") && !IS_NEW_WORD(D)) return D->word; // foreign word we know
+		if (stricmp(current_language,"English") && !IS_NEW_WORD(D)) return D->word; // foreign word we know
 		if (IsConceptMember(D)) return D->word;
 
 	// are there facts using this word?
@@ -341,7 +342,7 @@ char* ProbableKnownWord(char* word)
 	}
 
 	// interpolate to lower case words 
-    if (!stricmp(language, "english"))
+    if (!stricmp(current_language, "english"))
     {
         uint64 expectedBase = 0;
         if (ProbableAdjective(word, len, expectedBase) && expectedBase) return word;
@@ -410,14 +411,14 @@ WORDP GetGermanPrimaryTail(char* word,size_t length)
 
 bool SpellCheckSentence()
 {
-	if (!stricmp(language, "ideographic") || !stricmp(language, "japanese")) return false; // no spell check on them
+	if (!stricmp(current_language, "ideographic") || !stricmp(current_language, "japanese") || !stricmp(current_language, "chinese")) return false; // no spell check on them
 	char retry[256];
 	memset(retry, 0, sizeof(retry));
     char* tokens[6];
 	fixedSpell = false;
-	bool isEnglish = (!stricmp(language, "english") ? true : false);
-    bool isGerman = (!stricmp(language, "german") ? true : false);
-	bool isSpanish = (!stricmp(language, "spanish") ? true : false);
+	bool isEnglish = (!stricmp(current_language, "english") ? true : false);
+    bool isGerman = (!stricmp(current_language, "german") ? true : false);
+	bool isSpanish = (!stricmp(current_language, "spanish") ? true : false);
 
 	int startWord = FindOOBEnd(1);
 	int i;
@@ -438,6 +439,9 @@ bool SpellCheckSentence()
 	bool delayedspell = false;
 	int spellbad = 0;
 	int safetylimit = 400;
+	// verifyrun safety
+	if (!stricmp(wordStarts[1], "VERIFY") && (*wordStarts[2] == '^' || *wordStarts[2] == '$' || *wordStarts[2] == '%')) return false;
+
 	for (i = startWord; i <= wordCount; ++i)
 	{
 		if (retry[i-1]) // prior was a problem needing full spellcheck
@@ -465,24 +469,24 @@ bool SpellCheckSentence()
 		if (!stricmp(serverlogauthcode,word)) continue;
 		if (!stricmp("bwinfo", word)) continue;
 
-		// spanish conjugated verb?
+		// spanish conjugated word?
 		if (isSpanish)
 		{
-			WORDP entry, canonical;
-			uint64 sysflags;
+			WORDP entry, canonical = NULL;
+			uint64 sysflags = 0;
 			uint64 properties = ComputeSpanish(i, word, entry, canonical, sysflags);
+			if (!properties) properties = KnownSpanishUnaccented(word, entry,sysflags); // see if accenting is wrong
+
 			if (properties) // we figured it out as a conjugation of a verb, noun, or adjective
 			{
-				// does it have wrong unaccented spelling?
-				if (strcmp(word, entry->word))
+				if (entry && strcmp(word, entry->word)) // changed case?
 				{
 					tokens[1] = entry->word;
-					fixedSpell = ReplaceWords("spanish accent correct on conjugation", i, 1, 1, tokens);
+					fixedSpell = ReplaceWords("spanish word case change", i, 1, 1, tokens);
 				}
-				continue; 
+				continue;
 			}
 		}
-
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
 		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
 		{
@@ -880,7 +884,7 @@ bool SpellCheckSentence()
 		// words with excess repeated characters 2=>1 unless root noun or verb
 		if (IS_NEW_WORD(FindWord(word)) && !IsDigit(word[1]) && word[1] != '.' && word[1] != ',')
 		{
-			if (!stricmp(language, "english"))
+			if (!stricmp(current_language, "english"))
 			{
 				char* noun = GetSingularNoun(word, false, true);
 				if (noun) continue;
@@ -1014,6 +1018,18 @@ bool SpellCheckSentence()
 					fixedSpell = ReplaceWords("omitg", i, 1, 1, tokens);
 					continue;
 				}
+			}
+		}
+
+		// simple noun plural english
+		if (isEnglish && word[size - 1] == 's')
+		{
+			WORDP E = FindWord(word, size - 1, LOWERCASE_LOOKUP);
+			if (E && E->properties & NOUN)
+			{
+				tokens[1] = E->word;
+				fixedSpell = ReplaceWords("lowerpluralnoun", i, 1, 1, tokens);
+				continue;
 			}
 		}
 
@@ -1420,9 +1436,9 @@ int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min)
     char* resumeDict1;
 	char baseCharReal;
 	char baseCharDict;
-    bool isFrench = (!stricmp(language, "french") ? true : false);
-    bool isGerman = (!stricmp(language, "german") ? true : false);
-    bool isSpanish = (!stricmp(language, "spanish") ? true : false);
+    bool isFrench = (!stricmp(current_language, "french") ? true : false);
+    bool isGerman = (!stricmp(current_language, "german") ? true : false);
+    bool isSpanish = (!stricmp(current_language, "spanish") ? true : false);
     while (ALWAYS)
     {
         if (val > min) return 1000; // no good
@@ -1729,8 +1745,8 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
     strcpy(word1,word);
     size_t len = strlen(word);
 
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
-    bool isFrench = (!stricmp(language, "french") ? true : false);
+    bool isEnglish = (!stricmp(current_language, "english") ? true : false);
+    bool isFrench = (!stricmp(current_language, "french") ? true : false);
 
 	char* ending = NULL;
     char* best = NULL;
@@ -1870,7 +1886,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
 
 char* SpellFix(char* originalWord,int start,uint64 posflags)
 {
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	if (spellTrace) Log(USERLOG,"Correcting: %s:\r\n", originalWord);
 	multichoice = false;
     char word[MAX_WORD_SIZE];

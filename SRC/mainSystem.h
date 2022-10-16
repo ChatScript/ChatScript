@@ -48,6 +48,10 @@ extern unsigned int parseLimit;
 extern DEBUGVARAPI debugMark;
 extern char myip[100];
 extern uint64 timedeployed;
+extern char repairinput[20];
+extern char* repairat;
+
+extern bool outputapicall;
 extern unsigned long startLogDelay;
 extern int cs_qsize;
 extern DEBUGAPI debugAction;
@@ -69,7 +73,8 @@ extern bool restartfromdeath;
 extern bool sentenceOverflow;
 #define START_BIT 0x8000000000000000ULL	// used looping thru bit masks
 
-extern char* originalUserInput;
+extern char* originalUserInput; // entire input including oob
+extern char* originalUserMessage; // user input component
 // values of prepareMode
  enum PrepareMode { // how to treat input
 	NO_MODE = 0,				// std processing of user inputs
@@ -129,6 +134,7 @@ extern unsigned int forcedRandom;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern bool logline;
+extern bool integrationTest;
 extern char livedataFolder[500];
 extern char languageFolder[500];
 extern char systemFolder[500];
@@ -146,12 +152,12 @@ extern int traceUniversal;
 extern char apikey[100];
 extern char defaultbot[100];
 extern char buildflags[100];
-extern char verifyLabel[MAX_WORD_SIZE];
 extern unsigned int volleyCount;
 extern FILE* sourceFile;
 extern bool multiuser;
 extern bool oobExists;
 extern char hostname[100];
+extern unsigned int currentBuild;
 extern int argc;
 extern uint64 startNLTime;
 extern char** argv;
@@ -232,9 +238,7 @@ extern std::string interfaceKind;
 
 // buffers
 extern char* ourMainInputBuffer;
-extern char* mainInputBuffer;
 extern char* ourMainOutputBuffer;
-extern char* mainOutputBuffer;
 extern char* revertBuffer;
 extern char* readBuffer;
 

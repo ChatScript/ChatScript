@@ -247,7 +247,7 @@ Multiple words in a sentence may all result from the same correction, so testing
 against the prior correction derivation is needed.
 
 And you can also grab %originalInput for the entire raw text of what
-the user typed for this volley.
+the user typed for this volley (no oob included).
 
 ## Adding and subtracting meaning
 

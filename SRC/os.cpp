@@ -486,6 +486,7 @@ void LoggingCheats(char* incoming)
 
 	*debugdata = 0;
 	char* authcode = (incoming) ? strstr(incoming, serverlogauthcode) : NULL;
+	if (!*serverlogauthcode) authcode = NULL;
 	if (authcode)// dont process authcode as input from user
 	{
 		size_t len = strlen(serverlogauthcode);
@@ -1504,7 +1505,10 @@ void WalkDirectory(char* directory,FILEWALK function, uint64 flags,bool recursiv
 	char fulldir[MAX_WORD_SIZE];
     char xname[MAX_WORD_SIZE];
     size_t len = strlen(directory);
-	if (directory[len-1] == '/') directory[len-1] = 0;	// remove the / since we add it 
+	if (directory[len - 1] == '/')
+	{
+		directory[len - 1] = 0;	// remove the / since we add it 
+	}
 	if (*readPath) sprintf(fulldir,(char*)"%s/%s",staticPath,directory);
 	else strcpy(fulldir,directory);
     bool seendirs = false;
@@ -1992,7 +1996,7 @@ void RegisterHookFunction(char* hookName, HOOKPTR fn)
 
 uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters)
 {
-	hasUpperCharacters = hasUTF8Characters = false;
+	len &= 0x00ffffff;
 	uint64 crc = HASHSEED;
 	while (len-- > 0)
 	{ 
@@ -2594,6 +2598,9 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 {
 	if (!serverLog && !userLog) return;
 
+	// restore potentially damaged area
+	if (*repairinput) strncpy(repairat, repairinput, 15);
+
     char startdate[40], enddate[40];
     GetTimeMS(starttime, startdate);
 	size_t len = strlen(output);
@@ -2646,8 +2653,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			char wait[100];
 			*wait = 0;
 			if (cs_qsize) sprintf(wait, "%dq", cs_qsize);
-			if (*verifyLabel) sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` VLABEL:%s  ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, verifyLabel, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
-			else sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
+			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();

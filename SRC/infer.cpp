@@ -61,7 +61,7 @@ FACT* IsConceptMember(WORDP D)
 	FACT* F = GetSubjectNondeadHead(D);
 	while (F)
 	{
-		if (ValidMemberFact(F))  return F;	// is a concept member so it is ok
+		if (F->verb == Mmember)  return F;	// is a concept member so it is ok
 		F = GetSubjectNondeadNext(F);
 	}
 	return NULL;
@@ -104,7 +104,7 @@ static bool SetContains1(MEANING set,MEANING M, unsigned int depth)
 	while (F && --counter)
 	{
 		if (index != 0 && F->subject != M); // fact doesnt apply
-		else if (ValidMemberFact(F))
+		else if (F->verb == Mmember)
 		{
 			// if this topic or concept has exclusions, check to see if this is a marked exclusion
 			bool blocked = false;
@@ -228,8 +228,8 @@ static void QueryFacts(WORDP original, WORDP D,unsigned int index,unsigned int s
         else if (index ) continue;  //   not following this path
         else if (flags & ORIGINALWORD) continue; //   you must match exactly- generic not allowed to match specific wordnet meaning- hierarchy BELOW only
 
-		if (ValidMemberFact(F) && !AllowedMember(F,0,restriction,0)) continue; // POS doesn't match
-        if (ValidMemberFact(F) && !(flags & ORIGINALWORD))
+		if (F->verb == Mmember && !AllowedMember(F,0,restriction,0)) continue; // POS doesn't match
+        if (F->verb == Mmember && !(flags & ORIGINALWORD))
         {
             WORDP object = Meaning2Word(F->object);
             if (object->inferMark != inferMark) 
@@ -312,7 +312,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
     FACT* F = GetSubjectNondeadHead(D);
     while (F)
     {
-		if (ValidMemberFact(F))  // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
+		if (F->verb == Mmember)  // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
 		{
 			WORDP E = Meaning2Word(F->object);
 			if (*E->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type); // member is not to a set, but to a word. So it's an equivalence
@@ -335,7 +335,8 @@ static bool AddWordOnly(int flags,char* word,unsigned int type) // mark (and may
     if (queueIndex >= MAX_QUEUE || !*word) return false; 
 
 	// mark word or abandon marking
-    WORDP D = StoreWord(word,AS_IS);
+    WORDP D = FindWord(word,0,PRIMARY_CASE_ALLOWED); // if not findable, no facts will be either
+	if (!D) return false;
 	if (D->inferMark == saveMark) return false; // marked with a current mark
 	D->inferMark = saveMark; 
 	if (flags & QUEUE) queue[queueIndex++] = MakeMeaning(D);
@@ -365,7 +366,8 @@ static void AddWordOrSet2Scan(unsigned int how, char* word,int depth)
 			//if (!D) 
 			++word; // but dont harm 'tween_decks which is natural
 		}
-		AddWord2Scan(how, ReadMeaning(word, true, true), 0, depth, 0);
+		// readmeaning false will not create word if it is not in dict. And no facts could be found therefore.
+		AddWord2Scan(how, ReadMeaning(word, false, true), 0, depth, 0);
 	}
 }
 
@@ -375,7 +377,7 @@ static void AddSet2Scan(unsigned int how,WORDP D,int depth)
 	FACT* F = GetObjectNondeadHead(D);
 	while (F)
 	{
-		if (ValidMemberFact(F))  AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth);
+		if (F->verb == Mmember)  AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth);
 		F = GetObjectNondeadNext(F);
 	}
 }
@@ -512,7 +514,7 @@ static bool ConceptPropogateTest(MEANING M,unsigned int mark,unsigned int depth)
 	FACT* F = GetSubjectNondeadHead(M);
 	while (F)
 	{
-		if (ValidMemberFact(F) && F->subject == M)
+		if (F->verb == Mmember && F->subject == M)
 		{
 			MEANING O = F->object;
 			WORDP D = Meaning2Word(O);
@@ -535,7 +537,7 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 	int store = GetSetID(toset);
 	if (store == ILLEGAL_FACTSET) store = 0;
 	WORDP C = FindWord(kind,0);
-	if (!C || !(C->internalBits & QUERY_KIND)) 
+	if (!C || !IsQuery(C))
 	{
 		ReportBug((char*)"INFO: Illegal query name: %s",kind);
 		return 0;
@@ -556,17 +558,18 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 	// get correct forms of arguments - _ is an empty argument, but legal
 	char word[MAX_WORD_SIZE];
 	int n;
-	if (!strchr(subjectword,' ')) // anything with a natural space in it should be left alone
+    bool isJson = IsValidJSONName(subjectword);  // don't want to change any JSON key or value as they are not subject to same word normalization rules
+	if (!strchr(subjectword,' ') && !isJson) // anything with a natural space in it should be left alone
 	{
 	    n = BurstWord(subjectword);
 		if (n > 1) strcpy(subjectword,JoinWords(n,false));
 	}
-  	if (!strchr(verbword,' ')) // anything with a natural space in it should be left alone
+  	if (!strchr(verbword,' ') && !isJson) // anything with a natural space in it should be left alone
 	{
 		n = BurstWord(verbword);
 		if (n > 1) strcpy(verbword,JoinWords(n,false));
 	}
-    if (!strchr(objectword,' ')) // anything with a natural space in it should be left alone
+    if (!strchr(objectword,' ') && !isJson) // anything with a natural space in it should be left alone
 	{	
 		n = BurstWord(objectword);
 		if (n > 1) strcpy(objectword,JoinWords(n,false));
@@ -667,7 +670,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	while (*++control && *control != ':' )
 	{
 		choice = NULL;
-		switch(*control)
+		switch(*control) // decompose what to do 
 		{
 			case '_': case '.': case ' ': // does nothing per se
 				continue;	
@@ -751,7 +754,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				return 0;
 
 		}
-		if (choice) // we have something to follow
+		if (choice) // if we have something to follow, do the requested thing to it
 		{
 			++control; // now see flags on the choice
 			unsigned int flags = baseFlags;

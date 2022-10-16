@@ -1,7 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/24/2022 cs12.1
-
+<br>Revision 10/16/2022 cs12.3
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -854,13 +853,15 @@ recently by the chatbot.
 
 
 ### `^reviseOutput ( n value )`
-
+^setresponse(ID message) 
 Allows you to replace a generated response with the given value. 
 
 _n_ is one based and must be within range of given responses. One can use this, for
 example, alter output to create accents. Using `^response` to get an output, you can then
 use `^substitute` to generate a revised one and put it back using this function.
 
+### `^setresponse ( n value )`
+Another name for ^reviseoutput.
 
 ## Output Access
 
@@ -1191,6 +1192,9 @@ whether or not the rule generates output as long as it didn't fail during output
 the label has output within the 5 prior volleys and will fail if not. It's like an extension of
 rejoinders. Rejoinders have a 1 volley context and must be placed immediately after a
 rule. This has a 5 volley context and are used in normal rule patterns.
+
+You can give an optional 2nd argument number, which is how many volleys later are acceptable. If the volley
+count is higher, you fail even within the 5 prior volleys.
 
     u: (^incontext(PLAYTENNIS) why) because it was fun.
 

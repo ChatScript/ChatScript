@@ -89,7 +89,7 @@ extern int currentRuleTopic;
 extern bool monitorChange;
 extern bool shared;
 extern WORDP keywordBase;
-extern WORDP* preexistingwords;
+extern WORDP* changedPreexistingWords;
 extern bool loading;
 extern int outputRejoinderRuleID;
 extern int outputRejoinderTopic;
@@ -150,7 +150,7 @@ void CleanOutput(char* word);
 bool DifferentTopicContext(int depthadjust, int topicid);
 FunctionResult LoadLayer(int layer, const char* name,unsigned int build);
 void ResetTopicReply();
-void AddBinWord(WORDP D, bool isnew, FILE* out);
+void PackBinWord(WORDP D, bool isnew, FILE* out);
 void AddBinFact(FACT* F, FILE* out);
 void AddWordItem(WORDP D, bool dictionaryBuild);
 void SetRejoinder(char* rule);
@@ -231,7 +231,6 @@ void FlushDisabled();
 void AddContext(int topic, char* label);
 unsigned int InContext(int topic, char* label);
 void SetContext(bool val);
-
 // bulk topic I/O
 char* WriteUserTopics(char* ptr,bool sharefile);
 bool ReadUserTopics();

@@ -48,7 +48,7 @@ ChatScript can help you find badly cased words. One of the debug commands you ca
 
 # Multiple forms of input
 
-You can imagine that ChatScript makes equally available a number of forms of the input sentence. The first form, %originalInput, is literally what the user typed in (all sentences at once). Or you might want %originalSentence, the raw content of the current sentence after ChatScript has tokenized things and decided where the sentence ends.
+You can imagine that ChatScript makes equally available a number of forms of the input sentence. The first form, %originalInput, is literally what the user typed in (all sentences at once sans OOB). Or you might want %originalSentence, the raw content of the current sentence after ChatScript has tokenized things and decided where the sentence ends.
 
 After tokenization, ChatScript will have available each word of the sentence in both its adjusted form (after all sorts of preprocessing including spell checking), and its canonical form (sometimes called lemma in NL). ChatScript canonical forms are aimed to support understanding meaning, so go beyond mere lemmas. Lemmas normally exist for nouns, verbs, adjectives, and adverbs. ChatScript includes canonical forms for pronouns and numbers. You can use either input stream (adjusted or canonical) during pattern matching and usually you will use both, depending on how you pick your keywords in the pattern.
 

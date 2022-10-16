@@ -151,8 +151,8 @@ concept: ~bakery (~baked_goods bakery pastry_shop )
 concept: ~bank (ATM bank cash checking_account credit_card currency_conversion deposit deposit_slip loan loan_application money money_order monthly_statement overdraw personal_check 
           safety_deposit_box saving savings_account traveler_'s_check withdrawl_slip ) 
 concept: ~barber_shop (~haircut barbershop haircut shave ) 
-concept: ~baseball_teams NOUN NOUN_PROPER_SINGULAR (Angels Braves Brewers Cleveland_Indians Cubs Detroit_Tigers Dogers Mariners Mets Oakland_A_'s Oakland_Athletics Orioles Redsox Royals 
-          White_Sox Yankees ) 
+concept: ~baseball_teams NOUN NOUN_PROPER_SINGULAR (Angels Braves Brewers Cleveland_Indians Cubs Detroit_Tigers Dogers Mariners Mets Oakland_A_'s Oakland_Athletics Orioles Redsox Red_Sox Royals 
+          White_Sox WhiteSox Yankees ) 
 concept: ~baseorgans (gut heart heartbeat intestine kidney liver lung pancreas ) 
 concept: ~basic_degrees (associate B.A. B.S. BA Bachelor BASc BS BSc Diploma R.N. RN ) 
 concept: ~bathroom_items   (band_aid bath bathtub cologne conditioner deodorant medicine_cabinet shampoo shaving_cream shower shower_curtain soap soap_dish tile toilet 
@@ -427,7 +427,7 @@ concept: ~electronic_furniture   (CD_player computer gramophone hard_drive keybo
 concept: ~electronic_items   (~electronic_furniture adding_machine boombox calculator camcorder computer digital_camera dryer electronics fax_machine freezer fridge 
           headphones home_theater keyboard lamp light light_bulb modem phone printer radio sound_system stereo telephone television tumble-dryer TV washer ) 
 concept: ~element (element~6 ) 
-concept: ~emocurse (~sexualhate **itch arsehole ass_hole asshole b**tch crap dickhead eat_shit f#*k f*#k f*** f**k f*ck f_u_c_k fet_fucked fu fu*k fuck fuck_my fuck_off fuck_out fuck_you 
+concept: ~emocurse (damnit ~sexualhate **itch arsehole ass_hole asshole b**tch crap dickhead eat_shit f#*k f*#k f*** f**k f*ck f_u_c_k fet_fucked fu fu*k fuck fuck_my fuck_off fuck_out fuck_you 
           fucker fuckwit get_the_fuck_out gfy gtfo kiss_my_ass shit wanker shit_head shithead shut_the_fuck_up shut_the_hell_up
 		  ~sexualhate **itch arsehole ass_hole asshole b**tch bitch butt_face butt_head buttface butthead crap cunt dick_head dickhead douche dumb_ass dumbass eat_shit f#*k 
           f*#k f*** f**k f*ck f_u_c_k fet_fucked freak fu fu*k fuck fuck_my fuck_off fuck_out fuck_you fucker fuckwit get_the_fuck_out gfy go_to_hell gtfo jerk kiss_my_ass mother_fucker 
@@ -447,7 +447,8 @@ concept: ~entirety_words (complete deficient entire entirety incomplete partial 
 concept: ~equals (are equals gives is sold_for was were will_be yields ) 
 concept: ~equestrian_sports (dressage harness_racing horse_racing polo riding show_jumping ) 
 concept: ~ethnichate   (abbo  border_hopper border_jumper border_nigger Bounty_bar Buddhahead bug_eater bunga burrhead cab_nigger camel_cowboy camel_humper camel_jacker 
-          camel_jockey can_eater carpet_pilot chee_chee chi_chi chili_shitter Chinese_wetback ching_chong chinig chink_a_billy chonky cocolo coolie coon coon_ass cotton_picker cowboy_killer 
+     jerk nigger kike spick grease_ball wet_back beaner tar_baby spook sand_nigger
+    camel_jockey can_eater carpet_pilot chee_chee chi_chi chili_shitter Chinese_wetback ching_chong chinig chink_a_billy chonky cocolo coolie coon coon_ass cotton_picker cowboy_killer 
           curry_muncher curry_slurper curry_stinker Cushi Cushite dago darkey darkie darky dego diaper_head dinge dink dot_head dune_coon dune_nigger eurotrash eyetie fog_nigger gator_bait 
           gew ghetto_hamster gin_jockey ginzo gipp gippo house_nigger Hunkie hymie ice_nigger ikey ikey_mo iky injun island_nigger Jap japie jigaboo jigarooni jigg jigga jiggabo Jihadi 
           jijjiboo Jim_Fish jungle_bunny khazar kike kotiya Kushi Kushite kyke latrino lawn_jockey lemonhead ling_ling mangia_cake moch mockey mockie mocky moke moky Moor moss_eater 
@@ -456,7 +457,7 @@ concept: ~ethnichate   (abbo  border_hopper border_jumper border_nigger Bounty_b
           spickaboo spig spigger spigotty spik spink squarehead squaw squinty sub_human sucker_fish tar_baby tenker thicklips timber_nigger tincker tinkar tinkard tinkere touch_of_the_tar_brush 
           towel_head tunnel_digger tyncar tynekere tynkard tynkare tynker tynkere uncircumcised_baboon Uncle_Tom wagon_burner yid yokel zigabo zipperhead zippohead 
 		  assnigger beaner camel_jockey camel_jockies chinc chink cracker dago deggo fag faggit faggits faggot fagoots fags gook gringo guido gypsies heeb 
-          honkey honkies honky jap Jew   jigaboo jungle_bunny junglebunny kike kikes kraut kyke mick n1gr nazi nazis negro nigaboo nigga niggas nigger niggers nigguh nigguhs niglet 
+          honkey honkies honky jap Jews jews jigaboo jungle_bunny junglebunny kike kikes kraut kyke mick n1gr nazi nazis negro nigaboo nigga niggas nigger niggers nigguh nigguhs niglet 
           nigur niiger niigr paki polack polacks pollock porcH_monkey porchmonkey raghead ragheads ruski sand_nigger sandnigger spic spick spics spook towel_head towel_heads w0p wetback 
           wetbacks wop wops yid yids abbo   "border hopper" "border jumper" "border nigger" "Bounty bar"  Buddhahead "bug eater" bunga burrhead "cab nigger" "camel cowboy" "camel humper" "camel jacker"
 	"camel jockey" "can eater" "carpet pilot" "chee chee"  "chi chi" "chili shitter" "Chinese wetback" "ching chong" chinig "chink a billy" chonky cocolo coolie coon "coon ass"
@@ -1173,7 +1174,7 @@ concept: ~math_subjects (algebra arithmetic calculus combinatorics computer_scie
           mathematics numbers statistics topology trig trigonometry ) 
 concept: ~mathematica (additive arithmetic asymptote asymptotic asymptotically average bilinear bivariate correlate correlational correlative covalent decreasing_monotonic increasing_monotonic 
           inverse linear median modal monotone monotonic multinomial nonlinear nonmonotonic optimization parabola parabolic polynomial progression satisfying series ) 
-concept: ~mathematician (mathematician ) 
+concept: ~mathematician (mathematician Boole Descartes Newton Pythagoras Euclid Archimedes Turing Lovelace) 
 concept: ~meal (breakfast brunch dinner lunch luncheon meal snack supper ) 
 concept: ~meaningless_praise_words (admirable amazing best certified champion choice darling decadent deluxe desirable distinctive elite exceptional extraordinaire extraordinary fabulous 
           famous fantastic fascinating favorable favorite finest funny grand great heavenly hi-tech ideal impressive infamous ingenious inspiring irresistible lovely luxurious luxury 
@@ -1181,7 +1182,7 @@ concept: ~meaningless_praise_words (admirable amazing best certified champion ch
           prominent remarkable revolutionary scientific select showy significant smart sophisticated special stringent sublime super supreme tremendous unparalleled versatile wonderful 
           worthwhile ) 
 concept: ~measurelist (~moneynumber amp caliber calibre cm cup day decade foot gallon gram hour HP inch kilogram kilometer kph liter mcg meter mg mile minute ml mm month mph ounce pint 
-          pound quart second volt week yard year ) 
+          pound quart second volt week yard year ounce  gram kilogram meter pound  liter ml mm cm mcg mg  ) 
 concept: ~measurement (~area_quantity ~distance_quantity ~liquid_quantity ~temperature_quantity ~velocity_quantity ~xweightnouns ) 
 concept: ~meat   (bacon beef brain chicken flesh ham hamburger lamb meat~2 pork sausage steak veal ) 
 concept: ~mechanic (auto_repair garage mechanic ) 
@@ -1370,7 +1371,7 @@ concept: ~occupation_politics PROBABLE_NOUN (~royalty ~ruler activist ambassador
           lawmaker lobbyist mayor political_scientist political_theorist politician potentate representative senator speechmaker ) 
 concept: ~occupation_public_safety PROBABLE_NOUN (environmental_health_officer firefighter fireman firewoman radiation_protectionist ) 
 concept: ~occupation_real_estate PROBABLE_NOUN (cartographer estate_agent land_surveyor mine_surveyor Realtor urban_planner ) 
-concept: ~occupation_religion PROBABLE_NOUN (bishop chaplain clergyman cleric missionary mullah preacher priest rabbi religion_scholar televangelist theologians theologiser theologist 
+concept: ~occupation_religion PROBABLE_NOUN (bishop chaplain clergyman cleric missionary mullah preacher priest rabbi religion_scholar televangelist theologian theologiser theologist 
           theologizer vicar ) 
 concept: ~occupation_sales PROBABLE_NOUN (advertising appraiser attendant auctioneer cashier dealer fashion_buyer marketing_manager merchandise_planner merchant public_relations_practitioner 
           purchasing_manager sales_representative salesperson shop_assistant shopfitter stock-taker stockjobber stockman stocktaker store_manager storekeeper supermarketeer supermarketer 
@@ -1392,7 +1393,7 @@ concept: ~occupation_transport PROBABLE_NOUN (automotive_body_repairer automotiv
           sailor sea_captain sea_transport_worker skipper stationmaster steersman stoker switchman taxi_driver taximan trucker vehicle_driver yard_official ) 
 concept: ~occupation_writer PROBABLE_NOUN (art_editor author biographer bookbinder copy_writer copywriter editor journalist librarian military_writer novelist photojournalist poet publisher 
           reporter science_fiction_writer screenwriter speechwriter sports_writer technical_illustrator technical_writer writer ) 
-concept: ~oldlist (ancient antique archaic first historical old original quaint second-hand start used vintage ) 
+concept: ~oldlist ( start  used  antique  ancient antique archaic first historical old original quaint second-hand start used vintage ) 
 concept: ~omnivore (aardvark badger bear bluejay catfish chicken chipmunk cockroach coyote crane dolphin emu flamingo fly fox goose hedgehog human hummingbird 'I lemur magpie crow mouse 
           opossum oriole ostrich otter person pig raccoon rat raven roadrunner robin seagull shark skunk sloth squirrel starling swan wasp whale woodpecker yellow_jacket 'you ) 
 concept: ~opinion (~opinion_verbs attitude_toward belief_about conviction feel_about impression_of notion_of opinion position_on sentiment slant_on stance_on stand_on standpoint take_on 
@@ -1462,7 +1463,7 @@ concept: ~president (president )
 concept: ~priceabove (above beyond higher higher_than in_excess_of more more_than to_exceed ) 
 concept: ~priceaverage (average median ) 
 concept: ~pricebelow (below less less_than lower lower_than under underneath ) 
-concept: ~pricecheap (bargain cheap economical inexpensive on-sale thrift ) 
+concept: ~pricecheap(cheap inexpensive economical bargain on-sale thrift)
 concept: ~pricecost (cost expense price ) 
 concept: ~priceexpensive (dear expensive extravagant spendy ) 
 concept: ~probability_words (implausible impossible improbable likely plausible possible probable unlikely ) 
@@ -1491,7 +1492,7 @@ concept: ~rarity_words (abundant ample bountiful endangered enough exotic insuff
 concept: ~reading_stuff (~book ~bookmagazine author newsstand ) 
 concept: ~real_estate (home house real_estate ) 
 concept: ~reallybadweather   (blizzard cyclone firestorm hurricane northeaster storm thunder_snowstorm thunderhead thunderstorm tornado twister waterspout windstorm ) 
-concept: ~recentlist (brand-new contemporary current just_published latest modern most_recent new recent young ) 
+concept: ~recentlist ("just_published"  young latest new recent "most recent" brand-new contemporary current just_published latest modern most_recent new recent young ) 
 concept: ~recentwords (at_present currently freshly last lately new newly now past presently prior recent recently ) 
 concept: ~recorders   (answering_machine camcorder camera CD_burner diary Dictaphone digital_camera DVD_burner ECG EEG EKG electrocardiograph electroencephalograph 
           journal movie_camera notebook seismograph SLR tape_recorder tv_camera typewriter ) 

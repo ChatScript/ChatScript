@@ -1,3 +1,3 @@
 
-pandoc ESOTERIC-CHATSCRIPT/ChatScript-Engine.md -s -o ../PDFDOCUMENTATION/ESOTERIC-CHATSCRIPT/ChatScript-Engine.pdf
+pandoc ChatScript-Finalizing-A-Bot.md -s -o ../PDFDOCUMENTATION/ChatScript-Finalizing-A-Bot.pdf
 pause

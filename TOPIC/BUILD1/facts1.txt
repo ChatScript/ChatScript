@@ -1,3 +1,7 @@
-﻿$cs_language=ENGLISH
+﻿1
+$cs_language=UNIVERSAL
 #`end variables
-( harry defaultbot defaultbot x00100001 )
+--dict
+( harry~l1 defaultbot~l1 defaultbot~l1 x00100001 )
+--dead
+--lang

@@ -1,0 +1,9 @@
+language: UNIVERSAL
+RAWDATA/ONTOLOGY/internalconcepts.top # underlying vocabulary organization
+
+language: ENGLISH
+RAWDATA/ONTOLOGY/ENGLISH//
+RAWDATA/WORLDDATA//
+
+language: FRENCH
+RAWDATA/ONTOLOGY/FRENCH//

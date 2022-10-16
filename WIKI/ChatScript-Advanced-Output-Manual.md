@@ -350,7 +350,8 @@ ChatScript will output a single underscore to the user.
 
 Having said that CS automatically changes underscores to spaces, you can alter this and
 other default response output processing. The variable `$cs_response` can be set to some
-combination of values to alter behavior. The default value is
+combination of values to alter behavior. The default value is #ALL_RESPONSES which
+consists of
 ```
 $cs_response = #RESPONSE_UPPERSTART +
                #RESPONSE_REMOVESPACEBEFORECOMMA +

@@ -37,7 +37,7 @@ FunctionResult JSONArrayDeleteCode(char* buffer);
 FunctionResult JSONArraySizeCode(char* buffer);
 FunctionResult JSONGatherCode(char* buffer);
 FunctionResult DoJSONArrayInsert(bool nodup, WORDP array, MEANING value, int flags, char* buffer); //  objectfact objectvalue  BEFORE/AFTER 
-FunctionResult ParseJson(char* buffer, char* message, size_t size,bool nofail);
+FunctionResult ParseJson(char* buffer, char* message, size_t size,bool nofail,char* ignore,bool purify = false);
 FunctionResult JSONDeleteCode(char* buffer); 
 FunctionResult JSONMergeCode(char* buffer);
 FunctionResult JSONCopyCode(char* buffer);

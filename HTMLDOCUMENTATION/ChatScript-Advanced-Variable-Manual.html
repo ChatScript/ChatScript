@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-variable-manual">ChatScript Advanced Variable Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/18/2020 cs10.7</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <h1 id="advanced-variables">Advanced Variables</h1>
 <h2 id="local-variables">Local Variables</h2>
 <p>User variables <code>$xxx</code> and <code>$$xxx</code> are all global in scope.</p>
@@ -48,6 +48,10 @@ $$tmp = join($ no x)
 $$val = eval($$tmp) # returns $nox the name, not the value  1 
 $$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1</code></pre>
 <p>See also Indirect Pattern Elements in <a href="ChatScript-Pattern-Redux.html">ChatScript Pattern Redux</a> manual.</p>
+<h2 id="indirect-function-calls">Indirect function calls</h2>
+<p>You can create a variable which is a function name, then make a call using it. It can only do runtime testing on the number of arguments you supply to the actual call.</p>
+<pre><code>    $_fn = ^join( ^testing  _ en_us)
+    $_text = ^$_fn($_tmp)</code></pre>
 <h2 id="bot-variables-aka-server-variables">Bot variables (aka Server variables)</h2>
 <p>You can also define variables that are &quot;owned&quot; by the server. Any variables you create as part of layer 0 or layer 1 are always resident. As are any variables you define on the command line starting ChatScript or in cs_init.txt or cs_initmore.txt You can see them and even change them during a volley, but they will always refresh back to their original values at the start of the next volley.</p>
 <h2 id="match-variables">Match Variables</h2>

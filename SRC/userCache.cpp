@@ -209,10 +209,10 @@ void CopyUserTopicFile(char* newname)
 {
 	char file[SMALL_WORD_SIZE];
 	sprintf(file,(char*)"%s/topic_%s_%s.txt",usersfolder,loginID,computerID);
-	if (stricmp(language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, computerID,language);
+	if (stricmp(current_language, "english")) sprintf(file, (char*)"%s/topic_%s_%s_%s.txt", usersfolder, loginID, computerID, current_language);
 	char newfile[MAX_WORD_SIZE];
 	sprintf(newfile,(char*)"LOGS/%s-topic_%s_%s.txt",newname,loginID,computerID);
-	if (stricmp(language, "english")) sprintf(newfile, (char*)"LOGS/%s-topic_%s_%s_%s.txt", newname, loginID, computerID, language);
+	if (stricmp(current_language, "english")) sprintf(newfile, (char*)"LOGS/%s-topic_%s_%s_%s.txt", newname, loginID, computerID, current_language);
 	CopyFile2File(file,newfile,false);
 }
 
@@ -220,7 +220,7 @@ char* GetFileRead(char* user,char* computer)
 {
 	char word[MAX_WORD_SIZE];
 	sprintf(word,(char*)"%s/%stopic_%s_%s.txt",usersfolder,GetUserPath(loginID),user,computer);
-	if (!multidict && stricmp(language, "english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), user, computer, language);
+	if (!multidict && stricmp(current_language, "english")) sprintf(word, (char*)"%s/%stopic_%s_%s_%s.txt", usersfolder, GetUserPath(loginID), user, computer, current_language);
 	char* buffer;
 	if ( filesystemOverride == NORMALFILES) // local files
 	{

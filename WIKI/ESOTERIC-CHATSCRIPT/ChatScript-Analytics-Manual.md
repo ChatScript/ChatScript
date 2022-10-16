@@ -1,6 +1,7 @@
 # ChatScript Analytics Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com
-<br>Revision 1/31/2018 cs8.0
+<br>Revision 10/16/2022 cs12.3
+
 <br>
 <br>
 Your bot has been written and debugged and released. You are getting log files from users. What can
@@ -97,6 +98,11 @@ will prettyprint and rewrite patterns using the canonical form of words.
 will not display rules that only have code output
 You can do all topics in a file by naming the file name instead of the topicname. Don't use the full
 path, just the actual name of the file. 
+
+# What happened - `:splitlog`
+
+Given a cs log file , it will create a csv file  tmp/log.csv which contains each volley with columns
+input, output, why (rulename of rule generating output), and botname.
 
 # Time View over  Log file - `:timelog`
 

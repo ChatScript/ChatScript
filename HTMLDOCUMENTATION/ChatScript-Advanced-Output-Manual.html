@@ -155,7 +155,7 @@ if ($var == 5 and foo(3)) {} # if $var is 5 and foo(3) doesn&#39;t fail or retur
 <p>ChatScript, therefore has a special use for underscores internally and if you put underscores in your output text, when they are shipped to the user they are converted to spaces.</p>
 <p>This doesn't apply to internal uses like storing on variables. So normally you cannot output an underscore to a user. But a web address might legitimately contain underscores. So, if you put two underscores in a row, ChatScript will output a single underscore to the user.</p>
 <h2 id="response-controlinput">Response Controlinput</h2>
-<p>Having said that CS automatically changes underscores to spaces, you can alter this and other default response output processing. The variable <code>$cs_response</code> can be set to some combination of values to alter behavior. The default value is</p>
+<p>Having said that CS automatically changes underscores to spaces, you can alter this and other default response output processing. The variable <code>$cs_response</code> can be set to some combination of values to alter behavior. The default value is #ALL_RESPONSES which consists of</p>
 <pre><code>$cs_response = #RESPONSE_UPPERSTART +
                #RESPONSE_REMOVESPACEBEFORECOMMA +
                #RESPONSE_ALTERUNDERSCORES +

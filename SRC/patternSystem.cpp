@@ -553,14 +553,19 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
             }
         case '_':
             // a wildcard id?  names a memorized value like _8
-            if (IsDigit(word[1]))
+            ptr = nextTokenStart;
+            if (IsDigit(*ptr)) // _0~ and _10~ or _5[ or _6{ or _7(
+            {
+                wildcardIndex = atoi(ptr); // start saves here now
+                if (IsDigit(*++ptr)) ++ptr; // swallow 2nd digit
+            }
+            else if (IsDigit(word[1]))
             {
                 matched = GetwildcardText(GetWildcardID(word), false)[0] != 0; // simple _2  means is it defined
                 break;
             }
             // memorization coming - there can be up-to-two memorizations in progress: _* (wildmemorizegap) and _xxx (wildmemorizespecific)
             // it will be gap first and specific second (either token or smear of () [] {} )
-            ptr = nextTokenStart;
             uppercaseFind = -1;
 
             // if we are going to memorize something AND we previously matched inside a phrase, we need to move to after phrase...
@@ -997,10 +1002,30 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 if ((trace & TRACE_PATTERN || D->internalBits & MACRO_TRACE) && CheckTopicTrace()) Log(USERLOG,"%s(",word);
                 ptr += 2; // skip ( and space
                 FunctionResult result = NOPROBLEM_BIT;
+                char* defn = (char*)FindAppropriateDefinition(D, result, true);
+                int argcount = 0;
+                if (defn)
+                {
+                    char* argp = strchr(defn, ' ') + 1;
+                    unsigned char c = (unsigned char)*argp;
+                    argcount = (c >= 'a') ? (c - 'a' + 15) : (c - 'A'); // expected args, leaving us at ( args ...
+                }
+
                 // read arguments
+                int currentcount = 0; 
                 while (*ptr && *ptr != ')')
                 {
                     ptr = ReadArgument(ptr, buffer, result);  // gets the unevealed arg
+                    if (++currentcount > argcount)
+                    {
+                        matched = false;
+                        break;
+                    }
+                    if (*buffer == '(' && buffer[1] == '  ') // MAYNOT do  ( ... ) - thats not 1 arg but multiple
+                    {
+                        matched = false;
+                        break;
+                    }
                     callArgumentList[callArgumentIndex++] = AllocateStack(buffer);
                     if ((trace & TRACE_PATTERN || D->internalBits & MACRO_TRACE) && CheckTopicTrace()) Log(USERLOG," %s, ", buffer);
                     *buffer = 0;
@@ -1010,10 +1035,15 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                         break;
                     }
                 }
+                if (currentcount != argcount)
+                {
+                    matched = false;
+                    break;
+                }
                 if ((trace & TRACE_PATTERN || D->internalBits & MACRO_TRACE) && CheckTopicTrace()) Log(USERLOG,")\r\n");
                 callArgumentBase = fnVarbase = argStack[functionNest] - 1;
                 ptrStack[functionNest++] = ptr + 2; // skip closing paren and space
-                ptr = (char*)FindAppropriateDefinition(D, result,true);
+                ptr = defn;
                 if (ptr)
                 {
                     char* word = AllocateStack(NULL, MAX_WORD_SIZE);

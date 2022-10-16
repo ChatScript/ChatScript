@@ -1,5 +1,4 @@
-﻿ member ( ) 
- M'Backé ( NOUN NOUN_PROPER_SINGULAR ) 
+﻿ M'Backé ( NOUN NOUN_PROPER_SINGULAR ) 
  M'Baye ( NOUN NOUN_PROPER_SINGULAR ) 
  M. ( NOUN NOUN_SINGULAR ) lemma=`monsieur` NOM  
  M4 ( NOUN NOUN_PROPER_SINGULAR ) 

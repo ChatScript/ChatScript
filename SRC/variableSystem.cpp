@@ -416,7 +416,7 @@ char* GetUserVariable(const char* word, bool nojson, bool fortrace)
                 if (!key)
                 {
                     if (*label != '-' || !IsDigit(label[1])) goto NULLVALUE;
-                    key = StoreWord("-1", 0, AS_IS);
+                    key = StoreWord("-1", AS_IS );
                 }
                 label = key->word;
                 sprintf(originalkeyname, "%s", label);
@@ -586,7 +586,122 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
     }
 }
 
-void SetVariable(WORDP D, char* value)
+static  void HandleMonitoredVariables(const char* var, char* word, bool assignment)
+{
+    if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
+    {
+        if (!stricmp(var, (char*)"$cs_json_array_defaults"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            jsonDefaults = (int)val;
+        }
+        // tokencontrol changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_language"))
+        {
+            SetLanguage(word);
+        }
+        // tokencontrol changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_token"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            else
+            {
+                val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
+                if (!stricmp(current_language, "english")) val |= DO_PARSE;
+            }
+            tokenControl = val;
+        }
+
+        // cs_float changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_fullfloat"))
+            fullfloat = (word && *word) ? true : false;
+
+        // cs_numbers changes are noticed by the engine (india, french, other)
+        else if (!stricmp(var, (char*)"$cs_numbers"))
+        {
+            if (!word) numberStyle = AMERICAN_NUMBERS;
+            else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
+            else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
+            else numberStyle = AMERICAN_NUMBERS;
+
+            if (numberStyle == FRENCH_NUMBERS)
+            {
+                numberComma = '.';
+                numberPeriod = ',';
+            }
+            else
+            {
+                numberComma = ',';
+                numberPeriod = '.';
+            }
+        }
+        // trace
+        else if (!stricmp(var, (char*)"$cs_trace"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            trace = (unsigned int)val;
+            if (assignment) // remember script changed it
+            {
+                modifiedTraceVal = trace;
+                modifiedTrace = true;
+            }
+        }
+        // time
+        else if (!stricmp(var, (char*)"$cs_time"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            timing = (unsigned int)val;
+            if (assignment) // remember script changed it
+            {
+                modifiedTimingVal = timing;
+                modifiedTiming = true;
+            }
+        }
+        // output random choice selection
+        else if (!stricmp(var, (char*)"$cs_outputchoice"))
+        {
+            int64 val = -1;
+            if (word && *word) ReadInt64(word, val);
+            outputchoice = (unsigned int)val;
+        }
+        // responsecontrol changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_response"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            else val = ALL_RESPONSES;
+            responseControl = (unsigned int)val;
+        }
+        // cs_botid changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_botid"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            myBot = (uint64)val;
+        }
+        // wildcardseparator changes are noticed by the engine
+        else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
+        {
+            wildcardSeparatorGiven = true;
+            if (!word) *wildcardSeparator = 0;
+            else if (*word == '\\') *wildcardSeparator = word[2];
+            else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
+        }
+        // random index
+        else if (!stricmp(var, (char*)"$cs_randIndex"))
+        {
+            int64 val = 0;
+            if (word && *word) ReadInt64(word, val);
+            randIndex = (unsigned int)val;
+        }
+    }
+}
+
+void SetVariable(WORDP D, char* value) //  coming from api
 {
     // check for json assign
     if (strchr(D->word, '.') || strchr(D->word, '['))
@@ -614,7 +729,7 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
 {
     char varname[MAX_WORD_SIZE];
     MakeLowerCopy(varname, (char*)var);
-    WORDP D = StoreWord(varname);				// find or create the var.
+    WORDP D = StoreWord(varname,AS_IS);				// find or create the var.
     if (!D) return; // ran out of memory
 #ifndef DISCARDTESTING
     if (debugVar) (*debugVar)(varname, word);
@@ -626,15 +741,12 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
         if (!*word || !stricmp(word, (char*)"null")) word = NULL; // really is null
         else //   some value 
         {
+            if (D->w.userValue && !strcmp(word, D->w.userValue))
+                return; // no change is happening 
             bool purelocal = (D->word[1] == LOCALVAR_PREFIX);
             if (purelocal) word = AllocateStack(word, 0, true); // trying to save on permanent space
-			else
-			{
-				if (D->w.userValue && !strcmp(word, D->w.userValue))
-					return; // no change is happening in heap
-				if (!reuse) word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
-			}
-			if (!word) return;
+			else if (!reuse) word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
+			if (!word) return; // no memory?
         }
     }
 	else if (!D->w.userValue)  return; // clear to null already
@@ -649,118 +761,7 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
     else D->w.userValue = word;
 
 	// monitored engine variables
-
-	if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
-	{
-		if (!stricmp(var, (char*)"$cs_json_array_defaults"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			jsonDefaults = (int)val;
-		}
-        // tokencontrol changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_language"))
-        {
-            SetLanguage(word);
-        }
-		// tokencontrol changes are noticed by the engine
-		else if (!stricmp(var, (char*)"$cs_token"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			else
-			{
-				val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
-				if (!stricmp(language, "english")) val |= DO_PARSE;
-			}
-			tokenControl = val;
-		}
-
-		// cs_float changes are noticed by the engine
-		else if (!stricmp(var, (char*)"$cs_fullfloat"))
-			fullfloat = (word && *word) ? true : false;
-		
-		// cs_numbers changes are noticed by the engine (india, french, other)
-		else if (!stricmp(var, (char*)"$cs_numbers"))
-		{
-			if (!word) numberStyle = AMERICAN_NUMBERS;
-			else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
-			else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
-			else numberStyle = AMERICAN_NUMBERS;
-
-			if (numberStyle == FRENCH_NUMBERS)
-			{
-				numberComma = '.';
-				numberPeriod = ',';
-			}
-			else
-			{
-				numberComma = ',';
-				numberPeriod = '.';
-			}
-		}
-		// trace
-		else if (!stricmp(var, (char*)"$cs_trace"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			trace = (unsigned int)val;
-			if (assignment) // remember script changed it
-			{
-				modifiedTraceVal = trace;
-				modifiedTrace = true;
-			}
-		}
-		// time
-		else if (!stricmp(var, (char*)"$cs_time"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			timing = (unsigned int)val;
-			if (assignment) // remember script changed it
-			{
-				modifiedTimingVal = timing;
-				modifiedTiming = true;
-			}
-		}
-		// output random choice selection
-		else if (!stricmp(var, (char*)"$cs_outputchoice"))
-		{
-			int64 val = -1;
-			if (word && *word) ReadInt64(word, val);
-			outputchoice = (unsigned int)val;
-		}
-		// responsecontrol changes are noticed by the engine
-		else if (!stricmp(var, (char*)"$cs_response"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			else val = ALL_RESPONSES;
-			responseControl = (unsigned int)val;
-		}
-		// cs_botid changes are noticed by the engine
-		else if (!stricmp(var, (char*)"$cs_botid"))
-		{
-			int64 val = 0;
-			if (word && *word) ReadInt64(word, val);
-			myBot = (uint64)val;
-		}
-		// wildcardseparator changes are noticed by the engine
-		else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
-		{
-			wildcardSeparatorGiven = true;
-			if (!word) *wildcardSeparator = 0;
-			else if (*word == '\\') *wildcardSeparator = word[2];
-			else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
-		}
-        // random index
-        else if (!stricmp(var, (char*)"$cs_randIndex"))
-        {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            randIndex = (unsigned int)val;
-        }
-	}
+    HandleMonitoredVariables(var, word,assignment);
 
     if (trace && D->internalBits & MACRO_TRACE)
     {
@@ -770,7 +771,6 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
         Log(ECHOUSERLOG, "%s -> %s at %s.%d.%d %s %s\r\n", D->word, word, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
     }
 }
-
 
 static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char op, char* fullop)
 {
@@ -874,6 +874,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
         if (*op != '+') return FAILRULE_BIT;
         FunctionResult result = NOPROBLEM_BIT;
         WORDP old = FindWord(oldValue);
+        bool dup = (oldValue[3] == 't') ? (oldValue[4] == '+') : (oldValue[3] == '+');
         char junk[10];
         if (IsValidJSONName(moreValue, 'a'))
         {
@@ -893,7 +894,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
                 unsigned int flags = JSON_ARRAY_FACT | (F->flags & JSON_OBJECT_FLAGS);
                 if (oldValue[3] == 't') flags |= FACTTRANSIENT;
                 MEANING value = F->object;
-                result = DoJSONArrayInsert(true, old, value, flags, junk);
+                result = DoJSONArrayInsert(!dup, old, value, flags, junk);
                 if (result == FAILRULE_BIT) break;
             }
             ReleaseStack((char*)stack);
@@ -904,7 +905,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
             unsigned int flags = JSON_ARRAY_FACT;
             if (oldValue[3] == 't') flags |= FACTTRANSIENT;
             MEANING value = jsonValue(moreValue, flags);
-            result = DoJSONArrayInsert(true, old, value, flags, junk);
+            result = DoJSONArrayInsert(!dup, old, value, flags, junk);
         }
         return result;
     }
@@ -925,9 +926,9 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
             if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT)
             {
                 *dot = 0;
-                WORDP D = StoreWord(var);
+                WORDP D = StoreWord(var); // base var
                 *dot = '.';
-                SetVariable(D, D->w.userValue); // force change of internal content detect
+                SetUserVariable(D->word, D->w.userValue); // force change of internal content detect
             }
             JSONVariableAssign(var, result);// json object insert
         }
@@ -1253,6 +1254,8 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     }
     else
     {
+        char* hold = ptr;
+        ptr = hold; // debug loop
         ptr = GetCommandArg(ptr, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT); // need to see null assigned -- store raw numbers, not with commas, lest relations break
         if (*buffer == '#' && !strchr(buffer,' ')) // substitute a constant? user type-in :set command for example
         {
@@ -1322,8 +1325,15 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
                 for (unsigned int i = 1; i <= rightCount; ++i) factSet[rightSet][i]->flags ^= MARKED_FACT; // erase marks
                 SET_FACTSET_COUNT(impliedSet, impliedCount);
             }
-            else if (*op == '=') memmove(&factSet[impliedSet][0], &factSet[rightSet][0], (rightCount + 1) * sizeof(FACT*)); // assigned from set
+            else if (*op == '=')
+            {
+                memmove(&factSet[impliedSet][0], &factSet[rightSet][0], (rightCount + 1) * sizeof(FACT*)); // assigned from set
+             }
             else result = FAILRULE_BIT;
+            if (trace & TRACE_OUTPUT && CheckTopicTrace())
+            {
+                Log(USERLOG, "@%d result %d facts", impliedSet, factSet[impliedSet][0]);
+            }
         }
         else if (IsDigit(*buffer) || !*buffer) // fact index (or null fact) to set operators 
         {
@@ -1394,7 +1404,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
-            if (!*buffer && !stricmp(originalWord1, "null")) Log(USERLOG, "%s=%s ", word, originalWord1);
+            if (!*buffer && !stricmp(originalWord1, "null")) Log(USERLOG, "%s = %s ", word, originalWord1);
             else if (!stricmp(originalWord1,buffer)) Log(USERLOG, "%s = %s ", word, originalWord1);
             else if (*originalWord1 == '^') Log(USERLOG, "%s = %s(...) `%s` ", word, originalWord1, buffer);
             else Log(USERLOG, "%s = %s `%s` ", word, originalWord1, buffer);
@@ -1458,11 +1468,15 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             int set = GetSetID(word);
             int count = FACTSET_COUNT(set);
             FACT* F = factSet[set][count];
-            unsigned int id = Fact2Index(F);
-            char* fact = AllocateBuffer();
-            WriteFact(F, false, fact, false, false,true);
-            Log(USERLOG,"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
-            FreeBuffer();
+            if (F)
+            {
+                unsigned int id = Fact2Index(F);
+                char* fact = AllocateBuffer();
+                WriteFact(F, false, fact, false, false,true);
+                Log(USERLOG,"last value @%d[%d] is %d %s", set, count, id, fact); // show last item in set
+                FreeBuffer();
+                }
+
         }
     }
 

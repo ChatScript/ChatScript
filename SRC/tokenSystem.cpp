@@ -410,6 +410,7 @@ static char* HandleQuoter(char* ptr,char** words, int& count)
 WORDP ApostropheBreak(char* aword)
 {
     char word[MAX_WORD_SIZE];
+	if (strlen(aword) > (MAX_WORD_SIZE - 2)) return NULL;
     *word = '*';
     strcpy(word + 1, aword);
     WORDP D = FindWord(word);
@@ -468,17 +469,17 @@ static WORDP PosSubstitution(char* buffer, int i)
 
 static char spawnWord[100];
 
-static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, bool& oobStart, bool& oobJson)
+static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, bool& oobStart, int& oobJson)
 {
 	char* start = ptr;
 	char c = *ptr;
 	unsigned char kind = IsPunctuation(c);
 	char* end = NULL;
 	static bool quotepending = false;
-	bool isEnglish = (!stricmp(language, "english") ? true : false);
-	bool isFrench = (!stricmp(language, "french") ? true : false);
-	bool isJapanese = (!stricmp(language, "japanese") ? true : false);
-	bool isSpanish = (!stricmp(language, "spanish") ? true : false);
+	bool isEnglish = (!stricmp(current_language, "english") ? true : false);
+	bool isFrench = (!stricmp(current_language, "french") ? true : false);
+	bool isJapanese = ((!stricmp(current_language, "japanese") || !stricmp(current_language, "chinese"))? true : false);
+	bool isSpanish = (!stricmp(current_language, "spanish") ? true : false);
 
 	// OOB which has { or [ inside starter, must swallow all as one string lest reading JSON blow token limit on sentence. And we can do jsonparse.
 	if (oobJson) // support JSON parsing
@@ -533,7 +534,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		{
 			ReportBug("Possible failure detecting JSON oob");
 		}
-		oobJson = false; // give up
+		oobJson = 0; // give up
 		return ptr;
 	}
 	// OOB only separates ( [ { ) ] }   - the rest remain joined as given
@@ -563,48 +564,86 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 #endif
 
 	char utfcharacter[10];
-	IsUTF8(ptr, utfcharacter); // return after this character if it is valid
-	if (isJapanese || !stricmp(language, "ideographic") || tokenControl & TOKENIZE_BY_CHARACTER)
+	char* endchar = IsUTF8(ptr, utfcharacter); // return after this character if it is valid
+	if (utfcharacter[1] ) // even in english mode, tolerate jp/zh punctuation to convert
 	{
 		unsigned char japanletter[8];
-		int kind = 0;
-		// swap terminal punctuation to english
-		if (IsJapanese(ptr, (unsigned char*)&japanletter, kind) && kind == JAPANESE_PUNCTUATION)
+		char* prior = ptr;
+		endchar = ptr;
+		// find end of utf8 stuff
+		while (endchar = IsUTF8(endchar, utfcharacter))
 		{
-			if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '0' && japanletter[5] == '1') // full width ! 
-			{
-				strcpy(spawnWord, "!");
-				return ptr + 3;
-			}
-			else if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '0' && japanletter[5] == 'E') // full width .
-			{
-				strcpy(spawnWord, ".");
-				return ptr + 3;
-			}
-			else if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '1' && japanletter[5] == 'F') // full width ?
-			{
-				strcpy(spawnWord, "?");
-				return ptr + 3;
-			}
+			int kind = 0;
 			// swap terminal punctuation to english
-			if (japanletter[0] == 0xef && japanletter[1] == 0xbc && japanletter[2] == 0x9f) //japan ？efbc9f 
+			if (IsJapanese(prior, (unsigned char*)&japanletter, kind) && kind == JAPANESE_PUNCTUATION)
 			{
-				strcpy(spawnWord, "?");
-				return ptr + 3;
+				if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '0' && japanletter[5] == '1') // full width ! 
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, "!");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				else if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '0' && japanletter[5] == 'E') // full width .
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, ".");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				else if (japanletter[2] == '3' && japanletter[3] == '0' && japanletter[4] == '0' && japanletter[5] == '2') // full width . chinese?
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, ".");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				else if (japanletter[2] == 'F' && japanletter[3] == 'F' && japanletter[4] == '1' && japanletter[5] == 'F') // full width ?
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, "?");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				// swap terminal punctuation to english
+				if (japanletter[0] == 0xef && japanletter[1] == 0xbc && japanletter[2] == 0x9f) //japan ？efbc9f 
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, "?");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				if (japanletter[0] == 0xe3 && japanletter[1] == 0x80 && japanletter[2] == 0x82) //japan 。e38082
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, ".");
+						return ptr + 3;
+					}
+					else return prior;
+				}
+				if (japanletter[0] == 0xef && japanletter[1] == 0xbc && japanletter[2] == 0x82) //japan ！efbc81
+				{
+					if (prior == ptr)
+					{
+						strcpy(spawnWord, "!");
+						return ptr + 3;
+					}
+					else return prior;
+				}
 			}
-			if (japanletter[0] == 0xe3 && japanletter[1] == 0x80 && japanletter[2] == 0x82) //japan 。e38082
-			{
-				strcpy(spawnWord, ".");
-				return ptr + 3;
-			}
-			if (japanletter[0] == 0xef && japanletter[1] == 0xbc && japanletter[2] == 0x82) //japan ！efbc81
-			{
-				strcpy(spawnWord, "!");
-				return ptr + 3;
-			}
+			prior = endchar;
 		}
-		if (utfcharacter[1]) return ptr + strlen(utfcharacter); // rewrite some utf8 characters to std ascii
-		// we should return normal length for english words used direct
 	}
 
 	// large repeat punctuation
@@ -630,17 +669,20 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		if (X) return ptr + strlen(word); // allow token
 	}
 
+	// break on article prefix l' and j' and t' and m' and s'
+	if ((*ptr == 'l' || *ptr == 'L' ||  *ptr == 'j' || *ptr == 'J' || *ptr == 't' || *ptr == 'T' || *ptr == 'm' || *ptr == 'M' || *ptr == 's' || *ptr == 'S')
+		&& ptr[1] == '\'')
+	{
+		return ptr + 2;
+	}
+	// break on article prefix qu'
+	if ((*ptr == 'Q' || *ptr == 'q' ) && ptr[1] == 'u' && ptr[2] == '\'')
+	{
+		return ptr + 3;
+	}
+
 	char token[MAX_WORD_SIZE];
 	ReadCompiledWord(ptr, token);
-	if (IsUrl(token, token + strlen(token))) return ptr + strlen(token);
-
-	// try emoiji pieces (since multiple utf8 emojis might be used)
-	char emoji[10];
-	if (IsUTF8(token, emoji) && emoji[1]) // utf characters will be >1 byte
-	{
-		WORDP E = FindWord(emoji, 0); 
-		if (E && E->properties & EMOJI) return ptr + strlen(emoji);
-	}
 
 #ifdef PRIVATE_CODE
     // Check for private hook function to check a token following local rules
@@ -654,14 +696,22 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
     }
 #endif
 
+	// try emoiji pieces (since multiple utf8 emojis might be used)
+	char emoji[10];
+	if (IsUTF8(token, emoji) && emoji[1]) // utf characters will be >1 byte
+	{
+		WORDP E = FindWord(emoji, 0); 
+		if (E && E->properties & EMOJI) return ptr + strlen(emoji);
+	}
+    WORDP EMO = FindWord(token);
+    if (EMO && EMO->properties & EMOJI) return ptr + strlen(EMO->word);
+
 	// serial no.
 	if (!stricmp(token, "no.") && !stricmp(priorToken, "serial"))
 	{
 		strcpy(spawnWord, "number");
 		return ptr + 3;
 	}
-	WORDP EMO = FindWord(token);
-	if (EMO && EMO->properties & EMOJI) return ptr + strlen(EMO->word);
 
 	if (kind & QUOTERS) // quoted strings  (but let *sigh* be emoji before this)
 	{
@@ -719,19 +769,45 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 		}
 		if (!IsDigit(ptr[1])) return ptr + 1; // just return isolated quote
 	}
-	ReadCompiledWord(ptr, token);
+    
+    // check if url or email address
+    if (IsMail(token))
+    {
+        char* atsign = strchr(token,'@');
+        char* period = strchr(atsign+1,'.');
+        char* emailEnd = atsign;
+        while (*++emailEnd && !IsInvalidEmailCharacter(*emailEnd)); // fred,andy@kore.com
 
-#ifdef PRIVATE_CODE
-	// Check for private hook function to check a token following local rules
-	static HOOKPTR fnIsToken = FindHookFunction((char*)"IsValidTokenWord");
-	if (fnIsToken)
+        if (period && period < emailEnd && IsAlphaUTF8(ptr[emailEnd-token-1]) &&  IsAlphaUTF8(ptr[emailEnd-token-2])) // top level domain is alpha
+        {
+            // find end of email domain, can be letters or numbers or hyphen
+            // there maybe be several parts to the domain
+            while (*++period && period < emailEnd)
+            {
+                if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return ptr + (period - token);
+            }
+            return ptr + (emailEnd - token);
+        }
+    }
+    size_t urlLen = strlen(token);
+    if (IsUrl(token, token + urlLen))
+    {
+        char* urlEnd = ptr + urlLen - 1;
+        // stop at trailing character that is likely to be the next token
+        if (*urlEnd == ',' || *urlEnd == ';' || *urlEnd == '|' || *urlEnd == '<' || *urlEnd == '>' || *urlEnd == '{' || *urlEnd == '(' || *urlEnd == '[' || *urlEnd == '?') --urlLen;
+        return ptr + urlLen;
+    }
+
+	WORDP X = FindWord(token);
+	size_t xx = strlen(token);
+	if (X && X->properties & EMOJI) return ptr + xx;
+	if (X && !IsPureNumber(token) && token[xx - 1] != '?' && token[xx - 1] != '!' && token[xx - 1] != ',' && token[xx - 1] != ';' && token[xx - 1] != ':') // we know the word and it cant be a number
 	{
-		if (((IsValidTokenWordHOOKFN)fnIsToken)(token))
+		if (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD)) // if we just created it and not to protect testpattern
 		{
-			return ptr + strlen(token);
+			return ptr + xx;
 		}
 	}
-#endif
 
 	// embedded punctuation
 	char* embed = strchr(token, '?');
@@ -760,8 +836,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
     // could be in the middle of splitting two times, 2pm-3 or 2:30-3:30
     if (*token == '-' && ParseTime(priorToken, NULL, NULL)) return ptr + 1;
 
-	WORDP X = FindWord(token);
-	size_t xx = strlen(token);
+	X = FindWord(token); // in case token embedded changed
+	xx = strlen(token);
 	if (X && X->properties & EMOJI) return ptr + xx;
 	if (X && !IsDigit(*token) && token[xx - 1] != '?' && token[xx - 1] != '!' && token[xx - 1] != ',' && token[xx - 1] != ';' && token[xx - 1] != ':') // we know the word and it cant be a number
     {
@@ -796,34 +872,6 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
             return ptr + 2;
         }
         if (l > 1) token[--l] = 0; // remove it from token
-    }
-    
-    // check if url or email address
-    if (IsMail(token))
-    {
-        char* atsign = strchr(token,'@');
-        char* period = strchr(atsign+1,'.');
-        char* emailEnd = atsign;
-        while (*++emailEnd && !IsInvalidEmailCharacter(*emailEnd)); // fred,andy@kore.com
-
-        if (period && period < emailEnd && IsAlphaUTF8(ptr[emailEnd-token-1]) &&  IsAlphaUTF8(ptr[emailEnd-token-2])) // top level domain is alpha
-        {
-            // find end of email domain, can be letters or numbers or hyphen
-            // there maybe be several parts to the domain
-            while (*++period && period < emailEnd)
-            {
-                if (!IsAlphaUTF8OrDigit(*period) && *period != '-' && *period != '.') return ptr + (period - token);
-            }
-            return ptr + (emailEnd - token);
-        }
-    }
-	size_t urlLen = strlen(token);
-    if (IsUrl(token, token + urlLen))
-    {
-        char* urlEnd = ptr + urlLen - 1;
-        // stop at trailing character that is likely to be the next token
-        if (*urlEnd == ',' || *urlEnd == ';' || *urlEnd == '|' || *urlEnd == '<' || *urlEnd == '>' || *urlEnd == '{' || *urlEnd == '(' || *urlEnd == '[') --urlLen;
-        return ptr + urlLen;
     }
 
 	if (*ptr == '?') return ptr + 1; // we dont have anything that should join after ?    but  ) might start emoticon
@@ -1306,7 +1354,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 				}
 				// ' as particle ellision 
 				if ((ptr - start) == 1 && (*start == 'd' || *start == 'c' || *start == 'j' || *start == 'l' || *start == 's' || *start == 't' || *start == 'm' || *start == 'n')) return ptr + 1;  // break off d' argent and other foreign particles
-				else if (!stricmp(language, "french"))
+				else if (!stricmp(current_language, "french"))
 				{
 					if ((ptr - start) == 1 && (*start == 'D' || *start == 'C' || *start == 'J' || *start == 'L' || *start == 'S' || *start == 'T' || *start == 'M' || *start == 'N')) return ptr + 1;  // break off french particles in upper case
 					else if ((ptr - start) == 2 && (*start == 'q' || *start == 'Q') && *(start + 1) == 'u') return ptr + 1;  // break off qu'
@@ -1467,26 +1515,16 @@ char* TokenizeJapanese(char* input, int& count, char** words, char* separators) 
 	return continuation;
 }
 
-char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
-{	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
-    char* ptr = input;
-	char* html = ptr;
-	int count = 0;
-    bool oobJson = false;
-    unsigned int quoteCount = 0;
-    char priorToken[MAX_WORD_SIZE] = {0};
-    int nest = 0;
-    unsigned int paren = 0;
-	bool isJapanese = (!stricmp(language, "japanese") ? true : false);
-
-	if (tokenControl == UNTOUCHED_INPUT)
-	{
-		while (ALWAYS) {
+char* RawTokenize(char* input, int& count, char** words, char* separators)
+{ // space separator only
+	count = 0;
+	while (ALWAYS) {
 			input = SkipWhitespace(input);
-			char* space = strchr(input,' '); // find separator
-			if (space) {
+			char* space = strchr(input, ' '); // find separator
+			if (space) 
+			{
 				++count;
-				words[count] = AllocateHeap(input,space-input); // the token
+				words[count] = AllocateHeap(input, space - input); // the token
 				input = space;
 			}
 			else if (*input) {
@@ -1497,18 +1535,30 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 			}
 			else break;
 		}
-		mycount = count;
-		ptr = input;
-		return ptr;
-	}
+		return input;
+}
+
+char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
+{	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
+	mycount = 0;
+	char* ptr = input;
+	char* html = ptr;
+	int count = 0;
+	int  oobJson = 0;
+    unsigned int quoteCount = 0;
+    char priorToken[MAX_WORD_SIZE] = {0};
+    int nest = 0;
+    unsigned int paren = 0;
+	// we can start on an oob (oobStart). it may be json (oobJson). 
+	// Or we can find embedded Json in user input (oobJson only)
+
+	if (tokenControl == UNTOUCHED_INPUT) return RawTokenize(input, mycount, words, separators);
 	
+	bool isJapanese = ((!stricmp(current_language, "japanese") || !stricmp(current_language, "chinese")) ? true : false);
 	bool useJapanese = isJapanese && *input && *input != '[';
-	if (useJapanese)
-	{
-		return TokenizeJapanese(input, mycount, words, separators);
-	}
+	if (useJapanese) return TokenizeJapanese(input, mycount, words, separators);
 	
-	if (*ptr != '[') input = FixHtmlTags(input);
+	if (*ptr != '[') input = FixHtmlTags(input); 
     // json oob may have \", users wont
 	html = input-1;
 	while (!oobStart && (html = strchr(++html,'\\')) != 0) // \"  remove this -- but not for json input!
@@ -1517,11 +1567,15 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		++html;
 	}
     *priorToken = 0;
+	 ptr = SkipWhitespace(ptr);
+	// leading ascii followed by lower, make it lower if it isnt (foreign words we wont know at sentence start)
+	// BUT this breaks normally capitalized words like American
+	// if ((unsigned int) (*ptr) < (unsigned int) 0x80 && IsLowerCase (ptr[1])) *ptr = GetLowercaseData(*ptr);
     while (ptr && *ptr) // find tokens til end of sentence or end of tokens
 	{
 		ptr = SkipWhitespace(ptr);
 		if (!*ptr) break; 
-		if (!stricmp(language,"SPANISH") && ptr[0] == 0xC2 && (ptr[1] == 0xBF || ptr[1] == 0xA1)) // invert question or exclamation
+		if (!stricmp(current_language,"SPANISH") && ptr[0] == 0xC2 && (ptr[1] == 0xBF || ptr[1] == 0xA1)) // invert question or exclamation
 		{
 			ptr += 2; // ignore it, we only want trailing ? or !
 		}
@@ -1534,13 +1588,15 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
         if (count == 0) // json embedded in OOB?
 		{
 			if (*ptr != '[' ) oobStart = false;
-			else // is this oob json?
+			else // is this oob json? or just oob
 			{
 				char* at = SkipWhitespace(ptr+1);
-				if (*at == '[' || *at == '{') oobJson = true;
+				if (*at == '[' || *at == '{') oobJson = 1; // top level 
 			}
 		}
-		if (*ptr == '"' && !strchr(ptr+1,'"') && !(tokenControl & TOKEN_AS_IS) && ptr[1] && !quoteCount && !(tokenControl & SPLIT_QUOTE))  ptr = SkipWhitespace(++ptr); // ignore single starting quote?  "hi   -- but if it next sentence line was part like POS tagging, would be a problem  and beware of 5' 11"
+
+		// ignore single starting quote?  "hi   -- but if it next sentence line was part like POS tagging, would be a problem  and beware of 5' 11"
+		if (*ptr == '"' && !strchr(ptr+1,'"') && !(tokenControl & TOKEN_AS_IS) && ptr[1] && !quoteCount && !(tokenControl & SPLIT_QUOTE))  ptr = SkipWhitespace(++ptr);
 
 		// find end of word 
 		int oldCount = count;
@@ -1549,7 +1605,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		char* end = FindWordEnd(ptr,priorToken,words,count,oobStart,oobJson);
  		if (count != oldCount)	// FindWordEnd performed allocation already 
 		{
-			if (count > 0) strcpy(priorToken, words[count]);
+			if (count > 0) strcpy(priorToken, words[count]); 
 			ptr = SkipWhitespace(end);
 			continue;
 		}
@@ -1560,7 +1616,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
             continue;
         }
         else if ((unsigned int)(end - ptr) > (MAX_WORD_SIZE - 3)) // too big to handle, suppress it.
-		{
+		{ 
 			char word[MAX_WORD_SIZE];
 			strncpy(word, ptr, MAX_WORD_SIZE - 25);
 			word[MAX_WORD_SIZE - 25] = 0;
@@ -1588,18 +1644,18 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
             len = 4;
         }
 		
-		if (*priorToken == '(') ++paren;
-		else if (*priorToken && paren) --paren;
-
 		char startc = *priorToken;
+		if (startc == '(') ++paren;
+		else if (startc && paren) --paren;
+
 		//   reserve next word, unless we have too many
-		if (++count > REAL_SENTENCE_WORD_LIMIT ) 
+		if (++count > REAL_SENTENCE_WORD_LIMIT ) // token limit reached
 		{
-			mycount = REAL_SENTENCE_WORD_LIMIT;
+			mycount = REAL_SENTENCE_WORD_LIMIT;  // truncate
 			return ptr;
 		}
 
-		//   if the word is a quoted expression, see if we KNOW it already as a noun, if so, remove quotes
+		//   if the word is a quoted expression, see if we KNOW it already as a part of speech, if so, remove quotes
 		if (*priorToken == '"' && len > 2)
 		{
 			char buffer[MAX_WORD_SIZE];
@@ -1613,6 +1669,8 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
  		char* token = words[count] = AllocateHeap(priorToken,len);   
 		if (!token) token = words[count] = AllocateHeap((char*)"a"); 
 		else if (len == 1 && startc == 'i') *token = 'I'; // force upper case on I
+		
+		// first token we see is oob and we werent told at start
 		if (count == 1 && *token == '[' && !token[1]) oobStart = true; // special tokenizing rules
 
 		//   set up for next token or ending tokenization
@@ -1623,9 +1681,14 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
             else separators[count] = 0;
         }
 
-		if (!stricmp(priorToken, "json") && (*ptr == '{' || *ptr == '['))  oobJson = true; // embedded json in user input
-		else if (oobStart && *ptr == ']') oobStart = false; // end of oob (if it had been json, that is already swallowed)
-
+		// special verification comment
+		if (!strncmp(ptr, "#!!#", 4))
+		{
+			if (*wordStarts[1] == '~') *wordStarts[1] = 'x'; // dont concept, might have interjection splitting on
+			ptr += strlen(ptr);
+			break; // verify comment end
+		}
+	
 		if (*token == '"' && !(tokenControl & SPLIT_QUOTE) && (count == 1 || !IsDigit(*words[count-1] ))) ++quoteCount;
 		if (*token == '"' && !(tokenControl & SPLIT_QUOTE) && count > 1 && quoteCount && !(quoteCount & 1)) // does end of this quote end the sentence?
 		{
@@ -1640,7 +1703,10 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 		else if (*token == '[' && !token[1]) ++nest;
 		else if (*token == ']' && !token[1]) --nest;
 
-		if (oobStart && *token == ']' && nest == 0) break;	// ending oob
+		if (!stricmp(priorToken, "json") && (*ptr == '{' || *ptr == '['))  oobJson = 2; // start embedded json in user input
+		else if (oobJson == 2 && *ptr == ']') oobJson = 0; // end of embedded json coming up, already swallowed entirely automatically
+		
+		if (oobStart && *token == ']' && nest == 0) break;	// ending oob at top level
 
 		if (*ptr == ')' && nest == 1){;}
 		else if (*ptr == ']' && nest == 1){;}
@@ -1801,7 +1867,7 @@ static WORDP MergeProperNoun(int& start, int end,bool upperStart)
 	if (D && D->systemFlags & ALWAYS_PROPER_NAME_MERGE) return D;
 	if (name) return D; // use known capitalization  - it has a first name
 	if (uppercase) return D;
-	return NULL; // let SetSequenceStamp find it instead
+	return NULL; // let FindSequence find it instead
 }
 
 static bool HasCaps(char* word)
@@ -1878,7 +1944,7 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 	if (E && E->systemFlags & HAS_SUBSTITUTE){;}
 	else if (!multi || !IsUpperCase(multi[1])) // remove sentence start uppercase if known in lower case unless its a multi-word title or substitute
 	{ // or special case word
-		WORDP set[20];
+		WORDP set[GETWORDSLIMIT];
 		int n = GetWords(wordStarts[1],set,true);	// strict case upper case
 		int i;
 		for (i = 0; i < n; ++i)
@@ -1974,7 +2040,7 @@ bool ParseTime(char* ptr, char** minute, char** meridiem)
 // return the start of a time meridiem indicator given the end point of a string
 char* FindTimeMeridiem(char* ptr, int len)
 {
-    if (stricmp(language, "english")) return 0;
+    if (stricmp(current_language, "english")) return 0;
 
 	int len1 = (len == 0 ? strlen(ptr) : len);
 	char* at = ptr + len1;
@@ -2039,7 +2105,7 @@ void ProperNameMerge()
 	bool upperStart = false;
 	wordStarts[wordCount+1] = "";
 	wordStarts[wordCount+2] = "";
-	bool isGerman = !stricmp(language, "german");
+	bool isGerman = !stricmp(current_language, "german");
 
     for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
     {
@@ -2328,7 +2394,7 @@ static void MergeNumbers(int& start,int& end) //   four score and twenty = four-
 	while ((ptr = strchr(word,'_'))) *ptr = '-';
 
 	//   create the single word and replace all the tokens
-    WORDP D = StoreWord(word,ADJECTIVE|NOUN|ADJECTIVE_NUMBER|NOUN_NUMBER, NOUN_NODETERMINER);
+    WORDP D = StoreFlaggedWord(word,ADJECTIVE|NOUN|ADJECTIVE_NUMBER|NOUN_NUMBER, NOUN_NODETERMINER);
 	char* tokens[2];
 	tokens[1] = D->word;
 	ReplaceWords("Merge number",start,end-start,1,tokens);
@@ -2731,7 +2797,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 			char plu[MAX_WORD_SIZE];
 			int which = (plurallast) ? count : 2; // 2 is plural unit before "per" like "miles per hour"
 			WORDP D = FindWord(newwords[which]);
-			if (D && D->word[D->length - 1] == 's') { } // dont trust us pluralizing, like "series"
+			if (D && D->word[WORDLENGTH(D) - 1] == 's') { } // dont trust us pluralizing, like "series"
 			else if (D) strcpy(newwords[which], GetPluralNoun(D->word,plu));
 		}
 
@@ -2824,7 +2890,7 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
 	if (word->systemFlags & ALWAYS_PROPER_NAME_MERGE) return word;
 	if (word->internalBits & CONDITIONAL_IDIOM) //  dare not unless there are no conditions
     {
-        char* script = word->w.conditionalIdiom;
+        char* script = word->w.conditionalIdiom->word;
         if (script[1] != '=') return NULL; // no conditions listed
 		if (tokenControl & NO_CONDITIONAL_IDIOM) return NULL;
 	}
@@ -2837,7 +2903,7 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
 			char copy[MAX_WORD_SIZE];
 			strcpy(copy, X->word);
 			char* at = copy;
-			while ((at = strchr(at, '+'))) *at = '`';
+			while ((at = strchr(at, '+'))) *at = '|';
 			if (!strcmp(copy, word->word)) return NULL; // + and ` are synonymous
 		}
 		uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
@@ -2901,7 +2967,7 @@ static WORDP Viability(WORDP word, int i, unsigned int n)
 static WORDP ViableIdiom(char* text, int i, unsigned int n)
 { // n is words merged into "word"
 
-	WORDP set[20];
+	WORDP set[GETWORDSLIMIT];
 	WORDP D = NULL;
 	int nn = GetWords(text, set, false); // words in any case and with mixed underscore and spaces
 	while (nn)
@@ -2926,14 +2992,14 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
     WORDP word;
     WORDP found = NULL;
     unsigned int idiomMatch = 0;
-    bool isEnglish = (!stricmp(language, "english") ? true : false);
+    bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	unsigned int n = 0;
     for ( int j = i; j <= wordCount; ++j)
     {
 		if (j != i) // add next word onto original starter
 		{
 			if (!stricmp(loginID,wordStarts[j])) break; // user name should not be part of idiom
-			*ptr++ = '`'; // separator between words
+			*ptr++ = SUBSTITUTE_SEPARATOR; // separator between words
 			++n; // appended word count
 			size_t len = strlen(wordStarts[j]);
 			if ( ((ptr - buffer) + len) >= (MAX_WORD_SIZE-40)) return NULL; // avoid buffer overflow
@@ -3066,7 +3132,7 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 
 static unsigned int GetHeaderCount(char* word, unsigned int count)
 {
-	WORDP set[20];
+	WORDP set[GETWORDSLIMIT];
 	WORDP D;
 	int nn = GetWords(word, set, false); // words in any case and with mixed underscore and spaces
 	while (nn)
@@ -3080,7 +3146,7 @@ static unsigned int GetHeaderCount(char* word, unsigned int count)
 void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 {
 	char buffer[MAX_WORD_SIZE] = "<"; // sentence start marker
-	bool isEnglish = (!stricmp(language, "english") ? true : false);
+	bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	lastMatch = NULL;
 	lastMatchLocation = 0;
 	unsigned int cycles = 0;

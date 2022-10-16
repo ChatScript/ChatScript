@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -989,6 +989,7 @@
 </tbody>
 </table>
 <h2 id="system-variables-1">System variables</h2>
+<p>Note for all time variables, they normally use local machine time. If you have a $cs_utcoffset variable with a value, then all time will be relative to GMT/UTC/Zulu (which means it doesn't pay attention to daylight savings and you have to do that yourself with the answer).</p>
 <table style="width:24%;">
 <colgroup>
 <col width="12%" />
@@ -1645,7 +1646,8 @@ canon: faster fast</code></pre>
 <code>$cs_saveusedJson</code> | if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below) |
 <code>$cs_proxycredentials</code> | See ^JSONOPEN in JSON manual|
 <code>$cs_proxyserver</code> | See ^JSONOPEN in JSON manual|
-<code>$cs_proxymethod</code> | See ^JSONOPEN in JSON manual|</div>
+<code>$cs_proxymethod</code> | See ^JSONOPEN in JSON manual|
+<code>$correlation_id</code> | See ^JSONOPEN in JSON manual|</div>
 <h1 id="mongo-variables">Mongo variables</h1>
 <div style="white-space: pre-line;"><code>$cs_mongoqueryparams</code> | set as a json structure of move its fields to a mongo query |
 <code>$mongo_enable_ssl</code> | if set to true, will use ssl |

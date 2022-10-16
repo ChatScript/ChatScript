@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
 <p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
 <p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
@@ -18,6 +18,21 @@
 port=20</code></pre>
 <p>Some parameters require a value and use the <code>=</code> format with no spaces. Other parameters may only require you name the parameter (they have no choices of values).</p>
 <p>Actual command line parameters have priority over config file values, and those have priority over http requested values.</p>
+<h2 id="language-options">Language options</h2>
+<p>The command line parameter <code>language=</code> as shipped would be</p>
+<pre><code>language=english</code></pre>
+<p>but it can consist of a series of languages separated by commas with the first language being the default until you use a command to change to some other language on the fly. This enables multi-dictionary behavior.</p>
+<pre><code>language=english,spanish,german,japanese</code></pre>
+<p>When compiling your scripts, you may want different things in different languages. For example here is a multi-language level 0 script that compiles std cs concepts simultaneously in different languages.</p>
+<pre><code>language: UNIVERSAL
+RAWDATA/ONTOLOGY/       # underlying vocabulary organization
+language: ENGLISH
+RAWDATA/ONTOLOGY/ENGLISH//
+RAWDATA/WORLDDATA/
+language: GERMAN
+RAWDATA/ONTOLOGY/GERMAN//
+language: SPANISH
+RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <h2 id="memory-options">Memory options</h2>
 <p>Chatscript statically allocates its memory and so (barring unusual circumstance) will not allocate memory ever during its interactions with users. These parameters can control those allocations. Done typically in a memory poor environment like a cellphone.</p>
 <table>

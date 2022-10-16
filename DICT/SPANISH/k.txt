@@ -60,45 +60,45 @@
  Kuwait ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  Kyoto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
  kHz ( NOUN NOUN_SINGULAR ) 
- kanji ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- karatazo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kb ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kbit ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kcal ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kilocaloría 
- kilocaloría ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ketoconasole ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ketoconazol ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- ketotifeno ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ kanji ( NOUN NOUN_SINGULAR ) 
+ karatazo ( NOUN NOUN_SINGULAR ) 
+ kb ( NOUN NOUN_SINGULAR ) 
+ kbit ( NOUN NOUN_SINGULAR ) 
+ kcal ( NOUN NOUN_SINGULAR ) lemma=kilocaloría 
+ kilocaloría ( NOUN NOUN_SINGULAR ) 
+ ketoconasole ( NOUN NOUN_SINGULAR ) 
+ ketoconazol ( NOUN NOUN_SINGULAR ) 
+ ketotifeno ( NOUN NOUN_SINGULAR ) 
  keynesianas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=keynesiano 
  keynesiano ( ADJECTIVE ADJECTIVE_NORMAL ) 
- kg ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kilogramo 
- kilogramo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kilo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kilobases ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kilobase 
+ kg ( NOUN NOUN_SINGULAR ) lemma=kilogramo 
+ kilogramo ( NOUN NOUN_SINGULAR ) 
+ kilo ( NOUN NOUN_SINGULAR ) 
+ kilobases ( NOUN NOUN_SINGULAR ) lemma=kilobase 
  kilobase ( ) 
- kilogramo-metro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ kilogramo-metro ( NOUN NOUN_SINGULAR ) 
  kilométrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
  kilométricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=kilométrico 
- kilooctectos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kiloocteto 
+ kilooctectos ( NOUN NOUN_SINGULAR ) lemma=kiloocteto 
  kiloocteto ( ) 
- kilooctetos ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kiloocteto 
- kilovatios ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kilovatio 
+ kilooctetos ( NOUN NOUN_SINGULAR ) lemma=kiloocteto 
+ kilovatios ( NOUN NOUN_SINGULAR ) lemma=kilovatio 
  kilovatio ( ) 
- kilómetro ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kinesioterapia ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kinesiólogo ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ kilómetro ( NOUN NOUN_SINGULAR ) 
+ kinesioterapia ( NOUN NOUN_SINGULAR ) 
+ kinesiólogo ( NOUN NOUN_SINGULAR ) 
  kinésico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- kiosco ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kits ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=kit 
+ kiosco ( NOUN NOUN_SINGULAR ) 
+ kits ( NOUN NOUN_SINGULAR ) lemma=kit 
  kit ( ) 
- km ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`kilómetro`km` NC  UMMX 
- knockout ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kraissl ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ km ( NOUN NOUN_SINGULAR ) lemma=`kilómetro`km` NC  UMMX 
+ knockout ( NOUN NOUN_SINGULAR ) 
+ kraissl ( NOUN NOUN_SINGULAR ) 
  kurdos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=kurdo 
  kurdo ( ) 
- kw ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kwashiorkor ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
- kárate ( NOUN NOUN_SINGULAR NOUN_PLURAL ) 
+ kw ( NOUN NOUN_SINGULAR ) 
+ kwashiorkor ( NOUN NOUN_SINGULAR ) 
+ kárate ( NOUN NOUN_SINGULAR ) 
  keeping_quiet_about ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=callar 
  keeping ( ) 
  keeping_quiet ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=callarse 

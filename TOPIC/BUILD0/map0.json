@@ -1,0 +1,6908 @@
+[
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/internalconcepts.top",
+"items" : [
+{
+"concept" : "~internal_concepts",
+"line" : 1
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adjectivehierarchy.top",
+"items" : [
+{
+"concept" : "~timeadjmodifier"
+},
+{
+"concept" : "~pretimeadjmodifier",
+"line" : 1
+},
+{
+"concept" : "~color_adjectives",
+"line" : 4
+},
+{
+"concept" : "~shape_adjectives",
+"line" : 7
+},
+{
+"concept" : "~balance_adjectives",
+"line" : 18
+},
+{
+"concept" : "~sense_hear",
+"line" : 21
+},
+{
+"concept" : "~sense_smell",
+"line" : 25
+},
+{
+"concept" : "~taste_adjectives",
+"line" : 29
+},
+{
+"concept" : "~sense_touch",
+"line" : 32
+},
+{
+"concept" : "~hardness_adjectives",
+"line" : 33
+},
+{
+"concept" : "~texture_adjectives",
+"line" : 34
+},
+{
+"concept" : "~wetness_touch_adjectives",
+"line" : 35
+},
+{
+"concept" : "~motion_adjectives",
+"line" : 36
+},
+{
+"concept" : "~ability_adjectives",
+"line" : 38
+},
+{
+"concept" : "~adjectivelist",
+"line" : 40
+},
+{
+"concept" : "~age_adjectives",
+"line" : 41
+},
+{
+"concept" : "~appearance",
+"line" : 43
+},
+{
+"concept" : "~appearance_adjectives",
+"line" : 44
+},
+{
+"concept" : "~bad_appearance",
+"line" : 45
+},
+{
+"concept" : "~bad_intelligence_adjectives",
+"line" : 47
+},
+{
+"concept" : "~bad_quality_adjectives",
+"line" : 50
+},
+{
+"concept" : "~body_light_adjectives",
+"line" : 51
+},
+{
+"concept" : "~body_heavy_adjectives",
+"line" : 52
+},
+{
+"concept" : "~body_weight_adjectives",
+"line" : 53
+},
+{
+"concept" : "~character_trait_adjectives",
+"line" : 55
+},
+{
+"concept" : "~chemical_properties_adjectives",
+"line" : 65
+},
+{
+"concept" : "~cleanliness_adjectives",
+"line" : 66
+},
+{
+"concept" : "~cognition_adjectives",
+"line" : 67
+},
+{
+"concept" : "~communication_adjectives",
+"line" : 68
+},
+{
+"concept" : "~comparison_adjectives",
+"line" : 69
+},
+{
+"concept" : "~constitution_adjectives",
+"line" : 70
+},
+{
+"concept" : "~power_adjectives",
+"line" : 71
+},
+{
+"concept" : "~weak_power_adjectives",
+"line" : 72
+},
+{
+"concept" : "~strong_power_adjectives",
+"line" : 73
+},
+{
+"concept" : "~containment_adjectives",
+"line" : 74
+},
+{
+"concept" : "~density_adjectives",
+"line" : 75
+},
+{
+"concept" : "~enablement_adjectives",
+"line" : 76
+},
+{
+"concept" : "~economic_adjectives",
+"line" : 77
+},
+{
+"concept" : "~energy_adjectives",
+"line" : 78
+},
+{
+"concept" : "~esthetic_adjectives",
+"line" : 79
+},
+{
+"concept" : "~evaluation_adjectives",
+"line" : 80
+},
+{
+"concept" : "~few",
+"line" : 81
+},
+{
+"concept" : "~functionality_adjectives",
+"line" : 82
+},
+{
+"concept" : "~gas_adjectives",
+"line" : 83
+},
+{
+"concept" : "~gender_adjectives",
+"line" : 84
+},
+{
+"concept" : "~good_appearance",
+"line" : 85
+},
+{
+"concept" : "~good_intelligence_adjectives",
+"line" : 87
+},
+{
+"concept" : "~good_quality_adjectives",
+"line" : 88
+},
+{
+"concept" : "~health_adjectives",
+"line" : 89
+},
+{
+"concept" : "~height_adjectives",
+"line" : 90
+},
+{
+"concept" : "~tall_adjectives",
+"line" : 91
+},
+{
+"concept" : "~short_adjectives",
+"line" : 92
+},
+{
+"concept" : "~insult_psychology_adjectives",
+"line" : 94
+},
+{
+"concept" : "~intelligence_adjectives",
+"line" : 98
+},
+{
+"concept" : "~intensifier_adjectives",
+"line" : 99
+},
+{
+"concept" : "~liquids_adjectives",
+"line" : 100
+},
+{
+"concept" : "~living_properties_adjectives",
+"line" : 102
+},
+{
+"concept" : "~locational_adjectives",
+"line" : 103
+},
+{
+"concept" : "~mass_adjectives",
+"line" : 104
+},
+{
+"concept" : "~materials_adjectives",
+"line" : 105
+},
+{
+"concept" : "~much",
+"line" : 107
+},
+{
+"concept" : "~normalized_adjectives",
+"line" : 108
+},
+{
+"concept" : "~odor_adjectives",
+"line" : 109
+},
+{
+"concept" : "~opinion_adjectives",
+"line" : 110
+},
+{
+"concept" : "~orientation_adjectives",
+"line" : 111
+},
+{
+"concept" : "~origin_adjectives",
+"line" : 112
+},
+{
+"concept" : "~perception_adjectives",
+"line" : 113
+},
+{
+"concept" : "~permission_adjectives",
+"line" : 114
+},
+{
+"concept" : "~physical_properties_adjectives",
+"line" : 117
+},
+{
+"concept" : "~psychology_adjectives",
+"line" : 121
+},
+{
+"concept" : "~quantity_adjectives",
+"line" : 134
+},
+{
+"concept" : "~relational_adjectives",
+"line" : 135
+},
+{
+"concept" : "~body_sensation_adjectives",
+"line" : 136
+},
+{
+"concept" : "~size_adjectives",
+"line" : 137
+},
+{
+"concept" : "~oversize_adjectives",
+"line" : 138
+},
+{
+"concept" : "~undersize_adjectives",
+"line" : 139
+},
+{
+"concept" : "~social_adjectives",
+"line" : 140
+},
+{
+"concept" : "~solids_adjectives",
+"line" : 141
+},
+{
+"concept" : "~sound_adjectives",
+"line" : 142
+},
+{
+"concept" : "~speed_adjectives",
+"line" : 143
+},
+{
+"concept" : "~states_of_matter_adjectives",
+"line" : 144
+},
+{
+"concept" : "~temperature_adjectives",
+"line" : 145
+},
+{
+"concept" : "~time_adjectives",
+"line" : 146
+},
+{
+"concept" : "~transition_adjectives",
+"line" : 147
+},
+{
+"concept" : "~weather_adjectives",
+"line" : 148
+},
+{
+"concept" : "~when_adjectives",
+"line" : 149
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adverbhierarchy.top",
+"items" : [
+{
+"concept" : "~modifyabletimenoun"
+},
+{
+"concept" : "~timeadvmodifier",
+"line" : 1
+},
+{
+"concept" : "~modifyabledistancenoun",
+"line" : 3
+},
+{
+"concept" : "~distancemodifier",
+"line" : 4
+},
+{
+"concept" : "~adverblist",
+"line" : 7
+},
+{
+"concept" : "~always",
+"line" : 8
+},
+{
+"concept" : "~causal_adverbs",
+"line" : 9
+},
+{
+"concept" : "~certainty_adverbs",
+"line" : 10
+},
+{
+"concept" : "~commenting_adverbs",
+"line" : 11
+},
+{
+"concept" : "~comparative_degree_adverbs",
+"line" : 12
+},
+{
+"concept" : "~comparative_manner_adverbs",
+"line" : 13
+},
+{
+"concept" : "~comparison_adverbs",
+"line" : 14
+},
+{
+"concept" : "~condition_adverbs",
+"line" : 15
+},
+{
+"concept" : "~conjunctive_adverbs",
+"line" : 16
+},
+{
+"concept" : "~degree_adverbs",
+"line" : 17
+},
+{
+"concept" : "~duration_adverbs",
+"line" : 18
+},
+{
+"concept" : "~explanatory_adverbs",
+"line" : 19
+},
+{
+"concept" : "~extent_adverbs",
+"line" : 21
+},
+{
+"concept" : "~frequency_adverbs",
+"line" : 24
+},
+{
+"concept" : "~how_adverbs",
+"line" : 26
+},
+{
+"concept" : "~inversion_adverbs",
+"line" : 27
+},
+{
+"concept" : "~speed_adverbs",
+"line" : 28
+},
+{
+"concept" : "~never",
+"line" : 29
+},
+{
+"concept" : "~often",
+"line" : 30
+},
+{
+"concept" : "~place_adverbs",
+"line" : 32
+},
+{
+"concept" : "~purpose_adverbs",
+"line" : 34
+},
+{
+"concept" : "~question_adverbs",
+"line" : 35
+},
+{
+"concept" : "~rarely",
+"line" : 36
+},
+{
+"concept" : "~result_adverbs",
+"line" : 37
+},
+{
+"concept" : "~sequence_adverbs",
+"line" : 38
+},
+{
+"concept" : "~supposition_adverbs",
+"line" : 39
+},
+{
+"concept" : "~time_adverbs",
+"line" : 40
+},
+{
+"concept" : "~viewpoint_adverbs",
+"line" : 41
+},
+{
+"concept" : "~when_adverbs",
+"line" : 42
+},
+{
+"concept" : "~negative_adverb_starter",
+"line" : 43
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/affect.top",
+"items" : [
+{
+"concept" : "~badness",
+"line" : 2
+},
+{
+"concept" : "~goodness",
+"line" : 4
+},
+{
+"concept" : "~feeling_adequate",
+"line" : 5
+},
+{
+"concept" : "~feeling_admiration",
+"line" : 7
+},
+{
+"concept" : "~feeling_alone",
+"line" : 8
+},
+{
+"concept" : "~feeling_angry",
+"line" : 9
+},
+{
+"concept" : "~feeling_good_misc",
+"line" : 15
+},
+{
+"concept" : "~feeling_depressed",
+"line" : 26
+},
+{
+"concept" : "~feeling_mixed_misc",
+"line" : 31
+},
+{
+"concept" : "~feeling_bad_misc",
+"line" : 46
+},
+{
+"concept" : "~feeling_apathetic",
+"line" : 59
+},
+{
+"concept" : "~feeling_attached",
+"line" : 60
+},
+{
+"concept" : "~feeling_attracted",
+"line" : 61
+},
+{
+"concept" : "~feeling_belittle",
+"line" : 63
+},
+{
+"concept" : "~feeling_bored",
+"line" : 64
+},
+{
+"concept" : "~feeling_burden",
+"line" : 66
+},
+{
+"concept" : "~feeling_cheated",
+"line" : 67
+},
+{
+"concept" : "~feeling_codependent",
+"line" : 68
+},
+{
+"concept" : "~feeling_demoralized",
+"line" : 69
+},
+{
+"concept" : "~feeling_derailed",
+"line" : 70
+},
+{
+"concept" : "~feeling_disgust",
+"line" : 71
+},
+{
+"concept" : "~feeling_embarrass",
+"line" : 72
+},
+{
+"concept" : "~feeling_entitled",
+"line" : 73
+},
+{
+"concept" : "~feeling_esteem",
+"line" : 74
+},
+{
+"concept" : "~feeling_fearful",
+"line" : 75
+},
+{
+"concept" : "~feeling_fearless",
+"line" : 79
+},
+{
+"concept" : "~feeling_focused",
+"line" : 81
+},
+{
+"concept" : "~feeling_free",
+"line" : 82
+},
+{
+"concept" : "~feeling_grateful",
+"line" : 83
+},
+{
+"concept" : "~feeling_happy",
+"line" : 84
+},
+{
+"concept" : "~feeling_hated",
+"line" : 89
+},
+{
+"concept" : "~feeling_independent",
+"line" : 91
+},
+{
+"concept" : "~feeling_irrisistable",
+"line" : 92
+},
+{
+"concept" : "~feeling_justified",
+"line" : 93
+},
+{
+"concept" : "~feeling_lost",
+"line" : 94
+},
+{
+"concept" : "~feeling_loved",
+"line" : 95
+},
+{
+"concept" : "~feeling_lustful",
+"line" : 96
+},
+{
+"concept" : "~feeling_obsessed",
+"line" : 97
+},
+{
+"concept" : "~feeling_outofcontrol",
+"line" : 98
+},
+{
+"concept" : "~feeling_powerless",
+"line" : 99
+},
+{
+"concept" : "~feeling_reproachful",
+"line" : 101
+},
+{
+"concept" : "~feeling_sad",
+"line" : 103
+},
+{
+"concept" : "~feeling_safe",
+"line" : 108
+},
+{
+"concept" : "~feeling_singledout",
+"line" : 109
+},
+{
+"concept" : "~feeling_surprise",
+"line" : 110
+},
+{
+"concept" : "~feeling_sympathy",
+"line" : 111
+},
+{
+"concept" : "~feeling_trapped",
+"line" : 112
+},
+{
+"concept" : "~feeling_words",
+"line" : 113
+},
+{
+"concept" : "~positive_emoticons",
+"line" : 119
+},
+{
+"concept" : "~negative_emoticons",
+"line" : 162
+},
+{
+"concept" : "~idiom_badness_hi",
+"line" : 198
+},
+{
+"concept" : "~badness_hi",
+"line" : 199
+},
+{
+"concept" : "~idiom_badness_lo",
+"line" : 309
+},
+{
+"concept" : "~badness_lo",
+"line" : 310
+},
+{
+"concept" : "~idiom_badness_med",
+"line" : 1150
+},
+{
+"concept" : "~badness_med",
+"line" : 1151
+},
+{
+"concept" : "~idiom_goodness_hi",
+"line" : 1268
+},
+{
+"concept" : "~goodness_hi",
+"line" : 1270
+},
+{
+"concept" : "~idiom_goodness_lo",
+"line" : 1310
+},
+{
+"concept" : "~goodness_lo",
+"line" : 1311
+},
+{
+"concept" : "~idiom_goodness_med",
+"line" : 1778
+},
+{
+"concept" : "~goodness_med",
+"line" : 1779
+},
+{
+"concept" : "~feeling_goodness_hi",
+"line" : 1897
+},
+{
+"concept" : "~feeling_goodness_med",
+"line" : 1898
+},
+{
+"concept" : "~feeling_goodness_lo",
+"line" : 1899
+},
+{
+"concept" : "~feeling_badness_hi",
+"line" : 1901
+},
+{
+"concept" : "~feeling_badness_med",
+"line" : 1902
+},
+{
+"concept" : "~feeling_badness_lo",
+"line" : 1903
+},
+{
+"concept" : "~anger_hi",
+"line" : 1906
+},
+{
+"concept" : "~anger_med",
+"line" : 1909
+},
+{
+"concept" : "~anger_lo",
+"line" : 1914
+},
+{
+"concept" : "~anticipation_hi",
+"line" : 1918
+},
+{
+"concept" : "~anticipation_med",
+"line" : 1919
+},
+{
+"concept" : "~anticipation_lo",
+"line" : 1920
+},
+{
+"concept" : "~brave_hi",
+"line" : 1921
+},
+{
+"concept" : "~brave_med",
+"line" : 1922
+},
+{
+"concept" : "~brave_lo",
+"line" : 1924
+},
+{
+"concept" : "~calm_hi",
+"line" : 1925
+},
+{
+"concept" : "~calm_med",
+"line" : 1926
+},
+{
+"concept" : "~calm_lo",
+"line" : 1928
+},
+{
+"concept" : "~confusion_hi",
+"line" : 1929
+},
+{
+"concept" : "~confusion_med",
+"line" : 1930
+},
+{
+"concept" : "~confusion_lo",
+"line" : 1931
+},
+{
+"concept" : "~disgust_hi",
+"line" : 1932
+},
+{
+"concept" : "~disgust_med",
+"line" : 1935
+},
+{
+"concept" : "~disgust_lo",
+"line" : 1937
+},
+{
+"concept" : "~fear_hi",
+"line" : 1938
+},
+{
+"concept" : "~fear_med",
+"line" : 1941
+},
+{
+"concept" : "~fear_lo",
+"line" : 1945
+},
+{
+"concept" : "~hate_hi",
+"line" : 1948
+},
+{
+"concept" : "~hate_med",
+"line" : 1949
+},
+{
+"concept" : "~hate_lo",
+"line" : 1950
+},
+{
+"concept" : "~joy_hi",
+"line" : 1951
+},
+{
+"concept" : "~joy_med",
+"line" : 1953
+},
+{
+"concept" : "~joy_lo",
+"line" : 1958
+},
+{
+"concept" : "~love_hi",
+"line" : 1959
+},
+{
+"concept" : "~love_med",
+"line" : 1960
+},
+{
+"concept" : "~love_lo",
+"line" : 1961
+},
+{
+"concept" : "~sad_hi",
+"line" : 1962
+},
+{
+"concept" : "~impatience_hi",
+"line" : 1967
+},
+{
+"concept" : "~impatience_med",
+"line" : 1969
+},
+{
+"concept" : "~impatience_lo",
+"line" : 1970
+},
+{
+"concept" : "~sad_med",
+"line" : 1972
+},
+{
+"concept" : "~sad_lo",
+"line" : 1978
+},
+{
+"concept" : "~surprise_hi",
+"line" : 1979
+},
+{
+"concept" : "~surprise_med",
+"line" : 1980
+},
+{
+"concept" : "~surprise_lo",
+"line" : 1987
+},
+{
+"concept" : "~trust_hi",
+"line" : 1988
+},
+{
+"concept" : "~trust_med",
+"line" : 1989
+},
+{
+"concept" : "~trust_lo",
+"line" : 1990
+},
+{
+"concept" : "~weak_hi",
+"line" : 1991
+},
+{
+"concept" : "~weak_med",
+"line" : 1992
+},
+{
+"concept" : "~weak_lo",
+"line" : 1993
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/concepts.top",
+"items" : [
+{
+"concept" : "~coronavirus",
+"line" : 2
+},
+{
+"concept" : "~diseases",
+"line" : 3
+},
+{
+"concept" : "~cartoon_character",
+"line" : 4
+},
+{
+"concept" : "~architect",
+"line" : 5
+},
+{
+"concept" : "~athlete",
+"line" : 6
+},
+{
+"concept" : "~author",
+"line" : 7
+},
+{
+"concept" : "~book",
+"line" : 8
+},
+{
+"concept" : "~plays",
+"line" : 9
+},
+{
+"concept" : "~actor",
+"line" : 10
+},
+{
+"concept" : "~actress",
+"line" : 11
+},
+{
+"concept" : "~movie",
+"line" : 12
+},
+{
+"concept" : "~directory",
+"line" : 13
+},
+{
+"concept" : "~city",
+"line" : 14
+},
+{
+"concept" : "~continent",
+"line" : 15
+},
+{
+"concept" : "~country",
+"line" : 16
+},
+{
+"concept" : "~nationalities",
+"line" : 17
+},
+{
+"concept" : "~galaxy",
+"line" : 18
+},
+{
+"concept" : "~tv_show",
+"line" : 19
+},
+{
+"concept" : "~island",
+"line" : 20
+},
+{
+"concept" : "~lake",
+"line" : 21
+},
+{
+"concept" : "~naregion",
+"line" : 22
+},
+{
+"concept" : "~moon",
+"line" : 23
+},
+{
+"concept" : "~museum",
+"line" : 24
+},
+{
+"concept" : "~ocean",
+"line" : 25
+},
+{
+"concept" : "~river",
+"line" : 26
+},
+{
+"concept" : "~sea",
+"line" : 27
+},
+{
+"concept" : "~star_system",
+"line" : 28
+},
+{
+"concept" : "~landmark",
+"line" : 29
+},
+{
+"concept" : "~europealliance",
+"line" : 30
+},
+{
+"concept" : "~asiaregion",
+"line" : 31
+},
+{
+"concept" : "~procsubcountry",
+"line" : 32
+},
+{
+"concept" : "~gulf",
+"line" : 33
+},
+{
+"concept" : "~uksubcountry",
+"line" : 34
+},
+{
+"concept" : "~pacificregion",
+"line" : 35
+},
+{
+"concept" : "~earthregion",
+"line" : 36
+},
+{
+"concept" : "~caribbeanregion",
+"line" : 37
+},
+{
+"concept" : "~terrorist",
+"line" : 38
+},
+{
+"concept" : "~dictator",
+"line" : 39
+},
+{
+"concept" : "~murderer",
+"line" : 40
+},
+{
+"concept" : "~deity",
+"line" : 41
+},
+{
+"concept" : "~rich_person",
+"line" : 42
+},
+{
+"concept" : "~explorer",
+"line" : 43
+},
+{
+"concept" : "~painter",
+"line" : 44
+},
+{
+"concept" : "~economist",
+"line" : 45
+},
+{
+"concept" : "~sculptor",
+"line" : 46
+},
+{
+"concept" : "~clown",
+"line" : 47
+},
+{
+"concept" : "~poem",
+"line" : 48
+},
+{
+"concept" : "~religious_leader",
+"line" : 49
+},
+{
+"concept" : "~golfer",
+"line" : 50
+},
+{
+"concept" : "~singer",
+"line" : 51
+},
+{
+"concept" : "~glassblower",
+"line" : 52
+},
+{
+"concept" : "~director",
+"line" : 53
+},
+{
+"concept" : "~ettiquette_expert",
+"line" : 54
+},
+{
+"concept" : "~humanitarian",
+"line" : 55
+},
+{
+"concept" : "~psychologist",
+"line" : 56
+},
+{
+"concept" : "~psychiatrist",
+"line" : 57
+},
+{
+"concept" : "~nurse",
+"line" : 58
+},
+{
+"concept" : "~abolitionist",
+"line" : 59
+},
+{
+"concept" : "~missionary",
+"line" : 60
+},
+{
+"concept" : "~aviatrix",
+"line" : 61
+},
+{
+"concept" : "~business_person",
+"line" : 62
+},
+{
+"concept" : "~organization",
+"line" : 63
+},
+{
+"concept" : "~band",
+"line" : 64
+},
+{
+"concept" : "~store",
+"line" : 65
+},
+{
+"concept" : "~store_type",
+"line" : 66
+},
+{
+"concept" : "~accessibility_words",
+"line" : 68
+},
+{
+"concept" : "~acidlist",
+"line" : 69
+},
+{
+"concept" : "~acquire_imperatives",
+"line" : 70
+},
+{
+"concept" : "~acting",
+"line" : 71
+},
+{
+"concept" : "~addition",
+"line" : 72
+},
+{
+"concept" : "~ads",
+"line" : 73
+},
+{
+"concept" : "~adult",
+"line" : 74
+},
+{
+"concept" : "~advanced_degrees",
+"line" : 75
+},
+{
+"concept" : "~aerial_sports",
+"line" : 76
+},
+{
+"concept" : "~age_gender",
+"line" : 77
+},
+{
+"concept" : "~age_nouns",
+"line" : 79
+},
+{
+"concept" : "~age_reference",
+"line" : 80
+},
+{
+"concept" : "~age_words",
+"line" : 81
+},
+{
+"concept" : "~aged_adults",
+"line" : 82
+},
+{
+"concept" : "~aged_children",
+"line" : 84
+},
+{
+"concept" : "~agenoun",
+"line" : 85
+},
+{
+"concept" : "~aids_words",
+"line" : 86
+},
+{
+"concept" : "~air",
+"line" : 87
+},
+{
+"concept" : "~alarm",
+"line" : 88
+},
+{
+"concept" : "~alcoholic_beverage",
+"line" : 89
+},
+{
+"concept" : "~all_shields",
+"line" : 90
+},
+{
+"concept" : "~americanindian",
+"line" : 91
+},
+{
+"concept" : "~amplifiers",
+"line" : 105
+},
+{
+"concept" : "~angryevent",
+"line" : 108
+},
+{
+"concept" : "~animal_kingdoms",
+"line" : 110
+},
+{
+"concept" : "~animal_product",
+"line" : 111
+},
+{
+"concept" : "~animals",
+"line" : 112
+},
+{
+"concept" : "~animals_generic",
+"line" : 113
+},
+{
+"concept" : "~animate_thing",
+"line" : 114
+},
+{
+"concept" : "~appliance_store",
+"line" : 115
+},
+{
+"concept" : "~appliances",
+"line" : 116
+},
+{
+"concept" : "~architecture_styles",
+"line" : 118
+},
+{
+"concept" : "~area_quantity",
+"line" : 119
+},
+{
+"concept" : "~areafield",
+"line" : 120
+},
+{
+"concept" : "~armed_services",
+"line" : 121
+},
+{
+"concept" : "~art_gallery",
+"line" : 122
+},
+{
+"concept" : "~art_history",
+"line" : 123
+},
+{
+"concept" : "~art_kinds",
+"line" : 125
+},
+{
+"concept" : "~art_museum",
+"line" : 126
+},
+{
+"concept" : "~art_stuff",
+"line" : 128
+},
+{
+"concept" : "~art_subjects",
+"line" : 129
+},
+{
+"concept" : "~artifacts",
+"line" : 130
+},
+{
+"concept" : "~artist",
+"line" : 133
+},
+{
+"concept" : "~arts",
+"line" : 134
+},
+{
+"concept" : "~assassin",
+"line" : 135
+},
+{
+"concept" : "~astrology_signs",
+"line" : 136
+},
+{
+"concept" : "~astronautics",
+"line" : 137
+},
+{
+"concept" : "~attaches",
+"line" : 138
+},
+{
+"concept" : "~attendant",
+"line" : 139
+},
+{
+"concept" : "~attributes",
+"line" : 140
+},
+{
+"concept" : "~authenticity_words",
+"line" : 142
+},
+{
+"concept" : "~auto_dealer",
+"line" : 143
+},
+{
+"concept" : "~auto_parts_store",
+"line" : 144
+},
+{
+"concept" : "~awards",
+"line" : 145
+},
+{
+"concept" : "~bad_weather",
+"line" : 146
+},
+{
+"concept" : "~bad_words",
+"line" : 147
+},
+{
+"concept" : "~baked_goods",
+"line" : 149
+},
+{
+"concept" : "~bakery",
+"line" : 150
+},
+{
+"concept" : "~bank",
+"line" : 151
+},
+{
+"concept" : "~barber_shop",
+"line" : 153
+},
+{
+"concept" : "~baseball_teams",
+"line" : 154
+},
+{
+"concept" : "~baseorgans",
+"line" : 156
+},
+{
+"concept" : "~basic_degrees",
+"line" : 157
+},
+{
+"concept" : "~bathroom_items",
+"line" : 158
+},
+{
+"concept" : "~beach",
+"line" : 160
+},
+{
+"concept" : "~beauty_salon",
+"line" : 161
+},
+{
+"concept" : "~bedding",
+"line" : 162
+},
+{
+"concept" : "~bedroom_items",
+"line" : 163
+},
+{
+"concept" : "~beer",
+"line" : 164
+},
+{
+"concept" : "~being_conduit",
+"line" : 165
+},
+{
+"concept" : "~beings",
+"line" : 166
+},
+{
+"concept" : "~beverage",
+"line" : 167
+},
+{
+"concept" : "~bioarmor",
+"line" : 168
+},
+{
+"concept" : "~biome",
+"line" : 169
+},
+{
+"concept" : "~bird",
+"line" : 170
+},
+{
+"concept" : "~birth_defect",
+"line" : 172
+},
+{
+"concept" : "~birthlocationnoun",
+"line" : 174
+},
+{
+"concept" : "~black",
+"line" : 175
+},
+{
+"concept" : "~black_hackers",
+"line" : 176
+},
+{
+"concept" : "~bladed_weapon",
+"line" : 177
+},
+{
+"concept" : "~blemishmark",
+"line" : 180
+},
+{
+"concept" : "~blue",
+"line" : 181
+},
+{
+"concept" : "~blue_other",
+"line" : 182
+},
+{
+"concept" : "~bluray",
+"line" : 183
+},
+{
+"concept" : "~board_games",
+"line" : 184
+},
+{
+"concept" : "~bodily_states",
+"line" : 186
+},
+{
+"concept" : "~body_container",
+"line" : 190
+},
+{
+"concept" : "~bodyarmor",
+"line" : 191
+},
+{
+"concept" : "~bodyparts",
+"line" : 193
+},
+{
+"concept" : "~bone",
+"line" : 194
+},
+{
+"concept" : "~book_genre",
+"line" : 195
+},
+{
+"concept" : "~book_store",
+"line" : 197
+},
+{
+"concept" : "~bookmagazine",
+"line" : 198
+},
+{
+"concept" : "~bookstore",
+"line" : 199
+},
+{
+"concept" : "~boutique",
+"line" : 200
+},
+{
+"concept" : "~bowling_alley",
+"line" : 201
+},
+{
+"concept" : "~breakfast_items",
+"line" : 202
+},
+{
+"concept" : "~bridal_store",
+"line" : 204
+},
+{
+"concept" : "~brother",
+"line" : 205
+},
+{
+"concept" : "~brown",
+"line" : 206
+},
+{
+"concept" : "~brown_other",
+"line" : 207
+},
+{
+"concept" : "~browsers",
+"line" : 208
+},
+{
+"concept" : "~building",
+"line" : 209
+},
+{
+"concept" : "~building_parts",
+"line" : 213
+},
+{
+"concept" : "~building_substances",
+"line" : 216
+},
+{
+"concept" : "~burnable",
+"line" : 217
+},
+{
+"concept" : "~business_supply",
+"line" : 218
+},
+{
+"concept" : "~butchery",
+"line" : 219
+},
+{
+"concept" : "~butt",
+"line" : 220
+},
+{
+"concept" : "~cafe",
+"line" : 222
+},
+{
+"concept" : "~caffeinated_drinks",
+"line" : 223
+},
+{
+"concept" : "~candy",
+"line" : 224
+},
+{
+"concept" : "~car",
+"line" : 225
+},
+{
+"concept" : "~car_brands",
+"line" : 226
+},
+{
+"concept" : "~car_vehicles",
+"line" : 229
+},
+{
+"concept" : "~cardgame",
+"line" : 238
+},
+{
+"concept" : "~carnivore",
+"line" : 239
+},
+{
+"concept" : "~carryable",
+"line" : 240
+},
+{
+"concept" : "~cashable_item",
+"line" : 241
+},
+{
+"concept" : "~cat_breeds",
+"line" : 242
+},
+{
+"concept" : "~category",
+"line" : 245
+},
+{
+"concept" : "~celestial_body",
+"line" : 247
+},
+{
+"concept" : "~celestial_observation",
+"line" : 249
+},
+{
+"concept" : "~ceo",
+"line" : 250
+},
+{
+"concept" : "~chatbotlist",
+"line" : 251
+},
+{
+"concept" : "~cheeses",
+"line" : 253
+},
+{
+"concept" : "~chemicals",
+"line" : 257
+},
+{
+"concept" : "~chinese_cooking_styles",
+"line" : 258
+},
+{
+"concept" : "~christmas_words",
+"line" : 259
+},
+{
+"concept" : "~cinema",
+"line" : 260
+},
+{
+"concept" : "~citytype",
+"line" : 261
+},
+{
+"concept" : "~classactions",
+"line" : 262
+},
+{
+"concept" : "~classhate",
+"line" : 263
+},
+{
+"concept" : "~classroom",
+"line" : 265
+},
+{
+"concept" : "~cleaners",
+"line" : 266
+},
+{
+"concept" : "~cleaning_substances",
+"line" : 267
+},
+{
+"concept" : "~closeable",
+"line" : 268
+},
+{
+"concept" : "~clothes",
+"line" : 269
+},
+{
+"concept" : "~clothes_for_cold",
+"line" : 274
+},
+{
+"concept" : "~clothes_for_hot",
+"line" : 275
+},
+{
+"concept" : "~clothes_for_limbs",
+"line" : 276
+},
+{
+"concept" : "~clothes_for_rain",
+"line" : 278
+},
+{
+"concept" : "~clothes_in_pairs",
+"line" : 279
+},
+{
+"concept" : "~clothing_bottomhalf",
+"line" : 280
+},
+{
+"concept" : "~clothing_material",
+"line" : 282
+},
+{
+"concept" : "~clothing_style_words",
+"line" : 285
+},
+{
+"concept" : "~clothing_tophalf",
+"line" : 290
+},
+{
+"concept" : "~cloud",
+"line" : 292
+},
+{
+"concept" : "~cocktail",
+"line" : 293
+},
+{
+"concept" : "~coffee_shop",
+"line" : 299
+},
+{
+"concept" : "~coffees",
+"line" : 300
+},
+{
+"concept" : "~coin_shop",
+"line" : 301
+},
+{
+"concept" : "~college",
+"line" : 302
+},
+{
+"concept" : "~color_words",
+"line" : 303
+},
+{
+"concept" : "~colors",
+"line" : 304
+},
+{
+"concept" : "~combat_sports",
+"line" : 305
+},
+{
+"concept" : "~comic",
+"line" : 306
+},
+{
+"concept" : "~communication_artifacts",
+"line" : 307
+},
+{
+"concept" : "~communications",
+"line" : 308
+},
+{
+"concept" : "~communicators",
+"line" : 309
+},
+{
+"concept" : "~company",
+"line" : 310
+},
+{
+"concept" : "~company_groups",
+"line" : 311
+},
+{
+"concept" : "~comparisons",
+"line" : 312
+},
+{
+"concept" : "~compass_directions",
+"line" : 313
+},
+{
+"concept" : "~compassdirection",
+"line" : 314
+},
+{
+"concept" : "~complexity_words",
+"line" : 315
+},
+{
+"concept" : "~computer_scientist",
+"line" : 316
+},
+{
+"concept" : "~conduits",
+"line" : 317
+},
+{
+"concept" : "~confectioner",
+"line" : 319
+},
+{
+"concept" : "~confiners",
+"line" : 320
+},
+{
+"concept" : "~container_furniture",
+"line" : 321
+},
+{
+"concept" : "~containers",
+"line" : 322
+},
+{
+"concept" : "~contains",
+"line" : 323
+},
+{
+"concept" : "~controllers",
+"line" : 324
+},
+{
+"concept" : "~convenience_store",
+"line" : 325
+},
+{
+"concept" : "~cooked_words",
+"line" : 326
+},
+{
+"concept" : "~cooklocation",
+"line" : 327
+},
+{
+"concept" : "~cookware",
+"line" : 328
+},
+{
+"concept" : "~cool",
+"line" : 330
+},
+{
+"concept" : "~cosmetics",
+"line" : 331
+},
+{
+"concept" : "~cost",
+"line" : 332
+},
+{
+"concept" : "~count_collection",
+"line" : 333
+},
+{
+"concept" : "~counting_quantity",
+"line" : 334
+},
+{
+"concept" : "~country_music_singers",
+"line" : 336
+},
+{
+"concept" : "~country_rock_groups",
+"line" : 338
+},
+{
+"concept" : "~covers",
+"line" : 340
+},
+{
+"concept" : "~craft",
+"line" : 341
+},
+{
+"concept" : "~craft_store",
+"line" : 342
+},
+{
+"concept" : "~creators",
+"line" : 344
+},
+{
+"concept" : "~crimes",
+"line" : 345
+},
+{
+"concept" : "~crimes_common",
+"line" : 347
+},
+{
+"concept" : "~crimes_of_mobsters",
+"line" : 348
+},
+{
+"concept" : "~crimes_of_politics",
+"line" : 349
+},
+{
+"concept" : "~crimes_of_professionals",
+"line" : 350
+},
+{
+"concept" : "~crimes_of_property",
+"line" : 351
+},
+{
+"concept" : "~crimes_of_public_order",
+"line" : 352
+},
+{
+"concept" : "~crimes_of_violence",
+"line" : 353
+},
+{
+"concept" : "~crustaceans",
+"line" : 354
+},
+{
+"concept" : "~dairyitems",
+"line" : 355
+},
+{
+"concept" : "~dance",
+"line" : 356
+},
+{
+"concept" : "~dance_stuff",
+"line" : 357
+},
+{
+"concept" : "~dances",
+"line" : 358
+},
+{
+"concept" : "~dangerous_job",
+"line" : 360
+},
+{
+"concept" : "~data",
+"line" : 361
+},
+{
+"concept" : "~datatype",
+"line" : 362
+},
+{
+"concept" : "~dating_friend",
+"line" : 363
+},
+{
+"concept" : "~day_care_center",
+"line" : 365
+},
+{
+"concept" : "~dayname",
+"line" : 366
+},
+{
+"concept" : "~dayindex",
+"line" : 367
+},
+{
+"concept" : "~decorations",
+"line" : 368
+},
+{
+"concept" : "~defender",
+"line" : 370
+},
+{
+"concept" : "~degrees",
+"line" : 371
+},
+{
+"concept" : "~deli",
+"line" : 372
+},
+{
+"concept" : "~dentist_items",
+"line" : 373
+},
+{
+"concept" : "~department_store",
+"line" : 374
+},
+{
+"concept" : "~desert",
+"line" : 375
+},
+{
+"concept" : "~dessert",
+"line" : 376
+},
+{
+"concept" : "~diet",
+"line" : 378
+},
+{
+"concept" : "~different",
+"line" : 379
+},
+{
+"concept" : "~dining_room_items",
+"line" : 380
+},
+{
+"concept" : "~dinosaur",
+"line" : 381
+},
+{
+"concept" : "~directions",
+"line" : 388
+},
+{
+"concept" : "~disabilityhate",
+"line" : 390
+},
+{
+"concept" : "~diseaselist",
+"line" : 391
+},
+{
+"concept" : "~distance_quantity",
+"line" : 398
+},
+{
+"concept" : "~diversity_words",
+"line" : 399
+},
+{
+"concept" : "~division",
+"line" : 400
+},
+{
+"concept" : "~do_with_titles",
+"line" : 401
+},
+{
+"concept" : "~doctor",
+"line" : 402
+},
+{
+"concept" : "~dog_breeds",
+"line" : 404
+},
+{
+"concept" : "~dominance_words",
+"line" : 405
+},
+{
+"concept" : "~draper",
+"line" : 406
+},
+{
+"concept" : "~drinkstuff",
+"line" : 407
+},
+{
+"concept" : "~druglist",
+"line" : 408
+},
+{
+"concept" : "~drugs_depressive",
+"line" : 409
+},
+{
+"concept" : "~drugs_hallucinogen",
+"line" : 410
+},
+{
+"concept" : "~drugs_illegal",
+"line" : 411
+},
+{
+"concept" : "~drugs_legal",
+"line" : 413
+},
+{
+"concept" : "~drugs_narcotic",
+"line" : 414
+},
+{
+"concept" : "~drugs_stimulant",
+"line" : 415
+},
+{
+"concept" : "~drugstore",
+"line" : 416
+},
+{
+"concept" : "~dry_cleaner",
+"line" : 418
+},
+{
+"concept" : "~dunno",
+"line" : 419
+},
+{
+"concept" : "~durability_words",
+"line" : 420
+},
+{
+"concept" : "~earthmedia_words",
+"line" : 421
+},
+{
+"concept" : "~eatable",
+"line" : 422
+},
+{
+"concept" : "~eatery",
+"line" : 423
+},
+{
+"concept" : "~economic_troubles",
+"line" : 425
+},
+{
+"concept" : "~electronic_furniture",
+"line" : 426
+},
+{
+"concept" : "~electronic_items",
+"line" : 427
+},
+{
+"concept" : "~element",
+"line" : 429
+},
+{
+"concept" : "~emocurse",
+"line" : 430
+},
+{
+"concept" : "~emosadevent",
+"line" : 436
+},
+{
+"concept" : "~emosurpriseevent",
+"line" : 437
+},
+{
+"concept" : "~emotions",
+"line" : 438
+},
+{
+"concept" : "~energy_force",
+"line" : 442
+},
+{
+"concept" : "~enterable",
+"line" : 443
+},
+{
+"concept" : "~entertainment_stuff",
+"line" : 444
+},
+{
+"concept" : "~entirety_words",
+"line" : 446
+},
+{
+"concept" : "~equals",
+"line" : 447
+},
+{
+"concept" : "~equestrian_sports",
+"line" : 448
+},
+{
+"concept" : "~ethnichate",
+"line" : 449
+},
+{
+"concept" : "~example",
+"line" : 474
+},
+{
+"concept" : "~excrement",
+"line" : 475
+},
+{
+"concept" : "~exerciselist",
+"line" : 476
+},
+{
+"concept" : "~exercises",
+"line" : 477
+},
+{
+"concept" : "~expertise_words",
+"line" : 478
+},
+{
+"concept" : "~explosive",
+"line" : 479
+},
+{
+"concept" : "~explosive_weapon",
+"line" : 480
+},
+{
+"concept" : "~extremities",
+"line" : 482
+},
+{
+"concept" : "~fabric_store",
+"line" : 483
+},
+{
+"concept" : "~fairytale_characters",
+"line" : 484
+},
+{
+"concept" : "~fake_religious_sect",
+"line" : 485
+},
+{
+"concept" : "~family_adult",
+"line" : 486
+},
+{
+"concept" : "~family_adult_female",
+"line" : 487
+},
+{
+"concept" : "~family_adult_generic",
+"line" : 489
+},
+{
+"concept" : "~family_adult_male",
+"line" : 491
+},
+{
+"concept" : "~family_children",
+"line" : 493
+},
+{
+"concept" : "~family_children_female",
+"line" : 494
+},
+{
+"concept" : "~family_children_generic",
+"line" : 496
+},
+{
+"concept" : "~family_children_male",
+"line" : 498
+},
+{
+"concept" : "~family_grandfather",
+"line" : 499
+},
+{
+"concept" : "~family_members",
+"line" : 500
+},
+{
+"concept" : "~farm_animals",
+"line" : 501
+},
+{
+"concept" : "~farm_items",
+"line" : 502
+},
+{
+"concept" : "~fashionlist",
+"line" : 503
+},
+{
+"concept" : "~fast",
+"line" : 504
+},
+{
+"concept" : "~fasteners",
+"line" : 506
+},
+{
+"concept" : "~fastfood_place",
+"line" : 509
+},
+{
+"concept" : "~father",
+"line" : 510
+},
+{
+"concept" : "~favorite",
+"line" : 511
+},
+{
+"concept" : "~female",
+"line" : 513
+},
+{
+"concept" : "~femalesexanimals",
+"line" : 515
+},
+{
+"concept" : "~fertilizer",
+"line" : 516
+},
+{
+"concept" : "~field_events",
+"line" : 517
+},
+{
+"concept" : "~film_stuff",
+"line" : 518
+},
+{
+"concept" : "~fine_arts",
+"line" : 519
+},
+{
+"concept" : "~fire_department",
+"line" : 520
+},
+{
+"concept" : "~fire_force",
+"line" : 521
+},
+{
+"concept" : "~firearmor",
+"line" : 522
+},
+{
+"concept" : "~fishes",
+"line" : 523
+},
+{
+"concept" : "~fishmonger",
+"line" : 636
+},
+{
+"concept" : "~flame_weapon",
+"line" : 637
+},
+{
+"concept" : "~flammable",
+"line" : 638
+},
+{
+"concept" : "~flavorer",
+"line" : 640
+},
+{
+"concept" : "~flavors",
+"line" : 641
+},
+{
+"concept" : "~fruit",
+"line" : 643
+},
+{
+"concept" : "~flexibility_words",
+"line" : 645
+},
+{
+"concept" : "~florist",
+"line" : 646
+},
+{
+"concept" : "~flowers",
+"line" : 647
+},
+{
+"concept" : "~fnfactotum",
+"line" : 648
+},
+{
+"concept" : "~focus",
+"line" : 649
+},
+{
+"concept" : "~food",
+"line" : 651
+},
+{
+"concept" : "~food_container",
+"line" : 658
+},
+{
+"concept" : "~foodbeverage",
+"line" : 659
+},
+{
+"concept" : "~foodgroup",
+"line" : 660
+},
+{
+"concept" : "~force_containers",
+"line" : 661
+},
+{
+"concept" : "~forces",
+"line" : 662
+},
+{
+"concept" : "~format_words",
+"line" : 663
+},
+{
+"concept" : "~frenchwords",
+"line" : 665
+},
+{
+"concept" : "~frequency_words",
+"line" : 666
+},
+{
+"concept" : "~friend",
+"line" : 668
+},
+{
+"concept" : "~functions",
+"line" : 670
+},
+{
+"concept" : "~salad",
+"line" : 672
+},
+{
+"concept" : "~fungi",
+"line" : 673
+},
+{
+"concept" : "~furnishings",
+"line" : 674
+},
+{
+"concept" : "~furniture",
+"line" : 675
+},
+{
+"concept" : "~furniture_store",
+"line" : 676
+},
+{
+"concept" : "~game",
+"line" : 677
+},
+{
+"concept" : "~gamelist",
+"line" : 678
+},
+{
+"concept" : "~games_kid",
+"line" : 679
+},
+{
+"concept" : "~gas_station",
+"line" : 681
+},
+{
+"concept" : "~gas_weapon",
+"line" : 682
+},
+{
+"concept" : "~gasarmor",
+"line" : 685
+},
+{
+"concept" : "~gases",
+"line" : 686
+},
+{
+"concept" : "~gender",
+"line" : 687
+},
+{
+"concept" : "~gender_odd",
+"line" : 688
+},
+{
+"concept" : "~genderfemale",
+"line" : 689
+},
+{
+"concept" : "~gendermale",
+"line" : 690
+},
+{
+"concept" : "~gendernoun",
+"line" : 691
+},
+{
+"concept" : "~genericbody",
+"line" : 692
+},
+{
+"concept" : "~geo_shape",
+"line" : 693
+},
+{
+"concept" : "~geographical_areas",
+"line" : 694
+},
+{
+"concept" : "~geology_subjects",
+"line" : 696
+},
+{
+"concept" : "~germanwords",
+"line" : 698
+},
+{
+"concept" : "~gesturelist",
+"line" : 699
+},
+{
+"concept" : "~gift_shop",
+"line" : 701
+},
+{
+"concept" : "~girlfriend",
+"line" : 702
+},
+{
+"concept" : "~godnames",
+"line" : 703
+},
+{
+"concept" : "~good_weather",
+"line" : 704
+},
+{
+"concept" : "~grains",
+"line" : 705
+},
+{
+"concept" : "~graphic_arts",
+"line" : 706
+},
+{
+"concept" : "~gray",
+"line" : 707
+},
+{
+"concept" : "~greek_gods",
+"line" : 708
+},
+{
+"concept" : "~green",
+"line" : 710
+},
+{
+"concept" : "~green_other",
+"line" : 711
+},
+{
+"concept" : "~groups",
+"line" : 712
+},
+{
+"concept" : "~gymnastics",
+"line" : 713
+},
+{
+"concept" : "~hair_colors",
+"line" : 715
+},
+{
+"concept" : "~hair_products",
+"line" : 716
+},
+{
+"concept" : "~hair_salon",
+"line" : 717
+},
+{
+"concept" : "~haircut",
+"line" : 718
+},
+{
+"concept" : "~hanukkah_words",
+"line" : 719
+},
+{
+"concept" : "~happyevent",
+"line" : 720
+},
+{
+"concept" : "~hardware_store",
+"line" : 721
+},
+{
+"concept" : "~harmful_substance",
+"line" : 723
+},
+{
+"concept" : "~hate",
+"line" : 724
+},
+{
+"concept" : "~hatewords",
+"line" : 725
+},
+{
+"concept" : "~hattributes",
+"line" : 726
+},
+{
+"concept" : "~hawaii_landmarks",
+"line" : 727
+},
+{
+"concept" : "~hawaiian_gods",
+"line" : 729
+},
+{
+"concept" : "~he",
+"line" : 730
+},
+{
+"concept" : "~headpart",
+"line" : 732
+},
+{
+"concept" : "~health_food_shop",
+"line" : 734
+},
+{
+"concept" : "~height_words",
+"line" : 735
+},
+{
+"concept" : "~heightnoun",
+"line" : 736
+},
+{
+"concept" : "~herbivore",
+"line" : 737
+},
+{
+"concept" : "~herbspice",
+"line" : 739
+},
+{
+"concept" : "~hitting_weapon",
+"line" : 746
+},
+{
+"concept" : "~hobbies_animals",
+"line" : 747
+},
+{
+"concept" : "~hobbies_arts_and_crafts",
+"line" : 749
+},
+{
+"concept" : "~hobbies_electronic",
+"line" : 756
+},
+{
+"concept" : "~hobbies_finding",
+"line" : 758
+},
+{
+"concept" : "~hobbies_food",
+"line" : 759
+},
+{
+"concept" : "~hobbies_games_and_toys",
+"line" : 761
+},
+{
+"concept" : "~hobbies_gardening_and_plants",
+"line" : 765
+},
+{
+"concept" : "~hobbies_music",
+"line" : 766
+},
+{
+"concept" : "~hobbies_newage",
+"line" : 767
+},
+{
+"concept" : "~hobbies_observation",
+"line" : 768
+},
+{
+"concept" : "~hobbies_paper_crafts",
+"line" : 770
+},
+{
+"concept" : "~hobbies_performing",
+"line" : 771
+},
+{
+"concept" : "~hobbies_photography",
+"line" : 774
+},
+{
+"concept" : "~hobbies_puzzles",
+"line" : 776
+},
+{
+"concept" : "~hobbies_scale_model_building",
+"line" : 777
+},
+{
+"concept" : "~hobbies_science",
+"line" : 779
+},
+{
+"concept" : "~hobbies_social",
+"line" : 781
+},
+{
+"concept" : "~hobbies_writing",
+"line" : 782
+},
+{
+"concept" : "~hobby",
+"line" : 783
+},
+{
+"concept" : "~hockey_teams",
+"line" : 788
+},
+{
+"concept" : "~holdable",
+"line" : 790
+},
+{
+"concept" : "~holiday",
+"line" : 793
+},
+{
+"concept" : "~hospital",
+"line" : 794
+},
+{
+"concept" : "~hotel",
+"line" : 795
+},
+{
+"concept" : "~house_problems",
+"line" : 796
+},
+{
+"concept" : "~household_tasks",
+"line" : 797
+},
+{
+"concept" : "~human_data",
+"line" : 799
+},
+{
+"concept" : "~human_surface",
+"line" : 800
+},
+{
+"concept" : "~ice_cream_store",
+"line" : 802
+},
+{
+"concept" : "~identity",
+"line" : 803
+},
+{
+"concept" : "~if",
+"line" : 804
+},
+{
+"concept" : "~illevent",
+"line" : 805
+},
+{
+"concept" : "~image_websites",
+"line" : 806
+},
+{
+"concept" : "~immediate",
+"line" : 807
+},
+{
+"concept" : "~immovable",
+"line" : 808
+},
+{
+"concept" : "~industrial_substances",
+"line" : 809
+},
+{
+"concept" : "~information_center",
+"line" : 810
+},
+{
+"concept" : "~insects",
+"line" : 811
+},
+{
+"concept" : "~instrumenting",
+"line" : 891
+},
+{
+"concept" : "~insults",
+"line" : 892
+},
+{
+"concept" : "~insurance",
+"line" : 893
+},
+{
+"concept" : "~insurance_agent",
+"line" : 895
+},
+{
+"concept" : "~intelligent_being",
+"line" : 896
+},
+{
+"concept" : "~yesno",
+"line" : 897
+},
+{
+"concept" : "~interjections",
+"line" : 898
+},
+{
+"concept" : "~internet_cafe",
+"line" : 900
+},
+{
+"concept" : "~invertebrate",
+"line" : 901
+},
+{
+"concept" : "~it",
+"line" : 902
+},
+{
+"concept" : "~it_words",
+"line" : 903
+},
+{
+"concept" : "~japanese_universities",
+"line" : 904
+},
+{
+"concept" : "~japanesewords",
+"line" : 906
+},
+{
+"concept" : "~jeweller",
+"line" : 907
+},
+{
+"concept" : "~jewelry_items",
+"line" : 908
+},
+{
+"concept" : "~job",
+"line" : 910
+},
+{
+"concept" : "~job_fields",
+"line" : 911
+},
+{
+"concept" : "~job_fields_medicine",
+"line" : 915
+},
+{
+"concept" : "~juice_drinks",
+"line" : 918
+},
+{
+"concept" : "~junk_food",
+"line" : 919
+},
+{
+"concept" : "~kitchen_appliances",
+"line" : 920
+},
+{
+"concept" : "~kitchen_items",
+"line" : 922
+},
+{
+"concept" : "~land_force",
+"line" : 924
+},
+{
+"concept" : "~landscape_materials",
+"line" : 925
+},
+{
+"concept" : "~languages",
+"line" : 926
+},
+{
+"concept" : "~laundromat",
+"line" : 927
+},
+{
+"concept" : "~lawstuff",
+"line" : 929
+},
+{
+"concept" : "~leather_goods_shop",
+"line" : 930
+},
+{
+"concept" : "~legality_words",
+"line" : 931
+},
+{
+"concept" : "~length_words",
+"line" : 932
+},
+{
+"concept" : "~lethality_words",
+"line" : 933
+},
+{
+"concept" : "~lettercount",
+"line" : 935
+},
+{
+"concept" : "~letters",
+"line" : 936
+},
+{
+"concept" : "~library",
+"line" : 937
+},
+{
+"concept" : "~life_science",
+"line" : 938
+},
+{
+"concept" : "~life_taxonomy",
+"line" : 940
+},
+{
+"concept" : "~lingerie_shop",
+"line" : 941
+},
+{
+"concept" : "~liquid_container",
+"line" : 942
+},
+{
+"concept" : "~liquid_containers",
+"line" : 943
+},
+{
+"concept" : "~liquid_poisons",
+"line" : 944
+},
+{
+"concept" : "~liquid_quantity",
+"line" : 945
+},
+{
+"concept" : "~liquids",
+"line" : 946
+},
+{
+"concept" : "~liquor_store",
+"line" : 947
+},
+{
+"concept" : "~living_room_items",
+"line" : 948
+},
+{
+"concept" : "~locatedentity",
+"line" : 950
+},
+{
+"concept" : "~locationnames",
+"line" : 951
+},
+{
+"concept" : "~lockable",
+"line" : 966
+},
+{
+"concept" : "~looks",
+"line" : 967
+},
+{
+"concept" : "~lost_and_found",
+"line" : 968
+},
+{
+"concept" : "~loud",
+"line" : 969
+},
+{
+"concept" : "~luggage",
+"line" : 971
+},
+{
+"concept" : "~luggage_shop",
+"line" : 972
+},
+{
+"concept" : "~lumberyard",
+"line" : 973
+},
+{
+"concept" : "~lunch_items",
+"line" : 974
+},
+{
+"concept" : "~magazine",
+"line" : 975
+},
+{
+"concept" : "~magazines_for_men",
+"line" : 976
+},
+{
+"concept" : "~magazines_for_women",
+"line" : 977
+},
+{
+"concept" : "~magic_force",
+"line" : 979
+},
+{
+"concept" : "~magic_weapon",
+"line" : 980
+},
+{
+"concept" : "~magicians",
+"line" : 981
+},
+{
+"concept" : "~male",
+"line" : 983
+},
+{
+"concept" : "~malesexanimals",
+"line" : 984
+},
+{
+"concept" : "~mammals",
+"line" : 985
+},
+{
+"concept" : "~marital_state",
+"line" : 1165
+},
+{
+"concept" : "~markers",
+"line" : 1166
+},
+{
+"concept" : "~masonry_supply_store",
+"line" : 1167
+},
+{
+"concept" : "~material",
+"line" : 1168
+},
+{
+"concept" : "~math_angle",
+"line" : 1171
+},
+{
+"concept" : "~math_field",
+"line" : 1172
+},
+{
+"concept" : "~math_subjects",
+"line" : 1173
+},
+{
+"concept" : "~mathematica",
+"line" : 1175
+},
+{
+"concept" : "~mathematician",
+"line" : 1177
+},
+{
+"concept" : "~meal",
+"line" : 1178
+},
+{
+"concept" : "~meaningless_praise_words",
+"line" : 1179
+},
+{
+"concept" : "~measurelist",
+"line" : 1184
+},
+{
+"concept" : "~measurement",
+"line" : 1186
+},
+{
+"concept" : "~meat",
+"line" : 1187
+},
+{
+"concept" : "~mechanic",
+"line" : 1188
+},
+{
+"concept" : "~medical_substances",
+"line" : 1189
+},
+{
+"concept" : "~medium_degrees",
+"line" : 1190
+},
+{
+"concept" : "~mental_illnesses",
+"line" : 1191
+},
+{
+"concept" : "~metal",
+"line" : 1192
+},
+{
+"concept" : "~metallic",
+"line" : 1193
+},
+{
+"concept" : "~microlife",
+"line" : 1194
+},
+{
+"concept" : "~military_groups",
+"line" : 1195
+},
+{
+"concept" : "~military_man",
+"line" : 1196
+},
+{
+"concept" : "~milk",
+"line" : 1197
+},
+{
+"concept" : "~milk_drinks",
+"line" : 1198
+},
+{
+"concept" : "~minerals",
+"line" : 1199
+},
+{
+"concept" : "~indoor_activities",
+"line" : 1200
+},
+{
+"concept" : "~minor_outdoor_activities",
+"line" : 1201
+},
+{
+"concept" : "~misc_websites",
+"line" : 1203
+},
+{
+"concept" : "~mobility_words",
+"line" : 1205
+},
+{
+"concept" : "~moisture_words",
+"line" : 1206
+},
+{
+"concept" : "~monera",
+"line" : 1207
+},
+{
+"concept" : "~money_container",
+"line" : 1208
+},
+{
+"concept" : "~month_names",
+"line" : 1209
+},
+{
+"concept" : "~month_names_index",
+"line" : 1210
+},
+{
+"concept" : "~daysinmonth",
+"line" : 1211
+},
+{
+"concept" : "~month_proper_names",
+"line" : 1212
+},
+{
+"concept" : "~more",
+"line" : 1214
+},
+{
+"concept" : "~morningthings",
+"line" : 1215
+},
+{
+"concept" : "~mother",
+"line" : 1216
+},
+{
+"concept" : "~mountain",
+"line" : 1217
+},
+{
+"concept" : "~mountain_sports",
+"line" : 1218
+},
+{
+"concept" : "~movers",
+"line" : 1219
+},
+{
+"concept" : "~movie_genres",
+"line" : 1221
+},
+{
+"concept" : "~movie_rating",
+"line" : 1223
+},
+{
+"concept" : "~movie_store",
+"line" : 1225
+},
+{
+"concept" : "~moviestuff",
+"line" : 1226
+},
+{
+"concept" : "~moving_groups",
+"line" : 1227
+},
+{
+"concept" : "~multiplication",
+"line" : 1228
+},
+{
+"concept" : "~music_groups",
+"line" : 1229
+},
+{
+"concept" : "~music_store",
+"line" : 1230
+},
+{
+"concept" : "~music_stuff",
+"line" : 1231
+},
+{
+"concept" : "~music_subjects",
+"line" : 1232
+},
+{
+"concept" : "~musical_genres",
+"line" : 1233
+},
+{
+"concept" : "~musical_instrument",
+"line" : 1236
+},
+{
+"concept" : "~musical_instruments_brass",
+"line" : 1237
+},
+{
+"concept" : "~musical_instruments_percussion",
+"line" : 1238
+},
+{
+"concept" : "~musical_instruments_string",
+"line" : 1239
+},
+{
+"concept" : "~musical_instruments_woodwind",
+"line" : 1240
+},
+{
+"concept" : "~musician",
+"line" : 1241
+},
+{
+"concept" : "~musiciantype",
+"line" : 1242
+},
+{
+"concept" : "~mythical_being",
+"line" : 1243
+},
+{
+"concept" : "~mythical_creatures",
+"line" : 1244
+},
+{
+"concept" : "~mythical_intelligent_being",
+"line" : 1257
+},
+{
+"concept" : "~name",
+"line" : 1260
+},
+{
+"concept" : "~nanowords",
+"line" : 1261
+},
+{
+"concept" : "~nationalityhate",
+"line" : 1262
+},
+{
+"concept" : "~natural_disasters",
+"line" : 1267
+},
+{
+"concept" : "~natural_words",
+"line" : 1269
+},
+{
+"concept" : "~negation",
+"line" : 1270
+},
+{
+"concept" : "~negativeemotions",
+"line" : 1271
+},
+{
+"concept" : "~negativevalue",
+"line" : 1272
+},
+{
+"concept" : "~networkgame",
+"line" : 1273
+},
+{
+"concept" : "~new_years_words",
+"line" : 1274
+},
+{
+"concept" : "~newsagent",
+"line" : 1275
+},
+{
+"concept" : "~next",
+"line" : 1276
+},
+{
+"concept" : "~nightthings",
+"line" : 1277
+},
+{
+"concept" : "~noise",
+"line" : 1278
+},
+{
+"concept" : "~noisy",
+"line" : 1279
+},
+{
+"concept" : "~nonadult",
+"line" : 1280
+},
+{
+"concept" : "~nonverbal_signs",
+"line" : 1281
+},
+{
+"concept" : "~norse_gods",
+"line" : 1282
+},
+{
+"concept" : "~notpropername",
+"line" : 1283
+},
+{
+"concept" : "~nounlist",
+"line" : 1284
+},
+{
+"concept" : "~nounroot",
+"line" : 1285
+},
+{
+"concept" : "~novelty_words",
+"line" : 1286
+},
+{
+"concept" : "~nursery",
+"line" : 1288
+},
+{
+"concept" : "~nutrient",
+"line" : 1289
+},
+{
+"concept" : "~object_surface",
+"line" : 1290
+},
+{
+"concept" : "~objects",
+"line" : 1291
+},
+{
+"concept" : "~occupation",
+"line" : 1292
+},
+{
+"concept" : "~occupation_animals",
+"line" : 1293
+},
+{
+"concept" : "~occupation_aviation",
+"line" : 1294
+},
+{
+"concept" : "~occupation_banking",
+"line" : 1296
+},
+{
+"concept" : "~occupation_bureaucrat",
+"line" : 1298
+},
+{
+"concept" : "~occupation_business",
+"line" : 1299
+},
+{
+"concept" : "~occupation_cleaning",
+"line" : 1303
+},
+{
+"concept" : "~occupation_clothing",
+"line" : 1304
+},
+{
+"concept" : "~occupation_communications",
+"line" : 1306
+},
+{
+"concept" : "~occupation_computers",
+"line" : 1307
+},
+{
+"concept" : "~occupation_construction",
+"line" : 1308
+},
+{
+"concept" : "~occupation_creator",
+"line" : 1311
+},
+{
+"concept" : "~occupation_dancer",
+"line" : 1312
+},
+{
+"concept" : "~occupation_drinks",
+"line" : 1313
+},
+{
+"concept" : "~occupation_educator",
+"line" : 1314
+},
+{
+"concept" : "~occupation_engineer",
+"line" : 1315
+},
+{
+"concept" : "~occupation_entertainment",
+"line" : 1318
+},
+{
+"concept" : "~occupation_esthetics",
+"line" : 1321
+},
+{
+"concept" : "~occupation_explorer",
+"line" : 1322
+},
+{
+"concept" : "~occupation_factory",
+"line" : 1323
+},
+{
+"concept" : "~occupation_female",
+"line" : 1325
+},
+{
+"concept" : "~occupation_film",
+"line" : 1329
+},
+{
+"concept" : "~occupation_food",
+"line" : 1330
+},
+{
+"concept" : "~occupation_forest",
+"line" : 1332
+},
+{
+"concept" : "~occupation_generic",
+"line" : 1333
+},
+{
+"concept" : "~occupation_insurance",
+"line" : 1341
+},
+{
+"concept" : "~occupation_inventor",
+"line" : 1342
+},
+{
+"concept" : "~occupation_jobless",
+"line" : 1343
+},
+{
+"concept" : "~occupation_law",
+"line" : 1344
+},
+{
+"concept" : "~occupation_lawyer",
+"line" : 1346
+},
+{
+"concept" : "~occupation_magic",
+"line" : 1347
+},
+{
+"concept" : "~occupation_male",
+"line" : 1348
+},
+{
+"concept" : "~occupation_manager",
+"line" : 1350
+},
+{
+"concept" : "~occupation_medical",
+"line" : 1352
+},
+{
+"concept" : "~occupation_military",
+"line" : 1362
+},
+{
+"concept" : "~occupation_music",
+"line" : 1364
+},
+{
+"concept" : "~occupation_performer",
+"line" : 1365
+},
+{
+"concept" : "~occupation_personal_services",
+"line" : 1367
+},
+{
+"concept" : "~occupation_plants",
+"line" : 1369
+},
+{
+"concept" : "~occupation_politics",
+"line" : 1370
+},
+{
+"concept" : "~occupation_public_safety",
+"line" : 1372
+},
+{
+"concept" : "~occupation_real_estate",
+"line" : 1373
+},
+{
+"concept" : "~occupation_religion",
+"line" : 1374
+},
+{
+"concept" : "~occupation_sales",
+"line" : 1376
+},
+{
+"concept" : "~occupation_science",
+"line" : 1379
+},
+{
+"concept" : "~occupation_society",
+"line" : 1384
+},
+{
+"concept" : "~occupation_software",
+"line" : 1385
+},
+{
+"concept" : "~occupation_sports",
+"line" : 1386
+},
+{
+"concept" : "~occupation_spy",
+"line" : 1389
+},
+{
+"concept" : "~occupation_television",
+"line" : 1390
+},
+{
+"concept" : "~occupation_transport",
+"line" : 1391
+},
+{
+"concept" : "~occupation_writer",
+"line" : 1394
+},
+{
+"concept" : "~oldlist",
+"line" : 1396
+},
+{
+"concept" : "~omnivore",
+"line" : 1397
+},
+{
+"concept" : "~opinion",
+"line" : 1399
+},
+{
+"concept" : "~opinionset",
+"line" : 1401
+},
+{
+"concept" : "~optician",
+"line" : 1402
+},
+{
+"concept" : "~orange",
+"line" : 1403
+},
+{
+"concept" : "~papercanvascraft",
+"line" : 1404
+},
+{
+"concept" : "~party_store",
+"line" : 1405
+},
+{
+"concept" : "~people_groups",
+"line" : 1406
+},
+{
+"concept" : "~penetrators",
+"line" : 1407
+},
+{
+"concept" : "~performing_arts",
+"line" : 1412
+},
+{
+"concept" : "~performlist",
+"line" : 1414
+},
+{
+"concept" : "~personal_article",
+"line" : 1415
+},
+{
+"concept" : "~pet_animals",
+"line" : 1416
+},
+{
+"concept" : "~pet_cage",
+"line" : 1419
+},
+{
+"concept" : "~pet_food",
+"line" : 1420
+},
+{
+"concept" : "~pet_store",
+"line" : 1421
+},
+{
+"concept" : "~philosopher",
+"line" : 1422
+},
+{
+"concept" : "~philosophy_kind",
+"line" : 1423
+},
+{
+"concept" : "~phonelist",
+"line" : 1425
+},
+{
+"concept" : "~photo",
+"line" : 1426
+},
+{
+"concept" : "~photographer",
+"line" : 1427
+},
+{
+"concept" : "~physical_property",
+"line" : 1428
+},
+{
+"concept" : "~physicality",
+"line" : 1429
+},
+{
+"concept" : "~physics_field",
+"line" : 1430
+},
+{
+"concept" : "~physics_particle",
+"line" : 1432
+},
+{
+"concept" : "~placesetting",
+"line" : 1433
+},
+{
+"concept" : "~plan",
+"line" : 1434
+},
+{
+"concept" : "~planet",
+"line" : 1435
+},
+{
+"concept" : "~plantlist",
+"line" : 1436
+},
+{
+"concept" : "~plants",
+"line" : 1437
+},
+{
+"concept" : "~plot",
+"line" : 1439
+},
+{
+"concept" : "~plural",
+"line" : 1440
+},
+{
+"concept" : "~poet",
+"line" : 1441
+},
+{
+"concept" : "~pointed_weapon",
+"line" : 1442
+},
+{
+"concept" : "~poison",
+"line" : 1443
+},
+{
+"concept" : "~police_station",
+"line" : 1444
+},
+{
+"concept" : "~political_groups",
+"line" : 1445
+},
+{
+"concept" : "~political_parties",
+"line" : 1446
+},
+{
+"concept" : "~political_system",
+"line" : 1447
+},
+{
+"concept" : "~politicalarea",
+"line" : 1449
+},
+{
+"concept" : "~politicalstuff",
+"line" : 1450
+},
+{
+"concept" : "~politician",
+"line" : 1451
+},
+{
+"concept" : "~popstar",
+"line" : 1457
+},
+{
+"concept" : "~positivevalue",
+"line" : 1458
+},
+{
+"concept" : "~post_office",
+"line" : 1459
+},
+{
+"concept" : "~potency_words",
+"line" : 1460
+},
+{
+"concept" : "~precision_sports",
+"line" : 1461
+},
+{
+"concept" : "~president",
+"line" : 1462
+},
+{
+"concept" : "~priceabove",
+"line" : 1463
+},
+{
+"concept" : "~priceaverage",
+"line" : 1464
+},
+{
+"concept" : "~pricebelow",
+"line" : 1465
+},
+{
+"concept" : "~pricecheap",
+"line" : 1466
+},
+{
+"concept" : "~pricecost",
+"line" : 1467
+},
+{
+"concept" : "~priceexpensive",
+"line" : 1468
+},
+{
+"concept" : "~probability_words",
+"line" : 1469
+},
+{
+"concept" : "~problem",
+"line" : 1470
+},
+{
+"concept" : "~processes",
+"line" : 1471
+},
+{
+"concept" : "~projectile_weapon",
+"line" : 1472
+},
+{
+"concept" : "~protista",
+"line" : 1481
+},
+{
+"concept" : "~psychality",
+"line" : 1482
+},
+{
+"concept" : "~pub",
+"line" : 1483
+},
+{
+"concept" : "~purple",
+"line" : 1484
+},
+{
+"concept" : "~purple_other",
+"line" : 1485
+},
+{
+"concept" : "~quantity",
+"line" : 1486
+},
+{
+"concept" : "~quite",
+"line" : 1487
+},
+{
+"concept" : "~race",
+"line" : 1489
+},
+{
+"concept" : "~racial",
+"line" : 1490
+},
+{
+"concept" : "~rarity_words",
+"line" : 1491
+},
+{
+"concept" : "~reading_stuff",
+"line" : 1492
+},
+{
+"concept" : "~real_estate",
+"line" : 1493
+},
+{
+"concept" : "~reallybadweather",
+"line" : 1494
+},
+{
+"concept" : "~recentlist",
+"line" : 1495
+},
+{
+"concept" : "~recentwords",
+"line" : 1496
+},
+{
+"concept" : "~recorders",
+"line" : 1497
+},
+{
+"concept" : "~recreation",
+"line" : 1499
+},
+{
+"concept" : "~red",
+"line" : 1500
+},
+{
+"concept" : "~red_other",
+"line" : 1503
+},
+{
+"concept" : "~region",
+"line" : 1504
+},
+{
+"concept" : "~related_list",
+"line" : 1508
+},
+{
+"concept" : "~reliability_words",
+"line" : 1509
+},
+{
+"concept" : "~religion_kind",
+"line" : 1510
+},
+{
+"concept" : "~religionhate",
+"line" : 1511
+},
+{
+"concept" : "~religious_buildings",
+"line" : 1513
+},
+{
+"concept" : "~religious_groups",
+"line" : 1514
+},
+{
+"concept" : "~religious_leaders",
+"line" : 1515
+},
+{
+"concept" : "~religious_sect",
+"line" : 1519
+},
+{
+"concept" : "~reptiles",
+"line" : 1522
+},
+{
+"concept" : "~restaurant",
+"line" : 1593
+},
+{
+"concept" : "~result",
+"line" : 1594
+},
+{
+"concept" : "~rideable",
+"line" : 1595
+},
+{
+"concept" : "~rock_shop",
+"line" : 1596
+},
+{
+"concept" : "~role",
+"line" : 1597
+},
+{
+"concept" : "~role_accomodation",
+"line" : 1599
+},
+{
+"concept" : "~role_ally",
+"line" : 1600
+},
+{
+"concept" : "~role_criminal",
+"line" : 1601
+},
+{
+"concept" : "~role_economic",
+"line" : 1602
+},
+{
+"concept" : "~role_enemy",
+"line" : 1603
+},
+{
+"concept" : "~role_family",
+"line" : 1604
+},
+{
+"concept" : "~role_heroic",
+"line" : 1605
+},
+{
+"concept" : "~role_knowledge",
+"line" : 1606
+},
+{
+"concept" : "~role_legalbadguy",
+"line" : 1608
+},
+{
+"concept" : "~role_legalgoodguy",
+"line" : 1611
+},
+{
+"concept" : "~role_medical",
+"line" : 1613
+},
+{
+"concept" : "~role_member",
+"line" : 1614
+},
+{
+"concept" : "~role_misc",
+"line" : 1616
+},
+{
+"concept" : "~role_nationality_member",
+"line" : 1619
+},
+{
+"concept" : "~role_political_member",
+"line" : 1624
+},
+{
+"concept" : "~role_politics",
+"line" : 1625
+},
+{
+"concept" : "~role_religious_member",
+"line" : 1627
+},
+{
+"concept" : "~role_romantic",
+"line" : 1629
+},
+{
+"concept" : "~role_worship",
+"line" : 1630
+},
+{
+"concept" : "~roman_gods",
+"line" : 1631
+},
+{
+"concept" : "~roomlist",
+"line" : 1632
+},
+{
+"concept" : "~royalty",
+"line" : 1634
+},
+{
+"concept" : "~royalty_female",
+"line" : 1635
+},
+{
+"concept" : "~royalty_male",
+"line" : 1637
+},
+{
+"concept" : "~ruler",
+"line" : 1638
+},
+{
+"concept" : "~running_events",
+"line" : 1639
+},
+{
+"concept" : "~salary",
+"line" : 1640
+},
+{
+"concept" : "~sandwich",
+"line" : 1641
+},
+{
+"concept" : "~scenery",
+"line" : 1642
+},
+{
+"concept" : "~scenery_air",
+"line" : 1643
+},
+{
+"concept" : "~scenery_bridges",
+"line" : 1646
+},
+{
+"concept" : "~scenery_crust_openings",
+"line" : 1647
+},
+{
+"concept" : "~scenery_land",
+"line" : 1648
+},
+{
+"concept" : "~scenery_of_humans",
+"line" : 1653
+},
+{
+"concept" : "~scenery_of_transport",
+"line" : 1654
+},
+{
+"concept" : "~scenery_outer_space",
+"line" : 1657
+},
+{
+"concept" : "~scenery_water",
+"line" : 1660
+},
+{
+"concept" : "~scenery_water_bodies",
+"line" : 1663
+},
+{
+"concept" : "~scent_words",
+"line" : 1667
+},
+{
+"concept" : "~school_classes",
+"line" : 1668
+},
+{
+"concept" : "~school_groups",
+"line" : 1670
+},
+{
+"concept" : "~school_types",
+"line" : 1671
+},
+{
+"concept" : "~science_subjects",
+"line" : 1673
+},
+{
+"concept" : "~scientist",
+"line" : 1674
+},
+{
+"concept" : "~search_engines",
+"line" : 1675
+},
+{
+"concept" : "~seasons",
+"line" : 1676
+},
+{
+"concept" : "~sensations",
+"line" : 1677
+},
+{
+"concept" : "~sense",
+"line" : 1678
+},
+{
+"concept" : "~serial_killers",
+"line" : 1679
+},
+{
+"concept" : "~service_station",
+"line" : 1681
+},
+{
+"concept" : "~sex",
+"line" : 1682
+},
+{
+"concept" : "~sex_shop",
+"line" : 1687
+},
+{
+"concept" : "~sex_stuff",
+"line" : 1688
+},
+{
+"concept" : "~sex_toy",
+"line" : 1689
+},
+{
+"concept" : "~sexual_act",
+"line" : 1690
+},
+{
+"concept" : "~sexual_fetish",
+"line" : 1694
+},
+{
+"concept" : "~sexual_liquid",
+"line" : 1696
+},
+{
+"concept" : "~sexual_part",
+"line" : 1697
+},
+{
+"concept" : "~sexual_position",
+"line" : 1699
+},
+{
+"concept" : "~sexual_preference_nouns",
+"line" : 1701
+},
+{
+"concept" : "~sexual_titillation",
+"line" : 1702
+},
+{
+"concept" : "~sexualhate",
+"line" : 1705
+},
+{
+"concept" : "~shapers",
+"line" : 1707
+},
+{
+"concept" : "~shapes",
+"line" : 1708
+},
+{
+"concept" : "~she",
+"line" : 1711
+},
+{
+"concept" : "~shelter",
+"line" : 1713
+},
+{
+"concept" : "~shoe",
+"line" : 1715
+},
+{
+"concept" : "~shoe_store",
+"line" : 1716
+},
+{
+"concept" : "~shootable",
+"line" : 1717
+},
+{
+"concept" : "~shopping_stores",
+"line" : 1718
+},
+{
+"concept" : "~sicknesses",
+"line" : 1720
+},
+{
+"concept" : "~similar",
+"line" : 1722
+},
+{
+"concept" : "~singinglist",
+"line" : 1723
+},
+{
+"concept" : "~singular",
+"line" : 1724
+},
+{
+"concept" : "~sister",
+"line" : 1725
+},
+{
+"concept" : "~skate_sports",
+"line" : 1726
+},
+{
+"concept" : "~slow",
+"line" : 1727
+},
+{
+"concept" : "~smoke_shop",
+"line" : 1729
+},
+{
+"concept" : "~snackgroup",
+"line" : 1730
+},
+{
+"concept" : "~soappolish",
+"line" : 1731
+},
+{
+"concept" : "~soccer_teams",
+"line" : 1732
+},
+{
+"concept" : "~social_issues",
+"line" : 1733
+},
+{
+"concept" : "~social_network_sites",
+"line" : 1737
+},
+{
+"concept" : "~social_science_subjects",
+"line" : 1741
+},
+{
+"concept" : "~societal_data",
+"line" : 1742
+},
+{
+"concept" : "~softdrinks",
+"line" : 1743
+},
+{
+"concept" : "~solid_containers",
+"line" : 1744
+},
+{
+"concept" : "~sounds",
+"line" : 1747
+},
+{
+"concept" : "~specialactivities",
+"line" : 1750
+},
+{
+"concept" : "~spiritpart",
+"line" : 1751
+},
+{
+"concept" : "~spirits",
+"line" : 1752
+},
+{
+"concept" : "~spirits_gin",
+"line" : 1753
+},
+{
+"concept" : "~spirits_vodka",
+"line" : 1754
+},
+{
+"concept" : "~spirits_whisky",
+"line" : 1755
+},
+{
+"concept" : "~spiritual_force",
+"line" : 1756
+},
+{
+"concept" : "~sport",
+"line" : 1757
+},
+{
+"concept" : "~sporting_goods_store",
+"line" : 1766
+},
+{
+"concept" : "~sports_ball",
+"line" : 1768
+},
+{
+"concept" : "~sports_raquet",
+"line" : 1770
+},
+{
+"concept" : "~spouse",
+"line" : 1771
+},
+{
+"concept" : "~staff_groups",
+"line" : 1772
+},
+{
+"concept" : "~stamp_shop",
+"line" : 1773
+},
+{
+"concept" : "~star",
+"line" : 1774
+},
+{
+"concept" : "~startreklist",
+"line" : 1775
+},
+{
+"concept" : "~state",
+"line" : 1778
+},
+{
+"concept" : "~state_abbreviations",
+"line" : 1781
+},
+{
+"concept" : "~state_words",
+"line" : 1783
+},
+{
+"concept" : "~states_of_matter",
+"line" : 1784
+},
+{
+"concept" : "~stationary",
+"line" : 1785
+},
+{
+"concept" : "~stationary_store",
+"line" : 1787
+},
+{
+"concept" : "~stock_broker",
+"line" : 1788
+},
+{
+"concept" : "~stop",
+"line" : 1789
+},
+{
+"concept" : "~story_character",
+"line" : 1790
+},
+{
+"concept" : "~styles",
+"line" : 1797
+},
+{
+"concept" : "~substances",
+"line" : 1798
+},
+{
+"concept" : "~subtraction",
+"line" : 1801
+},
+{
+"concept" : "~supermarket",
+"line" : 1802
+},
+{
+"concept" : "~supports",
+"line" : 1803
+},
+{
+"concept" : "~surface_furniture",
+"line" : 1804
+},
+{
+"concept" : "~surfaces",
+"line" : 1805
+},
+{
+"concept" : "~switchable",
+"line" : 1807
+},
+{
+"concept" : "~symptom",
+"line" : 1808
+},
+{
+"concept" : "~system_independent_marker",
+"line" : 1811
+},
+{
+"concept" : "~system_joiner",
+"line" : 1812
+},
+{
+"concept" : "~taxi",
+"line" : 1813
+},
+{
+"concept" : "~teach_subjects",
+"line" : 1814
+},
+{
+"concept" : "~team_sport",
+"line" : 1817
+},
+{
+"concept" : "~temperature_quantity",
+"line" : 1818
+},
+{
+"concept" : "~temperature_words",
+"line" : 1819
+},
+{
+"concept" : "~territory",
+"line" : 1820
+},
+{
+"concept" : "~textile_crafts",
+"line" : 1821
+},
+{
+"concept" : "~texture_words",
+"line" : 1822
+},
+{
+"concept" : "~than",
+"line" : 1823
+},
+{
+"concept" : "~theatrical_groups",
+"line" : 1824
+},
+{
+"concept" : "~therapist",
+"line" : 1825
+},
+{
+"concept" : "~there",
+"line" : 1826
+},
+{
+"concept" : "~they",
+"line" : 1827
+},
+{
+"concept" : "~thrift_shop",
+"line" : 1829
+},
+{
+"concept" : "~throwable",
+"line" : 1830
+},
+{
+"concept" : "~throwing_weapon",
+"line" : 1831
+},
+{
+"concept" : "~time_circadian_reference",
+"line" : 1832
+},
+{
+"concept" : "~time_instant",
+"line" : 1833
+},
+{
+"concept" : "~time_item",
+"line" : 1839
+},
+{
+"concept" : "~time_reference",
+"line" : 1841
+},
+{
+"concept" : "~time_unit",
+"line" : 1848
+},
+{
+"concept" : "~timebasedreference",
+"line" : 1849
+},
+{
+"concept" : "~timeearlier",
+"line" : 1850
+},
+{
+"concept" : "~timelater",
+"line" : 1851
+},
+{
+"concept" : "~timenopreposition",
+"line" : 1852
+},
+{
+"concept" : "~tobacco",
+"line" : 1853
+},
+{
+"concept" : "~tool",
+"line" : 1854
+},
+{
+"concept" : "~torso",
+"line" : 1855
+},
+{
+"concept" : "~tow_service",
+"line" : 1856
+},
+{
+"concept" : "~toy",
+"line" : 1857
+},
+{
+"concept" : "~toy_store",
+"line" : 1858
+},
+{
+"concept" : "~toyable",
+"line" : 1859
+},
+{
+"concept" : "~track_field_sport",
+"line" : 1860
+},
+{
+"concept" : "~tradegoods",
+"line" : 1861
+},
+{
+"concept" : "~transmuters",
+"line" : 1862
+},
+{
+"concept" : "~transport_vehicles",
+"line" : 1863
+},
+{
+"concept" : "~travel_agency",
+"line" : 1864
+},
+{
+"concept" : "~travel_websites",
+"line" : 1865
+},
+{
+"concept" : "~treatments",
+"line" : 1866
+},
+{
+"concept" : "~tv_genre",
+"line" : 1867
+},
+{
+"concept" : "~tv_network",
+"line" : 1869
+},
+{
+"concept" : "~tvstuff",
+"line" : 1870
+},
+{
+"concept" : "~unfocused_groups",
+"line" : 1871
+},
+{
+"concept" : "~unitmeasure",
+"line" : 1872
+},
+{
+"concept" : "~university",
+"line" : 1873
+},
+{
+"concept" : "~unknownsexhuman",
+"line" : 1874
+},
+{
+"concept" : "~unreachable",
+"line" : 1876
+},
+{
+"concept" : "~us_minorities",
+"line" : 1877
+},
+{
+"concept" : "~usefulfactverb",
+"line" : 1878
+},
+{
+"concept" : "~vegetable",
+"line" : 1879
+},
+{
+"concept" : "~vehicle",
+"line" : 1881
+},
+{
+"concept" : "~vehicle_conduit",
+"line" : 1882
+},
+{
+"concept" : "~vehicle_weapons",
+"line" : 1883
+},
+{
+"concept" : "~vehicles_air",
+"line" : 1884
+},
+{
+"concept" : "~vehicles_land",
+"line" : 1893
+},
+{
+"concept" : "~vehicles_sea",
+"line" : 1913
+},
+{
+"concept" : "~vehicles_space",
+"line" : 1931
+},
+{
+"concept" : "~velocity_quantity",
+"line" : 1932
+},
+{
+"concept" : "~video_websites",
+"line" : 1933
+},
+{
+"concept" : "~videogame",
+"line" : 1934
+},
+{
+"concept" : "~videogame_genre",
+"line" : 1937
+},
+{
+"concept" : "~videogame_hardware_companies",
+"line" : 1939
+},
+{
+"concept" : "~videogame_machines",
+"line" : 1940
+},
+{
+"concept" : "~videogame_software_companies",
+"line" : 1941
+},
+{
+"concept" : "~virtual_pets",
+"line" : 1943
+},
+{
+"concept" : "~vitamin",
+"line" : 1944
+},
+{
+"concept" : "~vowels",
+"line" : 1945
+},
+{
+"concept" : "~warm",
+"line" : 1946
+},
+{
+"concept" : "~warstuff",
+"line" : 1947
+},
+{
+"concept" : "~water_drinks",
+"line" : 1948
+},
+{
+"concept" : "~water_force",
+"line" : 1949
+},
+{
+"concept" : "~water_sports",
+"line" : 1950
+},
+{
+"concept" : "~weapon",
+"line" : 1952
+},
+{
+"concept" : "~weapon_ammo",
+"line" : 1954
+},
+{
+"concept" : "~weapon_biological",
+"line" : 1956
+},
+{
+"concept" : "~weapon_future",
+"line" : 1957
+},
+{
+"concept" : "~weapon_magical",
+"line" : 1958
+},
+{
+"concept" : "~weapon_massdestruction",
+"line" : 1959
+},
+{
+"concept" : "~weapon_medieval",
+"line" : 1960
+},
+{
+"concept" : "~weapon_missile",
+"line" : 1963
+},
+{
+"concept" : "~weapon_modern",
+"line" : 1966
+},
+{
+"concept" : "~weapon_nuclear",
+"line" : 1967
+},
+{
+"concept" : "~weapon_stun",
+"line" : 1969
+},
+{
+"concept" : "~wearable",
+"line" : 1970
+},
+{
+"concept" : "~weatherkinds",
+"line" : 1971
+},
+{
+"concept" : "~weatherprocess",
+"line" : 1972
+},
+{
+"concept" : "~web_filesharing_sites",
+"line" : 1973
+},
+{
+"concept" : "~webmail_services",
+"line" : 1974
+},
+{
+"concept" : "~webnews_sites",
+"line" : 1975
+},
+{
+"concept" : "~websites",
+"line" : 1976
+},
+{
+"concept" : "~weekday",
+"line" : 1977
+},
+{
+"concept" : "~weight_words",
+"line" : 1978
+},
+{
+"concept" : "~what",
+"line" : 1979
+},
+{
+"concept" : "~white",
+"line" : 1980
+},
+{
+"concept" : "~white_hackers",
+"line" : 1981
+},
+{
+"concept" : "~why",
+"line" : 1982
+},
+{
+"concept" : "~wildness_words",
+"line" : 1983
+},
+{
+"concept" : "~wind_force",
+"line" : 1984
+},
+{
+"concept" : "~wine",
+"line" : 1985
+},
+{
+"concept" : "~wine_red",
+"line" : 1986
+},
+{
+"concept" : "~wine_white",
+"line" : 1987
+},
+{
+"concept" : "~winter_sports",
+"line" : 1988
+},
+{
+"concept" : "~wnapplied_science",
+"line" : 1990
+},
+{
+"concept" : "~wndoctrines",
+"line" : 1991
+},
+{
+"concept" : "~wnengineering",
+"line" : 1992
+},
+{
+"concept" : "~wnfree_time",
+"line" : 1993
+},
+{
+"concept" : "~wnmedicine",
+"line" : 1994
+},
+{
+"concept" : "~wnsocial_science",
+"line" : 1995
+},
+{
+"concept" : "~wood",
+"line" : 1997
+},
+{
+"concept" : "~woodmetalclayglasscraft",
+"line" : 1998
+},
+{
+"concept" : "~word_games",
+"line" : 1999
+},
+{
+"concept" : "~wordnetpropogate",
+"line" : 2000
+},
+{
+"concept" : "~wordtypes",
+"line" : 2001
+},
+{
+"concept" : "~worklist",
+"line" : 2002
+},
+{
+"concept" : "~xmeasurers",
+"line" : 2003
+},
+{
+"concept" : "~xweight_words",
+"line" : 2004
+},
+{
+"concept" : "~xweightnouns",
+"line" : 2005
+},
+{
+"concept" : "~yellow",
+"line" : 2006
+},
+{
+"concept" : "~yellow_other",
+"line" : 2007
+},
+{
+"concept" : "~yesanswer",
+"line" : 2008
+},
+{
+"concept" : "~noanswer",
+"line" : 2009
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/opposite.tbl",
+"items" : [
+{
+"concept" : "~numberoperator",
+"line" : 2
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/prepositionhierarchy.top",
+"items" : [
+{
+"concept" : "~directionplacepreposition",
+"line" : 1
+},
+{
+"concept" : "~directionon",
+"line" : 3
+},
+{
+"concept" : "~directionunder",
+"line" : 4
+},
+{
+"concept" : "~directionover",
+"line" : 5
+},
+{
+"concept" : "~directioninside",
+"line" : 6
+},
+{
+"concept" : "~directionoutside",
+"line" : 7
+},
+{
+"concept" : "~directionfront",
+"line" : 8
+},
+{
+"concept" : "~directionbeside",
+"line" : 9
+},
+{
+"concept" : "~directionrear",
+"line" : 10
+},
+{
+"concept" : "~directioncompass",
+"line" : 11
+},
+{
+"concept" : "~extensions",
+"line" : 14
+},
+{
+"concept" : "~directionpreposition",
+"line" : 17
+},
+{
+"concept" : "~placepreposition",
+"line" : 19
+},
+{
+"concept" : "~spacepreposition",
+"line" : 21
+},
+{
+"concept" : "~relationpreposition",
+"line" : 23
+},
+{
+"concept" : "~timepreposition",
+"line" : 38
+},
+{
+"concept" : "~prepositionlist",
+"line" : 39
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/verbhierarchy.top",
+"items" : [
+{
+"concept" : "~determinerlist"
+},
+{
+"concept" : "~qwords",
+"line" : 1
+},
+{
+"concept" : "~adjective_participles",
+"line" : 6
+},
+{
+"concept" : "~verbof_exceptions",
+"line" : 9
+},
+{
+"concept" : "~static_verbs",
+"line" : 10
+},
+{
+"concept" : "~states_of_being",
+"line" : 11
+},
+{
+"concept" : "~sensory_states",
+"line" : 12
+},
+{
+"concept" : "~mental_states",
+"line" : 13
+},
+{
+"concept" : "~measurement_states",
+"line" : 14
+},
+{
+"concept" : "~eternal_truths",
+"line" : 15
+},
+{
+"concept" : "~abort",
+"line" : 17
+},
+{
+"concept" : "~absorb",
+"line" : 18
+},
+{
+"concept" : "~accept_obey",
+"line" : 19
+},
+{
+"concept" : "~achieve",
+"line" : 20
+},
+{
+"concept" : "~acquiring_verbs",
+"line" : 21
+},
+{
+"concept" : "~act",
+"line" : 22
+},
+{
+"concept" : "~active_verbs",
+"line" : 23
+},
+{
+"concept" : "~add_magnetism",
+"line" : 24
+},
+{
+"concept" : "~add_smell",
+"line" : 25
+},
+{
+"concept" : "~affect_object_verbs",
+"line" : 27
+},
+{
+"concept" : "~alter",
+"line" : 31
+},
+{
+"concept" : "~affection",
+"line" : 32
+},
+{
+"concept" : "~alter_age",
+"line" : 33
+},
+{
+"concept" : "~alter_chemistry_verbs",
+"line" : 34
+},
+{
+"concept" : "~alter_cleanliness_verbs",
+"line" : 35
+},
+{
+"concept" : "~alter_complexity_verbs",
+"line" : 36
+},
+{
+"concept" : "~alter_concentration_higher",
+"line" : 37
+},
+{
+"concept" : "~alter_concentration_lower",
+"line" : 38
+},
+{
+"concept" : "~alter_container_verbs",
+"line" : 39
+},
+{
+"concept" : "~alter_electricity_verbs",
+"line" : 40
+},
+{
+"concept" : "~alter_esthetics_better_verbs",
+"line" : 41
+},
+{
+"concept" : "~alter_esthetics_verbs",
+"line" : 42
+},
+{
+"concept" : "~alter_esthetics_worse",
+"line" : 44
+},
+{
+"concept" : "~alter_functionality_verbs",
+"line" : 45
+},
+{
+"concept" : "~alter_higher",
+"line" : 46
+},
+{
+"concept" : "~alter_horizontal",
+"line" : 47
+},
+{
+"concept" : "~alter_location_verbs",
+"line" : 48
+},
+{
+"concept" : "~alter_lower",
+"line" : 49
+},
+{
+"concept" : "~alter_magnetism_verbs",
+"line" : 50
+},
+{
+"concept" : "~alter_moisture_verbs",
+"line" : 51
+},
+{
+"concept" : "~alter_orientation",
+"line" : 52
+},
+{
+"concept" : "~alter_ph_higher",
+"line" : 53
+},
+{
+"concept" : "~alter_ph_lower",
+"line" : 54
+},
+{
+"concept" : "~alter_quantity_verbs",
+"line" : 55
+},
+{
+"concept" : "~alter_radiation",
+"line" : 56
+},
+{
+"concept" : "~alter_sharpness_verbs",
+"line" : 57
+},
+{
+"concept" : "~alter_size_verbs",
+"line" : 58
+},
+{
+"concept" : "~alter_smell_verbs",
+"line" : 59
+},
+{
+"concept" : "~alter_strength_verbs",
+"line" : 60
+},
+{
+"concept" : "~alter_temperature_verbs",
+"line" : 61
+},
+{
+"concept" : "~alter_tightness_verbs",
+"line" : 62
+},
+{
+"concept" : "~alter_vertical",
+"line" : 63
+},
+{
+"concept" : "~alter_wiggle",
+"line" : 65
+},
+{
+"concept" : "~animalsounds",
+"line" : 67
+},
+{
+"concept" : "~animate_move_verbs",
+"line" : 71
+},
+{
+"concept" : "~travel_verbs",
+"line" : 72
+},
+{
+"concept" : "~association_verbs",
+"line" : 73
+},
+{
+"concept" : "~animate_verbs",
+"line" : 74
+},
+{
+"concept" : "~arrange",
+"line" : 76
+},
+{
+"concept" : "~arrive",
+"line" : 77
+},
+{
+"concept" : "~attachment_verbs",
+"line" : 78
+},
+{
+"concept" : "~auxverblist",
+"line" : 80
+},
+{
+"concept" : "~avoid",
+"line" : 81
+},
+{
+"concept" : "~awareof",
+"line" : 83
+},
+{
+"concept" : "~balance",
+"line" : 84
+},
+{
+"concept" : "~banish",
+"line" : 86
+},
+{
+"concept" : "~be_verbs",
+"line" : 87
+},
+{
+"concept" : "~become_visible",
+"line" : 88
+},
+{
+"concept" : "~bedeacquired",
+"line" : 89
+},
+{
+"concept" : "~befriend",
+"line" : 90
+},
+{
+"concept" : "~begiven",
+"line" : 91
+},
+{
+"concept" : "~block_access",
+"line" : 92
+},
+{
+"concept" : "~block_access_containment",
+"line" : 93
+},
+{
+"concept" : "~blood_ill",
+"line" : 94
+},
+{
+"concept" : "~bodily_activities_verbs",
+"line" : 95
+},
+{
+"concept" : "~bodily_function_verbs",
+"line" : 96
+},
+{
+"concept" : "~body_verbs",
+"line" : 97
+},
+{
+"concept" : "~boss",
+"line" : 98
+},
+{
+"concept" : "~brand",
+"line" : 99
+},
+{
+"concept" : "~breathe",
+"line" : 100
+},
+{
+"concept" : "~build",
+"line" : 102
+},
+{
+"concept" : "~buy",
+"line" : 103
+},
+{
+"concept" : "~capture",
+"line" : 104
+},
+{
+"concept" : "~carry",
+"line" : 105
+},
+{
+"concept" : "~change_state_by_cool",
+"line" : 106
+},
+{
+"concept" : "~change_state_by_heat",
+"line" : 107
+},
+{
+"concept" : "~change_state_by_mixing",
+"line" : 108
+},
+{
+"concept" : "~chat",
+"line" : 110
+},
+{
+"concept" : "~chill",
+"line" : 111
+},
+{
+"concept" : "~choose",
+"line" : 112
+},
+{
+"concept" : "~classify",
+"line" : 114
+},
+{
+"concept" : "~clothing_verbs",
+"line" : 115
+},
+{
+"concept" : "~cold_weather",
+"line" : 116
+},
+{
+"concept" : "~colorize",
+"line" : 118
+},
+{
+"concept" : "~communicate_verbs",
+"line" : 119
+},
+{
+"concept" : "~compete_verbs",
+"line" : 120
+},
+{
+"concept" : "~complete",
+"line" : 122
+},
+{
+"concept" : "~complicate",
+"line" : 123
+},
+{
+"concept" : "~controlling_verbs",
+"line" : 124
+},
+{
+"concept" : "~cooking_verbs",
+"line" : 126
+},
+{
+"concept" : "~cool_verbs",
+"line" : 128
+},
+{
+"concept" : "~copy",
+"line" : 130
+},
+{
+"concept" : "~count",
+"line" : 131
+},
+{
+"concept" : "~creation_verbs",
+"line" : 132
+},
+{
+"concept" : "~cry",
+"line" : 133
+},
+{
+"concept" : "~cutart",
+"line" : 134
+},
+{
+"concept" : "~damage_bend",
+"line" : 136
+},
+{
+"concept" : "~damage_burn",
+"line" : 137
+},
+{
+"concept" : "~damage_explode",
+"line" : 138
+},
+{
+"concept" : "~damage_fatal",
+"line" : 139
+},
+{
+"concept" : "~damage_generic",
+"line" : 141
+},
+{
+"concept" : "~damage_hit",
+"line" : 146
+},
+{
+"concept" : "~damage_hit_foot",
+"line" : 147
+},
+{
+"concept" : "~damage_hit_other",
+"line" : 149
+},
+{
+"concept" : "~damage_magic",
+"line" : 151
+},
+{
+"concept" : "~damage_poison",
+"line" : 153
+},
+{
+"concept" : "~damage_projectile",
+"line" : 154
+},
+{
+"concept" : "~damage_puncture",
+"line" : 155
+},
+{
+"concept" : "~damage_slice",
+"line" : 157
+},
+{
+"concept" : "~damage_snap",
+"line" : 159
+},
+{
+"concept" : "~damage_unusual",
+"line" : 160
+},
+{
+"concept" : "~damage_verbal",
+"line" : 161
+},
+{
+"concept" : "~damage_verbs",
+"line" : 163
+},
+{
+"concept" : "~date",
+"line" : 164
+},
+{
+"concept" : "~deacquiring_verbs",
+"line" : 165
+},
+{
+"concept" : "~deceive",
+"line" : 166
+},
+{
+"concept" : "~decline_obey",
+"line" : 167
+},
+{
+"concept" : "~decrease_count",
+"line" : 168
+},
+{
+"concept" : "~decrease_speed",
+"line" : 169
+},
+{
+"concept" : "~decrease_verbs",
+"line" : 170
+},
+{
+"concept" : "~defend",
+"line" : 171
+},
+{
+"concept" : "~degrade",
+"line" : 172
+},
+{
+"concept" : "~describe",
+"line" : 173
+},
+{
+"concept" : "~disable",
+"line" : 174
+},
+{
+"concept" : "~disappear",
+"line" : 175
+},
+{
+"concept" : "~discharge",
+"line" : 176
+},
+{
+"concept" : "~disenchant",
+"line" : 177
+},
+{
+"concept" : "~dislike",
+"line" : 179
+},
+{
+"concept" : "~draw",
+"line" : 180
+},
+{
+"concept" : "~dress",
+"line" : 181
+},
+{
+"concept" : "~drink",
+"line" : 182
+},
+{
+"concept" : "~drive",
+"line" : 183
+},
+{
+"concept" : "~drop_job",
+"line" : 184
+},
+{
+"concept" : "~drop_object",
+"line" : 186
+},
+{
+"concept" : "~drop_verbs",
+"line" : 187
+},
+{
+"concept" : "~dull",
+"line" : 188
+},
+{
+"concept" : "~eat",
+"line" : 190
+},
+{
+"concept" : "~electrify",
+"line" : 191
+},
+{
+"concept" : "~emitfire",
+"line" : 192
+},
+{
+"concept" : "~emitgas",
+"line" : 193
+},
+{
+"concept" : "~emitgeneric",
+"line" : 194
+},
+{
+"concept" : "~emitlight",
+"line" : 196
+},
+{
+"concept" : "~emitliquid",
+"line" : 198
+},
+{
+"concept" : "~emitsmell",
+"line" : 199
+},
+{
+"concept" : "~emitsound",
+"line" : 201
+},
+{
+"concept" : "~emotional_verbs",
+"line" : 206
+},
+{
+"concept" : "~employ",
+"line" : 207
+},
+{
+"concept" : "~enable",
+"line" : 208
+},
+{
+"concept" : "~enable_access_containment",
+"line" : 209
+},
+{
+"concept" : "~endrelation",
+"line" : 210
+},
+{
+"concept" : "~endure",
+"line" : 211
+},
+{
+"concept" : "~enhance_verbs",
+"line" : 212
+},
+{
+"concept" : "~event_verbs",
+"line" : 213
+},
+{
+"concept" : "~exchange",
+"line" : 214
+},
+{
+"concept" : "~exclusion_verbs",
+"line" : 215
+},
+{
+"concept" : "~excrete_air",
+"line" : 216
+},
+{
+"concept" : "~excrete_liquid",
+"line" : 217
+},
+{
+"concept" : "~excrete_solid",
+"line" : 218
+},
+{
+"concept" : "~excreting_verbs",
+"line" : 219
+},
+{
+"concept" : "~exercise_verbs",
+"line" : 220
+},
+{
+"concept" : "~exorcize",
+"line" : 221
+},
+{
+"concept" : "~explain",
+"line" : 222
+},
+{
+"concept" : "~extinguish",
+"line" : 223
+},
+{
+"concept" : "~farm",
+"line" : 225
+},
+{
+"concept" : "~fatal_other_burn",
+"line" : 226
+},
+{
+"concept" : "~fatal_other_strangle",
+"line" : 227
+},
+{
+"concept" : "~fatal_to_other",
+"line" : 229
+},
+{
+"concept" : "~fatal_to_self",
+"line" : 233
+},
+{
+"concept" : "~faulty_think",
+"line" : 234
+},
+{
+"concept" : "~fight",
+"line" : 236
+},
+{
+"concept" : "~flourish",
+"line" : 237
+},
+{
+"concept" : "~force_obey",
+"line" : 238
+},
+{
+"concept" : "~gain_verbs",
+"line" : 239
+},
+{
+"concept" : "~gamble",
+"line" : 240
+},
+{
+"concept" : "~generic_communicates",
+"line" : 241
+},
+{
+"concept" : "~generic_do_verbs",
+"line" : 242
+},
+{
+"concept" : "~generic_effect",
+"line" : 243
+},
+{
+"concept" : "~generic_ingestion",
+"line" : 244
+},
+{
+"concept" : "~genericart",
+"line" : 245
+},
+{
+"concept" : "~gestures",
+"line" : 246
+},
+{
+"concept" : "~get",
+"line" : 248
+},
+{
+"concept" : "~get_bigger",
+"line" : 249
+},
+{
+"concept" : "~get_smaller",
+"line" : 250
+},
+{
+"concept" : "~give",
+"line" : 252
+},
+{
+"concept" : "~give_birth",
+"line" : 253
+},
+{
+"concept" : "~golfing",
+"line" : 254
+},
+{
+"concept" : "~govern_verbs",
+"line" : 255
+},
+{
+"concept" : "~greet",
+"line" : 256
+},
+{
+"concept" : "~groom",
+"line" : 258
+},
+{
+"concept" : "~gussy",
+"line" : 260
+},
+{
+"concept" : "~halt",
+"line" : 261
+},
+{
+"concept" : "~happen",
+"line" : 262
+},
+{
+"concept" : "~health_verbs",
+"line" : 263
+},
+{
+"concept" : "~hear",
+"line" : 264
+},
+{
+"concept" : "~heat",
+"line" : 266
+},
+{
+"concept" : "~heat_verbs",
+"line" : 268
+},
+{
+"concept" : "~help",
+"line" : 269
+},
+{
+"concept" : "~hot_weather",
+"line" : 270
+},
+{
+"concept" : "~ignite",
+"line" : 271
+},
+{
+"concept" : "~illhealth_verbs",
+"line" : 272
+},
+{
+"concept" : "~imagining_think",
+"line" : 274
+},
+{
+"concept" : "~improve",
+"line" : 275
+},
+{
+"concept" : "~move_up_verbs",
+"line" : 276
+},
+{
+"concept" : "~move_down_verbs",
+"line" : 277
+},
+{
+"concept" : "~inanimate_move_verbs",
+"line" : 279
+},
+{
+"concept" : "~inanimate_stationary_verbs",
+"line" : 282
+},
+{
+"concept" : "~inanimate_verbs",
+"line" : 286
+},
+{
+"concept" : "~include",
+"line" : 287
+},
+{
+"concept" : "~increase_containment",
+"line" : 288
+},
+{
+"concept" : "~increase_count",
+"line" : 290
+},
+{
+"concept" : "~augment",
+"line" : 291
+},
+{
+"concept" : "~increase_speed",
+"line" : 292
+},
+{
+"concept" : "~increase_verbs",
+"line" : 293
+},
+{
+"concept" : "~ingesting_verbs",
+"line" : 294
+},
+{
+"concept" : "~inhale",
+"line" : 295
+},
+{
+"concept" : "~invest",
+"line" : 296
+},
+{
+"concept" : "~jail",
+"line" : 297
+},
+{
+"concept" : "~join",
+"line" : 299
+},
+{
+"concept" : "~judge",
+"line" : 304
+},
+{
+"concept" : "~judgement_verbs",
+"line" : 305
+},
+{
+"concept" : "~kill",
+"line" : 307
+},
+{
+"concept" : "~laugh",
+"line" : 309
+},
+{
+"concept" : "~legal_allow",
+"line" : 311
+},
+{
+"concept" : "~legal_guilt",
+"line" : 312
+},
+{
+"concept" : "~legal_harm",
+"line" : 313
+},
+{
+"concept" : "~legal_help",
+"line" : 314
+},
+{
+"concept" : "~legal_lawmaking",
+"line" : 315
+},
+{
+"concept" : "~legal_verbs",
+"line" : 316
+},
+{
+"concept" : "~like",
+"line" : 318
+},
+{
+"concept" : "~linkingverb",
+"line" : 321
+},
+{
+"concept" : "~list",
+"line" : 322
+},
+{
+"concept" : "~live",
+"line" : 323
+},
+{
+"concept" : "~loosen",
+"line" : 324
+},
+{
+"concept" : "~lose_verbs",
+"line" : 325
+},
+{
+"concept" : "~lost",
+"line" : 326
+},
+{
+"concept" : "~lung_ill",
+"line" : 327
+},
+{
+"concept" : "~make_cleaner",
+"line" : 329
+},
+{
+"concept" : "~make_dirtier",
+"line" : 330
+},
+{
+"concept" : "~make_drier",
+"line" : 331
+},
+{
+"concept" : "~make_love",
+"line" : 333
+},
+{
+"concept" : "~make_wetter",
+"line" : 337
+},
+{
+"concept" : "~marry",
+"line" : 338
+},
+{
+"concept" : "~medical_improve",
+"line" : 340
+},
+{
+"concept" : "~meet",
+"line" : 341
+},
+{
+"concept" : "~mental_verbs",
+"line" : 342
+},
+{
+"concept" : "~mine",
+"line" : 343
+},
+{
+"concept" : "~misc_negative_emotions",
+"line" : 345
+},
+{
+"concept" : "~misc_positive_emotions",
+"line" : 347
+},
+{
+"concept" : "~motion_ill",
+"line" : 348
+},
+{
+"concept" : "~moving_air",
+"line" : 349
+},
+{
+"concept" : "~moving_beyond",
+"line" : 350
+},
+{
+"concept" : "~moving_escape",
+"line" : 351
+},
+{
+"concept" : "~moving_fast_land",
+"line" : 353
+},
+{
+"concept" : "~moving_generic",
+"line" : 355
+},
+{
+"concept" : "~moving_object",
+"line" : 358
+},
+{
+"concept" : "~moving_slow_land",
+"line" : 360
+},
+{
+"concept" : "~moving_to",
+"line" : 363
+},
+{
+"concept" : "~moving_water",
+"line" : 364
+},
+{
+"concept" : "~negative_social",
+"line" : 366
+},
+{
+"concept" : "~nice_weather",
+"line" : 370
+},
+{
+"concept" : "~nonverbal_communication_verbs",
+"line" : 371
+},
+{
+"concept" : "~obedience_verbs",
+"line" : 372
+},
+{
+"concept" : "~opinion_verbs",
+"line" : 373
+},
+{
+"concept" : "~own",
+"line" : 374
+},
+{
+"concept" : "~possess",
+"line" : 375
+},
+{
+"concept" : "~parent",
+"line" : 376
+},
+{
+"concept" : "~pause",
+"line" : 377
+},
+{
+"concept" : "~perception_verbs",
+"line" : 379
+},
+{
+"concept" : "~photographing",
+"line" : 380
+},
+{
+"concept" : "~physicalattribute_verbs",
+"line" : 381
+},
+{
+"concept" : "~play",
+"line" : 382
+},
+{
+"concept" : "~play_instrument",
+"line" : 383
+},
+{
+"concept" : "~play_sport",
+"line" : 384
+},
+{
+"concept" : "~positive_social",
+"line" : 385
+},
+{
+"concept" : "~possession_verbs",
+"line" : 386
+},
+{
+"concept" : "~praise",
+"line" : 388
+},
+{
+"concept" : "~prevent",
+"line" : 390
+},
+{
+"concept" : "~price",
+"line" : 391
+},
+{
+"concept" : "~promise",
+"line" : 392
+},
+{
+"concept" : "~purchaseinterest",
+"line" : 393
+},
+{
+"concept" : "~rain",
+"line" : 394
+},
+{
+"concept" : "~read",
+"line" : 395
+},
+{
+"concept" : "~reasoning_basis",
+"line" : 396
+},
+{
+"concept" : "~reasoning_conclusion",
+"line" : 397
+},
+{
+"concept" : "~reasoning_process",
+"line" : 399
+},
+{
+"concept" : "~reasoning_think_verbs",
+"line" : 400
+},
+{
+"concept" : "~reduce_containment",
+"line" : 401
+},
+{
+"concept" : "~remain_stationary",
+"line" : 403
+},
+{
+"concept" : "~remember",
+"line" : 407
+},
+{
+"concept" : "~remove_magnetism",
+"line" : 408
+},
+{
+"concept" : "~remove_smell",
+"line" : 409
+},
+{
+"concept" : "~repair",
+"line" : 410
+},
+{
+"concept" : "~repeat",
+"line" : 411
+},
+{
+"concept" : "~reproduce_verbs",
+"line" : 412
+},
+{
+"concept" : "~resurrect",
+"line" : 413
+},
+{
+"concept" : "~role_verbs",
+"line" : 414
+},
+{
+"concept" : "~rust",
+"line" : 415
+},
+{
+"concept" : "~search",
+"line" : 417
+},
+{
+"concept" : "~sell",
+"line" : 419
+},
+{
+"concept" : "~sew",
+"line" : 420
+},
+{
+"concept" : "~sharpen",
+"line" : 421
+},
+{
+"concept" : "~silence",
+"line" : 422
+},
+{
+"concept" : "~simplify",
+"line" : 423
+},
+{
+"concept" : "~sleep",
+"line" : 424
+},
+{
+"concept" : "~sleepstate_verbs",
+"line" : 425
+},
+{
+"concept" : "~smell",
+"line" : 426
+},
+{
+"concept" : "~social_reputation_verbs",
+"line" : 427
+},
+{
+"concept" : "~social_verbs",
+"line" : 428
+},
+{
+"concept" : "~speak_thru_device",
+"line" : 429
+},
+{
+"concept" : "~speak_verbs",
+"line" : 430
+},
+{
+"concept" : "~special_activities_verbs",
+"line" : 431
+},
+{
+"concept" : "~start",
+"line" : 432
+},
+{
+"concept" : "~steal",
+"line" : 436
+},
+{
+"concept" : "~stomach_ill",
+"line" : 438
+},
+{
+"concept" : "~stop_verbs",
+"line" : 439
+},
+{
+"concept" : "~strengthen",
+"line" : 440
+},
+{
+"concept" : "~substitute",
+"line" : 441
+},
+{
+"concept" : "~surprise",
+"line" : 442
+},
+{
+"concept" : "~swallow_drink_verbs",
+"line" : 443
+},
+{
+"concept" : "~swallow_either",
+"line" : 444
+},
+{
+"concept" : "~swallow_food_verbs",
+"line" : 445
+},
+{
+"concept" : "~swallowing_verbs",
+"line" : 446
+},
+{
+"concept" : "~swap",
+"line" : 447
+},
+{
+"concept" : "~talkstyle",
+"line" : 449
+},
+{
+"concept" : "~taste",
+"line" : 453
+},
+{
+"concept" : "~tell",
+"line" : 455
+},
+{
+"concept" : "~think_verbs",
+"line" : 461
+},
+{
+"concept" : "~throw",
+"line" : 462
+},
+{
+"concept" : "~tighten",
+"line" : 463
+},
+{
+"concept" : "~time_delay",
+"line" : 464
+},
+{
+"concept" : "~time_event_verbs",
+"line" : 465
+},
+{
+"concept" : "~time_passage",
+"line" : 466
+},
+{
+"concept" : "~tobe",
+"line" : 467
+},
+{
+"concept" : "~involve",
+"line" : 468
+},
+{
+"concept" : "~touch",
+"line" : 470
+},
+{
+"concept" : "~undress",
+"line" : 471
+},
+{
+"concept" : "~unjoin",
+"line" : 473
+},
+{
+"concept" : "~use",
+"line" : 475
+},
+{
+"concept" : "~vehicle_verbs",
+"line" : 477
+},
+{
+"concept" : "~verbal_agree",
+"line" : 478
+},
+{
+"concept" : "~verbal_disagree",
+"line" : 480
+},
+{
+"concept" : "~verblist",
+"line" : 481
+},
+{
+"concept" : "~videoing",
+"line" : 482
+},
+{
+"concept" : "~vision_verbs",
+"line" : 484
+},
+{
+"concept" : "~waken",
+"line" : 485
+},
+{
+"concept" : "~want",
+"line" : 486
+},
+{
+"concept" : "~watch",
+"line" : 488
+},
+{
+"concept" : "~weaken",
+"line" : 489
+},
+{
+"concept" : "~weather_verbs",
+"line" : 490
+},
+{
+"concept" : "~wind",
+"line" : 491
+},
+{
+"concept" : "~won",
+"line" : 492
+},
+{
+"concept" : "~worship",
+"line" : 493
+},
+{
+"concept" : "~writing",
+"line" : 495
+},
+{
+"concept" : "~comment",
+"line" : 496
+},
+{
+"concept" : "~ask",
+"line" : 497
+},
+{
+"concept" : "~post",
+"line" : 498
+},
+{
+"concept" : "~carry_verbs",
+"line" : 500
+},
+{
+"concept" : "~motionverbs",
+"line" : 501
+},
+{
+"concept" : "~verbs_using_place_adverbs",
+"line" : 502
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/parsedata.top",
+"items" : [
+{
+"concept" : "~misc_parsedata",
+"line" : 4
+},
+{
+"concept" : "~causal_to_infinitive_verbs",
+"line" : 9
+},
+{
+"concept" : "~verbs_of_perception",
+"line" : 39
+},
+{
+"concept" : "~completeness_adjectives",
+"line" : 41
+},
+{
+"concept" : "~quotableverbs",
+"line" : 49
+},
+{
+"concept" : "~restrictive_adverbs",
+"line" : 59
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/timewords.top",
+"items" : [
+{
+"concept" : "~timewords",
+"line" : 2
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/animals.tbl",
+"items" : [
+{
+"concept" : "~animal_homes",
+"line" : 100
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicbooks.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicgeography.tbl",
+"items" : [
+{
+"concept" : "~countryadjective",
+"line" : 166
+},
+{
+"concept" : "~capital",
+"line" : 442
+},
+{
+"concept" : "~state_region",
+"line" : 714
+},
+{
+"concept" : "~currency",
+"line" : 1253
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicmovies_tv.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/color.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/container.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/femalepeople.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/geography.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/lifespan.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/literature.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/malepeople.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/material.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/movies_tv.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/music.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/musicbasic.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/peoplegroups.tbl",
+"items" : [
+{
+"concept" : "~nfc-west_football_team",
+"line" : 2
+},
+{
+"concept" : "~nfc-east_football_team",
+"line" : 3
+},
+{
+"concept" : "~afc-west_football_team",
+"line" : 4
+},
+{
+"concept" : "~afc-east_football_team",
+"line" : 5
+},
+{
+"concept" : "~nfc-north_football_team",
+"line" : 6
+},
+{
+"concept" : "~nfc-south_football_team",
+"line" : 7
+},
+{
+"concept" : "~afc-south_football_team",
+"line" : 8
+},
+{
+"concept" : "~afc-north_football_team",
+"line" : 9
+},
+{
+"concept" : "~football_teams",
+"line" : 10
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/speed.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/things.tbl",
+"items" : [
+{
+"concept" : "~electronics_store",
+"line" : 1
+},
+{
+"concept" : "~grocery",
+"line" : 2
+},
+{
+"concept" : "~hot_things",
+"line" : 32
+},
+{
+"concept" : "~cold_things",
+"line" : 33
+},
+{
+"concept" : "~wherefrom",
+"line" : 42
+},
+{
+"concept" : "~produces",
+"line" : 43
+},
+{
+"concept" : "~soundmaker",
+"line" : 129
+},
+{
+"concept" : "~animalsoundsissued",
+"line" : 130
+},
+{
+"concept" : "~newspaper",
+"line" : 155
+},
+{
+"concept" : "~airline",
+"line" : 156
+},
+{
+"concept" : "~use_power",
+"line" : 400
+},
+{
+"concept" : "~use_flight",
+"line" : 401
+},
+{
+"concept" : "~use_swim",
+"line" : 402
+},
+{
+"concept" : "~use_fooddrink",
+"line" : 403
+},
+{
+"concept" : "~use_movement",
+"line" : 404
+},
+{
+"concept" : "~use_intentionverbs",
+"line" : 405
+},
+{
+"concept" : "~blowing",
+"line" : 406
+},
+{
+"concept" : "~interrogate",
+"line" : 407
+}
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/tools.tbl",
+"items" : [
+
+]
+},
+{
+"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/videogames.tbl",
+"items" : [
+
+]
+}]

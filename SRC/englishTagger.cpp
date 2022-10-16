@@ -481,7 +481,7 @@ void TreeTagger()
 	}
 
 	/* mix a bit of ours and theirs */
-	if (stricmp(language, "english")) for (i = 1; i <= wordCount; i++)
+	if (stricmp(current_language, "english")) for (i = 1; i <= wordCount; i++)
 	{
 		originalUpper[i] = NULL;
 		originalLower[i] = NULL;
@@ -556,7 +556,7 @@ static void BlendWithTreetagger(bool &changed)
 {
 	if (!ts.number_of_words) return;
 	// dont use treetagger pos when short sentence, not enough context
-	if (!stricmp(language, "spanish") && wordCount == 1)
+	if (!stricmp(current_language, "spanish") && wordCount == 1)
 	{
 		posValues[1] |= GetSpanishLemmaBits(wordStarts[1]);
 		if (posValues[1] & VERB_INFINITIVE) posValues[1] |= VERB_PRESENT;
@@ -576,9 +576,9 @@ static void BlendWithTreetagger(bool &changed)
 		if (!D) 
 			continue;	// didnt find it?
 		uint64 bits = D->properties & TAG_TEST; // dont want general headers like NOUN or VERB
-		if (!stricmp(language, "spanish")) bits |= PRONOUN_BITS;
+		if (!stricmp(current_language, "spanish")) bits |= PRONOUN_BITS;
 		uint64 possiblebits = posValues[i] & TAG_TEST; // bits we are trying to resolve
-		if (wordCount == 1 && !stricmp(language, "spanish")) bits = possiblebits; // dont trust tagger on 1 word sentences
+		if (wordCount == 1 && !stricmp(current_language, "spanish")) bits = possiblebits; // dont trust tagger on 1 word sentences
 		if (bits & VERB_INFINITIVE && possiblebits & VERB_PRESENT)
 		{
 			bits |= VERB_PRESENT;
@@ -769,7 +769,7 @@ static void SetCanonicalValue(int start,int end)
 		else ++lower;
 	}
 	bool caseSignificant = (lower > 3 && lower > upper);
-	bool csEnglish = !stricmp(language, "english");
+	bool csEnglish = !stricmp(current_language, "english");
 
 	// now set canonical lowercase forms
 	for (int i = start; i <= end; ++i)
@@ -812,7 +812,9 @@ static void SetCanonicalValue(int start,int end)
 		else if (csEnglish && canon) canonicalLower[i] = FindWord(canon);
 		else if (pos & NUMBER_BITS); // must occur before verbs and nouns, since "second" is a verb and a noun
 		else if (canonicalLower[i] && canonicalLower[i]->properties & (NOUN_NUMBER|ADJECTIVE_NUMBER)); // dont change canonical numbers like December second
-		else if (csEnglish && allOriginalWordBits[i] & NOUN_GERUND) // because singing is a dict word, we might prefer noun over gerund. We shouldned
+		else if (csEnglish && (
+			(allOriginalWordBits[i] & NOUN_GERUND)
+				|| (finalPosValues[i] & NOUN_GERUND)))// because singing is a dict word, we might prefer noun over gerund. We shouldned
 		{
 			canonicalLower[i] = FindWord(GetInfinitive(original,false));
 		}
@@ -897,7 +899,7 @@ static void SetCanonicalValue(int start,int end)
 
 		if (csEnglish && pos & PRONOUN_BITS && !stricmp(original,(char*)"one")) // make it a number
 		{
-			canonicalLower[i] = StoreWord((char*)"1",NOUN|NOUN_NUMBER, NOUN_NODETERMINER);
+			canonicalLower[i] = StoreFlaggedWord((char*)"1",NOUN|NOUN_NUMBER, NOUN_NODETERMINER);
 		}
 
 		// handle composite verb canonical for single hypen case
@@ -1040,9 +1042,11 @@ static void ParseFlags0(char* buffer,  int i);
 static void PerformPosTag(int start, int end)
 {
 	// get data from mecab world (canonicals and pos tags)
-	if (!stricmp(language, "japanese"))
+	if (!stricmp(current_language, "japanese") ||  !stricmp(current_language, "chinese"))
 	{
+#ifndef  DISCARD_JAPANESE 
 		JapaneseNLP();
+#endif
 		return;
 	}
 
@@ -1132,7 +1136,7 @@ static void PerformPosTag(int start, int end)
 		uint64 flags = GetPosData(i,original,revise,entry,canonical,sysflags,cansysflags,true,false,start); // flags will be potentially beyond what is stored on the word itself (like noun_gerund) but not adjective_noun
 		if (revise != NULL) wordStarts[i] = revise->word;
 		if (!canonical) canonical = entry;
-		if (!stricmp(language,"SPANISH") && !entry) return;
+		if (!stricmp(current_language,"SPANISH") && !entry) return;
 
 		if (entry->internalBits & UPPERCASE_HASH && !(flags & PRONOUN_BITS)) // treat I as lower case original -- note: (char*)"Sue" fails to have cannonical upper
 		{
@@ -1239,7 +1243,7 @@ static void PerformPosTag(int start, int end)
 			originalLower[i] = FindWord(wordStarts[i]);
 		}
 
-		if (!stricmp(language, "spanish")) posValues[i] &= TAG_TEST | SPANISH_FUTURE | SPANISH_HE | SPANISH_SHE | SPANISH_SINGULAR | SPANISH_PLURAL;
+		if (!stricmp(current_language, "spanish")) posValues[i] &= TAG_TEST | SPANISH_FUTURE | SPANISH_HE | SPANISH_SHE | SPANISH_SINGULAR | SPANISH_PLURAL;
 		else posValues[i] &= TAG_TEST;  // only the bits we care about for pos tagging
     }
 
@@ -1252,7 +1256,7 @@ static void PerformPosTag(int start, int end)
 		else posValues[i] &= -1 ^ (VERB_BITS|VERB);	// no command sentence starts
 	}
 	tokenControl = oldTokenControl;
-	if (noPosTagging || stricmp(language, "english")) return;
+	if (noPosTagging || stricmp(current_language, "english")) return;
 
 	uint64 startTime = 0;
 	ttLastChanged = 0;
@@ -1400,7 +1404,7 @@ void TagIt(bool timeout) // get the set of all possible tags. Parse if one can t
 	TagInit();
 	memset(ignoreWord,0,sizeof(unsigned char) * (wordCount+4));
 	knownWords = 0;
-	if (timeout ||  !stricmp(language, "ideographic"))
+	if (timeout ||  !stricmp(current_language, "ideographic"))
 	{
 		for (int j = 1; j <= wordCount; ++j) canonicalLower[j] = originalLower[j] = StoreWord(wordStarts[j], AS_IS);
 		return; // we know nothing of them
@@ -1451,7 +1455,7 @@ void TagIt(bool timeout) // get the set of all possible tags. Parse if one can t
 		OnceCode((char*)"$cs_externaltag");
 	}
 
-	//if (externalPostagger && stricmp(language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
+	//if (externalPostagger && stricmp(current_language,"english")) return; // Nothing left to pos tag if done externally (by Treetagger) unless doing english
 
 	// handle regular area
 	for (i = 1; i <= wordCount; ++i)
@@ -2512,7 +2516,7 @@ unsigned int ProcessIdiom(char* word, int i, unsigned int words,bool &changed)
 	}
 	else if (D->internalBits & CONDITIONAL_IDIOM) // eg. more_than -  ?[AR1]=R ?=<Rp+s	#	if followed by  number or adjective or adverb, its an adverb "more than 20", if if followed by noun/pronoun, its words "more than human" as adverb and preposition/subordconjunct
 	{
-		char* script = D->w.conditionalIdiom;
+		char* script = D->w.conditionalIdiom->word;
 		bool valid = true;
 		bool invert = false;
 		bool invertor = false;
@@ -2939,7 +2943,7 @@ retry:
 		{
 			if (ignoreWord[wordIndex]) continue;
 			int j = (reverseWords) ? (endSentence + 1 - wordIndex) : wordIndex; // test from rear of sentence forwards to prove rules are independent
-			if (bitCounts[j] != 1 && !stricmp(language,"ENGLISH"))
+			if (bitCounts[j] != 1 && !stricmp(current_language,"ENGLISH"))
 				ApplyRulesToWord(j,changed);
 			else if (trace & TRACE_TREETAGGER && wordIndex == endSentence) // purely for display on trace
 			{
@@ -2954,7 +2958,7 @@ retry:
 		if (!changed && ts.number_of_words  && ttLastChanged <= endSentence) BlendWithTreetagger(changed); // can override us even when we know
 		if (changed) continue;
 #endif	
-		if (!changed && ambiguous && !stricmp(language,"ENGLISH")) // no more rules changed anything and we still need help
+		if (!changed && ambiguous && !stricmp(current_language,"ENGLISH")) // no more rules changed anything and we still need help
 		{
 			if (!(tokenControl & (DO_PARSE-DO_POSTAG))) // guess based on probability
 			{
@@ -2982,7 +2986,7 @@ retry:
 #endif	
 #ifndef DISCARDPARSER
 	bool modified = false;
-	if (!parsed && !stricmp(language,"ENGLISH"))  ParseSentence(resolved, modified);
+	if (!parsed && !stricmp(current_language,"ENGLISH"))  ParseSentence(resolved, modified);
 	if (modified && !resolved) goto retry;
 #endif
 	return resolved;
@@ -3217,7 +3221,7 @@ char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const ch
 	char* faultyparse = "";
 	if (!original && tokenFlags & FAULTY_PARSE)
 	{
-		if (!stricmp(language, "ENGLISH")) 	faultyparse = "badparse "; // only one of ambiguous (worse) and faultyparse will be true
+		if (!stricmp(current_language, "ENGLISH")) 	faultyparse = "badparse "; // only one of ambiguous (worse) and faultyparse will be true
 		else faultyparse = "not-parsed ";
 	}
 	sprintf(buffer,(char*)"%s%s%s %d words: ",ambiguousx,faultyparse,label,end-start+1);
@@ -3306,7 +3310,7 @@ char* DumpAnalysis(int start, int end,uint64 flags[MAX_SENTENCE_LENGTH],const ch
 
 void MarkTags(unsigned int i)
 {
-	if (!stricmp(language, "japanese"))
+	if (!stricmp(current_language, "japanese") || !stricmp(current_language, "chinese"))
 	{
 		MarkJapaneseTags(i);
 		return;
@@ -8562,7 +8566,7 @@ static unsigned int GuessAmbiguousConjunction(int i, bool &changed)
 
 	// why is unusual qword because it can precede command verb and others cant
 	// if qword starts sentence followed by aux or command infinitive, dont believe its conjunction - "*how can I tell" and "why stand up"
-	if (i == startSentence && originalLower[startSentence]->properties & QWORD && posValues[NextPos(i)] & (AUX_VERB | VERB_INFINITIVE))
+	if (i == startSentence && originalLower[startSentence]  && originalLower[startSentence]->properties & QWORD && posValues[NextPos(i)] & (AUX_VERB | VERB_INFINITIVE))
 	{
 		if (LimitValues(i,-1 ^ CONJUNCTION,(char*)"qword at start wont be conjunction",changed)) return GUESS_RETRY; // might not be real - if cant find verb, may need to downgrade to preoposition if subject found
 	}

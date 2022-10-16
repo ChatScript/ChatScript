@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 10/16/2022 cs12.3
 
 
 # Real World JSON
@@ -914,6 +914,11 @@ Then it makes the call and when the call completes, makes a call back to CS with
 
 You can set dynamic time limits on ^jsonopen. The variable $cs_jsontimeout
 sets a local seconds limit on the call. -1 means fail immediately.
+
+
+ If you have a variable $correlation_id, this value will be passed to  jsonopen as an additional header
+ correlation-id: %s. Used to track across multiple calls in a system what the originating message was.
+
 
 #### `JSONOpen and local files`
 

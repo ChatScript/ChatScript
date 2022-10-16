@@ -9,10 +9,11 @@
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
 <p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
 <p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
+<p>Debugging commands only show their data if user logging is enabled. In cs_init.txt you can put 'userlogging-file' or create at top level the file 'userlogging.txt'.</p>
 <p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
 <p>Debugging generally requires use of some :xxxx commands. I don't always remember them all, so at times I might simply say</p>
 <h2 id="special-input-controls-in-user-input"><code>Special Input controls in user input</code></h2>
@@ -42,6 +43,7 @@
 :why       - Show rules causing most recent output
 :authorize - Flip authorization for all debug commands
 :comparelog - given path/names of 2 log files, show entries that are different
+:ingestlog - given name of log file, reexecutes it and reports differences from log
 
 ---- Fact info -
 :allfacts  - Write all facts to TMP/facts.tmp for current bot current language.  :allfacts all does all bots and all languages.
@@ -95,6 +97,7 @@
 :crash   - Simulate a server crash
 :debug   - Initiate debugger
 :flush   - Flush server cached user data to files
+:language - set current language to one names on the command line param language=. or return current langauge
 :quit    - Exit ChatScript
 :reset   - Start user all over again, flushing his history
 :restart - Restart Chatscript
@@ -112,6 +115,7 @@
 :testtopic   - Try named topic responders on input
 :verify      - Given test type &amp; topic, test that rules are accessible. 
                Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all.
+:verifylist, :verifyrun, :verifymatch - Tests system to show rules are accessed when outside the topic.
 
 ---- Document Processing -
 :document - Switch input to named file/directory as a document {single, echo}
@@ -125,6 +129,7 @@
 :diff         - match 2 files and report lines that differ
 :trim         - Strip excess off chatlog file to make simple file TMP/tmp.txt
 :timelog      - read a log file (like system log) and compute average, min and max times of NLU engine and server q 
+:splitlog      - read a log file (like system log) and create csv of input, output, bot, why
 
 ---- internal support -
 :spellit          - given sentence provide explanation for spelling corrections
@@ -206,6 +211,9 @@
 <h3 id="comparelog"><code>:comparelog</code></h3>
 <pre><code>:comparelog LOGS/serverlog1024.txt  oldlog.txt</code></pre>
 <p>Will read both logs in parallel and list into user log significant differences (assumption is that both logs represent the same inputs against different versions of CS).</p>
+<h3 id="ingestlog-filename"><code>:ingestlog  filename</code></h3>
+<pre><code>:ingestlog LOGS/serverlog1024.txt  </code></pre>
+<p>Will read named cs log file and re-execute it. Differences will be reported in tmp/ingesterr.txt as well as user log when enabled and briefly onscreen.</p>
 <h2 id="trace">Trace</h2>
 <h3 id="trace-all-trace-always-trace-none"><code>:trace all</code> / <code>:trace always</code> / <code>:trace none</code></h3>
 <p>The ultimate debugging command dumps a trace of everything that happens during execution to the screen and into the log file. After entering this, you type in your chat and watch what happens (which also gets dumped into the current log file). Problem is, it's potentially a large trace. You really want to be more focused in your endeavor.</p>
@@ -548,6 +556,10 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>Given 2 or more words, this displays the concepts they share in common, most close first. This only applies to statically defined concepts, and not to dynamic engine concepts like parts-of-speech, role-in-sentence, <code>~number</code>, etc</p>
 <h3 id="word-apple"><code>:word apple</code></h3>
 <p>Given a word, this displays the dictionary entry for it as well some data up it's hierarchy. The word is case sensitive and if you want to check out a composite word, you need to use underscores instead of blanks. So <code>:word TV_star</code>.</p>
+<p>Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts can limit or expand how many are shown.</p>
+<h3 id="fact-apple"><code>:fact apple</code></h3>
+<p>Given a word, this displays facts which have that as one of the fields. The word is case sensitive and if you want to check out a composite word, you need to use underscores instead of blanks. So <code>:word TV_star</code>. If the word is a fact set id like <span class="citation">@1</span>, then all facts in that set are displayed.</p>
+<p>Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts can limit or expand how many are shown.</p>
 <h3 id="dualupper"><code>:dualupper</code></h3>
 <p>Lists words that have multiple upper-case spellings. Ideally there would be only one such spelling.</p>
 <h3 id="userfacts"><code>:userfacts</code></h3>
@@ -588,6 +600,8 @@ RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
 <p>Depending on what you put into it, a build file may build a single bot or lots of bots or a common set of data or whatever.</p>
 <h3 id="bot-sue"><code>:bot sue</code></h3>
 <p>Change focus to conversing with the named bot (presuming you have such a bot). It resets the user back to complete new, flushing the users history, variables, etc.</p>
+<h3 id="language-french"><code>:language french</code></h3>
+<p>Change current language of user to named language which must be in the language= command line parameter. Given no argument, it returns the current language.</p>
 <h3 id="reset"><code>:reset</code></h3>
 <p>Flush the current user's total history (erases the <code>USER/TOPIC</code> file) and reruns the bot definition macro, starting conversation from the beginning. Can be done from within a script without damaging the existing control flow or input sentence but that means variables and facts not covered by the bot definition will remain untouched. For a complete reset see command line parameter <code>erasename</code>.</p>
 <h3 id="user-username"><code>:user username</code></h3>

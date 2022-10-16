@@ -21,40 +21,139 @@
 static bool mongoInited = false;		// have we inited mongo overall
 static bool mongoShutdown = false;
 char* mongoBuffer = NULL;
-char mongodbparams[MAX_WORD_SIZE * 4];
+char mongodbparams[MONGO_DBPARAM_SIZE];
 
 // for script use
 mongoc_client_t*		g_pClient = NULL;
 mongoc_database_t*		g_pDatabase = NULL;
 mongoc_collection_t*	g_pCollection = NULL;
+mongoc_read_prefs_t*    g_pReadPrefs = NULL;
 // for file system use
 mongoc_client_t*		g_filesysClient = NULL;
 mongoc_database_t*		g_filesysDatabase = NULL;
-mongoc_collection_t*	g_filesysCollectionTopic = NULL; // user topic
+mongoc_collection_t*    g_filesysCollectionTopic = NULL; // user topic
+mongoc_read_prefs_t*    g_filesysReadPrefsTopic = NULL;  // read preferences
 
 
 // Mongo Collection to File map and related functions
 typedef struct CollectionInfo {
-    char name[MONGO_COLLECTION_NAME_LENGTH];    // collection name
-    mongoc_collection_t *collectionHandle;      // collection handle
+	char name[MONGO_COLLECTION_NAME_LENGTH];    // collection name
+	mongoc_collection_t *collectionHandle;      // collection handle
+    mongoc_read_prefs_t *readPrefs;             // read preferences
 } CollectionInfo;
 
 CollectionInfo collectionSet[MAX_COLLECTIONS_LIMIT];
 
-bool initCollectionHandle(char* name)
+mongoc_read_prefs_t* parseMongoCollectionOptions(char* data)
+{
+    // mimic the format used on the Mongo connection string
+    char *at = strchr(data, '?');
+    if (!at) return NULL;
+
+    mongoc_read_prefs_t* read_prefs = NULL;
+
+    *at = 0;
+    
+    // default read preference is primary
+    read_prefs = mongoc_read_prefs_new(MONGOC_READ_PRIMARY);
+
+    // tags can appear multiple times
+    bson_t* tagset = bson_new();
+    int numTags = 0;
+
+    while(*++at)
+    {
+        char *amp = strchr(at,'&');
+        if (amp) *amp = 0;
+        else amp = at + strlen(at) - 1;
+
+        if (!strnicmp(at, "readPreference=", 15))
+        {
+            at += 15;
+            if (!stricmp(at, "primary")) mongoc_read_prefs_set_mode(read_prefs, MONGOC_READ_PRIMARY);
+            else if (!stricmp(at, "primaryPreferred")) mongoc_read_prefs_set_mode(read_prefs, MONGOC_READ_PRIMARY_PREFERRED);
+            else if (!stricmp(at, "secondary")) mongoc_read_prefs_set_mode(read_prefs, MONGOC_READ_SECONDARY);
+            else if (!stricmp(at, "secondaryPreferred")) mongoc_read_prefs_set_mode(read_prefs, MONGOC_READ_SECONDARY_PREFERRED);
+            else if (!stricmp(at, "nearest")) mongoc_read_prefs_set_mode(read_prefs, MONGOC_READ_NEAREST);
+        }
+        
+        else if (!strnicmp(at, "maxStalenessSeconds=", 20))
+        {
+            at += 20;
+            int64_t secs = atoi(at);
+            // anything between 0 and 90 is an error according to Mongo documentation
+            if (secs == -1 || secs >= 90) mongoc_read_prefs_set_max_staleness_seconds(read_prefs, secs);
+        }
+        
+        else if (!strnicmp(at, "readPreferenceTags=", 19))
+        {
+            at += 19;
+
+            bson_t* tag = bson_new();
+
+            // a tag has name:value pairs in a comma separated list
+            // accumulate them for now
+            char* ptr = at - 1;
+            while (*++ptr)
+            {
+                char* comma = strchr(ptr,',');
+                if (comma) *comma = 0;
+                else comma = ptr + strlen(ptr) - 1;
+                
+                char* colon = strchr(ptr,':');
+                if (colon)
+                {
+                    *colon = 0;
+                    BSON_APPEND_UTF8(tag, ptr, (colon+1) );
+                }
+
+                ptr = comma;
+            }
+
+            char key[10];
+            sprintf(key, "%d", numTags++);
+            BSON_APPEND_DOCUMENT(tagset, key, tag);
+            bson_destroy(tag);
+        }
+        
+        else if (!strnicmp(at, "hedge=", 6))
+        {
+            at += 6;
+            bson_t* hedge = bson_new();
+            if (!stricmp(at,"true")) BSON_APPEND_BOOL(hedge, "enabled", true);
+            else BSON_APPEND_BOOL(hedge, "enabled", false);
+            mongoc_read_prefs_set_hedge(read_prefs, hedge);
+            bson_destroy(hedge);
+        }
+
+        at = amp;
+    }
+
+    // might have some tags to add
+    if (numTags > 0) mongoc_read_prefs_set_tags (read_prefs, tagset);
+    bson_destroy(tagset);
+
+    return(read_prefs);
+}
+
+bool initCollectionHandle(char* name, char* dbname)
 {
     bool initHandle = false;
     if (!name) return initHandle;
     int i = -1;
     CollectionInfo *collection = NULL;
 
-    while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0) {;}
-    if (i < MAX_COLLECTIONS_LIMIT) {
-        strcpy(collection->name, name);
-        addFileTypeAsKnown(name);
-        initHandle = true;
-    }
-    return initHandle;
+	while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0) {;}
+	if (i < MAX_COLLECTIONS_LIMIT) {
+		strcpy(collection->name, name);
+		addFileTypeAsKnown(name);
+        
+        // dbname might incorporate read preferences, so strip them out
+        collection->readPrefs = parseMongoCollectionOptions(dbname);
+        
+		initHandle = true;
+	}
+	return initHandle;
 }
 
 bool hasMongoCollectionHandle(char* filetype)
@@ -96,17 +195,32 @@ mongoc_collection_t* getMongoCollectionHandle(char* filetype)
     return collection->collectionHandle;
 }
 
-void destroyMongoCollectionHandle()
+mongoc_read_prefs_t* getMongoCollectionReadPrefs(char* filetype)
 {
+    if (!filetype) return NULL;
     int i = -1;
     CollectionInfo *collection = NULL;
 
     while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
-    {
-        if (collection->collectionHandle != NULL) mongoc_collection_destroy(collection->collectionHandle);
-        collection->collectionHandle = NULL;
-        memset(collection->name, 0, MONGO_COLLECTION_NAME_LENGTH);
-    }
+        if (!stricmp(collection->name, filetype)) break;
+
+    return collection->readPrefs;
+}
+
+
+void destroyMongoCollectionData()
+{
+    int i = -1;
+    CollectionInfo *collection = NULL;
+
+	while ((collection = &collectionSet[++i]) && strlen(collection->name) > 0)
+	{
+		if (collection->collectionHandle != NULL) mongoc_collection_destroy(collection->collectionHandle);
+		collection->collectionHandle = NULL;
+        if (collection->readPrefs != NULL) mongoc_read_prefs_destroy(collection->readPrefs);
+        collection->readPrefs = NULL;
+		memset(collection->name, 0, MONGO_COLLECTION_NAME_LENGTH);
+	}
 }
 
 
@@ -274,18 +388,24 @@ FunctionResult MongoClose(char* buffer)
 	// Release our handles and clean up libmongoc
 	if (buffer)
 	{
+        if( g_pReadPrefs != NULL ) mongoc_read_prefs_destroy(g_pReadPrefs);
 		if( g_pCollection != NULL ) mongoc_collection_destroy(g_pCollection);
 		if( g_pDatabase != NULL ) mongoc_database_destroy(g_pDatabase);
 		if( g_pClient != NULL ) mongoc_client_destroy(g_pClient);
+        g_pReadPrefs = NULL;
 		g_pCollection = NULL;
 		g_pDatabase = NULL;
 		g_pClient = NULL;
 	}
-	else {
-        destroyMongoCollectionHandle();
-		if( g_filesysCollectionTopic != NULL ) mongoc_collection_destroy(g_filesysCollectionTopic);
+	else
+    {
+		destroyMongoCollectionData();
+
+        if( g_filesysReadPrefsTopic != NULL ) mongoc_read_prefs_destroy(g_filesysReadPrefsTopic);
+        if( g_filesysCollectionTopic != NULL ) mongoc_collection_destroy(g_filesysCollectionTopic);
 		if( g_filesysDatabase != NULL ) mongoc_database_destroy(g_filesysDatabase);
 		if( g_filesysClient != NULL ) mongoc_client_destroy(g_filesysClient);
+        g_filesysReadPrefsTopic = NULL;
 		g_filesysCollectionTopic = NULL;
 		g_filesysDatabase =  NULL;
 		g_filesysClient = NULL;
@@ -306,9 +426,21 @@ FunctionResult MongoInit(char* buffer)
 
     /* Make a connection to the database */
 	mongoc_collection_t** collectvar = &g_pCollection; // default user 
-	if (!stricmp(ARGUMENT(4),"topic")) collectvar = &g_filesysCollectionTopic; // filesys
-    else if (initCollectionHandle(ARGUMENT(4))) collectvar = getMongoCollectionHandleAddress(ARGUMENT(4)); // filesys
-    eReturnValue  eRetVal = EstablishConnection(ARGUMENT(1), ARGUMENT(2), ARGUMENT(3),collectvar); // server, dbname, collection
+	if (!stricmp(ARGUMENT(4),"topic"))
+    {
+        collectvar = &g_filesysCollectionTopic; // filesys
+        g_filesysReadPrefsTopic = parseMongoCollectionOptions(ARGUMENT(3));
+    }
+	else if (initCollectionHandle(ARGUMENT(4), ARGUMENT(3)))
+    {
+        collectvar = getMongoCollectionHandleAddress(ARGUMENT(4)); // filesys
+    }
+    else
+    {
+        g_pReadPrefs = parseMongoCollectionOptions(ARGUMENT(3));
+    }
+    
+    eReturnValue  eRetVal = EstablishConnection(ARGUMENT(1), ARGUMENT(2), ARGUMENT(3), collectvar); // server, dbname, collection
     if (eRetVal != eReturnValue_SUCCESS )
     {	
 		char* msg = "DB opening error \r\n";
@@ -329,9 +461,22 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 		if (key[len-1] == '"') key[len-1] = 0;
 	}
     mongoc_collection_t* collection;
-	if (user) collection =  g_pCollection;
-    else if (hasMongoCollectionHandle(ARGUMENT(2))) collection = getMongoCollectionHandle(ARGUMENT(2));
-	else collection = g_filesysCollectionTopic;
+    mongoc_read_prefs_t* read_prefs = NULL;
+	if (user)
+    {
+        collection = g_pCollection;
+        read_prefs = g_pReadPrefs;
+    }
+	else if (hasMongoCollectionHandle(ARGUMENT(2)))
+    {
+        collection = getMongoCollectionHandle(ARGUMENT(2));
+        read_prefs = getMongoCollectionReadPrefs(ARGUMENT(2));
+    }
+	else
+    {
+        collection = g_filesysCollectionTopic;
+        read_prefs = g_filesysReadPrefsTopic;
+    }
     if (!collection)
     {
         char* msg = "DB is not open\r\n";
@@ -375,7 +520,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 
         uint64 starttime = ElapsedMilliseconds();
         
-        psCursor = mongoc_collection_find(collection, MONGOC_QUERY_NONE, 0, 0, 0, psQuery, NULL, NULL);
+        psCursor = mongoc_collection_find(collection, MONGOC_QUERY_NONE, 0, 0, 0, psQuery, NULL, read_prefs);
         
         if( psCursor == NULL )
         {

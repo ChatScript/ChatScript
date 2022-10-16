@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 10/16/2022 cs12.3
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
@@ -348,6 +348,11 @@ user starts over again. If you want truly random, use  %fullmstime % $howmany to
 
 
 ## System variables
+Note for all time variables, they normally use local machine time.
+If you have a $cs_utcoffset variable with a value, then all time will be relative
+to GMT/UTC/Zulu (which means it doesn't pay attention to daylight savings and you have
+to do that yourself with the answer).
+
 
 | variable            | description 
 | --------            | ------- 
@@ -727,6 +732,8 @@ contents.
 | `$cs_proxycredentials`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxyserver`    | See ^JSONOPEN in JSON manual| 
 | `$cs_proxymethod`    | See ^JSONOPEN in JSON manual| 
+| `$correlation_id`    | See ^JSONOPEN in JSON manual| 
+
 
 # Mongo variables
 | `$cs_mongoqueryparams` | set as a json structure of move its fields to a mongo query |

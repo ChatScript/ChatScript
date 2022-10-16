@@ -1,133 +1,121 @@
-﻿+ babies`1 NOUN NOUN_PLURAL KINDERGARTEN 
-+ cents NOUN NOUN_PLURAL KINDERGARTEN 
-+ words`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ seconds`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ makes`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ questions`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ says`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ things`1 NOUN NOUN_PLURAL KINDERGARTEN 
-+ kind_of`1 PATTERN_WORD 
-+ boogie_man`1 PATTERN_WORD 
-+ ^harry 
-+ defaultbot`1 
-+ loopback`1 PATTERN_WORD 
-+ can_I_ask_you`1 PATTERN_WORD 
-+ can_I_ask_a_question`1 PATTERN_WORD 
-+ can_I_ask_the_question`1 PATTERN_WORD 
-+ to_go`1 PATTERN_WORD 
-+ do_you_need`1 PATTERN_WORD 
-+ do_you_want`1 PATTERN_WORD 
-+ voices`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ do_you_watch`1 PATTERN_WORD 
-+ do_you_see`1 PATTERN_WORD 
-+ do_you_view`1 PATTERN_WORD 
-+ fingers`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ brains`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
-+ how_do_you_spell`1 PATTERN_WORD 
-+ how_would_you_spell`1 PATTERN_WORD 
-+ deflecting`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE5_6 
-+ not_sure`1 PATTERN_WORD 
-+ not_certain`1 PATTERN_WORD 
-+ one_day`1 PATTERN_WORD 
-+ a_moment_ago`1 PATTERN_WORD 
-+ it_be`1 PATTERN_WORD 
-+ be_it`1 PATTERN_WORD 
-+ do_you_understand`1 PATTERN_WORD 
-+ what_be`1 PATTERN_WORD 
-+ faring`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND 
-+ too_many`1 PATTERN_WORD 
-+ not_enough`1 PATTERN_WORD 
-+ too_few`1 PATTERN_WORD 
-+ seemed`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
-+ concerns`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ with_you`1 PATTERN_WORD 
-+ causes`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL GRADE3_4 
-+ a_lot_of`1 PATTERN_WORD 
-+ shoulds`1 PATTERN_WORD 
-+ dream_about`1 PATTERN_WORD 
-+ going_in_circles`1 PATTERN_WORD 
-+ circular_conversation`1 PATTERN_WORD 
-+ talking_in_circles`1 PATTERN_WORD 
-+ does_that_make_sense`1 PATTERN_WORD 
-+ does_it_make_sense_that`1 PATTERN_WORD 
-+ weakest`1 MOST_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
-+ a_little_bird`1 PATTERN_WORD 
-+ a_little_birdie`1 PATTERN_WORD 
-+ louder`1 MORE_FORM ADJECTIVE ADJECTIVE_NORMAL KINDERGARTEN 
-+ any_sense`1 PATTERN_WORD 
-+ you_be_an`1 PATTERN_WORD 
-+ you_be_a`1 PATTERN_WORD 
-+ replied`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE KINDERGARTEN 
-+ give_I_a_way`1 PATTERN_WORD 
-+ tell_I_a_way`1 PATTERN_WORD 
-+ how_can_I_prove`1 PATTERN_WORD 
-+ how_can_you_prove`1 PATTERN_WORD 
-+ nobody_has_ever`1 PATTERN_WORD 
-+ no_one_has_ever`1 PATTERN_WORD 
-+ have_you_done`1 PATTERN_WORD 
-+ have_you_felt`1 PATTERN_WORD 
-+ have_you_been`1 PATTERN_WORD 
-+ have_you_been_to`1 PATTERN_WORD 
-+ have_you_been_on`1 PATTERN_WORD 
-+ be_this`1 PATTERN_WORD 
-+ be_that`1 PATTERN_WORD 
-+ where_to_begin`1 PATTERN_WORD 
-+ where_to_start`1 PATTERN_WORD 
-+ be_you_joking`1 PATTERN_WORD 
-+ be_you_kdding`1 PATTERN_WORD 
-+ you_must_be_kid`1 PATTERN_WORD 
-+ you_must_be_joke`1 PATTERN_WORD 
-+ you_are_a_what`1 PATTERN_WORD 
-+ he_is_a_what`1 PATTERN_WORD 
-+ she_is_a_what`1 PATTERN_WORD 
-+ asked`1 VERB_PAST VERB_PAST_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_ADJECTIVE GRADE3_4 
-+ you_liar`1 PATTERN_WORD 
-+ you_lie`1 PATTERN_WORD 
-+ kidding`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND KINDERGARTEN 
-+ I_bet_you_do_not`1 PATTERN_WORD 
-+ I_bet_you_would_not`1 PATTERN_WORD 
-+ I_bet_you_will_not`1 PATTERN_WORD 
-+ not_trust`1 PATTERN_WORD 
-+ can_not`1 PATTERN_WORD 
-+ what_does_it_matter`1 PATTERN_WORD 
-+ why_does_it_matter`1 PATTERN_WORD 
-+ how_much`1 PATTERN_WORD 
-+ which_be`1 PATTERN_WORD 
-+ has_that`1 PATTERN_WORD 
-+ does_that_have`1 PATTERN_WORD 
-+ be_you`1 PATTERN_WORD 
-+ you_be`1 PATTERN_WORD 
-+ what_do_you_think_about`1 PATTERN_WORD 
-+ what_be_you_thought_on`1 PATTERN_WORD 
-+ weekends`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ morals`1 NOUN NOUN_PLURAL GRADE1_2 
-+ when_did_you`1 PATTERN_WORD 
-+ when_did_I`1 PATTERN_WORD 
-+ when_will_it`1 PATTERN_WORD 
-+ when_be_it`1 PATTERN_WORD 
-+ when_will_I_meet_you`1 PATTERN_WORD 
-+ where_be_that`1 PATTERN_WORD 
-+ where_be_it`1 PATTERN_WORD 
-+ where_will_I_find`1 PATTERN_WORD 
-+ where_could_I_find`1 PATTERN_WORD 
-+ where_can_I_find`1 PATTERN_WORD 
-+ who_be_they`1 PATTERN_WORD 
-+ who_be_them`1 PATTERN_WORD 
-+ who_be_that`1 PATTERN_WORD 
-+ who_be_she`1 PATTERN_WORD 
-+ who_create_you`1 PATTERN_WORD 
-+ who_made_you`1 PATTERN_WORD 
-+ who_built_you`1 PATTERN_WORD 
-+ who_be_you_in_love`1 PATTERN_WORD 
-+ who_do_you_love`1 PATTERN_WORD 
-+ cares`1 VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL KINDERGARTEN 
-+ why_would_I_lie`1 PATTERN_WORD 
-+ why_would_I_be_lying`1 PATTERN_WORD 
-+ why_do_the`1 PATTERN_WORD 
-+ why_do_a`1 PATTERN_WORD 
-+ why_would_you_lie`1 PATTERN_WORD 
-+ why_would_you_be_lying`1 PATTERN_WORD 
-+ why_be_it_bad`1 PATTERN_WORD 
-+ why_could_it_be_bad`1 PATTERN_WORD 
-+ ignoring`1 VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 
-+ leave_you`1 PATTERN_WORD 
+﻿1
+^ `seconds~l1`   x00002000   c0000020      x20000700   00000000      @   0   `` 
+^ `makes~l1`   x00002000   c0000010      x20000700   00000000      @   0   `` 2
+^ `boogie_man~l1`   0     P     x10000000   0   `` 
+^ `defaultbot~l1`   0     0     x10000000   0   `` 
+^ `loopback~l1`   0     P     x10000000   0   `` 
+^ `can_I_ask_you~l1`   0     P     x10002000   0   `` 
+^ `can_I_ask_a_question~l1`   0     P     x10002000   0   `` 
+^ `can_I_ask_the_question~l1`   0     P     x10002000   0   `` 
+^ `babies~l1`   x00000000   80000010      x00000700   00000000      x10000000   0   `` 
+^ `to_go~l1`   0     P     x10000000   0   `` 
+^ `do_you_need~l1`   0     P     x10000000   0   `` 
+^ `do_you_want~l1`   0     P     x10000000   0   `` 
+^ `voices~l1`   x00002000   c0000010      x00000700   00000000      x10000000   0   `` 
+^ `do_you_watch~l1`   0     P     x10000000   0   `` 
+^ `do_you_see~l1`   0     P     x10000000   0   `` 
+^ `do_you_view~l1`   0     P     x10000000   0   `` 
+^ `fingers~l1`   x00002000   c0000010      x00000700   00000000      x10000000   0   `` 
+^ `brains~l1`   x00002000   c0000010      x00000200   00000000      x10000000   0   `` 
+^ `how_do_you_spell~l1`   0     P     x10000000   0   `` 
+^ `how_would_you_spell~l1`   0     P     x10000000   0   `` 
+^ `deflecting~l1`   x00001000   40000802      x00000100   00000000      x10000000   0   `` 
+^ `one_day~l1`   0     P     x10000000   0   `` 
+^ `a_moment_ago~l1`   0     P     x10000000   0   `` 
+^ `it_be~l1`   0     P     x10000000   0   `` 
+^ `be_it~l1`   0     P     x10000000   0   `` 
+^ `do_you_understand~l1`   0     P     x10000000   0   `` 
+^ `what_be~l1`   0     P     x10000000   0   `` 
+^ `faring~l1`   x00001000   40000802      0     x10000000   0   `` 
+^ `too_many~l1`   0     P     x10000000   0   `` 
+^ `not_enough~l1`   0     P     x10000000   0   `` 
+^ `too_few~l1`   0     P     x10000000   0   `` 
+^ `seemed~l1`   x00000c00   40000840      x00000700   00000000      x10000000   0   `` 
+^ `with_you~l1`   0     P     x10000000   0   `` 
+^ `causes~l1`   x00002000   c0000010      x00000200   00000000      x10000000   0   `` 
+^ `a_lot_of~l1`   0     P     x10000000   0   `` 
+^ `shoulds~l1`   0     P     x10000000   0   `` 
+^ `dream_about~l1`   0     P     x10000000   0   `` 
+^ `going_in_circles~l1`   0     P     x10000000   0   `` 
+^ `circular_conversation~l1`   0     P     x10000000   0   `` 
+^ `talking_in_circles~l1`   0     P     x10000000   0   `` 
+^ `does_that_make_sense~l1`   0     P     x10000000   0   `` 
+^ `does_it_make_sense_that~l1`   0     P     x10000000   0   `` 
+^ `a_little_bird~l1`   0     P     x10000000   0   `` 
+^ `a_little_birdie~l1`   0     P     x10000000   0   `` 
+^ `louder~l1`   x00200000   20004000      x00000700   00000000      x10000000   0   `` 
+^ `any_sense~l1`   0     P     x10000000   0   `` 
+^ `you_be_an~l1`   0     P     x10000000   0   `` 
+^ `you_be_a~l1`   0     P     x10000000   0   `` 
+^ `replied~l1`   x00000c00   40000840      x00000700   00000000      x10000000   0   `` 
+^ `give_I_a_way~l1`   0     P     x10002000   0   `` 
+^ `tell_I_a_way~l1`   0     P     x10002000   0   `` 
+^ `how_can_I_prove~l1`   0     P     x10002000   0   `` 
+^ `how_can_you_prove~l1`   0     P     x10000000   0   `` 
+^ `nobody_has_ever~l1`   0     P     x10000000   0   `` 
+^ `no_one_has_ever~l1`   0     P     x10000000   0   `` 
+^ `have_you_done~l1`   0     P     x10000000   0   `` 
+^ `have_you_felt~l1`   0     P     x10000000   0   `` 
+^ `have_you_been~l1`   0     P     x10000000   0   `` 
+^ `have_you_been_to~l1`   0     P     x10000000   0   `` 
+^ `have_you_been_on~l1`   0     P     x10000000   0   `` 
+^ `be_this~l1`   0     P     x10000000   0   `` 
+^ `be_that~l1`   0     P     x10000000   0   `` 
+^ `where_to_begin~l1`   0     P     x10000000   0   `` 
+^ `where_to_start~l1`   0     P     x10000000   0   `` 
+^ `be_you_joking~l1`   0     P     x10000000   0   `` 
+^ `be_you_kdding~l1`   0     P     x10000000   0   `` 
+^ `you_must_be_kid~l1`   0     P     x10000000   0   `` 
+^ `you_must_be_joke~l1`   0     P     x10000000   0   `` 
+^ `you_are_a_what~l1`   0     P     x10000000   0   `` 
+^ `he_is_a_what~l1`   0     P     x10000000   0   `` 
+^ `she_is_a_what~l1`   0     P     x10000000   0   `` 
+^ `asked~l1`   x00000c00   40000840      x00000200   00000000      x10000000   0   `` 
+^ `you_liar~l1`   0     P     x10000000   0   `` 
+^ `you_lie~l1`   0     P     x10000000   0   `` 
+^ `I_bet_you_do_not~l1`   0     P     x10002000   0   `` 
+^ `I_bet_you_would_not~l1`   0     P     x10002000   0   `` 
+^ `I_bet_you_will_not~l1`   0     P     x10002000   0   `` 
+^ `not_trust~l1`   0     P     x10000000   0   `` 
+^ `can_not~l1`   0     P     x10000000   0   `` 
+^ `what_does_it_matter~l1`   0     P     x10000000   0   `` 
+^ `why_does_it_matter~l1`   0     P     x10000000   0   `` 
+^ `how_much~l1`   0     P     x10000000   0   `` 
+^ `which_be~l1`   0     P     x10000000   0   `` 
+^ `has_that~l1`   0     P     x10000000   0   `` 
+^ `does_that_have~l1`   0     P     x10000000   0   `` 
+^ `be_you~l1`   0     P     x10000000   0   `` 
+^ `you_be~l1`   0     P     x10000000   0   `` 
+^ `what_do_you_think_about~l1`   0     P     x10000000   0   `` 
+^ `what_be_you_thought_on~l1`   0     P     x10000000   0   `` 
+^ `weekends~l1`   x00002000   c0000010      x00000700   00000000      x10000000   0   `` 
+^ `morals~l1`   x00000000   80000010      x00000400   00000000      x10000000   0   `` 
+^ `when_did_you~l1`   0     P     x10000000   0   `` 
+^ `when_did_I~l1`   0     P     x10002000   0   `` 
+^ `when_will_it~l1`   0     P     x10000000   0   `` 
+^ `when_be_it~l1`   0     P     x10000000   0   `` 
+^ `when_will_I_meet_you~l1`   0     P     x10002000   0   `` 
+^ `where_be_that~l1`   0     P     x10000000   0   `` 
+^ `where_be_it~l1`   0     P     x10000000   0   `` 
+^ `where_will_I_find~l1`   0     P     x10002000   0   `` 
+^ `where_could_I_find~l1`   0     P     x10002000   0   `` 
+^ `where_can_I_find~l1`   0     P     x10002000   0   `` 
+^ `who_be_they~l1`   0     P     x10000000   0   `` 
+^ `who_be_them~l1`   0     P     x10000000   0   `` 
+^ `who_be_that~l1`   0     P     x10000000   0   `` 
+^ `who_be_she~l1`   0     P     x10000000   0   `` 
+^ `who_create_you~l1`   0     P     x10000000   0   `` 
+^ `who_made_you~l1`   0     P     x10000000   0   `` 
+^ `who_built_you~l1`   0     P     x10000000   0   `` 
+^ `who_be_you_in_love~l1`   0     P     x10000000   0   `` 
+^ `who_do_you_love~l1`   0     P     x10000000   0   `` 
+^ `cares~l1`   x00002000   c0000010      x00000700   00000000      x10000000   0   `` 
+^ `why_would_I_lie~l1`   0     P     x10002000   0   `` 
+^ `why_would_I_be_lying~l1`   0     P     x10002000   0   `` 
+^ `why_do_the~l1`   0     P     x10000000   0   `` 
+^ `why_do_a~l1`   0     P     x10000000   0   `` 
+^ `why_would_you_lie~l1`   0     P     x10000000   0   `` 
+^ `why_would_you_be_lying~l1`   0     P     x10000000   0   `` 
+^ `why_be_it_bad~l1`   0     P     x10000000   0   `` 
+^ `why_could_it_be_bad~l1`   0     P     x10000000   0   `` 
+^ `leave_you~l1`   0     P     x10000000   0   `` 
