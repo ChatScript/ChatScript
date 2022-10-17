@@ -2371,7 +2371,7 @@ uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonic
 	sysflags = 0;
 	strcpy(word, original);
 	MakeLowerCase(word); // only nouns MIGHT really be uppercase and we dont worry about their listings in the dictionary
-	WORDP D = StoreWord(word, 0, AS_IS); // ensure in dictionary
+	WORDP D = StoreWord(word,AS_IS); // ensure in dictionary
 	canonical = GetCanonical(D, D->properties);
 
 	// we need to check for pronouns because dict doesnt have them
