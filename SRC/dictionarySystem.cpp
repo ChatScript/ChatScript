@@ -3041,6 +3041,10 @@ bool ReadDictionary(char* file)
 		end[0] = ' ';
 		if (lemma) *lemma = 'l';
 		WORDP D = StoreWord(word, AS_IS);
+		if (!strcmp(word, "pets"))
+		{
+			int xx = 0;
+		}
 		if (stricmp(D->word, word)) ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word);
 		unsigned int meaningCount = 0;
 		unsigned int glossCount = 0;

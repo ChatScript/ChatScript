@@ -1,2193 +1,4386 @@
- `abad`abar` NC  VLfin ( ) 
+﻿ `abad`abar` NC  VLfin ( ) 
+
  `abanderado`abanderar` NC  VLadj ( ) 
+
  `abanico`abanicar` NC  VLfin ( ) 
+
  `abarrote`abarrotar` NC  VLfin ( ) 
+
  `abasto`abastar` NC  VLfin ( ) 
+
  `abate`abatir` NC  VLfin ( ) 
+
  `abismo`abismar` NC  VLfin ( ) 
+
  `abnegado`abnegar` ADJ  VLadj ( ) 
+
  `abogado`abogar` NC  VLadj ( ) 
+
  `abonado`abonar` NC  VLadj ( ) 
+
  `abrazo`abrazar` NC  VLfin ( ) 
+
  `abreviado`abreviar` ADJ  VLadj ( ) 
+
  `abrigo`abrigar` NC  VLfin ( ) 
+
  `absorto`absortar` ADJ  VLfin ( ) 
+
  `absorto`absorber` ADJ  VLadj ( ) 
+
  `abucheo`abuchear` NC  VLfin ( ) 
+
  `abultada`abultar` NC  VLadj ( ) 
+
  `abultado`abultar` ADJ  VLadj ( ) 
+
  `abuso`abusar` NC  VLfin ( ) 
+
  `acabe`acabar` NC  VLfin ( ) 
+
  `acabo`acabar` NC  VLfin ( ) 
+
  `acantilado`acantilar` NC  VLadj ( ) 
+
  `acarreo`acarrear` NC  VLfin ( ) 
+
  `acato`acatar` NC  VLfin ( ) 
+
  `accidente`accidentar` NC  VLfin ( ) 
+
  `acecho`acechar` NC  VLfin ( ) 
+
  `aceitada`aceitar` NC  VLadj ( ) 
+
  `aceite`aceitar` NC  VLfin ( ) 
+
  `acentuado`acentuar` ADJ  VLadj ( ) 
+
  `acequia`acequiar` NC  VLfin ( ) 
+
  `acera`acerar` NC  VLfin ( ) 
+
  `acerca`acercar` ADV  VLfin ( ) 
+
   ( ) 
+
  `acero`acerar` NC  VLfin ( ) 
+
  `achaque`achacar` NC  VLfin ( ) 
+
  `acierto`acertar` NC  VLfin ( ) 
+
  `acometida`acometer` NC  VLadj ( ) 
+
  `acomodo`acomodar` NC  VLfin ( ) 
+
  `acompañado`acompañar` ADJ  VLadj ( ) 
+
  `acopio`acopiar` NC  VLfin ( ) 
+
  `acoplado`acoplar` ADJ  VLadj ( ) 
+
  `acorazado`acorazar` ADJ  VLadj ( ) 
+
  `acorazado`acorazado`acorazar` ADJ  NC  VLadj ( ) 
+
  `acorde`acorde`acordar` ADJ  NC  VLfin ( ) 
+
  `acoso`acosar` NC  VLfin ( ) 
+
  `activo`activar` ADJ  VLfin ( ) 
+
  `active`activar` PE  VLfin ( ) 
+
  `acusado`acusar` ADJ  VLadj ( ) 
+
  `acuse`acusar` NC  VLfin ( ) 
+
  `acústico`acústica` ADJ  NC ( ) 
+
  `adecuado`adecuar` ADJ  VLadj ( ) 
+
  `adentro`adentro`adentrar` ADV  NP  VLfin ( ) 
+
  `aderezo`aderezar` NC  VLfin ( ) 
+
  `adeudo`adeudar` NC  VLfin ( ) 
+
  `adjunto`adjunto`adjuntar` ADJ  NC  VLfin ( ) 
+
  `adobe`adobar` NC  VLfin ( ) 
+
  `adoptado`adoptar` ADJ  VLadj ( ) 
+
  `adoquín`adoquinar` NC  VLfin ( ) 
+
  `adorno`adornar` NC  VLfin ( ) 
+
  `adosado`adosar` ADJ  VLadj ( ) 
+
  `aduana`aduanar` NC  VLfin ( ) 
+
  `aerodinámico`aerodinámica` ADJ  NC ( ) 
+
  `afán`afanar` NC  VLfin ( ) 
+
  `afecto`afectar` ADJ  VLfin ( ) 
+
  `afectado`afectar` ADJ  VLadj ( ) 
+
  `afecto`afectar` NC  VLfin ( ) 
+
  `aficionado`aficionar` NC  VLadj ( ) 
+
  `afición`aficionar` NC  VLfin ( ) 
+
  `afín`afinar` ADJ  VLfin ( ) 
+
  `afine|afín`afinar` ADJ  VLfin ( ) 
+
  `afino`afinar` NC  VLfin ( ) 
+
  `afirmado`afirmar` NC  VLadj ( ) 
+
  `afortunado`afortunado`afortunar` ADJ  NC  VLadj ( ) 
+
  `afrenta`afrentar` NC  VLfin ( ) 
+
  `afuera`afuera`aforar` ADV  NP  VLfin ( ) 
+
  `afueras`aforar` NC  VLfin ( ) 
+
  `agarrada`agarrar` NC  VLadj ( ) 
+
  `agarre`agarrar` NC  VLfin ( ) 
+
  `agencia`agenciar` NC  VLfin ( ) 
+
  `agobio`agobiar` NC  VLfin ( ) 
+
  `agosto`agostar` NC  VLfin ( ) 
+
  `agotado`agotar` ADJ  VLadj ( ) 
+
  `agrado`agradar` NC  VLfin ( ) 
+
  `agravio`agraviar` NC  VLfin ( ) 
+
  `agrio`agriar` ADJ  VLfin ( ) 
+
  `agua`aguar` NC  VLfin ( ) 
+
  `aguante`aguantar` NC  VLfin ( ) 
+
  `agujero`agujerar` NC  VLfin ( ) 
+
  `ahijado`ahijar` NC  VLadj ( ) 
+
  `ahogo`ahogar` NC  VLfin ( ) 
+
  `ahínco`ahincar` NC  VLfin ( ) 
+
  `airado`airar` ADJ  VLadj ( ) 
+
  `aislado`aislar` ADJ  VLadj ( ) 
+
  `aje`ajar` NC  VLfin ( ) 
+
  `ajo`ajar` NC  VLfin ( ) 
+
  `ajuste`ajustar` NC  VLfin ( ) 
+
  `alambique`alambicar` NC  VLfin ( ) 
+
  `alambrado`alambrar` NC  VLadj ( ) 
+
  `alambre`alambrar` NC  VLfin ( ) 
+
  `albergue`albergar` NC  VLfin ( ) 
+
  `alboroto`alborotar` NC  VLfin ( ) 
+
  `alcance`alcanzar` NC  VLfin ( ) 
+
  `alcantarillado`alcantarillar` NC  VLadj ( ) 
+
  `alcista`Alcista` ADJ  NC ( ) 
+
  `alcohol`alcoholar` NC  VLfin ( ) 
+
  `alegre`alegrar` ADJ  VLfin ( ) 
+
  `alejado`alejar` ADJ  VLadj ( ) 
+
  `alerta`alertar` ADJ  VLfin ( ) 
+
  `aleteo`aletear` NC  VLfin ( ) 
+
  `alfombra`alfombrar` NC  VLfin ( ) 
+
  `algún`algún|alguno` NC  QU ( ) 
+
  `alhaja`alhajar` NC  VLfin ( ) 
+
  `aliado`aliado`aliar` ADJ  NC  VLadj ( ) 
+
  `alicatado`alicatar` NC  VLadj ( ) 
+
  `alijo`alijar` NC  VLfin ( ) 
+
  `alimento`alimentar` NC  VLfin ( ) 
+
  `alineado`alinear` ADJ  VLadj ( ) 
+
  `aliviado`aliviar` ADJ  VLadj ( ) 
+
  `alivio`aliviar` NC  VLfin ( ) 
+
  `almaceno`almacenar` ADJ  VLfin ( ) 
+
  `almacén`almacenar` NC  VLfin ( ) 
+
  `almendra`almendrar` NC  VLfin ( ) 
+
  `almendro`almendrar` NC  VLfin ( ) 
+
  `almohada`almohadillar` NC  VLfin ( ) 
+
  `aloja`alojar` NC  VLfin ( ) 
+
  `alterno`alternar` ADJ  VLfin ( ) 
+
  `alternado`alternar` ADJ  VLadj ( ) 
+
  `alternativo`alternativa` ADJ  NC ( ) 
+
  `alud`aludir` NC  VLfin ( ) 
+
  `alumbrado`alumbrar` NC  VLadj ( ) 
+
  `alza`alza`alzar` NC  NP  VLfin ( ) 
+
  `alzado`alzada`alzar` ADJ  NC  VLadj ( ) 
+
  `alza`alzar` NC  VLfin ( ) 
+
  `ama`amar` NC  VLfin ( ) 
+
  `amalgama`amalgamar` NC  VLfin ( ) 
+
  `amargo`amargar` ADJ  VLfin ( ) 
+
  `ambición`ambicionar` NC  VLfin ( ) 
+
  `ambiente`ambiente`ambientar` ADJ  NC  VLfin ( ) 
+
  `amenaza`amenazar` NC  VLfin ( ) 
+
  `ametrallador`ametralladora` ADJ  NC ( ) 
+
  `amigo`amigo`amigar` ADJ  NC  VLfin ( ) 
+
  `amistad`amistar` NC  VLfin ( ) 
+
  `amnistía`amnistiar` NC  VLfin ( ) 
+
  `amo`amar` NC  VLfin ( ) 
+
  `amparo`amparar` NC  VLfin ( ) 
+
  `ampolla`ampollar` NC  VLfin ( ) 
+
  `analfabeto`analfabeta` ADJ  NC ( ) 
+
  `ancho`anchar` ADJ  VLfin ( ) 
+
  `ancla`anclar` NC  VLfin ( ) 
+
  `anda`andar` NP  VLfin ( ) 
+
  `anestesia`anestesiar` NC  VLfin ( ) 
+
  `anexión`anexionar` NC  VLfin ( ) 
+
  ángel ( ) 
+
  `angustia`angustiar` NC  VLfin ( ) 
+
  `ansia`ansiar` NC  VLfin ( ) 
+
  `antes`ante` ADV  NC ( ) 
+
  `anticipada`anticipar` NC  VLadj ( ) 
+
  `anticipo`anticipar` NC  VLfin ( ) 
+
  `anticuado`anticuar` ADJ  VLadj ( ) 
+
  `antojo`antojar` NC  VLfin ( ) 
+
  `anuncio`anunciar` NC  VLfin ( ) 
+
  `apagado`apagar` NC  VLadj ( ) 
+
  `aparente`aparentar` ADJ  VLfin ( ) 
+
  `aparte`apartar` NC  VLfin ( ) 
+
  `apego`apegar` NC  VLfin ( ) 
+
  `apenas`apenar`apenar` ADV  CSUBF  VLfin ( ) 
+
  `apeo`apear` NC  VLfin ( ) 
+
  `apodo`apodar` NC  VLfin ( ) 
+
  `aporte`aportar` NC  VLfin ( ) 
+
  `aprecio`apreciar` NC  VLfin ( ) 
+
  `apremio`apremiar` NC  VLfin ( ) 
+
  `apretado`apretar` ADJ  VLadj ( ) 
+
  `aproximado`aproximar` ADJ  VLadj ( ) 
+
  `apto`aptar` ADJ  VLfin ( ) 
+
  `apuesto`apuesta`apostar` ADJ  NC  VLfin ( ) 
+
  `apunte`apuntar` NC  VLfin ( ) 
+
  `apurado`apurar` ADJ  VLadj ( ) 
+
  `apuro`apurar` NC  VLfin ( ) 
+
  `arado`arar` NC  VLadj ( ) 
+
  `araña`arañar` NC  VLfin ( ) 
+
  árbol ( ) 
+
  `arca`arcar` NC  VLfin ( ) 
+
  `archivo`archivar` NC  VLfin ( ) 
+
  `arcilla`arcillar` NC  VLfin ( ) 
+
  `area|área`area` NC  PE ( ) 
+
  `arena`arenar` NC  VLfin ( ) 
+
  `arma`armar` NC  VLfin ( ) 
+
  `armada`armar` NC  VLadj ( ) 
+
  `armónico`armónica` ADJ  NC ( ) 
+
  `aro`arar` NC  VLfin ( ) 
+
  `arpa`arpar` NC  VLfin ( ) 
+
  `arrancada`arrancar` NC  VLadj ( ) 
+
  `arranque`arrancar` NC  VLfin ( ) 
+
  `arrecife`arrecifar` NC  VLfin ( ) 
+
  `arresto`arrestar` NC  VLfin ( ) 
+
  `arroba`arrobar` NC  VLfin ( ) 
+
  `arrojo`arrojar` NC  VLfin ( ) 
+
  `arroyo`arroyar` NC  VLfin ( ) 
+
  `arruga`arrugar` NC  VLfin ( ) 
+
  `asado`asar` NC  VLadj ( ) 
+
  `asalariado`asalariar` ADJ  VLadj ( ) 
+
  `asalariado`asalariado`asalariar` ADJ  NC  VLadj ( ) 
+
  `asalto`asaltar` NC  VLfin ( ) 
+
  `asedio`asediar` NC  VLfin ( ) 
+
  `aseo`asear` NC  VLfin ( ) 
+
  `as`asar|asir` NC  VLfin ( ) 
+
  `asesino`asesinar` NC  VLfin ( ) 
+
  `asesino`asesino`asesinar` ADJ  NC  VLfin ( ) 
+
  `asesor`asesorar` NC  VLfin ( ) 
+
  `asfalto`asfaltar` NC  VLfin ( ) 
+
  `asfixia`asfixiar` NC  VLfin ( ) 
+
  `asiento`asentar|asentir` NC  VLfin ( ) 
+
  `asilo`asilar` NC  VLfin ( ) 
+
  `asociado`asociada`asociar` ADJ  NC  VLadj ( ) 
+
  `asociada`asociar` NC  VLadj ( ) 
+
  `asociado`asociado`asociar` ADJ  NC  VLadj ( ) 
+
  `asombro`asombrar` NC  VLfin ( ) 
+
  `aspa`aspar` NC  VLfin ( ) 
+
  áspero ( ) 
+
  `asta`astillar` NC  VLfin ( ) 
+
  `astrofísico`astrofísica` ADJ  NC ( ) 
+
  `atado`atar` ADJ  VLadj ( ) 
+
  `atajo`atajar` NC  VLfin ( ) 
+
  `ataque`atacar` NC  VLfin ( ) 
+
  `atasco`atascar` NC  VLfin ( ) 
+
  `ateo`ateo`atear` ADJ  NC  VLfin ( ) 
+
  `atento`atentar` ADJ  VLfin ( ) 
+
  `atentado`atentar` NC  VLadj ( ) 
+
  `aterrorizado`aterrorizar` ADJ  VLadj ( ) 
+
  `atino`atinar` NC  VLfin ( ) 
+
  `atisbo`atisbar` NC  VLfin ( ) 
+
  `atormentado`atormentar` ADJ  VLadj ( ) 
+
  `atraco`atracar` NC  VLfin ( ) 
+
  `atraso`atrasar` NC  VLfin ( ) 
+
  `atropello`atropellar` NC  VLfin ( ) 
+
  àulico ( ) 
+
  `ausente`ausentar` ADJ  VLfin ( ) 
+
  `auspicio`auspiciar` NC  VLfin ( ) 
+
  `autorizado`autorizar` ADJ  VLadj ( ) 
+
  `auxilio`auxiliar` NC  VLfin ( ) 
+
  `aval`avalar` NC  VLfin ( ) 
+
  `avellana`avellanar` NC  VLfin ( ) 
+
  `avena`avenar` NC  VLfin ( ) 
+
  `avenida`avenir` NC  VLadj ( ) 
+
  `aventura`aventurar` NC  VLfin ( ) 
+
  `averiado`averiar` ADJ  VLadj ( ) 
+
  `avío`aviar` NC  VLfin ( ) 
+
  `azor`azorar` NC  VLfin ( ) 
+
  `azote`azotar` NC  VLfin ( ) 
+
  `azucarero`azucarera` ADJ  NC ( ) 
+
  `azufre`azufrar` NC  VLfin ( ) 
+
  `azulado`azular` ADJ  VLadj ( ) 
+
  `baile`bailar` NC  VLfin ( ) 
+
  `bajo`baja` ADJ  NC ( ) 
+
  `bajo`bajo`bajo`bajar` ADJ  NC  PREP  VLfin ( ) 
+
  `bala`balar` NC  VLfin ( ) 
+
  `balanceo`balancear` NC  VLfin ( ) 
+
  `balde`baldar` NC  VLfin ( ) 
+
  `barba`barbar` NC  VLfin ( ) 
+
  `barniz`barnizar` NC  VLfin ( ) 
+
  `barro`barrar|barrer` NC  VLfin ( ) 
+
  `basa`basar` NC  VLfin ( ) 
+
  `base`base`base`basar` ADJ  NC  PE  VLfin ( ) 
+
  `basto`bastar` ADJ  VLfin ( ) 
+
  `batalla`batallar` NC  VLfin ( ) 
+
  `bata`batir` NC  VLfin ( ) 
+
  `bautizo`bautizar` NC  VLfin ( ) 
+
  `baño`bañar` NC  VLfin ( ) 
+
  `bebida`beber` NC  VLadj ( ) 
+
  `beldad`beldar` NC  VLfin ( ) 
+
  `beneficio`beneficiar` NC  VLfin ( ) 
+
  `beso`besar` NC  VLfin ( ) 
+
  `bienvenido`bienvenida` ADJ  NC ( ) 
+
  `bioquímico`bioquímica` ADJ  NC ( ) 
+
  `bocina`bocinar` NC  VLfin ( ) 
+
  `bohemio`bohemia` ADJ  NC ( ) 
+
  `boleto`boletar` NC  VLfin ( ) 
+
  `bollo`bollar` NC  VLfin ( ) 
+
  `bombardeo`bombardear` NC  VLfin ( ) 
+
  `bombeo`bombear` NC  VLfin ( ) 
+
  `bordado`bordar` NC  VLadj ( ) 
+
  `bostezo`bostezar` NC  VLfin ( ) 
+
  `bota`botar` NC  VLfin ( ) 
+
  `bote`botar` NC  VLfin ( ) 
+
  `boxeo`boxear` NC  VLfin ( ) 
+
  `brea`brear` NC  VLfin ( ) 
+
  `brillo`brillar` NC  VLfin ( ) 
+
  `broma`bromar` NC  VLfin ( ) 
+
  `bronco`bronca` ADJ  NC ( ) 
+
  `brote`brotar` NC  VLfin ( ) 
+
  `brujo`brujo`brujir` ADJ  NC  VLfin ( ) 
+
  `bruma`brumar` NC  VLfin ( ) 
+
  `bufanda`bufar` NC  VLger ( ) 
+
  `burla`burlar` NC  VLfin ( ) 
+
  `busca`buscar` NC  VLfin ( ) 
+
  `buzo`buzar` NC  VLfin ( ) 
+
  `búfalo`bufar` NC  VCLIfin ( ) 
+
  `caño`Caño` NC  NP ( ) 
+
  `cabello`cabellar` NC  VLfin ( ) 
+
  `cableado`cablear` NC  VLadj ( ) 
+
  `cacha`cachar` NC  VLfin ( ) 
+
  `cacho`cachar` NC  VLfin ( ) 
+
  `caduco`caducar` ADJ  VLfin ( ) 
+
  `cagada`cagar` NC  VLadj ( ) 
+
  `cagado`cagar` ADJ  VLadj ( ) 
+
  `cala`calar` NC  VLfin ( ) 
+
  `calera`Calera` NC  NP ( ) 
+
  `caliente`calentar` ADJ  VLfin ( ) 
+
  `calla`callar` NP  VLfin ( ) 
+
  `calle`callar` NC  VLfin ( ) 
+
  `callo`callar` NC  VLfin ( ) 
+
  `calma`calmar` NC  VLfin ( ) 
+
  `calmo`calmar` ADJ  VLfin ( ) 
+
  `calumnia`calumniar` NC  VLfin ( ) 
+
  `calvo`calvar` ADJ  VLfin ( ) 
+
  `calzado`calzar` NC  VLadj ( ) 
+
  `calza`calzar` NC  VLfin ( ) 
+
  `cancillería`Cancillería` NC  NP ( ) 
+
  `candado`candar` NC  VLadj ( ) 
+
  `cansado`cansar` ADJ  VLadj ( ) 
+
  `capitulo`capitular` NC  VLfin ( ) 
+
  `captura`capturar` NC  VLfin ( ) 
+
  `caro`cara` ADJ  NC ( ) 
+
  `caracol`caracoles` NC  NP ( ) 
+
  `carácter`caracteres` NC  PE ( ) 
+
  `característico`característica` ADJ  NC ( ) 
+
  `carbonato`carbonatar` NC  VLfin ( ) 
+
  `carcoma`carcomer` NC  VLfin ( ) 
+
  `cardo`cardar` NC  VLfin ( ) 
+
  `cargado`cargada`cargar` ADJ  NC  VLadj ( ) 
+
  `cargado`cargar` ADJ  VLadj ( ) 
+
  `carga`cargar` NC  VLfin ( ) 
+
  `cariño`cariñar` NC  VLfin ( ) 
+
  `carpa`carpir` NC  VLfin ( ) 
+
  `carótido`carótida` ADJ  NC ( ) 
+
  `casa`casar` NC  VLfin ( ) 
+
  `casado`casar` ADJ  VLadj ( ) 
+
  `cascada`cascar` NC  VLadj ( ) 
+
  `casco`cascar` NC  VLfin ( ) 
+
  `castañuelo`castañuela` ADJ  NC ( ) 
+
  `castigado`castigar` ADJ  VLadj ( ) 
+
  `castigo`castigar` NC  VLfin ( ) 
+
  `casto`castillo` ADJ  NC ( ) 
+
  `catedral`Catedral` NC  NP ( ) 
+
  `causa`causar` NC  VLfin ( ) 
+
  `cautela`cautelar` NC  VLfin ( ) 
+
  `cautivo`cautivo`cautivar` ADJ  NC  VLfin ( ) 
+
  `cava`cavar` NC  VLfin ( ) 
+
  `cayo`caer` NC  VLfin ( ) 
+
  `caza`cazar` NC  VLfin ( ) 
+
  `cazo`cazar` NC  VLfin ( ) 
+
  `caída`caer` NC  VLadj ( ) 
+
  `cebada`cebar` NC  VLadj ( ) 
+
  `cebo`cebar` NC  VLfin ( ) 
+
  `ceja`cejar` NC  VLfin ( ) 
+
  `celo`celar` NC  VLfin ( ) 
+
  `cemento`cementar` NC  VLfin ( ) 
+
  `cena`cenar` NC  VLfin ( ) 
+
  `censo`censar` NC  VLfin ( ) 
+
  `centrífugo`centrífuga` ADJ  NC ( ) 
+
  `cercado`cercar` NC  VLadj ( ) 
+
  `cerrado`cerrar` ADJ  VLadj ( ) 
+
  `certificado`certificar` NC  VLadj ( ) 
+
  `cese`cesar` NC  VLfin ( ) 
+
  `ceño`ceñir` NC  VLfin ( ) 
+
  `chal`chalar` NC  VLfin ( ) 
+
  `chalet`chalar` NC  VLfin ( ) 
+
  `chapa`chapar` NC  VLfin ( ) 
+
  `charla`charlar` NC  VLfin ( ) 
+
  `chasco`chascar` NC  VLfin ( ) 
+
  `checo`checa`checar` ADJ  NC  VLfin ( ) 
+
  `chicharro`chicharrar` NC  VLfin ( ) 
+
  `chino`chino`chinar` ADJ  NC  VLfin ( ) 
+
  `chisme`chismar` NC  VLfin ( ) 
+
  `chivo`chivar` NC  VLfin ( ) 
+
  `chuta`chutar` NP  VLfin ( ) 
+
  `cicatriz`cicatrizar` NC  VLfin ( ) 
+
  `ciego`cegar` ADJ  VLfin ( ) 
+
  `cimiento`cimentar` NC  VLfin ( ) 
+
  `cinético`cinética` ADJ  NC ( ) 
+
  `círculo`circular` NC  VLfin ( ) 
+
  `cita`citar` NC  VLfin ( ) 
+
  `civilizado`civilizar` ADJ  VLadj ( ) 
+
  `claro`clarar` ADJ  VLfin ( ) 
+
  `clave`clave`clavar` ADJ  NC  VLfin ( ) 
+
  `clavo`clavar` NC  VLfin ( ) 
+
  `clínico`clínica` ADJ  NC ( ) 
+
  `coacción`coaccionar` NC  VLfin ( ) 
+
  `coartada`coartar` NC  VLadj ( ) 
+
  `cobija`cobijar` NC  VLfin ( ) 
+
  `cobijo`cobijar` NC  VLfin ( ) 
+
  `cobra`cobrar` NC  VLfin ( ) 
+
  `cobre`cobrar` NC  VLfin ( ) 
+
  `coca`cocar` NC  VLfin ( ) 
+
  `cocina`cocinar` NC  VLfin ( ) 
+
  `coco`cocar` NC  VLfin ( ) 
+
  `codicia`codiciar` NC  VLfin ( ) 
+
  `coito`coitar` NC  VLfin ( ) 
+
  `colcha`colchar` NC  VLfin ( ) 
+
  `colección`coleccionar` NC  VLfin ( ) 
+
  `colecta`colectar` NC  VLfin ( ) 
+
  `colegiado`colegiar` NC  VLadj ( ) 
+
  `colegio`colegiar` NC  VLfin ( ) 
+
  `colgado`colgar` ADJ  VLadj ( ) 
+
  `colocado`colocar` ADJ  VLadj ( ) 
+
  `colorado`colorar` ADJ  VLadj ( ) 
+
  `columpio`columpiar` NC  VLfin ( ) 
+
  `comando`comandar` NC  VLfin ( ) 
+
  `comarca`comarcar` NC  VLfin ( ) 
+
  `combate`combatir` NC  VLfin ( ) 
+
  `comento`comentar` NC  VLfin ( ) 
+
  `comercio`comerciar` NC  VLfin ( ) 
+
  `cometa`cometer` NC  VLfin ( ) 
+
  `comida`comer`comedir` NC  VLadj  VLfin ( ) 
+
  `comer`comedir` VLadj  VLfin ( ) 
+
  `comisaría`comisar` NC  VLfin ( ) 
+
  `comisión`comisionar` NC  VLfin ( ) 
+
  `cómodo`cómoda` ADJ  NC ( ) 
+
  `compacto`compactar` ADJ  VLfin ( ) 
+
  `compadre`compadrar` NC  VLfin ( ) 
+
  `compartido`compartir` ADJ  VLadj ( ) 
+
  `compás`compasar` NC  VLfin ( ) 
+
  `compendio`compendiar` NC  VLfin ( ) 
+
  `completo`completar` ADJ  VLfin ( ) 
+
  `complicado`complicar` ADJ  VLadj ( ) 
+
  `comportarse`comportar` VCLIinf  VLinf ( ) 
+
  `compra`comprar` NC  VLfin ( ) 
+
  `compuesto`componer` ADJ  VLadj ( ) 
+
  `compuesto`componer` NC  VLadj ( ) 
+
  `compulso`compulsar` ADJ  VLfin ( ) 
+
  `comunicante`comunicar` ADJ  VLadj ( ) 
+
  `concerniente`concernir` ADJ  VLadj ( ) 
+
  `concho`concha` ADJ  NC ( ) 
+
  `concreto`concretar` ADJ  VLfin ( ) 
+
  `concurso`concursar` NC  VLfin ( ) 
+
  `condena`condenar` NC  VLfin ( ) 
+
  `condesa`condesar` NC  VLfin ( ) 
+
  `condición`condicion` NC  PE ( ) 
+
  `condimento`condimentar` NC  VLfin ( ) 
+
  `conectado`conectar` ADJ  VLadj ( ) 
+
  `confección`confeccionar` NC  VLfin ( ) 
+
  `confín`confinar` NC  VLfin ( ) 
+
  `conforme`conforme`conforme`conforme`conformar` ADJ  CSUBF  CSUBX  PREP  VLfin ( ) 
+
  `confundido`confundir` ADJ  VLadj ( ) 
+
  `congelado`congelar` ADJ  VLadj ( ) 
+
  `conjura`conjurar` NC  VLfin ( ) 
+
  `conmocionado`conmocionar` ADJ  VLadj ( ) 
+
  `conmoción`conmocionar` NC  VLfin ( ) 
+
  `conmovido`conmover` ADJ  VLadj ( ) 
+
  `conseguido`conseguir` ADJ  VLadj ( ) 
+
  `conserva`conservar` NC  VLfin ( ) 
+
  `considerado`considerar` ADJ  VLadj ( ) 
+
  `consuelo`consolar` NC  VLfin ( ) 
+
  `consulta`consultar` NC  VLfin ( ) 
+
  `contagio`contagiar` NC  VLfin ( ) 
+
  `contenido`contener` ADJ  VLadj ( ) 
+
  `contenido`contenido`contener` ADJ  NC  VLadj ( ) 
+
  `contento`contentar` ADJ  VLfin ( ) 
+
  `contienda`contender` NC  VLfin ( ) 
+
  `contraataque`contraatacar` NC  VLfin ( ) 
+
  `contradictorio`contradictoria` ADJ  NC ( ) 
+
  `contrapeso`contrapesar` NC  VLfin ( ) 
+
  `contraste`contrastar` NC  VLfin ( ) 
+
  `contrata`contratar` NC  VLfin ( ) 
+
  `controlado`controlar` ADJ  VLadj ( ) 
+
  `controlante`controlar` ADJ  VLadj ( ) 
+
  `controvertido`controvertir` ADJ  VLadj ( ) 
+
  `converso`conversar` ADJ  VLfin ( ) 
+
  `conversado`conversar` ADJ  VLadj ( ) 
+
  `convoy`convoyar` NC  VLfin ( ) 
+
  `cooperativo`cooperativa` ADJ  NC ( ) 
+
  `coordenado`coordenada` ADJ  NC ( ) 
+
  `copia`copiar` NC  VLfin ( ) 
+
  `corona`coronar` NC  VLfin ( ) 
+
  `coronario`coronaria` ADJ  NC ( ) 
+
  `correa`correar` NC  VLfin ( ) 
+
  `correlación`correlacionar` NC  VLfin ( ) 
+
  `correo`correar` NC  VLfin ( ) 
+
  `correo`correr` NC  VLfin ( ) 
+
  `corrida`correr` NC  VLadj ( ) 
+
  `corro`correr` NC  VLfin ( ) 
+
  `corto`corta`cortar` ADJ  NC  VLfin ( ) 
+
  `cortado`cortar` NC  VLadj ( ) 
+
  `corto`corta` ADJ  NC ( ) 
+
  `corte`cortar` NC  VLfin ( ) 
+
  `cosecha`cosechar` NC  VLfin ( ) 
+
  `costado`costar` NC  VLadj ( ) 
+
  `costanero`costanera` ADJ  NC ( ) 
+
  `costero`costera` ADJ  NC ( ) 
+
  `cota`cotar` NC  VLfin ( ) 
+
  `crecida`crecer` NC  VLadj ( ) 
+
  `creciente`crecer` ADJ  VLadj ( ) 
+
  `criado`criar` NC  VLadj ( ) 
+
  `cristiano`cristianar` ADJ  VLfin ( ) 
+
  `cruz`cruzar` NC  VLfin ( ) 
+
  `cruzado`cruzar` ADJ  VLadj ( ) 
+
  `cuadra`cuadrar` NC  VLfin ( ) 
+
  `cuadrado`cuadrar` ADJ  VLadj ( ) 
+
  `cuartel`cuartelar` NC  VLfin ( ) 
+
  `cubierto`cubrir` ADJ  VLadj ( ) 
+
  `cubierto`cubierto`cubrir` ADJ  NC  VLadj ( ) 
+
  `cuchara`cuchar` NC  VLfin ( ) 
+
  `cuco`cucar` NC  VLfin ( ) 
+
  `cuerdo`cuerda` ADJ  NC ( ) 
+
  `cuesta`costar` NC  VLfin ( ) 
+
  `cuidado`cuidar` ADJ  VLadj ( ) 
+
  `cuidado`cuidadito` NC  NP ( ) 
+
  `cuidado`cuidar` NC  VLadj ( ) 
+
  `culinario`culinaria` ADJ  NC ( ) 
+
  `cultivo`cultivar` NC  VLfin ( ) 
+
  `cultura`culturar` NC  VLfin ( ) 
+
  `cumplido`cumplir` ADJ  VLadj ( ) 
+
  `cuna`cunar` NC  VLfin ( ) 
+
  `cura`curar` NC  VLfin ( ) 
+
  `cuña`cuñar` NC  VLfin ( ) 
+
  `cuñado`cuñar` NC  VLadj ( ) 
+
  `cáscara`cáscaras` NC  NP ( ) 
+
  `dar`dado`dar` ADJ  CSUBF  VLadj ( ) 
+
  `dale`dar` NP  VCLIfin ( ) 
+
  `danza`danzar` NC  VLfin ( ) 
+
  `dar`datar` VCLIfin  VLfin ( ) 
+
  `daño`dañar` NC  VLfin ( ) 
+
  `débil`debilitar` ADJ  VLfin ( ) 
+
  `decepcionado`decepcionar` ADJ  VLadj ( ) 
+
  `decepción`decepcionar` NC  VLfin ( ) 
+
  `decidido`decidir` ADJ  VLadj ( ) 
+
  `decreto`decretar` NC  VLfin ( ) 
+
  `defensivo`defensiva` ADJ  NC ( ) 
+
  `definido`definir` ADJ  VLadj ( ) 
+
  `deforme`deformar` ADJ  VLfin ( ) 
+
  `dehesa`dehesar` NC  VLfin ( ) 
+
  `dejo`dejar` NC  VLfin ( ) 
+
  `delegado`delegar` NC  VLadj ( ) 
+
  `deleite`deleitar` NC  VLfin ( ) 
+
  `demandado`demandar` NC  VLadj ( ) 
+
  `demanda`demandar` NC  VLfin ( ) 
+
  `demonio`demonios` NC  NP ( ) 
+
  `demudado`desmudar` ADJ  VLadj ( ) 
+
  `denuncia`denunciar` NC  VLfin ( ) 
+
  `denuncio`denunciar` NC  VLfin ( ) 
+
  `dependiente`dependiente`depender` ADJ  NC  VLadj ( ) 
+
  `deporte`deportar` NC  VLfin ( ) 
+
  `depurador`depuradora` ADJ  NC ( ) 
+
  `derecho`derecha` ADJ  NC ( ) 
+
  `deriva`derivar` NC  VLfin ( ) 
+
  `derivado`derivar` ADJ  VLadj ( ) 
+
  `derribado`derribar` ADJ  VLadj ( ) 
+
  `derroche`derrochar` NC  VLfin ( ) 
+
  `derrota`derrotar` NC  VLfin ( ) 
+
  `derrotado`derrotar` ADJ  VLadj ( ) 
+
  `desacato`desacatar` NC  VLfin ( ) 
+
  `desacomodado`desacomodar` ADJ  VLadj ( ) 
+
  `desacostumbrado`desacostumbrar` ADJ  VLadj ( ) 
+
  `desacreditado`desacreditar` ADJ  VLadj ( ) 
+
  `desafuero`desaforar` NC  VLfin ( ) 
+
  `desafío`desafiar` NC  VLfin ( ) 
+
  `desagrado`desagradar` NC  VLfin ( ) 
+
  `desagravio`desagraviar` NC  VLfin ( ) 
+
  `desagüe`desaguar` NC  VLfin ( ) 
+
  `desahogado`desahogar` ADJ  VLadj ( ) 
+
  `desahogo`desahogar` NC  VLfin ( ) 
+
  `desahucio`desahuciar` NC  VLfin ( ) 
+
  `desaire`desairar` NC  VLfin ( ) 
+
  `desaliento`desalentar` NC  VLfin ( ) 
+
  `desalojo`desalojar` NC  VLfin ( ) 
+
  `desamparo`desamparar` NC  VLfin ( ) 
+
  `desarme`desarmar` NC  VLfin ( ) 
+
  `desarraigo`desarraigar` NC  VLfin ( ) 
+
  `desasosiego`desasosegar` NC  VLfin ( ) 
+
  `desate`desatar` NC  VLfin ( ) 
+
  `desayuno`desayunar` NC  VLfin ( ) 
+
  `descabello`descabellar` NC  VLfin ( ) 
+
  `descalabro`descalabrar` NC  VLfin ( ) 
+
  `descalzo`descalzar` ADJ  VLfin ( ) 
+
  `descanso`descansar` NC  VLfin ( ) 
+
  `descarado`descarar` ADJ  VLadj ( ) 
+
  `descarga`descargar` NC  VLfin ( ) 
+
  `descargada`descargar` NC  VLadj ( ) 
+
  `descargo`descargar` NC  VLfin ( ) 
+
  `descaro`descarar` NC  VLfin ( ) 
+
  `descarte`descartar` NC  VLfin ( ) 
+
  `descompuesto`descomponer` ADJ  VLadj ( ) 
+
  `desconcertado`desconcertar` ADJ  VLadj ( ) 
+
  `desconcierto`desconcertar` NC  VLfin ( ) 
+
  `desconectado`desconectar` ADJ  VLadj ( ) 
+
  `desconfiado`desconfiar` ADJ  VLadj ( ) 
+
  `desconocida`desconocer` NC  VLadj ( ) 
+
  `desconocido`desconocer` ADJ  VLadj ( ) 
+
  `descontento`descontentar` ADJ  VLfin ( ) 
+
  `descosido`descoser` ADJ  VLadj ( ) 
+
  `descrito`describir` ADJ  VLadj ( ) 
+
  `descubierto`descubierta`descubrir` ADJ  NC  VLadj ( ) 
+
  `descubierto`descubrir` ADJ  VLadj ( ) 
+
  `descuento`descontar` NC  VLfin ( ) 
+
  `descuidado`descuidar` ADJ  VLadj ( ) 
+
  `descuido`descuidar` NC  VLfin ( ) 
+
  `desecho`desechar` NC  VLfin ( ) 
+
  `desembarco`desembarcar` NC  VLfin ( ) 
+
  `desembarque`desembarcar` NC  VLfin ( ) 
+
  `desembolso`desembolsar` NC  VLfin ( ) 
+
  `desemboque`desembocar` NC  VLfin ( ) 
+
  `desempeño`desempeñar` NC  VLfin ( ) 
+
  `desencadenante`desencadenar` ADJ  VLadj ( ) 
+
  `desencanto`desencantar` NC  VLfin ( ) 
+
  `desenfoque`desenfocar` NC  VLfin ( ) 
+
  `desenlace`desenlazar` NC  VLfin ( ) 
+
  `desequilibrado`desequilibrar` ADJ  VLadj ( ) 
+
  `desesperado`desesperar` ADJ  VLadj ( ) 
+
  `desesperanza`desesperanzar` NC  VLfin ( ) 
+
  `desestima`desestimar` NC  VLfin ( ) 
+
  `desfalco`desfalcar` NC  VLfin ( ) 
+
  `desfasado`desfasar` ADJ  VLadj ( ) 
+
  `desfase`desfasar` NC  VLfin ( ) 
+
  `desfile`desfilar` NC  VLfin ( ) 
+
  `desgarro`desgarrar` NC  VLfin ( ) 
+
  `desgaste`desgastar` NC  VLfin ( ) 
+
  `desglose`desglosar` NC  VLfin ( ) 
+
  `desgracia`desgraciar` NC  VLfin ( ) 
+
  `desgraciado`desgraciar` ADJ  VLadj ( ) 
+
  `desgraciado`desgraciado`desgraciar` ADJ  NC  VLadj ( ) 
+
  `deshielo`deshelar` NC  VLfin ( ) 
+
  `desigual`desigualar` ADJ  VLfin ( ) 
+
  `desilusión`desilusionar` NC  VLfin ( ) 
+
  `deslinde`deslindar` NC  VLfin ( ) 
+
  `deslumbre`deslumbrar` NC  VLfin ( ) 
+
  `desmayo`desmayar` NC  VLfin ( ) 
+
  `desmesurado`desmesurar` ADJ  VLadj ( ) 
+
  `desmonte`desmontar` NC  VLfin ( ) 
+
  `desnivel`desnivelar` NC  VLfin ( ) 
+
  `desnudo`desnudar` ADJ  VLfin ( ) 
+
  `desocupado`desocupar` ADJ  VLadj ( ) 
+
  `desordenado`desordenar` ADJ  VLadj ( ) 
+
  `despacho`despachar` NC  VLfin ( ) 
+
  `desparpajo`desparpajar` NC  VLfin ( ) 
+
  `despedida`despedir` NC  VLadj ( ) 
+
  `despegado`despegar` ADJ  VLadj ( ) 
+
  `despegue`despegar` NC  VLfin ( ) 
+
  `despeje`despejar` NC  VLfin ( ) 
+
  `desperdicio`desperdiciar` NC  VLfin ( ) 
+
  `despilfarro`despilfarrar` NC  VLfin ( ) 
+
  `desplante`desplantar` NC  VLfin ( ) 
+
  `despliegue`desplegar` NC  VLfin ( ) 
+
  `desplome`desplomar` NC  VLfin ( ) 
+
  `despojo`despojar` NC  VLfin ( ) 
+
  `desprecio`despreciar` NC  VLfin ( ) 
+
  `desprendido`desprender` ADJ  VLadj ( ) 
+
  `despreocupado`despreocupar` ADJ  VLadj ( ) 
+
  `desprestigio`desprestigiar` NC  VLfin ( ) 
+
  `desproporcionado`desproporcionar` ADJ  VLadj ( ) 
+
  `desprovisto`desproveer` ADJ  VLadj ( ) 
+
  `desquite`desquitar` NC  VLfin ( ) 
+
  `destajo`destajar` NC  VLfin ( ) 
+
  `destapada`destapar` NC  VLadj ( ) 
+
  `destello`destellar` NC  VLfin ( ) 
+
  `destierro`desterrar` NC  VLfin ( ) 
+
  `destrozo`destrozar` NC  VLfin ( ) 
+
  `desuso`desusar` NC  VLfin ( ) 
+
  `detallado`detallar` ADJ  VLadj ( ) 
+
  `determinado`determinar` ADJ  VLadj ( ) 
+
  `determinante`determinante`determinar` ADJ  NC  VLadj ( ) 
+
  `determine`determinar` PE  VLfin ( ) 
+
  `diálogo`dialogar` NC  VLfin ( ) 
+
  `dibujo`dibujar` NC  VLfin ( ) 
+
  `dicho`dicho`decir` ADJ  QU  VLadj ( ) 
+
  `dicho`dicho`decir` NC  QU  VLadj ( ) 
+
  `dictado`dictar` NC  VLadj ( ) 
+
  `didáctico`didáctica` ADJ  NC ( ) 
+
  `diente`dentar` NC  VLfin ( ) 
+
  `diestro`diestra` ADJ  NC ( ) 
+
  `dieta`dietar` NC  VLfin ( ) 
+
  `dietético`dietética` ADJ  NC ( ) 
+
  `digno`dignar` ADJ  VLfin ( ) 
+
  `dinámico`dinámica` ADJ  NC ( ) 
+
  `diputado`diputar` NC  VLadj ( ) 
+
  `director`directriz` ADJ  NC ( ) 
+
  `disciplina`disciplinar` NC  VLfin ( ) 
+
  `disciplinado`disciplinar` ADJ  VLadj ( ) 
+
  `disculpa`disculpar` NC  VLfin ( ) 
+
  `discurso`discursar` NC  VLfin ( ) 
+
  `discutido`discutir` ADJ  VLadj ( ) 
+
  `disfraz`disfrazar` NC  VLfin ( ) 
+
  `disfrute`disfrutar` NC  VLfin ( ) 
+
  `disgusto`disgustar` NC  VLfin ( ) 
+
  `disimulo`disimular` NC  VLfin ( ) 
+
  `disminuido`disminuir` ADJ  VLadj ( ) 
+
  `disparate`disparatar` NC  VLfin ( ) 
+
  `disparo`disparar` NC  VLfin ( ) 
+
  `disperso`dispersar` ADJ  VLfin ( ) 
+
  `dispuesto`disponer` ADJ  VLadj ( ) 
+
  `disputa`disputar` NC  VLfin ( ) 
+
  `distinguido`distinguir` ADJ  VLadj ( ) 
+
  `distinto`distintos` ADJ  QU ( ) 
+
  `distraído`distraer` ADJ  VLadj ( ) 
+
  `distribuido`distribuir` ADJ  VLadj ( ) 
+
  `diverso`diversos` ADJ  QU ( ) 
+
  `divertido`divertir` ADJ  VLadj ( ) 
+
  `diviso`divisa`divisar` ADJ  NC  VLfin ( ) 
+
  `diviso`divisar` ADJ  VLfin ( ) 
+
  `divorcio`divorciar` NC  VLfin ( ) 
+
  `doblado`doblar` ADJ  VLadj ( ) 
+
  `doctor`doctorar` NC  VLfin ( ) 
+
  `doctrina`doctrinar` NC  VLfin ( ) 
+
  `dolido`doler` ADJ  VLadj ( ) 
+
  `domesticado`domesticar` ADJ  VLadj ( ) 
+
  `domicilio`domiciliar` NC  VLfin ( ) 
+
  `dominó`dominar` NC  VLfin ( ) 
+
  `don`donar` NC  VLfin ( ) 
+
  `dorado`dorar` ADJ  VLadj ( ) 
+
  `dormido`dormir` ADJ  VLadj ( ) 
+
  `dotado`dotar` ADJ  VLadj ( ) 
+
  `dote`dotar` NC  VLfin ( ) 
+
  `ducha`duchar` NC  VLfin ( ) 
+
  `duda`dudar` NC  VLfin ( ) 
+
  `duelo`dolar|doler` NC  VLfin ( ) 
+
  `duplicado`duplicar` ADJ  VLadj ( ) 
+
  `duro`durar` ADJ  VLfin ( ) 
+
  `e`y`y` ALFS  CC  PREP ( ) 
+
  `eclipse`eclipsar` NC  VLfin ( ) 
+
  `egreso`egresar` NC  VLfin ( ) 
+
  `ejercito`ejercitar` NC  VLfin ( ) 
+
  `el`él` ART  PPX ( ) 
+
  `elegía`elegir` NC  VLfin ( ) 
+
  `elevado`elevar` ADJ  VLadj ( ) 
+
  él ( ) 
+
  `elogio`elogiar` NC  VLfin ( ) 
+
  `embarazo`embarazar` NC  VLfin ( ) 
+
  `embuste`embustir` NC  VLfin ( ) 
+
  `embutido`embutir` NC  VLadj ( ) 
+
  `emisor`emisora` ADJ  NC ( ) 
+
  `emoción`emocionar` NC  VLfin ( ) 
+
  `empanada`empanar` NC  VLadj ( ) 
+
  `emparedado`emparedar` NC  VLadj ( ) 
+
  `empeño`empeñar` NC  VLfin ( ) 
+
  `empleada`emplear` NC  VLadj ( ) 
+
  `empleado`emplear` NC  VLadj ( ) 
+
  `enagua`enaguar` NC  VLfin ( ) 
+
  `encaje`encajar` NC  VLfin ( ) 
+
  `encaminado`encaminar` ADJ  VLadj ( ) 
+
  `encantado`encantar` ADJ  VLadj ( ) 
+
  `encanto`encantar` NC  VLfin ( ) 
+
  `encapsulado`encapsular` NC  VLadj ( ) 
+
  `encargo`encargar` NC  VLfin ( ) 
+
  `encendido`encender` ADJ  VLadj ( ) 
+
  `enchufe`enchufar` NC  VLfin ( ) 
+
  `encierro`encerrar` NC  VLfin ( ) 
+
  `encontrarse`encontrar` VCLIinf  VLinf ( ) 
+
  `encubierto`encubrir`encubertar` ADJ  VLadj  VLfin ( ) 
+
  `encubierto`encubrir` ADJ  VLadj ( ) 
+
  `encuesta`encostar|encuestar|encuestar` NC  VLfin ( ) 
+
  `encuesta`encostar|encuestar` NC  VLfin ( ) 
+
  `endemoniado`endemoniar` ADJ  VLadj ( ) 
+
  `enemistad`enemistar` NC  VLfin ( ) 
+
  `energético`energética` ADJ  NC ( ) 
+
  `enfado`enfadar` NC  VLfin ( ) 
+
  `enfermo`enfermo`enfermar` ADJ  NC  VLfin ( ) 
+
  `enfoque`enfocar` NC  VLfin ( ) 
+
  `enfrente`enfrentar` ADV  VLfin ( ) 
+
  `enganchado`enganchar` ADJ  VLadj ( ) 
+
  `engaño`engañar` NC  VLfin ( ) 
+
  `enjambre`enjambrar` NC  VLfin ( ) 
+
  `enjuto`enjutar` ADJ  VLfin ( ) 
+
  `enojo`enojar` NC  VLfin ( ) 
+
  `enriquecido`enriquecer` ADJ  VLadj ( ) 
+
  `ensenada`ensenar` NC  VLadj ( ) 
+
  `ensueño`ensoñar` NC  VLfin ( ) 
+
  `entablado`entablar` NC  VLadj ( ) 
+
  `entendido`entender` NC  VLadj ( ) 
+
  `entero`enterar` ADJ  VLfin ( ) 
+
  `entierro`enterrar` NC  VLfin ( ) 
+
  `entrante`entrar` ADJ  VLadj ( ) 
+
  `entraña`entrañar` NC  VLfin ( ) 
+
  `entrañas`entrañar` NC  VLfin ( ) 
+
  `entrecerrado`entrecerrar` ADJ  VLadj ( ) 
+
  `entrega`entregar` NC  VLfin ( ) 
+
  `entretenido`entretener` ADJ  VLadj ( ) 
+
  `entrever`entrevistar` VLadj  VLfin ( ) 
+
  `entusiasmo`entusiasmar` NC  VLfin ( ) 
+
  `enviada`enviar` NC  VLadj ( ) 
+
  `enviado`enviar` NC  VLadj ( ) 
+
  `envidia`envidiar` NC  VLfin ( ) 
+
  época ( ) 
+
  `equilibrado`equilibrar` ADJ  VLadj ( ) 
+
  `equilibrado`equilibrado`equilibrar` ADJ  NC  VLadj ( ) 
+
  `erar|ser`ser` VLfin  VSfin ( ) 
+
  `erizo`erizar` NC  VLfin ( ) 
+
  `erosión`erosionar` NC  VLfin ( ) 
+
  `errado`errar` ADJ  VLadj ( ) 
+
  `esbozo`esbozar` NC  VLfin ( ) 
+
  `escala`escalar` NC  VLfin ( ) 
+
  `escama`escamar` NC  VLfin ( ) 
+
  `escandalizado`escandalizar` ADJ  VLadj ( ) 
+
  `escapada`escapar` NC  VLadj ( ) 
+
  `escape`escape`escapar` NC  PE  VLfin ( ) 
+
  `escape`escapar` NC  VLfin ( ) 
+
  `escaramuza`escaramuzar` NC  VLfin ( ) 
+
  `escaño`escañar` NC  VLfin ( ) 
+
  `escoba`escobar` NC  VLfin ( ) 
+
  `escogida`escoger` ADJ  VLadj ( ) 
+
  `escollo`escollar` NC  VLfin ( ) 
+
  `escolta`escoltar` NC  VLfin ( ) 
+
  `escombro`escombrar` NC  VLfin ( ) 
+
  `escopeta`escopetar` NC  VLfin ( ) 
+
  `escote`escotar` NC  VLfin ( ) 
+
  `escriba`escribir` NC  VLfin ( ) 
+
  `escritura`escriturar` NC  VLfin ( ) 
+
  `escuadrón`escuadronar` NC  VLfin ( ) 
+
  `escucha`escuchar` NC  VLfin ( ) 
+
  `escudo`escudar` NC  VLfin ( ) 
+
  `escuela`escolar` NC  VLfin ( ) 
+
  `escándalo`escandir` NC  VCLIfin ( ) 
+
  `esgrima`esgrimir` NC  VLfin ( ) 
+
  `eslabón`eslabonar` NC  VLfin ( ) 
+
  `esmalte`esmaltar` NC  VLfin ( ) 
+
  `esmero`esmerar` NC  VLfin ( ) 
+
  `espada`espadar` NC  VLfin ( ) 
+
  `espadaña`espadañar` NC  VLfin ( ) 
+
  `espada`espadillar` NC  VLfin ( ) 
+
  `espanto`espantar` NC  VLfin ( ) 
+
  `español`español`españolar` ADJ  NC  VLfin ( ) 
+
  `especializado`especializar` ADJ  VLadj ( ) 
+
  `especificado`especificar` ADJ  VLadj ( ) 
+
  `espejo`espejar` NC  VLfin ( ) 
+
  `espera`esperar` NC  VLfin ( ) 
+
  `esperanza`esperanzar` NC  VLfin ( ) 
+
  `espeso`espesar` ADJ  VLfin ( ) 
+
  `espiga`espigar` NC  VLfin ( ) 
+
  `espina`espinar` NC  VLfin ( ) 
+
  `espino`espinar` NC  VLfin ( ) 
+
  `esponja`esponjar` NC  VLfin ( ) 
+
  `esposo`esposar` NC  VLfin ( ) 
+
  `esposa`esposar` NC  VLfin ( ) 
+
  `espuma`espumar` NC  VLfin ( ) 
+
  `espía`espiar` NC  VLfin ( ) 
+
  `esquina`esquinar` NC  VLfin ( ) 
+
  `esquivo`esquivar` ADJ  VLfin ( ) 
+
  `este`estar` DM  VEfin ( ) 
+
  `establecido`establecer` ADJ  VLadj ( ) 
+
  `estado`estar` NC  VEadj ( ) 
+
  `estadístico`estadística` ADJ  NC ( ) 
+
  `estafa`estafar` NC  VLfin ( ) 
+
  `estampa`estampar` NC  VLfin ( ) 
+
  `estampilla`estampillar` NC  VLfin ( ) 
+
  `estanco`estancar` NC  VLfin ( ) 
+
  `estanque`estancar` NC  VLfin ( ) 
+
  `estaño`estañar` NC  VLfin ( ) 
+
  `estero`esterar` NC  VLfin ( ) 
+
  `estimado`estimar` ADJ  VLadj ( ) 
+
  `estima`estimar` NC  VLfin ( ) 
+
  `estirado`estirar` ADJ  VLadj ( ) 
+
  `estofado`estofar` NC  VLadj ( ) 
+
  `estorbo`estorbar` NC  VLfin ( ) 
+
  `estrecho`estrecho`estrechar` ADJ  NC  VLfin ( ) 
+
  `estrella`estrellar` NC  VLfin ( ) 
+
  `estreno`estrenar` NC  VLfin ( ) 
+
  `estribo`estribar` NC  VLfin ( ) 
+
  `estría`estriar` NC  VLfin ( ) 
+
  `estuche`estuchar` NC  VLfin ( ) 
+
  `estudiado`estudiar` ADJ  VLadj ( ) 
+
  `etc.`etc` NC  PE ( ) 
+
  `etiqueta`etiquetar` NC  VLfin ( ) 
+
  `exagerado`exagerar` ADJ  VLadj ( ) 
+
  `exaltado`exaltar` ADJ  VLadj ( ) 
+
  `excitado`excitar` ADJ  VLadj ( ) 
+
  `excremento`excrementar` NC  VLfin ( ) 
+
  `excusa`excusar` NC  VLfin ( ) 
+
  `excusado`excusar` NC  VLadj ( ) 
+
  `exilio`exiliar` NC  VLfin ( ) 
+
  `expectativas`expectativa` ADJ  NC ( ) 
+
  `expediente`expediente`expedientar` ADJ  NC  VLfin ( ) 
+
  `expedito`expeditar` ADJ  VLfin ( ) 
+
  `experimento`experimentar` NC  VLfin ( ) 
+
  `explanada`explanar` NC  VLadj ( ) 
+
  `explosión`explosionar` NC  VLfin ( ) 
+
  `expreso`expresar` ADJ  VLfin ( ) 
+
  `expuesto`exponer` ADJ  VLadj ( ) 
+
  `expulso`expulsar` ADJ  VLfin ( ) 
+
  `extravío`extraviar` NC  VLfin ( ) 
+
  `extraño`extrañar` ADJ  VLfin ( ) 
+
  `extremo`extremar` ADJ  VLfin ( ) 
+
  `En~lugar~de`en~lugar~de` NP  PREP ( ) 
+
  `fabricante`fabricar` NC  VLadj ( ) 
+
  `faz`facer` NC  VLfin ( ) 
+
  `fácil`facilitar` ADJ  VLfin ( ) 
+
  `factura`facturar` NC  VLfin ( ) 
+
  `facultad`Facu` NC  NP ( ) 
+
  `faena`faenar` NC  VLfin ( ) 
+
  `fago`facer` NC  VLfin ( ) 
+
  `faja`fajar` NC  VLfin ( ) 
+
  `falla`fallar|fallir` NC  VLfin ( ) 
+
  `falta`faltar` NC  VLfin ( ) 
+
  `fanerógamo`fanerógama` ADJ  NC ( ) 
+
  `fantasmo`fantasma` ADJ  NC ( ) 
+
  `fardo`fardar` NC  VLfin ( ) 
+
  `fastidiado`fastidiar` ADJ  VLadj ( ) 
+
  `fastidio`fastidiar` NC  VLfin ( ) 
+
  `fatiga`fatigar` NC  VLfin ( ) 
+
  `fecha`facer`fechar` NC  VLadj  VLfin ( ) 
+
  `feliz`felicitar` ADJ  VLfin ( ) 
+
  `felpa`felpar` NC  VLfin ( ) 
+
  `feria`Feria`feriar` NC  NP  VLfin ( ) 
+
  `feria`feriar` NC  VLfin ( ) 
+
  `fermento`fermentar` NC  VLfin ( ) 
+
  `festejo`festejar` NC  VLfin ( ) 
+
  `fiambre`fiambrar` NC  VLfin ( ) 
+
  `ficha`fichar` NC  VLfin ( ) 
+
  `fieltro`fieltrar` NC  VLfin ( ) 
+
  `fiero`fiera` ADJ  NC ( ) 
+
  `figura`figurar` NC  VLfin ( ) 
+
  `figura`figure`figurar` NC  PE  VLfin ( ) 
+
  `fijo`fija`fijar` ADJ  NC  VLfin ( ) 
+
  `filtrado`filtrar` NC  VLadj ( ) 
+
  `filtrarse`filtrar` VCLIinf  VLinf ( ) 
+
  `fino`finar|finir` ADJ  VLfin ( ) 
+
  `finado`finar` NC  VLadj ( ) 
+
  `finca`fincar` NC  VLfin ( ) 
+
  `firma`firmar` NC  VLfin ( ) 
+
  `firme`firmar` ADJ  VLfin ( ) 
+
  `físico`física` ADJ  NC ( ) 
+
  `flora`florar` NC  VLfin ( ) 
+
  `flor`florar` NC  VLfin ( ) 
+
  `flota`flotar` NC  VLfin ( ) 
+
  `fluido`fluir` ADJ  VLadj ( ) 
+
  `fluido`fluido`fluir` ADJ  NC  VLadj ( ) 
+
  `folio`foliar` NC  VLfin ( ) 
+
  `fomento`fomentar` NC  VLfin ( ) 
+
  `forjado`forjar` ADJ  VLadj ( ) 
+
  `forma`formar` NC  VLfin ( ) 
+
  `formado`formar` ADJ  VLadj ( ) 
+
  `forro`forrar` NC  VLfin ( ) 
+
  `forzado`forzar` ADJ  VLadj ( ) 
+
  `fosa`fosar` NC  VLfin ( ) 
+
  `fotografía`fotografiar` NC  VLfin ( ) 
+
  `fracaso`fracasar` NC  VLfin ( ) 
+
  `fractura`fracturar` NC  VLfin ( ) 
+
  `fragmento`fragmentar` NC  VLfin ( ) 
+
  `frecuente`frecuentar` ADJ  VLfin ( ) 
+
  `freno`frenar` NC  VLfin ( ) 
+
  `fresa`fresar` NC  VLfin ( ) 
+
  `frito`freír`fritar` ADJ  VLadj  VLfin ( ) 
+
  `frito`freír` ADJ  VLadj ( ) 
+
  `frustrado`frustrar` ADJ  VLadj ( ) 
+
  `fruta`frutar` NC  VLfin ( ) 
+
  `fruto`frutar` NC  VLfin ( ) 
+
  `frío`freír` ADJ  VLfin ( ) 
+
  `fuera`fuera`ser` ADV  PREP  VSfin ( ) 
+
  `ir`ser` VLfin  VSfin ( ) 
+
  `fuerza`forzar` NC  VLfin ( ) 
+
  `fundamento`fundamentar` NC  VLfin ( ) 
+
  `funda`fundar|fundir` NC  VLfin ( ) 
+
  `fundido`fundir` ADJ  VLadj ( ) 
+
  `funesto`funestar` ADJ  VLfin ( ) 
+
  `fusil`fusilar` NC  VLfin ( ) 
+
  `fusión`fusionar` NC  VLfin ( ) 
+
  `gafas`gafar` NC  VLfin ( ) 
+
  `galo`gala` ADJ  NC ( ) 
+
  `galardón`galardonar` NC  VLfin ( ) 
+
  `gallo`gallar` NC  VLfin ( ) 
+
  `ganado`ganar` NC  VLadj ( ) 
+
  `gana`ganar` NC  VLfin ( ) 
+
  `gangrena`gangrenar` NC  VLfin ( ) 
+
  `garantía`garantir` NC  VLfin ( ) 
+
  `garbo`garbar` NC  VLfin ( ) 
+
  `garra`garrar|garrir` NC  VLfin ( ) 
+
  `gaseoso`gaseosa` ADJ  NC ( ) 
+
  `gasto`gastar` NC  VLfin ( ) 
+
  `generalizado`generalizar` ADJ  VLadj ( ) 
+
  `general`generalísimo` ADJ  NC ( ) 
+
  `genético`genética` ADJ  NC ( ) 
+
  `gestión`gestionar` NC  VLfin ( ) 
+
  `gesto`gestar` NC  VLfin ( ) 
+
  `gira`girar` NC  VLfin ( ) 
+
  `giro`girar` NC  VLfin ( ) 
+
  `gloria`gloriar` NC  VLfin ( ) 
+
  `glosa`glosar` NC  VLfin ( ) 
+
  `golosina`golosinar` NC  VLfin ( ) 
+
  `gozo`gozar` NC  VLfin ( ) 
+
  `grabado`grabar` NC  VLadj ( ) 
+
  `grada`gradar` NC  VLfin ( ) 
+
  `grama`gramar` NC  VLfin ( ) 
+
  `gramo`gramar` NC  VLfin ( ) 
+
  `granada`granar` NC  VLadj ( ) 
+
  `granado`granar` NC  VLadj ( ) 
+
  `grande`grandeza` ADJ  NC ( ) 
+
  `grano`granar` NC  VLfin ( ) 
+
  `graso`grasa`grasar` ADJ  NC  VLfin ( ) 
+
  `graso`grasar` ADJ  VLfin ( ) 
+
  `grato`gratar` ADJ  VLfin ( ) 
+
  `grieta`grietar` NC  VLfin ( ) 
+
  `grifo`grifar` NC  VLfin ( ) 
+
  `gripe`gripar` NC  VLfin ( ) 
+
  `grito`gritar` NC  VLfin ( ) 
+
  `gráfico`gráfica` ADJ  NC ( ) 
+
  `guarda`guardar` NC  VLfin ( ) 
+
  `guayaba`guayar` NC  VLfin ( ) 
+
  `guinda`guindar` NC  VLfin ( ) 
+
  `guisado`guisar` NC  VLadj ( ) 
+
  `guita`guitar` NC  VLfin ( ) 
+
  `gusto`gustar` NC  VLfin ( ) 
+
  `génico`génica` ADJ  NC ( ) 
+
  `habla`hablar` NC  VLfin ( ) 
+
  `hacha`hachar` NC  VLfin ( ) 
+
  `hacia`hacer` PREP  VLfin ( ) 
+
  `hacienda`hacendar` NC  VLfin ( ) 
+
  `hado`hadar` NC  VLfin ( ) 
+
  `halago`halagar` NC  VLfin ( ) 
+
  `halo`halar` NC  VLfin ( ) 
+
  `hamaca`hamacar` NC  VLfin ( ) 
+
  `hamburgués`hamburguesa` ADJ  NC ( ) 
+
  `harto`hartar` ADJ  VLfin ( ) 
+
  `harto`harto`hartar` ADJ  ADV  VLfin ( ) 
+
  `hecho`hacer` ADJ  VLadj ( ) 
+
  `hechizo`hechizar` NC  VLfin ( ) 
+
  `hecho`hacer` NC  VLadj ( ) 
+
  `helado`helar` ADJ  VLadj ( ) 
+
  `helado`helado`helar` ADJ  NC  VLadj ( ) 
+
  `heno`haber` NC  VHfin ( ) 
+
  `herida`herir` NC  VLadj ( ) 
+
  `hermano`hermanar` NC  VLfin ( ) 
+
  `hervido`herver|hervir` ADJ  VLadj ( ) 
+
  `heurístico`heurística` ADJ  NC ( ) 
+
  `hierba`herbar` NC  VLfin ( ) 
+
  `hierro`herrar` NC  VLfin ( ) 
+
  `hincha`henchir|hinchar` NC  VLfin ( ) 
+
  `hipo`hipar` NC  VLfin ( ) 
+
  `hipoteca`hipotecar` NC  VLfin ( ) 
+
  `historia`historiar` NC  VLfin ( ) 
+
  `hoz`hozar` NC  VLfin ( ) 
+
  `hojaldre`hojaldrar` NC  VLfin ( ) 
+
  `holgado`holgar` ADJ  VLadj ( ) 
+
  `hondo`honda`hondar` ADJ  NC  VLfin ( ) 
+
  `hondo`hondar` ADJ  VLfin ( ) 
+
  `honesto`honestar` ADJ  VLfin ( ) 
+
  `honor`honorar` NC  VLfin ( ) 
+
  `honra`honrar` NC  VLfin ( ) 
+
  `honrado`honrar` ADJ  VLadj ( ) 
+
  `horca`horcar` NC  VLfin ( ) 
+
  `hormigueo`hormiguear` NC  VLfin ( ) 
+
  `horquilla`horquillar` NC  VLfin ( ) 
+
  `hoyo`hoyar` NC  VLfin ( ) 
+
  `huelga`holgar` NC  VLfin ( ) 
+
  `huella`hollar` NC  VLfin ( ) 
+
  `hueva`huevar` NC  VLfin ( ) 
+
  `huevo`huevar` NC  VLfin ( ) 
+
  `humo`humar` NC  VLfin ( ) 
+
  `huracán`huracanar` NC  VLfin ( ) 
+
  `hurto`hurtar` NC  VLfin ( ) 
+
  `id`ir` NC  VLfin ( ) 
+
  `ida`ir` NC  VLadj ( ) 
+
  `idea`idear` NC  VLfin ( ) 
+
  ídolo ( ) 
+
  `ilusión`ilusionar` NC  VLfin ( ) 
+
  `ilustre`ilustrar` ADJ  VLfin ( ) 
+
  `imaginario`imaginaria` ADJ  NC ( ) 
+
  `imán`imanar` NC  VLfin ( ) 
+
  `impaciente`impacientar` ADJ  VLfin ( ) 
+
  `implante`implantar` NC  VLfin ( ) 
+
  `importante`importar` ADJ  VLadj ( ) 
+
  `importe`importar` NC  VLfin ( ) 
+
  `imposible`imposibilitar` ADJ  VLfin ( ) 
+
  `impresión`impresionar` NC  VLfin ( ) 
+
  `impreso`imprimir` ADJ  VLadj ( ) 
+
  `impuesto`imponer` NC  VLadj ( ) 
+
  `incapaz`incapacitar` ADJ  VLfin ( ) 
+
  `incapacitado`incapacitar` ADJ  VLadj ( ) 
+
  `incendio`incendiar` NC  VLfin ( ) 
+
  `incienso`incensar` NC  VLfin ( ) 
+
  `inclinado`inclinar` ADJ  VLadj ( ) 
+
  `incorporado`incorporar` ADJ  VLadj ( ) 
+
  `indicado`indicar` ADJ  VLadj ( ) 
+
  `indicio`indiciar` NC  VLfin ( ) 
+
  `indigno`indignar` ADJ  VLfin ( ) 
+
  `indonesio`indonesia` ADJ  NC ( ) 
+
  `indulgencia`indulgenciar` NC  VLfin ( ) 
+
  `indulto`indultar` NC  VLfin ( ) 
+
  `industria`industriar` NC  VLfin ( ) 
+
  `infame`infamar` ADJ  VLfin ( ) 
+
  `infarto`infartar` NC  VLfin ( ) 
+
  `infección`infeccionar` NC  VLfin ( ) 
+
  `infierno`infernar` NC  VLfin ( ) 
+
  `influencia`influenciar` NC  VLfin ( ) 
+
  `informe`informar` NC  VLfin ( ) 
+
  `ingenio`ingeniar` NC  VLfin ( ) 
+
  `ingresado`ingresar` ADJ  VLadj ( ) 
+
  `ingreso`ingresar` NC  VLfin ( ) 
+
  `iniciada`iniciar` NC  VLadj ( ) 
+
  `inicio`iniciar` NC  VLfin ( ) 
+
  `injerto`injertar` ADJ  VLfin ( ) 
+
  `inmigración`Inmigración` NC  NP ( ) 
+
  `inmobiliario`inmobiliaria` ADJ  NC ( ) 
+
  `inquieto`inquietar` ADJ  VLfin ( ) 
+
  `inserto`insertar` ADJ  VLfin ( ) 
+
  `insertado`insertar` ADJ  VLadj ( ) 
+
  `inspección`inspeccionar` NC  VLfin ( ) 
+
  `instruido`instruir` ADJ  VLadj ( ) 
+
  `insulto`insultar` NC  VLfin ( ) 
+
  `integrado`integrar` ADJ  VLadj ( ) 
+
  `integrante`integrar` ADJ  VLadj ( ) 
+
  `íntegro`integrar` ADJ  VLfin ( ) 
+
  `intenso`intensar` ADJ  VLfin ( ) 
+
  `interbando`interbanda` ADJ  NC ( ) 
+
  `interesado`interesar` ADJ  VLadj ( ) 
+
  `interesado`interesada`interesar` ADJ  NC  VLadj ( ) 
+
  `interferente`interferir` ADJ  VLadj ( ) 
+
  `interino`interinar` ADJ  VLfin ( ) 
+
  `interno`interna` ADJ  NC ( ) 
+
  `internado`internar` NC  VLadj ( ) 
+
  `intimidad`intimidar` NC  VLfin ( ) 
+
  íntimo ( ) 
+
  `intriga`intrigar` NC  VLfin ( ) 
+
  `intrincado`intrincar` ADJ  VLadj ( ) 
+
  `intruso`intrusar` ADJ  VLfin ( ) 
+
  `invento`inventar` NC  VLfin ( ) 
+
  `invertido`invertir` ADJ  VLadj ( ) 
+
  `invierno`invernar` NC  VLfin ( ) 
+
  `invitado`invitado`invitar` ADJ  NC  VLadj ( ) 
+
  `izquierdo`izquierda` ADJ  NC ( ) 
+
  `jabón`jabonar` NC  VLfin ( ) 
+
  `jar`jalar` VCLIfin  VLfin ( ) 
+
  `jaleo`jalear` NC  VLfin ( ) 
+
  `jara`jar` NC  VLfin ( ) 
+
  `jarra`jarrar` NC  VLfin ( ) 
+
  `jarro`jarrar` NC  VLfin ( ) 
+
  `jefe`Jefe` NC  NP ( ) 
+
  `jeringa`jeringar` NC  VLfin ( ) 
+
  `jodido`joder` ADJ  VLadj ( ) 
+
  `jornal`jornalar` NC  VLfin ( ) 
+
  `joroba`jorobar` NC  VLfin ( ) 
+
  `jorobado`jorobado`jorobar` ADJ  NC  VLadj ( ) 
+
  `judío`judía` ADJ  NC ( ) 
+
  `jugada`jugar` NC  VLadj ( ) 
+
  `jugado`jugar` ADJ  VLadj ( ) 
+
  `junto`junta`juntar` ADJ  NC  VLfin ( ) 
+
  `junto`junta` ADJ  NC ( ) 
+
  `jurado`jurar` ADJ  VLadj ( ) 
+
  `jurado`jurado`jurar` ADJ  NC  VLadj ( ) 
+
  `juramento`juramentar` NC  VLfin ( ) 
+
  `justo`justa`justar` ADJ  NC  VLfin ( ) 
+
  `justo`justo`justar` ADJ  ADV  VLfin ( ) 
+
  `justo`justar` ADJ  VLfin ( ) 
+
  `justicia`justiciar` NC  VLfin ( ) 
+
  `juzgado`juzgar` NC  VLadj ( ) 
+
  `kilómetro`km` NC  UMMX ( ) 
+
  `el`el`la`él`el` ART  NC  PE  PPC  PPX ( ) 
+
  `labor`laborar` NC  VLfin ( ) 
+
  `lazo`lazar` NC  VLfin ( ) 
+
  `ladrillo`ladrillar` NC  VLfin ( ) 
+
  `lama`lamer` NC  VLfin ( ) 
+
  `lamento`lamentar` NC  VLfin ( ) 
+
  `lanza`lanzar` NC  VLfin ( ) 
+
  `largo`larga`largar` ADJ  NC  VLfin ( ) 
+
  `el`él` ART  PPC ( ) 
+
  `lastre`lastrar` NC  VLfin ( ) 
+
  `lato`lata`latir` ADJ  NC  VLfin ( ) 
+
  `latido`latir` NC  VLadj ( ) 
+
  `lato`latir` ADJ  VLfin ( ) 
+
  `laureado`laurear` ADJ  VLadj ( ) 
+
  `lava`lavar` NC  VLfin ( ) 
+
  `le`él|le` PE  PPC ( ) 
+
  `leche`lechar` NC  VLfin ( ) 
+
  `lecho`lechar` NC  VLfin ( ) 
+
  `legado`legar` NC  VLadj ( ) 
+
  `les`él` PE  PPC ( ) 
+
  `lesión`lesionar` NC  VLfin ( ) 
+
  `levante`levantar` NC  VLfin ( ) 
+
  `leve`levar` ADJ  VLfin ( ) 
+
  `leña`leñar` NC  VLfin ( ) 
+
  `leño`leñar` NC  VLfin ( ) 
+
  `libanés`libanesa` ADJ  NC ( ) 
+
  `liberado`liberar` ADJ  VLadj ( ) 
+
  `libra`librar` NC  VLfin ( ) 
+
  `libro`librar` NC  VLfin ( ) 
+
  `licencia`licenciar` NC  VLfin ( ) 
+
  `licenciado`licenciado`licenciar` ADJ  NC  VLadj ( ) 
+
  `liga`ligar` NC  VLfin ( ) 
+
  `ligado`ligar` ADJ  VLadj ( ) 
+
  `lima`limar` NC  VLfin ( ) 
+
  `limitado`limitar` ADJ  VLadj ( ) 
+
  `límite`limitar` NC  VLfin ( ) 
+
  `limo`limitar` NC  VLfin ( ) 
+
  `limo`limar` NC  VLfin ( ) 
+
  `limpio`limpiar` ADJ  VLfin ( ) 
+
  `linda|lindo`lindar` ADJ  VLfin ( ) 
+
  `lindo`lindar` ADJ  VLfin ( ) 
+
  `linde`lindar` NC  VLfin ( ) 
+
  `línea`linear` NC  VLfin ( ) 
+
  `lingüístico`lingüística` ADJ  NC ( ) 
+
  `lisiado`lisiado`lisiar` ADJ  NC  VLadj ( ) 
+
  `listo`lista` ADJ  NC ( ) 
+
  `listado`listar` NC  VLadj ( ) 
+
  `litografía`litografiar` NC  VLfin ( ) 
+
  `llama`llamar` NC  VLfin ( ) 
+
  `llamada`llamar` NC  VLadj ( ) 
+
  `llanta`llantar` NC  VLfin ( ) 
+
  `llegada`llegar` NC  VLadj ( ) 
+
  `lleno`llenar` ADJ  VLfin ( ) 
+
  `lloro`llorar` NC  VLfin ( ) 
+
  `llovizna`lloviznar` NC  VLfin ( ) 
+
  `loma`lomar` NC  VLfin ( ) 
+
  `lomo`lomar` NC  VLfin ( ) 
+
  `losa`losar` NC  VLfin ( ) 
+
  `luz`lucir` NC  VLfin ( ) 
+
  `lucha`luchar` NC  VLfin ( ) 
+
  `lucio`lucir` ADJ  VLfin ( ) 
+
  `lucido`lucir` ADJ  VLadj ( ) 
+
  `lucro`lucrar` NC  VLfin ( ) 
+
  `lujo`lujar` NC  VLfin ( ) 
+
  `lujuria`lujuriar` NC  VLfin ( ) 
+
  `lustro`lustrar` NC  VLfin ( ) 
+
  `lío`liar` NC  VLfin ( ) 
+
  `lógico`lógica` ADJ  NC ( ) 
+
  `macho`machar` NC  VLfin ( ) 
+
  `maza`mazar` NC  VLfin ( ) 
+
  `macizo`macizar` ADJ  VLfin ( ) 
+
  `macizo`macizo`macizar` ADJ  NC  VLfin ( ) 
+
  `madridisto`madridista` ADJ  NC ( ) 
+
  `madrugada`madrugar` NC  VLadj ( ) 
+
  `maduro`madurar` ADJ  VLfin ( ) 
+
  `malicia`maliciar` NC  VLfin ( ) 
+
  `maligno`malignar` ADJ  VLfin ( ) 
+
  `malla`mallar` NC  VLfin ( ) 
+
  `maltrato`maltratar` NC  VLfin ( ) 
+
  `malva`malvar` NC  VLfin ( ) 
+
  `mama`mamar` NC  VLfin ( ) 
+
  `manada`manar` NC  VLadj ( ) 
+
  `mancha`manchar` NC  VLfin ( ) 
+
  `manga`mangar` NC  VLfin ( ) 
+
  `mango`mangar` NC  VLfin ( ) 
+
  `manifiesto`manifiesto`manifestar` ADJ  NC  VLfin ( ) 
+
  `maniobra`maniobrar` NC  VLfin ( ) 
+
  `manufactura`manufacturar` NC  VLfin ( ) 
+
  `manuscrito`manuscribir` NC  VLadj ( ) 
+
  `maní`manir` NC  VLfin ( ) 
+
  `maravilla`maravillar` NC  VLfin ( ) 
+
  `maraña`marañar` NC  VLfin ( ) 
+
  `marca`marcar` NC  VLfin ( ) 
+
  `marcado`marcar` ADJ  VLadj ( ) 
+
  `marcha`marchar` NC  VLfin ( ) 
+
  `marchito`marchitar` ADJ  VLfin ( ) 
+
  `marea`marear` NC  VLfin ( ) 
+
  `mareo`marear` NC  VLfin ( ) 
+
  `marido`maridar` NC  VLfin ( ) 
+
  `marino`marino`marinar` ADJ  NC  VLfin ( ) 
+
  `marisco`mariscar` NC  VLfin ( ) 
+
  `martillo`martillar` NC  VLfin ( ) 
+
  `más`mas`mas` ADV  CC  CCAD ( ) 
+
  `masa`masar` NC  VLfin ( ) 
+
  `mata`matar` NC  VLfin ( ) 
+
  `mate`matar` NC  VLfin ( ) 
+
  `matemático`matemática` ADJ  NC ( ) 
+
  `matemático`matemáticas` ADJ  NC ( ) 
+
  `matrimonio`matrimoniar` NC  VLfin ( ) 
+
  `maya`mayar` NC  VLfin ( ) 
+
  `mayo`mayar` NC  VLfin ( ) 
+
  `mayúsculo`mayúscula` ADJ  NC ( ) 
+
  `mazo`mazar` NC  VLfin ( ) 
+
  `mecha`mechar` NC  VLfin ( ) 
+
  `medio`media`medio`mediar` ADJ  NC  QU  VLfin ( ) 
+
  `medicina`medicinar` NC  VLfin ( ) 
+
  `medida`medir` NC  VLadj ( ) 
+
  `mejora`mejorar` NC  VLfin ( ) 
+
  `mencionado`mencionar` ADJ  VLadj ( ) 
+
  `mención`mencionar` NC  VLfin ( ) 
+
  `menosprecio`menospreciar` NC  VLfin ( ) 
+
  `mero`merar` ADJ  VLfin ( ) 
+
  `mercadeo`Mercadeo`mercadear` NC  NP  VLfin ( ) 
+
  `mercado`mercar` NC  VLadj ( ) 
+
  `merced`mercedar` NC  VLfin ( ) 
+
  `merengue`merengar` NC  VLfin ( ) 
+
  `mesa`mesar` NC  VLfin ( ) 
+
  `mestizo`mestizar` NC  VLfin ( ) 
+
  `metafísico`metafísica` ADJ  NC ( ) 
+
  `meta`meter` NC  VLfin ( ) 
+
  `metido`meter` ADJ  VLadj ( ) 
+
  `mezclado`mezclar` ADJ  VLadj ( ) 
+
  `mezcla`mezclar` NC  VLfin ( ) 
+
  `miel`melar` NC  VLfin ( ) 
+
  `miga`migar` NC  VLfin ( ) 
+
  `milésimo`milésima` ADJ  NC ( ) 
+
  `mimbre`mimbrar` NC  VLfin ( ) 
+
  `mina`minar` NC  VLfin ( ) 
+
  `ministro`ministrar` NC  VLfin ( ) 
+
  `mirada`mirar` NC  VLadj ( ) 
+
  `mire`mirar` PE  VLfin ( ) 
+
  `misa`misar` NC  VLfin ( ) 
+
  `misión`misionar` NC  VLfin ( ) 
+
  `misivo`misiva` ADJ  NC ( ) 
+
  `mm`milímetro`mm` CODE  NC  UMMX ( ) 
+
  `moción`mocionar` NC  VLfin ( ) 
+
  `modulado`modular` ADJ  VLadj ( ) 
+
  `mojado`mojar` ADJ  VLadj ( ) 
+
  `mojón`mojonar` NC  VLfin ( ) 
+
  `molde`moldar` NC  VLfin ( ) 
+
  `moldura`moldurar` NC  VLfin ( ) 
+
  `molesto`molestar` ADJ  VLfin ( ) 
+
  `moneda`monedar` NC  VLfin ( ) 
+
  `monte`montar` NC  VLfin ( ) 
+
  `monto`montar` NC  VLfin ( ) 
+
  `mora`morar` NC  VLfin ( ) 
+
  `morada`morar` NC  VLadj ( ) 
+
  `mordisco`mordiscar` NC  VLfin ( ) 
+
  `mote`motar` NC  VLfin ( ) 
+
  `moto`motar` NC  VLfin ( ) 
+
  `movido`movida` ADJ  NC ( ) 
+
  `mueble`moblar|mueblar` NC  VLfin ( ) 
+
  `muela`moler` NC  VLfin ( ) 
+
  `muerto`morir` ADJ  VLadj ( ) 
+
  `munición`municionar` NC  VLfin ( ) 
+
  `municipal`Municipal` ADJ  NP ( ) 
+
  `municipalidad`Municipalidad` NC  NP ( ) 
+
  `muro`murar` NC  VLfin ( ) 
+
  `mustio`mustiar` ADJ  VLfin ( ) 
+
  `mutilada`mutilar` NC  VLadj ( ) 
+
  `multiple`múltiple` ADJ  QU ( ) 
+
  `músico`música` ADJ  NC ( ) 
+
  `nato`nata` ADJ  NC ( ) 
+
  `negocio`negociar` NC  VLfin ( ) 
+
  `nevada`nevar` NC  VLadj ( ) 
+
  `normativo`normativa` ADJ  NC ( ) 
+
  `nota`notar` NC  VLfin ( ) 
+
  `noticia`noticiar` NC  VLfin ( ) 
+
  `nublado`nublar` NC  VLadj ( ) 
+
  `nuevo`nueva` ADJ  NC ( ) 
+
  `número`numerar` NC  VLfin ( ) 
+
  `obispo`obispar` NC  VLfin ( ) 
+
  `oblicuo`oblicuar` ADJ  VLfin ( ) 
+
  `obra`obrar` NC  VLfin ( ) 
+
  `obsequio`obsequiar` NC  VLfin ( ) 
+
  `obsesión`obsesionar` NC  VLfin ( ) 
+
  `obvio`obviar` ADJ  VLfin ( ) 
+
  `octava`octavo` NC  ORD ( ) 
+
  `octavo`octava` ADJ  NC ( ) 
+
  `oculto`ocultar` ADJ  VLfin ( ) 
+
  `ocupado`ocupar` ADJ  VLadj ( ) 
+
  `ocurrida`ocurrir` NC  VLadj ( ) 
+
  `ocurrido`ocurrir` ADJ  VLadj ( ) 
+
  `ofendido`ofender` NC  VLadj ( ) 
+
  `oferta`ofertar` NC  VLfin ( ) 
+
  `oficio`oficiar` NC  VLfin ( ) 
+
  `oleada`olear` NC  VLadj ( ) 
+
  `oliva`olivar` NC  VLfin ( ) 
+
  `olivo`olivar` NC  VLfin ( ) 
+
  `opaco`opacar` ADJ  VLfin ( ) 
+
  `operarse`operar` VCLIinf  VLinf ( ) 
+
  `opuesto`oponer` ADJ  VLadj ( ) 
+
  `ordenada`ordenar` NC  VLadj ( ) 
+
  `oreja`orejar` NC  VLfin ( ) 
+
  órgano ( ) 
+
  `organizado`organizar` ADJ  VLadj ( ) 
+
  `origine`originar` PE  VLfin ( ) 
+
  `orilla`orillar` NC  VLfin ( ) 
+
  `oro`orar` NC  VLfin ( ) 
+
  `oso`osar` NC  VLfin ( ) 
+
  `ovación`ovacionar` NC  VLfin ( ) 
+
  `oyente`oír` NC  VLadj ( ) 
+
  `paz`pacer` NC  VLfin ( ) 
+
  `pacto`pactar` NC  VLfin ( ) 
+
  `palma`palmar` NC  VLfin ( ) 
+
  `palmero`palmera` ADJ  NC ( ) 
+
  `palmero`palmerita` ADJ  NC ( ) 
+
  `papa`papar` NC  VLfin ( ) 
+
  `parado`parada` ADJ  NC ( ) 
+
  `parado`parar` ADJ  VLadj ( ) 
+
  `par`parar|parir` ADJ  VLfin ( ) 
+
  `parecido`parecer` ADJ  VLadj ( ) 
+
  `parlamento`parlamentar` NC  VLfin ( ) 
+
  `paro`parar|parir` NC  VLfin ( ) 
+
  `parra`parrar` NC  VLfin ( ) 
+
  `parte`partir` NC  VLfin ( ) 
+
  `participante`participar` NC  VLadj ( ) 
+
  `partido`partir` NC  VLadj ( ) 
+
  `pasa`pasar` NC  VLfin ( ) 
+
  `pasada`pasar` NC  VLadj ( ) 
+
  `pasado`pasar` NC  VLadj ( ) 
+
  `pasaporte`pasaportar` NC  VLfin ( ) 
+
  `paso`pasar` ADJ  VLfin ( ) 
+
  `pase`pasar` NC  VLfin ( ) 
+
  `paseo`pasear` NC  VLfin ( ) 
+
  `pasta`pastar` NC  VLfin ( ) 
+
  `pasto`pastar` NC  VLfin ( ) 
+
  `patente`patentar` ADJ  VLfin ( ) 
+
  `patrulla`patrullar` NC  VLfin ( ) 
+
  `pavimento`pavimentar` NC  VLfin ( ) 
+
  `pecado`pecar` NC  VLadj ( ) 
+
  `pecho`pechar` NC  VLfin ( ) 
+
  `pedido`pedir` NC  VLadj ( ) 
+
  `peinado`peinar` NC  VLadj ( ) 
+
  `peine`peinar` NC  VLfin ( ) 
+
  `pelea`pelear` NC  VLfin ( ) 
+
  `pelo`pelar` NC  VLfin ( ) 
+
  `pendejo`pendejar` NC  VLfin ( ) 
+
  `pendiente`pendiente`pender` ADJ  NC  VLadj ( ) 
+
  `pendiente`pender` ADJ  VLadj ( ) 
+
  `pene`penar` NC  VLfin ( ) 
+
  `pensión`pensionar` NC  VLfin ( ) 
+
  `perdido`perder` ADJ  VLadj ( ) 
+
  `perdón`perdonar` NC  VLfin ( ) 
+
  `peregrino`peregrino`peregrinar` ADJ  NC  VLfin ( ) 
+
  `perfección`perfeccionar` NC  VLfin ( ) 
+
  `perfume`perfumar` NC  VLfin ( ) 
+
  `perjudicado`perjudicar` ADJ  VLadj ( ) 
+
  `peronista`peronsita` ADJ  NC ( ) 
+
  `perteneciente`pertenecer` ADJ  VLadj ( ) 
+
  `perturbada`perturbar` NC  VLadj ( ) 
+
  `perturbador`perturbadora` ADJ  NC ( ) 
+
  `pesa`pesar` NC  VLfin ( ) 
+
  `pesado`pesar` ADJ  VLadj ( ) 
+
  `pesca`pescar` NC  VLfin ( ) 
+
  `pescado`pescar` NC  VLadj ( ) 
+
  `pese`pesar` ADV  VLfin ( ) 
+
  `peso`pesar` NC  VLfin ( ) 
+
  `pestaña`pestañar` NC  VLfin ( ) 
+
  `peña`peñar` NC  VLfin ( ) 
+
  `pila`pilar` NC  VLfin ( ) 
+
  `pincel`pincelar` NC  VLfin ( ) 
+
  `pincho`pinchar` NC  VLfin ( ) 
+
  `pinta`pintar` NC  VLfin ( ) 
+
  `pintada`pintar` NC  VLadj ( ) 
+
  `pipa`pipar` NC  VLfin ( ) 
+
  `piso`pisar` NC  VLfin ( ) 
+
  `pita`pitar` NC  VLfin ( ) 
+
  `pito`pitar` NC  VLfin ( ) 
+
  `pituitario`pituitaria` ADJ  NC ( ) 
+
  `plano`plana` ADJ  NC ( ) 
+
  `planta`plantar` NC  VLfin ( ) 
+
  `planta`plantillar` NC  VLfin ( ) 
+
  `plasma`plasmar` NC  VLfin ( ) 
+
  `platino`platinar` NC  VLfin ( ) 
+
  `plegarse`plegar` VCLIinf  VLinf ( ) 
+
  `pliego`plegar` NC  VLfin ( ) 
+
  `plomo`plomar` NC  VLfin ( ) 
+
  `plástico`plástica` ADJ  NC ( ) 
+
  `poblado`poblar` ADJ  VLadj ( ) 
+
  `pobre`pobreza` ADJ  NC ( ) 
+
  `poco`pocos` ADV  QU ( ) 
+
  `político`política` ADJ  NC ( ) 
+
  `portada`portar` NC  VLadj ( ) 
+
  `portador`portadora` ADJ  NC ( ) 
+
  `portal`Portales` NC  NP ( ) 
+
  `porte`portar` NC  VLfin ( ) 
+
  `pose`posar` NC  VLfin ( ) 
+
  `posesión`posesionar` NC  VLfin ( ) 
+
  `posible`posibilitar` ADJ  VLfin ( ) 
+
  `postre`postrar` NC  VLfin ( ) 
+
  `postulado`postular` NC  VLadj ( ) 
+
  `precedente`precedente`preceder` ADJ  NC  VLadj ( ) 
+
  `precedente`preceder` ADJ  VLadj ( ) 
+
  `preciso`precisar` ADJ  VLfin ( ) 
+
  `preferido`preferir` ADJ  VLadj ( ) 
+
  `pregón`pregonar` NC  VLfin ( ) 
+
  `preludio`preludiar` NC  VLfin ( ) 
+
  `premio`premiar` NC  VLfin ( ) 
+
  `prenda`prendar|prender` NC  VLfin ( ) 
+
  `prensa`prensar` NC  VLfin ( ) 
+
  `preocupado`preocupar` ADJ  VLadj ( ) 
+
  `preparado`preparar` ADJ  VLadj ( ) 
+
  `preso`presa` ADJ  NC ( ) 
+
  `presagio`presagiar` NC  VLfin ( ) 
+
  `prescrito`prescribir` ADJ  VLadj ( ) 
+
  `presenciada`presenciar` NC  VLadj ( ) 
+
  `presencia`presenciar` NC  VLfin ( ) 
+
  `presión`presionar` NC  VLfin ( ) 
+
  `prestado`prestar` ADJ  VLadj ( ) 
+
  `presuponer`presupuestar` VLadj  VLfin ( ) 
+
  `presupuesto`presuponer`presupuestar` NC  VLadj  VLfin ( ) 
+
  `previsto`prever` ADJ  VLadj ( ) 
+
  `primera`primero` NC  ORD ( ) 
+
  `primitivo`primitiva` ADJ  NC ( ) 
+
  `privado`privar` ADJ  VLadj ( ) 
+
  `privilegio`privilegiar` NC  VLfin ( ) 
+
  `procedente`proceder` ADJ  VLadj ( ) 
+
  `procesado`procesar` ADJ  VLadj ( ) 
+
  `procura`procurar` NC  VLfin ( ) 
+
  `profano`profanar` ADJ  VLfin ( ) 
+
  `profundo`profundar` ADJ  VLfin ( ) 
+
  `prohibido`prohibir` ADJ  VLadj ( ) 
+
  `prolongado`prolongar` ADJ  VLadj ( ) 
+
  `prometido`prometer` NC  VLadj ( ) 
+
  `propicio`propiciar` ADJ  VLfin ( ) 
+
  `proporción`proporcionar` NC  VLfin ( ) 
+
  `propuesta`proponer` NC  VLadj ( ) 
+
  `protegido`proteger` NC  VLadj ( ) 
+
  `protesta`protestar` NC  VLfin ( ) 
+
  `providencia`providenciar` NC  VLfin ( ) 
+
  `proyecto`proyectar` NC  VLfin ( ) 
+
  `prueba`probar` NC  VLfin ( ) 
+
  `práctico`práctica` ADJ  NC ( ) 
+
  `pública`publicar` ADJ  VLfin ( ) 
+
  `pueblo`poblar` NC  VLfin ( ) 
+
  `puesto`puesta`poner` ADJ  NC  VLadj ( ) 
+
  `puesto`poner` NC  VLadj ( ) 
+
  `pulso`pulsar` NC  VLfin ( ) 
+
  `punta`puntar` NC  VLfin ( ) 
+
  `puntero`puntera` ADJ  NC ( ) 
+
  `pésame`pesar` NC  VCLIfin ( ) 
+
  `pío`pío`piar` ADJ  NC  VLfin ( ) 
+
  `queda`quedar` NC  VLfin ( ) 
+
  `quedo`queda`quedar` ADJ  NC  VLfin ( ) 
+
  `quedo`quedo`quedar` ADJ  ADV  VLfin ( ) 
+
  `queja`quejar` NC  VLfin ( ) 
+
  `quema`quemar` NC  VLfin ( ) 
+
  `querido`querido`querer` ADJ  NC  VLadj ( ) 
+
  `quiebra`quebrar` NC  VLfin ( ) 
+
  `quieto`quietar` ADJ  VLfin ( ) 
+
  `quinta`quinto` NC  ORD ( ) 
+
  `quinto`quinta`quintar` ADJ  NC  VLfin ( ) 
+
  `químico`química` ADJ  NC ( ) 
+
  `rabia`rabiar` NC  VLfin ( ) 
+
  `racimo`racimar` NC  VLfin ( ) 
+
  `ración`racionar` NC  VLfin ( ) 
+
  `radicado`radicar` ADJ  VLadj ( ) 
+
  `radiografía`radiografiar` NC  VLfin ( ) 
+
  `raso`rasar` ADJ  VLfin ( ) 
+
  `rasgo`rasgar` NC  VLfin ( ) 
+
  `raso`raso`rasar` ADJ  NC  VLfin ( ) 
+
  `rastreo`rastrear` NC  VLfin ( ) 
+
  `rastro`rastrillar` NC  VLfin ( ) 
+
  `rastrojo`rastrojar` NC  VLfin ( ) 
+
  `ratón`ratonar` NC  VLfin ( ) 
+
  `rayo`raer|rayar` NC  VLfin ( ) 
+
  `reabierto`reabrir` ADJ  VLadj ( ) 
+
  `reactivo`reactivar` ADJ  VLfin ( ) 
+
  `reajuste`reajustar` NC  VLfin ( ) 
+
  `realizarse`REALIZARSE` VCLIinf  VLinf ( ) 
+
  `reaseguro`reasegurar` NC  VLfin ( ) 
+
  `rebajo`rebaja`rebajar` ADJ  NC  VLfin ( ) 
+
  `rebanada`rebanar` NC  VLadj ( ) 
+
  `rebaño`rebañar` NC  VLfin ( ) 
+
  `rebote`rebotar` NC  VLfin ( ) 
+
  `rebrote`rebrotar` NC  VLfin ( ) 
+
  `recado`recadar` NC  VLfin ( ) 
+
  `recargo`recargar` NC  VLfin ( ) 
+
  `recato`recatar` NC  VLfin ( ) 
+
  `recaudo`recaudar` NC  VLfin ( ) 
+
  `recelo`recelar` NC  VLfin ( ) 
+
  `receso`recesar` NC  VLfin ( ) 
+
  `receta`recetar` NC  VLfin ( ) 
+
  `rechifla`rechiflar` NC  VLfin ( ) 
+
  `recibido`recibir` ADJ  VLadj ( ) 
+
  `recibo`recibir` NC  VLfin ( ) 
+
  `reciclarse`reciclar` VCLIinf  VLinf ( ) 
+
  `reclame`reclamar` NC  VLfin ( ) 
+
  `reclamo`reclamar` NC  VLfin ( ) 
+
  `recluta`reclutar` NC  VLfin ( ) 
+
  `recogida`recoger` NC  VLadj ( ) 
+
  `recompensa`recompensar` NC  VLfin ( ) 
+
  `reconocido`reconocer` ADJ  VLadj ( ) 
+
  `reconquista`reconquistar` NC  VLfin ( ) 
+
  `récord`record` NC  PE ( ) 
+
  `recorrido`recorrer` NC  VLadj ( ) 
+
  `recorto`recortar` ADJ  VLfin ( ) 
+
  `recorte`recortar` NC  VLfin ( ) 
+
  `recreo`recrear` NC  VLfin ( ) 
+
  `recto`recta` ADJ  NC ( ) 
+
  `recuadro`recuadrar` NC  VLfin ( ) 
+
  `recubierto`recubrir` ADJ  VLadj ( ) 
+
  `recuento`recontar` NC  VLfin ( ) 
+
  `recuerdo`recordar` ADJ  VLfin ( ) 
+
  `redada`redar` NC  VLadj ( ) 
+
  `redescuento`redescontar` NC  VLfin ( ) 
+
  `redondo`redonda` ADJ  NC ( ) 
+
  `redondeo`redondear` NC  VLfin ( ) 
+
  `reducido`reducir` ADJ  VLadj ( ) 
+
  `redundante`redundar` ADJ  VLadj ( ) 
+
  `reembolso`reembolsar` NC  VLfin ( ) 
+
  `reencuentro`reencontrar` NC  VLfin ( ) 
+
  `reensamblado`reensamblar` NC  VLadj ( ) 
+
  `referí`referí`referir` NC  PE  VLfin ( ) 
+
  `refiero`referir` ADJ  VLfin ( ) 
+
  `refino`refinar` ADJ  VLfin ( ) 
+
  `refinado`refinar` ADJ  VLadj ( ) 
+
  `reflejo`reflejar` NC  VLfin ( ) 
+
  `reforma`reformar` NC  VLfin ( ) 
+
  `refrendo`refrendar` NC  VLfin ( ) 
+
  `refresco`refrescar` ADJ  VLfin ( ) 
+
  `refresco`refresco`refrescar` ADJ  NC  VLfin ( ) 
+
  `refriega`refregar` NC  VLfin ( ) 
+
  `refrito`refreír` ADJ  VLadj ( ) 
+
  `refuerzo`reforzar` NC  VLfin ( ) 
+
  `refugiado`refugiar` NC  VLadj ( ) 
+
  `refugio`refugiar` NC  VLfin ( ) 
+
  `regalo`regala`regalar` ADJ  NC  VLfin ( ) 
+
  `regalo`regalo`regalar` ADJ  NC  VLfin ( ) 
+
  `regateo`regatear` NC  VLfin ( ) 
+
  `regaño`regañar|regañir` NC  VLfin ( ) 
+
  `regimiento`regimentar` NC  VLfin ( ) 
+
  `regla`reglar` NC  VLfin ( ) 
+
  `reglamento`reglamentar` NC  VLfin ( ) 
+
  `regocijo`regocijar` NC  VLfin ( ) 
+
  `regreso`regresar` NC  VLfin ( ) 
+
  `reina`reinar` NC  VLfin ( ) 
+
  `reinado`reinar` NC  VLadj ( ) 
+
  `reingreso`reingresar` NC  VLfin ( ) 
+
  `reino`reinar` NC  VLfin ( ) 
+
  `reintegro`reintegrar` NC  VLfin ( ) 
+
  `relajo`relajar` NC  VLfin ( ) 
+
  `relato`relatar` ADJ  VLfin ( ) 
+
  `relato`relato`relatar` ADJ  NC  VLfin ( ) 
+
  `relevo`relevar` NC  VLfin ( ) 
+
  `rellenado`rellenar` NC  VLadj ( ) 
+
  `relleno`rellenar` ADJ  VLfin ( ) 
+
  `remandar`remar` VLfin  VLger ( ) 
+
  `remanso`remanso`remansar` ADJ  NC  VLfin ( ) 
+
  `remate`rematar` NC  VLfin ( ) 
+
  `remedio`remediar` ADJ  VLfin ( ) 
+
  `remesa`remesar` NC  VLfin ( ) 
+
  `remiendo`remendar` NC  VLfin ( ) 
+
  `remitido`remitir` NC  VLadj ( ) 
+
  `remo`remar` NC  VLfin ( ) 
+
  `remolque`remolcar` NC  VLfin ( ) 
+
  `remonta`remontar` NC  VLfin ( ) 
+
  `remplazo`remplazar` NC  VLfin ( ) 
+
  `renta`rentar` NC  VLfin ( ) 
+
  `renuncia`renunciar` NC  VLfin ( ) 
+
  `renuncio`renunciar` NC  VLfin ( ) 
+
  `reorganizado`reorganizar` ADJ  VLadj ( ) 
+
  `reparada`reparar` NC  VLadj ( ) 
+
  `reparador`reparadora` ADJ  NC ( ) 
+
  `reparo`reparar` NC  VLfin ( ) 
+
  `reparto`repartir` NC  VLfin ( ) 
+
  `repaso`repasar` ADJ  VLfin ( ) 
+
  `repaso`repaso`repasar` ADJ  NC  VLfin ( ) 
+
  `repetido`repetir` ADJ  VLadj ( ) 
+
  `repisa`repisar` NC  VLfin ( ) 
+
  `repleto`repletar` ADJ  VLfin ( ) 
+
  `repollo`repollar` NC  VLfin ( ) 
+
  `reporte`reportar` NC  VLfin ( ) 
+
  `represo`represa`represar` ADJ  NC  VLfin ( ) 
+
  `reproche`reprochar` NC  VLfin ( ) 
+
  `reprueba`reprobar` NC  VLfin ( ) 
+
  `repudiado`repudiar` ADJ  VLadj ( ) 
+
  `repudio`repudiar` NC  VLfin ( ) 
+
  `repunta`repuntar` NC  VLfin ( ) 
+
  `repunte`repuntar` NC  VLfin ( ) 
+
  `repúblico`república` ADJ  NC ( ) 
+
  `requisa`requisar` NC  VLfin ( ) 
+
  `res`re` ACRNM  NC ( ) 
+
  `resabio`resabio`resabiar` ADJ  NC  VLfin ( ) 
+
  `resaca`resacar` NC  VLfin ( ) 
+
  `resalte`resaltar` NC  VLfin ( ) 
+
  `rescoldo`rescoldar` NC  VLfin ( ) 
+
  `reseco`resecar` ADJ  VLfin ( ) 
+
  `reserva`reservar` NC  VLfin ( ) 
+
  `reservado`reservada`reservar` ADJ  NC  VLadj ( ) 
+
  `reservado`reservar` NC  VLadj ( ) 
+
  `reservado`reservar` ADJ  VLadj ( ) 
+
  `reserve`reservar` PE  VLfin ( ) 
+
  `reseña`reseñar` NC  VLfin ( ) 
+
  `resfriado`resfriar` NC  VLadj ( ) 
+
  `resfriado`resfriado`resfriar` ADJ  NC  VLadj ( ) 
+
  `resfrío`resfriar` NC  VLfin ( ) 
+
  `resguardo`resguardar` NC  VLfin ( ) 
+
  `residencia`residenciar` NC  VLfin ( ) 
+
  `resina`resinar` NC  VLfin ( ) 
+
  `respaldo`respaldar` NC  VLfin ( ) 
+
  `respeto`respetar` NC  VLfin ( ) 
+
  `respiro`respirar` NC  VLfin ( ) 
+
  `resta`restar` NC  VLfin ( ) 
+
  `restante`restar` ADJ  VLadj ( ) 
+
  `restante`restante`restar` ADJ  NC  VLadj ( ) 
+
  `reste`restar` PE  VLfin ( ) 
+
  `resuelto`resolver`resoltar` ADJ  VLadj  VLfin ( ) 
+
  `resuelto`resolver` ADJ  VLadj ( ) 
+
  `resultado`resultar` NC  VLadj ( ) 
+
  `resultando`resultar` NC  VLger ( ) 
+
  `resumo`resumir` ADJ  VLfin ( ) 
+
  `resumen`resumir` NC  VLfin ( ) 
+
  `retardado`retardar` NC  VLadj ( ) 
+
  `retén`retener` NC  VLfin ( ) 
+
  `retenida`retener` NC  VLadj ( ) 
+
  `retina`retinar` NC  VLfin ( ) 
+
  `retirada`retirar` NC  VLadj ( ) 
+
  `retiro`retirar` NC  VLfin ( ) 
+
  `retoque`retocar` NC  VLfin ( ) 
+
  `retracto`retractar` NC  VLfin ( ) 
+
  `retrato`retratar` NC  VLfin ( ) 
+
  `retrospectivo`retrospectiva` ADJ  NC ( ) 
+
  `retórico`retórica` ADJ  NC ( ) 
+
  `reunido`reunir` ADJ  VLadj ( ) 
+
  `revelado`revelar` NC  VLadj ( ) 
+
  `reverencia`reverenciar` NC  VLfin ( ) 
+
  `revés`revesar` NC  VLfin ( ) 
+
  `revisada`revisar` NC  VLadj ( ) 
+
  `revista`rever`revestir|revistar` NC  VLadj  VLfin ( ) 
+
  `rever`revestir|revistar` VLadj  VLfin ( ) 
+
  `revoque`revocar` NC  VLfin ( ) 
+
  `revuelo`revolar` NC  VLfin ( ) 
+
  `revuelto`revuelta`revolver` ADJ  NC  VLadj ( ) 
+
  `revuelto`revolver` ADJ  VLadj ( ) 
+
  `reválido`reválida` ADJ  NC ( ) 
+
  `rezago`rezagar` NC  VLfin ( ) 
+
  `rezo`rezar` NC  VLfin ( ) 
+
  `roble`roblar` NC  VLfin ( ) 
+
  `rocío`rociar` NC  VLfin ( ) 
+
  `rol`rolar` NC  VLfin ( ) 
+
  `romance`romanzar` NC  VLfin ( ) 
+
  `ronco`roncar` ADJ  VLfin ( ) 
+
  `roto`romper`rotar` ADJ  VLadj  VLfin ( ) 
+
  `rotativo`rotativa` ADJ  NC ( ) 
+
  `roto`romper` ADJ  VLadj ( ) 
+
  `rotura`roturar` NC  VLfin ( ) 
+
  `rueda`rodar` NC  VLfin ( ) 
+
  `ruedo`rodar` NC  VLfin ( ) 
+
  `rugido`rugir` NC  VLadj ( ) 
+
  `rumba`rumbar` NC  VLfin ( ) 
+
  `rumbo`rumbar` NC  VLfin ( ) 
+
  `rumor`rumorar` NC  VLfin ( ) 
+
  `ría`reír` NC  VLfin ( ) 
+
  `s`el`s`s`s` ALFS  ART  NMEA  PE  UMMX ( ) 
+
  `sabio`sabio`saber` ADJ  NC  VLfin ( ) 
+
  `sabido`saber` ADJ  VLadj ( ) 
+
  `sacarse`sacar` VCLIinf  VLinf ( ) 
+
  `saco`sacar` NC  VLfin ( ) 
+
  `sacramento`sacramentar` NC  VLfin ( ) 
+
  `salario`salariar` NC  VLfin ( ) 
+
  `saldo`saldar` NC  VLfin ( ) 
+
  `sal`salar|salir` NC  VLfin ( ) 
+
  `salido`salida`salir` ADJ  NC  VLadj ( ) 
+
  `salido`salida` ADJ  NC ( ) 
+
  `salido`salir` ADJ  VLadj ( ) 
+
  `saliente`salir` ADJ  VLadj ( ) 
+
  `saliva`salivar` NC  VLfin ( ) 
+
  `saludo`saludar` NC  VLfin ( ) 
+
  `salvo`salvar` ADJ  VLfin ( ) 
+
  `sano`sanar` ADJ  VLfin ( ) 
+
  `sanción`sancionar` NC  VLfin ( ) 
+
  `sangrado`sangrar` NC  VLadj ( ) 
+
  `sangre`sangrar` NC  VLfin ( ) 
+
  `saqueo`saquear` NC  VLfin ( ) 
+
  `saque`sacar` NC  VLfin ( ) 
+
  `se`se`saber` PPC  SE  VLfin ( ) 
+
  `seco`secar` ADJ  VLfin ( ) 
+
  `secreto`secretar` ADJ  VLfin ( ) 
+
  `secretaría`secretar` NC  VLfin ( ) 
+
  `secuestrado`secuestrar` ADJ  VLadj ( ) 
+
  `secuestro`secuestrar` NC  VLfin ( ) 
+
  `sed`ser` NC  VSfin ( ) 
+
  `seguido`seguida`seguir` ADJ  NC  VLadj ( ) 
+
  `seguido`seguir` ADJ  VLadj ( ) 
+
  `segundo`segundar` ADJ  VLfin ( ) 
+
  `selección`seleccionar` NC  VLfin ( ) 
+
  `sello`sellar` NC  VLfin ( ) 
+
  `semiótico`semiótica` ADJ  NC ( ) 
+
  `semántico`semántica` ADJ  NC ( ) 
+
  `sentado`sentar` ADJ  VLadj ( ) 
+
  `sentencia`sentenciar` NC  VLfin ( ) 
+
  `sereno`serenar` ADJ  VLfin ( ) 
+
  `serio`seriar`ser` ADJ  VLfin  VSfin ( ) 
+
  `serio`seriar` ADJ  VLfin ( ) 
+
  `seriar`ser` VLfin  VSfin ( ) 
+
  `serrucho`serruchar` NC  VLfin ( ) 
+
  `sesgo`sesgar` ADJ  VLfin ( ) 
+
  `sexto`sexta` ADJ  NC ( ) 
+
  `sida`ser` NC  VSadj ( ) 
+
  `sierra`serrar` NC  VLfin ( ) 
+
  `significado`significado`significar` ADJ  NC  VLadj ( ) 
+
  `significado`significar` NC  VLadj ( ) 
+
  `sincero`sincerar` ADJ  VLfin ( ) 
+
  `sirviente`servir` ADJ  VLadj ( ) 
+
  `situado`situar` ADJ  VLadj ( ) 
+
  `soborno`sobornar` NC  VLfin ( ) 
+
  `sobrecarga`sobrecargar` NC  VLfin ( ) 
+
  `sobrecargo`sobrecargar` NC  VLfin ( ) 
+
  `sobreentendido`sobreentender` NC  VLadj ( ) 
+
  `sobre`sobrar` NC  VLfin ( ) 
+
  `sobresalto`sobresaltar` NC  VLfin ( ) 
+
  `socialista|socialisto`socialista` ADJ  NC ( ) 
+
  `solapa`solapar` NC  VLfin ( ) 
+
  `solapado`solapar` ADJ  VLadj ( ) 
+
  `soldado`soldar` NC  VLadj ( ) 
+
  `solicitante`solicitante`solicitar` ADJ  NC  VLadj ( ) 
+
  `soler`solidar` VLadj  VLfin ( ) 
+
  `sombra`sombrar` NC  VLfin ( ) 
+
  `sondeo`sondear` NC  VLfin ( ) 
+
  `sopa`sopar` NC  VLfin ( ) 
+
  `soplo`soplar` NC  VLfin ( ) 
+
  `soporte`soportar` NC  VLfin ( ) 
+
  `sorteo`sortear` NC  VLfin ( ) 
+
  `sostenido`sostener` ADJ  VLadj ( ) 
+
  `sublime`sublimar` ADJ  VLfin ( ) 
+
  `subordinado`subordinar` ADJ  VLadj ( ) 
+
  `subrayado`subrayado`subrayar` ADJ  NC  VLadj ( ) 
+
  `substancia`substanciar` NC  VLfin ( ) 
+
  `substantivo`substantivar` ADJ  VLfin ( ) 
+
  `subvención`subvencionar` NC  VLfin ( ) 
+
  `suela`solar|soler` NC  VLfin ( ) 
+
  `sueldo`soldar` NC  VLfin ( ) 
+
  `suelto`soltar` ADJ  VLfin ( ) 
+
  `sufrido`sufrir` ADJ  VLadj ( ) 
+
  `sulfato`sulfatar` NC  VLfin ( ) 
+
  `sumo`suma` ADJ  NC ( ) 
+
  `sumario`sumariar` ADJ  VLfin ( ) 
+
  `sumo`suma`sumar|sumir` ADJ  NC  VLfin ( ) 
+
  `supuesto`suponer` ADJ  VLadj ( ) 
+
  `suponerse`suponer` VCLIfin  VLfin ( ) 
+
  `surco`surcar` NC  VLfin ( ) 
+
  `surgido`surgir` ADJ  VLadj ( ) 
+
  `suspiro`suspirar` NC  VLfin ( ) 
+
  `susurro`susurrar` NC  VLfin ( ) 
+
  `sutura`suturar` NC  VLfin ( ) 
+
  `sí`él` ADV  PPX ( ) 
+
  `tabique`tabicar` NC  VLfin ( ) 
+
  `taza`tazar` NC  VLfin ( ) 
+
  `taco`tacar` NC  VLfin ( ) 
+
  `tajo`tajar` NC  VLfin ( ) 
+
  `tala`talar` NC  VLfin ( ) 
+
  `tallo`tallar` NC  VLfin ( ) 
+
  `tanteo`tantear` NC  VLfin ( ) 
+
  `tapa`tapar` NC  VLfin ( ) 
+
  `tapia`tapiar` NC  VLfin ( ) 
+
  `tapiz`tapizar` NC  VLfin ( ) 
+
  `tapón`taponar` NC  VLfin ( ) 
+
  `tarde`tardar` NC  VLfin ( ) 
+
  `techo`techar` NC  VLfin ( ) 
+
  `técnico`técnica` ADJ  NC ( ) 
+
  `teja`tejar|tejer` NC  VLfin ( ) 
+
  `tejado`tejar` NC  VLadj ( ) 
+
  `tejido`tejer` NC  VLadj ( ) 
+
  `telefónico`telefónica` ADJ  NC ( ) 
+
  `teleimpresor`teleimpresora` ADJ  NC ( ) 
+
  `telemático`telemática` ADJ  NC ( ) 
+
  `temido`temer` ADJ  VLadj ( ) 
+
  `templo`templar` NC  VLfin ( ) 
+
  `terapéutico`terapéutica` ADJ  NC ( ) 
+
  `tercio`terciar` ADJ  VLfin ( ) 
+
  `terminado`terminar` ADJ  VLadj ( ) 
+
  `terso`tersar` ADJ  VLfin ( ) 
+
  `testimonio`testimoniar` NC  VLfin ( ) 
+
  `teta`tetar` NC  VLfin ( ) 
+
  `tibio`tibiar` ADJ  VLfin ( ) 
+
  `tienda`tender` NC  VLfin ( ) 
+
  `tender`ter` VLfin  VLger ( ) 
+
  `timbre`timbrar` NC  VLfin ( ) 
+
  `tinto`tinta`tintar` ADJ  NC  VLfin ( ) 
+
  `tinto`tintar` ADJ  VLfin ( ) 
+
  `tirado`tirar` ADJ  VLadj ( ) 
+
  `tiro`tiritar` NC  VLfin ( ) 
+
  `tiro`tirar` NC  VLfin ( ) 
+
  `tiroteo`tirotear` NC  VLfin ( ) 
+
  `titulado`titular` ADJ  VLadj ( ) 
+
  `título`titular` NC  VLfin ( ) 
+
  `toca`tocar` NC  VLfin ( ) 
+
  `tocado`tocado`tocar` ADJ  NC  VLadj ( ) 
+
  `tocado`tocar` NC  VLadj ( ) 
+
  `toldo`toldar` NC  VLfin ( ) 
+
  `toma`tomar` NC  VLfin ( ) 
+
  `tomado`tomar` ADJ  VLadj ( ) 
+
  `topo`topar` NC  VLfin ( ) 
+
  `tormenta`tormentar` NC  VLfin ( ) 
+
  `torneo`tornear` NC  VLfin ( ) 
+
  `torno`tornar` NC  VLfin ( ) 
+
  `torre`torrar` NC  VLfin ( ) 
+
  `tortura`torturar` NC  VLfin ( ) 
+
  `traición`traicionar` NC  VLfin ( ) 
+
  `tramo`tramar` NC  VLfin ( ) 
+
  `tranquilo`tranquilar` ADJ  VLfin ( ) 
+
  `transmisor`transmisora` ADJ  NC ( ) 
+
  `transplantado`transplantar` ADJ  VLadj ( ) 
+
  `transplante`transplantar` NC  VLfin ( ) 
+
  `transportado`transportar` ADJ  VLadj ( ) 
+
  `transporte`transportar` NC  VLfin ( ) 
+
  `traslado`trasladar` NC  VLfin ( ) 
+
  `traslatoro`traslatora` ADJ  NC ( ) 
+
  `trasplante`trasplantar` NC  VLfin ( ) 
+
  `trastorno`trastornar` NC  VLfin ( ) 
+
  `trata`tratar` NC  VLfin ( ) 
+
  `tratado`tratar` NC  VLadj ( ) 
+
  `trato`tratar` NC  VLfin ( ) 
+
  `traza`trazar` NC  VLfin ( ) 
+
  `trenza`trenzar` NC  VLfin ( ) 
+
  `tribunal`Tribunales` NC  NP ( ) 
+
  `tributo`tributar` NC  VLfin ( ) 
+
  `trino`trinar` NC  VLfin ( ) 
+
  `triunfo`triunfar` NC  VLfin ( ) 
+
  `trozo`trozar` NC  VLfin ( ) 
+
  `trompa`trompar` NC  VLfin ( ) 
+
  `trono`tronar` NC  VLfin ( ) 
+
  `trote`trotar` NC  VLfin ( ) 
+
  `trueno`tronar` NC  VLfin ( ) 
+
  `tumba`tumbar` NC  VLfin ( ) 
+
  `tuna`tunar` NC  VLfin ( ) 
+
  `turba`turbar` NC  VLfin ( ) 
+
  `tuteo`tutear` NC  VLfin ( ) 
+
  `túnel`tunar` NC  VLfin ( ) 
+
  `u`o`o` ALFS  CC  CCAD ( ) 
+
  `último`ultimar` ADJ  VLfin ( ) 
+
  `une`unir` PE  VLfin ( ) 
+
  `unido`unir` ADJ  VLadj ( ) 
+
  `uniforme`uniforme`uniformar` ADJ  NC  VLfin ( ) 
+
  `unionisto`unionista` ADJ  NC ( ) 
+
  `use`usar` PE  VLfin ( ) 
+
  útil ( ) 
+
  `uña`uñir` NC  VLfin ( ) 
+
  `vestirse`vestir` VCLIinf  VLinf ( ) 
+
  `Vol.`Vol` NC  NP ( ) 
+
  `vaca`vacar` NC  VLfin ( ) 
+
  `vacante`vacar` ADJ  VLadj ( ) 
+
  `vacuna`vacunar` NC  VLfin ( ) 
+
  `vago`vagar` ADJ  VLfin ( ) 
+
  `vale`vale`valer` ADV  NC  VLfin ( ) 
+
  `vale`valer` NC  VLfin ( ) 
+
  `valla`vallar` NC  VLfin ( ) 
+
  `valle`vallar` NC  VLfin ( ) 
+
  `vapor`vaporar` NC  VLfin ( ) 
+
  `vara`varar` NC  VLfin ( ) 
+
  `vara`varillar` NC  VLfin ( ) 
+
  `vela`ir|velar|ver` NC  VLfin ( ) 
+
  `velada`velar` NC  VLadj ( ) 
+
  `velo`ir|velar|ver` NC  VLfin ( ) 
+
  `velo`ir|ver` NC  VLfin ( ) 
+
  `verano`veranar` NC  VLfin ( ) 
+
  `veras`vera` ADV  NC ( ) 
+
  `verse`versar` VCLIinf  VLfin ( ) 
+
  `verso`versar` NC  VLfin ( ) 
+
  `vertebrado`vertebrar` NC  VLadj ( ) 
+
  `vestido`vestir` NC  VLadj ( ) 
+
  `vestido`vestido`vestir` ADJ  NC  VLadj ( ) 
+
  `ir|ver`vetar` VCLIfin  VLfin ( ) 
+
  `vi`ver|vi`ver` CARD  VLfin  VLinf ( ) 
+
  `viaje`viajar` NC  VLfin ( ) 
+
  `vicio`viciar` NC  VLfin ( ) 
+
  `vidrio`vidriar` NC  VLfin ( ) 
+
  `violento`violentar` ADJ  VLfin ( ) 
+
  `visita`visitar` NC  VLfin ( ) 
+
  `viso`visitar` NC  VLfin ( ) 
+
  `viudo`viuda` ADJ  NC ( ) 
+
  `vivo`vivo`vivir` ADJ  NC  VLfin ( ) 
+
  `voto`votar` NC  VLfin ( ) 
+
  `vuelta`volver` NC  VLadj ( ) 
+
  `yermo`yermar` NC  VLfin ( ) 
+
  `zanja`zanjar` NC  VLfin ( ) 
+
  `acordado`acordar` ADJ  VLadj ( ) 
+
  `acostado`acostar` ADJ  VLadj ( ) 
+
  `acuerdo`acordar` NC  VLfin ( ) 
+
  `agüero`agorar` NC  VLfin ( ) 
+
  `aliento`alentar` NC  VLfin ( ) 
+
  `almuerzo`almorzar` NC  VLfin ( ) 
+
  `anhelo`anhelar` NC  VLfin ( ) 
+
  `aprieto`apretar` NC  VLfin ( ) 
+
  `apuesto`apostar` ADJ  VLfin ( ) 
+
  `asustado`asustar` ADJ  VLadj ( ) 
+
  `avance`avanzar` NC  VLfin ( ) 
+
  `buceo`bucear` NC  VLfin ( ) 
+
  `cepillo`cepillar` NC  VLfin ( ) 
+
  `cierre`cerrar` NC  VLfin ( ) 
+
  `crío`criar` NC  VLfin ( ) 
+
  `cuenta`contar` NC  VLfin ( ) 
+
  `cuento`contar` NC  VLfin ( ) 
+
  `cupo`caber` NC  VLfin ( ) 
+
  `despido`despedir` NC  VLfin ( ) 
+
  `despierto`despertar` ADJ  VLfin ( ) 
+
  `dije`decir` NC  VLfin ( ) 
+
  `encuentro`encontrar` NC  VLfin ( ) 
+
  `escrito`escribir` ADJ  VLadj ( ) 
+
  `frío`frío`freír` ADJ  NC  VLfin ( ) 
+
  `ir|ser`ser` VLfin  VSfin ( ) 
+
  `gobierno`gobernar` NC  VLfin ( ) 
+
  `hecho`hecho`hacer` ADJ  NC  VLadj ( ) 
+
  `hielo`helar` NC  VLfin ( ) 
+
  `llamado`llamado`llamar` ADJ  NC  VLadj ( ) 
+
  `merienda`merendar` NC  VLfin ( ) 
+
  `mudo`muda`mudar` ADJ  NC  VLfin ( ) 
+
  `mudo`mudo`mudar` ADJ  NC  VLfin ( ) 
+
  `muera`morir` NP  VLfin ( ) 
+
  `muestra`mostrar` NC  VLfin ( ) 
+
  `nieve`nevar` NC  VLfin ( ) 
+
  `oído`oír` NC  VLadj ( ) 
+
  `pique`picar` NC  VLfin ( ) 
+
  `pongo`poner` NC  VLfin ( ) 
+
  `presente`presentar` ADJ  VLfin ( ) 
+
  `puesto`puesto`poner` CSUBF  NC  VLadj ( ) 
+
  `recomendar`recomer` VLfin  VLger ( ) 
+
  `recuerdo`recuerdo`recordar` ADJ  NC  VLfin ( ) 
+
  `renuevo`renovar` ADJ  VLfin ( ) 
+
  `río`reír` NC  VLfin ( ) 
+
  `riego`regar` NC  VLfin ( ) 
+
  `sal`salir` NC  VLfin ( ) 
+
  `son`ser` NC  VSfin ( ) 
+
  `suelo`solar|soler` NC  VLfin ( ) 
+
  `sueño`soñar` NC  VLfin ( ) 
+
  `supuesto`supuesto`suponer` ADJ  NC  VLadj ( ) 
+
  `toque`tocar` NC  VLfin ( ) 
+
  `traje`traer` NC  VLfin ( ) 
+
  `vacio`vaciar` ADJ  VLfin ( ) 
+
  `valer`validar` VLadj  VLfin ( ) 
+
  `vamos`ir` NP  VLfin ( ) 
+
  `vino`venir` NC  VLfin ( ) 
+
  `vista`ver` NC  VLadj ( ) 
+
  `ver`vestir` VLadj  VLfin ( ) 
+
  `vivo`vivo`viva`vivir` ADJ  NC  NP  VLfin ( ) 
+
  `vuelo`volar` NC  VLfin ( ) 
+
  `acompazado`acompazar` ADJ  VLadj ( ) 
+
  `aczstico`aczstica` ADJ  NC ( ) 
+
  `adoquzn`adoquinar` NC  VLfin ( ) 
+
  `aerodinzmico`aerodinzmica` ADJ  NC ( ) 
+
  `afzn`afanar` NC  VLfin ( ) 
+
  `aficizn`aficionar` NC  VLfin ( ) 
+
  `afzn`afinar` ADJ  VLfin ( ) 
+
  `afine|afzn`afinar` ADJ  VLfin ( ) 
+
  `agzero`agorar` NC  VLfin ( ) 
+
  `ahznco`ahincar` NC  VLfin ( ) 
+
  `algzn`algzn|alguno` NC  QU ( ) 
+
  `almaczn`almacenar` NC  VLfin ( ) 
+
  `ambicizn`ambicionar` NC  VLfin ( ) 
+
  `amnistza`amnistiar` NC  VLfin ( ) 
+
  `anexizn`anexionar` NC  VLfin ( ) 
+
  `araza`arazar` NC  VLfin ( ) 
+
  `area|zrea`area` NC  PE ( ) 
+
  `armznico`armznica` ADJ  NC ( ) 
+
  `astrofzsico`astrofzsica` ADJ  NC ( ) 
+
  `avzo`aviar` NC  VLfin ( ) 
+
  `bazo`bazar` NC  VLfin ( ) 
+
  `bioquzmico`bioquzmica` ADJ  NC ( ) 
+
  `bzfalo`bufar` NC  VCLIfin ( ) 
+
  `cazo`Cazo` NC  NP ( ) 
+
  `cancillerza`Cancillerza` NC  NP ( ) 
+
  `carzcter`caracteres` NC  PE ( ) 
+
  `caracterzstico`caracterzstica` ADJ  NC ( ) 
+
  `carizo`carizar` NC  VLfin ( ) 
+
  `carztido`carztida` ADJ  NC ( ) 
+
  `castazuelo`castazuela` ADJ  NC ( ) 
+
  `cazda`caer` NC  VLadj ( ) 
+
  `centrzfugo`centrzfuga` ADJ  NC ( ) 
+
  `cezo`cezir` NC  VLfin ( ) 
+
  `cinztico`cinztica` ADJ  NC ( ) 
+
  `czrculo`circular` NC  VLfin ( ) 
+
  `clznico`clznica` ADJ  NC ( ) 
+
  `coaccizn`coaccionar` NC  VLfin ( ) 
+
  `coleccizn`coleccionar` NC  VLfin ( ) 
+
  `comisarza`comisar` NC  VLfin ( ) 
+
  `comisizn`comisionar` NC  VLfin ( ) 
+
  `compzs`compasar` NC  VLfin ( ) 
+
  `condicizn`condicion` NC  PE ( ) 
+
  `confeccizn`confeccionar` NC  VLfin ( ) 
+
  `confzn`confinar` NC  VLfin ( ) 
+
  `conmocizn`conmocionar` NC  VLfin ( ) 
+
  `correlacizn`correlacionar` NC  VLfin ( ) 
+
  `crzo`criar` NC  VLfin ( ) 
+
  `cuza`cuzar` NC  VLfin ( ) 
+
  `cuzado`cuzar` NC  VLadj ( ) 
+
  `czscara`czscaras` NC  NP ( ) 
+
  `czmodo`czmoda` ADJ  NC ( ) 
+
  `dazo`dazar` NC  VLfin ( ) 
+
  `dzbil`debilitar` ADJ  VLfin ( ) 
+
  `decepcizn`decepcionar` NC  VLfin ( ) 
+
  `desafzo`desafiar` NC  VLfin ( ) 
+
  `desagze`desaguar` NC  VLfin ( ) 
+
  `desempezo`desempezar` NC  VLfin ( ) 
+
  `desilusizn`desilusionar` NC  VLfin ( ) 
+
  `dizlogo`dialogar` NC  VLfin ( ) 
+
  `didzctico`didzctica` ADJ  NC ( ) 
+
  `dietztico`dietztica` ADJ  NC ( ) 
+
  `dinzmico`dinzmica` ADJ  NC ( ) 
+
  `distrazdo`distraer` ADJ  VLadj ( ) 
+
  `dominz`dominar` NC  VLfin ( ) 
+
  `el`zl` ART  PPX ( ) 
+
  `elegza`elegir` NC  VLfin ( ) 
+
  `emocizn`emocionar` NC  VLfin ( ) 
+
  `empezo`empezar` NC  VLfin ( ) 
+
  `energztico`energztica` ADJ  NC ( ) 
+
  `engazo`engazar` NC  VLfin ( ) 
+
  `ensuezo`ensozar` NC  VLfin ( ) 
+
  `entraza`entrazar` NC  VLfin ( ) 
+
  `entrazas`entrazar` NC  VLfin ( ) 
+
  `erosizn`erosionar` NC  VLfin ( ) 
+
  `escazo`escazar` NC  VLfin ( ) 
+
  `escuadrzn`escuadronar` NC  VLfin ( ) 
+
  `esczndalo`escandir` NC  VCLIfin ( ) 
+
  `eslabzn`eslabonar` NC  VLfin ( ) 
+
  `espadaza`espadazar` NC  VLfin ( ) 
+
  `espazol`espazol`espazolar` ADJ  NC  VLfin ( ) 
+
  `espza`espiar` NC  VLfin ( ) 
+
  `estadzstico`estadzstica` ADJ  NC ( ) 
+
  `estazo`estazar` NC  VLfin ( ) 
+
  `estrza`estriar` NC  VLfin ( ) 
+
  `explosizn`explosionar` NC  VLfin ( ) 
+
  `extravzo`extraviar` NC  VLfin ( ) 
+
  `extrazo`extrazar` ADJ  VLfin ( ) 
+
  `fzcil`facilitar` ADJ  VLfin ( ) 
+
  `fanerzgamo`fanerzgama` ADJ  NC ( ) 
+
  `fotografza`fotografiar` NC  VLfin ( ) 
+
  `frito`frezr`fritar` ADJ  VLadj  VLfin ( ) 
+
  `frito`frezr` ADJ  VLadj ( ) 
+
  `frzo`frezr` ADJ  VLfin ( ) 
+
  `frzo`frzo`frezr` ADJ  NC  VLfin ( ) 
+
  `fusizn`fusionar` NC  VLfin ( ) 
+
  `fzsico`fzsica` ADJ  NC ( ) 
+
  `galardzn`galardonar` NC  VLfin ( ) 
+
  `garantza`garantir` NC  VLfin ( ) 
+
  `general`generalzsimo` ADJ  NC ( ) 
+
  `genztico`genztica` ADJ  NC ( ) 
+
  `gestizn`gestionar` NC  VLfin ( ) 
+
  `grzfico`grzfica` ADJ  NC ( ) 
+
  `gznico`gznica` ADJ  NC ( ) 
+
  `hamburguzs`hamburguesa` ADJ  NC ( ) 
+
  `heurzstico`heurzstica` ADJ  NC ( ) 
+
  `huraczn`huracanar` NC  VLfin ( ) 
+
  `ilusizn`ilusionar` NC  VLfin ( ) 
+
  `imzn`imanar` NC  VLfin ( ) 
+
  `impresizn`impresionar` NC  VLfin ( ) 
+
  `infeccizn`infeccionar` NC  VLfin ( ) 
+
  `inmigracizn`Inmigracizn` NC  NP ( ) 
+
  `inspeccizn`inspeccionar` NC  VLfin ( ) 
+
  `zntegro`integrar` ADJ  VLfin ( ) 
+
  `jabzn`jabonar` NC  VLfin ( ) 
+
  `judzo`judza` ADJ  NC ( ) 
+
  `kilzmetro`km` NC  UMMX ( ) 
+
  `el`el`la`zl`el` ART  NC  PE  PPC  PPX ( ) 
+
  `el`zl` ART  PPC ( ) 
+
  `le`zl|le` PE  PPC ( ) 
+
  `les`zl` PE  PPC ( ) 
+
  `lesizn`lesionar` NC  VLfin ( ) 
+
  `leza`lezar` NC  VLfin ( ) 
+
  `lezo`lezar` NC  VLfin ( ) 
+
  `libanzs`libanesa` ADJ  NC ( ) 
+
  `lzmite`limitar` NC  VLfin ( ) 
+
  `lznea`linear` NC  VLfin ( ) 
+
  `lingzzstico`lingzzstica` ADJ  NC ( ) 
+
  `litografza`litografiar` NC  VLfin ( ) 
+
  `lzo`liar` NC  VLfin ( ) 
+
  `lzgico`lzgica` ADJ  NC ( ) 
+
  `manz`manir` NC  VLfin ( ) 
+
  `maraza`marazar` NC  VLfin ( ) 
+
  `mzs`mas`mas` ADV  CC  CCAD ( ) 
+
  `matemztico`matemztica` ADJ  NC ( ) 
+
  `matemztico`matemzticas` ADJ  NC ( ) 
+
  `mayzsculo`mayzscula` ADJ  NC ( ) 
+
  `mencizn`mencionar` NC  VLfin ( ) 
+
  `metafzsico`metafzsica` ADJ  NC ( ) 
+
  `milzsimo`milzsima` ADJ  NC ( ) 
+
  `misizn`misionar` NC  VLfin ( ) 
+
  `mm`milzmetro`mm` CODE  NC  UMMX ( ) 
+
  `mocizn`mocionar` NC  VLfin ( ) 
+
  `mojzn`mojonar` NC  VLfin ( ) 
+
  `municizn`municionar` NC  VLfin ( ) 
+
  `multiple`mzltiple` ADJ  QU ( ) 
+
  `mzsico`mzsica` ADJ  NC ( ) 
+
  `nzmero`numerar` NC  VLfin ( ) 
+
  `obsesizn`obsesionar` NC  VLfin ( ) 
+
  `ovacizn`ovacionar` NC  VLfin ( ) 
+
  `oyente`ozr` NC  VLadj ( ) 
+
  `ozdo`ozr` NC  VLadj ( ) 
+
  `pensizn`pensionar` NC  VLfin ( ) 
+
  `perdzn`perdonar` NC  VLfin ( ) 
+
  `perfeccizn`perfeccionar` NC  VLfin ( ) 
+
  `pestaza`pestazar` NC  VLfin ( ) 
+
  `peza`pezar` NC  VLfin ( ) 
+
  `plzstico`plzstica` ADJ  NC ( ) 
+
  `polztico`polztica` ADJ  NC ( ) 
+
  `posesizn`posesionar` NC  VLfin ( ) 
+
  `pregzn`pregonar` NC  VLfin ( ) 
+
  `presizn`presionar` NC  VLfin ( ) 
+
  `proporcizn`proporcionar` NC  VLfin ( ) 
+
  `przctico`przctica` ADJ  NC ( ) 
+
  `pzblica`publicar` ADJ  VLfin ( ) 
+
  `pzsame`pesar` NC  VCLIfin ( ) 
+
  `pzo`pzo`piar` ADJ  NC  VLfin ( ) 
+
  `quzmico`quzmica` ADJ  NC ( ) 
+
  `racizn`racionar` NC  VLfin ( ) 
+
  `radiografza`radiografiar` NC  VLfin ( ) 
+
  `ratzn`ratonar` NC  VLfin ( ) 
+
  `rebazo`rebazar` NC  VLfin ( ) 
+
  `rzcord`record` NC  PE ( ) 
+
  `referz`referz`referir` NC  PE  VLfin ( ) 
+
  `refrito`refrezr` ADJ  VLadj ( ) 
+
  `regazo`regazar|regazir` NC  VLfin ( ) 
+
  `repzblico`repzblica` ADJ  NC ( ) 
+
  `reseza`resezar` NC  VLfin ( ) 
+
  `resfrzo`resfriar` NC  VLfin ( ) 
+
  `retzn`retener` NC  VLfin ( ) 
+
  `retzrico`retzrica` ADJ  NC ( ) 
+
  `revzs`revesar` NC  VLfin ( ) 
+
  `revzlido`revzlida` ADJ  NC ( ) 
+
  `roczo`rociar` NC  VLfin ( ) 
+
  `rza`rezr` NC  VLfin ( ) 
+
  `rzo`rezr` NC  VLfin ( ) 
+
  `sancizn`sancionar` NC  VLfin ( ) 
+
  `secretarza`secretar` NC  VLfin ( ) 
+
  `seleccizn`seleccionar` NC  VLfin ( ) 
+
  `semiztico`semiztica` ADJ  NC ( ) 
+
  `semzntico`semzntica` ADJ  NC ( ) 
+
  `subvencizn`subvencionar` NC  VLfin ( ) 
+
  `suezo`sozar` NC  VLfin ( ) 
+
  `sz`zl` ADV  PPX ( ) 
+
  `tapzn`taponar` NC  VLfin ( ) 
+
  `telefznico`telefznica` ADJ  NC ( ) 
+
  `telemztico`telemztica` ADJ  NC ( ) 
+
  `terapzutico`terapzutica` ADJ  NC ( ) 
+
  `tztulo`titular` NC  VLfin ( ) 
+
  `traicizn`traicionar` NC  VLfin ( ) 
+
  `tzcnico`tzcnica` ADJ  NC ( ) 
+
  `tznel`tunar` NC  VLfin ( ) 
+
  `zltimo`ultimar` ADJ  VLfin ( ) 
+
  `uza`uzir` NC  VLfin ( ) 
+

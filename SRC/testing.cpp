@@ -5051,6 +5051,8 @@ static void C_Build(char* input)
 	char oldbot[MAX_WORD_SIZE];
 	char oldbotspace[MAX_WORD_SIZE];
 	char oldloginname[MAX_WORD_SIZE];
+	char oldlanguage[100];
+	strcpy(oldlanguage, current_language);
 	strcpy(oldlogin, loginID);
 	strcpy(oldbot, computerID);
 	strcpy(oldbotspace, computerIDwSpace);
@@ -5128,6 +5130,7 @@ static void C_Build(char* input)
 		ClearPendingTopics(); // flush in case topic ids change or go away
 		ClearVolleyWordMaps();
 		PartiallyCloseSystem();
+		SetLanguage(oldlanguage);
 		CreateSystem();
 #ifdef PRIVATE_CODE
 		PrivateRestart(); // must come AFTER any mongo/postgress init (to allow encrypt/decrypt override)
@@ -7396,52 +7399,34 @@ static void C_Ingestlog(char* input)
 	ShowIngestSummary(starttime, msgcnt, errorcnt);
 }
 
-static void C_ConceptRewrite(char* input)
+static void C_FixFrench(char* input)
 {
-	FILE* in = FopenReadOnly(input);
-	if (!in)
-	{
-		(*printer)("no such file");
-		return;
-	}
-	FILE* out = FopenUTF8Write("tmp/tmp.txt");
-	char* inbuffer = AllocateBuffer();
-	char* outbuffer = AllocateBuffer();
-	while (fgets(inbuffer, maxBufferSize, in))
-	{
-		strcpy(outbuffer, inbuffer);
-		if (strstr(inbuffer, "concept:") && strstr(inbuffer, " _en_US")) // fix this
+		char file[MAX_WORD_SIZE];
+		sprintf(file, "DICT/ITALIAN/%s.txt", input);
+		FILE* in = FopenReadOnly(file);
+		if (!in)
 		{
-			char* outptr = outbuffer;
-			char* inptr = inbuffer;
-			char* start = strchr(inbuffer, '(');
-			strncpy(outbuffer, inbuffer, start + 1 - inbuffer);
-			outptr = outptr + (start + 1 - inbuffer);
-			char token[MAX_WORD_SIZE];
-			char topic[MAX_WORD_SIZE];
-			char* ptr = ReadCompiledWord(inbuffer, topic);
-			ptr = ReadCompiledWord(ptr, topic);
-			start += 1;
-			while (1)
-			{
-				start = ReadCompiledWord(start, token);
-				if (!*token)
-				{
-					strcpy(outptr, "\r\n");
-					break;
-				}
-				if (*token == '_') sprintf(outptr, " %s%s ", topic, token);
-				else strcpy(outptr, token);
-				outptr += strlen(outptr);
-			}
+			(*printer)("no such file");
+			return;
 		}
-
-		fprintf(out, "%s", outbuffer);
-	}
-	fclose(out);
-	fclose(in);
-	FreeBuffer();
-	FreeBuffer();
+		
+		sprintf(file, "TMP/%s.txt", input);
+		FILE* out = FopenUTF8Write(file);
+		char* inbuffer = AllocateBuffer();
+		char* outbuffer = AllocateBuffer();
+		while (fgets(inbuffer, maxBufferSize, in))
+		{
+			if (strstr(inbuffer, "( NOUN NOUN_SINGULAR ) lemma="))
+			{
+				char* at = strstr(inbuffer, "NOUN_SINGULAR");
+				strncpy(at, " NOUN_PLURAL ",13);
+			}
+			fprintf(out, "%s\r\n", inbuffer);
+		}
+		fclose(out);
+		fclose(in);
+		FreeBuffer();
+		FreeBuffer();
 }
 
 static char languageFrom[100];
@@ -14350,7 +14335,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":verifymatch",C_VerifyMatch,(char*)"does userlog match verify data on why" },
 	{ (char*)":splitlog",C_SplitLog,(char*)"separate log into topics" },
 	{ (char*)":translatetop",C_TranslateTop,(char*)"rewrite topic file translated to tmp/filename" },
-	{ (char*)":conceptrewrite",C_ConceptRewrite,(char*)"replicate by language" },
+	{ (char*)":fixfrench",C_FixFrench,(char*)"fix tt french export nounsingulars which are plural" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

@@ -3360,7 +3360,8 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 
 	//  read DICT additions and deletions, so we can standardize what we read into universal if appropriate
 	sprintf(filename, (char*)"dict%s.txt", name);
-	ReadFacts(filename, name, build, false);
+	if (!ReadFacts(filename, name, build, false))
+		return FAILRULE_BIT;
 	sprintf(filename, (char*)"canon%s.txt", name);
 	ReadCanonicals(filename, name);
 		
@@ -3403,7 +3404,10 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		InitKeywords(filename, name, build); // alters words and facts
 		WalkDictionary(IndirectMembers, build); // having read in all concepts, handled delayed word marks
 		sprintf(filename, (char*)"facts%s.txt", name);
-		ReadFacts(filename, name, build, false); // alters facts (and dictionary)
+		if (!ReadFacts(filename, name, build, false)) // alters facts (and dictionary)
+		{
+			myexit("defunct  layer 0, delete TOPIC/BUILD0, rerun and recompile");
+		}
 		FACT* newfacts = baseFacts;
 		while (++newfacts <= lastFactUsed)
 			CheckFundamentalMeaning(Meaning2Word(newfacts->subject)->word);

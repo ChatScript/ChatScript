@@ -6807,18 +6807,30 @@ static void InsureSafeSpellcheck(char* word, bool dictionaryBuild)
 	if (X && (X->properties & TAG_TEST || X->systemFlags & PATTERN_WORD)) return;
 	WORDP Y = FindWord(word, 0, UPPERCASE_LOOKUP);
 	if (Y && (Y->properties & TAG_TEST || Y->systemFlags & PATTERN_WORD)) return;
-	char data[MAX_WORD_SIZE];
-	MakeLowerCopy(data, word);
-	WORDP Z;
-	size_t len = strlen(data);
-	if (data[len - 1] == 's') Z = StoreWord(data, AS_IS); // dont force uppercase on plurals like Cousins
-	else Z = StoreWord(word, AS_IS);
-	if (Z)
+
+	// protect lower case form ONLY if is multiword header
+	if (strchr(word,'_'))
 	{
+		char data[MAX_WORD_SIZE];
+		MakeLowerCopy(data, word);
+		WORDP Z;
+		size_t len = strlen(data);
+		if (data[len - 1] == 's') Z = StoreWord(data, AS_IS); // dont force uppercase on plurals like Cousins
+		else Z = StoreWord(word, AS_IS);
+		if (Z)
+		{
+			AddSystemFlag(Z, PATTERN_WORD);
+			AddWordItem(Z, dictionaryBuild);
+		}
+	}
+	else // protect in whatever case it is
+	{
+		WORDP  Z = StoreWord(word, AS_IS);
 		AddSystemFlag(Z, PATTERN_WORD);
 		AddWordItem(Z, dictionaryBuild);
 	}
 }
+
 static size_t WriteCMore(FACT* F, char*&word,FILE* out,size_t lineSize,uint64 build)
 {
 	char wordcopy[MAX_WORD_SIZE];

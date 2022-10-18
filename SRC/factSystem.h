@@ -99,7 +99,7 @@ unsigned int GetFullFactLanguage(FACT* F);
 char* ReadField(char* ptr,char* field,char fieldkind,unsigned int& flags);
 char* EatFact(char* ptr,char* buffer,unsigned int flags = 0,bool attribute = false);
 FACT* ReadFact(char* &ptr,unsigned int build);
-void ReadFacts(const char* name,const char* layer,int build,bool user = false);
+bool ReadFacts(const char* name,const char* layer,int build,bool user = false);
 char* WriteFact(FACT* F,bool comments,char* buffer,bool ignoreDead = false,bool eol = false,bool displayonly = false);
 FILE* WriteFacts(FILE* out,FACT* from);
 int ReadBinaryFacts(FILE* in,bool dictionary,unsigned int base);

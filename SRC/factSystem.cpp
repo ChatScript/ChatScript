@@ -2026,7 +2026,7 @@ FACT* ReadFact(char* &ptr, unsigned int build)
     return F;
 }
 
-void ReadFacts(const char* name,const char* layer,int build,bool user) //   a facts file may have dictionary augmentations and variable also
+bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a facts file may have dictionary augmentations and variable also
 {
 	// build of -1 is wordnet data
 	bool wordnet = false;
@@ -2045,7 +2045,7 @@ void ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 		sprintf(word, "%s/BUILD%s/%s", topicfolder, layer, name);
 		in = (user) ? FopenReadWritten(word) : FopenReadOnly(word);
 	}
-	if (!in) return;
+	if (!in) return true;
 	char wordx[MAX_WORD_SIZE];
 	char data[50];
 	uint64 val;
@@ -2086,9 +2086,17 @@ void ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			ptr = ReadToken(ptr, word);
 			unsigned int index = atoi(word);
 			FACT* F = Index2Fact(index);
-			unsigned int flags = F->flags & (-1 ^ FACTLANGUAGEBITS);
-			flags |= GetFullFactLanguage(F);
-			F->flags = flags;
+			if (F)
+			{
+				unsigned int flags = F->flags & (-1 ^ FACTLANGUAGEBITS);
+				flags |= GetFullFactLanguage(F);
+				F->flags = flags;
+			}
+			else
+			{
+				ReportBug("fact missing %s %s", word, ptr);
+				return false;
+			}
 		}
 		else if (*word == '-' && word[1] == 'f' && word[2] == 0) // delete fact
 		{
@@ -2141,7 +2149,7 @@ void ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			else // from script file
 			{
 				val = 0;
-				if (!D) StoreWord(wordx);
+				if (!D) StoreWord(wordx,AS_IS);
 				// get properties
 				at = ReadToken(at, data);
 				if (*data == '0') D->properties = 0;
@@ -2253,6 +2261,7 @@ void ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
     }
    FClose(in);
    language_bits =  oldlanguage;
+   return true;
 }
 
 void SortFacts(char* set, int alpha, int setpass) //   sort low to high ^sort(@1subject) which field we sort on (subject or verb or object)

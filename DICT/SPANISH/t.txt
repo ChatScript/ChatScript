@@ -1,2823 +1,5646 @@
- tantear ( VERB_INFINITIVE VERB ) 
+﻿ tantear ( VERB_INFINITIVE VERB ) 
+
  televisar ( VERB_INFINITIVE VERB ) 
+
  tertuliar ( VERB_INFINITIVE VERB ) 
+
  timar ( VERB_INFINITIVE VERB ) 
+
  timbrar ( VERB_INFINITIVE VERB ) 
+
  tiritar ( VERB_INFINITIVE VERB ) 
+
  titubear ( VERB_INFINITIVE VERB ) 
+
  tontear ( VERB_INFINITIVE VERB ) 
+
  transfigurar ( VERB_INFINITIVE VERB ) 
+
  transpirar ( VERB_INFINITIVE VERB ) 
+
  trasnochar ( VERB_INFINITIVE VERB ) 
+
  tonificar ( VERB_INFINITIVE VERB ) 
+
  transfundir ( VERB_PAST_PARTICIPLE                 VERB ) lemma=transfundir 
+
  trascurrir ( VERB_INFINITIVE VERB ) 
+
  tostar ( VERB_INFINITIVE VERB ) 
+
  tezir ( VERB_INFINITIVE VERB ) 
+
  traer ( VERB_INFINITIVE VERB ) 
+
  tapar ( VERB_INFINITIVE VERB ) 
+
  toser ( VERB_INFINITIVE VERB ) 
+
  tardar ( VERB_INFINITIVE VERB ) 
+
  teñir ( VERB_INFINITIVE VERB ) 
+
  tacazo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tacaza ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tarde ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) 
+
  tzmido ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tzmida ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  todos_los_días ( ADVERB ) 
+
  todos ( ) lemma=todo 
+
  terminar ( VERB_INFINITIVE VERB ) 
+
  temer ( VERB_INFINITIVE VERB ) 
+
  tener ( VERB_INFINITIVE VERB ) 
+
  tañer ( ) 
+
  tirar ( VERB_INFINITIVE VERB ) 
+
  tocar ( VERB_INFINITIVE VERB HAS_SUBSTITUTE ) 
+
  tomar ( VERB_INFINITIVE VERB ) 
+
  torcer ( VERB_INFINITIVE VERB ) 
+
  trabajar ( VERB_INFINITIVE VERB ) 
+
  traducir ( VERB_INFINITIVE VERB ) 
+
  tragar ( VERB_INFINITIVE VERB ) 
+
  tratar ( VERB_INFINITIVE VERB ) 
+
  triunfar ( VERB_INFINITIVE VERB ) 
+
  tropezar ( VERB_INFINITIVE VERB ) 
+
  T ( ) lemma=T 
+
  T.61. ( ) lemma=T.61 
+
  T.61 ( ) 
+
  TAG ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TASI ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TCI ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TD ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TDC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TDL ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TDX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- TELEIMPRESORA ( NOUN NOUN_SINGULAR ) lemma=tELEIMPRESORA 
+
+ TELEIMPRESORA ( NOUN  NOUN_PLURAL  ) lemma=tELEIMPRESORA 
+
  tELEIMPRESORA ( ) 
+
  TELEX ( NOUN NOUN_SINGULAR ) 
+
  TENT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TER ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TERM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TES ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TH ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TID ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TIM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TLM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TLX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TM0 ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TMA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TMD ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TMIT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TML ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TMSOR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TNE ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TPR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=TR 
+
  TR2 ( ) lemma=TR2 
+
  TRC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TRM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=TS 
+
  TTC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TTT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  TTX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ta ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tabago ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tabasco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tabor-Zeimer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tabulares ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tachuela ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tacna ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tailandia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Taipei ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tait ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Taiwan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Taiwán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tal ( ADVERB ) 
+
  Tam ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tamames ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tamaulipas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tamayo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
- Tamaño ( NOUN NOUN_SINGULAR ) lemma=tamaño 
+
+ Tamaño ( NOUN  NOUN_PLURAL  ) lemma=tamaño 
+
  tamaño ( NOUN NOUN_SINGULAR ) 
+
  Tampico ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tan ( ADVERB ) 
+
  Tanzania ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tanzanía ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tarragona ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tart ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tartrazina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tati ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Tatiana 
+
  Tatiana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tato ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tauro ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tay-Sachs ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Taylor ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tb ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tchaikovski ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ted ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tegucigalpa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Teherán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tehuacán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tejedor ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tejedores ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Tejedor 
+
  Tek-Chek ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Televisa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Telnet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tena ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tenchita ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tenerife ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Teneyuca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tensionamiento ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tepeyac ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tera ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Terasaki ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Terbutalina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Teresa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tero ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tesa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tesoro ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Texas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Teófilo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thatcher ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thibaut ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thomas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thomen ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thoms ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thomson ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thunen ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thy-1 ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Thémis ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tibet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tico ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ticomaría ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ticona ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tierini ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tijuana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tilano ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tilito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tilín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tim ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tinbergen ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tinso ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tiraje ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Titi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Titman ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Titulante ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tjian ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tlaxcala ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tobago ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tocongo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Togo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Togolesa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toharia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tokelau ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tokio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tokyu ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toledo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toluca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tom ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tomás ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tonga ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toni ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tony ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tordesillas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tordo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toronto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Torremolinos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Torres ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toscana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toshiba ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toutatis ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toya ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Toña ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Antonio 
+
  Toño ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Antonio 
+
  Transcripción-traducción ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Transformantes ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Transition ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tratado ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Traut ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Treviño ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trex ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Triangle ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tribunal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trichocereus ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trichophyton ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trinder ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trini ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Trinidad 
+
  Trinidad ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trofozoíto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tromberg ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trujillo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Trust ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tucumán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tui ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tula ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tulancingo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tulio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tumba ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Turing ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Turkel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Turner ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Turquía ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Tuvalu ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Twain ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Túnez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  t-intermedio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  t-student ( NOUN NOUN_SINGULAR ) 
+
  tA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  ta ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  tabaco ( NOUN NOUN_SINGULAR ) 
+
  tabaquera ( NOUN NOUN_SINGULAR ) 
+
  tabaquismo ( NOUN NOUN_SINGULAR ) 
+
  tabasqueño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tabasqueño 
+
  tabasqueños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tabasqueño 
+
  taberna ( NOUN NOUN_SINGULAR ) 
+
  tabicación ( NOUN NOUN_SINGULAR ) 
+
  tabicamiento ( NOUN NOUN_SINGULAR ) 
+
  tabique ( NOUN VERB NOUN_SINGULAR ) lemma=`tabique`tabicar` NC  VLfin 
+
  tabiques ( NOUN VERB NOUN_SINGULAR ) lemma=`tabique`tabicar` NC  VLfin 
+
  tabla ( NOUN NOUN_SINGULAR ) 
+
  tablao ( NOUN NOUN_SINGULAR ) 
- tableritos ( NOUN NOUN_SINGULAR ) lemma=tablero 
+
+ tableritos ( NOUN  NOUN_PLURAL  ) lemma=tablero 
+
  tablero ( NOUN NOUN_SINGULAR ) 
+
  tablero-mural ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tablilla ( NOUN NOUN_SINGULAR ) 
- tablillas ( NOUN NOUN_SINGULAR ) lemma=tabla 
- tablones ( NOUN NOUN_SINGULAR ) lemma=tablón 
+
+ tablillas ( NOUN  NOUN_PLURAL  ) lemma=tabla 
+
+ tablones ( NOUN  NOUN_PLURAL  ) lemma=tablón 
+
  tablón ( NOUN NOUN_SINGULAR ) 
+
  tabula ( VERB ) lemma=tabular 
+
  tabular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tabulación ( NOUN NOUN_SINGULAR ) 
- tabuladores ( NOUN NOUN_SINGULAR ) lemma=tabulador 
+
+ tabuladores ( NOUN  NOUN_PLURAL  ) lemma=tabulador 
+
  tabulador ( ) 
+
  tabulados ( VERB_PAST_PARTICIPLE VERB ) lemma=tabular 
+
  tabularon ( VERB ) lemma=tabular 
+
  taburete ( NOUN NOUN_SINGULAR ) 
+
  tabáquicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tabáquico 
+
  tabáquico ( ) 
+
  tabú ( NOUN NOUN_SINGULAR ) 
+
  taca ( VERB ) lemma=tacar 
+
  tacar ( ) 
+
  taca-taca-taca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  tacaño ( NOUN NOUN_SINGULAR ) 
- tacañín ( NOUN NOUN_SINGULAR ) lemma=tacaño 
+
+ tacañín ( NOUN  NOUN_PLURAL  ) lemma=tacaño 
+
  tachar ( VERB_INFINITIVE VERB ) 
+
  tachada ( VERB_PAST_PARTICIPLE VERB ) lemma=tachar 
+
  tachadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tachar 
+
  tachados ( VERB_PAST_PARTICIPLE VERB ) lemma=tachar 
+
  tachando ( NOUN NOUN_GERUND ) lemma=tachar 
+
  tachen ( VERB ) lemma=tachar 
+
  tacho ( NOUN NOUN_SINGULAR ) 
+
  tachonar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- tachuelas ( NOUN NOUN_SINGULAR ) lemma=tachuela 
+
+ tachuelas ( NOUN  NOUN_PLURAL  ) lemma=tachuela 
+
  tachuela ( ) 
- tacita ( NOUN NOUN_SINGULAR ) lemma=taza 
+
+ tacita ( NOUN  NOUN_PLURAL  ) lemma=taza 
+
  taza ( NOUN VERB NOUN_SINGULAR ) lemma=`taza`tazar` NC  VLfin 
- tacitas ( NOUN NOUN_SINGULAR ) lemma=taza 
+
+ tacitas ( NOUN  NOUN_PLURAL  ) lemma=taza 
+
  taciturno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  taco ( NOUN VERB NOUN_SINGULAR ) lemma=`taco`tacar` NC  VLfin 
+
  taconear ( VERB_INFINITIVE VERB ) 
- tacones ( NOUN NOUN_SINGULAR ) lemma=tacón 
+
+ tacones ( NOUN  NOUN_PLURAL  ) lemma=tacón 
+
  tacón ( NOUN NOUN_SINGULAR ) 
+
  tacto ( NOUN NOUN_SINGULAR ) 
+
  taimada ( VERB_PAST_PARTICIPLE VERB ) lemma=taimar 
+
  taimar ( ) 
+
  taimadas ( VERB_PAST_PARTICIPLE VERB ) lemma=taimar 
+
  taiwaneses ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=taiwanés 
+
  taiwanés ( ) 
+
  tajada ( VERB_PAST_PARTICIPLE VERB ) lemma=tajar 
+
  tajar ( ) 
+
  tajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tajar 
+
  tajantemente ( ADVERB ) 
+
  taje ( VERB ) lemma=tajar 
+
  tajo ( NOUN VERB NOUN_SINGULAR ) lemma=`tajo`tajar` NC  VLfin 
+
  tal ( ADVERB ) 
+
  tala ( NOUN VERB NOUN_SINGULAR ) lemma=`tala`talar` NC  VLfin 
+
  talabartero ( NOUN NOUN_SINGULAR ) 
+
  talada ( VERB_PAST_PARTICIPLE VERB ) lemma=talar 
+
  talar ( VERB_INFINITIVE VERB ) 
+
  talados ( VERB_PAST_PARTICIPLE VERB ) lemma=talar 
+
  taladro ( VERB ) lemma=taladrar 
+
  taladrar ( ) 
+
  talando ( NOUN NOUN_GERUND ) lemma=talar 
+
  talante ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=talante 
+
  talas ( NOUN VERB NOUN_SINGULAR ) lemma=`tala`talar` NC  VLfin 
+
  talasemia ( NOUN NOUN_SINGULAR ) 
+
  talco ( NOUN NOUN_SINGULAR ) 
+
  talento ( NOUN NOUN_SINGULAR ) 
+
  talentoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  talentosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=talentoso 
+
  tales ( ) lemma=tal 
+
  talidomida ( NOUN NOUN_SINGULAR ) 
+
  talio ( NOUN NOUN_SINGULAR ) 
+
  talla ( VERB ) lemma=tallar 
+
  tallar ( ) 
+
  tallado ( VERB_PAST_PARTICIPLE VERB ) lemma=tallar 
+
  tallados ( VERB_PAST_PARTICIPLE VERB ) lemma=tallar 
+
  tallas ( VERB ) lemma=tallar 
+
  talle ( VERB ) lemma=tallar 
+
  taller ( NOUN NOUN_SINGULAR ) 
- tallitos ( NOUN NOUN_SINGULAR ) lemma=tallo 
+
+ tallitos ( NOUN  NOUN_PLURAL  ) lemma=tallo 
+
  tallo ( NOUN VERB NOUN_SINGULAR ) lemma=`tallo`tallar` NC  VLfin 
+
  talo ( NOUN NOUN_SINGULAR ) 
+
  talonario ( NOUN NOUN_SINGULAR ) 
- talones ( NOUN NOUN_SINGULAR ) lemma=talón 
+
+ talones ( NOUN  NOUN_PLURAL  ) lemma=talón 
+
  talón ( NOUN NOUN_SINGULAR ) 
+
  talud ( NOUN NOUN_SINGULAR ) 
- tamalito ( NOUN NOUN_SINGULAR ) lemma=tamal 
+
+ tamalito ( NOUN  NOUN_PLURAL  ) lemma=tamal 
+
  tamal ( ) 
+
  tamaulipeca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tamaulipeco 
+
  tamaulipeco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tamaulipeco 
+
  tamaulipecos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tamaulipeco 
+
  tamaña ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tamaño 
+
  tamañas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tamaño 
+
  tambalear ( VERB_INFINITIVE VERB ) 
+
  tambien ( ADVERB ) lemma=también 
+
  también ( ADVERB ) 
+
  tambor ( NOUN NOUN_SINGULAR ) 
- tamborines ( NOUN NOUN_SINGULAR ) lemma=tamborín 
+
+ tamborines ( NOUN  NOUN_PLURAL  ) lemma=tamborín 
+
  tamborín ( ) 
+
  tamiz ( NOUN NOUN_SINGULAR ) 
+
  tampoco ( ADVERB ) 
- tampones ( NOUN NOUN_SINGULAR ) lemma=tampón 
+
+ tampones ( NOUN  NOUN_PLURAL  ) lemma=tampón 
+
  tampón ( NOUN NOUN_SINGULAR ) 
+
  tan ( ADVERB CONJUNCTION_SUBORDINATE ) 
+
  tanda ( NOUN NOUN_SINGULAR ) 
+
  tangente ( NOUN NOUN_SINGULAR ) 
+
  tango ( NOUN NOUN_SINGULAR ) 
+
  tanguero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tangueros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanguero 
- tanos ( NOUN NOUN_SINGULAR ) lemma=tano 
+
+ tanos ( NOUN  NOUN_PLURAL  ) lemma=tano 
+
  tano ( ) 
+
  tanque ( NOUN NOUN_SINGULAR ) 
+
  tanqueaba ( VERB ) lemma=tanquear 
+
  tanquear ( ) 
+
  tansmitida ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  tanta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanto 
+
  tanto ( NOUN ADVERB NOUN_SINGULAR ) lemma=tanto 
+
  tantas ( ) lemma=tanto 
+
  tantea ( VERB ) lemma=tantear 
+
  tanteados ( VERB_PAST_PARTICIPLE VERB ) lemma=tantear 
+
  tanteando ( NOUN NOUN_GERUND ) lemma=tantear 
+
  tanteo ( NOUN VERB NOUN_SINGULAR ) lemma=`tanteo`tantear` NC  VLfin 
+
  tantito ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=tanto 
+
  tantos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanto 
+
  tantísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanto 
+
  tantísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanto 
+
  tantísimo ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=tanto 
+
  tantísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tanto 
+
  tapa ( NOUN VERB NOUN_SINGULAR ) lemma=`tapa`tapar` NC  VLfin 
+
  tapada ( VERB_PAST_PARTICIPLE VERB ) lemma=tapar 
+
  tapadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tapar 
+
  tapadera ( NOUN NOUN_SINGULAR ) 
+
  tapados ( VERB_PAST_PARTICIPLE VERB ) lemma=tapar 
+
  tapando ( NOUN NOUN_GERUND ) lemma=tapar 
+
  taparle (                 VERB ) lemma=tapar 
+
  taparles (                 VERB ) lemma=tapar 
+
  taparlo (                 VERB ) lemma=tapar 
+
  taparse ( VERB_INFINITIVE VERB ) 
+
  tapas ( NOUN VERB NOUN_SINGULAR ) lemma=`tapa`tapar` NC  VLfin 
+
  tapatía ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tapatío 
+
  tapatío ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tapatío 
+
  tapatíos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tapatío 
+
  tapete ( NOUN NOUN_SINGULAR ) 
+
  tapia ( NOUN VERB NOUN_SINGULAR ) lemma=`tapia`tapiar` NC  VLfin 
+
  tapices ( NOUN VERB NOUN_SINGULAR ) lemma=`tapiz`tapizar` NC  VLfin 
- tapitas ( NOUN NOUN_SINGULAR ) lemma=tapa 
+
+ tapitas ( NOUN  NOUN_PLURAL  ) lemma=tapa 
+
  tapiz ( NOUN NOUN_SINGULAR ) 
+
  tapiza ( VERB ) lemma=tapizar 
+
  tapizar ( ) 
+
  tapizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tapizar 
+
  tapizados ( VERB_PAST_PARTICIPLE VERB ) lemma=tapizar 
+
  tapizan ( VERB ) lemma=tapizar 
+
  taponar ( VERB_INFINITIVE VERB ) 
+
  taponadas ( VERB_PAST_PARTICIPLE VERB ) lemma=taponar 
+
  taponados ( VERB_PAST_PARTICIPLE VERB ) lemma=taponar 
+
  taponamiento ( NOUN NOUN_SINGULAR ) 
+
  tapones ( NOUN VERB NOUN_SINGULAR ) lemma=`tapón`taponar` NC  VLfin 
+
  taponándolo ( VERB_PAST_PARTICIPLE VERB ) lemma=taponar 
+
  tapándole ( VERB_PAST_PARTICIPLE VERB ) lemma=tapar 
+
  tapándose ( VERB_PAST_PARTICIPLE VERB ) lemma=tapar 
+
  tapón ( NOUN NOUN_SINGULAR ) 
+
  tapún ( NOUN NOUN_SINGULAR ) 
+
  taquiarritmia ( NOUN NOUN_SINGULAR ) 
+
  taquicardia ( NOUN NOUN_SINGULAR ) 
+
  taquigrafía ( NOUN NOUN_SINGULAR ) 
+
  taquilla ( NOUN NOUN_SINGULAR ) 
+
  taquilleras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=taquillero 
+
  taquillero ( ) 
- taquitos ( NOUN NOUN_SINGULAR ) lemma=taco 
+
+ taquitos ( NOUN  NOUN_PLURAL  ) lemma=taco 
+
  tara ( VERB ) lemma=tarar 
+
  tarar ( ) 
+
  tarada ( VERB_PAST_PARTICIPLE VERB ) lemma=tarar 
+
  tarados ( VERB_PAST_PARTICIPLE VERB ) lemma=tarar 
+
  tarará ( VERB ) lemma=tarar 
+
  taras ( VERB ) lemma=tarar 
+
  tardando ( NOUN NOUN_GERUND ) lemma=tardar 
+
  tardanza ( NOUN NOUN_SINGULAR ) 
+
  tardé ( NOUN ADVERB NOUN_SINGULAR ) lemma=tardé 
+
  tardemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tardar 
+
  tarden ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tardar 
+
  tardes ( NOUN VERB NOUN_SINGULAR ) lemma=`tarde`tardar` NC  VLfin 
+
  tardía ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tardío 
+
  tardío ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tardíamente ( ADVERB ) lemma=tardío 
+
  tardías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tardío 
+
  tardíos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tardío 
+
  tardísimo ( ADVERB ) lemma=tardé 
+
  tarea ( NOUN NOUN_SINGULAR ) 
+
  tarifa ( NOUN NOUN_SINGULAR ) 
+
  tarifaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tarifario 
+
  tarifario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tarifarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tarifario 
+
  tarifarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tarifario 
+
  tarificación ( NOUN NOUN_SINGULAR ) 
+
  tarificada ( VERB_PAST_PARTICIPLE VERB ) lemma=tarificar 
+
  tarificar ( VERB_INFINITIVE VERB ) 
+
  tarima ( NOUN NOUN_SINGULAR ) 
+
  tarjeta ( NOUN NOUN_SINGULAR ) 
- tarjetita ( NOUN NOUN_SINGULAR ) lemma=tarjeta 
- tarjetitas ( NOUN NOUN_SINGULAR ) lemma=tarjeta 
+
+ tarjetita ( NOUN  NOUN_PLURAL  ) lemma=tarjeta 
+
+ tarjetitas ( NOUN  NOUN_PLURAL  ) lemma=tarjeta 
+
  tarro ( NOUN NOUN_SINGULAR ) 
+
  tarso ( NOUN NOUN_SINGULAR ) 
+
  tarta ( NOUN NOUN_SINGULAR ) 
+
  tartamudas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tartamudo 
+
  tartamudo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tartamudo 
+
  tartárico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tarántula ( NOUN NOUN_SINGULAR ) 
+
  tasa ( NOUN NOUN_SINGULAR ) 
+
  tasable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tasaciones ( NOUN NOUN_SINGULAR ) lemma=tasación 
+
+ tasaciones ( NOUN  NOUN_PLURAL  ) lemma=tasación 
+
  tasación ( NOUN NOUN_SINGULAR ) 
+
  tasada ( VERB_PAST_PARTICIPLE VERB ) lemma=tasar 
+
  tasar ( VERB_INFINITIVE VERB ) 
+
  tasadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tasar 
+
  tasados ( VERB_PAST_PARTICIPLE VERB ) lemma=tasar 
+
  tasarse ( VERB_INFINITIVE VERB ) 
- tasas ( NOUN NOUN_SINGULAR ) lemma=tasa 
+
+ tasas ( NOUN  NOUN_PLURAL  ) lemma=tasa 
+
  tasen ( VERB ) lemma=tasar 
- tatarabuela ( NOUN NOUN_SINGULAR ) lemma=tatarabuelo 
+
+ tatarabuela ( NOUN  NOUN_PLURAL  ) lemma=tatarabuelo 
+
  tatarabuelo ( NOUN NOUN_SINGULAR ) 
+
  tau ( NOUN NOUN_SINGULAR ) 
+
  taxativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=taxativo 
+
  taxativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  taxativamente ( ADVERB ) lemma=taxativo 
+
  taxativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=taxativo 
+
  taxi ( NOUN NOUN_SINGULAR ) 
+
  taxista ( NOUN NOUN_SINGULAR ) 
+
  taxonomía ( NOUN NOUN_SINGULAR ) 
+
  taxonómica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=taxonómico 
+
  taxonómico ( ) 
+
  taxonómicamente ( ADVERB ) 
+
  taxonómicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=taxonómico 
+
  tazas ( NOUN VERB NOUN_SINGULAR ) lemma=`taza`tazar` NC  VLfin 
- tazones ( NOUN NOUN_SINGULAR ) lemma=tazón 
+
+ tazones ( NOUN  NOUN_PLURAL  ) lemma=tazón 
+
  tazón ( NOUN NOUN_SINGULAR ) 
+
  tañen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tañer 
+
  tañar|tañer ( ) 
+
  tañidos ( VERB_PAST_PARTICIPLE VERB ) lemma=tañer 
+
  tcp ( NOUN NOUN_SINGULAR ) 
+
  tcpcon ( NOUN NOUN_SINGULAR ) 
+
  te ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_INDIRECTOBJECT ) lemma=tú 
+
  tú ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+
  tea ( NOUN NOUN_SINGULAR ) 
+
  teatral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  teatrales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teatral 
+
  teatro ( NOUN NOUN_SINGULAR ) 
+
  tebeo ( NOUN NOUN_SINGULAR ) 
+
  teca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teco 
+
  teco ( ) 
+
  techado ( VERB_PAST_PARTICIPLE VERB ) lemma=techar 
+
  techar ( ) 
+
  techniques ( VERB_INFINITIVE VERB ) 
+
  techo ( NOUN VERB NOUN_SINGULAR ) lemma=`techo`techar` NC  VLfin 
- tecito ( NOUN NOUN_SINGULAR ) lemma=té 
+
+ tecito ( NOUN  NOUN_PLURAL  ) lemma=té 
+
  té ( NOUN NOUN_SINGULAR ) 
+
  tecla ( NOUN NOUN_SINGULAR ) 
- tecladito ( NOUN NOUN_SINGULAR ) lemma=teclado 
+
+ tecladito ( NOUN  NOUN_PLURAL  ) lemma=teclado 
+
  teclado ( NOUN NOUN_SINGULAR ) 
+
  teclear ( VERB_INFINITIVE VERB ) 
+
  tecleando ( NOUN NOUN_GERUND ) lemma=teclear 
+
  tecnecio ( NOUN NOUN_SINGULAR ) 
+
  tecnica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=técnica 
+
  técnica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`técnico`técnica` ADJ  NC 
+
  tecnicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=técnico 
+
  técnico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=técnico 
- tecno ( NOUN NOUN_SINGULAR ) lemma=tecnología 
+
+ tecno ( NOUN  NOUN_PLURAL  ) lemma=tecnología 
+
  tecnología ( NOUN NOUN_SINGULAR ) 
+
  tecnocrático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tecnoeconómico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tecnologia ( NOUN NOUN_SINGULAR ) lemma=tecnología 
+
+ tecnologia ( NOUN  NOUN_PLURAL  ) lemma=tecnología 
+
  tecnológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tecnológico 
+
  tecnológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tecnológicamente ( ADVERB ) lemma=tecnológico 
+
  tecnológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tecnológico 
+
  tecnológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tecnológico 
+
  tecolotes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tecolote 
+
  tecolote ( ) 
+
  tecos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teco 
+
  tectónicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tectónico 
+
  tectónico ( ) 
+
  tedio ( NOUN NOUN_SINGULAR ) 
+
  tediosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tedioso 
+
  tedioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tediosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tedioso 
+
  teflón ( NOUN NOUN_SINGULAR ) 
+
  tegmento ( NOUN NOUN_SINGULAR ) 
+
  tegumento ( NOUN NOUN_SINGULAR ) 
+
  teja ( NOUN VERB NOUN_SINGULAR ) lemma=`teja`tejar|tejer` NC  VLfin 
+
  tejada ( VERB_PAST_PARTICIPLE VERB ) lemma=tejar 
+
  tejar ( ) 
- tejadillo ( NOUN NOUN_SINGULAR ) lemma=tejado 
+
+ tejadillo ( NOUN  NOUN_PLURAL  ) lemma=tejado 
+
  tejado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tejado`tejar` NC  VLadj 
+
  tejados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tejado`tejar` NC  VLadj 
+
  tejano ( NOUN NOUN_SINGULAR ) 
+
  tejas ( NOUN VERB NOUN_SINGULAR ) lemma=`teja`tejar|tejer` NC  VLfin 
+
  teje ( VERB ) lemma=tejar|tejer 
+
  tejar|tejer ( ) 
+
  tejen ( VERB ) lemma=tejar|tejer 
+
  tejer ( VERB_INFINITIVE VERB ) 
+
  tejerlo (                 VERB ) lemma=tejer 
+
  tejido ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tejido`tejer` NC  VLadj 
+
  tejidos ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tejido`tejer` NC  VLadj 
+
  tejiendo ( NOUN NOUN_GERUND ) lemma=tejer 
+
  tejieán ( VERB ) lemma=tejer 
- tejos ( NOUN NOUN_SINGULAR ) lemma=tejo 
+
+ tejos ( NOUN  NOUN_PLURAL  ) lemma=tejo 
+
  tejo ( ) 
+
  tela ( NOUN NOUN_SINGULAR ) 
+
  telangiectasia ( NOUN NOUN_SINGULAR ) 
+
  telarquia ( NOUN NOUN_SINGULAR ) 
+
  tele ( NOUN NOUN_SINGULAR ) 
+
  telecarga ( NOUN NOUN_SINGULAR ) 
+
  telecargan ( VERB ) lemma=telecargar 
+
  telecargar ( ) 
- telecomunicaciones ( NOUN NOUN_SINGULAR ) lemma=telecomunicación 
+
+ telecomunicaciones ( NOUN  NOUN_PLURAL  ) lemma=telecomunicación 
+
  telecomunicación ( NOUN NOUN_SINGULAR ) 
+
  teleconferencia ( NOUN NOUN_SINGULAR ) 
+
  telecontrol ( NOUN NOUN_SINGULAR ) 
+
  telecontrolada ( VERB_PAST_PARTICIPLE VERB ) lemma=telecontrolar 
+
  telecontrolar ( ) 
+
  telecontrolado ( VERB_PAST_PARTICIPLE VERB ) lemma=telecontrolar 
- telecopias ( NOUN NOUN_SINGULAR ) lemma=telecopia 
+
+ telecopias ( NOUN  NOUN_PLURAL  ) lemma=telecopia 
+
  telecopia ( ) 
+
  telediario ( NOUN NOUN_SINGULAR ) 
+
  telediastólico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telefax ( NOUN NOUN_SINGULAR ) 
+
  telefonear ( VERB_INFINITIVE VERB ) 
+
  telefonometría ( NOUN NOUN_SINGULAR ) 
+
  telefonométricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefonométrico 
+
  telefonométrico ( ) 
+
  telefonía ( NOUN NOUN_SINGULAR ) 
+
  telefotografía ( NOUN NOUN_SINGULAR ) 
+
  telefotográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefotográfico 
+
  telefotográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telefotográficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefotográfico 
+
  telefotográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefotográfico 
+
  telefónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefónico 
+
  telefónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telefónicamente ( ADVERB ) lemma=telefónico 
+
  telefónicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`telefónico`telefónica` ADJ  NC 
+
  telefónicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telefónico 
+
  telegrafía ( NOUN NOUN_SINGULAR ) 
+
  telegrama ( NOUN NOUN_SINGULAR ) 
+
  telegráfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telegráfico 
+
  telegráfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telegráficamente ( ADVERB ) lemma=telegráfico 
+
  telegráficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telegráfico 
+
  telegráficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telegráfico 
+
  teleimpresor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=teleimpresor 
+
  teleimpresora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`teleimpresor`teleimpresora` ADJ  NC 
- teleimpresoras ( NOUN NOUN_SINGULAR ) lemma=teleimpresor 
+
+ teleimpresoras ( NOUN  NOUN_PLURAL  ) lemma=teleimpresor 
+
  teleimpresores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=teleimpresor 
+
  telemando ( NOUN NOUN_SINGULAR ) 
+
  telemedida ( NOUN NOUN_SINGULAR ) 
+
  telemática ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`telemático`telemática` ADJ  NC 
+
  telemáticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telemático 
+
  telemático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telemáticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=telemático 
+
  telencéfalo ( NOUN NOUN_SINGULAR ) 
+
  telenovela ( NOUN NOUN_SINGULAR ) 
+
  teleproceso ( NOUN NOUN_SINGULAR ) 
+
  telescopio ( NOUN NOUN_SINGULAR ) 
+
  telescritura ( NOUN NOUN_SINGULAR ) 
+
  teleservicio ( NOUN NOUN_SINGULAR ) 
+
  teletex ( NOUN NOUN_SINGULAR ) 
+
  teletexto ( NOUN NOUN_SINGULAR ) 
+
  televenta ( NOUN NOUN_SINGULAR ) 
+
  televidente ( NOUN NOUN_SINGULAR ) 
+
  televisa ( VERB ) lemma=televisar 
+
  televisada ( VERB_PAST_PARTICIPLE VERB ) lemma=televisar 
+
  televisadas ( VERB_PAST_PARTICIPLE VERB ) lemma=televisar 
+
  televisados ( VERB_PAST_PARTICIPLE VERB ) lemma=televisar 
+
  televisé ( VERB ) lemma=televisar 
+
  televisen ( VERB ) lemma=televisar 
- televisiones ( NOUN NOUN_SINGULAR ) lemma=televisión 
+
+ televisiones ( NOUN  NOUN_PLURAL  ) lemma=televisión 
+
  televisión ( NOUN NOUN_SINGULAR ) 
+
  televisiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=televisivo 
+
  televisivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  televisivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=televisivo 
+
  televisivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=televisivo 
+
  televisor ( NOUN NOUN_SINGULAR ) 
- telex ( NOUN NOUN_SINGULAR ) lemma=telex 
+
+ telex ( NOUN  NOUN_PLURAL  ) lemma=telex 
+
  telomerasa ( NOUN NOUN_SINGULAR ) 
+
  telomérico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- telones ( NOUN NOUN_SINGULAR ) lemma=telón 
+
+ telones ( NOUN  NOUN_PLURAL  ) lemma=telón 
+
  telón ( NOUN NOUN_SINGULAR ) 
+
  telos ( VERB ) lemma=ter 
+
  ter ( NOUN VERB NOUN_SINGULAR ) lemma=ter 
+
  teléfonico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  teléfono ( NOUN NOUN_SINGULAR ) 
+
  telégrafo ( NOUN NOUN_SINGULAR ) 
+
  telógeno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  telómero ( NOUN NOUN_SINGULAR ) 
+
  tema ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=temer 
+
  temamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=temer 
+
  teman ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=temer 
+
  temario ( NOUN NOUN_SINGULAR ) 
+
  temblar ( VERB_INFINITIVE VERB ) 
+
  temblando ( NOUN NOUN_GERUND ) lemma=temblar 
+
  temblor ( NOUN NOUN_SINGULAR ) 
+
  temblorosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tembloroso 
+
  tembloroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temblorosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tembloroso 
+
  temeraria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temerario 
+
  temerario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temerarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temerario 
+
  temerarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temerario 
+
  temerosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temeroso 
+
  temeroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temerosamente ( ADVERB ) lemma=temeroso 
+
  temerosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temeroso 
+
  temerosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temeroso 
+
  temián ( VERB ) lemma=temer 
+
  temible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temible 
+
  temida ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`temido`temer` ADJ  VLadj 
+
  temidas ( VERB_PAST_PARTICIPLE VERB ) lemma=temer 
+
  temidos ( VERB_PAST_PARTICIPLE VERB ) lemma=temer 
+
  temiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=temer 
+
  temieá ( VERB ) lemma=temer 
+
  temieán ( VERB ) lemma=temer 
+
  teminal ( NOUN NOUN_SINGULAR ) 
- temita ( NOUN NOUN_SINGULAR ) lemma=tema 
- temitas ( NOUN NOUN_SINGULAR ) lemma=tema 
+
+ temita ( NOUN  NOUN_PLURAL  ) lemma=tema 
+
+ temitas ( NOUN  NOUN_PLURAL  ) lemma=tema 
+
  temor ( NOUN NOUN_SINGULAR ) 
+
  temperamento ( NOUN NOUN_SINGULAR ) 
+
  temperatura ( NOUN NOUN_SINGULAR ) 
+
  tempestad ( NOUN NOUN_SINGULAR ) 
+
  templar ( VERB_INFINITIVE VERB ) 
+
  templada ( VERB_PAST_PARTICIPLE VERB ) lemma=templar 
+
  templadas ( VERB_PAST_PARTICIPLE VERB ) lemma=templar 
- templadazo ( NOUN NOUN_SINGULAR ) lemma=templado 
+
+ templadazo ( NOUN  NOUN_PLURAL  ) lemma=templado 
+
  templado ( ) 
- templadito ( NOUN NOUN_SINGULAR ) lemma=templado 
+
+ templadito ( NOUN  NOUN_PLURAL  ) lemma=templado 
+
  templados ( VERB_PAST_PARTICIPLE VERB ) lemma=templar 
+
  templando ( NOUN NOUN_GERUND ) lemma=templar 
+
  templo ( NOUN VERB NOUN_SINGULAR ) lemma=`templo`templar` NC  VLfin 
+
  temporada ( NOUN NOUN_SINGULAR ) 
+
  temporal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temporales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temporal 
+
  temporalmente ( ADVERB ) lemma=temporal|temporalmente 
+
  temporal|temporalmente ( ) 
+
  temporaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temporario 
+
  temporario ( ) 
+
  temporariamente ( ADJECTIVE ADJECTIVE_NORMAL ) 
- temporizaciones ( NOUN NOUN_SINGULAR ) lemma=temporización 
+
+ temporizaciones ( NOUN  NOUN_PLURAL  ) lemma=temporización 
+
  temporización ( NOUN NOUN_SINGULAR ) 
+
  temporizada ( VERB_PAST_PARTICIPLE VERB ) lemma=temporizar 
+
  temporizar ( ) 
+
  temporizador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=temporizador 
+
  temporizadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=temporizador 
+
  temporomandibular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temporoparietal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  temprana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temprano 
+
  temprano ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=temprano 
+
  tempranamente ( ADVERB ) lemma=temprano 
+
  tempranas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temprano 
+
  tempranito ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=temprano 
+
  tempranos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temprano 
+
  tempranísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=temprano 
+
  temática ( NOUN NOUN_SINGULAR ) 
+
  temáticamente ( ADVERB ) 
+
  temí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=temer 
+
  ten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tenaces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenaz 
+
  tenaz ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tenaza ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenaz 
+
  tenazas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenaz 
+
  tenazmente ( ADVERB ) lemma=tenaz 
+
  tención ( NOUN NOUN_SINGULAR ) 
+
  tender ( VERB_INFINITIVE VERB ) 
+
  tendencia ( NOUN NOUN_SINGULAR ) 
+
  tendenciosidad ( NOUN NOUN_SINGULAR ) 
+
  tendente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tendentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tendente 
+
  tenderete ( NOUN NOUN_SINGULAR ) 
+
  tendero ( NOUN NOUN_SINGULAR ) 
+
  tendida ( VERB_PAST_PARTICIPLE VERB ) lemma=tender 
+
  tendidos ( VERB_PAST_PARTICIPLE VERB ) lemma=tender 
+
  tendiendo ( NOUN NOUN_GERUND ) lemma=tender 
+
  tendieá ( VERB ) lemma=tender 
+
  tendieán ( VERB ) lemma=tender 
+
  tendinosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tendinoso 
+
  tendinoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tendinosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tendinoso 
- tendones ( NOUN NOUN_SINGULAR ) lemma=tendón 
+
+ tendones ( NOUN  NOUN_PLURAL  ) lemma=tendón 
+
  tendón ( NOUN NOUN_SINGULAR ) 
+
  tendremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tener 
+
  tendria ( VERB ) lemma=tener 
+
  tendrian ( VERB ) lemma=tener 
+
  tendrá ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma=tener 
+
  tendrán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tener 
+
  tendrás ( VERB ) lemma=tener 
+
  tendré ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tendréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tener 
+
  tendría ( VERB ) lemma=tener 
+
  tendríais ( VERB ) lemma=tener 
+
  tendríamos ( VERB ) lemma=tener 
+
  tendrían ( VERB ) lemma=tener 
+
  tendrías ( VERB ) lemma=tener 
+
  tenebrosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenebroso 
+
  tenebroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tenebrosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenebroso 
+
  tenebrosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenebroso 
+
  tened ( VERB ) lemma=tener 
+
  tenedor ( NOUN NOUN_SINGULAR ) 
+
  teneduría ( NOUN NOUN_SINGULAR ) 
+
  tenencia ( NOUN NOUN_SINGULAR ) 
+
  tenerla (                 VERB ) lemma=tener 
+
  tenerlas ( VERB ) lemma=tener 
+
  tenerle (                 VERB ) lemma=tener 
+
  tenerles (                 VERB ) lemma=tener 
+
  tenerlo (                 VERB ) lemma=tener 
+
  tenerme (                 VERB ) lemma=tener 
+
  tenernos (                 VERB ) lemma=tener 
+
  tenerse ( VERB_INFINITIVE VERB ) 
+
  tenerte (                 VERB ) lemma=tener 
+
  tenga ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tengamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tener 
+
  tengan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tener 
+
  tengas ( VERB ) lemma=tener 
+
  tengo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tengáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tener 
+
  tenida ( VERB_PAST_PARTICIPLE VERB ) lemma=tener 
+
  tenidas ( VERB_PAST_PARTICIPLE VERB ) lemma=tener 
+
  tenidos ( VERB_PAST_PARTICIPLE VERB ) lemma=tener 
+
  teniendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=tener 
+
  teniente ( NOUN NOUN_SINGULAR ) 
+
  tenis ( NOUN NOUN_SINGULAR ) 
+
  tenista ( NOUN NOUN_SINGULAR ) 
+
  teniéndola ( NOUN NOUN_GERUND ) lemma=tener 
+
  teniéndolo ( VERB_PAST_PARTICIPLE VERB ) lemma=tener 
+
  teniéndolos ( NOUN NOUN_GERUND ) lemma=tener 
+
  teniéndose ( NOUN NOUN_GERUND ) lemma=tenerse 
+
  tenlo ( ) lemma=tener 
+
  tenor ( NOUN NOUN_SINGULAR ) 
+
  tenorio ( NOUN NOUN_SINGULAR ) 
+
  tensar ( VERB_INFINITIVE VERB ) 
+
  tensada ( VERB_PAST_PARTICIPLE VERB ) lemma=tensar 
+
  tensas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=tensar 
- tension ( NOUN NOUN_SINGULAR ) lemma=tensión 
+
+ tension ( NOUN  NOUN_PLURAL  ) lemma=tensión 
+
  tensión ( NOUN NOUN_SINGULAR ) 
+
  tensiona ( VERB ) lemma=tensionar 
+
  tensionar ( ) 
+
  tensionado ( VERB_PAST_PARTICIPLE VERB ) lemma=tensionar 
+
  tensional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tensiones ( NOUN NOUN_SINGULAR ) lemma=tensión 
+
+ tensiones ( NOUN  NOUN_PLURAL  ) lemma=tensión 
+
  tensoactivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tensor ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tentacion ( NOUN NOUN_SINGULAR ) lemma=tentación 
+
+ tentacion ( NOUN  NOUN_PLURAL  ) lemma=tentación 
+
  tentación ( NOUN NOUN_SINGULAR ) 
- tentaciones ( NOUN NOUN_SINGULAR ) lemma=tentación 
+
+ tentaciones ( NOUN  NOUN_PLURAL  ) lemma=tentación 
+
  tentada ( VERB_PAST_PARTICIPLE VERB ) lemma=tentar 
+
  tentar ( VERB_INFINITIVE VERB ) 
+
  tentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tentar 
+
  tentador ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tentados ( VERB_PAST_PARTICIPLE VERB ) lemma=tentar 
+
  tentando ( NOUN NOUN_GERUND ) lemma=tentar 
+
  tentativa ( NOUN NOUN_SINGULAR ) 
+
  tentáculo ( NOUN NOUN_SINGULAR ) 
+
  tenue ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tenuemente ( ADVERB ) 
+
  tenues ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tenue 
+
  tenés ( VERB ) lemma=tener 
+
  tení ( VERB ) lemma=tener 
+
  tenís ( VERB ) lemma=tener 
+
  teocrático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  teofilina ( NOUN NOUN_SINGULAR ) 
+
  teología ( NOUN NOUN_SINGULAR ) 
+
  teológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teológico 
+
  teológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  teológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teológico 
+
  teológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teológico 
+
  teorema ( NOUN NOUN_SINGULAR ) 
+
  teoria ( NOUN NOUN_SINGULAR ) 
+
  teoría ( NOUN NOUN_SINGULAR ) 
- terapeutas ( NOUN NOUN_SINGULAR ) lemma=terapeuta 
+
+ terapeutas ( NOUN  NOUN_PLURAL  ) lemma=terapeuta 
+
  terapeuta ( ) 
+
  terapia ( NOUN NOUN_SINGULAR ) 
+
  terapéutica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`terapéutico`terapéutica` ADJ  NC 
+
  terapéuticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terapéutico 
+
  terapéutico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terapéuticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terapéutico 
+
  teratogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- teratógenos ( NOUN NOUN_SINGULAR ) lemma=teratógeno 
+
+ teratógenos ( NOUN  NOUN_PLURAL  ) lemma=teratógeno 
+
  teratógeno ( ) 
+
  terbutalino ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tercer ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=tercero 
+
  tercero ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
+
  tercera ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=tercero 
+
  terceras ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=tercero 
+
  terceros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tercero 
+
  terceto ( NOUN NOUN_SINGULAR ) 
+
  tercia ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tercio`terciar` ADJ  VLfin 
+
  terciar ( VERB_INFINITIVE VERB ) 
+
  terciada ( VERB_PAST_PARTICIPLE VERB ) lemma=terciar 
+
  terciaría ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terciario 
+
  terciario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terciarías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terciario 
+
  terciarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terciario 
+
  tercile ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tercio ( NOUN NOUN_SINGULAR ) 
+
  terciopelo ( NOUN NOUN_SINGULAR ) 
+
  tercios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tercio 
+
  tere ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terfenadina ( NOUN NOUN_SINGULAR ) 
+
  tergiversar ( VERB_INFINITIVE VERB ) 
+
  tergiversada ( VERB_PAST_PARTICIPLE VERB ) lemma=tergiversar 
+
  tergiversando ( NOUN NOUN_GERUND ) lemma=tergiversar 
+
  tergiversemos ( VERB ) lemma=tergiversar 
+
  tergiversen ( VERB ) lemma=tergiversar 
+
  termales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=termal 
+
  termal ( ) 
- terminaciones ( NOUN NOUN_SINGULAR ) lemma=terminación 
+
+ terminaciones ( NOUN  NOUN_PLURAL  ) lemma=terminación 
+
  terminación ( NOUN NOUN_SINGULAR ) 
+
  terminad ( VERB ) lemma=terminar 
+
  terminadá ( VERB_PAST_PARTICIPLE VERB ) lemma=terminar 
+
  terminadás ( VERB_PAST_PARTICIPLE VERB ) lemma=terminar 
+
  terminado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`terminado`terminar` ADJ  VLadj 
+
  terminados ( VERB_PAST_PARTICIPLE VERB ) lemma=terminar 
+
  terminal ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=terminal 
+
  terminales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=terminal 
+
  terminando ( NOUN NOUN_GERUND ) lemma=terminar 
+
  terminante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terminantemente ( ADVERB ) lemma=terminante 
+
  terminarla (                 VERB ) lemma=terminar 
+
  terminarlas (                 VERB ) lemma=terminar 
+
  terminarlo (                 VERB ) lemma=terminar 
+
  terminarlos (                 VERB ) lemma=terminar 
+
  terminarse ( VERB_INFINITIVE VERB ) 
+
  terminase ( VERB ) lemma=terminar 
+
  terminemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=terminar 
+
  terminen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=terminar 
+
  termines ( VERB ) lemma=terminar 
+
  terminología ( NOUN NOUN_SINGULAR ) 
+
  terminándose ( NOUN NOUN_GERUND ) lemma=terminarse 
+
  termináramos ( VERB ) lemma=terminar 
+
  termociclador ( NOUN NOUN_SINGULAR ) 
+
  termoclina ( NOUN NOUN_SINGULAR ) 
+
  termodilución ( NOUN NOUN_SINGULAR ) 
+
  termodinámica ( NOUN NOUN_SINGULAR ) 
+
  termodinámicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=termodinámico 
+
  termodinámico ( ) 
+
  termoeléctricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=termoeléctrico 
+
  termoeléctrico ( ) 
+
  termoestable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  termografía ( NOUN NOUN_SINGULAR ) 
+
  termohalina ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=termohalino 
+
  termohalino ( ) 
+
  termolábil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  termorresistente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  termosensibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=termosensible 
+
  termosensible ( ) 
+
  termosifón ( NOUN NOUN_SINGULAR ) 
+
  termostato ( NOUN NOUN_SINGULAR ) 
+
  termostático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  termómetro ( NOUN NOUN_SINGULAR ) 
+
  ternaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ternario 
+
  ternario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  ternarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ternario 
+
  ternarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ternario 
- ternera ( NOUN NOUN_SINGULAR ) lemma=ternero 
+
+ ternera ( NOUN  NOUN_PLURAL  ) lemma=ternero 
+
  ternero ( NOUN NOUN_SINGULAR ) 
- terneras ( NOUN NOUN_SINGULAR ) lemma=ternero 
+
+ terneras ( NOUN  NOUN_PLURAL  ) lemma=ternero 
+
  ternura ( NOUN NOUN_SINGULAR ) 
- terracita ( NOUN NOUN_SINGULAR ) lemma=terraza 
+
+ terracita ( NOUN  NOUN_PLURAL  ) lemma=terraza 
+
  terraza ( NOUN NOUN_SINGULAR ) 
+
  terraplenado ( NOUN NOUN_SINGULAR ) 
+
  terraplén ( NOUN NOUN_SINGULAR ) 
+
  terrateniente ( NOUN NOUN_SINGULAR ) 
+
  terremoto ( NOUN NOUN_SINGULAR ) 
+
  terrena ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terreno 
+
  terreno ( NOUN NOUN_SINGULAR ) 
+
  terrenal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terrenales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrenal 
+
  terrenas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terreno 
+
  terrenazo ( NOUN NOUN_SINGULAR ) 
+
  terrestre ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terrestres ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrestre 
+
  terrible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terriblemente ( ADVERB ) lemma=terrible 
+
  terribles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrible 
+
  territorial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  territoriales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=territorial 
+
  territorialmente ( ADVERB ) lemma=territorial 
+
  territorio ( NOUN NOUN_SINGULAR ) 
+
  terrizo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terror ( NOUN NOUN_SINGULAR ) 
+
  terrorismo ( NOUN NOUN_SINGULAR ) 
+
  terrorista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=terrorista 
+
  terroristas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=terrorista 
+
  terrorífica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrorífico 
+
  terrorífico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  terroríficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrorífico 
+
  terroríficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=terrorífico 
+
  tersa ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`terso`tersar` ADJ  VLfin 
+
  tertulia ( NOUN NOUN_SINGULAR ) 
- tertulias ( NOUN NOUN_SINGULAR ) lemma=tertulia 
+
+ tertulias ( NOUN  NOUN_PLURAL  ) lemma=tertulia 
+
  terén ( NOUN NOUN_SINGULAR ) 
+
  tesis ( NOUN NOUN_SINGULAR ) 
- tesorera ( NOUN NOUN_SINGULAR ) lemma=tesorero 
+
+ tesorera ( NOUN  NOUN_PLURAL  ) lemma=tesorero 
+
  tesorero ( NOUN NOUN_SINGULAR ) 
+
  tesorería ( NOUN NOUN_SINGULAR ) 
- tesorito ( NOUN NOUN_SINGULAR ) lemma=tesoro 
+
+ tesorito ( NOUN  NOUN_PLURAL  ) lemma=tesoro 
+
  tesoro ( NOUN NOUN_SINGULAR ) 
+
  testar ( VERB_INFINITIVE VERB ) 
+
  testador ( NOUN NOUN_SINGULAR ) 
+
  testados ( VERB_PAST_PARTICIPLE VERB ) lemma=testar 
+
  testamentaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=testamentario 
+
  testamentario ( ) 
+
  testamentarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=testamentario 
+
  testamentarios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=testamentario 
+
  testamento ( NOUN NOUN_SINGULAR ) 
+
  testear ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
- testiculos ( NOUN NOUN_SINGULAR ) lemma=testículos 
+
+ testiculos ( NOUN  NOUN_PLURAL  ) lemma=testículos 
+
  testículo ( NOUN NOUN_SINGULAR ) 
+
  testifical ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  testificar ( VERB_INFINITIVE VERB ) 
+
  testificarán ( VERB ) lemma= 
+
  testificaron ( VERB ) lemma= 
+
  testificase ( VERB ) lemma= 
+
  testificó ( VERB ) lemma= 
+
  testifique ( VERB ) lemma= 
+
  testigo ( NOUN NOUN_SINGULAR ) 
+
  testimoniar ( VERB_INFINITIVE VERB ) 
+
  testimoniadas ( VERB_PAST_PARTICIPLE VERB ) lemma=testimoniar 
+
  testimonio ( NOUN VERB NOUN_SINGULAR ) lemma=`testimonio`testimoniar` NC  VLfin 
+
  testosterona ( NOUN NOUN_SINGULAR ) 
- tests ( NOUN NOUN_SINGULAR ) lemma=test 
+
+ tests ( NOUN  NOUN_PLURAL  ) lemma=test 
+
  test ( ) 
+
  tesón ( NOUN NOUN_SINGULAR ) 
+
  teta ( NOUN VERB NOUN_SINGULAR ) lemma=`teta`tetar` NC  VLfin 
+
  tetania ( NOUN NOUN_SINGULAR ) 
+
  tetanización ( NOUN NOUN_SINGULAR ) 
+
  tetas ( NOUN VERB NOUN_SINGULAR ) lemma=`teta`tetar` NC  VLfin 
- tetilla ( NOUN NOUN_SINGULAR ) lemma=teta 
+
+ tetilla ( NOUN  NOUN_PLURAL  ) lemma=teta 
+
  tetraciclina ( NOUN NOUN_SINGULAR ) 
+
  tetrahidrofolato ( NOUN NOUN_SINGULAR ) 
+
  tetrahidropteroilglutamato ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tetralogía ( NOUN NOUN_SINGULAR ) 
+
  tetrapeptídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tetrapléjico ( NOUN NOUN_SINGULAR ) 
+
  tetrasacárido ( NOUN NOUN_SINGULAR ) 
+
  tetravalente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tetraédrica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tetraédrico 
+
  tetraédrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tetraéter ( NOUN NOUN_SINGULAR ) 
+
  tetrámero ( NOUN NOUN_SINGULAR ) 
- tetrápodos ( NOUN NOUN_SINGULAR ) lemma=tetrápodo 
+
+ tetrápodos ( NOUN  NOUN_PLURAL  ) lemma=tetrápodo 
+
  tetrápodo ( ) 
+
  tetánica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tetánico 
+
  tetánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  texana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=texano 
+
  texano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=texano 
+
  texanas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=texano 
+
  texanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=texano 
- text ( NOUN NOUN_SINGULAR ) lemma=text 
+
+ text ( NOUN  NOUN_PLURAL  ) lemma=text 
+
  textil ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=textil 
+
  textiles ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=textil 
+
  texto ( NOUN NOUN_SINGULAR ) 
+
  textual ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  textuales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=textual 
+
  textualmente ( ADVERB ) lemma=textual 
+
  textura ( NOUN NOUN_SINGULAR ) 
+
  tez ( NOUN NOUN_SINGULAR ) 
+
  teñida ( VERB_PAST_PARTICIPLE VERB ) lemma=teñir 
+
  teñidas ( VERB_PAST_PARTICIPLE VERB ) lemma=teñir 
+
  teñidos ( VERB_PAST_PARTICIPLE VERB ) lemma=teñir 
+
  teñirte (                 VERB ) lemma=teñir 
+
  teólogo ( NOUN NOUN_SINGULAR ) 
+
  teórica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teórico 
+
  teórico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  teóricamente ( ADVERB ) lemma=teórico 
+
  teóricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teórico 
+
  teóricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=teórico 
+
  theile ( NOUN NOUN_SINGULAR ) 
+
  thesaurus ( NOUN NOUN_SINGULAR ) 
+
  theta ( NOUN NOUN_SINGULAR ) 
+
  thread ( NOUN NOUN_SINGULAR ) 
+
  thyroxine ( NOUN NOUN_SINGULAR ) 
+
  ti ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=tú 
+
  tiamina ( NOUN NOUN_SINGULAR ) 
+
  tibetana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tibetano 
+
  tibetano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tibetano 
+
  tibetanas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tibetano 
+
  tibetanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tibetano 
+
  tibia ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tibio`tibiar` ADJ  VLfin 
+
  tibial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tibiamente ( ADVERB ) lemma=tibio 
+
  tibio ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tibio`tibiar` ADJ  VLfin 
+
  tibias ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tibio`tibiar` ADJ  VLfin 
+
  tibios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tibio 
- tiburones ( NOUN NOUN_SINGULAR ) lemma=tiburón 
+
+ tiburones ( NOUN  NOUN_PLURAL  ) lemma=tiburón 
+
  tiburón ( NOUN NOUN_SINGULAR ) 
+
  tic ( NOUN NOUN_SINGULAR ) 
+
  ticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tico 
+
  tico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tico 
+
  ticket ( NOUN NOUN_SINGULAR ) 
+
  ticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tico 
+
  tiembla ( VERB ) lemma=temblar 
+
  tiempo ( NOUN NOUN_SINGULAR ) 
+
  tiempo-respuesta ( NOUN NOUN_SINGULAR ) 
+
  tienda ( NOUN VERB NOUN_SINGULAR ) lemma=`tienda`tender` NC  VLfin 
+
  tiendan ( VERB ) lemma=tender 
+
  tiendas ( NOUN VERB NOUN_SINGULAR ) lemma=`tienda`tender` NC  VLfin 
+
  tiende ( VERB ) lemma=tender 
- tiendecitas ( NOUN NOUN_SINGULAR ) lemma=tienda 
+
+ tiendecitas ( NOUN  NOUN_PLURAL  ) lemma=tienda 
+
  tienden ( VERB ) lemma=tender 
+
  tiendo ( NOUN VERB NOUN_GERUND ) lemma=`tender`ter` VLfin  VLger 
+
  tienes ( VERB ) lemma=tener 
+
  tienta ( VERB ) lemma=tentar 
+
  tientas ( VERB ) lemma=tentar 
+
  tiento ( VERB ) lemma=tentar 
+
  tieá ( VERB ) lemma=ter 
+
  tierna ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tierno 
+
  tierno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tiernas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tierno 
+
  tiernitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tierno 
+
  tiernos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tierno 
+
  tierra ( NOUN NOUN_SINGULAR ) 
+
  tiesas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tieso 
+
  tieso ( ) 
+
  tiesto ( NOUN NOUN_SINGULAR ) 
+
  tifoideo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tifones ( NOUN NOUN_SINGULAR ) lemma=tifón 
+
+ tifones ( NOUN  NOUN_PLURAL  ) lemma=tifón 
+
  tifón ( NOUN NOUN_SINGULAR ) 
+
  tifoídico ( NOUN NOUN_SINGULAR ) 
+
  tifus ( NOUN NOUN_SINGULAR ) 
+
  tigre ( NOUN NOUN_SINGULAR ) 
+
  tijera ( NOUN NOUN_SINGULAR ) 
+
  tildar ( VERB_INFINITIVE VERB ) 
+
  tildada ( VERB_PAST_PARTICIPLE VERB ) lemma=tildar 
+
  tilde ( NOUN NOUN_SINGULAR ) 
+
  timados ( VERB_PAST_PARTICIPLE VERB ) lemma=timar 
+
  timbradora ( NOUN NOUN_SINGULAR ) 
+
  timbrados ( VERB_PAST_PARTICIPLE VERB ) lemma=timbrar 
+
  timbre ( NOUN NOUN_SINGULAR ) 
+
  timbres ( NOUN VERB NOUN_SINGULAR ) lemma=`timbre`timbrar` NC  VLfin 
+
  time-stamp ( NOUN NOUN_SINGULAR ) 
+
  times ( VERB ) lemma=timar 
+
  timidez ( NOUN NOUN_SINGULAR ) 
+
  timidina ( NOUN NOUN_SINGULAR ) 
+
  timidito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tímido 
+
  tímido ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tímido 
+
  timidísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tímido 
+
  timo ( VERB ) lemma=timar 
- timocitos ( NOUN NOUN_SINGULAR ) lemma=timocito 
+
+ timocitos ( NOUN  NOUN_PLURAL  ) lemma=timocito 
+
  timocito ( ) 
+
  timonel ( NOUN NOUN_SINGULAR ) 
+
  timopático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  timpánica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=timpánico 
+
  timpánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  timón ( NOUN NOUN_SINGULAR ) 
- tinciones ( NOUN NOUN_SINGULAR ) lemma=tinción 
+
+ tinciones ( NOUN  NOUN_PLURAL  ) lemma=tinción 
+
  tinción ( NOUN NOUN_SINGULAR ) 
+
  tinerfeña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tinerfeño 
+
  tinerfeño ( ) 
+
  tinglado ( NOUN NOUN_SINGULAR ) 
- tinieblas ( NOUN NOUN_SINGULAR ) lemma=tiniebla 
+
+ tinieblas ( NOUN  NOUN_PLURAL  ) lemma=tiniebla 
+
  tiniebla ( ) 
+
  tino ( NOUN NOUN_SINGULAR ) 
+
  tinta ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`tinto`tinta`tintar` ADJ  NC  VLfin 
+
  tintas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`tinto`tinta`tintar` ADJ  NC  VLfin 
+
  tinte ( VERB ) lemma=tintar 
+
  tintar ( ) 
+
  tintero ( NOUN NOUN_SINGULAR ) 
+
  tintes ( VERB ) lemma=tintar 
+
  tinto ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tinto`tintar` ADJ  VLfin 
+
  tintos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tinto 
+
  tintura ( NOUN NOUN_SINGULAR ) 
+
  tioconazol ( NOUN NOUN_SINGULAR ) 
+
  tioglicolato ( NOUN NOUN_SINGULAR ) 
+
  tioglocolato ( NOUN NOUN_SINGULAR ) 
+
  tiopurina ( NOUN NOUN_SINGULAR ) 
+
  tiorredoxina ( NOUN NOUN_SINGULAR ) 
+
  tiosulfato ( NOUN NOUN_SINGULAR ) 
+
  tiourea ( NOUN NOUN_SINGULAR ) 
+
  tipicidad ( NOUN NOUN_SINGULAR ) 
+
  tipificar ( VERB_INFINITIVE VERB ) 
+
  tipificación ( NOUN NOUN_SINGULAR ) 
+
  tipificada ( VERB_PAST_PARTICIPLE VERB ) lemma=tipificar 
+
  tipificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tipificar 
+
  tipificados ( VERB_PAST_PARTICIPLE VERB ) lemma=tipificar 
+
  tipifique ( VERB ) lemma=tipificar 
+
  tipifiquen ( VERB ) lemma=tipificar 
+
  tipo ( NOUN NOUN_SINGULAR ) 
+
  tipo-de-pieza ( NOUN NOUN_SINGULAR ) 
+
  tipográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tipográfico 
+
  tipográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tipográficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tipográfico 
+
  tipográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tipográfico 
+
  tipología ( NOUN NOUN_SINGULAR ) 
+
  tiquete ( NOUN NOUN_SINGULAR ) 
+
  tirada ( VERB_PAST_PARTICIPLE VERB ) lemma=tirar 
+
  tiradas ( VERB_PAST_PARTICIPLE VERB ) lemma=tirar 
+
  tiradero ( NOUN NOUN_SINGULAR ) 
+
  tirado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tirado`tirar` ADJ  VLadj 
+
  tirador ( NOUN NOUN_SINGULAR ) 
+
  tirados ( VERB_PAST_PARTICIPLE VERB ) lemma=tirar 
+
  tiranás ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tirano 
+
  tirano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tirano 
+
  tirando ( NOUN NOUN_GERUND ) lemma=tirar 
+
  tiranos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tirano 
+
  tirante ( NOUN NOUN_SINGULAR ) 
- tiranteces ( NOUN NOUN_SINGULAR ) lemma=tirantez 
+
+ tiranteces ( NOUN  NOUN_PLURAL  ) lemma=tirantez 
+
  tirantez ( ) 
+
  tiranía ( NOUN NOUN_SINGULAR ) 
+
  tirarle (                 VERB ) lemma=tirar 
+
  tirarlo (                 VERB ) lemma=tirar 
+
  tirarme (                 VERB ) lemma=tirar 
+
  tirarse ( VERB_INFINITIVE VERB ) 
+
  tirase ( VERB ) lemma=tirar 
+
  tiremos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tirar 
+
  tiren ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tirar 
+
  tires ( VERB ) lemma=tirar 
+
  tirita ( VERB ) lemma=tiritar 
+
  tiritas ( VERB ) lemma=tiritar 
+
  tirito ( NOUN VERB NOUN_SINGULAR ) lemma=`tiro`tiritar` NC  VLfin 
+
  tiro ( NOUN VERB NOUN_SINGULAR ) lemma=`tiro`tirar` NC  VLfin 
+
  tiroglobulina ( NOUN NOUN_SINGULAR ) 
+
  tirogloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tiroidea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tiroideo 
+
  tiroideo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tiroideas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tiroideo 
+
  tiroideos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tiroideo 
+
  tiroides ( NOUN NOUN_SINGULAR ) 
+
  tiroiditis ( NOUN NOUN_SINGULAR ) 
- tirones ( NOUN NOUN_SINGULAR ) lemma=tirón 
+
+ tirones ( NOUN  NOUN_PLURAL  ) lemma=tirón 
+
  tirón ( NOUN NOUN_SINGULAR ) 
+
  tirosilo ( NOUN NOUN_SINGULAR ) 
+
  tirosina ( NOUN NOUN_SINGULAR ) 
+
  tirosina-kinasa ( NOUN NOUN_SINGULAR ) 
+
  tirosinaquinasa ( NOUN NOUN_SINGULAR ) 
+
  tirosinquinasa ( NOUN NOUN_SINGULAR ) 
+
  tiroteadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tirotear 
+
  tirotear ( ) 
+
  tiroteado ( VERB_PAST_PARTICIPLE VERB ) lemma=tirotear 
+
  tiroteados ( VERB_PAST_PARTICIPLE VERB ) lemma=tirotear 
+
  tirotean ( VERB ) lemma=tirotear 
+
  tirotearon ( VERB ) lemma=tirotear 
+
  tiroteo ( NOUN VERB NOUN_SINGULAR ) lemma=`tiroteo`tirotear` NC  VLfin 
+
  tirotoxicosis ( NOUN NOUN_SINGULAR ) 
+
  tirotrofino ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tirotropina ( NOUN NOUN_SINGULAR ) 
+
  tirotrópico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tirotóxico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tiroxina ( NOUN NOUN_SINGULAR ) 
+
  tirándolos ( NOUN NOUN_GERUND ) lemma=tirar 
+
  tirárnoslo (                 VERB ) lemma=tirar 
+
  tirárselos (                 VERB ) lemma=tirarse 
+
  tisular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tisulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tisular 
+
  titanio ( NOUN NOUN_SINGULAR ) 
+
  titi ( NOUN NOUN_SINGULAR ) 
+
  titilación ( NOUN NOUN_SINGULAR ) 
- titubeos ( NOUN NOUN_SINGULAR ) lemma=titubeo 
+
+ titubeos ( NOUN  NOUN_PLURAL  ) lemma=titubeo 
+
  titubeo ( ) 
+
  titula ( VERB ) lemma=titular 
+
  titular ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=titular 
+
  titulaba ( VERB ) lemma=titular 
- titulaciones ( NOUN NOUN_SINGULAR ) lemma=titulación 
+
+ titulaciones ( NOUN  NOUN_PLURAL  ) lemma=titulación 
+
  titulación ( NOUN NOUN_SINGULAR ) 
+
  titulada ( VERB_PAST_PARTICIPLE VERB ) lemma=titular 
+
  tituladas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`titulado`titular` ADJ  VLadj 
+
  titulado ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=titulado 
+
  titulados ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=titulado 
+
  titulares ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=titular 
+
  titularidad ( NOUN NOUN_SINGULAR ) 
+
  titularse ( VERB ) lemma=titular 
+
  titulará ( VERB ) lemma=titular 
+
  titularía ( VERB ) lemma=titular 
- titulito ( NOUN NOUN_SINGULAR ) lemma=título 
+
+ titulito ( NOUN  NOUN_PLURAL  ) lemma=título 
+
  título ( NOUN NOUN_SINGULAR ) 
+
  titulo ( NOUN VERB NOUN_SINGULAR ) lemma=`título`titular` NC  VLfin 
+
  tituló ( VERB ) lemma=titular 
+
  titán ( NOUN NOUN_SINGULAR ) 
+
  tiza ( NOUN NOUN_SINGULAR ) 
+
  tiznas ( VERB ) lemma=tiznar 
+
  tiznar ( ) 
- tiñas ( NOUN NOUN_SINGULAR ) lemma=tiña 
+
+ tiñas ( NOUN  NOUN_PLURAL  ) lemma=tiña 
+
  tiña ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñe ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=teñir 
+
  tiñeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=teñir 
+
  toalla ( NOUN NOUN_SINGULAR ) 
- toallitas ( NOUN NOUN_SINGULAR ) lemma=toalla 
+
+ toallitas ( NOUN  NOUN_PLURAL  ) lemma=toalla 
+
  tobillo ( NOUN NOUN_SINGULAR ) 
+
  tobogán ( NOUN NOUN_SINGULAR ) 
+
  toca ( NOUN VERB NOUN_SINGULAR ) lemma=`toca`tocar` NC  VLfin 
+
  tocaba ( NOUN VERB NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=tocar 
+
  tocada ( VERB_PAST_PARTICIPLE VERB ) lemma=tocar 
+
  tocadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tocar 
- tocadiscos ( NOUN NOUN_SINGULAR ) lemma=tocadisco 
+
+ tocadiscos ( NOUN  NOUN_PLURAL  ) lemma=tocadisco 
+
  tocadisco ( ) 
+
  tocado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`tocado`tocado`tocar` ADJ  NC  VLadj 
+
  tocador ( NOUN NOUN_SINGULAR ) 
+
  tocados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tocado`tocar` NC  VLadj 
+
  tocala ( ) lemma=tocar 
- tocamientos ( NOUN NOUN_SINGULAR ) lemma=tocamiento 
+
+ tocamientos ( NOUN  NOUN_PLURAL  ) lemma=tocamiento 
+
  tocamiento ( ) 
+
  tocando ( NOUN NOUN_GERUND ) lemma=tocar 
+
  tocante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tocarle (                 VERB ) lemma=tocar 
+
  tocarles (                 VERB ) lemma=tocar 
+
  tocarlo (                 VERB ) lemma=tocar 
+
  tocarlos (                 VERB ) lemma=tocar 
+
  tocarse ( VERB_INFINITIVE VERB ) 
+
  tocarte (                 VERB ) lemma=tocar 
+
  tocas ( NOUN VERB NOUN_SINGULAR ) lemma=`toca`tocar` NC  VLfin 
+
  tocase ( VERB ) lemma=tocar 
+
  tocaseis ( VERB ) lemma=tocar 
+
  tocasen ( VERB ) lemma=tocar 
+
  tocaya ( NOUN NOUN_SINGULAR ) 
- tocinito ( NOUN NOUN_SINGULAR ) lemma=tocino 
+
+ tocinito ( NOUN  NOUN_PLURAL  ) lemma=tocino 
+
  tocino ( NOUN NOUN_SINGULAR ) 
+
  tocá ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=tocar 
+
  tocándonos ( NOUN NOUN_GERUND ) lemma=tocar 
+
  tocándose ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=tocar 
+
  toda ( ) lemma=todo 
+
  todo ( ) 
+
  todas ( ) lemma=todo 
+
  todavía ( ADVERB ) 
+
  todita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=todo 
+
  todititos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=todos 
+
  todito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=todo 
+
  toditos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=todo 
+
  todoterreno ( NOUN NOUN_SINGULAR ) 
+
  token ( NOUN NOUN_SINGULAR ) 
+
  tolbutamir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  told ( NOUN NOUN_SINGULAR ) 
+
  toldo ( NOUN VERB NOUN_SINGULAR ) lemma=`toldo`toldar` NC  VLfin 
+
  toledano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=toledano 
+
  tolerar ( VERB_INFINITIVE VERB ) 
+
  tolerabilidad ( NOUN NOUN_SINGULAR ) 
+
  tolerable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tolerables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tolerable 
+
  tolerada ( VERB_PAST_PARTICIPLE VERB ) lemma=tolerar 
+
  toleradas ( VERB_PAST_PARTICIPLE VERB ) lemma=tolerar 
+
  tolerados ( VERB_PAST_PARTICIPLE VERB ) lemma=tolerar 
+
  tolerancia ( NOUN NOUN_SINGULAR ) 
+
  tolerando ( NOUN NOUN_GERUND ) lemma=tolerar 
+
  tolerante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tolerantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tolerante 
+
  tolerarlas (                 VERB ) lemma=tolerar 
+
  tolerarlo (                 VERB ) lemma=tolerar 
+
  tolerarnos (                 VERB ) lemma=tolerar 
+
  tolerarse ( VERB_INFINITIVE VERB ) 
+
  tolerase ( VERB ) lemma=tolerar 
+
  toleremos ( VERB ) lemma=tolerar 
+
  toleren ( VERB ) lemma=tolerar 
+
  tolerándolos ( NOUN NOUN_GERUND ) lemma=tolerar 
+
  tolerándose ( NOUN NOUN_GERUND ) lemma=tolerarse 
+
  tolva ( NOUN NOUN_SINGULAR ) 
+
  tolículo ( NOUN NOUN_SINGULAR ) 
+
  toma ( NOUN VERB NOUN_SINGULAR ) lemma=`toma`tomar` NC  VLfin 
+
  tomada ( VERB_PAST_PARTICIPLE VERB ) lemma=tomar 
+
  tomadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tomar 
+
  tomado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tomado`tomar` ADJ  VLadj 
+
  tomador ( NOUN NOUN_SINGULAR ) 
+
  tomados ( VERB_PAST_PARTICIPLE VERB ) lemma=tomar 
+
  tomando ( NOUN NOUN_GERUND ) lemma=tomar 
+
  tomaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tomar 
+
  tomarla (                 VERB ) lemma=tomar 
+
  tomarle (                 VERB ) lemma=tomar 
+
  tomarles (                 VERB ) lemma=tomar 
+
  tomarlo (                 VERB ) lemma=tomar 
+
  tomarme (                 VERB ) lemma=tomar 
+
  tomarnos (                 VERB ) lemma=tomar 
+
  tomaros ( VERB ) lemma=tomar 
+
  tomarse ( VERB_INFINITIVE VERB ) 
+
  tomarte (                 VERB ) lemma=tomar 
- tomas ( NOUN NOUN_SINGULAR ) lemma=toma 
+
+ tomas ( NOUN  NOUN_PLURAL  ) lemma=toma 
+
  tomase ( VERB ) lemma=tomar 
+
  tomaseis ( VERB ) lemma=tomar 
+
  tomasen ( VERB ) lemma=tomar 
+
  tomate ( NOUN NOUN_SINGULAR ) 
- tombolita ( NOUN NOUN_SINGULAR ) lemma=tómbola 
+
+ tombolita ( NOUN  NOUN_PLURAL  ) lemma=tómbola 
+
  tómbola ( NOUN NOUN_SINGULAR ) 
+
  tomemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tomar 
+
  tomen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tomar 
+
  tomes ( VERB ) lemma=tomar 
+
  tomillo ( NOUN NOUN_SINGULAR ) 
- tomito ( NOUN NOUN_SINGULAR ) lemma=tomo 
+
+ tomito ( NOUN  NOUN_PLURAL  ) lemma=tomo 
+
  tomo ( NOUN NOUN_SINGULAR ) 
+
  tomografía ( NOUN NOUN_SINGULAR ) 
+
  tomográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tomá ( VERB ) lemma=tomar 
+
  tomándola ( NOUN NOUN_GERUND ) lemma=tomar 
+
  tomándolas ( NOUN NOUN_GERUND ) 
+
  tomándolos ( NOUN NOUN_GERUND ) lemma=tomar 
+
  tomándonos ( VERB_PAST_PARTICIPLE VERB ) lemma=tomar 
+
  tomándose ( NOUN NOUN_GERUND ) lemma=tomarse 
+
  tomáramos ( VERB ) lemma=tomar 
+
  tomárselas (                 VERB ) lemma=tomarse 
+
  tomárselo (                 VERB ) lemma=tomar 
+
  tomártelo (                 VERB ) lemma=tomar 
+
  tomás ( VERB ) lemma=tomar 
+
  tomásemos ( VERB ) lemma=tomar 
+
  ton ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=ton 
+
  tonada ( VERB_PAST_PARTICIPLE VERB ) lemma=tonar 
+
  tonar ( ) 
+
  tonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tonalidad ( NOUN NOUN_SINGULAR ) 
+
  tonelada ( NOUN NOUN_SINGULAR ) 
+
  tonicidad ( NOUN NOUN_SINGULAR ) 
+
  tonicoclónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tonillo ( NOUN NOUN_SINGULAR ) lemma=tono 
+
+ tonillo ( NOUN  NOUN_PLURAL  ) lemma=tono 
+
  tono ( NOUN NOUN_SINGULAR ) 
+
  tonta ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  tonto ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  tontamente ( ADVERB ) lemma=tonto 
+
  tontas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  tontea ( VERB ) lemma=tontear 
+
  tonteando ( NOUN NOUN_GERUND ) lemma=tontear 
+
  tontera ( NOUN NOUN_SINGULAR ) 
+
  tontería ( NOUN NOUN_SINGULAR ) 
+
  tontita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  tontito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  tontos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tonto 
+
  too ( VERB ) lemma=toar 
+
  toar ( ) 
+
  top ( NOUN NOUN_SINGULAR ) 
+
  topar ( VERB_INFINITIVE VERB ) 
+
  topando ( NOUN NOUN_GERUND ) lemma=topar 
+
  toparse ( VERB_INFINITIVE VERB ) 
+
  topemos ( VERB ) lemma=topar 
- toperas ( NOUN NOUN_SINGULAR ) lemma=topera 
+
+ toperas ( NOUN  NOUN_PLURAL  ) lemma=topera 
+
  topera ( ) 
+
  topes ( VERB ) lemma=topar 
+
  topo ( NOUN VERB NOUN_SINGULAR ) lemma=`topo`topar` NC  VLfin 
+
  topografía ( NOUN NOUN_SINGULAR ) 
+
  topográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=topográfico 
+
  topográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  topográficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=topográfico 
+
  topogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  topoisomerasa ( NOUN NOUN_SINGULAR ) 
+
  topología ( NOUN NOUN_SINGULAR ) 
+
  topológicamente ( ADVERB ) 
+
  topológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- topónimos ( NOUN NOUN_SINGULAR ) lemma=topónimo 
+
+ topónimos ( NOUN  NOUN_PLURAL  ) lemma=topónimo 
+
  topónimo ( ) 
+
  toque ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=tocar 
- toquecito ( NOUN NOUN_SINGULAR ) lemma=toque 
+
+ toquecito ( NOUN  NOUN_PLURAL  ) lemma=toque 
+
  toquen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tocar 
+
  toques ( VERB ) lemma=tocar 
+
  toqué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tocar 
+
  toracocentesis ( NOUN NOUN_SINGULAR ) 
+
  toracotomía ( NOUN NOUN_SINGULAR ) 
+
  torax ( NOUN NOUN_SINGULAR ) 
+
  torbellino ( NOUN NOUN_SINGULAR ) 
+
  torcedura ( NOUN NOUN_SINGULAR ) 
+
  torcida ( VERB_PAST_PARTICIPLE VERB ) lemma=torcer 
+
  torcidas ( VERB_PAST_PARTICIPLE VERB ) lemma=torcer 
+
  torcidos ( VERB_PAST_PARTICIPLE VERB ) lemma=torcer 
+
  torciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=torcer 
+
  torcí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=torcer 
+
  tordo ( NOUN NOUN_SINGULAR ) 
+
  torear ( VERB_INFINITIVE VERB ) 
+
  toreadas ( VERB_PAST_PARTICIPLE VERB ) lemma=torear 
+
  toreando ( NOUN NOUN_GERUND ) lemma=torear 
- torerito ( NOUN NOUN_SINGULAR ) lemma=torero 
+
+ torerito ( NOUN  NOUN_PLURAL  ) lemma=torero 
+
  torero ( NOUN NOUN_SINGULAR ) 
+
  torio ( NOUN NOUN_SINGULAR ) 
- torito ( NOUN NOUN_SINGULAR ) lemma=toro 
+
+ torito ( NOUN  NOUN_PLURAL  ) lemma=toro 
+
  toro ( NOUN NOUN_SINGULAR ) 
+
  tormenta ( NOUN VERB NOUN_SINGULAR ) lemma=`tormenta`tormentar` NC  VLfin 
+
  tormentas ( NOUN VERB NOUN_SINGULAR ) lemma=`tormenta`tormentar` NC  VLfin 
+
  tormento ( NOUN NOUN_SINGULAR ) 
+
  tornar ( VERB_INFINITIVE VERB ) 
+
  tornados ( VERB_PAST_PARTICIPLE VERB ) lemma=tornar 
+
  tornando ( NOUN NOUN_GERUND ) lemma=tornar 
+
  tornarse ( VERB_INFINITIVE VERB ) 
+
  torneo ( NOUN VERB NOUN_SINGULAR ) lemma=`torneo`tornear` NC  VLfin 
+
  tornillo ( NOUN NOUN_SINGULAR ) 
+
  torniquete ( NOUN NOUN_SINGULAR ) 
+
  torno ( NOUN VERB NOUN_SINGULAR ) lemma=`torno`tornar` NC  VLfin 
+
  tornándose ( VERB_PAST_PARTICIPLE VERB ) lemma=tornar 
+
  toronja ( NOUN NOUN_SINGULAR ) 
+
  torpe ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  torpedear ( VERB_INFINITIVE VERB ) 
+
  torpedeando ( NOUN NOUN_GERUND ) lemma=torpedear 
+
  torpedeemos ( VERB ) lemma=torpedear 
+
  torpemente ( ADVERB ) lemma=torpe 
+
  torpes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=torpe 
+
  torpeza ( NOUN NOUN_SINGULAR ) 
+
  torr ( NOUN NOUN_SINGULAR ) 
+
  torrado ( VERB_PAST_PARTICIPLE VERB ) lemma=torrar 
+
  torrar ( ) 
+
  torre ( NOUN VERB NOUN_SINGULAR ) lemma=`torre`torrar` NC  VLfin 
+
  torreja ( NOUN NOUN_SINGULAR ) 
+
  torren ( VERB ) lemma=torrar 
+
  torrencial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  torrenciales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=torrencial 
+
  torrencialmente ( ADVERB ) lemma=torrencial 
+
  torrente ( NOUN NOUN_SINGULAR ) 
+
  torres ( NOUN VERB NOUN_SINGULAR ) lemma=`torre`torrar` NC  VLfin 
+
  torreón ( NOUN NOUN_SINGULAR ) 
+
  torsión ( NOUN NOUN_SINGULAR ) 
- torsos ( NOUN NOUN_SINGULAR ) lemma=torso 
+
+ torsos ( NOUN  NOUN_PLURAL  ) lemma=torso 
+
  torso ( ) 
+
  torta ( NOUN NOUN_SINGULAR ) 
+
  tortilla ( NOUN NOUN_SINGULAR ) 
+
  tortillera ( NOUN NOUN_SINGULAR ) 
- tortillita ( NOUN NOUN_SINGULAR ) lemma=tortilla 
+
+ tortillita ( NOUN  NOUN_PLURAL  ) lemma=tortilla 
+
  tortuga ( NOUN NOUN_SINGULAR ) 
- tortuguita ( NOUN NOUN_SINGULAR ) lemma=tortuga 
+
+ tortuguita ( NOUN  NOUN_PLURAL  ) lemma=tortuga 
+
  tortuosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tortuoso 
+
  tortuoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tortuosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tortuoso 
+
  tortuosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tortuoso 
+
  tortura ( NOUN VERB NOUN_SINGULAR ) lemma=`tortura`torturar` NC  VLfin 
+
  torturar ( VERB_INFINITIVE VERB ) 
+
  torturada ( VERB_PAST_PARTICIPLE VERB ) lemma=torturar 
+
  torturadas ( VERB_PAST_PARTICIPLE VERB ) lemma=torturar 
+
  torturados ( VERB_PAST_PARTICIPLE VERB ) lemma=torturar 
+
  torturando ( NOUN NOUN_GERUND ) lemma=torturar 
+
  torturas ( NOUN VERB NOUN_SINGULAR ) lemma=`tortura`torturar` NC  VLfin 
+
  tortures ( VERB ) lemma=torturar 
+
  torácica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=torácico 
+
  torácico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  torácicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=torácico 
+
  torácicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=torácico 
+
  tos ( NOUN NOUN_SINGULAR ) 
+
  tosan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=toser 
+
  tosca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tosco 
+
  tosco ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  toscana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=toscano 
+
  toscano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=toscano 
+
  toscanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=toscano 
+
  toscos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tosco 
+
  tosferina ( NOUN NOUN_SINGULAR ) 
+
  tosquedad ( NOUN NOUN_SINGULAR ) 
+
  tostadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tostar 
+
  total ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=total 
+
  totales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=total 
+
  totalidad ( NOUN NOUN_SINGULAR ) 
+
  totalitaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=totalitario 
+
  totalitario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  totalitarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=totalitario 
+
  totalitarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=totalitario 
+
  totalitarismo ( NOUN NOUN_SINGULAR ) 
+
  totalizar ( VERB_INFINITIVE VERB ) 
+
  totalización ( NOUN NOUN_SINGULAR ) 
+
  totalizadores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=totalizador 
+
  totalizador ( ) 
+
  totalizando ( NOUN NOUN_GERUND ) lemma=totalizar 
+
  totalmente ( ADVERB HAS_SUBSTITUTE ) lemma=total|totalmente 
+
  total|totalmente ( ) 
+
  tour ( NOUN NOUN_SINGULAR ) 
+
  toxemia ( NOUN NOUN_SINGULAR ) 
+
  toxicidad ( NOUN NOUN_SINGULAR ) 
+
  toxicoalérgico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  toxicomanía ( NOUN NOUN_SINGULAR ) 
+
  toxicómana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=toxicómano 
+
  toxicómano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=toxicómano 
+
  toxicómanos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=toxicómano 
+
  toxina ( NOUN NOUN_SINGULAR ) 
- toxoides ( NOUN NOUN_SINGULAR ) lemma=toxoide 
+
+ toxoides ( NOUN  NOUN_PLURAL  ) lemma=toxoide 
+
  toxoide ( ) 
+
  toxoplasma ( NOUN NOUN_SINGULAR ) 
+
  toxoplasmosis ( NOUN NOUN_SINGULAR ) 
+
  tozuda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tozudo 
+
  tozudo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tozudamente ( ADVERB ) lemma=tozudo 
+
  tpa ( NOUN NOUN_SINGULAR ) 
+
  trabar ( VERB_INFINITIVE VERB ) 
+
  trabada ( VERB_PAST_PARTICIPLE VERB ) lemma=trabar 
+
  trabadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trabar 
+
  trabados ( VERB_PAST_PARTICIPLE VERB ) lemma=trabar 
+
  trabajada ( VERB_PAST_PARTICIPLE VERB ) lemma=trabajar 
+
  trabajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trabajar 
+
  trabajador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=trabajador 
+
  trabajadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=trabajador 
+
  trabajadoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=trabajador 
+
  trabajadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=trabajador 
+
  trabajados ( VERB_PAST_PARTICIPLE VERB ) lemma=trabajar 
+
  trabajando ( NOUN NOUN_GERUND ) lemma=trabajar 
+
  trabajarla (                 VERB ) lemma=trabajar 
+
  trabajarlo (                 VERB ) lemma=trabajar 
+
  trabajarse ( VERB_INFINITIVE VERB ) 
+
  trabajase ( VERB ) lemma=trabajar 
+
  trabajasen ( VERB ) lemma=trabajar 
+
  trabajemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=trabajar 
+
  trabajen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=trabajar 
+
  trabajes ( VERB ) lemma=trabajar 
- trabajillo ( NOUN NOUN_SINGULAR ) lemma=trabajo 
+
+ trabajillo ( NOUN  NOUN_PLURAL  ) lemma=trabajo 
+
  trabajo ( NOUN NOUN_SINGULAR ) 
- trabajito ( NOUN NOUN_SINGULAR ) lemma=trabajo 
- trabajitos ( NOUN NOUN_SINGULAR ) lemma=trabajo 
+
+ trabajito ( NOUN  NOUN_PLURAL  ) lemma=trabajo 
+
+ trabajitos ( NOUN  NOUN_PLURAL  ) lemma=trabajo 
+
  trabajosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trabajoso 
+
  trabajoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trabajosamente ( ADVERB ) lemma=trabajoso 
+
  trabajosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trabajoso 
+
  trabajándose ( NOUN NOUN_GERUND ) lemma=trabajarse 
+
  trabajártelo (                 VERB ) lemma=trabajar 
+
  trabajéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=trabajar 
+
  trabecular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trabeculare ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trabilla ( NOUN NOUN_SINGULAR ) 
+
  trabájale ( ) lemma=trabajar 
+
  tracción ( NOUN NOUN_SINGULAR ) 
+
  tracción-suspensión ( NOUN NOUN_SINGULAR ) 
+
  trace ( VERB ) lemma=trazar 
+
  trazar ( VERB_INFINITIVE VERB ) 
+
  tracear ( VERB_INFINITIVE VERB ) 
+
  tracemos ( VERB ) lemma=trazar 
+
  tracen ( VERB ) lemma=trazar 
+
  tracto ( NOUN NOUN_SINGULAR ) 
+
  tractor ( NOUN NOUN_SINGULAR ) 
+
  tradicional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tradicionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tradicional 
+
  tradicionalmente ( ADVERB ) lemma=tradicional 
- tradiciones ( NOUN NOUN_SINGULAR ) lemma=tradición 
+
+ tradiciones ( NOUN  NOUN_PLURAL  ) lemma=tradición 
+
  tradición ( NOUN NOUN_SINGULAR ) 
+
  traduccional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- traducciones ( NOUN NOUN_SINGULAR ) lemma=traducción 
+
+ traducciones ( NOUN  NOUN_PLURAL  ) lemma=traducción 
+
  traducción ( NOUN NOUN_SINGULAR ) 
+
  traducida ( VERB_PAST_PARTICIPLE VERB ) lemma=traducir 
+
  traducidas ( VERB_PAST_PARTICIPLE VERB ) lemma=traducir 
+
  traducidos ( VERB_PAST_PARTICIPLE VERB ) lemma=traducir 
+
  traduciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=traducir 
+
  traducirla (                 VERB ) lemma=traducir 
+
  traducirlas (                 VERB ) lemma=traducir 
+
  traducirlo (                 VERB ) lemma=traducir 
+
  traducirse ( VERB_INFINITIVE VERB ) 
+
  traduciéndose ( NOUN NOUN_GERUND ) lemma=traducirse 
+
  traductor ( NOUN NOUN_SINGULAR ) 
+
  traductora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traductor 
+
  traductoras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traductor 
+
  traductores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traductor 
+
  tradujera ( VERB ) lemma=traducir 
+
  tradujeran ( VERB ) lemma=traducir 
+
  tradujeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=traducir 
+
  tradujesen ( VERB ) lemma=traducir 
+
  tradujo ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=traducir 
+
  tradujéramos ( VERB ) lemma=traducir 
+
  traduzca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traducir 
+
  traduzcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traducir 
+
  traduzco ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traducir 
+
  tradúzcamelo ( ) lemma=traducir 
+
  traerla (                 VERB ) lemma=traer 
+
  traerle (                 VERB ) lemma=traer 
+
  traerlo (                 VERB ) lemma=traer 
+
  traerme (                 VERB ) lemma=traer 
+
  traernos (                 VERB ) lemma=traer 
+
  traerse ( VERB_INFINITIVE VERB ) 
+
  traficar ( VERB_INFINITIVE VERB ) 
+
  traficados ( VERB_PAST_PARTICIPLE VERB ) lemma=traficar 
+
  traficando ( NOUN NOUN_GERUND ) lemma=traficar 
+
  traficante ( NOUN NOUN_SINGULAR ) 
+
  tragarme (                 VERB ) lemma=tragar 
+
  tragarse ( VERB_INFINITIVE VERB ) 
+
  tragedia ( NOUN NOUN_SINGULAR ) 
+
  tragona ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tragón 
+
  tragón ( ) 
+
  trague ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tragar 
+
  traguemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tragar 
+
  tragues ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  traicionar ( VERB_INFINITIVE VERB ) 
+
  traicionados ( VERB_PAST_PARTICIPLE VERB ) lemma=traicionar 
+
  traicionando ( NOUN NOUN_GERUND ) lemma=traicionar 
+
  traicionen ( VERB ) lemma=traicionar 
+
  traicionera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=traicionero 
+
  traicionero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  traicioneramente ( ADVERB ) lemma=traicionero 
+
  traicioneros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=traicionero 
+
  traiciones ( NOUN VERB NOUN_SINGULAR ) lemma=`traición`traicionar` NC  VLfin 
+
  traicionándole ( VERB_PAST_PARTICIPLE VERB ) lemma=traicionar 
+
  traicionándonos ( NOUN NOUN_GERUND ) lemma=traicionar 
+
  traición ( NOUN NOUN_SINGULAR ) 
+
  traidor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traidor 
+
  traidora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traidor 
+
  traidores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=traidor 
+
  traiga ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traer 
+
  traigan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traer 
+
  traigo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traer 
+
  traigáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traer 
+
  trailer ( NOUN NOUN_SINGULAR ) 
+
  traje ( VERB_PAST PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=traer 
- trajecito ( NOUN NOUN_SINGULAR ) lemma=traje 
+
+ trajecito ( NOUN  NOUN_PLURAL  ) lemma=traje 
+
  trajera ( VERB ) lemma=traer 
+
  trajeran ( VERB ) lemma=traer 
+
  trajeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=traer 
+
  trajese ( VERB ) lemma=traer 
+
  trajesen ( VERB ) lemma=traer 
+
  trajimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traer 
+
  trajinan ( VERB ) lemma=trajinar 
+
  trajinar ( ) 
+
  trajinando ( NOUN NOUN_GERUND ) lemma=trajinar 
+
  trajine ( VERB ) lemma=trajinar 
+
  trajines ( VERB ) lemma=trajinar 
+
  trajiste ( VERB ) lemma=traer 
+
  trajisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traer 
+
  trajo ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=traer 
+
  trama ( NOUN NOUN_SINGULAR ) 
+
  tramar ( VERB_INFINITIVE VERB ) 
+
  tramando ( NOUN NOUN_GERUND ) lemma=tramar 
- tramas ( NOUN NOUN_SINGULAR ) lemma=trama 
+
+ tramas ( NOUN  NOUN_PLURAL  ) lemma=trama 
+
  tramitar ( VERB_INFINITIVE VERB ) 
- tramitaciones ( NOUN NOUN_SINGULAR ) lemma=tramitación 
+
+ tramitaciones ( NOUN  NOUN_PLURAL  ) lemma=tramitación 
+
  tramitación ( NOUN NOUN_SINGULAR ) 
+
  tramitada ( VERB_PAST_PARTICIPLE VERB ) lemma=tramitar 
+
  tramitadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tramitar 
+
  tramitancia ( NOUN NOUN_SINGULAR ) 
+
  tramitando ( NOUN NOUN_GERUND ) lemma=tramitar 
+
  tramiten ( VERB ) lemma=tramitar 
+
  tramites ( VERB ) lemma=tramitar 
+
  tramo ( NOUN VERB NOUN_SINGULAR ) lemma=`tramo`tramar` NC  VLfin 
+
  trampa ( NOUN NOUN_SINGULAR ) 
- trampilla ( NOUN NOUN_SINGULAR ) lemma=trampa 
- trampillas ( NOUN NOUN_SINGULAR ) lemma=trampa 
+
+ trampilla ( NOUN  NOUN_PLURAL  ) lemma=trampa 
+
+ trampillas ( NOUN  NOUN_PLURAL  ) lemma=trampa 
+
  trampolín ( NOUN NOUN_SINGULAR ) 
+
  tramposa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tramposo 
+
  tramposo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tramposo 
+
  tramposos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tramposo 
+
  tramsmisión ( NOUN NOUN_SINGULAR ) 
+
  trancado ( VERB_PAST_PARTICIPLE VERB ) lemma=trancar 
+
  trancar ( ) 
+
  trancas ( VERB ) lemma=trancar 
+
  trance ( VERB ) lemma=tranzar 
+
  tranzar ( ) 
+
  trances ( VERB ) lemma=tranzar 
+
  tranque ( VERB ) lemma=trancar 
+
  tranquila ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tranquilo`tranquilar` ADJ  VLfin 
+
  tranquilamente ( ADVERB ) lemma=tranquilo 
+
  tranquilo ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tranquilo`tranquilar` ADJ  VLfin 
+
  tranquilas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`tranquilo`tranquilar` ADJ  VLfin 
+
  tranquilice ( VERB ) lemma=tranquilizar 
+
  tranquilizar ( VERB_INFINITIVE VERB ) 
+
  tranquilicemos ( VERB ) lemma=tranquilizar 
+
  tranquilicen ( VERB ) lemma=tranquilizar 
+
  tranquilidad ( NOUN NOUN_SINGULAR ) 
+
  tranquilillo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tranquilo 
+
  tranquilita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tranquilo 
+
  tranquilito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tranquilo 
+
  tranquilizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tranquilizar 
+
  tranquilizados ( VERB_PAST_PARTICIPLE VERB ) lemma=tranquilizar 
+
  tranquilizando ( NOUN NOUN_GERUND ) lemma=tranquilizar 
+
  tranquilizantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tranquilizante 
+
  tranquilizante ( ) 
+
  tranquilizarlo (                 VERB ) lemma=tranquilizar 
+
  tranquilizarse ( VERB_INFINITIVE VERB ) 
+
  tranquilos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tranquilo 
+
  tranquilícense ( VERB ) lemma=tranquilizar 
+
  tranquilícese ( ) lemma=tranquilizarse 
+
  tranquilízate ( ) lemma=tranquilizar 
+
  transaccional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transaccionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transaccional 
- transacciones ( NOUN NOUN_SINGULAR ) lemma=transacción 
+
+ transacciones ( NOUN  NOUN_PLURAL  ) lemma=transacción 
+
  transacción ( NOUN NOUN_SINGULAR ) 
+
  transacetilaso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transado ( VERB_PAST_PARTICIPLE VERB ) lemma=transar 
+
  transar ( ) 
+
  transados ( VERB_PAST_PARTICIPLE VERB ) lemma=transar 
+
  transaminación ( NOUN NOUN_SINGULAR ) 
+
  transaminasa ( NOUN NOUN_SINGULAR ) 
+
  transan ( VERB ) lemma=transar 
+
  transatlántica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transatlántico 
+
  transatlántico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transatlántico 
+
  transatlánticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transatlántico 
+
  transatlánticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transatlántico 
+
  transaórtico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transbordador ( NOUN NOUN_SINGULAR ) 
+
  transbronquial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transcarbamoilaso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transcelular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transcendencia ( NOUN NOUN_SINGULAR ) 
+
  transcendente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transcendió ( VERB ) lemma=transcender 
+
  transcender ( ) 
+
  transciende ( VERB ) lemma=transcender 
+
  transcienden ( VERB ) lemma=transcender 
+
  transcodificación ( NOUN NOUN_SINGULAR ) 
+
  transcodificador ( NOUN NOUN_SINGULAR ) 
+
  transcodificarse ( VERB_INFINITIVE VERB ) 
+
  transconecta ( VERB ) lemma=transconectar 
+
  transconectar ( ) 
+
  transconectados ( VERB_PAST_PARTICIPLE VERB ) lemma=transconectar 
+
  transconexión ( NOUN NOUN_SINGULAR ) 
+
  transconjugante ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transconjugante 
+
  transcriba ( VERB ) lemma=transcribir 
+
  transcribir ( VERB_INFINITIVE VERB ) 
+
  transcriban ( VERB ) lemma=transcribir 
+
  transcribiendo ( NOUN NOUN_GERUND ) lemma=transcribir 
+
  transcripcional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transcripcionale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- transcripciones ( NOUN NOUN_SINGULAR ) lemma=transcripción 
+
+ transcripciones ( NOUN  NOUN_PLURAL  ) lemma=transcripción 
+
  transcripción ( NOUN NOUN_SINGULAR ) 
+
  transcriptasa ( NOUN NOUN_SINGULAR ) 
+
  transcripto ( NOUN NOUN_SINGULAR ) 
+
  transcrita ( VERB_PAST_PARTICIPLE VERB ) lemma=transcribir 
+
  transcritas ( VERB_PAST_PARTICIPLE VERB ) lemma=transcribir 
+
  transcrito ( VERB_PAST_PARTICIPLE VERB ) lemma=transcribir 
+
  transcritos ( VERB_PAST_PARTICIPLE VERB ) lemma=transcribir 
+
  transcurra ( VERB ) lemma=transcurrir 
+
  transcurrir ( VERB_INFINITIVE VERB ) 
+
  transcurran ( VERB ) lemma=transcurrir 
+
  transcurrida ( VERB_PAST_PARTICIPLE VERB ) lemma=transcurrir 
+
  transcurridas ( VERB_PAST_PARTICIPLE VERB ) lemma=transcurrir 
+
  transcurridos ( VERB_PAST_PARTICIPLE VERB ) lemma=transcurrir 
+
  transcurriendo ( NOUN NOUN_GERUND ) lemma=transcurrir 
+
  transcurriera ( VERB ) lemma=transcurrir 
+
  transcurso ( NOUN NOUN_SINGULAR ) 
+
  transdiafragmático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transdisciplinar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transducción ( NOUN NOUN_SINGULAR ) 
+
  transducir ( VERB_INFINITIVE VERB ) 
+
  transducidas ( VERB_PAST_PARTICIPLE VERB ) lemma=transducir 
+
  transducidos ( VERB_PAST_PARTICIPLE VERB ) lemma=transducir 
+
  transductor ( NOUN NOUN_SINGULAR ) 
+
  transductoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transdérmico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transección ( NOUN NOUN_SINGULAR ) 
+
  transecto ( NOUN NOUN_SINGULAR ) 
+
  transeptal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transesfenoidal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transesofágico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transesterificación ( NOUN NOUN_SINGULAR ) 
- transeuntes ( NOUN NOUN_SINGULAR ) lemma=transeúnte 
+
+ transeuntes ( NOUN  NOUN_PLURAL  ) lemma=transeúnte 
+
  transeúnte ( NOUN NOUN_SINGULAR ) 
+
  transexualidad ( NOUN NOUN_SINGULAR ) 
+
  transexualismo ( NOUN NOUN_SINGULAR ) 
+
  transfección ( NOUN NOUN_SINGULAR ) 
+
  transfectar ( VERB_INFINITIVE VERB ) 
+
  transfenoidal ( NOUN NOUN_SINGULAR ) 
- transferasas ( NOUN NOUN_SINGULAR ) lemma=transferasa 
+
+ transferasas ( NOUN  NOUN_PLURAL  ) lemma=transferasa 
+
  transferasa ( ) 
+
  transferencia ( NOUN NOUN_SINGULAR ) 
+
  transferentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transferente 
+
  transferente ( ) 
+
  transferible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transferibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transferible 
+
  transferida ( VERB_PAST_PARTICIPLE VERB ) lemma=transferir 
+
  transferir ( VERB_INFINITIVE VERB ) 
+
  transferidas ( VERB_PAST_PARTICIPLE VERB ) lemma=transferir 
+
  transferidos ( VERB_PAST_PARTICIPLE VERB ) lemma=transferir 
+
  transferirla ( VERB ) lemma=transferir 
+
  transferirlos ( VERB ) lemma=transferir 
+
  transferirse ( VERB_INFINITIVE VERB ) 
+
  transferrina ( NOUN NOUN_SINGULAR ) 
+
  transfiera ( VERB ) lemma=transferir 
+
  transfieran ( VERB ) lemma=transferir 
+
  transfiere ( VERB ) lemma=transferir 
+
  transfieren ( VERB ) lemma=transferir 
+
  transfiramos ( VERB ) lemma=transferir 
+
  transfiriendo ( NOUN NOUN_GERUND ) lemma=transferir 
+
  transfiriera ( VERB ) lemma=transferir 
+
  transfirieran ( VERB ) lemma=transferir 
+
  transfirieron ( VERB ) lemma=transferir 
+
  transfiriese ( VERB ) lemma=transferir 
+
  transfiriesen ( VERB ) lemma=transferir 
+
  transfiriéndolas ( NOUN NOUN_GERUND ) lemma=transferir 
+
  transfirió ( VERB ) lemma=transferir 
+
  transformar ( VERB_INFINITIVE VERB ) 
+
  transformacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
- transformaciones ( NOUN NOUN_SINGULAR ) lemma=transformación 
+
+ transformaciones ( NOUN  NOUN_PLURAL  ) lemma=transformación 
+
  transformación ( NOUN NOUN_SINGULAR ) 
+
  transformada ( VERB_PAST_PARTICIPLE VERB ) lemma=transformar 
+
  transformadas ( VERB_PAST_PARTICIPLE VERB ) lemma=transformar 
+
  transformador ( NOUN NOUN_SINGULAR ) 
+
  transformadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transformador 
+
  transformados ( VERB_PAST_PARTICIPLE VERB ) lemma=transformar 
+
  transformando ( NOUN NOUN_GERUND ) lemma=transformar 
+
  transformante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transformarla (                 VERB ) lemma=transformar 
+
  transformarlas (                 VERB ) lemma=transformar 
+
  transformarle (                 VERB ) lemma=transformar 
+
  transformarlo (                 VERB ) lemma=transformar 
+
  transformarlos (                 VERB ) lemma=transformar 
+
  transformarse ( VERB_INFINITIVE VERB ) 
+
  transformase ( VERB ) lemma=transformar 
+
  transformemos ( VERB ) lemma=transformar 
+
  transformen ( VERB ) lemma=transformar 
+
  transformándolo ( NOUN NOUN_GERUND ) lemma=transformar 
+
  transformándolos ( NOUN NOUN_GERUND ) lemma=transformar 
+
  transformándose ( NOUN NOUN_GERUND ) lemma=transformarse 
+
  transfronterizo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transfundieran ( VERB ) lemma=transfundir 
+
  transfusionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transfusional 
+
  transfusional ( ) 
- transfusiones ( NOUN NOUN_SINGULAR ) lemma=transfusión 
+
+ transfusiones ( NOUN  NOUN_PLURAL  ) lemma=transfusión 
+
  transfusión ( NOUN NOUN_SINGULAR ) 
+
  transgredir ( VERB_INFINITIVE VERB ) 
- transgresiones ( NOUN NOUN_SINGULAR ) lemma=transgresión 
+
+ transgresiones ( NOUN  NOUN_PLURAL  ) lemma=transgresión 
+
  transgresión ( NOUN NOUN_SINGULAR ) 
+
  transgénica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transgénico 
+
  transgénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transgénicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transgénico 
+
  transgénicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transgénico 
+
  transhidroximetilasa ( NOUN NOUN_SINGULAR ) 
+
  transhorizonte ( NOUN NOUN_SINGULAR ) 
+
  transicionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transicional 
+
  transicional ( ) 
- transiciones ( NOUN NOUN_SINGULAR ) lemma=transición 
+
+ transiciones ( NOUN  NOUN_PLURAL  ) lemma=transición 
+
  transición ( NOUN NOUN_SINGULAR ) 
+
  transigencia ( NOUN NOUN_SINGULAR ) 
+
  transigir ( VERB_INFINITIVE VERB ) 
+
  transitar ( VERB_INFINITIVE VERB ) 
+
  transitada ( VERB_PAST_PARTICIPLE VERB ) lemma=transitar 
+
  transitadas ( VERB_PAST_PARTICIPLE VERB ) lemma=transitar 
+
  transitados ( VERB_PAST_PARTICIPLE VERB ) lemma=transitar 
+
  transitando ( NOUN NOUN_GERUND ) lemma=transitar 
+
  transiten ( VERB ) lemma=transitar 
+
  transitiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitivo 
+
  transitivo ( ) 
+
  transitivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitivo 
+
  transitivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitivo 
+
  transitoria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitorio 
+
  transitorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transitoriamente ( ADVERB ) lemma=transitorio 
+
  transitorias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitorio 
+
  transitoriedad ( NOUN NOUN_SINGULAR ) 
+
  transitorios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transitorio 
+
  translación ( NOUN NOUN_SINGULAR ) 
- translocaciones ( NOUN NOUN_SINGULAR ) lemma=translocación 
+
+ translocaciones ( NOUN  NOUN_PLURAL  ) lemma=translocación 
+
  translocación ( NOUN NOUN_SINGULAR ) 
+
  translocadoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  translocar ( VERB_INFINITIVE VERB ) 
+
  transmembrana ( NOUN NOUN_SINGULAR ) 
+
  transmembranal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transmembránico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transmisibilidad ( NOUN NOUN_SINGULAR ) 
+
  transmisible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transmisibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transmisible 
- transmisiones ( NOUN NOUN_SINGULAR ) lemma=transmisión 
+
+ transmisiones ( NOUN  NOUN_PLURAL  ) lemma=transmisión 
+
  transmisión ( NOUN NOUN_SINGULAR ) 
+
  transmisor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transmisor 
+
  transmisora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`transmisor`transmisora` ADJ  NC 
+
  transmisoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transmisor 
+
  transmisores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transmisor 
+
  transmita ( VERB ) lemma=transmitir 
+
  transmitir ( VERB_INFINITIVE VERB ) 
+
  transmitamos ( VERB ) lemma=transmitir 
+
  transmitan ( VERB ) lemma=transmitir 
+
  transmitancia ( NOUN NOUN_SINGULAR ) 
+
  transmitente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transmitida ( VERB_PAST_PARTICIPLE VERB ) lemma=transmitir 
+
  transmitidas ( VERB_PAST_PARTICIPLE VERB ) lemma=transmitir 
+
  transmitidos ( VERB_PAST_PARTICIPLE VERB ) lemma=transmitir 
+
  transmitiendo ( NOUN NOUN_GERUND ) lemma=transmitir 
+
  transmitiera ( VERB ) lemma=transmitir 
+
  transmitieran ( VERB ) lemma=transmitir 
+
  transmitiese ( VERB ) lemma=transmitir 
+
  transmitiesen ( VERB ) lemma=transmitir 
+
  transmitirla (                 VERB ) lemma=transmitir 
+
  transmitirlas (                 VERB ) lemma=transmitir 
+
  transmitirle (                 VERB ) lemma=transmitir 
+
  transmitirles (                 VERB ) lemma=transmitir 
+
  transmitirlo (                 VERB ) lemma=transmitir 
+
  transmitirlos (                 VERB ) lemma=transmitir 
+
  transmitirnos (                 VERB ) lemma=transmitir 
+
  transmitirse ( VERB_INFINITIVE VERB ) 
+
  transmitiéndole ( NOUN NOUN_GERUND ) 
+
  transmitiéndose ( NOUN NOUN_GERUND ) 
+
  transmitiéndosela ( NOUN NOUN_GERUND ) lemma=transmitirse 
+
  transmitiéndoselo ( NOUN NOUN_GERUND ) lemma=transmitirse 
+
  transmitiéndoselos ( NOUN NOUN_GERUND ) lemma=transmitirse 
+
  transmití ( VERB ) lemma=transmitir 
+
  transmitírselo (                 VERB ) lemma=transmitirse 
+
  transmitírsenos (                 VERB ) lemma=transmitirse 
- transmultiplexores ( NOUN NOUN_SINGULAR ) lemma=transmultiplexor 
+
+ transmultiplexores ( NOUN  NOUN_PLURAL  ) lemma=transmultiplexor 
+
  transmultiplexor ( ) 
+
  transmurale ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transmutación ( NOUN NOUN_SINGULAR ) 
+
  transmítase ( ) lemma=transmitirse 
+
  transnacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transnacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transnacional 
+
  transoperatorio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transparencia ( NOUN NOUN_SINGULAR ) 
+
  transparentar ( VERB_INFINITIVE VERB ) 
+
  transparenté ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transparenté 
+
  transparentemente ( ADVERB ) lemma=transparenté 
+
  transparentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transparenté 
+
  transpeptidación ( NOUN NOUN_SINGULAR ) 
+
  transpira ( VERB ) lemma=transpirar 
+
  transpiraba ( VERB ) lemma=transpirar 
+
  transpiración ( NOUN NOUN_SINGULAR ) 
+
  transpirando ( NOUN NOUN_GERUND ) lemma=transpirar 
+
  transplantar ( VERB_INFINITIVE VERB ) 
+
  transplantado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`transplantado`transplantar` ADJ  VLadj 
+
  transplantados ( VERB_PAST_PARTICIPLE VERB ) lemma=transplantar 
+
  transplanté ( NOUN VERB NOUN_SINGULAR ) lemma=`transplante`transplantar` NC  VLfin 
+
  transplantes ( NOUN VERB NOUN_SINGULAR ) lemma=`transplante`transplantar` NC  VLfin 
+
  transpondedor ( NOUN NOUN_SINGULAR ) 
+
  transponible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transportar ( VERB_INFINITIVE VERB ) 
+
  transportabilidad ( NOUN NOUN_SINGULAR ) 
+
  transportable ( ADJECTIVE ADJECTIVE_NORMAL ) 
- transportaciones ( NOUN NOUN_SINGULAR ) lemma=transportación 
+
+ transportaciones ( NOUN  NOUN_PLURAL  ) lemma=transportación 
+
  transportación ( NOUN NOUN_SINGULAR ) 
+
  transportada ( VERB_PAST_PARTICIPLE VERB ) lemma=transportar 
+
  transportadas ( VERB_PAST_PARTICIPLE VERB ) lemma=transportar 
+
  transportado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`transportado`transportar` ADJ  VLadj 
+
  transportador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=transportador 
+
  transportadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transportador 
+
  transportadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transportador 
+
  transportados ( VERB_PAST_PARTICIPLE VERB ) lemma=transportar 
+
  transportando ( NOUN NOUN_GERUND ) lemma=transportar 
+
  transportarlas (                 VERB ) lemma=transportar 
+
  transportarlo (                 VERB ) lemma=transportar 
+
  transportarse ( VERB_INFINITIVE VERB ) 
+
  transportasen ( VERB ) lemma=transportar 
+
  transporté ( NOUN VERB NOUN_SINGULAR ) lemma=`transporte`transportar` NC  VLfin 
+
  transporten ( VERB ) lemma=transportar 
+
  transportes ( NOUN VERB NOUN_SINGULAR ) lemma=`transporte`transportar` NC  VLfin 
+
  transportista ( NOUN NOUN_SINGULAR ) 
- transposiciones ( NOUN NOUN_SINGULAR ) lemma=transposición 
+
+ transposiciones ( NOUN  NOUN_PLURAL  ) lemma=transposición 
+
  transposición ( NOUN NOUN_SINGULAR ) 
- transposones ( NOUN NOUN_SINGULAR ) lemma=transposón 
+
+ transposones ( NOUN  NOUN_PLURAL  ) lemma=transposón 
+
  transposón ( NOUN NOUN_SINGULAR ) 
+
  transtorácico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transuretral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transversa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transverso 
+
  transverso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transversal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  transversales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transversal 
+
  transversalidad ( NOUN NOUN_SINGULAR ) 
+
  transversalmente ( ADVERB ) lemma=transversal 
+
  transversas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=transverso 
+
  tranvía ( NOUN NOUN_SINGULAR ) 
+
  tranzaba ( VERB ) lemma=tranzar 
+
  tranzó ( VERB ) lemma=tranzar 
+
  trap ( NOUN NOUN_SINGULAR ) 
+
  trapecio ( NOUN NOUN_SINGULAR ) 
+
  trapo ( NOUN NOUN_SINGULAR ) 
+
  trapío ( NOUN NOUN_SINGULAR ) 
+
  traquea ( VERB ) lemma=traquear 
+
  traquear ( ) 
+
  traqueal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  traqueales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=traqueal 
+
  traqueotomía ( NOUN NOUN_SINGULAR ) 
+
  traquetean ( VERB ) lemma=traquetear 
+
  traquetear ( ) 
+
  traqueteo ( VERB ) lemma=traquetear 
+
  tras ( PREPOSITION ) 
+
  trasatlántica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trasatlántico 
+
  trasatlántico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=trasatlántico 
+
  trascavidad ( NOUN NOUN_SINGULAR ) 
+
  trascendencia ( NOUN NOUN_SINGULAR ) 
+
  trascendental ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trascendentales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trascendental 
+
  trascendente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trascendentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trascendente 
+
  trascender ( VERB_INFINITIVE VERB ) 
+
  trascendiendo ( NOUN NOUN_GERUND ) lemma=trascender 
+
  trascienda ( VERB ) lemma=trascender 
+
  trasciende ( VERB ) lemma=trascender 
+
  trascienden ( VERB ) lemma=trascender 
+
  trascripción ( NOUN NOUN_SINGULAR ) 
+
  trasera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trasero 
+
  trasero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  traseras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trasero 
+
  traseros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trasero 
+
  traserísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trasero 
+
  trasfondo ( NOUN NOUN_SINGULAR ) 
- trasgresiones ( NOUN NOUN_SINGULAR ) lemma=trasgresión 
+
+ trasgresiones ( NOUN  NOUN_PLURAL  ) lemma=trasgresión 
+
  trasgresión ( ) 
+
  trasiego ( VERB ) lemma=trasegar 
+
  trasegar ( ) 
+
  traslación ( NOUN NOUN_SINGULAR ) 
+
  trasladar ( VERB_INFINITIVE VERB ) 
+
  trasladada ( VERB_PAST_PARTICIPLE VERB ) lemma=trasladar 
+
  trasladadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trasladar 
+
  trasladados ( VERB_PAST_PARTICIPLE VERB ) lemma=trasladar 
+
  trasladando ( NOUN NOUN_GERUND ) lemma=trasladar 
+
  trasladarla (                 VERB ) lemma=trasladar 
+
  trasladarle (                 VERB ) lemma=trasladar 
+
  trasladarles (                 VERB ) lemma=trasladar 
+
  trasladarlo (                 VERB ) lemma=trasladar 
+
  trasladarme (                 VERB ) lemma=trasladar 
+
  trasladarnos (                 VERB ) lemma=trasladar 
+
  trasladarse ( VERB_INFINITIVE VERB ) 
+
  trasladasen ( VERB ) lemma=trasladar 
+
  traslademos ( VERB ) lemma=trasladar 
+
  trasladen ( VERB ) lemma=trasladar 
+
  traslado ( NOUN VERB NOUN_SINGULAR ) lemma=`traslado`trasladar` NC  VLfin 
+
  trasladándolas ( NOUN NOUN_GERUND ) lemma=trasladar 
+
  trasladándolo ( NOUN NOUN_GERUND ) lemma=trasladar 
+
  trasladándolos ( NOUN NOUN_GERUND ) lemma=trasladar 
+
  trasladándose ( VERB_PAST_PARTICIPLE VERB ) lemma=trasladar 
+
  trasladáramos ( VERB ) lemma=trasladar 
+
  traslator ( NOUN NOUN_SINGULAR ) 
+
  traslatora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`traslatoro`traslatora` ADJ  NC 
+
  traslocación ( NOUN NOUN_SINGULAR ) 
+
  traslucir ( VERB_INFINITIVE VERB ) 
+
  trasmisor ( NOUN NOUN_SINGULAR ) 
+
  trasmita ( VERB ) lemma=trasmitir 
+
  trasmitir ( VERB_INFINITIVE VERB ) 
+
  trasmitiese ( VERB ) lemma=trasmitir 
+
  trasnochada ( VERB_PAST_PARTICIPLE VERB ) lemma=trasnochar 
+
  trasnochadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trasnochar 
+
  traspasar ( VERB_INFINITIVE VERB ) 
+
  traspasada ( VERB_PAST_PARTICIPLE VERB ) lemma=traspasar 
+
  traspasadas ( VERB_PAST_PARTICIPLE VERB ) lemma=traspasar 
+
  traspasados ( VERB_PAST_PARTICIPLE VERB ) lemma=traspasar 
+
  traspasando ( NOUN NOUN_GERUND ) lemma=traspasar 
+
  traspasarse ( VERB_INFINITIVE VERB ) 
+
  traspasen ( VERB ) lemma=traspasar 
+
  traspaso ( NOUN NOUN_SINGULAR ) 
+
  traspié ( NOUN NOUN_SINGULAR ) 
+
  trasplantar ( VERB_PAST_PARTICIPLE VERB ) lemma=trasplantar 
+
  trasplantable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trasplantadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trasplantar 
+
  trasplantados ( VERB_PAST_PARTICIPLE VERB ) lemma=trasplantar 
+
  trasplanté ( NOUN VERB NOUN_SINGULAR ) lemma=`trasplante`trasplantar` NC  VLfin 
+
  trasplantes ( VERB ) lemma=trasplantar 
+
  trastabillar ( VERB_INFINITIVE VERB ) 
+
  traste ( NOUN NOUN_SINGULAR ) 
+
  trasteo ( VERB ) lemma=trastear 
+
  trastear ( ) 
+
  trasto ( NOUN NOUN_SINGULAR ) 
+
  trastocar ( VERB_INFINITIVE VERB ) 
+
  trastocando ( NOUN NOUN_GERUND ) lemma=trastocar 
+
  trastoque ( VERB ) lemma=trastocar 
+
  trastoquen ( VERB ) lemma=trastocar 
+
  trastornar ( VERB_INFINITIVE VERB ) 
+
  trastornen ( VERB ) lemma=trastornar 
+
  trastorno ( NOUN VERB NOUN_SINGULAR ) lemma=`trastorno`trastornar` NC  VLfin 
+
  trasvasar ( VERB_INFINITIVE VERB ) 
+
  trasvasados ( VERB_PAST_PARTICIPLE VERB ) lemma=trasvasar 
+
  trasvasando ( NOUN NOUN_GERUND ) lemma=trasvasar 
+
  trasvases ( VERB ) lemma=trasvasar 
+
  trasvaséis ( VERB ) lemma=trasvasar 
+
  trata ( NOUN VERB NOUN_SINGULAR ) lemma=`trata`tratar` NC  VLfin 
+
  tratabilidad ( NOUN NOUN_SINGULAR ) 
+
  tratada ( VERB_PAST_PARTICIPLE VERB ) lemma=tratar 
+
  tratadas ( VERB_PAST_PARTICIPLE VERB ) lemma=tratar 
+
  tratado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`tratado`tratar` NC  VLadj 
+
  tratados ( VERB_PAST_PARTICIPLE VERB ) lemma=tratar 
+
  tratamiento ( NOUN NOUN_SINGULAR ) 
+
  tratando ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratante ( NOUN NOUN_SINGULAR ) 
+
  tratarla (                 VERB ) lemma=tratar 
+
  tratarle (                 VERB ) lemma=tratar 
+
  tratarles (                 VERB ) lemma=tratar 
+
  tratarlo (                 VERB ) lemma=tratar 
+
  tratarnos (                 VERB ) lemma=tratar 
+
  tratarse ( VERB_INFINITIVE VERB ) 
+
  tratase ( VERB ) lemma=tratar 
+
  tratasen ( VERB ) lemma=tratar 
+
  tratemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tratar 
+
  traten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tratar 
+
  trato ( NOUN VERB NOUN_SINGULAR ) lemma=`trato`tratar` NC  VLfin 
+
  tratá ( VERB ) lemma=tratar 
+
  tratándolas ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratándoles ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratándolo ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratándolos ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratándonos ( NOUN NOUN_GERUND ) lemma=tratar 
+
  tratándose ( NOUN NOUN_GERUND ) lemma=tratándose|Tratándose 
+
  tratándose|Tratándose ( ) 
+
  tratáramos ( VERB ) lemma=tratar 
+
  tratásemos ( VERB ) lemma=tratar 
+
  tratés ( VERB ) lemma=tratar 
+
  trauma ( NOUN NOUN_SINGULAR ) 
+
  traumatismo ( NOUN NOUN_SINGULAR ) 
+
  traumatiza ( VERB ) lemma=traumatizar 
+
  traumatizar ( ) 
+
  traumatizada ( VERB_PAST_PARTICIPLE VERB ) lemma=traumatizar 
+
  traumatizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=traumatizar 
+
  traumatizado ( VERB_PAST_PARTICIPLE VERB ) lemma=traumatizar 
+
  traumatizados ( VERB_PAST_PARTICIPLE VERB ) lemma=traumatizar 
+
  traumatizando ( NOUN NOUN_GERUND ) lemma=traumatizar 
+
  traumatológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  traumatólogo ( NOUN NOUN_SINGULAR ) 
+
  traumes ( VERB ) lemma=traumatizar 
+
  traumática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=traumático 
+
  traumático ( ) 
+
  traumáticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=traumático 
+
  traves ( PREPOSITION ) lemma=través 
+
  través ( NOUN PREPOSITION NOUN_SINGULAR ) lemma=través 
+
  travesaño ( NOUN NOUN_SINGULAR ) 
+
  travesura ( NOUN NOUN_SINGULAR ) 
+
  travesía ( NOUN NOUN_SINGULAR ) 
+
  traviesa ( VERB ) lemma=travesar 
+
  travesar ( ) 
+
  travieso ( VERB ) lemma=travesar 
+
  trayecto ( NOUN NOUN_SINGULAR ) 
+
  trayectoria ( NOUN NOUN_SINGULAR ) 
+
  trayendo ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=traer 
+
  trayéndome ( NOUN NOUN_GERUND ) lemma=traer 
+
  trayéndoselo ( VERB_PAST_PARTICIPLE VERB ) lemma=traer 
+
  traza ( NOUN VERB NOUN_SINGULAR ) lemma=`traza`trazar` NC  VLfin 
+
  trazabilidad ( NOUN NOUN_SINGULAR ) 
+
  trazada ( VERB_PAST_PARTICIPLE VERB ) lemma=trazar 
+
  trazadas ( VERB_PAST_PARTICIPLE VERB ) lemma=trazar 
+
  trazado ( NOUN NOUN_SINGULAR ) 
+
  trazador ( NOUN NOUN_SINGULAR ) 
+
  trazados ( VERB_PAST_PARTICIPLE VERB ) lemma=trazar 
+
  trazando ( NOUN NOUN_GERUND ) lemma=trazar 
+
  trazas ( NOUN VERB NOUN_SINGULAR ) lemma=`traza`trazar` NC  VLfin 
+
  trazo ( NOUN NOUN_SINGULAR ) 
+
  traérmelo (                 VERB ) lemma=traer 
+
  traída ( VERB_PAST_PARTICIPLE VERB ) lemma=traer 
+
  traídas ( VERB_PAST_PARTICIPLE VERB ) lemma=traer 
+
  traído ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=traer 
+
  traídos ( VERB_PAST_PARTICIPLE VERB ) lemma=traer 
+
  trebeliánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trece ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
+
  tregua ( NOUN NOUN_SINGULAR ) 
+
  treinta ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
+
  treintena ( NOUN NOUN_SINGULAR ) 
+
  trematodo ( NOUN NOUN_SINGULAR ) 
+
  tremenda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tremendo 
+
  tremendo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tremendamente ( ADVERB ) lemma=tremendo 
+
  tremendas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tremendo 
+
  tremendos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tremendo 
+
  tremulos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trémulo 
+
  trémulo ( ) 
+
  tren ( NOUN NOUN_SINGULAR ) 
+
  trenza ( NOUN VERB NOUN_SINGULAR ) lemma=`trenza`trenzar` NC  VLfin 
+
  trenzada ( VERB_PAST_PARTICIPLE VERB ) lemma=trenzar 
+
  trenzar ( ) 
+
  trenzado ( VERB_PAST_PARTICIPLE VERB ) lemma=trenzar 
+
  trenzados ( VERB_PAST_PARTICIPLE VERB ) lemma=trenzar 
+
  trenzan ( VERB ) lemma=trenzar 
+
  trenzaron ( VERB ) lemma=trenzar 
+
  trenzas ( NOUN VERB NOUN_SINGULAR ) lemma=`trenza`trenzar` NC  VLfin 
+
  treonina ( NOUN NOUN_SINGULAR ) 
+
  trepar ( VERB_INFINITIVE VERB ) 
+
  trepanación ( NOUN NOUN_SINGULAR ) 
+
  trepón ( NOUN NOUN_SINGULAR ) 
+
  tres ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
+
  trescientas ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) lemma=trescientos 
+
  trescientos ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
+
  tretalogía ( NOUN NOUN_SINGULAR ) 
+
  triacilglicerol ( NOUN NOUN_SINGULAR ) 
+
  triada ( NOUN NOUN_SINGULAR ) 
+
  triangulación ( NOUN NOUN_SINGULAR ) 
+
  triangular ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=triangular 
+
  triangulares ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=triangular 
- triangulocitos ( NOUN NOUN_SINGULAR ) lemma=triángulo 
+
+ triangulocitos ( NOUN  NOUN_PLURAL  ) lemma=triángulo 
+
  triángulo ( NOUN NOUN_SINGULAR ) 
+
  tribal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tribales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tribale 
+
  tribale ( ) 
+
  tribu ( NOUN NOUN_SINGULAR ) 
- tribulaciones ( NOUN NOUN_SINGULAR ) lemma=tribulación 
+
+ tribulaciones ( NOUN  NOUN_PLURAL  ) lemma=tribulación 
+
  tribulación ( NOUN NOUN_SINGULAR ) 
+
  tribuna ( NOUN NOUN_SINGULAR ) 
+
  tribunal ( NOUN NOUN_SINGULAR ) 
+
  tribunales ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`tribunal`Tribunales` NC  NP 
+
  tributar ( VERB_INFINITIVE VERB ) 
+
  tributación ( NOUN NOUN_SINGULAR ) 
+
  tributaría ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tributario 
+
  tributario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tributario 
+
  tributarías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma= 
+
  tributarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma= 
+
  tributen ( VERB ) lemma=tributar 
+
  tributo ( NOUN VERB NOUN_SINGULAR ) lemma=`tributo`tributar` NC  VLfin 
+
  tricarboxílico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  triciclo ( NOUN NOUN_SINGULAR ) 
+
  tricipical ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tricipital ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tricofítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tricolor ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tricolores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tricolor 
+
  tricoma ( NOUN NOUN_SINGULAR ) 
+
  tricuspídeo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tricíclicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tricíclico 
+
  tricíclico ( ) 
+
  tricúspide ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tridimensional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tridimensionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tridimensional 
+
  trie ( NOUN NOUN_SINGULAR ) 
+
  trienio ( NOUN NOUN_SINGULAR ) 
+
  trifosfato ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trifosfatos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trifosfato 
+
  trifulca ( NOUN NOUN_SINGULAR ) 
+
  triglicerido ( NOUN NOUN_SINGULAR ) 
+
  triglicérido ( NOUN NOUN_SINGULAR ) 
+
  trigo ( NOUN NOUN_SINGULAR ) 
+
  trigémino ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trigésima ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trigésimo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trilla ( VERB ) lemma=trillar 
+
  trillar ( ) 
+
  trilladas ( VERB_PAST_PARTICIPLE VERB ) lemma=trillar 
+
  trillados ( VERB_PAST_PARTICIPLE VERB ) lemma=trillar 
+
  trilogía ( NOUN NOUN_SINGULAR ) 
+
  trimestral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trimestrales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trimestral 
+
  trimestralmente ( ADVERB ) lemma=trimestral 
+
  trimestre ( NOUN NOUN_SINGULAR ) 
+
  trimetoprim ( NOUN NOUN_SINGULAR ) 
+
  trina ( VERB ) lemma=trinar 
+
  trinar ( ) 
+
  trinaba ( VERB ) lemma=trinar 
+
  trinaban ( VERB ) lemma=trinar 
+
  trincar ( VERB_INFINITIVE VERB ) 
+
  trinchar ( VERB_INFINITIVE VERB ) 
+
  trinchen ( VERB ) lemma=trinchar 
- trincheras ( NOUN NOUN_SINGULAR ) lemma=trinchera 
+
+ trincheras ( NOUN  NOUN_PLURAL  ) lemma=trinchera 
+
  trinchera ( ) 
+
  trino ( NOUN VERB NOUN_SINGULAR ) lemma=`trino`trinar` NC  VLfin 
+
  trinucleótido ( NOUN NOUN_SINGULAR ) 
- triosas ( NOUN NOUN_SINGULAR ) lemma=triosa 
+
+ triosas ( NOUN  NOUN_PLURAL  ) lemma=triosa 
+
  triosa ( ) 
+
  tripa ( NOUN NOUN_SINGULAR ) 
+
  tripala ( NOUN NOUN_SINGULAR ) 
+
  tripanosoma ( NOUN NOUN_SINGULAR ) 
+
  tripartita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tripartito 
+
  tripartito ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tripartitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tripartito 
+
  tripartitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tripartito 
+
  tripeo ( NOUN NOUN_SINGULAR ) 
+
  tripeptídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tripilla ( NOUN NOUN_SINGULAR ) lemma=tripa 
- tripita ( NOUN NOUN_SINGULAR ) lemma=tripa 
+
+ tripilla ( NOUN  NOUN_PLURAL  ) lemma=tripa 
+
+ tripita ( NOUN  NOUN_PLURAL  ) lemma=tripa 
+
  triple ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADVERB NOUN_SINGULAR ) lemma=triple 
+
  triplemente ( ADVERB ) lemma=triple 
+
  triples ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triple 
+
  triplete ( NOUN NOUN_SINGULAR ) 
+
  triplicar ( VERB_INFINITIVE VERB ) 
+
  triplicando ( NOUN NOUN_GERUND ) lemma=triplicar 
+
  tripliquen ( VERB ) lemma=triplicar 
+
  triploide ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tripsina ( NOUN NOUN_SINGULAR ) 
+
  tripsinógeno ( NOUN NOUN_SINGULAR ) 
+
  triptófano ( NOUN NOUN_SINGULAR ) 
+
  tripulaba ( VERB ) lemma=tripular 
+
  tripular ( ) 
+
  tripulaban ( VERB ) lemma=tripular 
- tripulaciones ( NOUN NOUN_SINGULAR ) lemma=tripulación 
+
+ tripulaciones ( NOUN  NOUN_PLURAL  ) lemma=tripulación 
+
  tripulación ( NOUN NOUN_SINGULAR ) 
+
  tripulada ( VERB_PAST_PARTICIPLE VERB ) lemma=tripular 
+
  tripulado ( VERB_PAST_PARTICIPLE VERB ) lemma=tripular 
+
  tripulados ( VERB_PAST_PARTICIPLE VERB ) lemma=tripular 
+
  tripulante ( NOUN NOUN_SINGULAR ) 
+
  tripéptido ( NOUN NOUN_SINGULAR ) 
+
  trisomia ( NOUN NOUN_SINGULAR ) 
+
  trisomía ( NOUN NOUN_SINGULAR ) 
+
  trisquelion ( NOUN NOUN_SINGULAR ) 
- trisqueliones ( NOUN NOUN_SINGULAR ) lemma=trisquelión 
+
+ trisqueliones ( NOUN  NOUN_PLURAL  ) lemma=trisquelión 
+
  trisquelión ( ) 
+
  triste ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tristeando ( NOUN NOUN_GERUND ) lemma=tristear 
+
  tristear ( ) 
+
  tristemente ( ADVERB ) lemma=triste 
+
  tristes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triste 
+
  tristeza ( NOUN NOUN_SINGULAR ) 
+
  tristísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triste 
+
  tristísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triste 
+
  tristísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triste 
+
  tristón ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triste 
+
  trisómica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trisómico 
+
  trisómico ( ) 
+
  tritiar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  triturar ( VERB_INFINITIVE VERB ) 
+
  trituración ( NOUN NOUN_SINGULAR ) 
+
  triturada ( VERB_PAST_PARTICIPLE VERB ) lemma=triturar 
+
  trituradas ( VERB_PAST_PARTICIPLE VERB ) lemma=triturar 
+
  trituradora ( NOUN NOUN_SINGULAR ) 
+
  triturados ( VERB_PAST_PARTICIPLE VERB ) lemma=triturar 
+
  tritón ( NOUN NOUN_SINGULAR ) 
+
  triunfador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=triunfador 
+
  triunfadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=triunfador 
+
  triunfadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triunfador 
+
  triunfadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=triunfador 
+
  triunfal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  triunfales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triunfal 
+
  triunfalmente ( ADVERB ) lemma=triunfal 
+
  triunfando ( NOUN NOUN_GERUND ) lemma=triunfar 
+
  triunfante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  triunfantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=triunfante 
+
  triunfase ( VERB ) lemma=triunfar 
+
  triunfen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=triunfar 
+
  triunfes ( VERB ) lemma=triunfar 
+
  triunfo ( NOUN VERB NOUN_SINGULAR ) lemma=`triunfo`triunfar` NC  VLfin 
+
  trivalente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trivial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  triviales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trivial 
+
  trivialidad ( NOUN NOUN_SINGULAR ) 
+
  triyodotironina ( NOUN NOUN_SINGULAR ) 
+
  trizas ( VERB ) lemma=trizar 
+
  trizar ( ) 
+
  trióxido ( NOUN NOUN_SINGULAR ) 
+
  trna ( NOUN NOUN_SINGULAR ) 
+
  trno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trocar ( VERB_INFINITIVE VERB ) 
+
  troceado ( VERB_PAST_PARTICIPLE VERB ) lemma=trocear 
+
  trocear ( ) 
+
  trocean ( VERB ) lemma=trocear 
- trocito ( NOUN NOUN_SINGULAR ) lemma=trozo 
+
+ trocito ( NOUN  NOUN_PLURAL  ) lemma=trozo 
+
  trozo ( NOUN VERB NOUN_SINGULAR ) lemma=`trozo`trozar` NC  VLfin 
- trocitos ( NOUN NOUN_SINGULAR ) lemma=trozo 
+
+ trocitos ( NOUN  NOUN_PLURAL  ) lemma=trozo 
+
  trofeo ( NOUN NOUN_SINGULAR ) 
+
  trofoblasto ( NOUN NOUN_SINGULAR ) 
+
  trofoblástico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trofoectodermo ( NOUN NOUN_SINGULAR ) 
+
  trofozoito ( NOUN NOUN_SINGULAR ) 
+
  trombina ( NOUN NOUN_SINGULAR ) 
+
  trombo ( NOUN NOUN_SINGULAR ) 
+
  trombocitopenia ( NOUN NOUN_SINGULAR ) 
+
  trombocitosis ( NOUN NOUN_SINGULAR ) 
+
  tromboembolismo ( NOUN NOUN_SINGULAR ) 
+
  tromboembólico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tromboendarterectomía ( NOUN NOUN_SINGULAR ) 
+
  trombogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trombomodulina ( NOUN NOUN_SINGULAR ) 
- trombopenias ( NOUN NOUN_SINGULAR ) lemma=trombopenia 
+
+ trombopenias ( NOUN  NOUN_PLURAL  ) lemma=trombopenia 
+
  trombopenia ( ) 
+
  tromboplástico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trombosis ( NOUN NOUN_SINGULAR ) 
+
  trombótico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trompa ( NOUN VERB NOUN_SINGULAR ) lemma=`trompa`trompar` NC  VLfin 
+
  trompas ( NOUN VERB NOUN_SINGULAR ) lemma=`trompa`trompar` NC  VLfin 
+
  trompeta ( NOUN NOUN_SINGULAR ) 
+
  trompicado ( VERB_PAST_PARTICIPLE VERB ) lemma=trompicar 
+
  trompicar ( ) 
+
  trompo ( VERB ) lemma=trompar 
+
  trompar ( ) 
+
  trona ( NOUN NOUN_SINGULAR ) 
+
  troncal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  troncales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=troncal 
+
  tronchas ( VERB ) lemma=tronchar 
+
  tronchar ( ) 
+
  tronchándonos ( VERB_PAST_PARTICIPLE VERB ) lemma=tronchar 
+
  tronchándose ( VERB_PAST_PARTICIPLE VERB ) lemma=tronchar 
+
  tronco ( NOUN NOUN_SINGULAR ) 
+
  troncular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trono ( NOUN VERB NOUN_SINGULAR ) lemma=`trono`tronar` NC  VLfin 
+
  tronó ( VERB ) lemma=tronar 
+
  tronar ( ) 
+
  tropa ( NOUN NOUN_SINGULAR ) 
+
  tropecemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tropezar 
+
  tropecé ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tropezar 
+
  tropel ( NOUN NOUN_SINGULAR ) 
- tropelías ( NOUN NOUN_SINGULAR ) lemma=tropelía 
+
+ tropelías ( NOUN  NOUN_PLURAL  ) lemma=tropelía 
+
  tropelía ( ) 
+
  tropezando ( NOUN NOUN_GERUND ) lemma=tropezar 
+
  tropezón ( NOUN NOUN_SINGULAR ) 
+
  tropical ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tropicales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tropical 
+
  tropiece ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tropezar 
+
  tropiecen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tropezar 
+
  tropomiosina ( NOUN NOUN_SINGULAR ) 
+
  troponina ( NOUN NOUN_SINGULAR ) 
+
  troposférico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trotando ( NOUN NOUN_GERUND ) lemma=trotar 
+
  trotar ( VERB_INFINITIVE VERB ) 
+
  troté ( NOUN VERB NOUN_SINGULAR ) lemma=`trote`trotar` NC  VLfin 
- trotecillo ( NOUN NOUN_SINGULAR ) lemma=troté 
+
+ trotecillo ( NOUN  NOUN_PLURAL  ) lemma=troté 
+
  trotes ( NOUN VERB NOUN_SINGULAR ) lemma=`trote`trotar` NC  VLfin 
- troyanos ( NOUN NOUN_SINGULAR ) lemma=troyano 
+
+ troyanos ( NOUN  NOUN_PLURAL  ) lemma=troyano 
+
  troyano ( ) 
+
  trubamulta ( NOUN NOUN_SINGULAR ) 
+
  trucada ( VERB_PAST_PARTICIPLE VERB ) lemma=trucar 
+
  trucar ( ) 
+
  trucado ( VERB_PAST_PARTICIPLE VERB ) lemma=trucar 
+
  trucha ( NOUN NOUN_SINGULAR ) 
+
  truco ( VERB ) lemma=trucar 
- trucos ( NOUN NOUN_SINGULAR ) lemma=truco 
+
+ trucos ( NOUN  NOUN_PLURAL  ) lemma=truco 
+
  truculenta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=truculento 
+
  truculento ( ) 
+
  truculentas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=truculento 
+
  truculentos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=truculento 
+
  truena ( VERB ) lemma=tronar 
+
  truene ( VERB ) lemma=tronar 
+
  trueno ( NOUN VERB NOUN_SINGULAR ) lemma=`trueno`tronar` NC  VLfin 
+
  trueque ( VERB ) lemma=trocar 
+
  truncadas ( VERB_PAST_PARTICIPLE VERB ) lemma=truncar 
+
  truncar ( VERB_INFINITIVE VERB ) 
+
  truncados ( VERB_PAST_PARTICIPLE VERB ) lemma=truncar 
+
  trust ( NOUN NOUN_SINGULAR ) 
+
  tráele ( ) lemma=traer 
+
  tráelo ( ) lemma=traer 
+
  tráeme ( ) lemma=traer 
+
  tráenos ( ) lemma=traer 
+
  tráete ( ) lemma=traer 
+
  tráfico ( NOUN NOUN_SINGULAR ) 
+
  trágica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trágico 
+
  trágico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  trágicamente ( ADVERB ) lemma=trágico 
+
  trágicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trágico 
+
  trágicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trágico 
+
  tráigame ( ) lemma=traer 
+
  trámite ( NOUN NOUN_SINGULAR ) 
+
  tránsito ( NOUN NOUN_SINGULAR ) 
+
  tráquea ( NOUN NOUN_SINGULAR ) 
+
  trátese ( VERB ) lemma=tratar 
+
  trébol ( NOUN NOUN_SINGULAR ) 
+
  tríada ( NOUN NOUN_SINGULAR ) 
+
  tríceps ( NOUN NOUN_SINGULAR ) 
+
  trímero ( NOUN NOUN_SINGULAR ) 
+
  trío ( NOUN NOUN_SINGULAR ) 
+
  tríplice ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tríplices ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tríplice 
+
  trófica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trófico 
+
  trófico ( ) 
+
  tróficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=trófico 
+
  trópico ( NOUN NOUN_SINGULAR ) 
+
  tsa ( NOUN NOUN_SINGULAR ) 
+
  tu ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_SINGULAR ) lemma=tú 
+
  tuberculosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tuberculoso 
+
  tuberculoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tuberculosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tuberculoso 
+
  tuberculosis ( NOUN NOUN_SINGULAR ) 
+
  tuberculosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tuberculoso 
+
  tuberculostático ( NOUN NOUN_SINGULAR ) 
+
  tuberculín-negativo ( NOUN NOUN_SINGULAR ) 
+
  tuberculínica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tuberculínico 
+
  tuberculínico ( ) 
+
  tuberculínicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tuberculínico 
+
  tuberosidad ( NOUN NOUN_SINGULAR ) 
+
  tubería ( NOUN NOUN_SINGULAR ) 
- tubito ( NOUN NOUN_SINGULAR ) lemma=tubo 
+
+ tubito ( NOUN  NOUN_PLURAL  ) lemma=tubo 
+
  tubo ( NOUN NOUN_SINGULAR ) 
- tubitos ( NOUN NOUN_SINGULAR ) lemma=tubo 
+
+ tubitos ( NOUN  NOUN_PLURAL  ) lemma=tubo 
+
  tubovárico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tubular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tubulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tubular 
+
  tubulina ( NOUN NOUN_SINGULAR ) 
+
  tubuloglomerular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tubulointersticial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tubérculo ( NOUN NOUN_SINGULAR ) 
- tuercas ( NOUN NOUN_SINGULAR ) lemma=tuerca 
+
+ tuercas ( NOUN  NOUN_PLURAL  ) lemma=tuerca 
+
  tuerca ( ) 
+
  tuerto ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tuerto 
- tufillo ( NOUN NOUN_SINGULAR ) lemma=tufo 
+
+ tufillo ( NOUN  NOUN_PLURAL  ) lemma=tufo 
+
  tufo ( NOUN NOUN_SINGULAR ) 
- tullidos ( NOUN NOUN_SINGULAR ) lemma=tullido 
+
+ tullidos ( NOUN  NOUN_PLURAL  ) lemma=tullido 
+
  tullido ( ) 
+
  tumba ( NOUN VERB NOUN_SINGULAR ) lemma=`tumba`tumbar` NC  VLfin 
+
  tumbados ( VERB_PAST_PARTICIPLE VERB ) lemma=tumbar 
+
  tumbar ( VERB_INFINITIVE VERB ) 
+
  tumbas ( NOUN VERB NOUN_SINGULAR ) lemma=`tumba`tumbar` NC  VLfin 
+
  tumefacción ( NOUN NOUN_SINGULAR ) 
+
  tumor ( NOUN NOUN_SINGULAR ) 
+
  tumoración ( NOUN NOUN_SINGULAR ) 
+
  tumoral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tumorales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tumoral 
- tumorcito ( NOUN NOUN_SINGULAR ) lemma=tumor 
+
+ tumorcito ( NOUN  NOUN_PLURAL  ) lemma=tumor 
+
  tumorígeno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tumulto ( NOUN NOUN_SINGULAR ) 
+
  tumultuosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tumultuoso 
+
  tumultuoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tuna ( NOUN VERB NOUN_SINGULAR ) lemma=`tuna`tunar` NC  VLfin 
+
  tunas ( NOUN VERB NOUN_SINGULAR ) lemma=`tuna`tunar` NC  VLfin 
+
  tunecina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tunecino 
+
  tunecino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tunecino 
+
  tunecinas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tunecino 
+
  tunecinos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tunecino 
+
  tungsteno ( NOUN NOUN_SINGULAR ) 
+
  tunicado ( NOUN NOUN_SINGULAR ) 
+
  tuno ( NOUN NOUN_SINGULAR ) 
+
  tupida ( VERB_PAST_PARTICIPLE VERB ) lemma=tupir 
+
  tupir ( ) 
+
  tupido ( VERB_PAST_PARTICIPLE VERB ) lemma=tupir 
+
  tupió ( VERB ) lemma=tupiar|tupir 
+
  tupiar|tupir ( ) 
+
  tupí ( VERB ) lemma=tupir 
+
  turba ( NOUN VERB NOUN_SINGULAR ) lemma=`turba`turbar` NC  VLfin 
+
  turbada ( VERB_PAST_PARTICIPLE VERB ) lemma=turbar 
+
  turbar ( VERB_INFINITIVE VERB ) 
+
  turbados ( VERB_PAST_PARTICIPLE VERB ) lemma=turbar 
- turberas ( NOUN NOUN_SINGULAR ) lemma=turbera 
+
+ turberas ( NOUN  NOUN_PLURAL  ) lemma=turbera 
+
  turbera ( ) 
- turbi ( NOUN NOUN_SINGULAR ) lemma=turbina 
+
+ turbi ( NOUN  NOUN_PLURAL  ) lemma=turbina 
+
  turbina ( NOUN NOUN_SINGULAR ) 
+
  turbia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbio 
+
  turbio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  turbias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbio 
+
  turbidez ( NOUN NOUN_SINGULAR ) 
+
  turbidímetro ( NOUN NOUN_SINGULAR ) 
+
  turbiedad ( NOUN NOUN_SINGULAR ) 
+
  turbios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbio 
+
  turbuhaler ( NOUN NOUN_SINGULAR ) 
+
  turbulencia ( NOUN NOUN_SINGULAR ) 
+
  turbulenta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbulento 
+
  turbulento ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  turbulentas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbulento 
+
  turbulentos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turbulento 
+
  turca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=turco 
+
  turco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=turco 
+
  turcas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=turco 
+
  turcos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=turco 
+
  turfístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  turing ( NOUN NOUN_SINGULAR ) 
+
  turismo ( NOUN NOUN_SINGULAR ) 
+
  turista ( NOUN NOUN_SINGULAR ) 
+
  turnar ( VERB_INFINITIVE VERB ) 
+
  turnada ( VERB_PAST_PARTICIPLE VERB ) lemma=turnar 
+
  turnados ( VERB_PAST_PARTICIPLE VERB ) lemma=turnar 
+
  turnando ( NOUN NOUN_GERUND ) lemma=turnar 
+
  turnes ( VERB ) lemma=turnar 
+
  turno ( NOUN NOUN_SINGULAR ) 
+
  turnándose ( VERB_PAST_PARTICIPLE VERB ) lemma=turnar 
+
  turquesas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=turquesa 
+
  turquesa ( ) 
- turrones ( NOUN NOUN_SINGULAR ) lemma=turrón 
+
+ turrones ( NOUN  NOUN_PLURAL  ) lemma=turrón 
+
  turrón ( NOUN NOUN_SINGULAR ) 
+
  turubán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  turulato ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  turística ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turístico 
+
  turístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  turísticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turístico 
+
  turísticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=turístico 
+
  tus ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=tu 
+
  tusígeno ( NOUN NOUN_SINGULAR ) 
+
  tute ( NOUN NOUN_SINGULAR ) 
+
  tutear ( VERB_INFINITIVE VERB ) 
+
  tutela ( NOUN NOUN_SINGULAR ) 
+
  tutelado ( VERB_PAST_PARTICIPLE VERB ) lemma=tutelar 
+
  tutelar ( ) 
+
  tutelares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tutelar 
+
  tuteo ( NOUN VERB NOUN_SINGULAR ) lemma=`tuteo`tutear` NC  VLfin 
+
  tutor ( NOUN NOUN_SINGULAR ) 
+
  tutorial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tutoriales ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tutoría ( NOUN NOUN_SINGULAR ) 
+
  tututututú ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  tutututú ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  tuve ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tuviera ( VERB ) lemma=tener 
+
  tuvierais ( VERB ) lemma=tener 
+
  tuvieran ( VERB ) lemma=tener 
+
  tuvieras ( VERB ) lemma=tener 
+
  tuviere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tener 
+
  tuvieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tener 
+
  tuvieron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tener 
+
  tuviese ( VERB ) lemma=tener 
+
  tuvieseis ( VERB ) lemma=tener 
+
  tuviesen ( VERB ) lemma=tener 
+
  tuvimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tener 
+
  tuviste ( VERB ) lemma=tener 
+
  tuviéramos ( VERB ) lemma=tener 
+
  tuviésemos ( VERB ) lemma=tener 
+
  tuvo ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=tener 
+
  tuya ( PRONOUN_SUBJECT PRONOUN_OBJECT ) lemma=tuyo 
+
  tuyo ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+
  tá ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  tácita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tácito 
+
  tácito ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tácitamente ( ADVERB ) lemma=tácito 
+
  táctica ( NOUN NOUN_SINGULAR ) 
+
  tácticamente ( ADVERB ) lemma=táctico 
+
  táctico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tácticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=táctico 
+
  táctil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tádem ( NOUN NOUN_SINGULAR ) 
+
  tálamo ( NOUN NOUN_SINGULAR ) 
+
  tándem ( NOUN NOUN_SINGULAR ) 
+
  técnicamente ( ADVERB ) lemma=técnico 
+
  técnicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`técnico`técnica` ADJ  NC 
+
  técnico-docente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  técnicos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=técnico 
- télex ( NOUN NOUN_SINGULAR ) lemma=télex 
+
+ télex ( NOUN  NOUN_PLURAL  ) lemma=télex 
+
  téngalo ( ) lemma=tener 
+
  téngase ( VERB ) lemma=tener 
+
  téorica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=téorico 
+
  téorico ( ) 
+
  térmica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=térmico 
+
  térmico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  térmicamente ( ADVERB ) lemma=térmico 
+
  térmicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=térmico 
+
  térmicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=térmico 
+
  término ( NOUN NOUN_SINGULAR ) 
+
  tétanos ( ) lemma=tetar 
+
  tetar ( ) 
+
  tí ( VERB ) lemma=ter 
- tía ( NOUN NOUN_SINGULAR ) lemma=tío 
+
+ tía ( NOUN  NOUN_PLURAL  ) lemma=tío 
+
  tío ( NOUN NOUN_SINGULAR ) 
- tías ( NOUN NOUN_SINGULAR ) lemma=tío 
+
+ tías ( NOUN  NOUN_PLURAL  ) lemma=tío 
+
  tífico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tímida ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tímido 
+
  tímidamente ( ADVERB ) lemma=tímido 
+
  tímidas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tímido 
+
  tímidos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=tímido 
+
  tímpano ( NOUN NOUN_SINGULAR ) 
+
  típica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=típico 
+
  típico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  típicamente ( ADVERB ) lemma=típico 
+
  típicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=típico 
+
  típicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=típico 
+
  tíralo ( ) lemma=tirar 
+
  tíralos ( ) lemma=tirar 
+
  tísico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tócate ( ) lemma=tocar 
+
  tómate ( ) lemma=tomar 
+
  tómatelo ( ) lemma=tomar 
+
  tónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tónico 
+
  tónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tónicamente ( ADVERB ) 
+
  tónicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tónico 
+
  tópica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tópico 
+
  tópico ( NOUN NOUN_SINGULAR ) 
+
  tórax ( NOUN NOUN_SINGULAR ) 
+
  tórpido ( ADJECTIVE ADJECTIVE_NORMAL ) 
- tórtolas ( NOUN NOUN_SINGULAR ) lemma=tórtola 
+
+ tórtolas ( NOUN  NOUN_PLURAL  ) lemma=tórtola 
+
  tórtola ( ) 
+
  tótem ( NOUN NOUN_SINGULAR ) 
+
  tóxica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tóxico 
+
  tóxico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  tóxicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tóxico 
+
  tóxicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=tóxico 
+
  túbulo ( NOUN NOUN_SINGULAR ) 
+
  túnel ( NOUN NOUN_SINGULAR ) 
+
  túneles ( NOUN VERB NOUN_SINGULAR ) lemma=`túnel`tunar` NC  VLfin 
+
  túnica ( NOUN NOUN_SINGULAR ) 
+
  Tal_vez ( ADVERB ) lemma=tal~vez 
+
  tal~vez ( ) 
+
  Tan_pronto_como ( ADVERB ) lemma=tan~pronto~como 
+
  tan~pronto~como ( ) 
+
  tal_vez ( ADVERB ) lemma=tal~vez 
+
  tan_pronto_como ( ADVERB CONJUNCTION_SUBORDINATE ) lemma=tan~pronto~como 
- tanto_por_ciento ( NOUN NOUN_SINGULAR ) lemma=tanto~por~ciento 
+
+ tanto_por_ciento ( NOUN  NOUN_PLURAL  ) lemma=tanto~por~ciento 
+
  tanto~por~ciento ( ) 
+
  tendrá_que ( VERB ) lemma=tener~que 
+
  tener~que ( ) 
+
  tendrán_que ( VERB ) lemma=tener~que 
+
  tener_que ( VERB ) lemma=tener~que 
+
  tenga_que ( VERB ) lemma=tener~que 
+
  tengan_que ( VERB ) lemma=tener~que 
+
  tiene_que ( VERB ) lemma=tener~que 
+
  tienen_que ( VERB ) lemma=tener~que 
+
  threatening ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=amenazar 
+
  throwing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tirar 
+
  taking_a_bath ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bañarse 
+
  taking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tomar 
+
  toasting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=brindar 
+
  tiring ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=cansar 
+
  trusting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=confiar 
+
  talking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=conversar 
+
  taking_care_of ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=cuidar 
+
  taking_a_shower ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=ducharse 
+
  throwing_oneself ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=echarse 
+
  teaching ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=enseñar 
+
  trying ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=intentar 
+
  thinking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=pensar 
+
  tasting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=probar 
+
  turning_out ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=resultar 
+
  turning ( ) 
+
  taking_out ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=sacar 
+
  taño ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañe ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañido ( NOUN VERB NOUN_GERUND ) lemma=tañer 
+
  tañeré ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañerá ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma=tañer 
+
  tañeremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañeréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañerán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tañer 
+
  tañí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=tañer 
+
  tañimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tañer 
+
  taña ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tañer 
+
  tañéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tañer 
+
  tañereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tañer 
+
  tañeren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tañer 
+
  taparéis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tapar 
+
  tapemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tapar 
+
  tapéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tapar 
+
  tapen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tapar 
+
  tapáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tapar 
+
  tapareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tapar 
+
  taparen ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tapar 
+
  tardaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tardar 
+
  tardéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tardar 
+
  tardáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tardar 
+
  tardareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tardar 
+
  tardaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tardar 
+
  temeréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=temer 
+
  temáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=temer 
+
  temieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=temer 
+
  temiéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=temer 
+
  temiereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=temer 
+
  temieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=temer 
+
  tuvisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tener 
+
  tuviéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tener 
+
  tuviereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tener 
+
  tiño ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=teñir 
+
  teñiréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=teñir 
+
  teñí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=teñir 
+
  tiñáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=teñir 
+
  tiñan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=teñir 
+
  tiñere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=teñir 
+
  tiñéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=teñir 
+
  tiñereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=teñir 
+
  tiñeren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=teñir 
+
  terminaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=terminar 
+
  terminéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=terminar 
+
  termináremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=terminar 
+
  terminareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=terminar 
+
  terminaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=terminar 
+
  tiraréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tirar 
+
  tiréis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tirar 
+
  tiráremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tirar 
+
  tirareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tirar 
+
  tiraren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tirar 
+
  tocaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tocar 
+
  toquemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tocar 
+
  toquéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tocar 
+
  tocáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tocar 
+
  tocareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tocar 
+
  tocaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tocar 
+
  touching ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tocar 
+
  tomaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tomar 
+
  toméis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tomar 
+
  tomáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tomar 
+
  tomareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tomar 
+
  tuerzo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=torcer 
+
  torceréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=torcer 
+
  tuerza ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=torcer 
+
  torzamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=torcer 
+
  torzáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=torcer 
+
  tuerzan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=torcer 
+
  torcieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=torcer 
+
  torciéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=torcer 
+
  torciereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=torcer 
+
  torcieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=torcer 
+
  twisting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=torcer 
+
  tosiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=toser 
+
  toseréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=toser 
+
  tosí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=toser 
+
  tosa ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=toser 
+
  tosamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=toser 
+
  tosáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=toser 
+
  tosieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=toser 
+
  tosiéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=toser 
+
  tosiereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=toser 
+
  tosieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=toser 
+
  trabajaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=trabajar 
+
  trabajáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=trabajar 
+
  trabajareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=trabajar 
+
  trabajaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=trabajar 
+
  traduciréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traducir 
+
  traduje ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traducir 
+
  tradujimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traducir 
+
  tradujisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traducir 
+
  traduzcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traducir 
+
  traduzcáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traducir 
+
  tradujere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traducir 
+
  tradujéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traducir 
+
  tradujereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traducir 
+
  tradujeren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=traducir 
+
  translating ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=traducir 
+
  traeréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traer 
+
  traigamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traer 
+
  trajere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=traer 
+
  trajéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=traer 
+
  trajereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=traer 
+
  trajeren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=traer 
+
  tragaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tragar 
+
  tragué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=tragar 
+
  traguéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tragar 
+
  traguen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tragar 
+
  tragáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tragar 
+
  tragareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tragar 
+
  tragaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tragar 
+
  trataréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tratar 
+
  tratéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tratar 
+
  tratáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tratar 
+
  tratareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tratar 
+
  trataren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tratar 
+
  treating ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tratar 
+
  triunfaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=triunfar 
+
  triunfemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=triunfar 
+
  triunféis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=triunfar 
+
  triunfáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=triunfar 
+
  triunfareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=triunfar 
+
  triunfaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=triunfar 
+
  triumphing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=triunfar 
+
  tropezaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tropezar 
+
  tropezéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tropezar 
+
  tropezáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=tropezar 
+
  tropezareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=tropezar 
+
  tropezaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=tropezar 
+
  tripping ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=tropezar 
+
  traveling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=viajar 
+

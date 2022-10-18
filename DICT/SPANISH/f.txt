@@ -1,2144 +1,4288 @@
- frezr ( VERB_INFINITIVE VERB ) 
+﻿ frezr ( VERB_INFINITIVE VERB ) 
+
  felicitar ( VERB_INFINITIVE VERB ) 
+
  fßcil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  FA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FA 
+
  FACULT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FAS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FAX ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FCI ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FCS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FD ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDBF ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDD ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDI ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDL ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FDM 
+
  FDP ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FDT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FF ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FI ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FI 
+
  FIDA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FIF ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FIFA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FITLM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FN ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FNN ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FRENCH ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FRMR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FRMR 
+
  FRXD ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FRXD 
+
  FS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=FS 
+
  FUG ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fab ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabela ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fabiola 
+
  Fabiola ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabian ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabiolita ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fabiola 
+
  Fabricio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fabry ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fahrenheit ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fajardo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Falcon ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Falkland ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fallot ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Familia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fanego ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fanny ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fanta ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Farabundo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Faraday ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Faraón ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Farias ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Farragudo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Farragudo 
+
  Faustino ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fed ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Feder ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Federico ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Feeder ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Feldstein ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Felipe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fermi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fermines ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fermín 
+
  Fermín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fernanda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fernandito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fernando 
+
  Fernando ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fernán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fernández ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Feroé ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ferreira ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ferrer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fiat ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fibonacci ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fidel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Figueras ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Figueroa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fiji ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Filadelfia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fili ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Filadelfia 
+
  Filipinas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Filipino ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fillol ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Filoctetes ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Filóctetes ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Finder ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Finlandia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Firestone ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fisher ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Flaca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Flaco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Flavio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Flebolitos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Florencia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Florencio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Florianópolis ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Florida ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fm ( ) lemma=Fm 
+
  Folkestone ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fonseca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fontanarrosa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Foodwine ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Foothills ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Ford ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Forel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Formigal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Forssmann ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fort ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fortak ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Forte ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fortran ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Foster ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Foucault ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fraguas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Framingham ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Francia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Francina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Francis ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Francisca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Francisco 
+
  Francisco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frank ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frank-Starling ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frankfurt ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Franklin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fray ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fraile 
+
  Fraile ( ) 
+
  Fred ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Freddy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Free-Net ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  FreeNet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frei ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  French ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Freon ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Freud ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Freund ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Freundlich ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frida ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Frisch ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fritz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fuera ( PREPOSITION ) 
+
  Fujeirah ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fuji ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Fujimori 
+
  Fujimori ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fujitsu ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fulbright ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Funcionalmente ( ADVERB ) 
+
  Funconamiento ( NOUN NOUN_SINGULAR ) 
+
  Fundaler ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Furchgott ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Furosemida ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Fusabe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Futcher ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Futuna ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Futuros ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Félix ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  f.e.m ( ) lemma=f.e.m 
+
  fabricar ( VERB_INFINITIVE VERB ) 
- fabricaciones ( NOUN NOUN_SINGULAR ) lemma=fabricación 
+
+ fabricaciones ( NOUN  NOUN_PLURAL  ) lemma=fabricación 
+
  fabricación ( NOUN NOUN_SINGULAR ) 
+
  fabricada ( VERB_PAST_PARTICIPLE VERB ) lemma=fabricar 
+
  fabricadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fabricar 
+
  fabricados ( VERB_PAST_PARTICIPLE VERB ) lemma=fabricar 
+
  fabricando ( NOUN NOUN_GERUND ) lemma=fabricar 
+
  fabricante ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fabricante`fabricar` NC  VLadj 
+
  fabricasen ( VERB ) lemma=fabricar 
+
  fabril ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fabriquemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fabricar 
+
  fabriquen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fabricar 
+
  fabulosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fabuloso 
+
  fabuloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fabulosamente ( ADVERB ) lemma=fabuloso 
+
  fabulosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fabuloso 
+
  fabulosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fabuloso 
- facciones ( NOUN NOUN_SINGULAR ) lemma=facción 
+
+ facciones ( NOUN  NOUN_PLURAL  ) lemma=facción 
+
  facción ( NOUN NOUN_SINGULAR ) 
+
  face ( VERB ) lemma=facer 
+
  facer ( ) 
+
  faces ( NOUN VERB NOUN_SINGULAR ) lemma=`faz`facer` NC  VLfin 
+
  faceta ( NOUN NOUN_SINGULAR ) 
+
  fachada ( NOUN NOUN_SINGULAR ) 
- fachas ( NOUN NOUN_SINGULAR ) lemma=facha 
+
+ fachas ( NOUN  NOUN_PLURAL  ) lemma=facha 
+
  facha ( ) 
+
  facial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  faciales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=facial 
+
  facies ( NOUN NOUN_SINGULAR ) 
+
  facil ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fácil 
+
  fácil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  facilidad ( NOUN NOUN_SINGULAR ) 
+
  facilitar ( VERB_INFINITIVE VERB ) 
+
  facilitación ( NOUN NOUN_SINGULAR ) 
+
  facilitada ( VERB_PAST_PARTICIPLE VERB ) lemma=facilitar 
+
  facilitadas ( VERB_PAST_PARTICIPLE VERB ) lemma=facilitar 
+
  facilitados ( VERB_PAST_PARTICIPLE VERB ) lemma=facilitar 
+
  facilitando ( NOUN NOUN_GERUND ) lemma=facilitar 
+
  facilitarla (                 VERB ) lemma=facilitar 
+
  facilitarle (                 VERB ) lemma=facilitar 
+
  facilitarles (                 VERB ) lemma=facilitar 
+
  facilitarlo (                 VERB ) lemma=facilitar 
+
  facilitarlos (                 VERB ) lemma=facilitar 
+
  facilitarme (                 VERB ) lemma=facilitar 
+
  facilitarnos (                 VERB ) lemma=facilitar 
+
  facilitarse ( VERB_INFINITIVE VERB ) 
+
  facilitase ( VERB ) lemma=facilitar 
+
  facilitasen ( VERB ) lemma=facilitar 
+
  facilitemos ( VERB ) lemma=facilitar 
+
  faciliten ( VERB ) lemma=facilitar 
+
  facilito ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fácil`facilitar` ADJ  VLfin 
+
  facilitándole ( NOUN NOUN_GERUND ) lemma=facilitar 
+
  facilitándoles ( NOUN NOUN_GERUND ) lemma=facilitar 
+
  facilitándome ( NOUN NOUN_GERUND ) lemma=facilitar 
+
  facilitándonos ( NOUN NOUN_GERUND ) lemma=facilitar 
+
  facilitándose ( NOUN NOUN_GERUND ) 
+
  facilitáramos ( VERB ) lemma=facilitar 
+
  facilísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fácil 
+
  facsímil ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=facsímil 
+
  facsímiles ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=facsímil 
+
  factibilidad ( NOUN NOUN_SINGULAR ) 
+
  factible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  factiblemente ( ADVERB ) 
+
  factibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=factible 
+
  facticio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  facto ( NOUN NOUN_SINGULAR ) 
- factor ( NOUN NOUN_SINGULAR ) lemma=factor 
+
+ factor ( NOUN  NOUN_PLURAL  ) lemma=factor 
+
  factorial ( ADJECTIVE ADJECTIVE_NORMAL ) 
- factorizaciones ( NOUN NOUN_SINGULAR ) lemma=factorización 
+
+ factorizaciones ( NOUN  NOUN_PLURAL  ) lemma=factorización 
+
  factorización ( NOUN NOUN_SINGULAR ) 
+
  factorizar ( VERB_INFINITIVE VERB ) 
+
  factoría ( NOUN NOUN_SINGULAR ) 
+
  factual ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  factura ( NOUN VERB NOUN_SINGULAR ) lemma=`factura`facturar` NC  VLfin 
+
  facturar ( VERB_INFINITIVE VERB ) 
- facturaciones ( NOUN NOUN_SINGULAR ) lemma=facturación 
+
+ facturaciones ( NOUN  NOUN_PLURAL  ) lemma=facturación 
+
  facturación ( NOUN NOUN_SINGULAR ) 
+
  facturas ( NOUN VERB NOUN_SINGULAR ) lemma=`factura`facturar` NC  VLfin 
+
  facturen ( VERB ) lemma=facturar 
+
  facu ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`facultad`Facu` NC  NP 
+
  facultar ( VERB_INFINITIVE VERB ) 
+
  facultad ( NOUN NOUN_SINGULAR ) 
+
  facultada ( VERB_PAST_PARTICIPLE VERB ) lemma=facultar 
+
  facultadas ( VERB_PAST_PARTICIPLE VERB ) lemma=facultar 
+
  facultados ( VERB_PAST_PARTICIPLE VERB ) lemma=facultar 
+
  facultamiento ( NOUN NOUN_SINGULAR ) 
+
  facultando ( NOUN NOUN_GERUND ) lemma=facultar 
+
  facultase ( VERB ) lemma=facultar 
+
  facultativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=facultativo 
+
  facultativo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=facultativo 
+
  facultativamente ( ADVERB ) lemma=facultativamente|facultativo 
+
  facultativamente|facultativo ( ) 
+
  facultativas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=facultativo 
+
  facultativos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=facultativo 
+
  facultivas ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  facundo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  faena ( NOUN VERB NOUN_SINGULAR ) lemma=`faena`faenar` NC  VLfin 
+
  faenar ( VERB_INFINITIVE VERB ) 
+
  faenando ( NOUN NOUN_GERUND ) lemma=faenar 
+
  faenas ( NOUN VERB NOUN_SINGULAR ) lemma=`faena`faenar` NC  VLfin 
+
  faenen ( VERB ) lemma=faenar 
- faenita ( NOUN NOUN_SINGULAR ) lemma=faena 
+
+ faenita ( NOUN  NOUN_PLURAL  ) lemma=faena 
+
  fago ( NOUN VERB NOUN_SINGULAR ) lemma=`fago`facer` NC  VLfin 
+
  fagocitado ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fagocitarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fagocitario 
+
  fagocitario ( ) 
- fagocitos ( NOUN NOUN_SINGULAR ) lemma=fagocito 
+
+ fagocitos ( NOUN  NOUN_PLURAL  ) lemma=fagocito 
+
  fagocito ( ) 
+
  fagocitosis ( NOUN NOUN_SINGULAR ) 
+
  fagocítica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fagocítico 
+
  fagocítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fagocíticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fagocítico 
+
  faja ( NOUN VERB NOUN_SINGULAR ) lemma=`faja`fajar` NC  VLfin 
+
  fajaba ( VERB ) lemma=fajar 
+
  fajar ( ) 
+
  fajadísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fajado 
+
  fajado ( ) 
+
  fajas ( NOUN VERB NOUN_SINGULAR ) lemma=`faja`fajar` NC  VLfin 
+
  fajina ( NOUN NOUN_SINGULAR ) 
+
  fajó ( VERB ) lemma=fajar 
+
  falaces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=falaz 
+
  falaz ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  falacia ( NOUN NOUN_SINGULAR ) 
+
  falange ( NOUN NOUN_SINGULAR ) 
+
  falcidia ( NOUN NOUN_SINGULAR ) 
+
  falciforme ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  falciformes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=falciforme 
+
  falciparum ( NOUN NOUN_SINGULAR ) 
+
  falcultativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  falcémica ( NOUN NOUN_SINGULAR ) 
+
  falcémico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  falda ( NOUN NOUN_SINGULAR ) 
- faldita ( NOUN NOUN_SINGULAR ) lemma=falda 
+
+ faldita ( NOUN  NOUN_PLURAL  ) lemma=falda 
+
  falibilidad ( NOUN NOUN_SINGULAR ) 
+
  fallar ( VERB_INFINITIVE VERB ) 
+
  fallada ( VERB_PAST_PARTICIPLE VERB ) lemma=fallar 
+
  fallamos ( VERB ) lemma=fallar|fallir 
+
  fallar|fallir ( ) 
+
  fallando ( NOUN NOUN_GERUND ) lemma=fallar 
+
  fallas ( NOUN VERB NOUN_SINGULAR ) lemma=`falla`fallar|fallir` NC  VLfin 
+
  fallasé ( VERB ) lemma=fallar 
+
  fallé ( VERB ) lemma=fallar|fallir 
+
  fallecer ( VERB_INFINITIVE VERB ) 
+
  fallecida ( VERB_PAST_PARTICIPLE VERB ) lemma=fallecer 
+
  fallecidas ( VERB_PAST_PARTICIPLE VERB ) lemma=fallecer 
+
  fallecidos ( VERB_PAST_PARTICIPLE VERB ) lemma=fallecer 
+
  falleciendo ( NOUN NOUN_GERUND ) lemma=fallecer 
+
  fallecieá ( VERB ) lemma=fallecer 
+
  fallecieán ( VERB ) lemma=fallecer 
+
  fallecieren ( VERB ) lemma=fallecer 
+
  fallecimiento ( NOUN NOUN_SINGULAR ) 
+
  fallen ( VERB ) lemma=fallar 
+
  falles ( VERB ) lemma=fallar|fallir 
+
  fallezca ( VERB ) lemma=fallecer 
+
  fallezcan ( VERB ) lemma=fallecer 
+
  fallida ( VERB_PAST_PARTICIPLE VERB ) lemma=fallir 
+
  fallir ( ) 
+
  fallidas ( VERB_PAST_PARTICIPLE VERB ) lemma=fallir 
+
  fallido ( VERB_PAST_PARTICIPLE VERB ) lemma=fallir 
+
  fallidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fallido 
+
  fallo ( NOUN NOUN_SINGULAR ) 
+
  fallot ( NOUN NOUN_SINGULAR ) 
+
  falléis ( VERB ) lemma=fallar 
+
  faloidina ( NOUN NOUN_SINGULAR ) 
+
  falsa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=falso 
+
  falso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  falsamente ( ADVERB ) lemma=falso 
+
  falsan ( VERB ) lemma=falsar 
+
  falsar ( ) 
+
  falsas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=falso 
+
  falseada ( VERB_PAST_PARTICIPLE VERB ) lemma=falsear 
+
  falsear ( VERB_INFINITIVE VERB ) 
+
  falseamiento ( NOUN NOUN_SINGULAR ) 
+
  falsedad ( NOUN NOUN_SINGULAR ) 
+
  falsificar ( VERB_INFINITIVE VERB ) 
- falsificaciones ( NOUN NOUN_SINGULAR ) lemma=falsificación 
+
+ falsificaciones ( NOUN  NOUN_PLURAL  ) lemma=falsificación 
+
  falsificación ( NOUN NOUN_SINGULAR ) 
+
  falsificada ( VERB_PAST_PARTICIPLE VERB ) lemma=falsificar 
+
  falsificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=falsificar 
+
  falsificados ( VERB_PAST_PARTICIPLE VERB ) lemma=falsificar 
+
  falsificando ( NOUN NOUN_GERUND ) lemma=falsificar 
+
  falsos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=falso 
+
  falta ( NOUN VERB NOUN_SINGULAR ) lemma=`falta`faltar` NC  VLfin 
+
  faltar ( VERB_INFINITIVE VERB ) 
+
  faltando ( NOUN NOUN_GERUND ) lemma=faltar 
+
  faltas ( NOUN VERB NOUN_SINGULAR ) lemma=`falta`faltar` NC  VLfin 
+
  faltase ( VERB ) lemma=faltar 
+
  falten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=faltar 
+
  fama ( NOUN NOUN_SINGULAR ) 
+
  familia ( NOUN NOUN_SINGULAR ) 
+
  familiar ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=familiar 
+
  familiares ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=familiar 
+
  familiarice ( VERB ) lemma=familiarizar 
+
  familiarizar ( VERB_INFINITIVE VERB ) 
+
  familiaricen ( VERB ) lemma=familiarizar 
+
  familiariedad ( NOUN NOUN_SINGULAR ) 
+
  familiarizada ( VERB_PAST_PARTICIPLE VERB ) lemma=familiarizar 
+
  familiarizados ( VERB_PAST_PARTICIPLE VERB ) lemma=familiarizar 
+
  familiarizarse ( VERB_INFINITIVE VERB ) 
+
  familiarizándose ( VERB_PAST_PARTICIPLE VERB ) lemma=familiarizar 
+
  familias-productoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
- famillas ( NOUN NOUN_SINGULAR ) lemma=fama 
+
+ famillas ( NOUN  NOUN_PLURAL  ) lemma=fama 
+
  famosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=famoso 
+
  famoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  famosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=famoso 
+
  famosillos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=famoso 
+
  famositos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=famoso 
+
  famosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=famoso 
+
  fana ( NOUN NOUN_SINGULAR ) 
+
  fanatismo ( NOUN NOUN_SINGULAR ) 
+
  fandango ( NOUN NOUN_SINGULAR ) 
+
  fanega ( NOUN NOUN_SINGULAR ) 
+
  fanerógama ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fanerógamo 
+
  fanerógamo ( ) 
+
  fanerógamas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fanerógamo`fanerógama` ADJ  NC 
+
  fango ( NOUN NOUN_SINGULAR ) 
- fans ( NOUN NOUN_SINGULAR ) lemma=fan 
+
+ fans ( NOUN  NOUN_PLURAL  ) lemma=fan 
+
  fan ( ) 
+
  fantasiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fantasioso 
+
  fantasioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fantasiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fantasioso 
+
  fantasma ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fantasmo`fantasma` ADJ  NC 
+
  fantasmal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fantasía ( NOUN NOUN_SINGULAR ) 
+
  fantoche ( NOUN NOUN_SINGULAR ) 
+
  fantástica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fantástico 
+
  fantástico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fantásticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fantástico 
+
  fantásticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fantástico 
+
  fanática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fanático 
+
  fanático ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fanático 
+
  fanáticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fanático 
+
  fanáticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fanático 
- faraones ( NOUN NOUN_SINGULAR ) lemma=faraón 
+
+ faraones ( NOUN  NOUN_PLURAL  ) lemma=faraón 
+
  faraón ( NOUN NOUN_SINGULAR ) 
+
  fardo ( NOUN VERB NOUN_SINGULAR ) lemma=`fardo`fardar` NC  VLfin 
+
  faringe ( NOUN NOUN_SINGULAR ) 
+
  faringeotraqueal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  faringitis ( NOUN NOUN_SINGULAR ) 
+
  farmacia ( NOUN NOUN_SINGULAR ) 
+
  farmacocinético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  farmacodinamia ( NOUN NOUN_SINGULAR ) 
+
  farmacodinámica ( NOUN NOUN_SINGULAR ) 
+
  farmacogenético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  farmacología ( NOUN NOUN_SINGULAR ) 
+
  farmacológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=farmacológico 
+
  farmacológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  farmacológicamente ( ADVERB ) 
+
  farmacológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=farmacológico 
+
  farmacológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=farmacológico 
+
  farmacomecánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  farmacéutica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=farmacéutico 
+
  farmacéutico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=farmacéutico 
+
  farmacéuticas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=farmacéutico 
+
  farmacéuticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=farmacéutico 
- farmacólogos ( NOUN NOUN_SINGULAR ) lemma=farmacólogo 
+
+ farmacólogos ( NOUN  NOUN_PLURAL  ) lemma=farmacólogo 
+
  farmacólogo ( ) 
+
  faro ( NOUN NOUN_SINGULAR ) 
+
  farol ( NOUN NOUN_SINGULAR ) 
+
  farola ( NOUN NOUN_SINGULAR ) 
+
  farolear ( VERB_INFINITIVE VERB ) 
+
  farolillo ( NOUN NOUN_SINGULAR ) 
+
  farádicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=farádico 
+
  farádico ( ) 
+
  farías ( VERB ) lemma=facer 
+
  faríngeas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=faríngeo 
+
  faríngeo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  faríngeos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=faríngeo 
+
  fascia ( NOUN NOUN_SINGULAR ) 
+
  fascinar ( VERB_INFINITIVE VERB ) 
+
  fascinación ( NOUN NOUN_SINGULAR ) 
+
  fascinada ( VERB_PAST_PARTICIPLE VERB ) lemma=fascinar 
+
  fascinadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fascinar 
+
  fascinante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fascinantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fascinante 
+
  fascismo ( NOUN NOUN_SINGULAR ) 
+
  fascista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fascista 
+
  fascistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fascista 
+
  fascículo ( NOUN NOUN_SINGULAR ) 
+
  fase ( NOUN NOUN_SINGULAR ) 
+
  fastball ( NOUN NOUN_SINGULAR ) 
+
  fastidiar ( VERB_INFINITIVE VERB ) 
+
  fastidiada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fastidiado`fastidiar` ADJ  VLadj 
+
  fastidiado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fastidiado`fastidiar` ADJ  VLadj 
+
  fastidiando ( NOUN NOUN_GERUND ) lemma=fastidiar 
+
  fastidiarse ( VERB_INFINITIVE VERB ) 
+
  fastidies ( VERB ) lemma=fastidiar 
+
  fastidio ( NOUN VERB NOUN_SINGULAR ) lemma=`fastidio`fastidiar` NC  VLfin 
+
  fastidiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fastidioso 
+
  fastidioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fastidiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fastidioso 
+
  fastuosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fastuoso 
+
  fastuoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fat ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fata ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fat 
+
  fatal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fatales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fatal 
+
  fatalidad ( NOUN NOUN_SINGULAR ) 
+
  fatalismo ( NOUN NOUN_SINGULAR ) 
+
  fatalista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fatalista 
+
  fatalmente ( ADVERB ) lemma=fatal 
+
  fatiga ( NOUN VERB NOUN_SINGULAR ) lemma=`fatiga`fatigar` NC  VLfin 
+
  fatigabilidad ( NOUN NOUN_SINGULAR ) 
+
  fatigar ( VERB_INFINITIVE VERB ) 
+
  fatigados ( VERB_PAST_PARTICIPLE VERB ) lemma=fatigar 
+
  fatigando ( NOUN NOUN_GERUND ) lemma=fatigar 
+
  fatigas ( NOUN VERB NOUN_SINGULAR ) lemma=`fatiga`fatigar` NC  VLfin 
+
  fatigosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fatigoso 
+
  fatigoso ( ) 
+
  fato ( NOUN NOUN_SINGULAR ) 
+
  fatídica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fatídico 
+
  fatídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fauces ( NOUN NOUN_SINGULAR ) 
+
  fauna ( NOUN NOUN_SINGULAR ) 
+
  favor ( NOUN NOUN_SINGULAR ) 
+
  favorable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  favorablemente ( ADVERB ) lemma=favorable 
+
  favorables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=favorable 
+
  favorecer ( VERB_INFINITIVE VERB ) 
+
  favorecida ( VERB_PAST_PARTICIPLE VERB ) lemma=favorecer 
+
  favorecidas ( VERB_PAST_PARTICIPLE VERB ) lemma=favorecer 
+
  favorecidos ( VERB_PAST_PARTICIPLE VERB ) lemma=favorecer 
+
  favoreciendo ( NOUN NOUN_GERUND ) lemma=favorecer 
+
  favorecieán ( VERB ) lemma=favorecer 
+
  favorezca ( VERB ) lemma=favorecer 
+
  favorezcamos ( VERB ) lemma=favorecer 
+
  favorezcan ( VERB ) lemma=favorecer 
+
  favorita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=favorito 
+
  favorito ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  favoritas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=favorito 
+
  favoritismo ( NOUN NOUN_SINGULAR ) 
+
  favoritos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=favorito 
- favorzote ( NOUN NOUN_SINGULAR ) lemma=favor 
+
+ favorzote ( NOUN  NOUN_PLURAL  ) lemma=favor 
+
  fax ( NOUN NOUN_SINGULAR ) 
- faxes ( NOUN NOUN_SINGULAR ) lemma=fax 
+
+ faxes ( NOUN  NOUN_PLURAL  ) lemma=fax 
+
  faz ( NOUN VERB NOUN_SINGULAR ) lemma=`faz`facer` NC  VLfin 
+
  fe ( NOUN NOUN_SINGULAR ) 
+
  fea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fealdad ( NOUN NOUN_SINGULAR ) 
+
  feas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  febrero ( NOUN NOUN_SINGULAR ) 
+
  febril ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  febriles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=febril 
+
  febrilmente ( ADVERB ) lemma=febril 
+
  fecal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fecal-oral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fecales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fecal 
+
  fecha ( NOUN NOUN_SINGULAR ) 
+
  fechada ( VERB_PAST_PARTICIPLE VERB ) lemma=fechar 
+
  fechar ( ) 
+
  fechadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fechar 
+
  fechado ( VERB_PAST_PARTICIPLE VERB ) lemma=fechar 
+
  fechados ( VERB_PAST_PARTICIPLE VERB ) lemma=fechar 
+
  fechas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`fecha`facer`fechar` NC  VLadj  VLfin 
+
  fechoría ( NOUN NOUN_SINGULAR ) 
+
  fecunda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fecundo 
+
  fecundo ( ADJECTIVE ADJECTIVE_NORMAL ) 
- fecundaciones ( NOUN NOUN_SINGULAR ) lemma=fecundación 
+
+ fecundaciones ( NOUN  NOUN_PLURAL  ) lemma=fecundación 
+
  fecundación ( NOUN NOUN_SINGULAR ) 
+
  fecundar ( VERB_INFINITIVE VERB ) 
+
  fecundadoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fecundados ( VERB_PAST_PARTICIPLE VERB ) lemma=fecundar 
+
  fecundante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fecundas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fecundo 
+
  fecundidad ( NOUN NOUN_SINGULAR ) 
+
  fecundos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fecundo 
+
  fedatario ( NOUN NOUN_SINGULAR ) 
+
  federar ( VERB_INFINITIVE VERB ) 
- federaciones ( NOUN NOUN_SINGULAR ) lemma=federación 
+
+ federaciones ( NOUN  NOUN_PLURAL  ) lemma=federación 
+
  federación ( NOUN NOUN_SINGULAR ) 
+
  federadas ( VERB_PAST_PARTICIPLE VERB ) lemma=federar 
+
  federados ( VERB_PAST_PARTICIPLE VERB ) lemma=federar 
+
  federal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  federales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=federal 
+
  federalismo ( NOUN NOUN_SINGULAR ) 
+
  federalista ( NOUN NOUN_SINGULAR ) 
+
  federativa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=federativo 
+
  federativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  federativos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=federativo 
+
  feedback ( NOUN NOUN_SINGULAR ) 
+
  fehacientemente ( ADVERB ) 
+
  felices ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feliz 
+
  feliz ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  felicidad ( NOUN NOUN_SINGULAR ) 
+
  felicita ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`feliz`felicitar` ADJ  VLfin 
- felicitaciones ( NOUN NOUN_SINGULAR ) lemma=felicitación 
+
+ felicitaciones ( NOUN  NOUN_PLURAL  ) lemma=felicitación 
+
  felicitación ( NOUN NOUN_SINGULAR ) 
+
  felicitada ( VERB_PAST_PARTICIPLE VERB ) lemma=felicitar 
+
  felicitando ( NOUN NOUN_GERUND ) lemma=felicitar 
+
  felicitarla (                 VERB ) lemma=felicitar 
+
  felicitarlas (                 VERB ) lemma=felicitar 
+
  felicitarle (                 VERB ) lemma=felicitar 
+
  felicitarles (                 VERB ) lemma=felicitar 
+
  felicitarlo (                 VERB ) lemma=felicitar 
+
  felicitarlos (                 VERB ) lemma=felicitar 
+
  felicitarme (                 VERB ) lemma=felicitar 
+
  felicitarnos (                 VERB ) lemma=felicitar 
+
  felicitaros ( VERB ) lemma=felicitar 
+
  felicitarse ( VERB_INFINITIVE VERB ) 
+
  felicitarte (                 VERB ) lemma=felicitar 
+
  felicitas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`feliz`felicitar` ADJ  VLfin 
+
  felicitasen ( VERB ) lemma=felicitar 
+
  felicitemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=felicitar 
+
  feliciten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=felicitar 
+
  felicito ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`feliz`felicitar` ADJ  VLfin 
+
  felicitándoles ( NOUN NOUN_GERUND ) lemma=felicitar 
+
  felicitándolos ( NOUN NOUN_GERUND ) lemma=felicitar 
+
  felicitándome ( NOUN NOUN_GERUND ) lemma=felicitar 
+
  felicitándonos ( NOUN NOUN_GERUND ) lemma=felicitar 
+
  felicitándose ( NOUN NOUN_GERUND ) lemma=felicitarse 
+
  felicitémonos ( VERB ) lemma=felicitar 
- feligreses ( NOUN NOUN_SINGULAR ) lemma=feligrés 
+
+ feligreses ( NOUN  NOUN_PLURAL  ) lemma=feligrés 
+
  feligrés ( ) 
+
  felina ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=felino 
+
  felino ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  felinos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=felino 
+
  felizmente ( ADVERB ) lemma=feliz 
+
  felpa ( NOUN VERB NOUN_SINGULAR ) lemma=`felpa`felpar` NC  VLfin 
+
  femenil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  femeniles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=femenil 
+
  femenina ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=femenino 
+
  femenino ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  femeninas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=femenino 
+
  femeninos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=femenino 
+
  femineidad ( NOUN NOUN_SINGULAR ) 
+
  feminista ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  feministas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feminista 
+
  feminoide ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  femoral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  femorales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=femoral 
+
  fenacetín ( NOUN NOUN_SINGULAR ) 
+
  fenciclidina ( NOUN NOUN_SINGULAR ) 
+
  fenecen ( VERB ) lemma=fenecer 
+
  fenecer ( ) 
+
  fenicias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fenicio 
+
  fenicio ( ) 
+
  fenicios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fenicio 
+
  fenilalanina ( NOUN NOUN_SINGULAR ) 
+
  fenilbutazona ( NOUN NOUN_SINGULAR ) 
+
  fenilcetonuria ( NOUN NOUN_SINGULAR ) 
+
  fenilcetonúrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  feniletanolamina ( NOUN NOUN_SINGULAR ) 
+
  fenitoína ( NOUN NOUN_SINGULAR ) 
+
  fenobarbital ( NOUN NOUN_SINGULAR ) 
- fenoles ( NOUN NOUN_SINGULAR ) lemma=fenol 
+
+ fenoles ( NOUN  NOUN_PLURAL  ) lemma=fenol 
+
  fenol ( ) 
+
  fenomenal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fenomenales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fenomenal 
+
  fenomenalmente ( ADVERB ) lemma=fenomenal 
+
  fenoterol ( NOUN NOUN_SINGULAR ) 
+
  fenotipo ( NOUN NOUN_SINGULAR ) 
+
  fenotípica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fenotípico 
+
  fenotípico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fenotípicamente ( ADVERB ) lemma=fenotípico 
+
  fenotípicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fenotípico 
+
  fenotípicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fenotípico 
+
  fenómeno ( NOUN NOUN_SINGULAR ) 
+
  feollón ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feria ( NOUN VERB NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`feria`Feria`feriar` NC  NP  VLfin 
+
  feriado ( VERB_PAST_PARTICIPLE VERB ) lemma=feriar 
+
  feriar ( ) 
+
  feriados ( VERB_PAST_PARTICIPLE VERB ) lemma=feriar 
+
  ferias ( NOUN VERB NOUN_SINGULAR ) lemma=`feria`feriar` NC  VLfin 
+
  ferie ( VERB ) lemma=feriar 
+
  fermentar ( VERB_INFINITIVE VERB ) 
- fermentaciones ( NOUN NOUN_SINGULAR ) lemma=fermentación 
+
+ fermentaciones ( NOUN  NOUN_PLURAL  ) lemma=fermentación 
+
  fermentación ( NOUN NOUN_SINGULAR ) 
+
  fermentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fermentar 
+
  fermentador ( NOUN NOUN_SINGULAR ) 
+
  fermentados ( VERB_PAST_PARTICIPLE VERB ) lemma=fermentar 
+
  fermentativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fermento ( NOUN VERB NOUN_SINGULAR ) lemma=`fermento`fermentar` NC  VLfin 
+
  feroces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feroz 
+
  feroz ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  ferocidad ( NOUN NOUN_SINGULAR ) 
+
  feromona ( NOUN NOUN_SINGULAR ) 
+
  ferozmente ( ADVERB ) lemma=feroz 
+
  ferredoxina ( NOUN NOUN_SINGULAR ) 
+
  ferriprotoporfirina ( NOUN NOUN_SINGULAR ) 
+
  ferritina ( NOUN NOUN_SINGULAR ) 
+
  ferrocarril ( NOUN NOUN_SINGULAR ) 
+
  ferromagnético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  ferropénica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferropénico 
+
  ferropénico ( ) 
+
  ferroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  ferrosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferroso 
+
  ferroviaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferroviario 
+
  ferroviario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ferroviario 
+
  ferroviarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferroviario 
+
  ferroviarios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=ferroviario 
+
  ferroína ( NOUN NOUN_SINGULAR ) 
+
  ferruginosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferruginoso 
+
  ferruginoso ( ) 
+
  fertilicina ( NOUN NOUN_SINGULAR ) 
+
  fertilidad ( NOUN NOUN_SINGULAR ) 
+
  fertilización ( NOUN NOUN_SINGULAR ) 
+
  fertilizante ( NOUN NOUN_SINGULAR ) 
+
  ferviente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fervientemente ( ADVERB ) lemma=ferviente 
+
  fervientes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ferviente 
+
  fervor ( NOUN NOUN_SINGULAR ) 
+
  fervorosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fervoroso 
+
  fervoroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
- fervorosos ( NOUN NOUN_SINGULAR ) lemma=fervoroso 
+
+ fervorosos ( NOUN  NOUN_PLURAL  ) lemma=fervoroso 
+
  festejar ( VERB_INFINITIVE VERB ) 
+
  festejando ( NOUN NOUN_GERUND ) lemma=festejar 
+
  festejarse ( VERB_INFINITIVE VERB ) 
+
  festejo ( NOUN VERB NOUN_SINGULAR ) lemma=`festejo`festejar` NC  VLfin 
- festines ( NOUN NOUN_SINGULAR ) lemma=festín 
+
+ festines ( NOUN  NOUN_PLURAL  ) lemma=festín 
+
  festín ( NOUN NOUN_SINGULAR ) 
+
  festiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=festivo 
+
  festivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  festival ( NOUN NOUN_SINGULAR ) 
+
  festivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=festivo 
+
  festividad ( NOUN NOUN_SINGULAR ) 
+
  festivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=festivo 
+
  fetal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fetales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fetal 
+
  feto ( NOUN NOUN_SINGULAR ) 
+
  feto-pélvico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fetoplacentario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  feudal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  feudales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feudal 
+
  feudalismo ( NOUN NOUN_SINGULAR ) 
+
  feudo ( NOUN NOUN_SINGULAR ) 
+
  feílla ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  feíta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=feo 
+
  fiar ( VERB_INFINITIVE VERB ) 
+
  fiabilidad ( NOUN NOUN_SINGULAR ) 
+
  fiable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fiablemente ( ADVERB ) lemma=fiable 
+
  fiables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fiable 
+
  fiambres ( NOUN VERB NOUN_SINGULAR ) lemma=`fiambre`fiambrar` NC  VLfin 
+
  fianza ( NOUN NOUN_SINGULAR ) 
+
  fiarla ( VERB ) lemma=fiar 
+
  fiarse ( VERB_INFINITIVE VERB ) 
+
  fiasco ( NOUN NOUN_SINGULAR ) 
+
  fibra ( NOUN NOUN_SINGULAR ) 
+
  fibrilación ( NOUN NOUN_SINGULAR ) 
+
  fibrilaforio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fibrilar ( VERB_INFINITIVE VERB ) 
- fibrillas ( NOUN NOUN_SINGULAR ) lemma=fibrilla 
+
+ fibrillas ( NOUN  NOUN_PLURAL  ) lemma=fibrilla 
+
  fibrilla ( ) 
+
  fibrina ( NOUN NOUN_SINGULAR ) 
+
  fibrinolítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fibrinógeno ( NOUN NOUN_SINGULAR ) 
+
  fibrinólisis ( NOUN NOUN_SINGULAR ) 
+
  fibroblasto ( NOUN NOUN_SINGULAR ) 
+
  fibrocartilaginosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fibrocartilaginoso 
+
  fibrocartilaginoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fibrocartílago ( NOUN NOUN_SINGULAR ) 
+
  fibroide ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fibronectina ( NOUN NOUN_SINGULAR ) 
+
  fibrosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fibroso 
+
  fibroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fibrosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fibroso 
+
  fibrosis ( NOUN NOUN_SINGULAR ) 
+
  fibrositis ( NOUN NOUN_SINGULAR ) 
+
  fibrosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fibroso 
+
  fibrógeno ( ADJECTIVE ADJECTIVE_NORMAL ) 
- ficciones ( NOUN NOUN_SINGULAR ) lemma=ficción 
+
+ ficciones ( NOUN  NOUN_PLURAL  ) lemma=ficción 
+
  ficción ( NOUN NOUN_SINGULAR ) 
+
  ficha ( NOUN VERB NOUN_SINGULAR ) lemma=`ficha`fichar` NC  VLfin 
+
  fichar ( VERB_INFINITIVE VERB ) 
+
  fichados ( VERB_PAST_PARTICIPLE VERB ) lemma=fichar 
+
  fichaje ( NOUN NOUN_SINGULAR ) 
+
  fichando ( NOUN NOUN_GERUND ) lemma=fichar 
+
  fichas ( NOUN VERB NOUN_SINGULAR ) lemma=`ficha`fichar` NC  VLfin 
+
  fichero ( NOUN NOUN_SINGULAR ) 
+
  ficomicosis ( NOUN NOUN_SINGULAR ) 
+
  ficticia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ficticio 
+
  ficticio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  ficticiamente ( ADVERB ) lemma=ficticio 
+
  ficticias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ficticio 
+
  ficticios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=ficticio 
+
  fideicomisaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fideicomisario 
+
  fideicomisario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fideicomisarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fideicomisario 
+
  fideicomisarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fideicomisario 
+
  fideicomiso ( NOUN NOUN_SINGULAR ) 
+
  fideicomitente ( NOUN NOUN_SINGULAR ) 
+
  fideicomitido ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fidelidad ( NOUN NOUN_SINGULAR ) 
+
  fidelizar ( VERB_INFINITIVE VERB ) 
+
  fiduciario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fiebre ( NOUN NOUN_SINGULAR ) 
+
  fiel ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fieles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fiel 
+
  fielmente ( ADVERB ) lemma=fiel 
+
  fieltro ( NOUN VERB NOUN_SINGULAR ) lemma=`fieltro`fieltrar` NC  VLfin 
+
  fiera ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fiero`fiera` ADJ  NC 
+
  fieramente ( ADVERB ) lemma=fiero 
+
  fiero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fieras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fiero`fiera` ADJ  NC 
+
  fierro ( VERB ) lemma=ferrar 
+
  ferrar ( ) 
+
  fiesta ( NOUN NOUN_SINGULAR ) 
+
  fig. ( NOUN NOUN_SINGULAR ) 
+
  figura ( NOUN VERB NOUN_SINGULAR ) lemma=`figura`figurar` NC  VLfin 
+
  figurar ( VERB_INFINITIVE VERB ) 
+
  figuración ( NOUN NOUN_SINGULAR ) 
+
  figurada ( VERB_PAST_PARTICIPLE VERB ) lemma=figurar 
+
  figurando ( NOUN NOUN_GERUND ) lemma=figurar 
+
  figurarnos (                 VERB ) lemma=figurar 
- figuras ( NOUN NOUN_SINGULAR ) lemma=figura 
+
+ figuras ( NOUN  NOUN_PLURAL  ) lemma=figura 
+
  figurase ( VERB ) lemma=figurar 
+
  figurasen ( VERB ) lemma=figurar 
+
  figurativamente ( ADVERB ) lemma=figurativo 
+
  figurativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  figuré ( NOUN VERB NOUN_SINGULAR ) lemma=`figura`figure`figurar` NC  PE  VLfin 
+
  figuren ( VERB ) lemma=figurar 
- figurita ( NOUN NOUN_SINGULAR ) lemma=figura 
- figuritas ( NOUN NOUN_SINGULAR ) lemma=figura 
+
+ figurita ( NOUN  NOUN_PLURAL  ) lemma=figura 
+
+ figuritas ( NOUN  NOUN_PLURAL  ) lemma=figura 
+
  figúrate ( ) lemma=figurar 
+
  fija ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fijo`fija`fijar` ADJ  NC  VLfin 
+
  fijar ( VERB_INFINITIVE VERB ) 
- fijaciones ( NOUN NOUN_SINGULAR ) lemma=fijación 
+
+ fijaciones ( NOUN  NOUN_PLURAL  ) lemma=fijación 
+
  fijación ( NOUN NOUN_SINGULAR ) 
+
  fijada ( VERB_PAST_PARTICIPLE VERB ) lemma=fijar 
+
  fijadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fijar 
+
  fijadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fijador 
+
  fijador ( ) 
+
  fijadoras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fijador 
- fijadores ( NOUN NOUN_SINGULAR ) lemma=fijador 
+
+ fijadores ( NOUN  NOUN_PLURAL  ) lemma=fijador 
+
  fijados ( VERB_PAST_PARTICIPLE VERB ) lemma=fijar 
+
  fijamente ( ADVERB ) lemma=fijo 
+
  fijo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fijando ( NOUN NOUN_GERUND ) lemma=fijar 
+
  fijaos ( VERB ) lemma=fijar 
+
  fijarla (                 VERB ) lemma=fijar 
+
  fijarlas (                 VERB ) lemma=fijar 
+
  fijarle (                 VERB ) lemma=fijar 
+
  fijarlo (                 VERB ) lemma=fijar 
+
  fijarlos (                 VERB ) lemma=fijar 
+
  fijarme (                 VERB ) lemma=fijar 
+
  fijarnos (                 VERB ) lemma=fijar 
+
  fijaros ( VERB ) lemma=fijar 
+
  fijarse ( VERB_INFINITIVE VERB ) 
+
  fijarte (                 VERB ) lemma=fijar 
+
  fijas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fijo 
+
  fijase ( VERB ) lemma=fijar 
+
  fijaseis ( VERB ) lemma=fijar 
+
  fijasen ( VERB ) lemma=fijar 
+
  fijate ( ) lemma=fijar 
+
  fijemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fijar 
+
  fijen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fijar 
+
  fijos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fijo 
+
  fijándola ( NOUN NOUN_GERUND ) lemma=fijar 
+
  fijándolo ( NOUN NOUN_GERUND ) lemma=fijar 
+
  fijándonos ( NOUN NOUN_GERUND ) lemma=fijar 
+
  fijándose ( VERB_PAST_PARTICIPLE VERB ) lemma=fijar 
+
  fijándote ( NOUN NOUN_GERUND ) lemma=fijar 
+
  fijáramos ( VERB ) lemma=fijar 
+
  fijémonos ( VERB ) lemma=fijar 
+
  fijémosle ( VERB ) lemma=fijar 
+
  fila ( NOUN VERB NOUN_SINGULAR ) lemma=fila 
+
  filamento ( NOUN NOUN_SINGULAR ) 
+
  filamentos-puente ( NOUN NOUN_SINGULAR ) 
+
  filamentosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filamentoso 
+
  filamentoso ( ) 
+
  filamentosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filamentoso 
+
  filantrópicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filantrópico 
+
  filantrópico ( ) 
+
  filariosis ( NOUN NOUN_SINGULAR ) 
+
  filatelia ( NOUN NOUN_SINGULAR ) 
+
  file ( VERB ) lemma=filar 
+
  filar ( ) 
+
  filet ( NOUN NOUN_SINGULAR ) 
- filete ( NOUN NOUN_SINGULAR ) lemma=filet 
- filetes ( NOUN NOUN_SINGULAR ) lemma=filet 
- filiaciones ( NOUN NOUN_SINGULAR ) lemma=filiación 
+
+ filete ( NOUN  NOUN_PLURAL  ) lemma=filet 
+
+ filetes ( NOUN  NOUN_PLURAL  ) lemma=filet 
+
+ filiaciones ( NOUN  NOUN_PLURAL  ) lemma=filiación 
+
  filiación ( NOUN NOUN_SINGULAR ) 
+
  filial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filial 
+
  filiformes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filiforme 
+
  filiforme ( ) 
+
  filigrana ( NOUN NOUN_SINGULAR ) 
+
  filipina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=filipino 
+
  filipino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=filipino 
+
  filipinas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=filipino 
+
  filipinos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=filipino 
+
  filis ( NOUN NOUN_SINGULAR ) 
+
  film ( NOUN NOUN_SINGULAR ) 
+
  filmar ( VERB_INFINITIVE VERB ) 
+
  filmación ( NOUN NOUN_SINGULAR ) 
+
  filmada ( VERB_PAST_PARTICIPLE VERB ) lemma=filmar 
+
  filmadas ( VERB_PAST_PARTICIPLE VERB ) lemma=filmar 
+
  filmando ( NOUN NOUN_GERUND ) lemma=filmar 
+
  filmes ( VERB ) lemma=filmar 
+
  filo ( VERB ) lemma=filar 
+
  filogenia ( NOUN NOUN_SINGULAR ) 
+
  filogenética ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filogenético 
+
  filogenético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filogenéticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filogenético 
+
  filología ( NOUN NOUN_SINGULAR ) 
+
  filopodio ( NOUN NOUN_SINGULAR ) 
+
  filoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filosofal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filosofar ( VERB_INFINITIVE VERB ) 
+
  filosofía ( NOUN NOUN_SINGULAR ) 
+
  filosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filoso 
+
  filosófica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filosófico 
+
  filosófico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filosóficamente ( ADVERB ) lemma=filosófico 
+
  filosóficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filosófico 
+
  filosóficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filosófico 
+
  filtrar ( VERB_INFINITIVE VERB ) 
+
  filtrabilidad ( NOUN NOUN_SINGULAR ) 
+
  filtrables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filtrable 
+
  filtrable ( ) 
- filtraciones ( NOUN NOUN_SINGULAR ) lemma=filtración 
+
+ filtraciones ( NOUN  NOUN_PLURAL  ) lemma=filtración 
+
  filtración ( NOUN NOUN_SINGULAR ) 
+
  filtrada ( VERB_PAST_PARTICIPLE VERB ) lemma=filtrar 
+
  filtradas ( VERB_PAST_PARTICIPLE VERB ) lemma=filtrar 
+
  filtrado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`filtrado`filtrar` NC  VLadj 
+
  filtrados ( VERB_PAST_PARTICIPLE VERB ) lemma=filtrar 
+
  filtrando ( NOUN NOUN_GERUND ) lemma=filtrar 
+
  filtrante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  filtrantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=filtrante 
+
  filtrarse (                 VERB ) lemma=`filtrarse`filtrar` VCLIinf  VLinf 
+
  filtren ( VERB ) lemma=filtrar 
+
  filtro ( NOUN NOUN_SINGULAR ) 
+
  filtrándose ( VERB_PAST_PARTICIPLE VERB ) lemma=filtrar 
+
  filón ( NOUN NOUN_SINGULAR ) 
- filósofa ( NOUN NOUN_SINGULAR ) lemma=filósofo 
+
+ filósofa ( NOUN  NOUN_PLURAL  ) lemma=filósofo 
+
  filósofo ( NOUN NOUN_SINGULAR ) 
+
  fimbria ( NOUN NOUN_SINGULAR ) 
- fin ( NOUN NOUN_SINGULAR ) lemma=fin 
+
+ fin ( NOUN  NOUN_PLURAL  ) lemma=fin 
+
  fina ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fino`finar|finir` ADJ  VLfin 
+
  finadito ( NOUN NOUN_SINGULAR ) 
+
  finado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`finado`finar` NC  VLadj 
+
  final ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=final 
+
  finales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=final 
+
  finalice ( VERB ) lemma=finalizar 
+
  finalizar ( VERB_INFINITIVE VERB ) 
+
  finalicemos ( VERB ) lemma=finalizar 
+
  finalicen ( VERB ) lemma=finalizar 
+
  finalidad ( NOUN NOUN_SINGULAR ) 
+
  finalista ( NOUN NOUN_SINGULAR ) 
+
  finalización ( NOUN NOUN_SINGULAR ) 
+
  finalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=finalizar 
+
  finalizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=finalizar 
+
  finalizador ( NOUN NOUN_SINGULAR ) 
+
  finalizados ( VERB_PAST_PARTICIPLE VERB ) lemma=finalizar 
+
  finalizando ( NOUN NOUN_GERUND ) lemma=finalizar 
+
  finalizase ( VERB ) lemma=finalizar 
+
  finalizásemos ( VERB ) lemma=finalizar 
+
  finalmente ( ADVERB ) lemma=final 
+
  finalísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=final 
+
  finamente ( ADVERB ) lemma=fino 
+
  fino ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fino`finar|finir` ADJ  VLfin 
+
  financiar ( VERB_INFINITIVE VERB ) 
- financiaciones ( NOUN NOUN_SINGULAR ) lemma=financiación 
+
+ financiaciones ( NOUN  NOUN_PLURAL  ) lemma=financiación 
+
  financiación ( NOUN NOUN_SINGULAR ) 
+
  financiada ( VERB_PAST_PARTICIPLE VERB ) lemma=financiar 
+
  financiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=financiar 
+
  financiadores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=financiador 
+
  financiador ( ) 
+
  financiados ( VERB_PAST_PARTICIPLE VERB ) lemma=financiar 
+
  financiamiento ( NOUN NOUN_SINGULAR ) 
+
  financiando ( NOUN NOUN_GERUND ) lemma=financiar 
+
  financiarla (                 VERB ) lemma=financiar 
+
  financiarle (                 VERB ) lemma=financiar 
+
  financiarlo (                 VERB ) lemma=financiar 
+
  financiarlos (                 VERB ) lemma=financiar 
+
  financiarse ( VERB_INFINITIVE VERB ) 
+
  financiase ( VERB ) lemma=financiar 
+
  financiasen ( VERB ) lemma=financiar 
+
  financiemos ( VERB ) lemma=financiar 
+
  financien ( VERB ) lemma=financiar 
+
  financiera ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=financiero 
+
  financiero ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=financiero 
+
  financieramente ( ADVERB ) lemma=financiero 
+
  financieras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=financiero 
+
  financieros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=financiero 
+
  financiándola ( NOUN NOUN_GERUND ) lemma=financiar 
+
  financiándolas ( NOUN NOUN_GERUND ) lemma=financiar 
+
  financiándolo ( NOUN NOUN_GERUND ) lemma=financiar 
+
  financiándose ( NOUN NOUN_GERUND ) lemma=financiarse 
+
  financiáramos ( VERB ) lemma=financiar 
+
  financiásemos ( VERB ) lemma=financiar 
+
  finanza ( NOUN NOUN_SINGULAR ) 
+
  finas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fino`finar|finir` ADJ  VLfin 
+
  finca ( NOUN VERB NOUN_SINGULAR ) lemma=`finca`fincar` NC  VLfin 
+
  fincada ( VERB_PAST_PARTICIPLE VERB ) lemma=fincar 
+
  fincar ( VERB_INFINITIVE VERB ) 
+
  fincas ( NOUN VERB NOUN_SINGULAR ) lemma=`finca`fincar` NC  VLfin 
+
  fine ( VERB ) lemma=finar|finir 
+
  finar|finir ( ) 
+
  finesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finés 
+
  finés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finés 
+
  fineses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finés 
+
  fineza ( NOUN NOUN_SINGULAR ) 
+
  fingir ( VERB_INFINITIVE VERB ) 
+
  fingida ( VERB_PAST_PARTICIPLE VERB ) lemma=fingir 
+
  fingidos ( VERB_PAST_PARTICIPLE VERB ) lemma=fingir 
+
  fingiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=fingir 
+
  finiquitar ( VERB_INFINITIVE VERB ) 
+
  finiseculare ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  finita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=finito 
+
  finito ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  finitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fino 
+
  finitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=finito 
+
  finja ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fingir 
+
  finlandesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finlandés 
+
  finlandés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finlandés 
+
  finlandesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finlandés 
+
  finlandeses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=finlandés 
+
  finos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fino 
+
  finísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fino 
+
  fiordo ( NOUN NOUN_SINGULAR ) 
+
  firma ( NOUN NOUN_SINGULAR ) 
+
  firmar ( VERB_INFINITIVE VERB ) 
+
  firmada ( VERB_PAST_PARTICIPLE VERB ) lemma=firmar 
+
  firmadas ( VERB_PAST_PARTICIPLE VERB ) lemma=firmar 
+
  firmados ( VERB_PAST_PARTICIPLE VERB ) lemma=firmar 
+
  firmamento ( NOUN NOUN_SINGULAR ) 
+
  firmando ( NOUN NOUN_GERUND ) lemma=firmar 
+
  firmante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  firmantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=firmante 
+
  firmarla (                 VERB ) lemma=firmar 
+
  firmarlo (                 VERB ) lemma=firmar 
+
  firmarse ( VERB_INFINITIVE VERB ) 
+
  firmas ( NOUN VERB NOUN_SINGULAR ) lemma=`firma`firmar` NC  VLfin 
+
  firmé ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`firme`firmar` ADJ  VLfin 
+
  firmemente ( ADVERB ) lemma=firmé 
+
  firmemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=firmar 
+
  firmen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=firmar 
+
  firmes ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`firme`firmar` ADJ  VLfin 
+
  firmeza ( NOUN NOUN_SINGULAR ) 
+
  firmándose ( NOUN NOUN_GERUND ) lemma=firmarse 
+
  firmáramos ( VERB ) lemma=firmar 
+
  firmísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=firmé 
+
  firmísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=firmé 
+
  firmísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=firmé 
+
  fiscal ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fiscal 
+
  fiscales ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fiscal 
+
  fiscalice ( VERB ) lemma=fiscalizar 
+
  fiscalizar ( VERB_INFINITIVE VERB ) 
+
  fiscalización ( NOUN NOUN_SINGULAR ) 
+
  fiscalizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fiscalizar 
+
  fiscalizando ( NOUN NOUN_GERUND ) lemma=fiscalizar 
+
  fiscalmente ( ADVERB ) lemma=fiscal 
+
  fiscalía ( NOUN NOUN_SINGULAR ) 
+
  fisco ( NOUN NOUN_SINGULAR ) 
+
  fisica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=física 
+
  física ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`físico`física` ADJ  NC 
+
  fisicoquímicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisicoquímico 
+
  fisicoquímico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fisicoquímicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisicoquímico 
+
  fisioculturismo ( NOUN NOUN_SINGULAR ) 
+
  fisiología ( NOUN NOUN_SINGULAR ) 
+
  fisiológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiológico 
+
  fisiológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fisiológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiológico 
+
  fisiológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiológico 
+
  fisiopatogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fisiopatología ( NOUN NOUN_SINGULAR ) 
+
  fisiopatológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiopatológico 
+
  fisiopatológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fisiopatológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiopatológico 
+
  fisiopatológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fisiopatológico 
+
  fisioterapeuta ( NOUN NOUN_SINGULAR ) 
+
  fisioterapia ( NOUN NOUN_SINGULAR ) 
+
  fisiólogo ( NOUN NOUN_SINGULAR ) 
+
  fisión ( NOUN NOUN_SINGULAR ) 
+
  fisonomía ( NOUN NOUN_SINGULAR ) 
+
  fistulizar ( VERB_PAST_PARTICIPLE VERB ) lemma=fistulizar 
+
  fisura ( NOUN NOUN_SINGULAR ) 
+
  fisuradas ( VERB_PAST_PARTICIPLE VERB ) lemma=fisurar 
+
  fisurar ( ) 
+
  fitoplancton ( NOUN NOUN_SINGULAR ) 
+
  fitosanitaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fitosanitario 
+
  fitosanitario ( ) 
+
  fitotoxicidad ( NOUN NOUN_SINGULAR ) 
+
  fitófago ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flaca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flaco 
+
  flaco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flaco 
+
  flacas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flaco 
+
  flacos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flaco 
+
  flagela ( VERB ) lemma=flagelar 
+
  flagelar ( ) 
+
  flageladas ( VERB_PAST_PARTICIPLE VERB ) lemma=flagelar 
+
  flagelados ( VERB_PAST_PARTICIPLE VERB ) lemma=flagelar 
+
  flagelemos ( VERB ) lemma=flagelar 
+
  flagelo ( VERB ) lemma=flagelar 
- flagelos ( NOUN NOUN_SINGULAR ) lemma=flagelo 
+
+ flagelos ( NOUN  NOUN_PLURAL  ) lemma=flagelo 
+
  flagrante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flagrantemente ( ADVERB ) lemma=flagrante 
+
  flagrantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flagrante 
- flags ( NOUN NOUN_SINGULAR ) lemma=flag 
+
+ flags ( NOUN  NOUN_PLURAL  ) lemma=flag 
+
  flag ( ) 
+
  flamante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flamantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flamante 
+
  flamenca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flamenco 
+
  flamenco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flamenco 
+
  flamencas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flamenco 
+
  flamencos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=flamenco 
+
  flan ( NOUN NOUN_SINGULAR ) 
+
  flanco ( NOUN NOUN_SINGULAR ) 
+
  flanquea ( VERB ) lemma=flanquear 
+
  flanquear ( ) 
+
  flanqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=flanquear 
+
  flanqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=flanquear 
+
  flanqueado ( VERB_PAST_PARTICIPLE VERB ) lemma=flanquear 
+
  flanqueo ( VERB ) lemma=flanquear 
+
  flaquísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flaco 
+
  flaquísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flaco 
+
  flauta ( NOUN NOUN_SINGULAR ) 
+
  flautista ( NOUN NOUN_SINGULAR ) 
+
  flavina ( NOUN NOUN_SINGULAR ) 
+
  flavoproteína ( NOUN NOUN_SINGULAR ) 
+
  flebografía ( NOUN NOUN_SINGULAR ) 
+
  flebotomía ( NOUN NOUN_SINGULAR ) 
+
  flebótomo ( NOUN NOUN_SINGULAR ) 
+
  flecha ( NOUN NOUN_SINGULAR ) 
+
  fleco ( NOUN NOUN_SINGULAR ) 
- flejes ( NOUN NOUN_SINGULAR ) lemma=fleje 
+
+ flejes ( NOUN  NOUN_PLURAL  ) lemma=fleje 
+
  fleje ( ) 
- flequillo ( NOUN NOUN_SINGULAR ) lemma=fleco 
+
+ flequillo ( NOUN  NOUN_PLURAL  ) lemma=fleco 
+
  fletar ( VERB_INFINITIVE VERB ) 
+
  fletados ( VERB_PAST_PARTICIPLE VERB ) lemma=fletar 
+
  fletando ( NOUN NOUN_GERUND ) lemma=fletar 
+
  fletes ( VERB ) lemma=fletar 
+
  flexibilidad ( NOUN NOUN_SINGULAR ) 
+
  flexible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flexiblemente ( ADVERB ) lemma=flexible 
+
  flexibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flexible 
+
  flexionada ( VERB_PAST_PARTICIPLE VERB ) lemma=flexionar 
+
  flexionar ( ) 
+
  flexión ( NOUN NOUN_SINGULAR ) 
+
  flexor ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flexores ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flexor 
+
  flexum ( NOUN NOUN_SINGULAR ) 
+
  floculación ( NOUN NOUN_SINGULAR ) 
+
  floja ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flojo 
+
  flojo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flojas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flojo 
+
  flojeaba ( VERB ) lemma=flojear 
+
  flojear ( ) 
+
  flojean ( VERB ) lemma=flojear 
+
  flojera ( NOUN NOUN_SINGULAR ) 
+
  flojos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flojo 
+
  flor ( NOUN NOUN_SINGULAR ) 
+
  flora ( NOUN VERB NOUN_SINGULAR ) lemma=`flora`florar` NC  VLfin 
+
  floración ( NOUN NOUN_SINGULAR ) 
+
  floral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  florales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=floral 
+
  florecer ( VERB_INFINITIVE VERB ) 
+
  floreciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=florecer 
+
  floreciesen ( VERB ) lemma=florecer 
- florecilla ( NOUN NOUN_SINGULAR ) lemma=flor 
+
+ florecilla ( NOUN  NOUN_PLURAL  ) lemma=flor 
+
  florecimiento ( NOUN NOUN_SINGULAR ) 
- florecitas ( NOUN NOUN_SINGULAR ) lemma=flor 
+
+ florecitas ( NOUN  NOUN_PLURAL  ) lemma=flor 
+
  florentino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=florentino 
+
  florero ( NOUN NOUN_SINGULAR ) 
+
  flores ( NOUN VERB NOUN_SINGULAR ) lemma=`flor`florar` NC  VLfin 
+
  florescente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  florescentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=florescente 
+
  florezca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=florecer 
+
  florezcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=florecer 
- florines ( NOUN NOUN_SINGULAR ) lemma=florín 
+
+ florines ( NOUN  NOUN_PLURAL  ) lemma=florín 
+
  florín ( NOUN NOUN_SINGULAR ) 
+
  flota ( NOUN VERB NOUN_SINGULAR ) lemma=`flota`flotar` NC  VLfin 
+
  flotar ( VERB_INFINITIVE VERB ) 
+
  flotabilidad ( NOUN NOUN_SINGULAR ) 
+
  flotación ( NOUN NOUN_SINGULAR ) 
+
  flotador ( NOUN NOUN_SINGULAR ) 
+
  flotando ( NOUN NOUN_GERUND ) lemma=flotar 
+
  flotante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flotantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flotante 
+
  flotas ( NOUN VERB NOUN_SINGULAR ) lemma=`flota`flotar` NC  VLfin 
+
  flotasen ( VERB ) lemma=flotar 
- flotilla ( NOUN NOUN_SINGULAR ) lemma=flota 
- flotillas ( NOUN NOUN_SINGULAR ) lemma=flota 
+
+ flotilla ( NOUN  NOUN_PLURAL  ) lemma=flota 
+
+ flotillas ( NOUN  NOUN_PLURAL  ) lemma=flota 
+
  fluctuar ( VERB_INFINITIVE VERB ) 
- fluctuaciones ( NOUN NOUN_SINGULAR ) lemma=fluctuación 
+
+ fluctuaciones ( NOUN  NOUN_PLURAL  ) lemma=fluctuación 
+
  fluctuación ( NOUN NOUN_SINGULAR ) 
+
  fluctuando ( NOUN NOUN_GERUND ) lemma=fluctuar 
+
  fluctúa ( VERB ) lemma=fluctuar 
+
  fluctúan ( VERB ) lemma=fluctuar 
+
  fluctúen ( VERB ) lemma=fluctuar 
+
  fluida ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fluido`fluir` ADJ  VLadj 
+
  fluidamente ( ADVERB ) lemma=fluido 
+
  fluido ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`fluido`fluido`fluir` ADJ  NC  VLadj 
+
  fluidas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fluido`fluir` ADJ  VLadj 
+
  fluidez ( NOUN NOUN_SINGULAR ) 
+
  fluidificación ( NOUN NOUN_SINGULAR ) 
+
  fluidificado ( VERB_PAST_PARTICIPLE VERB ) lemma=fluidificar 
+
  fluidificar ( ) 
+
  fluidizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  fluidos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fluido`fluir` ADJ  VLadj 
+
  fluir ( VERB_INFINITIVE VERB ) 
+
  flujo ( NOUN NOUN_SINGULAR ) 
+
  flujograma ( NOUN NOUN_SINGULAR ) 
+
  flumacenilo ( NOUN NOUN_SINGULAR ) 
+
  fluorescencia ( NOUN NOUN_SINGULAR ) 
+
  fluorescente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fluorescentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fluorescente 
+
  fluoresceínico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fluorimétrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fluoroscópica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fluoroscópico 
+
  fluoroscópico ( ) 
+
  fluoruro ( NOUN NOUN_SINGULAR ) 
+
  fluoxetina ( NOUN NOUN_SINGULAR ) 
+
  fluvial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fluviales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fluvial 
+
  fluya ( VERB ) lemma=fluir 
+
  fluyan ( VERB ) lemma=fluir 
+
  fluye ( VERB ) lemma=fluir 
+
  fluyen ( VERB ) lemma=fluir 
+
  fluyendo ( VERB_PAST_PARTICIPLE VERB ) lemma=fluir 
+
  fluído ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fluídos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fluído 
+
  fláccido ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  flácidas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=flácido 
+
  flácido ( ) 
+
  flúor ( NOUN NOUN_SINGULAR ) 
+
  fmi ( NOUN NOUN_SINGULAR ) 
+
  fo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  fobia ( NOUN NOUN_SINGULAR ) 
+
  foca ( NOUN NOUN_SINGULAR ) 
+
  focal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  focales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=focal 
+
  foco ( NOUN NOUN_SINGULAR ) 
+
  fogata ( NOUN NOUN_SINGULAR ) 
+
  fogonero ( NOUN NOUN_SINGULAR ) 
- fogones ( NOUN NOUN_SINGULAR ) lemma=fogón 
+
+ fogones ( NOUN  NOUN_PLURAL  ) lemma=fogón 
+
  fogón ( ) 
+
  fogoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fogueo ( VERB ) lemma=foguear 
+
  foguear ( ) 
+
  foja ( NOUN NOUN_SINGULAR ) 
+
  folato ( NOUN NOUN_SINGULAR ) 
- folclore ( NOUN NOUN_SINGULAR ) lemma=folklore 
+
+ folclore ( NOUN  NOUN_PLURAL  ) lemma=folklore 
+
  folklore ( NOUN NOUN_SINGULAR ) 
+
  folclórica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folclórico 
+
  folclórico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  folclóricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folclórico 
+
  folclóricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folclórico 
+
  foliar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  folicular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  foliculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folicular 
+
  foliculoestimulante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  foliculostimulante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  folio ( NOUN VERB NOUN_SINGULAR ) lemma=`folio`foliar` NC  VLfin 
+
  folklórica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folklórico 
+
  folklórico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  folklóricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=folklórico 
+
  folla ( NOUN NOUN_SINGULAR ) 
+
  follar ( VERB_INFINITIVE VERB ) 
+
  follaje ( NOUN NOUN_SINGULAR ) 
- folletito ( NOUN NOUN_SINGULAR ) lemma=folleto 
+
+ folletito ( NOUN  NOUN_PLURAL  ) lemma=folleto 
+
  folleto ( NOUN NOUN_SINGULAR ) 
+
  follones ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=follón 
+
  follón ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=follón 
+
  folículo ( NOUN NOUN_SINGULAR ) 
+
  folínico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fomaldehído ( NOUN NOUN_SINGULAR ) 
+
  fomentar ( VERB_INFINITIVE VERB ) 
+
  fomentada ( VERB_PAST_PARTICIPLE VERB ) lemma=fomentar 
+
  fomentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fomentar 
+
  fomentados ( VERB_PAST_PARTICIPLE VERB ) lemma=fomentar 
+
  fomentando ( NOUN NOUN_GERUND ) lemma=fomentar 
+
  fomentemos ( VERB ) lemma=fomentar 
+
  fomenten ( VERB ) lemma=fomentar 
+
  fomento ( NOUN VERB NOUN_SINGULAR ) lemma=`fomento`fomentar` NC  VLfin 
+
  fonda ( NOUN NOUN_SINGULAR ) 
+
  fondeados ( VERB_PAST_PARTICIPLE VERB ) lemma=fondear 
+
  fondear ( VERB_INFINITIVE VERB ) 
+
  fondeasen ( VERB ) lemma=fondear 
+
  fondeen ( VERB ) lemma=fondear 
+
  fondo ( NOUN NOUN_SINGULAR ) 
+
  fondoscopio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fonema ( NOUN NOUN_SINGULAR ) 
+
  fonendoscopio ( NOUN NOUN_SINGULAR ) 
+
  fontanela ( NOUN NOUN_SINGULAR ) 
+
  fontanería ( NOUN NOUN_SINGULAR ) 
+
  fonógrafo ( NOUN NOUN_SINGULAR ) 
+
  foodwine ( NOUN NOUN_SINGULAR ) 
+
  footprint ( NOUN NOUN_SINGULAR ) 
+
  footprinting ( NOUN NOUN_SINGULAR ) 
+
  foral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=foral 
+
  foramen ( NOUN NOUN_SINGULAR ) 
+
  forastero ( NOUN NOUN_SINGULAR ) 
+
  forcejear ( VERB_INFINITIVE VERB ) 
+
  fordismo ( NOUN NOUN_SINGULAR ) 
+
  forense ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forenses ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forense 
+
  forestal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forestales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forestal 
+
  forjar ( VERB_INFINITIVE VERB ) 
+
  forjada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forjado`forjar` ADJ  VLadj 
+
  forjadas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forjado`forjar` ADJ  VLadj 
+
  forjado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forjado`forjar` ADJ  VLadj 
+
  forjados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forjado`forjar` ADJ  VLadj 
+
  forjando ( NOUN NOUN_GERUND ) lemma=forjar 
+
  forjase ( VERB ) lemma=forjar 
+
  forjemos ( VERB ) lemma=forjar 
+
  forjen ( VERB ) lemma=forjar 
+
  forma ( NOUN VERB NOUN_SINGULAR ) lemma=`forma`formar` NC  VLfin 
+
  formar ( VERB_INFINITIVE VERB ) 
- formaciones ( NOUN NOUN_SINGULAR ) lemma=formación 
+
+ formaciones ( NOUN  NOUN_PLURAL  ) lemma=formación 
+
  formación ( NOUN NOUN_SINGULAR ) 
+
  formada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`formado`formar` ADJ  VLadj 
+
  formadas ( VERB_PAST_PARTICIPLE VERB ) lemma=formar 
+
  formador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=formador 
+
  formadora ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=formador 
+
  formadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=formador 
+
  formados ( VERB_PAST_PARTICIPLE VERB ) lemma=formar 
+
  formal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  formales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=formal 
+
  formalice ( VERB ) lemma=formalizar 
+
  formalizar ( VERB_INFINITIVE VERB ) 
+
  formalicen ( VERB ) lemma=formalizar 
+
  formalidad ( NOUN NOUN_SINGULAR ) 
+
  formalismo ( NOUN NOUN_SINGULAR ) 
+
  formalista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=formalista 
+
  formalistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=formalista 
+
  formalización ( NOUN NOUN_SINGULAR ) 
+
  formalizada ( VERB_PAST_PARTICIPLE VERB ) lemma=formalizar 
+
  formalizados ( VERB_PAST_PARTICIPLE VERB ) lemma=formalizar 
+
  formalizando ( NOUN NOUN_GERUND ) lemma=formalizar 
+
  formalmente ( ADVERB ) lemma=formal 
+
  formando ( NOUN NOUN_GERUND ) lemma=formar 
+
  formarla (                 VERB ) lemma=formar 
+
  formarlas (                 VERB ) lemma=formar 
+
  formarlos (                 VERB ) lemma=formar 
+
  formarme (                 VERB ) lemma=formar 
+
  formarnos (                 VERB ) lemma=formar 
+
  formarse ( VERB_INFINITIVE VERB ) 
- formas ( NOUN NOUN_SINGULAR ) lemma=forma 
+
+ formas ( NOUN  NOUN_PLURAL  ) lemma=forma 
+
  formase ( VERB ) lemma=formar 
+
  formasen ( VERB ) lemma=formar 
+
  formatear ( VERB_INFINITIVE VERB ) 
+
  formatearlos ( VERB ) lemma=formatear 
+
  formateo ( NOUN NOUN_SINGULAR ) 
+
  formatización ( NOUN NOUN_SINGULAR ) 
+
  formatizado ( VERB_PAST_PARTICIPLE VERB ) lemma=formatizar 
+
  formatizar ( ) 
+
  formato ( NOUN NOUN_SINGULAR ) 
+
  formemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=formar 
+
  formen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=formar 
+
  formes ( VERB ) lemma=formar 
+
  formiato ( NOUN NOUN_SINGULAR ) 
+
  formidable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  formidables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=formidable 
+
  formilmetionina ( NOUN NOUN_SINGULAR ) 
- formita ( NOUN NOUN_SINGULAR ) lemma=forma 
+
+ formita ( NOUN  NOUN_PLURAL  ) lemma=forma 
+
  formocina ( NOUN NOUN_SINGULAR ) 
+
  formol ( NOUN NOUN_SINGULAR ) 
+
  formoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  formular ( VERB_INFINITIVE VERB ) 
- formulaciones ( NOUN NOUN_SINGULAR ) lemma=formulación 
+
+ formulaciones ( NOUN  NOUN_PLURAL  ) lemma=formulación 
+
  formulación ( NOUN NOUN_SINGULAR ) 
+
  formulada ( VERB_PAST_PARTICIPLE VERB ) lemma=formular 
+
  formuladas ( VERB_PAST_PARTICIPLE VERB ) lemma=formular 
+
  formulados ( VERB_PAST_PARTICIPLE VERB ) lemma=formular 
+
  formulando ( NOUN NOUN_GERUND ) lemma=formular 
+
  formulario ( NOUN NOUN_SINGULAR ) 
+
  formularla (                 VERB ) lemma=formular 
+
  formularlas (                 VERB ) lemma=formular 
+
  formularle (                 VERB ) lemma=formular 
+
  formularles (                 VERB ) lemma=formular 
+
  formularlo (                 VERB ) lemma=formular 
+
  formularlos (                 VERB ) lemma=formular 
+
  formularme (                 VERB ) lemma=formular 
+
  formularnos (                 VERB ) lemma=formular 
+
  formulase ( VERB ) lemma=formular 
+
  formulasen ( VERB ) lemma=formular 
+
  formulemos ( VERB ) lemma=formular 
+
  formulen ( VERB ) lemma=formular 
+
  formulándolo ( NOUN NOUN_GERUND ) lemma=formular 
+
  formuláramos ( VERB ) lemma=formular 
+
  formándose ( NOUN NOUN_GERUND ) lemma=formarse 
+
  formáramos ( VERB ) lemma=formar 
+
  formásemos ( VERB ) lemma=formar 
+
  fornido ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  foro ( NOUN NOUN_SINGULAR ) 
+
  forrar ( VERB_INFINITIVE VERB ) 
+
  forrados ( VERB_PAST_PARTICIPLE VERB ) lemma=forrar 
+
  forraje ( NOUN NOUN_SINGULAR ) 
+
  forrajeras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forrajero 
+
  forrajero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forrando ( NOUN NOUN_GERUND ) lemma=forrar 
- forrito ( NOUN NOUN_SINGULAR ) lemma=forro 
+
+ forrito ( NOUN  NOUN_PLURAL  ) lemma=forro 
+
  forro ( NOUN VERB NOUN_SINGULAR ) lemma=`forro`forrar` NC  VLfin 
+
  fortalecer ( VERB_INFINITIVE VERB ) 
+
  fortalecerse ( VERB_INFINITIVE VERB ) 
+
  fortalecida ( VERB_PAST_PARTICIPLE VERB ) lemma=fortalecer 
+
  fortalecidas ( VERB_PAST_PARTICIPLE VERB ) lemma=fortalecer 
+
  fortalecidos ( VERB_PAST_PARTICIPLE VERB ) lemma=fortalecer 
+
  fortaleciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortalecieá ( VERB ) lemma=fortalecer 
+
  fortalecieán ( VERB ) lemma=fortalecer 
+
  fortalecimiento ( NOUN NOUN_SINGULAR ) 
+
  fortaleciéndose ( NOUN NOUN_GERUND ) lemma=fortalecerse 
+
  fortaleza ( NOUN NOUN_SINGULAR ) 
+
  fortalezca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fortalecer 
+
  fortalezcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortalezcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortifica ( VERB ) lemma=fortificar 
+
  fortificar ( ) 
+
  fortificada ( VERB_PAST_PARTICIPLE VERB ) lemma=fortificar 
+
  fortificados ( VERB_PAST_PARTICIPLE VERB ) lemma=fortificar 
+
  fortificara ( VERB ) lemma=fortificar 
- fortines ( NOUN NOUN_SINGULAR ) lemma=fortín 
+
+ fortines ( NOUN  NOUN_PLURAL  ) lemma=fortín 
+
  fortín ( ) 
+
  fortran ( NOUN NOUN_SINGULAR ) 
+
  fortuita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fortuito 
+
  fortuito ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fortuitamente ( ADVERB ) lemma=fortuito 
+
  fortuitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fortuito 
+
  fortuitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fortuito 
+
  fortuna ( NOUN NOUN_SINGULAR ) 
+
  fortísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  fuerte ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fortísimamente ( ADVERB ) lemma=fuerte 
+
  fortísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  fortísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  forzar ( VERB_INFINITIVE VERB ) 
+
  forzada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forzado`forzar` ADJ  VLadj 
+
  forzadas ( VERB_PAST_PARTICIPLE VERB ) lemma=forzar 
+
  forzado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`forzado`forzar` ADJ  VLadj 
+
  forzados ( VERB_PAST_PARTICIPLE VERB ) lemma=forzar 
+
  forzando ( NOUN NOUN_GERUND ) lemma=forzar 
+
  forzarla (                 VERB ) lemma=forzar 
+
  forzarlo (                 VERB ) lemma=forzar 
+
  forzarlos (                 VERB ) lemma=forzar 
+
  forzarnos (                 VERB ) lemma=forzar 
+
  forzosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forzoso 
+
  forzoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forzosamente ( ADVERB ) lemma=forzoso 
+
  forzosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forzoso 
+
  forzosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=forzoso 
+
  forzudo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  forzándoles ( NOUN NOUN_GERUND ) lemma=forzar 
+
  forzáramos ( VERB ) lemma=forzar 
+
  foránea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=foráneo 
+
  foráneo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  foráneas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=foráneo 
+
  foráneos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=foráneo 
+
  fosa ( NOUN VERB NOUN_SINGULAR ) lemma=`fosa`fosar` NC  VLfin 
+
  fosas ( NOUN VERB NOUN_SINGULAR ) lemma=`fosa`fosar` NC  VLfin 
+
  fosfatasa ( NOUN NOUN_SINGULAR ) 
+
  fosfatidilcolina ( NOUN NOUN_SINGULAR ) 
+
  fosfatidiletanolamina ( NOUN NOUN_SINGULAR ) 
+
  fosfatidilinositol ( NOUN NOUN_SINGULAR ) 
+
  fosfato ( NOUN NOUN_SINGULAR ) 
+
  fosfato-p ( NOUN NOUN_SINGULAR ) 
+
  fosfatodilinositol ( NOUN NOUN_SINGULAR ) 
+
  fosfatídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosfoanhídrir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  fosfodiéster ( NOUN NOUN_SINGULAR ) 
+
  fosfoenolpiruvato ( NOUN NOUN_SINGULAR ) 
+
  fosfofructoquinaso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosfoglicerato ( NOUN NOUN_SINGULAR ) 
+
  fosfoglicérido ( NOUN NOUN_SINGULAR ) 
+
  fosfoglucomutasa ( NOUN NOUN_SINGULAR ) 
+
  fosfolipasa ( NOUN NOUN_SINGULAR ) 
+
  fosfolipídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosfolípido ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fosfolípido 
+
  fosfomonoéster ( NOUN NOUN_SINGULAR ) 
+
  fosfopanteteína ( NOUN NOUN_SINGULAR ) 
+
  fosforilación ( NOUN NOUN_SINGULAR ) 
+
  fosforilación-desfosforilación ( NOUN NOUN_SINGULAR ) 
+
  fosforilar ( VERB_PAST_PARTICIPLE VERB ) lemma=fosforilar 
+
  fosforilasa ( NOUN NOUN_SINGULAR ) 
+
  fosforilcolina ( NOUN NOUN_SINGULAR ) 
+
  fosforilo ( NOUN NOUN_SINGULAR ) 
+
  fosforolítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosforribosilamina ( NOUN NOUN_SINGULAR ) 
+
  fosforribosilaminoimidazolsuccinocarboxamir ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  fosforribosilformilglicinamidina ( NOUN NOUN_SINGULAR ) 
+
  fosfotirosina ( NOUN NOUN_SINGULAR ) 
+
  fosfotúngstico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosfórico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fosilizados ( VERB_PAST_PARTICIPLE VERB ) lemma=fosilizar 
+
  fosilizar ( VERB_INFINITIVE VERB ) 
+
  foso ( VERB ) lemma=fosar 
+
  fosar ( ) 
- fotita ( NOUN NOUN_SINGULAR ) lemma=foto 
+
+ fotita ( NOUN  NOUN_PLURAL  ) lemma=foto 
+
  foto ( NOUN NOUN_SINGULAR ) 
+
  fotoablación ( NOUN NOUN_SINGULAR ) 
+
  fotocelda ( NOUN NOUN_SINGULAR ) 
+
  fotocolorímetro ( NOUN NOUN_SINGULAR ) 
+
  fotocopiar ( VERB_INFINITIVE VERB ) 
+
  fotocopiadora ( NOUN NOUN_SINGULAR ) 
+
  fotoeléctrica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotoeléctrico 
+
  fotoeléctrico ( ) 
+
  fotoeléctricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotoeléctrico 
+
  fotofosforilación ( NOUN NOUN_SINGULAR ) 
+
  fotografiada ( VERB_PAST_PARTICIPLE VERB ) lemma=fotografiar 
+
  fotografiar ( VERB_INFINITIVE VERB ) 
+
  fotografiados ( VERB_PAST_PARTICIPLE VERB ) lemma=fotografiar 
+
  fotografiarse ( VERB_INFINITIVE VERB ) 
+
  fotografies ( VERB ) lemma=fotografiar 
+
  fotografía ( NOUN NOUN_SINGULAR ) 
+
  fotografías ( NOUN VERB NOUN_SINGULAR ) lemma=`fotografía`fotografiar` NC  VLfin 
+
  fotográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotográfico 
+
  fotográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fotográficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotográfico 
+
  fotográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotográfico 
+
  fotolábil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fotomultiplicador ( NOUN NOUN_SINGULAR ) 
- fotones ( NOUN NOUN_SINGULAR ) lemma=fotón 
+
+ fotones ( NOUN  NOUN_PLURAL  ) lemma=fotón 
+
  fotón ( NOUN NOUN_SINGULAR ) 
+
  fotopletismografía ( NOUN NOUN_SINGULAR ) 
+
  fotoquímica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotoquímico 
+
  fotoquímico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fotoquímicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotoquímico 
+
  fotorreceptor ( NOUN NOUN_SINGULAR ) 
+
  fotosensibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotosensible 
+
  fotosensible ( ) 
+
  fotosfera ( NOUN NOUN_SINGULAR ) 
+
  fotosintética ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotosintético 
+
  fotosintético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fotosintéticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotosintético 
+
  fotosistema ( NOUN NOUN_SINGULAR ) 
+
  fotosíntesis ( NOUN NOUN_SINGULAR ) 
+
  fotovoltaicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotovoltaico 
+
  fotovoltaico ( ) 
+
  fotovoltaicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fotovoltaico 
- fotógrafa ( NOUN NOUN_SINGULAR ) lemma=fotógrafo 
+
+ fotógrafa ( NOUN  NOUN_PLURAL  ) lemma=fotógrafo 
+
  fotógrafo ( NOUN NOUN_SINGULAR ) 
+
  fp ( ) lemma=fp 
+
  frac ( NOUN NOUN_SINGULAR ) 
+
  fracasar ( VERB_INFINITIVE VERB ) 
+
  fracasada ( VERB_PAST_PARTICIPLE VERB ) lemma=fracasar 
+
  fracasadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fracasar 
+
  fracasados ( VERB_PAST_PARTICIPLE VERB ) lemma=fracasar 
+
  fracasando ( NOUN NOUN_GERUND ) lemma=fracasar 
+
  fracasasen ( VERB ) lemma=fracasar 
+
  fracasen ( VERB ) lemma=fracasar 
+
  fracaso ( NOUN VERB NOUN_SINGULAR ) lemma=`fracaso`fracasar` NC  VLfin 
+
  fraccionada ( VERB_PAST_PARTICIPLE VERB ) lemma=fraccionar 
+
  fraccionar ( VERB_INFINITIVE VERB ) 
+
  fraccionamiento ( NOUN NOUN_SINGULAR ) 
+
  fraccionarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraccionario 
+
  fraccionario ( ) 
- fracciones ( NOUN NOUN_SINGULAR ) lemma=fracción 
+
+ fracciones ( NOUN  NOUN_PLURAL  ) lemma=fracción 
+
  fracción ( NOUN NOUN_SINGULAR ) 
+
  fractalquina ( NOUN NOUN_SINGULAR ) 
+
  fractura ( NOUN VERB NOUN_SINGULAR ) lemma=`fractura`fracturar` NC  VLfin 
+
  fracturación ( NOUN NOUN_SINGULAR ) 
+
  fracturada ( VERB_PAST_PARTICIPLE VERB ) lemma=fracturar 
+
  fracturar ( VERB_INFINITIVE VERB ) 
+
  fracturadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fracturar 
+
  fracturados ( VERB_PAST_PARTICIPLE VERB ) lemma=fracturar 
+
  fracturarse ( VERB_INFINITIVE VERB ) 
+
  fracturas ( NOUN VERB NOUN_SINGULAR ) lemma=`fractura`fracturar` NC  VLfin 
+
  fragancia ( NOUN NOUN_SINGULAR ) 
+
  fragata ( NOUN NOUN_SINGULAR ) 
- fragiles ( NOUN NOUN_SINGULAR ) lemma=frágiles 
+
+ fragiles ( NOUN  NOUN_PLURAL  ) lemma=frágiles 
+
  frágiles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frágil 
+
  frágil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fragilidad ( NOUN NOUN_SINGULAR ) 
+
  fragmentar ( VERB_INFINITIVE VERB ) 
- fragmentaciones ( NOUN NOUN_SINGULAR ) lemma=fragmentación 
+
+ fragmentaciones ( NOUN  NOUN_PLURAL  ) lemma=fragmentación 
+
  fragmentación ( NOUN NOUN_SINGULAR ) 
+
  fragmentada ( VERB_PAST_PARTICIPLE VERB ) lemma=fragmentar 
+
  fragmentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fragmentar 
+
  fragmentados ( VERB_PAST_PARTICIPLE VERB ) lemma=fragmentar 
+
  fragmentarse ( VERB_INFINITIVE VERB ) 
+
  fragmenten ( VERB ) lemma=fragmentar 
+
  fragmento ( NOUN VERB NOUN_SINGULAR ) lemma=`fragmento`fragmentar` NC  VLfin 
+
  fragor ( NOUN NOUN_SINGULAR ) 
+
  fraguar ( VERB_INFINITIVE VERB ) 
+
  fraguada ( VERB_PAST_PARTICIPLE VERB ) lemma=fraguar 
+
  fraguando ( NOUN NOUN_GERUND ) lemma=fraguar 
+
  fraile ( NOUN NOUN_SINGULAR ) 
+
  frailecillo ( NOUN NOUN_SINGULAR ) 
+
  franca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=franco 
+
  franco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR HAS_SUBSTITUTE ) lemma=franco 
+
  francamente ( ADVERB ) lemma=franco 
+
  francas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=franco 
+
  francesa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=francés 
+
  francés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=francés 
+
  francesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=francés 
+
  franceses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=francés 
+
  francia ( NOUN NOUN_SINGULAR ) 
+
  francos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=franco 
- francotiradores ( NOUN NOUN_SINGULAR ) lemma=francotirador 
+
+ francotiradores ( NOUN  NOUN_PLURAL  ) lemma=francotirador 
+
  francotirador ( ) 
+
  franela ( NOUN NOUN_SINGULAR ) 
+
  franja ( NOUN NOUN_SINGULAR ) 
- franjita ( NOUN NOUN_SINGULAR ) lemma=franja 
+
+ franjita ( NOUN  NOUN_PLURAL  ) lemma=franja 
+
  franklin ( NOUN NOUN_SINGULAR ) 
+
  franquear ( VERB_INFINITIVE VERB ) 
+
  franqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=franquear 
+
  franqueando ( NOUN NOUN_GERUND ) lemma=franquear 
+
  franquearla ( VERB ) lemma=franquear 
+
  franqueza ( NOUN NOUN_SINGULAR ) 
+
  franquicia ( NOUN NOUN_SINGULAR ) 
+
  franquiciador ( NOUN NOUN_SINGULAR ) 
+
  françois ( NOUN NOUN_SINGULAR ) 
+
  frasco ( NOUN NOUN_SINGULAR ) 
+
  frase ( NOUN NOUN_SINGULAR ) 
- frasecilla ( NOUN NOUN_SINGULAR ) lemma=frase 
- frasecita ( NOUN NOUN_SINGULAR ) lemma=frase 
- frasecitas ( NOUN NOUN_SINGULAR ) lemma=frase 
+
+ frasecilla ( NOUN  NOUN_PLURAL  ) lemma=frase 
+
+ frasecita ( NOUN  NOUN_PLURAL  ) lemma=frase 
+
+ frasecitas ( NOUN  NOUN_PLURAL  ) lemma=frase 
+
  fraseo ( VERB ) lemma=frasear 
+
  frasear ( ) 
+
  frasesita ( NOUN NOUN_SINGULAR ) 
- frasquito ( NOUN NOUN_SINGULAR ) lemma=frasco 
+
+ frasquito ( NOUN  NOUN_PLURAL  ) lemma=frasco 
+
  fraterna ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraterno 
+
  fraterno ( ) 
+
  fraternal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fraternales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraternal 
+
  fraternalmente ( ADVERB ) lemma=fraternal 
+
  fraternidad ( NOUN NOUN_SINGULAR ) 
+
  fraude ( NOUN NOUN_SINGULAR ) 
+
  fraudulenta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraudulento 
+
  fraudulento ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fraudulentamente ( ADVERB ) lemma=fraudulento 
+
  fraudulentas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraudulento 
+
  fraudulentos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fraudulento 
- frazadas ( NOUN NOUN_SINGULAR ) lemma=frazada 
+
+ frazadas ( NOUN  NOUN_PLURAL  ) lemma=frazada 
+
  frazada ( ) 
+
  freatofítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frecuencia ( NOUN NOUN_SINGULAR ) 
+
  frecuentar ( VERB_INFINITIVE VERB ) 
+
  frecuentada ( VERB_PAST_PARTICIPLE VERB ) lemma=frecuentar 
+
  frecuentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=frecuentar 
+
  frecuentados ( VERB_PAST_PARTICIPLE VERB ) lemma=frecuentar 
+
  frecuentando ( NOUN NOUN_GERUND ) lemma=frecuentar 
+
  frecuenté ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frecuente`frecuentar` ADJ  VLfin 
+
  frecuentemente ( ADVERB ) lemma=frecuente|frecuentemente 
+
  frecuente|frecuentemente ( ) 
+
  frecuenten ( VERB ) lemma=frecuentar 
+
  frecuentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frecuenté 
+
  frecuentísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frecuenté 
+
  free-net ( NOUN NOUN_SINGULAR ) 
+
  fregada ( VERB_PAST_PARTICIPLE VERB ) lemma=fregar 
+
  fregar ( VERB_INFINITIVE VERB ) 
- fregadita ( NOUN NOUN_SINGULAR ) lemma=fregador 
+
+ fregadita ( NOUN  NOUN_PLURAL  ) lemma=fregador 
+
  fregador ( ) 
+
  fregados ( VERB_PAST_PARTICIPLE VERB ) lemma=fregar 
+
  fregarlo (                 VERB ) lemma=fregar 
+
  freguís ( VERB ) lemma=fregar 
+
  frenar ( VERB_INFINITIVE VERB ) 
+
  frenada ( VERB_PAST_PARTICIPLE VERB ) lemma=frenar 
+
  frenadas ( VERB_PAST_PARTICIPLE VERB ) lemma=frenar 
+
  frenados ( VERB_PAST_PARTICIPLE VERB ) lemma=frenar 
+
  frenando ( NOUN NOUN_GERUND ) lemma=frenar 
+
  frenarla (                 VERB ) lemma=frenar 
+
  frenarlo (                 VERB ) lemma=frenar 
+
  frenarlos (                 VERB ) lemma=frenar 
+
  frenemos ( VERB ) lemma=frenar 
+
  frenen ( VERB ) lemma=frenar 
+
  frenes ( VERB ) lemma=frenar 
+
  frenesí ( NOUN NOUN_SINGULAR ) 
+
  freno ( NOUN VERB NOUN_SINGULAR ) lemma=`freno`frenar` NC  VLfin 
+
  frente ( NOUN ADVERB PREPOSITION NOUN_SINGULAR ) lemma=frente 
+
  frentón ( NOUN NOUN_SINGULAR ) 
+
  frenética ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frenético 
+
  frenético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frenéticamente ( ADVERB ) lemma=frenético 
+
  frenéticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frenético 
+
  frenéticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frenético 
+
  fresa ( NOUN VERB NOUN_SINGULAR ) lemma=`fresa`fresar` NC  VLfin 
+
  fresas ( NOUN VERB NOUN_SINGULAR ) lemma=`fresa`fresar` NC  VLfin 
+
  fresca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fresco 
+
  fresco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fresco 
+
  frescas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fresco 
+
  frescos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fresco 
+
  frescura ( NOUN NOUN_SINGULAR ) 
+
  fresenius ( NOUN NOUN_SINGULAR ) 
+
  fresno ( NOUN NOUN_SINGULAR ) 
+
  fresquita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fresco 
+
  fresquitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fresco 
+
  fresquito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fresco 
+
  freática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=freático 
+
  freático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  freíá ( VERB ) lemma=freír 
+
  freír ( VERB_INFINITIVE VERB ) 
+
  freíán ( VERB ) lemma= 
+
  freírlo (                 VERB ) lemma= 
+
  fria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fría 
+
  fría ( VERB_PRESENT PRONOUN_SUBJECT VERB ADJECTIVE ADJECTIVE_NORMAL PRONOUN_I PRONOUN_SINGULAR ) lemma= 
- friacho ( NOUN NOUN_SINGULAR ) lemma=frío 
+
+ friacho ( NOUN  NOUN_PLURAL  ) lemma=frío 
+
  frío ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma= 
+
  frialdad ( NOUN NOUN_SINGULAR ) 
+
  fricciones ( VERB ) lemma=friccionar 
+
  friccionar ( ) 
+
  fricción ( NOUN NOUN_SINGULAR HAS_SUBSTITUTE ) 
+
  friega ( VERB ) lemma=fregar 
+
  friegues ( VERB ) lemma=fregar 
+
  frigorífico ( NOUN NOUN_SINGULAR ) 
+
  frijol ( NOUN NOUN_SINGULAR ) 
+
  friolera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=friolero 
+
  friolero ( ) 
+
  frisón ( NOUN NOUN_SINGULAR ) 
+
  frita ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frito`freír`fritar` ADJ  VLadj  VLfin 
+
  fritas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frito`freír`fritar` ADJ  VLadj  VLfin 
+
  frito ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_GERUND ) lemma= 
+
  fritos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frito`freír` ADJ  VLadj 
+
  frivolidad ( NOUN NOUN_SINGULAR ) 
+
  friéndonos ( VERB_PAST_PARTICIPLE VERB ) lemma= 
+
  friíto ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frío 
+
  frontal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frontales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frontal 
+
  frontalmente ( ADVERB ) lemma=frontal 
+
  frontend ( NOUN NOUN_SINGULAR ) 
+
  frontera ( NOUN NOUN_SINGULAR ) 
+
  fronteriza ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fronterizo 
+
  fronterizo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fronterizas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fronterizo 
+
  fronterizos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fronterizo 
+
  frontocigomática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frontocigomático 
+
  frontocigomático ( ) 
+
  frontonasal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frotar ( VERB_INFINITIVE VERB ) 
+
  frotación ( NOUN NOUN_SINGULAR ) 
+
  frotarse ( VERB_INFINITIVE VERB ) 
+
  frotis ( NOUN NOUN_SINGULAR ) 
+
  frotándose ( VERB_PAST_PARTICIPLE VERB ) lemma=frotar 
+
  frotármelo (                 VERB ) lemma=frotar 
+
  fructofuranoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fructosa ( NOUN NOUN_SINGULAR ) 
+
  fructosamina ( NOUN NOUN_SINGULAR ) 
+
  fructuosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructuoso 
+
  fructuoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fructuosamente ( ADVERB ) lemma=fructuoso 
+
  fructuosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructuoso 
+
  fructuosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructuoso 
+
  fructífera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructífero 
+
  fructífero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fructíferamente ( ADVERB ) lemma=fructífero 
+
  fructíferas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructífero 
+
  fructíferos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fructífero 
+
  frugal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fruncida ( VERB_PAST_PARTICIPLE VERB ) lemma=fruncir 
+
  fruncir ( ) 
+
  fruncidas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fruncido 
+
  fruncido ( ) 
+
  fruncidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fruncido 
+
  fruncimiento ( NOUN NOUN_SINGULAR ) 
+
  frunció ( VERB ) lemma=fruncir 
+
  frustado ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frustrar ( VERB_INFINITIVE VERB ) 
- frustraciones ( NOUN NOUN_SINGULAR ) lemma=frustración 
+
+ frustraciones ( NOUN  NOUN_PLURAL  ) lemma=frustración 
+
  frustración ( NOUN NOUN_SINGULAR ) 
+
  frustrada ( VERB_PAST_PARTICIPLE VERB ) lemma=frustrar 
+
  frustradas ( VERB_PAST_PARTICIPLE VERB ) lemma=frustrar 
+
  frustrados ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frustrado`frustrar` ADJ  VLadj 
+
  frustrando ( NOUN NOUN_GERUND ) lemma=frustrar 
+
  frustrantemente ( ADVERB ) 
+
  frustren ( VERB ) lemma=frustrar 
+
  frustrásemos ( VERB ) lemma=frustrar 
+
  fruta ( NOUN VERB NOUN_SINGULAR ) lemma=`fruta`frutar` NC  VLfin 
- frutales ( NOUN NOUN_SINGULAR ) lemma=frutal 
+
+ frutales ( NOUN  NOUN_PLURAL  ) lemma=frutal 
+
  frutal ( ) 
+
  frutas ( NOUN VERB NOUN_SINGULAR ) lemma=`fruta`frutar` NC  VLfin 
+
  frutero ( NOUN NOUN_SINGULAR ) 
- frutillas ( NOUN NOUN_SINGULAR ) lemma=frutilla 
+
+ frutillas ( NOUN  NOUN_PLURAL  ) lemma=frutilla 
+
  frutilla ( ) 
+
  fruto ( NOUN VERB NOUN_SINGULAR ) lemma=`fruto`frutar` NC  VLfin 
+
  frénica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frénico 
+
  frénico ( ) 
+
  fríamente ( ADVERB ) lemma=frío 
+
  frías ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`frío`freír` ADJ  VLfin 
+
  fríe ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma= 
+
  fríen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma= 
+
  fríes ( VERB ) lemma= 
+
  fríos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=frío 
+
  frívola ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frívolo 
+
  frívolo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  frívolamente ( ADVERB ) lemma=frívolo 
+
  frívolas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frívolo 
+
  frívolos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=frívolo 
+
  fucsia ( NOUN NOUN_SINGULAR ) 
+
  fue ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=ser 
+
  fuego ( NOUN NOUN_SINGULAR ) 
- fuel-oil ( NOUN NOUN_SINGULAR ) lemma=fuel 
+
+ fuel-oil ( NOUN  NOUN_PLURAL  ) lemma=fuel 
+
  fuel ( ) 
+
  fuente ( NOUN NOUN_SINGULAR ) 
+
  fuer ( NOUN NOUN_SINGULAR ) 
+
  fuera ( VERB ADVERB PREPOSITION ) lemma=`fuera`fuera`ser` ADV  PREP  VSfin 
+
  fuerais ( VERB ) lemma=`ir`ser` VLfin  VSfin 
+
  fueran ( VERB ) lemma=ser 
+
  fueras ( VERB ) lemma=ir|ser 
+
  fuerce ( VERB ) lemma=forzar 
+
  fuercen ( VERB ) lemma=forzar 
+
  fuercita ( NOUN NOUN_SINGULAR ) 
+
  fuere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=ser 
+
  fueren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=ser 
+
  fuero ( NOUN NOUN_SINGULAR ) 
+
  fueron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=ser 
+
  fuertecilla ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  fuertemente ( ADVERB ) lemma=fuerte 
+
  fuertes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  fuertísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fuerte 
+
  fuerza ( NOUN NOUN_SINGULAR ) 
+
  fuerza-longitud ( NOUN NOUN_SINGULAR ) 
+
  fuerzan ( VERB ) lemma=forzar 
+
  fuerzas ( NOUN VERB NOUN_SINGULAR ) lemma=`fuerza`forzar` NC  VLfin 
+
  fuese ( VERB ) lemma=ser 
+
  fueseis ( VERB ) lemma=`ir`ser` VLfin  VSfin 
+
  fuesen ( VERB ) lemma=ir|ser 
+
  fueses ( VERB ) lemma=ir|ser 
+
  fuga ( NOUN NOUN_SINGULAR ) 
+
  fugaces ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fugaz 
+
  fugaz ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fugar ( VERB_INFINITIVE VERB ) 
+
  fugados ( VERB_PAST_PARTICIPLE VERB ) lemma=fugar 
+
  fugando ( NOUN NOUN_GERUND ) lemma=fugar 
+
  fugarse ( VERB_INFINITIVE VERB ) 
- fugas ( NOUN NOUN_SINGULAR ) lemma=fuga 
+
+ fugas ( NOUN  NOUN_PLURAL  ) lemma=fuga 
+
  fugazmente ( ADVERB ) lemma=fugaz 
+
  fugitivo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fugitivo 
+
  fugitivos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fugitivo 
+
  fui ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=ser 
+
  fuimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=ser 
+
  fuiste ( VERB_PAST VERB PRONOUN_SINGULAR ) lemma=ir|ser 
+
  fuisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=ser 
- fulana ( NOUN NOUN_SINGULAR ) lemma=fulano 
+
+ fulana ( NOUN  NOUN_PLURAL  ) lemma=fulano 
+
  fulano ( NOUN NOUN_SINGULAR ) 
- fulanita ( NOUN NOUN_SINGULAR ) lemma=fulano 
- fulanito ( NOUN NOUN_SINGULAR ) lemma=fulano 
+
+ fulanita ( NOUN  NOUN_PLURAL  ) lemma=fulano 
+
+ fulanito ( NOUN  NOUN_PLURAL  ) lemma=fulano 
+
  fulcro ( NOUN NOUN_SINGULAR ) 
+
  fulero ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fulería ( NOUN NOUN_SINGULAR ) 
+
  fulgor ( NOUN NOUN_SINGULAR ) 
+
  fulgurante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fulgurantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fulgurante 
+
  fulminar ( VERB_INFINITIVE VERB ) 
+
  fulminada ( VERB_PAST_PARTICIPLE VERB ) lemma=fulminar 
+
  fulminante ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fulminante 
+
  fulminantemente ( ADVERB ) lemma=fulminante 
+
  fulminantes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fulminante 
+
  fulminarla (                 VERB ) lemma=fulminar 
+
  fumar ( VERB_INFINITIVE VERB ) 
+
  fumador ( NOUN NOUN_SINGULAR ) 
- fumadora ( NOUN NOUN_SINGULAR ) lemma=fumador 
- fumadoras ( NOUN NOUN_SINGULAR ) lemma=fumador 
+
+ fumadora ( NOUN  NOUN_PLURAL  ) lemma=fumador 
+
+ fumadoras ( NOUN  NOUN_PLURAL  ) lemma=fumador 
+
  fumados ( VERB_PAST_PARTICIPLE VERB ) lemma=fumar 
+
  fumando ( NOUN NOUN_GERUND ) lemma=fumar 
+
  fumarato ( NOUN NOUN_SINGULAR ) 
+
  fumen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fumar 
- fumigaciones ( NOUN NOUN_SINGULAR ) lemma=fumigación 
+
+ fumigaciones ( NOUN  NOUN_PLURAL  ) lemma=fumigación 
+
  fumigación ( NOUN NOUN_SINGULAR ) 
+
  fumigar ( VERB_INFINITIVE VERB ) 
+
  fumigarlas (                 VERB ) lemma=fumigar 
+
  fumigarlo (                 VERB ) lemma=fumigar 
+
  fumándose ( VERB_PAST_PARTICIPLE VERB ) lemma=fumar 
+
  fumás ( VERB ) lemma=fumar 
+
  funcionar ( VERB_INFINITIVE VERB ) 
+
  funcional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  funcionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=funcional 
+
  funcionalidad ( NOUN NOUN_SINGULAR ) 
+
  funcionalismo ( NOUN NOUN_SINGULAR ) 
+
  funcionalmente ( ADVERB ) lemma=funcional 
+
  funcionamiento ( NOUN NOUN_SINGULAR ) 
+
  funcionando ( NOUN NOUN_GERUND ) lemma=funcionar 
+
  funcionante ( ADJECTIVE ADJECTIVE_NORMAL ) 
- funcionaría ( NOUN NOUN_SINGULAR ) lemma=funcionario 
+
+ funcionaría ( NOUN  NOUN_PLURAL  ) lemma=funcionario 
+
  funcionario ( NOUN NOUN_SINGULAR ) 
+
  funcionarial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  funcionariale ( ADJECTIVE ADJECTIVE_NORMAL ) 
- funcionarías ( NOUN NOUN_SINGULAR ) lemma=funcionario 
+
+ funcionarías ( NOUN  NOUN_PLURAL  ) lemma=funcionario 
+
  funcionaros ( VERB ) lemma=funcionar 
+
  funcionaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=funcionar 
+
  funcionase ( VERB ) lemma=funcionar 
+
  funcionasen ( VERB ) lemma=funcionar 
+
  funcionemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=funcionar 
+
  funcionen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=funcionar 
- funciones ( NOUN NOUN_SINGULAR ) lemma=función 
+
+ funciones ( NOUN  NOUN_PLURAL  ) lemma=función 
+
  función ( NOUN NOUN_SINGULAR ) 
+
  fundar ( VERB_INFINITIVE VERB ) 
+
  fundacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fundacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fundacional 
- fundaciones ( NOUN NOUN_SINGULAR ) lemma=fundación 
+
+ fundaciones ( NOUN  NOUN_PLURAL  ) lemma=fundación 
+
  fundación ( NOUN NOUN_SINGULAR ) 
+
  fundada ( VERB_PAST_PARTICIPLE VERB ) lemma=fundar 
+
  fundadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fundar 
+
  fundador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fundador 
+
  fundadora ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fundador 
+
  fundadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fundador 
+
  fundados ( VERB_PAST_PARTICIPLE VERB ) lemma=fundar 
+
  fundamentar ( VERB_INFINITIVE VERB ) 
+
  fundamentación ( NOUN NOUN_SINGULAR ) 
+
  fundamentada ( VERB_PAST_PARTICIPLE VERB ) lemma=fundamentar 
+
  fundamentadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fundamentar 
+
  fundamentados ( VERB_PAST_PARTICIPLE VERB ) lemma=fundamentar 
+
  fundamental ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fundamentales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fundamental 
+
  fundamentalismo ( NOUN NOUN_SINGULAR ) 
+
  fundamentalista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fundamentalista 
+
  fundamentalistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=fundamentalista 
+
  fundamentalmente ( ADVERB ) lemma=fundamental 
+
  fundamentando ( NOUN NOUN_GERUND ) lemma=fundamentar 
+
  fundamentase ( VERB ) lemma=fundamentar 
+
  fundamentes ( VERB ) lemma=fundamentar 
+
  fundamento ( NOUN VERB NOUN_SINGULAR ) lemma=`fundamento`fundamentar` NC  VLfin 
+
  fundan ( VERB ) lemma=fundir 
+
  fundir ( VERB_INFINITIVE VERB ) 
+
  fundando ( NOUN NOUN_GERUND ) lemma=fundar 
+
  fundarse ( VERB_INFINITIVE VERB ) 
+
  fundas ( NOUN VERB NOUN_SINGULAR ) lemma=`funda`fundar|fundir` NC  VLfin 
+
  funde ( VERB ) lemma=fundar|fundir 
+
  fundar|fundir ( ) 
+
  fundemos ( VERB ) lemma=fundar 
+
  funden ( VERB ) lemma=fundar|fundir 
- fundiciones ( NOUN NOUN_SINGULAR ) lemma=fundición 
+
+ fundiciones ( NOUN  NOUN_PLURAL  ) lemma=fundición 
+
  fundición ( NOUN NOUN_SINGULAR ) 
+
  fundida ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fundido`fundir` ADJ  VLadj 
+
  fundidas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fundido`fundir` ADJ  VLadj 
+
  fundido ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fundido`fundir` ADJ  VLadj 
+
  fundidos ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`fundido`fundir` ADJ  VLadj 
+
  fundiendo ( NOUN NOUN_GERUND ) lemma=fundir 
+
  fundiera ( VERB ) lemma=fundir 
+
  fundirse ( VERB_INFINITIVE VERB ) 
+
  fundiéndose ( VERB_PAST_PARTICIPLE VERB ) lemma=fundir 
+
  fundo ( VERB ) lemma=fundar|fundir 
+
  fundoscopio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fundus ( NOUN NOUN_SINGULAR ) 
+
  fundándose ( NOUN NOUN_GERUND ) 
+
  funeral ( NOUN NOUN_SINGULAR ) 
+
  funeraria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=funerario 
+
  funerario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  funerarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=funerario 
+
  funerarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=funerario 
+
  funesta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`funesto`funestar` ADJ  VLfin 
+
  funestas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`funesto`funestar` ADJ  VLfin 
+
  funesto ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`funesto`funestar` ADJ  VLfin 
+
  funestos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=funesto 
+
  fungir ( VERB_INFINITIVE VERB ) 
+
  fungible ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fungibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fungible 
+
  fungicidas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fungicida 
+
  fungicida ( ) 
+
  fungiendo ( NOUN NOUN_GERUND ) lemma=fungir 
+
  fungiforme ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  furano ( NOUN NOUN_SINGULAR ) 
+
  furanósico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=furanósico 
- furgones ( NOUN NOUN_SINGULAR ) lemma=furgón 
+
+ furgones ( NOUN  NOUN_PLURAL  ) lemma=furgón 
+
  furgón ( NOUN NOUN_SINGULAR ) 
+
  furgoneta ( NOUN NOUN_SINGULAR ) 
+
  furia ( NOUN NOUN_SINGULAR ) 
+
  furibunda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furibundo 
+
  furibundo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  furiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furioso 
+
  furioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  furiosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furioso 
+
  furiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furioso 
+
  furor ( NOUN NOUN_SINGULAR ) 
+
  furtiva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furtivo 
+
  furtivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  furtivamente ( ADVERB ) lemma=furtivo 
+
  furtivas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furtivo 
+
  furtivos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=furtivo 
+
  furúnculo ( NOUN NOUN_SINGULAR ) 
+
  fusible ( NOUN NOUN_SINGULAR ) 
+
  fusiformes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fusiforme 
+
  fusiforme ( ) 
+
  fusil ( NOUN NOUN_SINGULAR ) 
+
  fusilar ( VERB_INFINITIVE VERB ) 
+
  fusilados ( VERB_PAST_PARTICIPLE VERB ) lemma=fusilar 
+
  fusilamiento ( NOUN NOUN_SINGULAR ) 
+
  fusilando ( NOUN NOUN_GERUND ) lemma=fusilar 
+
  fusiles ( NOUN VERB NOUN_SINGULAR ) lemma=`fusil`fusilar` NC  VLfin 
+
  fusionar ( VERB_INFINITIVE VERB ) 
+
  fusionada ( VERB_PAST_PARTICIPLE VERB ) lemma=fusionar 
+
  fusionadas ( VERB_PAST_PARTICIPLE VERB ) lemma=fusionar 
+
  fusionados ( VERB_PAST_PARTICIPLE VERB ) lemma=fusionar 
+
  fusionando ( NOUN NOUN_GERUND ) lemma=fusionar 
+
  fusionarse ( VERB_INFINITIVE VERB ) 
+
  fusiones ( NOUN VERB NOUN_SINGULAR ) lemma=`fusión`fusionar` NC  VLfin 
+
  fusión ( NOUN NOUN_SINGULAR ) 
+
  fustiga ( VERB ) lemma=fustigar 
+
  fustigar ( ) 
+
  fustigado ( VERB_PAST_PARTICIPLE VERB ) lemma=fustigar 
+
  fustigando ( NOUN NOUN_GERUND ) lemma=fustigar 
+
  fustigarlo (                 VERB ) lemma=fustigar 
+
  fustigaron ( VERB ) lemma=fustigar 
+
  fustigó ( VERB ) lemma=fustigar 
+
  fustígala ( ) lemma=fustigar 
+
  futbol ( NOUN NOUN_SINGULAR ) 
- futbolera ( NOUN NOUN_SINGULAR ) lemma=futbolero 
+
+ futbolera ( NOUN  NOUN_PLURAL  ) lemma=futbolero 
+
  futbolero ( ) 
+
  futbolista ( NOUN NOUN_SINGULAR ) 
+
  futbolística ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=futbolístico 
+
  futbolístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  futbolísticamente ( ADVERB ) lemma=futbolístico 
+
  futbolísticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=futbolístico 
+
  futre ( NOUN NOUN_SINGULAR ) 
+
  futura ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=futuro 
+
  futuro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=futuro 
+
  futuras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=futuro 
+
  futurera ( NOUN NOUN_SINGULAR ) 
+
  futuros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=futuro 
+
  fué ( VERB ) lemma=ir 
+
  fuéramos ( VERB ) lemma=ir|ser 
+
  fuésemos ( VERB ) lemma=ir|ser 
+
  fábrica ( NOUN NOUN_SINGULAR ) 
+
  fábricas-máquina ( NOUN NOUN_SINGULAR ) 
+
  fábula ( NOUN NOUN_SINGULAR ) 
+
  fáciles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fácil 
+
  fácilmente ( ADVERB ) lemma=fácil 
+
  fármaco ( NOUN NOUN_SINGULAR ) 
+
  fásico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fémur ( NOUN NOUN_SINGULAR ) 
+
  féretro ( NOUN NOUN_SINGULAR ) 
+
  férrea ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=férreo 
+
  férreo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  férreamente ( ADVERB ) lemma=férreo 
+
  férreas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=férreo 
+
  férreos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=férreo 
+
  férrico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  férricos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=férrico 
+
  fértil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fértiles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fértil 
+
  férula ( NOUN NOUN_SINGULAR ) 
+
  fía ( VERB ) lemma=fiar 
+
  fían ( VERB ) lemma=fiar 
+
  fías ( VERB ) lemma=fiar 
+
  fíe ( VERB ) lemma=fiar 
+
  fíen ( VERB ) lemma=fiar 
+
  fíes ( VERB ) lemma=fiar 
+
  fíjate ( ) lemma=fijar 
+
  fíjense ( ) lemma=fijarse 
+
  fíjese ( ) lemma=fijarse 
+
  fío ( VERB ) lemma=fiar 
+
  fírmalo ( ) lemma=firmar 
+
  físicamente ( ADVERB ) lemma=físico 
+
  físico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  físicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=físico 
+
  físico-deportivo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  físico-químico ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=físico|físico-químico 
+
  físico|físico-químico ( ) 
+
  físicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=físico 
+
  fístula ( NOUN NOUN_SINGULAR ) 
+
  fóbico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fóbico-específico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fórmula ( NOUN NOUN_SINGULAR ) 
+
  fósforo ( NOUN NOUN_SINGULAR ) 
+
  fósil ( NOUN NOUN_SINGULAR ) 
+
  fótica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fótico 
+
  fótico ( ) 
+
  fóvea ( NOUN NOUN_SINGULAR ) 
+
  fúmate ( ) lemma=fumar 
+
  fúnebre ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  fúnebres ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=fúnebre 
+
  fúngico ( ADJECTIVE ADJECTIVE_NORMAL ) 
- fútbol ( NOUN NOUN_SINGULAR ) lemma=futbol 
+
+ fútbol ( NOUN  NOUN_PLURAL  ) lemma=futbol 
+
  Fuera_de ( PREPOSITION ) lemma=fuera~de 
+
  fuera~de ( ) 
+
  frente_a ( PREPOSITION ) lemma=frente~a 
+
  frente~a ( ) 
+
  fuera_de ( PREPOSITION ) lemma=fuera~de 
+
  fuera_del ( ) lemma=fuera~del 
+
  fuera~del ( ) 
+
  finishing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=terminar 
+
  frightening ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=asustar 
+
  finding_out ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=enterarse 
+
  finding ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=hallar 
+
  fitting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=caber 
+
  falling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=caer 
+
  fulfilling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=cumplir 
+
  falling_in_love ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=enamorarse 
+
  fijaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fijar 
+
  fabricaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fabricar 
+
  fabriqué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fabricar 
+
  fabrique ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fabricar 
+
  fabriquéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fabricar 
+
  fabricáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fabricar 
+
  fabricareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fabricar 
+
  fabricaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fabricar 
+
  faltaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=faltar 
+
  faltemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=faltar 
+
  faltéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=faltar 
+
  faltáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=faltar 
+
  faltareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=faltar 
+
  faltaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=faltar 
+
  fascinaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fascinar 
+
  fascináremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fascinar 
+
  fascinating ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=fascinar 
+
  felicitaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=felicitar 
+
  felicitéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=felicitar 
+
  felicitáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=felicitar 
+
  felicitareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=felicitar 
+
  felicitaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=felicitar 
+
  fijéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fijar 
+
  fijáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fijar 
+
  fijareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fijar 
+
  fijaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fijar 
+
  fixing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=fijar 
+
  finjo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fingir 
+
  fingiréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fingir 
+
  fingí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fingir 
+
  finjamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fingir 
+
  finjáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fingir 
+
  finjan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fingir 
+
  fingiere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fingir 
+
  fingiéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fingir 
+
  fingiereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fingir 
+
  fingieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fingir 
+
  faking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=fingir 
+
  firmaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=firmar 
+
  firméis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=firmar 
+
  firmáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=firmar 
+
  firmareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=firmar 
+
  firmaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=firmar 
+
  florezco ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=florecer 
+
  floreceréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=florecer 
+
  florecí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=florecer 
+
  florezcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=florecer 
+
  florezcáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=florecer 
+
  florecieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=florecer 
+
  floreciéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=florecer 
+
  floreciereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=florecer 
+
  florecieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=florecer 
+
  flourishing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=florecer 
+
  formaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=formar 
+
  forméis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=formar 
+
  formáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=formar 
+
  formareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=formar 
+
  formaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=formar 
+
  forming ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=formar 
+
  fortalezco ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fortalecer 
+
  fortaleceréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortalecí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fortalecer 
+
  fortalezcáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortalecieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=fortalecer 
+
  fortaleciéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortaleciereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortalecieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fortalecer 
+
  fortifying ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=fortalecer 
+
  freímos ( VERB_PRESENT VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma= 
+
  freís ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  friendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  freiré ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma= 
+
  freirá ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma= 
+
  freiremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma= 
+
  freiréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  freirán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma= 
+
  freí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma= 
+
  frió ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma= 
+
  freísteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  frieron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma= 
+
  friamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma= 
+
  friáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  frían ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma= 
+
  friere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma= 
+
  friéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma= 
+
  friereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma= 
+
  frieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma= 
+
  frying ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma= 
+
  fumaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fumar 
+
  fumemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fumar 
+
  fuméis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fumar 
+
  fumáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=fumar 
+
  fumareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=fumar 
+
  fumaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=fumar 
+
  funcionéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=funcionar 
+
  funcionáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=funcionar 
+
  funcionareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=funcionar 
+
  funcionaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=funcionar 
+
  functioning ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=funcionar 
+
  freezing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=helar 
+
  fleeing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=huir 
+
  fuéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=ser 
+
  fuereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=ser 
+
  filling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=llenar 
+
  fighting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=pelear 
+
  forgetting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=olvidarse 
+
  forgiving ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=perdonar 
+
  fishing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=pescar 
+
  foreseeing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=prever 
+
  following ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=seguir 
+
  feeling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=sentirse 
+
  fearing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=temer 
+
  flying ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=volar 
+

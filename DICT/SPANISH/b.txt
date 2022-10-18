@@ -1,1774 +1,3548 @@
- bazar ( VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) 
+﻿ bazar ( VERB_INFINITIVE NOUN VERB NOUN_SINGULAR ) 
+
  B ( ) lemma=B 
+
  BA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=BA 
+
  BAND ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BCT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BDA ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BDS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BEL ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BILINGÜE ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bilingüe 
+
  bilingüe ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  BK ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BLANCHE ( NOUN NOUN_SINGULAR ) 
+
  BNR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BS ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=BS 
+
  BSTJ ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  BT ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=BT 
+
  Babesia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Babilonia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Babinski ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bacchetti ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bachiller ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bacillus ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Backacheider ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Backtracking ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Backus-Naur ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bacteria ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Badajoz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bagdad ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bahamas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bahrein ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baker ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Balance ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Balboa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baldwin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baleares ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baltasar ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baltazar ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baltimore ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bamex ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Banamex ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Banca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Banco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bancos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Banderin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bangladesh ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bara ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barbados ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barbie ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barbies ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Barbie 
+
  Barbudas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barcelona ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bariloche ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barlett ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barranca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barranquilla ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barrera ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barro ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Barros ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bartolomé ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Basic ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Basidiomycotina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Basilea ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Basilio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Basso ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bateson ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baudot ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Baumol ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bautista ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bayer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bazán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beatriz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beevor ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beginner ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Behçet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beijing ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Belarús ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Belena ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Belice ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bell ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bellpuig ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Belmondo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beltrán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Belén ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benavides ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benegas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benelux-Gotha ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bengala ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benjamín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bennet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bentham ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Benz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beowulf ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Berger ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bering ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beringia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Berkeley ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Berlín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bermudas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bernabé ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bernard ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bernardo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bernheim ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bernier ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Berríos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bertalanffy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bessemer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Beta ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Betsy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Betty ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bety ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Betz ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bhután ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bibi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bibliotecas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bielorrusia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bienstock ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Biermer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bigand ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Biguanidas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bilbao ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bill ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bimbo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bindery ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Biny ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bioquímica ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Biot-Savart ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Birmania ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bishop ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bismarck ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bissau ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blackburn ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blackmore ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blades ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blattaria ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bliss ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Blomia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bob ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bobby ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bodin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bogotá ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bohr ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bolaños ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bolivia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bolonia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bolsa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bolívar ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bombal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bonifacio ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bonn ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bonnie ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Borbones ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boris ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Borland ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Borneo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bosch ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boston ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Botal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Botero ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Botswana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bougainville ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boulder ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bourdon ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boveri ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bowlby ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bowman ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boyden ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boyden-lbersearch ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boyer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Boyle ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bradford ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Braga ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brasil ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brasilia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Braun ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Braun-Blanquet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brayton ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brenner ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bretaña ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brian ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bringfelt ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brisbane ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brno ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Broca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brockington ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Broders ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Broncoconstricción ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bronsted ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bronx ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brown ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brownsville ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bruce ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brunei ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Brunela ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bruselas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Buceo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Buchito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Buche 
+
  Buche ( ) 
+
  Buenaventura ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Buenos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Buffalo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Buitre ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bulgaria ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bundesbank ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bunnel ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Burdeos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bureta ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Burgos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Burkina ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Burkitt ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Burundi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bush ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bustamante ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bécquer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  Bélgica ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  b-galactosidasa ( NOUN NOUN_SINGULAR ) 
+
  b ` ( ) lemma=b 
+
  b ( ) 
+
  baba ( NOUN NOUN_SINGULAR ) 
+
  babeando ( NOUN NOUN_GERUND ) lemma=babear 
+
  babear ( ) 
+
  babosa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=baboso 
+
  baboso ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=baboso 
+
  babosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=baboso 
+
  babosos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=baboso 
+
  bacalao ( NOUN NOUN_SINGULAR ) 
+
  bache ( NOUN NOUN_SINGULAR ) 
+
  bacheo ( VERB ) lemma=bachear 
+
  bachear ( ) 
+
  bachillerato ( NOUN NOUN_SINGULAR ) 
- bachilleres ( NOUN NOUN_SINGULAR ) lemma=bachiller 
+
+ bachilleres ( NOUN  NOUN_PLURAL  ) lemma=bachiller 
+
  bachiller ( ) 
+
  bacilo ( NOUN NOUN_SINGULAR ) 
+
  baciloscopia ( NOUN NOUN_SINGULAR ) 
+
  bacitracina ( NOUN NOUN_SINGULAR ) 
+
  backend ( NOUN NOUN_SINGULAR ) 
+
  bacon ( NOUN NOUN_SINGULAR ) 
+
  bactenuria ( NOUN NOUN_SINGULAR ) 
+
  bacteremia ( NOUN NOUN_SINGULAR ) 
+
  bacteria ( NOUN NOUN_SINGULAR ) 
+
  bacteriana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bacteriano 
+
  bacteriano ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bacterianas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bacteriano 
+
  bacterianos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bacteriano 
+
  bacteriología ( NOUN NOUN_SINGULAR ) 
+
  bacteriológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bacteriológico 
+
  bacteriológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bacteriológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bacteriológico 
+
  bacteriuria ( NOUN NOUN_SINGULAR ) 
+
  bacteriófago ( NOUN NOUN_SINGULAR ) 
+
  bacteroide ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  baga ( VERB ) lemma=bagar 
+
  bagar ( ) 
+
  bagaje ( NOUN NOUN_SINGULAR ) 
+
  bagatela ( NOUN NOUN_SINGULAR ) 
+
  bagre ( NOUN NOUN_SINGULAR ) 
+
  bah ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=bah 
+
  bahameña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bahameño 
+
  bahameño ( ) 
+
  bahía ( NOUN NOUN_SINGULAR ) 
+
  bailar ( VERB_INFINITIVE VERB ) 
+
  bailando ( NOUN NOUN_GERUND ) lemma=bailar 
- bailarina ( NOUN NOUN_SINGULAR ) lemma=bailarín 
+
+ bailarina ( NOUN  NOUN_PLURAL  ) lemma=bailarín 
+
  bailarín ( NOUN NOUN_SINGULAR ) 
- bailarinas ( NOUN NOUN_SINGULAR ) lemma=bailarín 
- bailarines ( NOUN NOUN_SINGULAR ) lemma=bailarín 
+
+ bailarinas ( NOUN  NOUN_PLURAL  ) lemma=bailarín 
+
+ bailarines ( NOUN  NOUN_PLURAL  ) lemma=bailarín 
+
  bailé ( NOUN VERB NOUN_SINGULAR ) lemma=`baile`bailar` NC  VLfin 
+
  bailes ( NOUN VERB NOUN_SINGULAR ) lemma=`baile`bailar` NC  VLfin 
+
  baja ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bajo`baja` ADJ  NC 
+
  bajar ( VERB_INFINITIVE VERB ) 
+
  bajad ( VERB ) lemma=bajar 
+
  bajadá ( VERB_PAST_PARTICIPLE VERB ) lemma=bajar 
+
  bajadás ( VERB_PAST_PARTICIPLE VERB ) lemma=bajar 
+
  bajados ( VERB_PAST_PARTICIPLE VERB ) lemma=bajar 
+
  bajamente ( ADVERB ) lemma=bajo 
+
  bajo ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL PREPOSITION NOUN_SINGULAR ) lemma=`bajo`bajo`bajo`bajar` ADJ  NC  PREP  VLfin 
+
  bajando ( NOUN NOUN_GERUND ) lemma=bajar 
+
  bajarlo (                 VERB ) lemma=bajar 
+
  bajarlos (                 VERB ) lemma=bajar 
+
  bajarse ( VERB_INFINITIVE VERB ) 
+
  bajas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bajar 
+
  bajen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bajar 
+
  bajes ( VERB ) lemma=bajar 
+
  bajista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bajista 
+
  bajita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajito ( ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=bajo 
+
  bajitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bajísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bajo 
+
  bala ( NOUN VERB NOUN_SINGULAR ) lemma=`bala`balar` NC  VLfin 
+
  balacera ( NOUN NOUN_SINGULAR ) 
+
  balada ( VERB_PAST_PARTICIPLE VERB ) lemma=balar 
+
  balar ( VERB_INFINITIVE VERB ) 
+
  baladas ( VERB_PAST_PARTICIPLE VERB ) lemma=balar 
+
  baladí ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  baladíes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=baladí 
- balance ( NOUN NOUN_SINGULAR ) lemma=balance 
+
+ balance ( NOUN  NOUN_PLURAL  ) lemma=balance 
+
  balancear ( VERB_INFINITIVE VERB ) 
+
  balanceada ( VERB_PAST_PARTICIPLE VERB ) lemma=balancear 
+
  balanceados ( VERB_PAST_PARTICIPLE VERB ) lemma=balancear 
+
  balanceante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  balanceo ( NOUN VERB NOUN_SINGULAR ) lemma=`balanceo`balancear` NC  VLfin 
+
  balanza ( NOUN NOUN_SINGULAR ) 
+
  balas ( NOUN VERB NOUN_SINGULAR ) lemma=`bala`balar` NC  VLfin 
+
  balazo ( NOUN NOUN_SINGULAR ) 
- balcones ( NOUN NOUN_SINGULAR ) lemma=balcón 
+
+ balcones ( NOUN  NOUN_PLURAL  ) lemma=balcón 
+
  balcón ( NOUN NOUN_SINGULAR ) 
+
  baldada ( VERB_PAST_PARTICIPLE VERB ) lemma=baldar 
+
  baldar ( ) 
+
  baldado ( VERB_PAST_PARTICIPLE VERB ) lemma=baldar 
+
  baldas ( VERB ) lemma=baldar 
+
  balde ( NOUN VERB NOUN_SINGULAR ) lemma=`balde`baldar` NC  VLfin 
+
  baldes ( NOUN VERB NOUN_SINGULAR ) lemma=`balde`baldar` NC  VLfin 
+
  baldías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=baldío 
+
  baldío ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  baldíos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=baldío 
+
  balear ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=balear 
+
  baleados ( VERB_PAST_PARTICIPLE VERB ) lemma=balear 
+
  baleares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=balear 
+
  balero ( NOUN NOUN_SINGULAR ) 
- balizas ( NOUN NOUN_SINGULAR ) lemma=baliza 
+
+ balizas ( NOUN  NOUN_PLURAL  ) lemma=baliza 
+
  baliza ( ) 
+
  ballena ( NOUN NOUN_SINGULAR ) 
+
  ballenera ( NOUN NOUN_SINGULAR ) 
+
  ballet ( NOUN NOUN_SINGULAR ) 
+
  balnearia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=balneario 
+
  balneario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  balnearios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=balneario 
+
  balneoterápico ( NOUN NOUN_SINGULAR ) 
- balon ( NOUN NOUN_SINGULAR ) lemma=balón 
+
+ balon ( NOUN  NOUN_PLURAL  ) lemma=balón 
+
  balón ( NOUN NOUN_SINGULAR ) 
+
  baloncesto ( NOUN NOUN_SINGULAR ) 
- baloncito ( NOUN NOUN_SINGULAR ) lemma=balón 
- balones ( NOUN NOUN_SINGULAR ) lemma=balón 
+
+ baloncito ( NOUN  NOUN_PLURAL  ) lemma=balón 
+
+ balones ( NOUN  NOUN_PLURAL  ) lemma=balón 
+
  balonmano ( NOUN NOUN_SINGULAR ) 
+
  balsa ( NOUN NOUN_SINGULAR ) 
+
  balsero ( NOUN NOUN_SINGULAR ) 
+
  baluarte ( NOUN NOUN_SINGULAR ) 
+
  balustrada ( NOUN NOUN_SINGULAR ) 
+
  balística ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=balístico 
+
  balístico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  balísticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=balístico 
+
  bambú ( NOUN NOUN_SINGULAR ) 
+
  banal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  banalidad ( NOUN NOUN_SINGULAR ) 
+
  banana ( NOUN NOUN_SINGULAR ) 
+
  bananera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bananero 
+
  bananero ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bananero 
+
  bananeras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bananero 
+
  bananeros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bananero 
+
  banano ( NOUN NOUN_SINGULAR ) 
+
  banca ( NOUN NOUN_SINGULAR ) 
+
  bancada ( NOUN NOUN_SINGULAR ) 
+
  bancar ( VERB_INFINITIVE VERB ) 
+
  bancaría ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bancario 
+
  bancario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bancarías ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bancario 
+
  bancarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bancario 
+
  bancarrota ( NOUN NOUN_SINGULAR ) 
- bancas ( NOUN NOUN_SINGULAR ) lemma=banca 
+
+ bancas ( NOUN  NOUN_PLURAL  ) lemma=banca 
+
  banco ( NOUN NOUN_SINGULAR ) 
+
  bancás ( VERB ) lemma=bancar 
+
  band-shift ( NOUN NOUN_SINGULAR ) 
+
  banda ( NOUN NOUN_SINGULAR ) 
+
  bandada ( NOUN NOUN_SINGULAR ) 
+
  bandeamiento ( NOUN NOUN_SINGULAR ) 
+
  bandeja ( NOUN NOUN_SINGULAR ) 
- bandejita ( NOUN NOUN_SINGULAR ) lemma=bandeja 
+
+ bandejita ( NOUN  NOUN_PLURAL  ) lemma=bandeja 
+
  bandera ( NOUN NOUN_SINGULAR ) 
- banderilla ( NOUN NOUN_SINGULAR ) lemma=bandera 
- banderillas ( NOUN NOUN_SINGULAR ) lemma=bandera 
+
+ banderilla ( NOUN  NOUN_PLURAL  ) lemma=bandera 
+
+ banderillas ( NOUN  NOUN_PLURAL  ) lemma=bandera 
+
  banderillero ( NOUN NOUN_SINGULAR ) 
- banderita ( NOUN NOUN_SINGULAR ) lemma=bandera 
- banderitas ( NOUN NOUN_SINGULAR ) lemma=bandera 
+
+ banderita ( NOUN  NOUN_PLURAL  ) lemma=bandera 
+
+ banderitas ( NOUN  NOUN_PLURAL  ) lemma=bandera 
+
  bandidaje ( NOUN NOUN_SINGULAR ) 
+
  bandido ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bandido 
+
  bandidos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bandido 
+
  bando ( NOUN NOUN_SINGULAR ) 
+
  bandolero ( NOUN NOUN_SINGULAR ) 
+
  banjo ( NOUN NOUN_SINGULAR ) 
+
  banquero ( NOUN NOUN_SINGULAR ) 
+
  banqueta ( NOUN NOUN_SINGULAR ) 
+
  banquete ( NOUN NOUN_SINGULAR ) 
- banquillo ( NOUN NOUN_SINGULAR ) lemma=banco 
- banquillos ( NOUN NOUN_SINGULAR ) lemma=banco 
- banquito ( NOUN NOUN_SINGULAR ) lemma=banco 
+
+ banquillo ( NOUN  NOUN_PLURAL  ) lemma=banco 
+
+ banquillos ( NOUN  NOUN_PLURAL  ) lemma=banco 
+
+ banquito ( NOUN  NOUN_PLURAL  ) lemma=banco 
+
  bantam ( NOUN NOUN_SINGULAR ) 
+
  baqueano ( NOUN NOUN_SINGULAR ) 
+
  bar ( NOUN NOUN_SINGULAR ) 
+
  baraja ( VERB ) lemma=barajar 
+
  barajar ( ) 
+
  barajaban ( VERB ) lemma=barajar 
+
  barajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=barajar 
+
  barajado ( VERB_PAST_PARTICIPLE VERB ) lemma=barajar 
+
  barajan ( VERB ) lemma=barajar 
+
  barajando ( NOUN NOUN_GERUND ) lemma=barajar 
+
  barajaron ( VERB ) lemma=barajar 
+
  barajas ( VERB ) lemma=barajar 
+
  barajo ( VERB ) lemma=barajar 
+
  barajárselo (                 VERB ) lemma=barajar 
+
  barajó ( VERB ) lemma=barajar 
+
  baranda ( NOUN NOUN_SINGULAR ) 
+
  barandilla ( NOUN NOUN_SINGULAR ) 
+
  barata ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  barato ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  baratas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratillo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  baratísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barato 
+
  barba ( NOUN VERB NOUN_SINGULAR ) lemma=`barba`barbar` NC  VLfin 
+
  barbacoa ( NOUN NOUN_SINGULAR ) 
+
  barbado ( VERB_PAST_PARTICIPLE VERB ) lemma=barbar 
+
  barbar ( ) 
+
  barbados ( VERB_PAST_PARTICIPLE VERB ) lemma=barbar 
+
  barbara ( VERB ) lemma=barbar 
+
  barbaridad ( NOUN NOUN_SINGULAR ) 
+
  barbarie ( NOUN NOUN_SINGULAR ) 
+
  barbas ( NOUN VERB NOUN_SINGULAR ) lemma=`barba`barbar` NC  VLfin 
+
  barbero ( NOUN NOUN_SINGULAR ) 
+
  barbilla ( NOUN NOUN_SINGULAR ) 
- barbita ( NOUN NOUN_SINGULAR ) lemma=barba 
- barbitúricos ( NOUN NOUN_SINGULAR ) lemma=barbitúrico 
+
+ barbita ( NOUN  NOUN_PLURAL  ) lemma=barba 
+
+ barbitúricos ( NOUN  NOUN_PLURAL  ) lemma=barbitúrico 
+
  barbitúrico ( ) 
+
  barca ( NOUN NOUN_SINGULAR ) 
+
  barcaza ( NOUN NOUN_SINGULAR ) 
+
  barcelonesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=barcelonés 
+
  barcelonés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=barcelonés 
+
  barceloneses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=barcelonés 
+
  barcelonista ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=barcelonista 
+
  barcelonistas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=barcelonista 
+
  barco ( NOUN NOUN_SINGULAR ) 
+
  barda ( VERB ) lemma=bardar 
+
  bardar ( ) 
+
  bardo ( VERB ) lemma=bardar 
+
  baremo ( NOUN NOUN_SINGULAR ) 
+
  barlovento ( NOUN NOUN_SINGULAR ) 
+
  barnices ( NOUN VERB NOUN_SINGULAR ) lemma=`barniz`barnizar` NC  VLfin 
+
  barniz ( NOUN NOUN_SINGULAR ) 
+
  barométricas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barométrico 
+
  barométrico ( ) 
- barones ( NOUN NOUN_SINGULAR ) lemma=barón 
+
+ barones ( NOUN  NOUN_PLURAL  ) lemma=barón 
+
  barón ( NOUN NOUN_SINGULAR ) 
- baronesa ( NOUN NOUN_SINGULAR ) lemma=barón 
+
+ baronesa ( NOUN  NOUN_PLURAL  ) lemma=barón 
+
  barorreceptor ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  barorreceptoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  barorreflejo ( NOUN NOUN_SINGULAR ) 
+
  barotrauma ( NOUN NOUN_SINGULAR ) 
- barqueros ( NOUN NOUN_SINGULAR ) lemma=barquero 
+
+ barqueros ( NOUN  NOUN_PLURAL  ) lemma=barquero 
+
  barquero ( ) 
- barquilla ( NOUN NOUN_SINGULAR ) lemma=barca 
- barquitos ( NOUN NOUN_SINGULAR ) lemma=barco 
+
+ barquilla ( NOUN  NOUN_PLURAL  ) lemma=barca 
+
+ barquitos ( NOUN  NOUN_PLURAL  ) lemma=barco 
+
  barra ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=barrer 
+
  barrer ( VERB_INFINITIVE VERB ) 
- barracas ( NOUN NOUN_SINGULAR ) lemma=barraca 
+
+ barracas ( NOUN  NOUN_PLURAL  ) lemma=barraca 
+
  barraca ( ) 
+
  barranco ( NOUN NOUN_SINGULAR ) 
+
  barre ( VERB ) lemma=barrar|barrer 
+
  barrar|barrer ( ) 
- barredoras ( NOUN NOUN_SINGULAR ) lemma=barredora 
+
+ barredoras ( NOUN  NOUN_PLURAL  ) lemma=barredora 
+
  barredora ( ) 
+
  barremos ( VERB ) lemma=barrar|barrer 
+
  barren ( VERB ) lemma=barrar|barrer 
+
  barrera ( NOUN NOUN_SINGULAR ) 
- barrerás ( NOUN NOUN_SINGULAR ) lemma=barrera 
+
+ barrerás ( NOUN  NOUN_PLURAL  ) lemma=barrera 
+
  barriada ( NOUN NOUN_SINGULAR ) 
+
  barricada ( NOUN NOUN_SINGULAR ) 
+
  barrida ( VERB_PAST_PARTICIPLE VERB ) lemma=barrer 
+
  barridas ( VERB_PAST_PARTICIPLE VERB ) lemma=barrer 
+
  barrido ( NOUN NOUN_SINGULAR ) 
+
  barridos ( VERB_PAST_PARTICIPLE VERB ) lemma=barrer 
+
  barriendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=barrer 
+
  barriga ( NOUN NOUN_SINGULAR ) 
- barriguilla ( NOUN NOUN_SINGULAR ) lemma=barriga 
+
+ barriguilla ( NOUN  NOUN_PLURAL  ) lemma=barriga 
+
  barril ( NOUN NOUN_SINGULAR ) 
- barrilito ( NOUN NOUN_SINGULAR ) lemma=barril 
+
+ barrilito ( NOUN  NOUN_PLURAL  ) lemma=barril 
+
  barrio ( NOUN NOUN_SINGULAR ) 
+
  barriobajero ( ADJECTIVE ADJECTIVE_NORMAL ) 
- barrita ( NOUN NOUN_SINGULAR ) lemma=barra 
- barritas ( NOUN NOUN_SINGULAR ) lemma=barra 
+
+ barrita ( NOUN  NOUN_PLURAL  ) lemma=barra 
+
+ barritas ( NOUN  NOUN_PLURAL  ) lemma=barra 
+
  barro ( NOUN VERB NOUN_SINGULAR ) lemma=`barro`barrar|barrer` NC  VLfin 
+
  barroca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barroco 
+
  barroco ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  barrocas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barroco 
+
  barrocos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=barroco 
+
  barrote ( NOUN NOUN_SINGULAR ) 
+
  barullo ( NOUN NOUN_SINGULAR ) 
+
  barítono ( NOUN NOUN_SINGULAR ) 
+
  barómetro ( NOUN NOUN_SINGULAR ) 
+
  basa ( NOUN VERB NOUN_SINGULAR ) lemma=`basa`basar` NC  VLfin 
+
  basar ( VERB_INFINITIVE VERB ) 
+
  basada ( VERB_PAST_PARTICIPLE VERB ) lemma=basar 
+
  basadas ( VERB_PAST_PARTICIPLE VERB ) lemma=basar 
+
  basados ( VERB_PAST_PARTICIPLE VERB ) lemma=basar 
+
  basal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  basales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=basal 
+
  basando ( NOUN NOUN_GERUND ) lemma=basar 
+
  basarlo (                 VERB ) lemma=basar 
+
  basarlos (                 VERB ) lemma=basar 
+
  basarme (                 VERB ) lemma=basar 
+
  basarnos (                 VERB ) lemma=basar 
+
  basarse ( VERB_INFINITIVE VERB ) 
+
  basase ( VERB ) lemma=basar 
+
  basculante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  basé ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`base`base`base`basar` ADJ  NC  PE  VLfin 
+
  basemos ( VERB ) lemma=basar 
+
  basen ( VERB ) lemma=basar 
- bases ( NOUN NOUN_SINGULAR ) lemma=basé 
- basic ( NOUN NOUN_SINGULAR ) lemma=basic 
+
+ bases ( NOUN  NOUN_PLURAL  ) lemma=basé 
+
+ basic ( NOUN  NOUN_PLURAL  ) lemma=basic 
+
  basidiospora ( NOUN NOUN_SINGULAR ) 
+
  basilar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  basolateral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  basolaterales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=basolateral 
+
  basta ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`basto`bastar` ADJ  VLfin 
+
  bastar ( VERB_INFINITIVE VERB ) 
+
  bastando ( NOUN NOUN_GERUND ) lemma=bastar 
+
  bastante ( ADJECTIVE ADJECTIVE_NORMAL ADVERB HAS_SUBSTITUTE ) lemma=bastante 
+
  bastantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bastante 
+
  bastase ( VERB ) lemma=bastar 
+
  basten ( VERB ) lemma=bastar 
- bastidores ( NOUN NOUN_SINGULAR ) lemma=bastidor 
+
+ bastidores ( NOUN  NOUN_PLURAL  ) lemma=bastidor 
+
  bastidor ( ) 
- bastiones ( NOUN NOUN_SINGULAR ) lemma=bastión 
+
+ bastiones ( NOUN  NOUN_PLURAL  ) lemma=bastión 
+
  bastión ( NOUN NOUN_SINGULAR ) 
+
  bastito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=basto 
+
  basto ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`basto`bastar` ADJ  VLfin 
- bastoncillos ( NOUN NOUN_SINGULAR ) lemma=bastón 
+
+ bastoncillos ( NOUN  NOUN_PLURAL  ) lemma=bastón 
+
  bastón ( NOUN NOUN_SINGULAR ) 
- bastones ( NOUN NOUN_SINGULAR ) lemma=bastón 
+
+ bastones ( NOUN  NOUN_PLURAL  ) lemma=bastón 
+
  bastos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=basto 
+
  basura ( NOUN NOUN_SINGULAR ) 
+
  basurear ( VERB_INFINITIVE VERB ) 
+
  basurero ( NOUN NOUN_SINGULAR ) 
+
  basándolo ( NOUN NOUN_GERUND ) lemma=basar 
+
  basándome ( VERB_PAST_PARTICIPLE VERB ) lemma=basar 
+
  basándonos ( NOUN NOUN_GERUND ) lemma=basar 
+
  basándose ( NOUN NOUN_GERUND ) lemma=basarse 
+
  basílica ( NOUN NOUN_SINGULAR ) 
- basófilos ( NOUN NOUN_SINGULAR ) lemma=basófilo 
+
+ basófilos ( NOUN  NOUN_PLURAL  ) lemma=basófilo 
+
  basófilo ( ) 
+
  bata ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=batir 
+
  batir ( VERB_INFINITIVE VERB ) 
+
  batalla ( NOUN VERB NOUN_SINGULAR ) lemma=`batalla`batallar` NC  VLfin 
+
  batallar ( VERB_INFINITIVE VERB ) 
+
  batallando ( NOUN NOUN_GERUND ) lemma=batallar 
+
  batallas ( NOUN VERB NOUN_SINGULAR ) lemma=`batalla`batallar` NC  VLfin 
- batallita ( NOUN NOUN_SINGULAR ) lemma=batalla 
- batallitas ( NOUN NOUN_SINGULAR ) lemma=batalla 
- batallones ( NOUN NOUN_SINGULAR ) lemma=batallón 
+
+ batallita ( NOUN  NOUN_PLURAL  ) lemma=batalla 
+
+ batallitas ( NOUN  NOUN_PLURAL  ) lemma=batalla 
+
+ batallones ( NOUN  NOUN_PLURAL  ) lemma=batallón 
+
  batallón ( NOUN NOUN_SINGULAR ) 
+
  batarazas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=batarazo 
+
  batarazo ( ) 
+
  batas ( NOUN VERB NOUN_SINGULAR ) lemma=`bata`batir` NC  VLfin 
+
  batch ( NOUN NOUN_SINGULAR ) 
+
  bateador ( NOUN NOUN_SINGULAR ) 
+
  bateo ( NOUN NOUN_SINGULAR ) 
+
  batería ( NOUN NOUN_SINGULAR ) 
+
  bateó ( VERB ) lemma=batear 
+
  batear ( ) 
+
  batida ( VERB_PAST_PARTICIPLE VERB ) lemma=batir 
+
  batidas ( VERB_PAST_PARTICIPLE VERB ) lemma=batir 
+
  batidora ( NOUN NOUN_SINGULAR ) 
+
  batidos ( VERB_PAST_PARTICIPLE VERB ) lemma=batir 
+
  batiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=batir 
+
  batiera ( VERB ) lemma=batir 
+
  batirles (                 VERB ) lemma=batir 
+
  batirnos (                 VERB ) lemma=batir 
+
  batiéndole ( VERB_PAST_PARTICIPLE VERB ) lemma=batir 
+
  batuta ( NOUN NOUN_SINGULAR ) 
+
  batí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=batir 
+
  baudio ( NOUN NOUN_SINGULAR ) 
- baulillo ( NOUN NOUN_SINGULAR ) lemma=baúl 
+
+ baulillo ( NOUN  NOUN_PLURAL  ) lemma=baúl 
+
  baúl ( NOUN NOUN_SINGULAR ) 
+
  bautismo ( NOUN NOUN_SINGULAR ) 
+
  bautizar ( VERB_INFINITIVE VERB ) 
+
  bautizada ( VERB_PAST_PARTICIPLE VERB ) lemma=bautizar 
+
  bautizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bautizar 
+
  bautizados ( VERB_PAST_PARTICIPLE VERB ) lemma=bautizar 
+
  bautizarla (                 VERB ) lemma=bautizar 
+
  bautizo ( NOUN VERB NOUN_SINGULAR ) lemma=`bautizo`bautizar` NC  VLfin 
+
  bayesiano ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bayoneta ( NOUN NOUN_SINGULAR ) 
+
  baza ( NOUN NOUN_SINGULAR ) 
- bazas ( NOUN NOUN_SINGULAR ) lemma=baza 
+
+ bazas ( NOUN  NOUN_PLURAL  ) lemma=baza 
+
  bazo ( NOUN NOUN_SINGULAR ) 
+
  bañar ( VERB_INFINITIVE VERB ) 
+
  bañada ( VERB_PAST_PARTICIPLE VERB ) lemma=bañar 
+
  bañadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bañar 
+
  bañado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=bañarse 
+
  bañarse ( VERB_INFINITIVE VERB ) 
+
  bañador ( NOUN NOUN_SINGULAR ) 
+
  bañados ( VERB_PAST_PARTICIPLE VERB ) lemma=bañar 
+
  bañando ( NOUN NOUN_GERUND ) lemma=bañar 
+
  bañarme (                 VERB ) lemma=bañar 
+
  bañarnos (                 VERB ) lemma=bañar 
+
  bañarte (                 VERB ) lemma=bañar 
+
  bañera ( NOUN NOUN_SINGULAR ) 
- bañistas ( NOUN NOUN_SINGULAR ) lemma=bañista 
+
+ bañistas ( NOUN  NOUN_PLURAL  ) lemma=bañista 
+
  bañista ( ) 
+
  baño ( NOUN VERB NOUN_SINGULAR ) lemma=`baño`bañar` NC  VLfin 
+
  beba ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=beber 
+
  beber ( VERB_INFINITIVE VERB ) 
+
  bebamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=beber 
+
  beban ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=beber 
+
  bebedor ( NOUN NOUN_SINGULAR ) 
+
  beberse ( VERB_INFINITIVE VERB ) 
+
  bebida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`bebida`beber` NC  VLadj 
+
  bebidas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`bebida`beber` NC  VLadj 
- bebiditas ( NOUN NOUN_SINGULAR ) lemma=bebida 
+
+ bebiditas ( NOUN  NOUN_PLURAL  ) lemma=bebida 
+
  bebiendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=beber 
+
  bebieán ( VERB ) lemma=beber 
+
  bebiesen ( VERB ) lemma=beber 
- bebita ( NOUN NOUN_SINGULAR ) lemma=bebé 
+
+ bebita ( NOUN  NOUN_PLURAL  ) lemma=bebé 
+
  bebé ( NOUN NOUN_SINGULAR ) 
- bebito ( NOUN NOUN_SINGULAR ) lemma=bebé 
+
+ bebito ( NOUN  NOUN_PLURAL  ) lemma=bebé 
+
  bebí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=beber 
+
  beca ( NOUN NOUN_SINGULAR ) 
+
  becado ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=becado 
+
  becario ( NOUN NOUN_SINGULAR ) 
- becerra ( NOUN NOUN_SINGULAR ) lemma=becerro 
+
+ becerra ( NOUN  NOUN_PLURAL  ) lemma=becerro 
+
  becerro ( NOUN NOUN_SINGULAR ) 
+
  becker ( NOUN NOUN_SINGULAR ) 
+
  bedel ( NOUN NOUN_SINGULAR ) 
+
  beige ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  being ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_PLURAL ) lemma=ser 
+
  beisbolista ( NOUN NOUN_SINGULAR ) 
+
  beldad ( NOUN VERB NOUN_SINGULAR ) lemma=`beldad`beldar` NC  VLfin 
+
  belga ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=belga 
+
  belgas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=belga 
+
  belicosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=belicoso 
+
  belicoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  belicosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=belicoso 
+
  belicosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=belicoso 
+
  beligerante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  beligerantes ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bella ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bello ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bellaco ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bellas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  belleza ( NOUN NOUN_SINGULAR ) 
+
  bellos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bellota ( NOUN NOUN_SINGULAR ) 
+
  bellísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bellísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bellísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bellísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bello 
+
  bencina ( NOUN NOUN_SINGULAR ) 
+
  bendecir ( VERB_INFINITIVE VERB ) 
+
  bendice ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendicen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bendecir 
+
  bendiciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=bendecir 
- bendiciones ( NOUN NOUN_SINGULAR ) lemma=bendición 
+
+ bendiciones ( NOUN  NOUN_PLURAL  ) lemma=bendición 
+
  bendición ( NOUN NOUN_SINGULAR ) 
+
  bendiga ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendijo ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bendito 
+
  bendito ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_GERUND ) lemma=bendecir 
+
  benditas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bendito 
+
  benditos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bendito 
+
  benefactor ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=benefactor 
+
  beneficencia ( NOUN NOUN_SINGULAR ) 
+
  beneficiar ( VERB_INFINITIVE VERB ) 
+
  beneficiada ( VERB_PAST_PARTICIPLE VERB ) lemma=beneficiar 
+
  beneficiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=beneficiar 
+
  beneficiados ( VERB_PAST_PARTICIPLE VERB ) lemma=beneficiar 
+
  beneficiando ( NOUN NOUN_GERUND ) lemma=beneficiar 
+
  beneficiaría ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=beneficiario 
+
  beneficiario ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=beneficiario 
+
  beneficiarías ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=beneficiario 
+
  beneficiarios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=beneficiario 
+
  beneficiarse ( VERB_INFINITIVE VERB ) 
+
  beneficiase ( VERB ) lemma=beneficiar 
+
  beneficien ( VERB ) lemma=beneficiar 
+
  beneficio ( NOUN VERB NOUN_SINGULAR ) lemma=`beneficio`beneficiar` NC  VLfin 
+
  beneficiosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=beneficioso 
+
  beneficioso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  beneficiosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=beneficioso 
+
  beneficiosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=beneficioso 
+
  beneficiándose ( VERB_PAST_PARTICIPLE VERB ) lemma=beneficiar 
+
  beneplácito ( NOUN NOUN_SINGULAR ) 
+
  bengalí ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bengalí 
+
  bengalíes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bengalí 
+
  benigna ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benigno 
+
  benigno ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  benignas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benigno 
+
  benignidad ( NOUN NOUN_SINGULAR ) 
+
  benignos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benigno 
+
  bentos ( NOUN NOUN_SINGULAR ) 
+
  bentónica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bentónico 
+
  bentónico ( ) 
+
  bentónicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bentónico 
- benzodiacepinas ( NOUN NOUN_SINGULAR ) lemma=benzodiacepina 
+
+ benzodiacepinas ( NOUN  NOUN_PLURAL  ) lemma=benzodiacepina 
+
  benzodiacepina ( ) 
+
  benzopireno ( NOUN NOUN_SINGULAR ) 
+
  benéfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benéfico 
+
  benéfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  benéficamente ( ADVERB ) lemma=benéfico 
+
  benéficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benéfico 
+
  benéfico-docente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  benéfico-social ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  benéficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benéfico 
+
  benévola ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benévolo 
+
  benévolo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  benévolamente ( ADVERB ) lemma=benévolo 
+
  benévolas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benévolo 
+
  benévolos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=benévolo 
- berberechos ( NOUN NOUN_SINGULAR ) lemma=berberecho 
+
+ berberechos ( NOUN  NOUN_PLURAL  ) lemma=berberecho 
+
  berberecho ( ) 
+
  berenjena ( NOUN NOUN_SINGULAR ) 
+
  berilio ( NOUN NOUN_SINGULAR ) 
+
  berlaque ( NOUN NOUN_SINGULAR ) 
+
  bermellón ( NOUN NOUN_SINGULAR ) 
- berros ( NOUN NOUN_SINGULAR ) lemma=berro 
+
+ berros ( NOUN  NOUN_PLURAL  ) lemma=berro 
+
  berro ( ) 
+
  besar ( VERB_INFINITIVE VERB ) 
+
  besando ( NOUN NOUN_GERUND ) lemma=besar 
+
  besen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=besar 
+
  beses ( VERB ) lemma=besar 
- besito ( NOUN NOUN_SINGULAR ) lemma=beso 
+
+ besito ( NOUN  NOUN_PLURAL  ) lemma=beso 
+
  beso ( NOUN VERB NOUN_SINGULAR ) lemma=`beso`besar` NC  VLfin 
- besitos ( NOUN NOUN_SINGULAR ) lemma=beso 
- besote ( NOUN NOUN_SINGULAR ) lemma=beso 
+
+ besitos ( NOUN  NOUN_PLURAL  ) lemma=beso 
+
+ besote ( NOUN  NOUN_PLURAL  ) lemma=beso 
+
  bestia ( NOUN NOUN_SINGULAR ) 
+
  bestial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bestiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bestial 
+
  bestialidad ( NOUN NOUN_SINGULAR ) 
+
  besugo ( NOUN NOUN_SINGULAR ) 
+
  besándole ( VERB_PAST_PARTICIPLE VERB ) lemma=besar 
+
  beta ( NOUN NOUN_SINGULAR ) 
+
  beta-adrenérgico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  beta-agonista ( NOUN NOUN_SINGULAR ) 
+
  beta-galactosidasa ( NOUN NOUN_SINGULAR ) 
+
  beta-globulina ( NOUN NOUN_SINGULAR ) 
+
  beta-lipoproteína ( NOUN NOUN_SINGULAR ) 
+
  beta-oxidación ( NOUN NOUN_SINGULAR ) 
- betabloqueantes ( NOUN NOUN_SINGULAR ) lemma=betabloqueante 
+
+ betabloqueantes ( NOUN  NOUN_PLURAL  ) lemma=betabloqueante 
+
  betabloqueante ( ) 
+
  betagalactosidasa ( NOUN NOUN_SINGULAR ) 
+
  betalactamasa ( NOUN NOUN_SINGULAR ) 
+
  betún ( NOUN NOUN_SINGULAR ) 
+
  bezafibrato ( NOUN NOUN_SINGULAR ) 
+
  bianual ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biblia ( NOUN NOUN_SINGULAR ) 
+
  bibliografía ( NOUN NOUN_SINGULAR ) 
+
  bibliográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bibliográfico 
+
  bibliográfico ( ) 
+
  bibliográficas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bibliográfico 
+
  bibliográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bibliográfico 
+
  biblioteca ( NOUN NOUN_SINGULAR ) 
- bibliotecarios ( NOUN NOUN_SINGULAR ) lemma=bibliotecario 
+
+ bibliotecarios ( NOUN  NOUN_PLURAL  ) lemma=bibliotecario 
+
  bibliotecario ( ) 
+
  bibraquial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bicapa ( NOUN NOUN_SINGULAR ) 
+
  bicarbonato ( NOUN NOUN_SINGULAR ) 
+
  bicatenaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bicatenario 
+
  bicatenario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bicatenarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bicatenario 
+
  bicatenarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bicatenario 
- bichito ( NOUN NOUN_SINGULAR ) lemma=bicho 
+
+ bichito ( NOUN  NOUN_PLURAL  ) lemma=bicho 
+
  bicho ( NOUN NOUN_SINGULAR ) 
- bici ( NOUN NOUN_SINGULAR ) lemma=bicicleta 
+
+ bici ( NOUN  NOUN_PLURAL  ) lemma=bicicleta 
+
  bicicleta ( NOUN NOUN_SINGULAR ) 
- bicicletita ( NOUN NOUN_SINGULAR ) lemma=bicicleta 
+
+ bicicletita ( NOUN  NOUN_PLURAL  ) lemma=bicicleta 
+
  bicipital ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bidimensional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bidimensionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bidimensional 
+
  bidimensionalmente ( ADVERB ) lemma=bidimensional 
+
  bidireccional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bidireccionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bidireccional 
+
  bidireccionalmente ( ADVERB ) lemma=bidireccional 
- bidones ( NOUN NOUN_SINGULAR ) lemma=bidón 
+
+ bidones ( NOUN  NOUN_PLURAL  ) lemma=bidón 
+
  bidón ( NOUN NOUN_SINGULAR ) 
+
  bien ( NOUN ADVERB NOUN_SINGULAR ) lemma=bien 
+
  bienal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bienales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bienal 
+
  bienestar ( NOUN NOUN_SINGULAR ) 
+
  bienio ( NOUN NOUN_SINGULAR ) 
+
  bienvenida ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bienvenido`bienvenida` ADJ  NC 
+
  bienvenidas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bienvenido`bienvenida` ADJ  NC 
+
  bienvenido ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bienvenidos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bienvenido 
+
  bifacial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bifilares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bifilar 
+
  bifilar ( ) 
+
  bifurcación ( NOUN NOUN_SINGULAR ) 
+
  bifásica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bifásico 
+
  bifásico ( ) 
+
  bigote ( NOUN NOUN_SINGULAR ) 
+
  bilateral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bilaterales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bilateral 
+
  bilateralidad ( NOUN NOUN_SINGULAR ) 
+
  bilateralmente ( ADVERB ) lemma=bilateral 
+
  bilbaíno ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bilbaíno 
+
  bilbaínos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bilbaíno 
+
  biliar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biliares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biliar 
+
  bilingües ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bilingüe 
+
  bilirrubina ( NOUN NOUN_SINGULAR ) 
+
  bilirrubinato ( NOUN NOUN_SINGULAR ) 
+
  bilis ( NOUN NOUN_SINGULAR ) 
+
  billar ( NOUN NOUN_SINGULAR ) 
+
  billete ( NOUN NOUN_SINGULAR ) 
+
  billetera ( NOUN NOUN_SINGULAR ) 
- billetito ( NOUN NOUN_SINGULAR ) lemma=billete 
- billetitos ( NOUN NOUN_SINGULAR ) lemma=billete 
+
+ billetito ( NOUN  NOUN_PLURAL  ) lemma=billete 
+
+ billetitos ( NOUN  NOUN_PLURAL  ) lemma=billete 
+
  billones ( ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER ) 
+
  billón ( NOUN ADJECTIVE ADJECTIVE_NORMAL ADJECTIVE ADJECTIVE_NUMBER NOUN NOUN_NUMBER NOUN_NODETERMINER ) 
+
  bimanual ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bimarginal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bimestral ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bimestre ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bimoleculares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bimolecular 
+
  bimolecular ( ) 
+
  bimotor ( NOUN NOUN_SINGULAR ) 
+
  binacional ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  binacionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=binacional 
+
  binaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=binario 
+
  binario ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  binarias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=binario 
+
  binarios ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=binario 
+
  binding ( NOUN NOUN_SINGULAR ) 
+
  binocular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  binomial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  binomio ( NOUN NOUN_SINGULAR ) 
+
  bioartificiale ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biocenosis ( NOUN NOUN_SINGULAR ) 
+
  biocilindro ( NOUN NOUN_SINGULAR ) 
+
  biodegradabilidad ( NOUN NOUN_SINGULAR ) 
+
  biodegradable ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biodegradables ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biodegradable 
+
  biodisco ( NOUN NOUN_SINGULAR ) 
+
  biodiversidad ( NOUN NOUN_SINGULAR ) 
+
  biofiltro ( NOUN NOUN_SINGULAR ) 
+
  biofísicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biofísico 
+
  biofísico ( ) 
+
  biogeografía ( NOUN NOUN_SINGULAR ) 
+
  biografía ( NOUN NOUN_SINGULAR ) 
+
  biográfica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biográfico 
+
  biográfico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biográficos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biográfico 
+
  biogénesis ( NOUN NOUN_SINGULAR ) 
+
  bioingeniería ( NOUN NOUN_SINGULAR ) 
+
  biología ( NOUN NOUN_SINGULAR ) 
+
  biológica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biológico 
+
  biológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biológicamente ( ADVERB ) lemma=biológico 
+
  biológicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biológico 
+
  biológicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biológico 
+
  biomasa ( NOUN NOUN_SINGULAR ) 
+
  biomatemático ( NOUN NOUN_SINGULAR ) 
+
  biombo ( NOUN NOUN_SINGULAR ) 
+
  biomolécula ( NOUN NOUN_SINGULAR ) 
+
  biomédica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biomédico 
+
  biomédico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biomédicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biomédico 
+
  biomédicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biomédico 
+
  biopelícula ( NOUN NOUN_SINGULAR ) 
+
  bioprótesis ( NOUN NOUN_SINGULAR ) 
+
  biopsia ( NOUN NOUN_SINGULAR ) 
+
  biopsiar ( VERB_INFINITIVE VERB ) 
- biopsias ( NOUN NOUN_SINGULAR ) lemma=biopsia 
+
+ biopsias ( NOUN  NOUN_PLURAL  ) lemma=biopsia 
+
  biopsicosocial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bioquímica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bioquímico`bioquímica` ADJ  NC 
+
  bioquímicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bioquímico`bioquímica` ADJ  NC 
+
  bioquímico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bioquímicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bioquímico 
+
  biorreactor ( NOUN NOUN_SINGULAR ) 
+
  bioseguridad ( NOUN NOUN_SINGULAR ) 
+
  biosensor ( NOUN NOUN_SINGULAR ) 
+
  biosfera ( NOUN NOUN_SINGULAR ) 
+
  biosintética ( NOUN NOUN_SINGULAR ) 
+
  biosintético ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biosistema ( NOUN NOUN_SINGULAR ) 
+
  biosíntesis ( NOUN NOUN_SINGULAR ) 
+
  biotecnología ( NOUN NOUN_SINGULAR ) 
+
  biotecnológico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biotina ( NOUN NOUN_SINGULAR ) 
+
  biotinilizar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
+
  biotipo ( NOUN NOUN_SINGULAR ) 
+
  biotransformación ( NOUN NOUN_SINGULAR ) 
+
  biparental ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bipartita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bipartito 
+
  bipartito ( ) 
+
  bipedestación ( NOUN NOUN_SINGULAR ) 
+
  biperópico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bipolar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bipolares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bipolar 
+
  bipotencialidad ( NOUN NOUN_SINGULAR ) 
+
  birome ( NOUN NOUN_SINGULAR ) 
+
  bis ( NOUN NOUN_SINGULAR ) 
- bisabuela ( NOUN NOUN_SINGULAR ) lemma=bisabuelo 
+
+ bisabuela ( NOUN  NOUN_PLURAL  ) lemma=bisabuelo 
+
  bisabuelo ( NOUN NOUN_SINGULAR ) 
+
  bisagra ( NOUN NOUN_SINGULAR ) 
+
  bisexual ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bishidroxicumarina ( NOUN NOUN_SINGULAR ) 
- bisnietos ( NOUN NOUN_SINGULAR ) lemma=bisnieto 
+
+ bisnietos ( NOUN  NOUN_PLURAL  ) lemma=bisnieto 
+
  bisnieto ( ) 
+
  bisturí ( NOUN NOUN_SINGULAR ) 
+
  bisutería ( NOUN NOUN_SINGULAR ) 
- bit ( NOUN NOUN_SINGULAR ) lemma=bit 
- bitios ( NOUN NOUN_SINGULAR ) lemma=bit 
+
+ bit ( NOUN  NOUN_PLURAL  ) lemma=bit 
+
+ bitios ( NOUN  NOUN_PLURAL  ) lemma=bit 
+
  bitmap ( NOUN NOUN_SINGULAR ) 
+
  bitnet ( NOUN NOUN_SINGULAR ) 
+
  bitonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  biunívoca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biunívoco 
+
  biunívoco ( ) 
+
  biunívocamente ( ADVERB ) lemma=biunívoco 
+
  bivalente ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bivalentes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bivalente 
+
  bivalva ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bivalvo 
+
  bivalvo ( ) 
+
  bizantina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bizantino 
+
  bizantino ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bizantino 
+
  bizantinas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bizantino 
+
  bizantinos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bizantino 
+
  bizca ( VERB ) lemma=bizcar 
+
  bizcar ( ) 
+
  bizco ( VERB ) lemma=bizcar 
+
  biógrafo ( NOUN NOUN_SINGULAR ) 
+
  biólogo ( NOUN NOUN_SINGULAR ) 
+
  bióticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=biótico 
+
  biótico ( ) 
+
  bióxido ( NOUN NOUN_SINGULAR ) 
+
  blah ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  blanca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blanco 
+
  blanco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=blanco 
+
  blancas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blanco 
+
  blanche ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=blanche 
+
  blancos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=blanco 
+
  blancura ( NOUN NOUN_SINGULAR ) 
+
  blanda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blando 
+
  blando ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  blandamente ( ADVERB ) lemma=blando 
+
  blandas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blando 
+
  blandir ( VERB_INFINITIVE VERB ) 
+
  blandiendo ( NOUN NOUN_GERUND ) lemma=blandir 
+
  blanditos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blando 
+
  blandos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blando 
+
  blanquear ( VERB_INFINITIVE VERB ) 
+
  blanqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=blanquear 
+
  blanqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=blanquear 
+
  blanqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=blanquear 
+
  blanqueando ( NOUN NOUN_GERUND ) lemma=blanquear 
+
  blanquiazul ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  blanquiazules ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blanquiazul 
+
  blanquita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=blanco 
+
  blasfema ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blasfemo 
+
  blasfemo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  blasfemas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=blasfemo 
+
  blasfemia ( NOUN NOUN_SINGULAR ) 
+
  blastema ( NOUN NOUN_SINGULAR ) 
+
  blastozooide ( ADJECTIVE ADJECTIVE_NORMAL ) 
- blastómeros ( NOUN NOUN_SINGULAR ) lemma=blastómero 
+
+ blastómeros ( NOUN  NOUN_PLURAL  ) lemma=blastómero 
+
  blastómero ( ) 
+
  blastóporo ( NOUN NOUN_SINGULAR ) 
+
  blindar ( VERB_INFINITIVE VERB ) 
+
  blindada ( VERB_PAST_PARTICIPLE VERB ) lemma=blindar 
+
  blindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=blindar 
+
  blindados ( VERB_PAST_PARTICIPLE VERB ) lemma=blindar 
- bloque ( NOUN NOUN_SINGULAR ) lemma=bloque 
+
+ bloque ( NOUN  NOUN_PLURAL  ) lemma=bloque 
+
  bloquear ( VERB_INFINITIVE VERB ) 
+
  bloqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=bloquear 
+
  bloqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bloquear 
- bloqueadores ( NOUN NOUN_SINGULAR ) lemma=bloqueador 
+
+ bloqueadores ( NOUN  NOUN_PLURAL  ) lemma=bloqueador 
+
  bloqueador ( ) 
+
  bloqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=bloquear 
+
  bloqueando ( NOUN NOUN_GERUND ) lemma=bloquear 
+
  bloqueantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bloqueante 
+
  bloqueante ( ) 
+
  bloquearse ( VERB_INFINITIVE VERB ) 
+
  bloquease ( VERB ) lemma=bloquear 
+
  bloqueen ( VERB ) lemma=bloquear 
+
  bloqueo ( NOUN NOUN_SINGULAR ) 
+
  blues ( NOUN NOUN_SINGULAR ) 
+
  blusa ( NOUN NOUN_SINGULAR ) 
- blusitas ( NOUN NOUN_SINGULAR ) lemma=blusa 
+
+ blusitas ( NOUN  NOUN_PLURAL  ) lemma=blusa 
+
  blástula ( NOUN NOUN_SINGULAR ) 
+
  boa ( NOUN NOUN_SINGULAR ) 
+
  boba ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bobo 
+
  bobo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bobada ( NOUN NOUN_SINGULAR ) 
+
  bobas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bobo 
+
  bobina ( NOUN NOUN_SINGULAR ) 
+
  bobinado ( NOUN NOUN_SINGULAR ) 
+
  bobos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bobo 
+
  boca ( NOUN NOUN_SINGULAR ) 
+
  bocadillo ( NOUN NOUN_SINGULAR ) 
+
  bocado ( NOUN NOUN_SINGULAR ) 
+
  bocanada ( NOUN NOUN_SINGULAR ) 
+
  boches ( VERB ) lemma=bochar 
+
  bochar ( ) 
+
  bocho ( NOUN NOUN_SINGULAR ) 
+
  bochorno ( NOUN NOUN_SINGULAR ) 
+
  bochín ( NOUN NOUN_SINGULAR ) 
+
  bocina ( NOUN VERB NOUN_SINGULAR ) lemma=`bocina`bocinar` NC  VLfin 
+
  bocinas ( NOUN VERB NOUN_SINGULAR ) lemma=`bocina`bocinar` NC  VLfin 
+
  bocio ( NOUN NOUN_SINGULAR ) 
+
  boda ( NOUN NOUN_SINGULAR ) 
+
  bodega ( NOUN NOUN_SINGULAR ) 
+
  bodegón ( NOUN NOUN_SINGULAR ) 
+
  bodoncillo ( NOUN NOUN_SINGULAR ) 
+
  bofetada ( NOUN NOUN_SINGULAR ) 
+
  bogar ( VERB_INFINITIVE VERB ) 
+
  bogrio ( NOUN NOUN_SINGULAR ) 
+
  bohemia ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bohemio`bohemia` ADJ  NC 
+
  bohemio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bohemio 
+
  boicot ( NOUN NOUN_SINGULAR ) 
+
  boicotear ( VERB_INFINITIVE VERB ) 
+
  boicoteada ( VERB_PAST_PARTICIPLE VERB ) lemma=boicotear 
+
  boicoteadas ( VERB_PAST_PARTICIPLE VERB ) lemma=boicotear 
+
  boicoteados ( VERB_PAST_PARTICIPLE VERB ) lemma=boicotear 
+
  boicoteando ( NOUN NOUN_GERUND ) lemma=boicotear 
+
  boicoteemos ( VERB ) lemma=boicotear 
+
  boicoteen ( VERB ) lemma=boicotear 
+
  boina ( NOUN NOUN_SINGULAR ) 
+
  bola ( NOUN NOUN_SINGULAR ) 
+
  bolchevique ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bolchevique 
+
  bolcheviques ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bolchevique 
+
  bolchevisto ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bolea ( VERB ) lemma=bolear 
+
  bolear ( ) 
+
  bolero ( NOUN NOUN_SINGULAR ) 
+
  boleta ( VERB ) lemma=boletar 
+
  boletar ( ) 
+
  boletas ( VERB ) lemma=boletar 
- boletines ( NOUN NOUN_SINGULAR ) lemma=boletín 
+
+ boletines ( NOUN  NOUN_PLURAL  ) lemma=boletín 
+
  boletín ( NOUN NOUN_SINGULAR ) 
- boletitos ( NOUN NOUN_SINGULAR ) lemma=boleto 
+
+ boletitos ( NOUN  NOUN_PLURAL  ) lemma=boleto 
+
  boleto ( NOUN VERB NOUN_SINGULAR ) lemma=`boleto`boletar` NC  VLfin 
+
  boliche ( NOUN NOUN_SINGULAR ) 
- bolillas ( NOUN NOUN_SINGULAR ) lemma=bola 
- bolita ( NOUN NOUN_SINGULAR ) lemma=bola 
- bolitas ( NOUN NOUN_SINGULAR ) lemma=bola 
+
+ bolillas ( NOUN  NOUN_PLURAL  ) lemma=bola 
+
+ bolita ( NOUN  NOUN_PLURAL  ) lemma=bola 
+
+ bolitas ( NOUN  NOUN_PLURAL  ) lemma=bola 
+
  bolivariano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bolivariano 
+
  boliviana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boliviano 
+
  boliviano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boliviano 
+
  bolivianas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boliviano 
+
  bolivianos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boliviano 
- bollitos ( NOUN NOUN_SINGULAR ) lemma=bollo 
+
+ bollitos ( NOUN  NOUN_PLURAL  ) lemma=bollo 
+
  bollo ( NOUN VERB NOUN_SINGULAR ) lemma=`bollo`bollar` NC  VLfin 
+
  bolo ( NOUN NOUN_SINGULAR ) 
+
  bolsa ( NOUN NOUN_SINGULAR ) 
+
  bolsillo ( NOUN NOUN_SINGULAR ) 
- bolsita ( NOUN NOUN_SINGULAR ) lemma=bolsa 
- bolsitas ( NOUN NOUN_SINGULAR ) lemma=bolsa 
+
+ bolsita ( NOUN  NOUN_PLURAL  ) lemma=bolsa 
+
+ bolsitas ( NOUN  NOUN_PLURAL  ) lemma=bolsa 
+
  bolso ( NOUN NOUN_SINGULAR ) 
- bolsones ( NOUN NOUN_SINGULAR ) lemma=bolso 
+
+ bolsones ( NOUN  NOUN_PLURAL  ) lemma=bolso 
+
  boluda ( NOUN NOUN_SINGULAR ) 
+
  boludas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=boludo 
+
  boludo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boludo 
- boludeces ( NOUN NOUN_SINGULAR ) lemma=boludez 
+
+ boludeces ( NOUN  NOUN_PLURAL  ) lemma=boludez 
+
  boludez ( ) 
- boludón ( NOUN NOUN_SINGULAR ) lemma=boludo 
+
+ boludón ( NOUN  NOUN_PLURAL  ) lemma=boludo 
+
  bolígrafo ( NOUN NOUN_SINGULAR ) 
- bolívares ( NOUN NOUN_SINGULAR ) lemma=bolívar 
+
+ bolívares ( NOUN  NOUN_PLURAL  ) lemma=bolívar 
+
  bolívar ( ) 
+
  bomba ( NOUN NOUN_SINGULAR ) 
+
  bombacha ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bombacho 
+
  bombacho ( ) 
+
  bombardear ( VERB_INFINITIVE VERB ) 
+
  bombardeada ( VERB_PAST_PARTICIPLE VERB ) lemma=bombardear 
+
  bombardeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bombardear 
+
  bombardeados ( VERB_PAST_PARTICIPLE VERB ) lemma=bombardear 
+
  bombardeando ( NOUN NOUN_GERUND ) lemma=bombardear 
+
  bombardeen ( VERB ) lemma=bombardear 
+
  bombardeo ( NOUN VERB NOUN_SINGULAR ) lemma=`bombardeo`bombardear` NC  VLfin 
+
  bombardero ( NOUN NOUN_SINGULAR ) 
+
  bombazo ( NOUN NOUN_SINGULAR ) 
+
  bombear ( VERB_INFINITIVE VERB ) 
+
  bombeada ( VERB_PAST_PARTICIPLE VERB ) lemma=bombear 
+
  bombeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bombear 
+
  bombeando ( NOUN NOUN_GERUND ) lemma=bombear 
+
  bombeo ( NOUN VERB NOUN_SINGULAR ) lemma=`bombeo`bombear` NC  VLfin 
+
  bombero ( NOUN NOUN_SINGULAR ) 
+
  bombilla ( NOUN NOUN_SINGULAR ) 
+
  bombo ( NOUN NOUN_SINGULAR ) 
- bombonas ( NOUN NOUN_SINGULAR ) lemma=bombona 
+
+ bombonas ( NOUN  NOUN_PLURAL  ) lemma=bombona 
+
  bombona ( ) 
- bombones ( NOUN NOUN_SINGULAR ) lemma=bombón 
+
+ bombones ( NOUN  NOUN_PLURAL  ) lemma=bombón 
+
  bombón ( ) 
+
  bon ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bona ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bon 
+
  bonaerense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bonaerense 
+
  bonaerenses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bonaerense 
+
  bonanza ( NOUN NOUN_SINGULAR ) 
+
  bondad ( NOUN NOUN_SINGULAR ) 
+
  bondadoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bondadosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bondadoso 
+
  bonhomía ( NOUN NOUN_SINGULAR ) 
+
  boniato ( NOUN NOUN_SINGULAR ) 
- bonificaciones ( NOUN NOUN_SINGULAR ) lemma=bonificación 
+
+ bonificaciones ( NOUN  NOUN_PLURAL  ) lemma=bonificación 
+
  bonificación ( NOUN NOUN_SINGULAR ) 
+
  boningue ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bonita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bonito 
+
  bonito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bonito 
+
  bonitas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bonito 
+
  bonitos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bonito 
+
  bono ( NOUN NOUN_SINGULAR ) 
- bonsais ( NOUN NOUN_SINGULAR ) lemma=bonsai 
+
+ bonsais ( NOUN  NOUN_PLURAL  ) lemma=bonsai 
+
  bonsai ( ) 
+
  bonus ( NOUN NOUN_SINGULAR ) 
+
  booleana ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=booleano 
+
  booleano ( ) 
+
  booleanas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=booleano 
+
  booleanos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=booleano 
+
  boom ( NOUN NOUN_SINGULAR ) 
+
  bootstrap ( NOUN NOUN_SINGULAR ) 
+
  boqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=boquear 
+
  boquear ( ) 
+
  boqueo ( VERB ) lemma=boquear 
- boquerones ( NOUN NOUN_SINGULAR ) lemma=boquerón 
+
+ boquerones ( NOUN  NOUN_PLURAL  ) lemma=boquerón 
+
  boquerón ( NOUN NOUN_SINGULAR ) 
+
  boquiabiertos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=boquiabierto 
+
  boquiabierto ( ) 
+
  boquilla ( NOUN NOUN_SINGULAR ) 
- boquita ( NOUN NOUN_SINGULAR ) lemma=boca 
+
+ boquita ( NOUN  NOUN_PLURAL  ) lemma=boca 
+
  bordar ( VERB_INFINITIVE VERB ) 
+
  bordada ( VERB_PAST_PARTICIPLE VERB ) lemma=bordar 
+
  bordadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bordar 
- bordadito ( NOUN NOUN_SINGULAR ) lemma=bordado 
+
+ bordadito ( NOUN  NOUN_PLURAL  ) lemma=bordado 
+
  bordado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`bordado`bordar` NC  VLadj 
+
  bordados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`bordado`bordar` NC  VLadj 
+
  borde ( NOUN NOUN_SINGULAR ) 
+
  bordea ( VERB ) lemma=bordear 
+
  bordear ( ) 
+
  bordeaban ( VERB ) lemma=bordear 
+
  bordeada ( VERB_PAST_PARTICIPLE VERB ) lemma=bordear 
+
  bordeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bordear 
+
  bordeados ( VERB_PAST_PARTICIPLE VERB ) lemma=bordear 
+
  bordean ( VERB ) lemma=bordear 
+
  bordeando ( NOUN NOUN_GERUND ) lemma=bordear 
+
  bordearla (                 VERB ) lemma=bordear 
+
  bordearon ( VERB ) lemma=bordear 
+
  bordes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=borde 
+
  bordeó ( VERB ) lemma=bordear 
- bordillos ( NOUN NOUN_SINGULAR ) lemma=borde 
+
+ bordillos ( NOUN  NOUN_PLURAL  ) lemma=borde 
+
  bordo ( NOUN NOUN_SINGULAR ) 
+
  bordón ( NOUN NOUN_SINGULAR ) 
+
  boreal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  boreales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=boreal 
+
  boricua ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boricua 
+
  boricuas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=boricua 
- bornes ( NOUN NOUN_SINGULAR ) lemma=borne 
+
+ bornes ( NOUN  NOUN_PLURAL  ) lemma=borne 
+
  borne ( ) 
+
  boro ( NOUN NOUN_SINGULAR ) 
+
  borrar ( VERB_INFINITIVE VERB ) 
+
  borracha ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=borracho 
+
  borracho ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=borracho 
+
  borrachera ( NOUN NOUN_SINGULAR ) 
+
  borrachos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=borracho 
+
  borrada ( VERB_PAST_PARTICIPLE VERB ) lemma=borrar 
+
  borradas ( VERB_PAST_PARTICIPLE VERB ) lemma=borrar 
+
  borrador ( NOUN NOUN_SINGULAR ) 
+
  borrados ( VERB_PAST_PARTICIPLE VERB ) lemma=borrar 
+
  borrando ( NOUN NOUN_GERUND ) lemma=borrar 
+
  borrarla (                 VERB ) lemma=borrar 
+
  borrarlo (                 VERB ) lemma=borrar 
+
  borrarlos (                 VERB ) lemma=borrar 
+
  borrasca ( NOUN NOUN_SINGULAR ) 
+
  borrase ( VERB ) lemma=borrar 
+
  borrasen ( VERB ) lemma=borrar 
+
  borrego ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=borrego 
+
  borregos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=borrego 
+
  borren ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=borrar 
- borrica ( NOUN NOUN_SINGULAR ) lemma=borrico 
+
+ borrica ( NOUN  NOUN_PLURAL  ) lemma=borrico 
+
  borrico ( ) 
+
  borrosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=borroso 
+
  borroso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  borrosidad ( NOUN NOUN_SINGULAR ) 
+
  borrosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=borroso 
+
  borréis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=borrar 
+
  borrón ( NOUN NOUN_SINGULAR ) 
+
  bosnia ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bosnio 
+
  bosnio ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bosnio 
+
  bosnias ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bosnio 
+
  bosnios ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bosnio 
+
  bosque ( NOUN NOUN_SINGULAR ) 
- bosquecillo ( NOUN NOUN_SINGULAR ) lemma=bosque 
- bosquecillos ( NOUN NOUN_SINGULAR ) lemma=bosque 
- bosquecito ( NOUN NOUN_SINGULAR ) lemma=bosque 
+
+ bosquecillo ( NOUN  NOUN_PLURAL  ) lemma=bosque 
+
+ bosquecillos ( NOUN  NOUN_PLURAL  ) lemma=bosque 
+
+ bosquecito ( NOUN  NOUN_PLURAL  ) lemma=bosque 
+
  bosqueja ( VERB ) lemma=bosquejar 
+
  bosquejar ( ) 
+
  bosquejada ( VERB_PAST_PARTICIPLE VERB ) lemma=bosquejar 
+
  bosquejadas ( VERB_PAST_PARTICIPLE VERB ) lemma=bosquejar 
+
  bosquejado ( VERB_PAST_PARTICIPLE VERB ) lemma=bosquejar 
+
  bosquejan ( VERB ) lemma=bosquejar 
+
  bosquejaremos ( VERB ) lemma=bosquejar 
+
  bosquejo ( VERB ) lemma=bosquejar 
+
  bosquejó ( VERB ) lemma=bosquejar 
+
  bostezar ( VERB_INFINITIVE VERB ) 
+
  bostezo ( NOUN VERB NOUN_SINGULAR ) lemma=`bostezo`bostezar` NC  VLfin 
+
  bota ( NOUN VERB NOUN_SINGULAR ) lemma=`bota`botar` NC  VLfin 
+
  botar ( VERB_INFINITIVE VERB ) 
+
  botada ( VERB_PAST_PARTICIPLE VERB ) lemma=botar 
+
  botas ( NOUN VERB NOUN_SINGULAR ) lemma=`bota`botar` NC  VLfin 
+
  boté ( NOUN VERB NOUN_SINGULAR ) lemma=`bote`botar` NC  VLfin 
- botecito ( NOUN NOUN_SINGULAR ) lemma=boté 
+
+ botecito ( NOUN  NOUN_PLURAL  ) lemma=boté 
+
  botella ( NOUN NOUN_SINGULAR ) 
- botellita ( NOUN NOUN_SINGULAR ) lemma=botella 
- botellones ( NOUN NOUN_SINGULAR ) lemma=botellón 
+
+ botellita ( NOUN  NOUN_PLURAL  ) lemma=botella 
+
+ botellones ( NOUN  NOUN_PLURAL  ) lemma=botellón 
+
  botellón ( NOUN NOUN_SINGULAR ) 
+
  botes ( NOUN VERB NOUN_SINGULAR ) lemma=`bote`botar` NC  VLfin 
+
  boticario ( NOUN NOUN_SINGULAR ) 
+
  botiguer ( NOUN NOUN_SINGULAR ) 
+
  botija ( NOUN NOUN_SINGULAR ) 
- botines ( NOUN NOUN_SINGULAR ) lemma=botín 
+
+ botines ( NOUN  NOUN_PLURAL  ) lemma=botín 
+
  botín ( NOUN NOUN_SINGULAR ) 
+
  botiquín ( NOUN NOUN_SINGULAR ) 
- botita ( NOUN NOUN_SINGULAR ) lemma=bota 
- botitas ( NOUN NOUN_SINGULAR ) lemma=bota 
- botoncito ( NOUN NOUN_SINGULAR ) lemma=botón 
+
+ botita ( NOUN  NOUN_PLURAL  ) lemma=bota 
+
+ botitas ( NOUN  NOUN_PLURAL  ) lemma=bota 
+
+ botoncito ( NOUN  NOUN_PLURAL  ) lemma=botón 
+
  botón ( NOUN NOUN_SINGULAR ) 
- botoncitos ( NOUN NOUN_SINGULAR ) lemma=botón 
- botones ( NOUN NOUN_SINGULAR ) lemma=botón 
+
+ botoncitos ( NOUN  NOUN_PLURAL  ) lemma=botón 
+
+ botones ( NOUN  NOUN_PLURAL  ) lemma=botón 
+
  botonoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  botulismo ( NOUN NOUN_SINGULAR ) 
+
  botulínica ( NOUN NOUN_SINGULAR ) 
+
  botánico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  boutique ( NOUN NOUN_SINGULAR ) 
- bovedilla ( NOUN NOUN_SINGULAR ) lemma=bóveda 
+
+ bovedilla ( NOUN  NOUN_PLURAL  ) lemma=bóveda 
+
  bóveda ( NOUN NOUN_SINGULAR ) 
+
  bovina ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bovino 
+
  bovino ( ) 
+
  boxear ( VERB_INFINITIVE VERB ) 
+
  boxeador ( NOUN NOUN_SINGULAR ) 
+
  boxeando ( NOUN NOUN_GERUND ) lemma=boxear 
+
  boxeo ( NOUN VERB NOUN_SINGULAR ) lemma=`boxeo`boxear` NC  VLfin 
+
  boyas ( VERB ) lemma=boyar 
+
  boyar ( ) 
+
  bradiarritmia ( NOUN NOUN_SINGULAR ) 
+
  bradicardia ( NOUN NOUN_SINGULAR ) 
+
  bradiquinina ( NOUN NOUN_SINGULAR ) 
+
  bragueta ( NOUN NOUN_SINGULAR ) 
+
  branquial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  branquiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=branquial 
+
  braquial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  braquiocefálica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=braquiocefálico 
+
  braquiocefálico ( ) 
+
  braquiocefálicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=braquiocefálico 
+
  brasa ( NOUN NOUN_SINGULAR ) 
- braserito ( NOUN NOUN_SINGULAR ) lemma=brasero 
+
+ braserito ( NOUN  NOUN_PLURAL  ) lemma=brasero 
+
  brasero ( NOUN NOUN_SINGULAR ) 
+
  brasilera ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasilero 
+
  brasilero ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasilero 
+
  brasileras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasilero 
+
  brasileña ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasileño 
+
  brasileño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasileño 
+
  brasileñas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasileño 
+
  brasileños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brasileño 
+
  brava ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bravo 
+
  bravo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=bravo 
+
  bravas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bravo 
+
  bravos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bravo 
+
  bravucón ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bravucón 
+
  bravío ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  brazo ( NOUN NOUN_SINGULAR ) 
+
  brazo-pierna ( NOUN NOUN_SINGULAR ) 
+
  brea ( NOUN VERB NOUN_SINGULAR ) lemma=`brea`brear` NC  VLfin 
+
  brebaje ( NOUN NOUN_SINGULAR ) 
+
  brecha ( NOUN NOUN_SINGULAR ) 
+
  brega ( VERB ) lemma=bregar 
+
  bregar ( ) 
+
  bregan ( VERB ) lemma=bregar 
+
  bregma ( NOUN NOUN_SINGULAR ) 
+
  bregó ( VERB ) lemma=bregar 
+
  bretona ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bretón 
+
  bretón ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bretón 
+
  bretonas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bretón 
+
  bretones ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bretón 
+
  breve ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  brevedad ( NOUN NOUN_SINGULAR ) 
+
  brevemente ( ADVERB ) lemma=breve 
+
  breves ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
+
  brevísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
+
  brevísimamente ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
+
  brevísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
+
  brevísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
+
  brevísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=breve 
- brezales ( NOUN NOUN_SINGULAR ) lemma=brezal 
+
+ brezales ( NOUN  NOUN_PLURAL  ) lemma=brezal 
+
  brezal ( ) 
+
  brida ( NOUN NOUN_SINGULAR ) 
+
  bridge ( NOUN NOUN_SINGULAR ) 
+
  brigada ( NOUN NOUN_SINGULAR ) 
+
  brillar ( VERB_INFINITIVE VERB ) 
+
  brillando ( NOUN NOUN_GERUND ) lemma=brillar 
+
  brillante ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  brillantemente ( ADVERB ) lemma=brillante 
+
  brillantes ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brillante 
+
  brillantez ( NOUN NOUN_SINGULAR ) 
+
  brillantísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brillante 
+
  brillantísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brillante 
+
  brillen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brillar 
+
  brillo ( NOUN VERB NOUN_SINGULAR ) lemma=`brillo`brillar` NC  VLfin 
+
  brincar ( VERB_INFINITIVE VERB ) 
+
  brindar ( VERB_INFINITIVE VERB ) 
+
  brindada ( VERB_PAST_PARTICIPLE VERB ) lemma=brindar 
+
  brindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=brindar 
+
  brindados ( VERB_PAST_PARTICIPLE VERB ) lemma=brindar 
+
  brindando ( NOUN NOUN_GERUND ) lemma=brindar 
+
  brindarla (                 VERB ) lemma=brindar 
+
  brindarle (                 VERB ) lemma=brindar 
+
  brindarles (                 VERB ) lemma=brindar 
+
  brindarme (                 VERB ) lemma=brindar 
+
  brindarnos (                 VERB ) lemma=brindar 
+
  brindasen ( VERB ) lemma=brindar 
+
  brindemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brindar 
+
  brinden ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brindar 
+
  brindis ( NOUN NOUN_SINGULAR ) 
+
  brindándole ( NOUN NOUN_GERUND ) lemma=brindar 
+
  brindándoles ( NOUN NOUN_GERUND ) lemma=brindar 
+
  brindándonos ( NOUN NOUN_GERUND ) lemma=brindar 
+
  brisa ( NOUN NOUN_SINGULAR ) 
+
  brisca ( VERB ) lemma=briscar 
+
  briscar ( ) 
+
  británica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=británico 
+
  británico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=británico 
+
  británicas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=británico 
+
  británicos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=británico 
+
  brizna ( NOUN NOUN_SINGULAR ) 
+
  brocha ( NOUN NOUN_SINGULAR ) 
+
  broche ( NOUN NOUN_SINGULAR ) 
+
  broglie ( NOUN NOUN_SINGULAR ) 
+
  broma ( NOUN VERB NOUN_SINGULAR ) lemma=`broma`bromar` NC  VLfin 
+
  bromados ( VERB_PAST_PARTICIPLE VERB ) lemma=bromar 
+
  bromar ( ) 
+
  bromas ( NOUN VERB NOUN_SINGULAR ) lemma=`broma`bromar` NC  VLfin 
+
  bromato ( NOUN NOUN_SINGULAR ) 
+
  bromear ( VERB_INFINITIVE VERB ) 
+
  bromeando ( NOUN NOUN_GERUND ) lemma=bromear 
+
  bromelina ( NOUN NOUN_SINGULAR ) 
- bromitas ( NOUN NOUN_SINGULAR ) lemma=broma 
+
+ bromitas ( NOUN  NOUN_PLURAL  ) lemma=broma 
+
  bromocriptina ( NOUN NOUN_SINGULAR ) 
+
  bromosulftaleína ( NOUN NOUN_SINGULAR ) 
+
  bromuro ( NOUN NOUN_SINGULAR ) 
+
  bronca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bronco`bronca` ADJ  NC 
+
  broncas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`bronco`bronca` ADJ  NC 
+
  bronce ( NOUN NOUN_SINGULAR ) 
+
  bronceada ( VERB_PAST_PARTICIPLE VERB ) lemma=broncear 
+
  broncear ( ) 
+
  bronceado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=broncearse 
+
  broncearse ( ) 
+
  bronceador ( NOUN NOUN_SINGULAR ) 
+
  bronco ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  broncoconstricción ( NOUN NOUN_SINGULAR ) 
+
  broncodilatador ( NOUN NOUN_SINGULAR ) 
+
  broncodilatadoro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  broncodisplasia ( NOUN NOUN_SINGULAR ) 
+
  broncoespasmo ( NOUN NOUN_SINGULAR ) 
+
  broncografía ( NOUN NOUN_SINGULAR ) 
+
  broncopatía ( NOUN NOUN_SINGULAR ) 
+
  broncopleural ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  broncopulmonar ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  broncos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bronco 
+
  broncoscopio ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bronquial ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bronquiales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bronquial 
+
  bronquiectasia ( NOUN NOUN_SINGULAR ) 
+
  bronquio ( NOUN NOUN_SINGULAR ) 
- bronquiolos ( NOUN NOUN_SINGULAR ) lemma=bronquiolo 
+
+ bronquiolos ( NOUN  NOUN_PLURAL  ) lemma=bronquiolo 
+
  bronquiolo ( ) 
+
  bronquitis ( NOUN NOUN_SINGULAR ) 
+
  bronquíolo ( NOUN NOUN_SINGULAR ) 
+
  bronquítico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  brotar ( VERB_INFINITIVE VERB ) 
+
  broté ( NOUN VERB NOUN_SINGULAR ) lemma=`brote`brotar` NC  VLfin 
+
  brotes ( NOUN VERB NOUN_SINGULAR ) lemma=`brote`brotar` NC  VLfin 
+
  browse ( NOUN NOUN_SINGULAR ) 
+
  bruja ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin 
+
  brujas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin 
+
  brujería ( NOUN NOUN_SINGULAR ) 
+
  brujita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brujo 
+
  brujo ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin 
+
  brujos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brujo 
+
  bruma ( NOUN VERB NOUN_SINGULAR ) lemma=`bruma`brumar` NC  VLfin 
+
  brumas ( NOUN VERB NOUN_SINGULAR ) lemma=`bruma`brumar` NC  VLfin 
+
  brusca ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brusco 
+
  brusco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=brusco 
+
  bruscamente ( ADVERB ) lemma=brusco 
+
  bruscas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brusco 
+
  bruscos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brusco 
+
  brusquedad ( NOUN NOUN_SINGULAR ) 
+
  bruta ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bruto 
+
  bruto ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bruto 
+
  brutal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  brutales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=brutal 
+
  brutalidad ( NOUN NOUN_SINGULAR ) 
+
  brutalmente ( ADVERB ) lemma=brutal 
+
  brutas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bruto 
+
  brutito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bruto 
+
  brutos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bruto 
+
  brío ( NOUN NOUN_SINGULAR ) 
+
  brújula ( NOUN NOUN_SINGULAR ) 
+
  bu ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  buba ( NOUN NOUN_SINGULAR ) 
+
  bucal ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bucales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bucal 
+
  bucea ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  bucear ( ) 
+
  buceadores ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=buceador 
+
  buceador ( ) 
+
  buceo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  buchito ( NOUN NOUN_SINGULAR ) 
+
  bucle ( NOUN NOUN_SINGULAR ) 
+
  budista ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=budisto 
+
  budisto ( ) 
+
  budistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=budisto 
+
  buen ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  bueno ( ADJECTIVE ADJECTIVE_NORMAL HAS_SUBSTITUTE ) lemma=bueno 
+
  buena ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenamente ( ADVERB ) lemma=bueno 
+
  buenas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenazo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  buenecilla ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenecito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenita ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
- buenosmozos ( NOUN NOUN_SINGULAR ) lemma=buenmozo 
+
+ buenosmozos ( NOUN  NOUN_PLURAL  ) lemma=buenmozo 
+
  buenmozo ( ) 
+
  buenísima ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenísimas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenísimo ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buenísimos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bueno 
+
  buey ( NOUN NOUN_SINGULAR ) 
+
  bufanda ( NOUN NOUN_SINGULAR ) 
+
  bufandas ( NOUN NOUN_SINGULAR NOUN_GERUND ) lemma=`bufanda`bufar` NC  VLger 
+
  bufete ( NOUN NOUN_SINGULAR ) 
+
  buffer ( NOUN NOUN_SINGULAR ) 
+
  buitre ( NOUN NOUN_SINGULAR ) 
+
  bujes ( NOUN NOUN_SINGULAR ) 
+
  bujía ( NOUN NOUN_SINGULAR ) 
+
  bulbares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bulbar 
+
  bulbar ( ) 
+
  bulbo ( NOUN NOUN_SINGULAR ) 
+
  bulbocavernoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bulboso ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bulboventricular ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bulbus ( NOUN NOUN_SINGULAR ) 
+
  bulevar ( NOUN NOUN_SINGULAR ) 
+
  bulimia ( NOUN NOUN_SINGULAR ) 
+
  bulldozer ( NOUN NOUN_SINGULAR ) 
+
  bulliciosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bullicioso 
+
  bullicioso ( ) 
+
  bulliciosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bullicioso 
+
  bulto ( NOUN NOUN_SINGULAR ) 
+
  buque ( NOUN NOUN_SINGULAR ) 
+
  burbuja ( NOUN NOUN_SINGULAR ) 
+
  burda ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burdo 
+
  burdo ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  burdamente ( ADVERB ) lemma=burdo 
+
  burdas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burdo 
+
  bureau ( NOUN NOUN_SINGULAR ) 
+
  bureta ( NOUN NOUN_SINGULAR ) 
+
  burgalesa ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burgalés 
+
  burgalés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burgalés 
+
  burguesa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burgués 
+
  burgués ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burgués 
+
  burguesas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burgués 
+
  burgueses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burgués 
+
  burguesía ( NOUN NOUN_SINGULAR ) 
+
  burgundio ( NOUN NOUN_SINGULAR ) 
+
  burla ( NOUN VERB NOUN_SINGULAR ) lemma=`burla`burlar` NC  VLfin 
+
  burlada ( VERB_PAST_PARTICIPLE VERB ) lemma=burlar 
+
  burlar ( VERB_INFINITIVE VERB ) 
+
  burlado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=burlarse 
+
  burlarse ( VERB_INFINITIVE VERB ) 
+
  burlados ( VERB_PAST_PARTICIPLE VERB ) lemma=burlar 
+
  burlando ( NOUN NOUN_GERUND ) lemma=burlar 
+
  burlas ( NOUN VERB NOUN_SINGULAR ) lemma=`burla`burlar` NC  VLfin 
+
  burlen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=burlar 
+
  burlescas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burlesco 
+
  burlesco ( ) 
+
  burlona ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burlón 
+
  burlón ( ) 
+
  burlándose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=burlarse 
+
  burocracia ( NOUN NOUN_SINGULAR ) 
+
  burocratizada ( VERB_PAST_PARTICIPLE VERB ) lemma=burocratizar 
+
  burocratizar ( VERB_INFINITIVE VERB ) 
+
  burocrática ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burocrático 
+
  burocrático ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  burocráticamente ( ADVERB ) lemma=burocrático 
+
  burocráticas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burocrático 
+
  burocráticos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=burocrático 
+
  burofax ( NOUN NOUN_SINGULAR ) 
+
  burra ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burro 
+
  burro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burro 
+
  burrita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burro 
+
  burros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=burro 
+
  bursátil ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bursátiles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bursátil 
- buró ( NOUN NOUN_SINGULAR ) lemma=bureau 
+
+ buró ( NOUN  NOUN_PLURAL  ) lemma=bureau 
+
  burócrata ( NOUN NOUN_SINGULAR ) 
+
  buscar ( VERB_INFINITIVE VERB ) 
+
  buscad ( VERB ) lemma=buscar 
+
  buscadá ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
+
  buscadás ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
+
  buscador ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=buscador 
+
  buscados ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
+
  buscando ( NOUN NOUN_GERUND ) lemma=buscar 
+
  buscarla (                 VERB ) lemma=buscar 
+
  buscarle (                 VERB ) lemma=buscar 
+
  buscarles (                 VERB ) lemma=buscar 
+
  buscarlo (                 VERB ) lemma=buscar 
+
  buscarlos (                 VERB ) lemma=buscar 
+
  buscarme (                 VERB ) lemma=buscar 
+
  buscarse ( VERB_INFINITIVE VERB ) 
+
  buscarte (                 VERB ) lemma=buscar 
+
  buscas ( NOUN VERB NOUN_SINGULAR ) lemma=`busca`buscar` NC  VLfin 
+
  buscasé ( VERB ) lemma=buscar 
+
  buscasen ( VERB ) lemma=buscar 
+
  buscándola ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
+
  buscándolos ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
+
  buscándose ( VERB_PAST_PARTICIPLE VERB ) lemma=buscar 
- buses ( NOUN NOUN_SINGULAR ) lemma=bus 
+
+ buses ( NOUN  NOUN_PLURAL  ) lemma=bus 
+
  bus ( ) 
+
  busesito ( NOUN NOUN_SINGULAR ) 
+
  busque ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=buscar 
+
  busquemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=buscar 
+
  busquen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=buscar 
+
  busques ( VERB ) lemma=buscar 
+
  busqué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=buscar 
+
  busto ( NOUN NOUN_SINGULAR ) 
+
  butaca ( NOUN NOUN_SINGULAR ) 
+
  butano ( NOUN NOUN_SINGULAR ) 
- butaquita ( NOUN NOUN_SINGULAR ) lemma=butaca 
+
+ butaquita ( NOUN  NOUN_PLURAL  ) lemma=butaca 
+
  butirato ( NOUN NOUN_SINGULAR ) 
+
  butírico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  buzo ( NOUN VERB NOUN_SINGULAR ) lemma=`buzo`buzar` NC  VLfin 
- buzones ( NOUN NOUN_SINGULAR ) lemma=buzón 
+
+ buzones ( NOUN  NOUN_PLURAL  ) lemma=buzón 
+
  buzón ( NOUN NOUN_SINGULAR ) 
+
  bye ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
+
  byte ( NOUN NOUN_SINGULAR ) 
+
  bytecode ( NOUN NOUN_SINGULAR ) 
+
  bájame ( ) lemma=bajar 
+
  bájate ( ) lemma=bajar 
+
  báltica ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=báltico 
+
  báltico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=báltico 
+
  bálticas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=báltico 
+
  bálticos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=báltico 
+
  bárbara ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bárbaro 
+
  bárbaro ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bárbaramente ( ADVERB ) lemma=bárbaro 
+
  bárbaras ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bárbaro 
+
  bárbaros ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bárbaro 
+
  báscula ( NOUN NOUN_SINGULAR ) 
+
  básica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=básico 
+
  básico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  básicamente ( ADVERB HAS_SUBSTITUTE ) lemma=básico 
+
  básicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=básico 
+
  básicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=básico 
- básquetbol ( NOUN NOUN_SINGULAR ) lemma=basketball 
+
+ básquetbol ( NOUN  NOUN_PLURAL  ) lemma=basketball 
+
  basketball ( ) 
+
  bávara ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bávaro 
+
  bávaro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bávaro 
+
  bávaros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=bávaro 
- béisbol ( NOUN NOUN_SINGULAR ) lemma=baseball 
+
+ béisbol ( NOUN  NOUN_PLURAL  ) lemma=baseball 
+
  baseball ( ) 
+
  bélica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bélico 
+
  bélico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bélicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bélico 
+
  bélicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bélico 
+
  bésense ( ) lemma=besarse 
+
  besarse ( ) 
+
  bíblica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bíblico 
+
  bíblico ( ADJECTIVE ADJECTIVE_NORMAL ) 
+
  bíblicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bíblico 
+
  bíblicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bíblico 
+
  bíceps ( NOUN NOUN_SINGULAR ) 
+
  bífida ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=bífido 
+
  bífido ( ) 
- bípedos ( NOUN NOUN_SINGULAR ) lemma=bípedo 
+
+ bípedos ( NOUN  NOUN_PLURAL  ) lemma=bípedo 
+
  bípedo ( ) 
- búfalo ( NOUN NOUN_SINGULAR ) lemma=`búfalo`bufar` NC  VCLIfin 
- búfalos ( NOUN NOUN_SINGULAR ) lemma=`búfalo`bufar` NC  VCLIfin 
+
+ búfalo ( NOUN  NOUN_PLURAL  ) lemma=`búfalo`bufar` NC  VCLIfin 
+
+ búfalos ( NOUN  NOUN_PLURAL  ) lemma=`búfalo`bufar` NC  VCLIfin 
+
  búho ( NOUN NOUN_SINGULAR ) 
+
  búlgara ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=búlgaro 
+
  búlgaro ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=búlgaro 
+
  búlgaras ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=búlgaro 
+
  búlgaros ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=búlgaro 
+
  búscalo ( ) lemma=buscar 
+
  búscame ( ) lemma=buscar 
+
  búscate ( ) lemma=buscar 
+
  búsqueda ( NOUN NOUN_SINGULAR ) 
+
  búsquese ( VERB ) lemma=buscar 
+
  Buenos_Aires ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Buenos~Aires 
+
  Buenos~Aires ( ) 
+
  Burkina_Faso ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Burkina~Faso 
+
  Burkina~Faso ( ) 
+
  bueno|mejor ( ) 
+
  boarding ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=abordar 
+
  boring ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=aburrir 
+
  bringing_near(er) ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma= 
+
  bringing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=traer 
+
  being_accustomed_to ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=soler 
+
  being_thankful_for ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=agradecer 
+
  being_glad ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=alegrarse 
+
  be_eager_foring ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=anhelar 
+
  be ( ) 
+
  betting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=apostar 
+
  being_too_tight ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=apretar 
+
  breathing_in ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=aspirar 
+
  breathing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=respirar 
+
  being_frightened ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=asustarse 
+
  búrlate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=burlarse 
+
  búrlese ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=burlarse 
+
  búrlense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=burlarse 
+
  bajaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bajar 
+
  bajéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bajar 
+
  bajáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bajar 
+
  bajareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bajar 
+
  bajaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bajar 
+
  bañaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bañar 
+
  bañemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bañar 
+
  bañéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bañar 
+
  bañen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bañar 
+
  bañáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bañar 
+
  bañareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bañar 
+
  bañaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bañar 
+
  bañándose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=bañarse 
+
  báñate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bañarse 
+
  báñese ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=bañarse 
+
  báñense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bañarse 
+
  barreréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=barrer 
+
  barrí ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=barrer 
+
  barramos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=barrer 
+
  barráis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=barrer 
+
  barran ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=barrer 
+
  barrieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=barrer 
+
  barriéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=barrer 
+
  barriereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=barrer 
+
  barrieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=barrer 
+
  batiréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=batir 
+
  batamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=batir 
+
  batáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=batir 
+
  batan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=batir 
+
  batiere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=batir 
+
  batiéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=batir 
+
  batiereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=batir 
+
  batieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=batir 
+
  beating ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=batir 
+
  bautizaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bautizar 
+
  bauticé ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bautizar 
+
  bautice ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bautizar 
+
  bauticemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bautizar 
+
  bauticéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bautizar 
+
  bauticen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bautizar 
+
  bautizáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bautizar 
+
  bautizareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bautizar 
+
  bautizaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bautizar 
+
  baptizing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bautizar 
+
  beberéis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=beber 
+
  bebáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=beber 
+
  bebieé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=beber 
+
  bebiéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=beber 
+
  bebiereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=beber 
+
  bebieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=beber 
+
  bendigo ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendeciréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bendecir 
+
  bendije ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendijimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bendecir 
+
  bendijisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bendecir 
+
  bendijeron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bendecir 
+
  bendigamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bendecir 
+
  bendigáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bendecir 
+
  bendigan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bendecir 
+
  bendijere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bendecir 
+
  bendijéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bendecir 
+
  bendijereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bendecir 
+
  bendijeren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bendecir 
+
  blessing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bendecir 
+
  bordaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bordar 
+
  bordemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bordar 
+
  bordéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bordar 
+
  borden ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bordar 
+
  bordáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bordar 
+
  bordareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bordar 
+
  bordaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bordar 
+
  borraréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=borrar 
+
  borremos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=borrar 
+
  borráremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=borrar 
+
  borrareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=borrar 
+
  borraren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=borrar 
+
  brillaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brillar 
+
  brillemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brillar 
+
  brilléis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brillar 
+
  brilláremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brillar 
+
  brillareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brillar 
+
  brillaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=brillar 
+
  brindaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brindar 
+
  brindéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brindar 
+
  brindáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=brindar 
+
  brindareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=brindar 
+
  brindaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=brindar 
+
  bronceándose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=broncearse 
+
  broncéate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=broncearse 
+
  broncéese ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=broncearse 
+
  broncéense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=broncearse 
+
  buceamos ( VERB_PRESENT VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bucear 
+
  buceáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  bucean ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bucear 
+
  buceando ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  buceado ( NOUN VERB NOUN_GERUND ) lemma=bucear 
+
  bucearé ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  buceará ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma=bucear 
+
  bucearemos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bucear 
+
  bucearéis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  bucearán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bucear 
+
  buceé ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  buceó ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=bucear 
+
  buceasteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  bucearon ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=bucear 
+
  bucee ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  buceemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bucear 
+
  buceéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  buceen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bucear 
+
  buceare ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=bucear 
+
  buceáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bucear 
+
  buceareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bucear 
+
  bucearen ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bucear 
+
  burlaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=burlar 
+
  burlemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=burlar 
+
  burléis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=burlar 
+
  burláremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=burlar 
+
  burlareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=burlar 
+
  burlaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=burlar 
+
  buscaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=buscar 
+
  busquéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=buscar 
+
  buscáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=buscar 
+
  buscareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=buscar 
+
  buscaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=buscar 
+
  brushing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=cepillar 
+
  beginning ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=empezar 
+
  buying ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=comprar 
+
  building ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=construir 
+
  believing ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=creer 
+
  blaming ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=culpar 
+
  being_unthankful_for ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=desagradecer 
+
  burning ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=quemar 
+
  boiling ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=hervir 
+
  boasting ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=jactarse 
+
  barking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=ladrar 
+
  being_named ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=llamarse 
+
  bothering ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=molestar 
+
  being_born ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=nacer 
+
  belonging ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=pertenecer 
+
  being_able ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=poder 
+
  breaking ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=romper 
+
  burning_up ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=quemarse 
+
  being_reborn ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=renacer 
+
  being_worth ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=valer 
+
  besaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=besar 
+
  besemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=besar 
+
  beséis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=besar 
+
  besáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=besar 
+
  besareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=besar 
+
  besaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=besar 
+
  bailaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bailar 
+
  bailemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bailar 
+
  bailéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bailar 
+
  bailen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bailar 
+
  bailáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=bailar 
+
  bailareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=bailar 
+
  bailaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=bailar 
+
  bellamente ( ADVERB ) 
+

@@ -41,6 +41,7 @@ BINARIES/treetagger.lib
 *.sdf
 *.tlog
 *.user
+*.bin
 
 # ignore local user settings for Visual Studio 2015/2017
 VS2015/.vs/
