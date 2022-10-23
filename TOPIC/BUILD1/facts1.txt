@@ -2,6 +2,4 @@
 $cs_language=UNIVERSAL
 #`end variables
 --dict
-( harry~l1 defaultbot~l1 defaultbot~l1 x00100001 )
---dead
---lang
+( harry defaultbot defaultbot x00100000 )

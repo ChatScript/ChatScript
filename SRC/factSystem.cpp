@@ -54,14 +54,7 @@ FACT* Index2Fact(FACTOID e)
 	if (e)
 	{
 		F =  e + factBase;
-		if (F > lastFactUsed)
-		{
-			char buf[MAX_WORD_SIZE];
-			strcpy(buf, StdIntOutput(lastFactUsed - factBase));
-			ReportBug((char*)"Illegal fact index %d last:%s ", e, buf);;
-			F = NULL;
-		}
-	}
+ 	}
 	return F;
 }
 
@@ -1598,7 +1591,6 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	if (planning) currentFact->flags |= FACTTRANSIENT;
 	if (currentFact->flags & FACTBOOT) 
 		bootFacts = true;
-
 	if (trace & TRACE_FACT && CheckTopicTrace())
 	{
 		char* limit;
@@ -1677,6 +1669,11 @@ static char* WriteField(MEANING& T, uint64 flags,char* buffer,bool ignoreDead, b
     else 
 	{
 		WORDP D = Meaning2Word(T);
+		if (!D)
+		{
+			*buffer = 0;
+			return buffer; //   cancels print
+		}
 		if (SUPERCEDED(D))
 		{
 			unsigned int oldlang = language_bits;
@@ -1686,7 +1683,7 @@ static char* WriteField(MEANING& T, uint64 flags,char* buffer,bool ignoreDead, b
 			T |= MakeMeaning(D);
 			language_bits = oldlang;
 		}
-		if (D->internalBits & (INTERNAL_MARK|DELETED_MARK) && !ignoreDead) // a deleted field
+		if ( D->internalBits & (INTERNAL_MARK|DELETED_MARK) && !ignoreDead) // a deleted field
 		{
 			*buffer = 0;
 			return buffer; //   cancels print
@@ -2057,6 +2054,7 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 		int stamp = atoi(readBuffer);
 		if (stamp != CHECKSTAMPRAW)
 		{
+			fclose(in);
 			EraseTopicFiles(0, "0");
 			EraseTopicFiles(1, "1");
 			printf("Erase your TOPIC folder, rerun CS and recompile your bot. Data formats have changed\r\n");
@@ -2086,6 +2084,15 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			ptr = ReadToken(ptr, word);
 			unsigned int index = atoi(word);
 			FACT* F = Index2Fact(index);
+			if (F > lastFactUsed) // level 1 being loaded on a level 0 that changed
+			{
+				fclose(in);
+				EraseTopicFiles(BUILD1, "1");
+				EraseTopicBin(BUILD1, (char*)"1");
+				char buf[MAX_WORD_SIZE];
+				strcpy(buf, StdIntOutput(lastFactUsed - factBase));
+				ReportBug((char*)"FATAL: Illegal fact index %d last:%s  Level 0 changed. Recompile your level 1 file. ", index, buf);
+			}
 			if (F)
 			{
 				unsigned int flags = F->flags & (-1 ^ FACTLANGUAGEBITS);
@@ -2094,6 +2101,7 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			}
 			else
 			{
+				fclose(in);
 				ReportBug("fact missing %s %s", word, ptr);
 				return false;
 			}

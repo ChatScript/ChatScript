@@ -1,6 +1,6 @@
 # ChatScript Advanced User's Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 10/24/2022 cs12.31
 
 
 # ADVANCED OUTPUT
@@ -241,9 +241,16 @@ override this if you define `$cs_looplimit` to have some value you prefer.
 ## `^loop`( n )
 
 Loop can be given a count. This can be either a number,  function call that results in a number, or you can use a factset id to
-loop through each item of the factset via
+loop through each item of the factset via `^loop (@0)`.
 
-   ^loop (@0)
+A non-json loop has a global limit to protect against really big loops. The loop count you give locally will 
+only go as far as that global limit. UNLESS, you use a pure numeric loop count. If you do, that wins over
+the global. So
+```
+    $_tmp = 2000
+    ^loop($_tmp)   -- will run to global limit 1000.
+    ^loop(2000)     -- will run to local limit 2000.
+```
    
 ## `^jsonloop`( $jsonvar $_val1 $_val2 )
 
@@ -267,7 +274,6 @@ else
       script3 
     }
 ```
-
 You can omit the else if section, having just if and else, and you can omit the else section, 
 having just if or if and else if. You may have any number of else if sections.
 The test condition can be:

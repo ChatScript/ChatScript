@@ -1,6 +1,6 @@
 # ChatScript Basic User Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 11/10/2018 cs9.8
+<br>Revision 10/24/2022 cs12.31
 
 
 * [Overview](ChatScript-Basic-User-Manual.md#overview)
@@ -221,12 +221,13 @@ And if you believe that, I have several bridges available for sale to you on spe
 But some people will try to dive right in, without reading the material, 
 so here is a quick guide to what you see in this simple topic file.
 
-Rules start with `t:` or `?:` or `u:` or `s:` 
+Rules start with `t:` or `?:` or `u:` or `s:`  or `v:` 
 
 * `s:` means the rule reacts to _statements_.
 * `?:` means the rule reacts to _questions_.
 * `u:` means the rule reacts to the union of both.
-* `t:` means the rule offers a topic _gambit_ when chatbot has control 
+* `t:` means the rule offers a text _gambit_ when chatbot has control 
+* `v:` means the rule is void and never executed except indirectly vis ^refine or ^reuse 
 
 Rules also start with `a:` `b:` etc, but those are _rejoinders_, not top level rules. They are
 used to anticipate how a user might respond to output and give direct feedback based on that response.
@@ -238,8 +239,9 @@ Rules are thus classified as:
 |**responders** |`s:`<br>`?:`<br>`u:` | which are rules that try to react to unprovoked input from the user. That is, he might out of the blue ask you something or say something, and these attempt to cope with that.
 |**rejoinders** |`a:`<br>`b:`<br>`c:`<br>`d:`<br>`e:`<br>`f:`<br>`g:`<br>`h:`<br>`i:`<br>`j:`<br>`k:`<br>`l:`<br>`m:`<br>`n:`<br>`o:`<br>`p:`<br>`q:`| are attempts to predict a user’s immediate response to something the chatbot says. They cannot be triggered except on input immediately after the rule they follow has issued output. 
 |**gambits**    |`r:`<br>`t:` | are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. `r:` are random gambits ([explained later](ChatScript-Advanced-User-Manual.md#random-gambit)).
+|**void**    |`v:` | are only accessed via ^reuse and ^refine.
 
-Rules usually have pattern requirements in parens (except gambit `t:` rules for which a pattern is optional). 
+Rules usually have pattern requirements in parens (except gambit `t:` rules for which a pattern is optional and void `v:` who use an empty pattern). 
 These typically try to find specific words or sequences of words in the user’s input. In the rule: 
 
     u: (run away) 

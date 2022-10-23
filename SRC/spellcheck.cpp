@@ -425,7 +425,7 @@ bool SpellCheckSentence()
 	int badspelllimit = 0;
 	int badspellsize = 0;
 	float badspellratio = 1.0;
-	char* baddata = GetUserVariable("$cs_badspellLimit", false, true); // 10-20 (50%)
+	char* baddata = GetUserVariable("$cs_badspellLimit", false); // 10-20 (50%)
 	if (*baddata)
 	{
 		badspelllimit = atoi(baddata);

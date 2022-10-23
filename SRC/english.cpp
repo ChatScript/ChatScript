@@ -1903,6 +1903,7 @@ void SetSentenceTense(int start, int end)
 					// would have, could have, etc are not aux subject. Rather implied "I" for example before them
 					if (posValues[i + 1] & AUX_VERB || roles[i + 1] & MAINOBJECT)
 						tokenFlags |= IMPLIED_SUBJECT; // includes "hit dog" "does nothing"
+					else if (i != wordCount && !stricmp(wordStarts[i], "do") && !stricmp(wordStarts[i + 1], "not") && (posValues[i + 2] & VERB_INFINITIVE)); // command
 					else tokenFlags |= QUESTIONMARK;
 					break;
 				}
@@ -1985,7 +1986,11 @@ void SetSentenceTense(int start, int end)
 
 			// question? 
 			if (i == start && !(tokenControl & NO_INFER_QUESTION) && subjectFound) 
-				tokenFlags |= QUESTIONMARK;
+			{ 
+				// do not run
+				if (i != wordCount && !stricmp(wordStarts[i], "do") && !stricmp(wordStarts[i + 1], "not") && (posValues[i+2] & VERB_INFINITIVE)) { ; }
+				else tokenFlags |= QUESTIONMARK;
+			}
 			if (defaultTense){;}
 			else if (aux[auxIndex] & AUX_BE)
 			{

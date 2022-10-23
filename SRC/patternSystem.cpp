@@ -159,7 +159,7 @@ void GetPatternMatchedWords(char* buffer)
 static void DecodeFNRef(char* side)
 {
     char* at = "";
-    if (side[1] == USERVAR_PREFIX) at = GetUserVariable(side + 1, false, true);
+    if (side[1] == USERVAR_PREFIX) at = GetUserVariable(side + 1, false);
     else if (IsDigit(side[1])) at = FNVAR(side + 1);
     at = SkipWhitespace(at);
     strcpy(side, at);
@@ -891,7 +891,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         case USERVAR_PREFIX: // is user variable defined
             if (IsAlphaUTF8(word[1]) || word[1] == '_' || word[1] == USERVAR_PREFIX) // legal variable, not $ or $100
             {
-                 char* val = GetUserVariable(word, false, true);
+                 char* val = GetUserVariable(word, false);
                  // val may be empty string either becuase value is NULL
                  // OR because it is the empty string (which is a value).
                  if (*val) matched = true;
@@ -907,7 +907,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 argumentText = ptr; //   transient substitution of text
 
                 if (IsDigit(word[1]))  ptr = FNVAR(word + 1);
-                else if (word[1] == USERVAR_PREFIX) ptr = GetUserVariable(word + 1, false, true); // get value of variable and continue in place
+                else if (word[1] == USERVAR_PREFIX) ptr = GetUserVariable(word + 1, false); // get value of variable and continue in place
                 else ptr = wildcardCanonicalText[GetWildcardID(word + 1)]; // ordinary wildcard substituted in place (bug)?
                 if (trace & TRACE_PATTERN  && CheckTopicTrace()) Log(USERLOG,"%s=>", word);
                 continue;
@@ -962,7 +962,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     if (*rhs == '^') // local function argument or indirect ^$ var  is LHS. copy across real argument
                     {
                         char* atx = "";
-                        if (rhs[1] == USERVAR_PREFIX) atx = GetUserVariable(rhs + 1, false, true);
+                        if (rhs[1] == USERVAR_PREFIX) atx = GetUserVariable(rhs + 1, false);
                         else if (IsDigit(rhs[1])) atx = FNVAR(rhs + 1);
                         atx = SkipWhitespace(atx);
                         strcpy(rhs, atx);
@@ -1292,7 +1292,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
         case '?': //  question sentence? or variable search for 
             if (word[1] == '$')
             {
-                strcpy(word, GetUserVariable(word + 1, false, true));
+                strcpy(word, GetUserVariable(word + 1, false));
                 goto matchit;
             }
             else
@@ -1381,12 +1381,12 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
                 if (*op == '?' && *rhs == USERVAR_PREFIX)
                 {
-                    rhs = GetUserVariable(rhs, false, true);
+                    rhs = GetUserVariable(rhs, false);
                 }
                 if (*op == '?' && *rhs != '~') // NOT a ? into a set test - means does this thing exist in sentence
                 {
                     char* val = "";
-                    if (*lhs == USERVAR_PREFIX) val = GetUserVariable(lhs, false, true);
+                    if (*lhs == USERVAR_PREFIX) val = GetUserVariable(lhs, false);
                     else if (*lhs == '_') val = (quoted) ? wildcardOriginalText[GetWildcardID(lhs)] : wildcardCanonicalText[GetWildcardID(lhs)];
                     else if (*lhs == '^' && IsDigit(lhs[1])) val = FNVAR(lhs + 1);
                     else if (*lhs == SYSVAR_PREFIX) val = SystemVariable(lhs, NULL);
@@ -1565,7 +1565,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                     {
                         int hold = uppercaseFind; // we dont know the content, just what we hunted for
                         uppercaseFind = -1;
-                        char* value = GetUserVariable(word, false, true);
+                        char* value = GetUserVariable(word, false);
                         SetWildCard(value, value, 0, 0);  // specific swallow
                         uppercaseFind = hold;
                     }
@@ -1787,7 +1787,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
 						DecodeAssignment(word, lhs, op, rhs);
                         if (*lhs == '$')
                         {
-                            char* val = GetUserVariable(lhs, false, true);
+                            char* val = GetUserVariable(lhs, false);
                             if (stricmp(rhs,val))Log(USERLOG, "%s:%s%s`%s`", lhs, op, rhs, val);
                             else Log(USERLOG, "%s:%s%s", lhs, op, rhs);
                         }
@@ -1825,7 +1825,7 @@ bool Match(char* buffer, char* ptr, int depth, int startposition, char* kind, in
                 }
                 else if (*word == USERVAR_PREFIX && matched)
                 {
-                    Log(USERLOG,"`%s`", GetUserVariable(word, false, true));
+                    Log(USERLOG,"`%s`", GetUserVariable(word, false));
                 }
                 else if (*word == '*' && matched && positionStart > 0 && positionStart <= wordCount && positionEnd <= wordCount)
                 {

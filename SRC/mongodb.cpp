@@ -283,7 +283,7 @@ void mongoLogError(bson_error_t error)
 // Apply additional key values from a JSON object to a document query
 void mongoAppendKeys(bson_t *doc, char* var)
 {
-    char* externalMongoData = GetUserVariable(var,false,true);
+    char* externalMongoData = GetUserVariable(var,false);
     if (*externalMongoData && IsValidJSONName(externalMongoData, 'o'))
     {
         WORDP D = FindWord(externalMongoData);
@@ -335,14 +335,14 @@ eReturnValue EstablishConnection(	const char* pStrSeverUri, // eg "mongodb://loc
     else if ( g_filesysDatabase != NULL ) mydb = g_filesysDatabase;
     else
     {
-        char* enableSSL = GetUserVariable("$mongo_enable_ssl", false, true);
+        char* enableSSL = GetUserVariable("$mongo_enable_ssl", false);
 #ifdef MONGOSSLOPTS
         if(stricmp(enableSSL,(char*)"true") == 0) {
 		
-            char* validateSSL = GetUserVariable("$mongovalidatessl", false, true);
-            char* sslCAFile = GetUserVariable("$mongosslcafile", false, true);
-            char* sslPemFile = GetUserVariable("$mongosslpemfile", false, true);
-            char* sslPemPwd = GetUserVariable("$mongosslpempwd", false, true);
+            char* validateSSL = GetUserVariable("$mongovalidatessl", false);
+            char* sslCAFile = GetUserVariable("$mongosslcafile", false);
+            char* sslPemFile = GetUserVariable("$mongosslpemfile", false);
+            char* sslPemPwd = GetUserVariable("$mongosslpempwd", false);
 
             const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
             mongoc_ssl_opt_t ssl_opts = { 0 };
@@ -556,7 +556,7 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 		unsigned int diff = (unsigned int)(endtime - starttime);
 		unsigned int crdiff = (unsigned int)(endtime - cursorReadStart);
 		unsigned int limit = 100;
-		char* val = GetUserVariable("$mongo_timeexcess", false, true);
+		char* val = GetUserVariable("$mongo_timeexcess", false);
 		if (*val) limit = unsigned(atoi(val));
 		if (diff >= limit){
 			char dbmsg[512];
@@ -647,7 +647,7 @@ FunctionResult mongoDeleteDocument(char* buffer)
         uint64 endtime = ElapsedMilliseconds();
 	    unsigned int diff = (unsigned int)endtime - (unsigned int)starttime;
 	    unsigned int limit = 100;
-		char* val = GetUserVariable("$mongo_timeexcess", false, true);
+		char* val = GetUserVariable("$mongo_timeexcess", false);
 		if (*val) limit = unsigned(atoi(val));
 	    if (diff >= limit){
 	    	char dbmsg[512];
@@ -734,7 +734,7 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     uint64 endtime = ElapsedMilliseconds();
     unsigned int diff = (unsigned int)(endtime - starttime);
     unsigned int limit = 100;
-	char* val = GetUserVariable("$mongo_timeexcess", false, true);
+	char* val = GetUserVariable("$mongo_timeexcess", false);
 	if (*val) limit = unsigned(atoi(val));
     if (diff >= limit){
     	char dbmsg[512];

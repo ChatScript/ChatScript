@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "12.3";
+char* version = "12.31";
 char sourceInput[200];
 int cs_qsize = 0;
 char repairinput[20];
@@ -2413,7 +2413,7 @@ void FinishVolley(char* output, char* postvalue, int limit)
 			at += strlen(at);
 		}
 		ConcatResult(at, output + limit - 100); // save space for after data
-		char* val = GetUserVariable("$cs_outputlimit", false, true);
+		char* val = GetUserVariable("$cs_outputlimit", false);
 		if (*val && !csapicall)
 		{
 			int lim = atoi(val);
@@ -2465,7 +2465,7 @@ void FinishVolley(char* output, char* postvalue, int limit)
 				}
 			}
 
-			if (*GetUserVariable("$cs_showtime", false, true))
+			if (*GetUserVariable("$cs_showtime", false))
 				printf("%s\r\n", time15);
 
 			if (userInput) *userInput = endInput;
@@ -2603,8 +2603,8 @@ static int Crashed(char* output, bool reloading, char* ip)
 	lastCrashTime = ElapsedMilliseconds();
 	crashBack = true;
 	if (reloading) myexit((char*)"crash on reloading"); // user input crashed us immediately again. give up
-	char* topicName = GetUserVariable("$cs_crash", false, true);
-	char* varmsg = GetUserVariable("$cs_crashmsg", false, true);
+	char* topicName = GetUserVariable("$cs_crash", false);
+	char* varmsg = GetUserVariable("$cs_crashmsg", false);
 	if (*topicName == '~')
 	{
 		EmergencyResetUser(); // insure we can run this function
@@ -2649,7 +2649,7 @@ static int Crashed(char* output, bool reloading, char* ip)
 static void LimitUserInput(char* at)
 {
 	unsigned int len1 = strlen(at);
-	char* sizing = GetUserVariable("$cs_inputlimit", false, true);
+	char* sizing = GetUserVariable("$cs_inputlimit", false);
 	if (*sizing && len1) // truncate user input based on x:y data - prefer this to the inputLimit truncation
 	{
 		char* separator = strchr(sizing, ':');
@@ -2959,7 +2959,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 		DeleteTransientJavaScript(); // unload context if there
 #endif
 
-		if (*GetUserVariable("$cs_summary", false, true))
+		if (*GetUserVariable("$cs_summary", false))
 		{
 			chatstarted = ElapsedMilliseconds() - chatstarted;
 			printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
@@ -3093,9 +3093,9 @@ FunctionResult Reply()
 #endif
 
 	sentenceLimit = SENTENCES_LIMIT;
-	char* sentencelim = GetUserVariable("$cs_sentences_limit", false, true);
+	char* sentencelim = GetUserVariable("$cs_sentences_limit", false);
 	if (*sentencelim) sentenceLimit = atoi(sentencelim);
-	char* topicName = GetUserVariable("$cs_control_main", false, true);
+	char* topicName = GetUserVariable("$cs_control_main", false);
 	if (trace & TRACE_FLOW) Log(USERLOG, "0 Ctrl:%s\r\n", topicName);
 	howTopic = (tokenFlags & QUESTIONMARK) ? (char*)"question" : (char*)"statement";
 	CALLFRAME* frame = ChangeDepth(1, topicName);
@@ -3174,7 +3174,7 @@ int ProcessInput()
 		if (!strnicmp(at, ":reset", 6))
 		{
 			reset = true;
-			char* intercept = GetUserVariable("$cs_beforereset", false, true);
+			char* intercept = GetUserVariable("$cs_beforereset", false);
 			if (intercept) Callback(FindWord(intercept), "()", false); // call script function first
 		}
 		TestMode commanded = DoCommand(at, ourMainOutputBuffer);
@@ -3207,7 +3207,7 @@ int ProcessInput()
 			*readBuffer = 0;
 			if (reset)
 			{
-				char* intercept = GetUserVariable("$cs_afterreset", false, true);
+				char* intercept = GetUserVariable("$cs_afterreset", false);
 				if (intercept) Callback(FindWord(intercept), "()", false); // call script function after
 			}
 			AddInput(" ", 0, true);
@@ -3254,7 +3254,7 @@ loopback:
 
 	//   process input now
 	char prepassTopic[MAX_WORD_SIZE];
-	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 	if (!documentMode)  AddHumanUsed(input);
 	sentenceloopcount = 0;
 	while ((((input = GetNextInput()) && input && *input) || startConversation) && (volleyFile || sentenceloopcount < sentenceLimit)) // loop on user input sentences
@@ -3455,7 +3455,7 @@ FunctionResult OnceCode(const char* var, char* function) //   run before doing a
 	withinLoop = 0;
 	callIndex = 0;
 	topicIndex = currentTopicID = 0;
-	char* name = (!function || !*function) ? GetUserVariable(var, false, true) : function;
+	char* name = (!function || !*function) ? GetUserVariable(var, false) : function;
 	if (trace & (TRACE_MATCH | TRACE_PREPARE) && CheckTopicTrace())
 	{
 		Log(USERLOG, "\r\n0 ***Ctrl:%s \r\n", var);
@@ -3769,7 +3769,7 @@ void NLPipeline(int mytrace)
 	if (tokenControl & DO_SPELLCHECK && wordCount && *wordStarts[1] != '~')
 	{
 		if (SpellCheckSentence()) tokenFlags |= DO_SPELLCHECK;
-		if (*GetUserVariable("$$cs_badspell", false, true)) return;
+		if (*GetUserVariable("$$cs_badspell", false)) return;
 		if (spellTrace) {}
 		else if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 		{
@@ -4016,7 +4016,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 		TraceTokenization(input);
 	}
 
-	char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
+	char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
 	char* timelimit = GetUserVariable("$cs_analyzelimit");
 	bool timeover = false;
 	if (*timelimit && !oobExists)
@@ -4032,7 +4032,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	if (!oobExists && !timeover && !*bad)
 	{
 		NLPipeline(mytrace);
-		bad = GetUserVariable("$$cs_badspell", false, true); // possibly set by NLPipeline
+		bad = GetUserVariable("$$cs_badspell", false); // possibly set by NLPipeline
 	}
 	else // need wordcanonical to be valid (nonzero)  for any savesentence call
 	{

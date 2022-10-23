@@ -1100,7 +1100,7 @@ static void PerformPosTag(int start, int end)
 	if (contigLower > maxContigLower) maxContigLower = contigLower;
 	// DO NOT FORCE STRICT CASING WHEN uppercase given
 
-	char* bad = GetUserVariable("$$cs_badspell",false,true);
+	char* bad = GetUserVariable("$$cs_badspell",false);
 	if (*bad) noPosTagging = true; // spelling says this user is a mess
 	else if (oobExists) noPosTagging = true; // no out-of-band parsetagging
 	else if (actualTokenCount == REAL_SENTENCE_WORD_LIMIT) noPosTagging = true; // presume truncation across boundary
@@ -1449,7 +1449,7 @@ void TagIt(bool timeout) // get the set of all possible tags. Parse if one can t
     bool oobx = (*wordStarts[startSentence] == '[' && *wordStarts[endSentence] == ']');
     if (externalPostagger && !oobx) (*externalPostagger)();
 #endif
-	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag",false,true))
+	if (!externalTagger && *GetUserVariable((char*)"$cs_externaltag",false))
 	{
 		// not treetagger, just a named topic
 		OnceCode((char*)"$cs_externaltag");

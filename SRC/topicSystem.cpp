@@ -656,6 +656,14 @@ bool TopLevelStatement(char* word)
 	return true;
 }
 
+bool TopLevelVoid(char* word)
+{
+	if (!word || !*word) return false;
+	if (word[1] != ':') return false;
+	if (*word == 'v') return true;
+	return false;
+}
+
 bool TopLevelGambit(char* word)
 {
 	if (!word || !*word) return false;
@@ -669,6 +677,7 @@ bool TopLevelRule(char* word)
 {
 	if (!word || !*word) return true; //   END is treated as top level
 	if (TopLevelGambit(word)) return true;
+	if (TopLevelVoid(word)) return true;
 	if (TopLevelStatement(word)) return true;
 	return TopLevelQuestion(word);
 }
@@ -1262,7 +1271,7 @@ FunctionResult ProcessRuleOutput(char* rule, unsigned int id, char* buffer, bool
 	{
 		if (!(result & FAILCODES)) SetErase();
 	}
-	else if (TopLevelStatement(currentRule) || TopLevelQuestion(currentRule)) // responders that caused output will try to erase, will fail if lower did already
+	else if (TopLevelVoid(currentRule) ||  TopLevelStatement(currentRule) || TopLevelQuestion(currentRule) ) // responders that caused output will try to erase, will fail if lower did already
 	{
 		if (responseHappened) SetErase();
 	}
@@ -1696,7 +1705,7 @@ FunctionResult PerformTopic(int active, char* buffer, char* rule, unsigned int i
 	unsigned oldTopic = currentTopicID;
 	char* topicName = GetTopicName(currentTopicID);
 	int limit = 30;
-	char* val = GetUserVariable("$cs_topicretrylimit", false, true);
+	char* val = GetUserVariable("$cs_topicretrylimit", false);
 	if (*val) limit = atoi(val);
 	EstablishTopicTrace();
 	unsigned int oldtiming = EstablishTopicTiming();

@@ -45,6 +45,7 @@ bool SUPERCEDED(WORDP D);
 
 //		0x00000010 # DO_BRITISH
 #define FUNCTION_NAME				0x00000010 	//   name of a ^function  (has non-zero ->x.codeIndex if system, else is user but can be patternmacro,outputmacro, or plan) only applicable to ^ words
+#define SETIGNORE	 FUNCTION_NAME
 
 //		0x00000020 # DO_SPELLING
 #define CONCEPT								0x00000020	// topic or concept has been read via a definition
@@ -54,6 +55,8 @@ bool SUPERCEDED(WORDP D);
 
 //		0x00000080 # DO_NOISE -- without HAS_SUBSTITUTE this is a script compiler flag to disable warnings on spelling
 #define IS_OUTPUT_MACRO			0x00000080	// function is an output macro
+#define SETUNDERSCORE	 IS_OUTPUT_MACRO
+
 //		0x00000100 thru PRIVATE
 #define IS_TABLE_MACRO				0x00000100	// function is a table macro - transient executable output function
 #define IS_PLAN_MACRO			( IS_TABLE_MACRO | IS_OUTPUT_MACRO )	// function is a plan macro (specialized form of IS_OUTPUT_MACRO has a codeindex which is the topicindex)

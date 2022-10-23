@@ -991,7 +991,7 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 {// words are always fully generic, never restricted by meaning or postag
 	// these use underscores and are often concept multi-word or phrase keywords 
 	char* fixedbuffer = AllocateStack(NULL, maxBufferSize);
-	char* limit = GetUserVariable("$cs_sequence", false, true);
+	char* limit = GetUserVariable("$cs_sequence", false);
 	int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
 
 	if (parseLimited && sequenceLimit > 2) sequenceLimit = 2;
@@ -1438,7 +1438,7 @@ void MarkAllImpliedWords(bool limitnlp)
 	}
 	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
 	{
-		char* bad = GetUserVariable("$$cs_badspell", false, true); // spelling says this user is a mess
+		char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
 		if (*bad) Log(USERLOG,"\r\nNLP Suppressed by spellcheck.\r\n");
 		else Log(USERLOG,"\r\nConcepts %s: \r\n", current_language);
 	}

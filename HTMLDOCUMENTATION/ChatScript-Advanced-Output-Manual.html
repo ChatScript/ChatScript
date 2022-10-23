@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
 <h1 id="advanced-output">ADVANCED OUTPUT</h1>
 <h2 id="committed-output">Committed Output</h2>
 <p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
@@ -107,8 +107,11 @@ t: ^loop () { This is forever, not. end(LOOP)}</code></pre>
 <p>The first gambit prints <em>Hello. me me me me me</em>. The second loop would print forever, but actually prints out This is forever, not. because after starting output, the loop is terminated.</p>
 <p>Loop also has a built in limit of 1000 so it will never run forever. You can override this if you define <code>$cs_looplimit</code> to have some value you prefer.</p>
 <h2 id="loop-n"><code>^loop</code>( n )</h2>
-<p>Loop can be given a count. This can be either a number, function call that results in a number, or you can use a factset id to loop through each item of the factset via</p>
-<p>^loop (<span class="citation">@0</span>)</p>
+<p>Loop can be given a count. This can be either a number, function call that results in a number, or you can use a factset id to loop through each item of the factset via <code>^loop (@0)</code>.</p>
+<p>A non-json loop has a global limit to protect against really big loops. The loop count you give locally will only go as far as that global limit. UNLESS, you use a pure numeric loop count. If you do, that wins over the global. So</p>
+<pre><code>    $_tmp = 2000
+    ^loop($_tmp)   -- will run to global limit 1000.
+    ^loop(2000)     -- will run to local limit 2000.</code></pre>
 <h2 id="jsonloop-jsonvar-_val1-_val2"><code>^jsonloop</code>( $jsonvar $_val1 $_val2 )</h2>
 <p>See ^jsonloop in Json manual for looping through a JSON object or array.</p>
 <h2 id="if-construct---if-or-if">If Construct - <code>if</code> or <code>^if</code></h2>

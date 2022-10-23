@@ -620,7 +620,7 @@ static char* SystemCall(char* buffer, char* ptr, CALLFRAME * frame, FunctionResu
 			if (callArgumentList[callArgumentIndex] && callArgumentList[callArgumentIndex][0] == USERVAR_PREFIX &&
 				strstr(callArgumentList[callArgumentIndex], "$_")) // NOT by reference but by value somewhere in the chain
 			{
-				callArgumentList[callArgumentIndex] = AllocateStack(GetUserVariable(callArgumentList[callArgumentIndex], false, true)); // pass by unmarked value - no one will try to store thru it
+				callArgumentList[callArgumentIndex] = AllocateStack(GetUserVariable(callArgumentList[callArgumentIndex], false)); // pass by unmarked value - no one will try to store thru it
 			}
 			if (showtrace)
 			{
@@ -701,7 +701,7 @@ char* GetArgOfMacro(int i, char* buffer, int limit)
 	char* x = callArgumentList[i];
 	if (*x == USERVAR_PREFIX)
 	{
-		strncpy(buffer, GetUserVariable(x, false, true), limit);
+		strncpy(buffer, GetUserVariable(x, false), limit);
 		x = buffer;
 	}
 	else if (*x == '_' && IsDigit(x[1]))
@@ -755,7 +755,7 @@ static void BindVariables(CALLFRAME * frame, FunctionResult & result, char* buff
 		{
 			WORDP arg = FindWord(var);
 			if (!arg) continue;	// should never happen
-			if (*val == USERVAR_PREFIX) val = GetUserVariable(val, false, true);
+			if (*val == USERVAR_PREFIX) val = GetUserVariable(val, false);
 			else if (*val == SYSVAR_PREFIX)
 			{
 				Output(val, buffer, result, 0);
@@ -985,7 +985,7 @@ static char* UserCall(char* buffer, char* ptr, CALLFRAME * frame, FunctionResult
 		}
 		if (buffer[0] == USERVAR_PREFIX && strstr(buffer, "$_"))
 		{
-			char* data = GetUserVariable(buffer, false, true) - 2;
+			char* data = GetUserVariable(buffer, false) - 2;
 			if (buffer[1] == LOCALVAR_PREFIX && buffer[2] == LOCALVAR_PREFIX) // internal variable from jsonreadcsv
 			{
 				callArgumentList[callArgumentIndex++] = data; // shared data ptr
@@ -1187,7 +1187,7 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 		if (callArgumentIndex > (unsigned int)(frame->varBaseIndex + 1))
 		{
 			strncpy(word, callArgumentList[frame->varBaseIndex + 1], 40);
-			if (*word == '$') strncpy(word, GetUserVariable(word, false, true), 40);
+			if (*word == '$') strncpy(word, GetUserVariable(word, false), 40);
 			word[40] = 0;
 		}
 		if (result == NOPROBLEM_BIT || result == ENDCALL_BIT)
@@ -1231,7 +1231,7 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 			if (callArgumentIndex > (unsigned int)(frame->varBaseIndex + 1))
 			{
 				strncpy(word, callArgumentList[frame->varBaseIndex + 1], 40);
-				if (*word == '$') strncpy(word, GetUserVariable(word, false, true), 40);
+				if (*word == '$') strncpy(word, GetUserVariable(word, false), 40);
 				word[40] = 0;
 			}
 
@@ -2895,12 +2895,12 @@ static FunctionResult MarkCode(char* buffer)
 		strcpy(buffer, var2);
 		GetCommandArg(buffer, var2, result, 0); // evaluate the locator as a number presumably
 	}
-	if (*var2 == USERVAR_PREFIX) strcpy(var2, GetUserVariable(var2, false, true));
+	if (*var2 == USERVAR_PREFIX) strcpy(var2, GetUserVariable(var2, false));
 
 	char flag[MAX_WORD_SIZE];
 	ReadCompiledWord(ptr, flag);
 	bool doall = true;
-	if (*flag == USERVAR_PREFIX) strcpy(flag, GetUserVariable(flag, false, true));
+	if (*flag == USERVAR_PREFIX) strcpy(flag, GetUserVariable(flag, false));
 	if (!stricmp(flag, "ALL")) doall = true;
 	else if (!stricmp(flag, "ONE")) doall = false;
 	*buffer = 0;
@@ -2987,7 +2987,7 @@ static FunctionResult MarkedCode(char* buffer)
 	char* arg1 = ARGUMENT(1);
 	if (*ARGUMENT(1) == USERVAR_PREFIX)  // indirect thru variable
 	{
-		char* at = GetUserVariable(ARGUMENT(1), false, true);
+		char* at = GetUserVariable(ARGUMENT(1), false);
 		if (at) arg1 = at;
 	}
 
@@ -3142,7 +3142,7 @@ static FunctionResult RoleCode(char* buffer)
 		n = atoi(arg);
 	}
 	else if (*arg == '_') n = WildStartPosition(arg);
-	else if (*arg == USERVAR_PREFIX) n = atoi(GetUserVariable(arg, false, true));
+	else if (*arg == USERVAR_PREFIX) n = atoi(GetUserVariable(arg, false));
 	else if (*arg == '^')
 	{
 		ReadArgument(arg, buffer, result);
@@ -3217,7 +3217,7 @@ static FunctionResult PartOfSpeechCode(char* buffer)
 		ReadArgument(arg, buffer, result);
 		n = atoi(buffer);
 	}
-	else if (*arg == USERVAR_PREFIX) n = atoi(GetUserVariable(arg, false, true));
+	else if (*arg == USERVAR_PREFIX) n = atoi(GetUserVariable(arg, false));
 	else return FAILRULE_BIT;
 	uint64 pos = finalPosValues[n];
 	if (pos & (AUX_VERB | ADJECTIVE_PARTICIPLE)) pos |= allOriginalWordBits[n] & VERB_BITS; // supllementatal data
@@ -3418,7 +3418,7 @@ static FunctionResult AddWordAtCode(char* buffer) // word canonical location
 	else if (*ptr == USERVAR_PREFIX)
 	{
 		ptr = ReadCompiledWord(ptr, buffer);
-		strcpy(buffer, GetUserVariable(buffer, false, true));
+		strcpy(buffer, GetUserVariable(buffer, false));
 	}
 	else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
 
@@ -3485,7 +3485,7 @@ static FunctionResult ReplaceWordCode(char* buffer)
 	else if (*ptr == USERVAR_PREFIX)
 	{
 		ptr = ReadCompiledWord(ptr, buffer);
-		strcpy(buffer, GetUserVariable(buffer, false, true));
+		strcpy(buffer, GetUserVariable(buffer, false));
 	}
 	else if (*ptr) ptr = GetCommandArg(ptr, buffer, result, 0); // evaluate the locator as a number presumably
 
@@ -3566,7 +3566,7 @@ static FunctionResult UnmarkCode(char* buffer)
 	if (IsDigit(*arg2) || *arg2 == '_');  // the locator, leave it unevaled as number or match var
 	else if (*arg2 == USERVAR_PREFIX)
 	{
-		strcpy(arg2, GetUserVariable(arg2, false, true));
+		strcpy(arg2, GetUserVariable(arg2, false));
 	}
 	else if (*arg2)
 	{
@@ -3711,7 +3711,7 @@ static FunctionResult OriginalCode(char* buffer)
 	if (*arg == '\'') ++arg;
 	int start = 0, end = 0;
 	if (*arg == '^') strcpy(arg, FNVAR(arg + 1));
-	else if (*arg == USERVAR_PREFIX) strcpy(arg, GetUserVariable(arg, false, true));
+	else if (*arg == USERVAR_PREFIX) strcpy(arg, GetUserVariable(arg, false));
 
 	if (*arg == '_')
 	{
@@ -4895,7 +4895,7 @@ static FunctionResult CommandCode(char* buffer)
 	GetCommandArg(arg, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT);
 	if (result != NOPROBLEM_BIT) return result;
 
-	if (*arg1 == USERVAR_PREFIX) strcpy(arg1, GetUserVariable(arg1, false, true));
+	if (*arg1 == USERVAR_PREFIX) strcpy(arg1, GetUserVariable(arg1, false));
 	else if (*arg1 == '_') strcpy(arg1, GetwildcardText(GetWildcardID(arg1), true));
 
 	DoCommand(arg1, NULL, false);
@@ -5047,7 +5047,7 @@ FunctionResult MatchCode(char* buffer)
 	char* at = ReadCompiledWord(ARGUMENT(1), word1);
 	if (!*word1) return FAILRULE_BIT;
 	bool functionString = false;
-	if (*word1 == USERVAR_PREFIX && !*at) strcpy(word, GetUserVariable(word1, false, true)); //   solitary user var, decode it  eg match($var)
+	if (*word1 == USERVAR_PREFIX && !*at) strcpy(word, GetUserVariable(word1, false)); //   solitary user var, decode it  eg match($var)
 	else if (*word1 == '_' && !*at) strcpy(word, wildcardCanonicalText[GetWildcardID(word1)]); //   solitary user var, decode it  eg match($var)
 	else if (*word1 == '@' && !*at)
 	{
@@ -6944,7 +6944,7 @@ static FunctionResult PhraseCode(char* buffer)
 		ReadArgument(posn, buffer, result);
 		n = atoi(buffer);
 	}
-	else if (*posn == USERVAR_PREFIX) n = atoi(GetUserVariable(posn, false, true));
+	else if (*posn == USERVAR_PREFIX) n = atoi(GetUserVariable(posn, false));
 	else return FAILRULE_BIT;
 	int i = n;
 	if (!stricmp(type, (char*)"noun")) // noun phrase
@@ -7787,6 +7787,12 @@ static FunctionResult FindTextCode(char* buffer)
 	else if (*find == '\\' && find[1] == 'n') find = "\n";
 	else if (*find == '\\' && find[1] == '\\' && find[2] == 't') find = "\\t";
 	else if (*find == '\\' && find[1] == '\\' && find[2] == 'n') find = "\\n";
+	else if (*find == '"')
+	{
+		size_t len = strlen(find);
+		find[len - 1] = 0;
+		memmove(find, find + 1, len);
+	}
 
 	unsigned int start = atoi(ARGUMENT(3));
 	if (start >= UTFStrlen(target)) return FAILRULE_BIT;
@@ -7858,8 +7864,10 @@ static FunctionResult ExtractCode(char* buffer)
 	else if (*arg3 == '+') offset = 1;
 	if (offset != 0) ++arg3; // remove sign
 
-	if (!IsDigit(*arg2)) return FAILRULE_BIT;
-	if (!IsDigit(*arg3)) return FAILRULE_BIT;
+	if (!IsDigit(*arg2)) 
+		return FAILRULE_BIT;
+	if (!IsDigit(*arg3)) 
+		return FAILRULE_BIT;
 
 	int start = atoi(arg2);
 	int end = atoi(arg3);
@@ -7874,12 +7882,15 @@ static FunctionResult ExtractCode(char* buffer)
 		// move backwards from end - start   for len
 		if (start < 0) start = 0;
 	}
-	if (start >= (int)len) return FAILRULE_BIT;
+	if (start >= (int)len) 
+		return  FAILRULE_BIT;
 	if (end > ((int)len + 1)) end = len + 1;
-	if (end < start) return FAILRULE_BIT;
+	if (end < start) 
+		return FAILRULE_BIT;
 	unsigned int startPos = UTFPosition(target, start);
 	unsigned int endPos = UTFPosition(target, end);
-	if (endPos < startPos) return FAILRULE_BIT;
+	if (endPos < startPos) 
+		return FAILRULE_BIT;
 	unsigned int numChars = endPos - startPos;
 	strncpy(buffer, target + startPos, numChars);
 	buffer[numChars] = 0;
@@ -8769,7 +8780,7 @@ static FunctionResult NextCode(char* buffer)
 				RESTOREOLDCONTEXT()
 					return NOPROBLEM_BIT;
 			}
-			if (!PrepassSentence(GetUserVariable("$cs_prepass", false, true))) break; // it was quiet
+			if (!PrepassSentence(GetUserVariable("$cs_prepass", false))) break; // it was quiet
 		}
 		if (!wordCount) return FAILRULE_BIT;
 		++inputSentenceCount; //  sentence id of volley has moved on
@@ -8797,7 +8808,7 @@ static FunctionResult NextCode(char* buffer)
 			if (!data || !*data) break;
 
 			if (gambit && TopLevelGambit(data)) break;
-			else if (responder && (TopLevelStatement(data) || TopLevelQuestion(data))) break;
+			else if (responder && (TopLevelStatement(data) || TopLevelQuestion(data) || TopLevelVoid(data))) break;
 			else if (rejoinder && Rejoinder(data)) break;
 			else if (rejoinder) return FAILRULE_BIT;	// no more rejoinders
 			else if (!gambit && !responder && !rejoinder) break;	// any next rule
@@ -8815,7 +8826,7 @@ static FunctionResult FLRCodeR(char* buffer)
 	arg = ARGUMENT(1) = AllocateStack(buffer); // put it back in case it changed
 	*buffer = 0;
 
-	if (*arg == USERVAR_PREFIX) arg = GetUserVariable(arg, false, true);
+	if (*arg == USERVAR_PREFIX) arg = GetUserVariable(arg, false);
 	else if (*arg == '_') arg = GetwildcardText(GetWildcardID(arg), true);
 
 	if (*arg == '@') return FLR(buffer, (char*)"r");
@@ -8853,7 +8864,7 @@ static FunctionResult NthCode(char* buffer)
 	GetCommandArg(arg, buffer, result, OUTPUT_NOCOMMANUMBER | ASSIGNMENT);
 	if (result != NOPROBLEM_BIT) return result;
 
-	if (*arg1 == USERVAR_PREFIX) strcpy(arg1, GetUserVariable(arg1, false, true));
+	if (*arg1 == USERVAR_PREFIX) strcpy(arg1, GetUserVariable(arg1, false));
 	else if (*arg1 == '_') strcpy(arg1, GetwildcardText(GetWildcardID(arg1), true));
 
 	int count = 0;
@@ -9782,7 +9793,7 @@ static FunctionResult ConceptListCode(char* buffer)
 		start = WildStartPosition(word);  //  wildcard position designator
 		end = WildEndPosition(word);
 	}
-	else if (*word == USERVAR_PREFIX) start = end = atoi(GetUserVariable(word, false, true));  //  user var
+	else if (*word == USERVAR_PREFIX) start = end = atoi(GetUserVariable(word, false));  //  user var
 	else if (IsDigit(*word)) start = end = atoi(word);
 	else if (!*word || !stricmp(word, "null")) end = wordCount; // overall
 	else return FAILRULE_BIT;
@@ -11222,9 +11233,9 @@ static FunctionResult TestPatternCode(char* buffer)
 
 	// what pattern nesting depth triggers newline on return
 	int oldindex = indentBasis;
-	char* var = GetUserVariable("$indentlevel", false, true);
+	char* var = GetUserVariable("$indentlevel", false);
 	if (var) indentBasis = (var) ? atoi(var) : 3;  // default 1 level if no variable controls
-	var = GetUserVariable("$cs_indentlevel", false, true);
+	var = GetUserVariable("$cs_indentlevel", false);
 	if (var) indentBasis = (var) ? atoi(var) : 3;  // default 1 level if no variable controls
 
 	if (!strnicmp(usermsg, ":tracepatternlevel ", 19) && AuthorizedCode(NULL) == NOPROBLEM_BIT)
@@ -11551,7 +11562,7 @@ static FunctionResult TestPatternCode(char* buffer)
 
 		if (!styleoncall) // style named in pattern itself
 		{
-			char* xstyle = GetUserVariable("$$cs_testpattern_style", false, true);
+			char* xstyle = GetUserVariable("$$cs_testpattern_style", false);
 			if (xstyle) style = xstyle;
 		}
 		if (result != NOPROBLEM_BIT) break;
@@ -11719,8 +11730,8 @@ static FunctionResult TestOutputCode(char* buffer)
 	// allow tracing in authorized environments by request
 	// process each sentence in turn against the patterns
 	// first pattern to match ANY input sentence wins
-	char* value = GetUserVariable("$tracetestOutput", false, true);
-	if (!value) value = GetUserVariable("$cs_tracetestOutput", false, true);
+	char* value = GetUserVariable("$tracetestOutput", false);
+	if (!value) value = GetUserVariable("$cs_tracetestOutput", false);
 	if (hadAuthCode && !blockapitrace)
 	{
 		trace = (unsigned int)-1;

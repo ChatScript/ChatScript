@@ -147,6 +147,12 @@ a: (yes) What kind of pet?
 a: (no) Pets are fun. You should try having one.
 ```
 
+* `v:` - void rule that is the target only of ^reuse and ^refine
+```
+  t: Have you ever had a pet?
+    a: (~yes) ^reuse(STANDARD_YES)
+ v: STANDARD_YES() That's nice.'
+```
 ---
 
 # Questions about sentence kinds

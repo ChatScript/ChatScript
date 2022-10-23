@@ -1,7 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/16/2022 cs12.3
-
+<br>Revision 10/24/2022 cs12.31
 
 # Real World JSON
 
@@ -265,7 +264,7 @@ The JSON fact will have that flag on it, which you can use in conjunction with `
 This expects a json array or object name and returns `permanent`, `transient`, `boot` or fails completely
 depending on what is given it.
 
-### `^jsonparse`( {JSONFLAGS} string )
+### `^jsonparse`( {JSONFLAGS} string {~ignoreconcept { ~underscoreconcept} })
 
 `string` is a JSON text string (as might be returned from a website) and this parses into facts. 
 It returns the name of the root node JSON composite. This name will look like this:
@@ -336,14 +335,7 @@ path fails cannot be found.
 ^jsonparse(transient NOFAIL "{ a: $var, b: _0.e[2] }")
 ```
 
-Note: You cannot send JSON text as normal input from a user because CS tokenization is set to handle human input. So
-doing something like this as input will not work:
-```
-doLogin {"token": "myid", "accounts": ["whatever"]}
-```
-
-Instead you should  call a website using `^jsonopen` which will automatically convert returned JSON data
-into internal CS data. Or you can pass JSON data on input via OOB notation:
+You can pass JSON data on input via OOB notation:
 ```
 [ {"token": "myid", "accounts": ["whatever"]}]  User message
 ```
@@ -363,11 +355,19 @@ then you can do $$json.field directly.
 
 Note: `^jsonparse` autoconverts backslash-unnnn into corresponding the utf8 characters.
 
-Similarly, you could pass JSON data directly as part of user input. But user input normally is limited to 254 tokens AFTER oob is seen. 
+
+Note: You cannot normally send JSON text as normal input from a user because CS tokenization is set to handle human input. So
+doing something like this as input will not work:
+```
+doLogin {"token": "myid", "accounts": ["whatever"]}
+```
+
+But you can pass JSON data directly as part of user input with warning. But user input normally is limited to 254 tokens AFTER oob is seen. 
 To be able to pass complex JSON data as part of the user 
 	message (because the oob is often controlled by host system so not available per user message), you can now put
 	in user input the word  `json` and follow that with a JSON structure of arbitrary size. That structure will be completely converted to
-	the corresponding JSON internal fact structures and the simple JSON structure name returned. So
+	the corresponding JSON internal fact structures and the simple JSON structure name returned (regardless of the setting of
+    tokencontrol). So
 ```
 my input value is JSON {x:y,b:z} here  
 ```
@@ -376,6 +376,15 @@ will become
 my input value is JSON jo-3 here
 ```
 and jo-3 will have the json structure.
+
+ If you have given an ignoreconcept, then whenver a field name is encountered in the incoming data
+ matches the name of a member of that concept set, that field and all data below it are discarded and
+ not returned.
+
+ If you have given an underscore concept, then any field name encountered in the incoming data
+ that matches a member of that concept, that field's string value will have any spaces in it
+ replaced with underscores.'
+
 
 ## `jsonformat`(string)
 
@@ -793,7 +802,7 @@ to a user. This translates \\n to newline, \\r to carriage return, \\t to tab, a
 
 ## WEB JSON
 
-### `^jsonopen`( {JSONFLAGS} kind url postdata header {timeout})
+### `^jsonopen`( {JSONFLAGS} kind url postdata header {ignoreconcept {underscoreconcept} }  {timeout})
 
 this function queries a website and returns a JSON datastructure as facts. 
 It uses the standard CURL library, so it's arguments and how to use them are 
@@ -905,7 +914,6 @@ If you call `^jsonopen(direct ...)` then the result will not be facts, but the t
 back as the answer. Be wary of doing this if the result will be large (>30K?) since you will overflow your
 buffer without being checked.
 
-
 ^jsonopen automatically url-encodes headers and urls 
 
 Note: CS blocks until the call is complete. On a production server if you expect that the call can take
@@ -919,6 +927,14 @@ sets a local seconds limit on the call. -1 means fail immediately.
  If you have a variable $correlation_id, this value will be passed to  jsonopen as an additional header
  correlation-id: %s. Used to track across multiple calls in a system what the originating message was.
 
+ If you have given an ignoreconcept, then whenver a field name is encountered in the incoming data
+ matches the name of a member of that concept set, that field and all data below it are discarded and
+ not returned.
+
+ If you have given an underscore concept, then any field name encountered in the incoming data
+ that matches a member of that concept, that field's string value will have any spaces in it
+ replaced with underscores.'
+ I
 
 #### `JSONOpen and local files`
 

@@ -1640,6 +1640,7 @@ static void WriteVerify(char* label)
 		MakeDirectory((char*)"VERIFY");
 		init = false;
 		valid = FopenUTF8WriteAppend(name);
+		if (!valid) printf("Unable to create VERIFY directory.\r\n");
 	}
 
 	if (valid)
@@ -6899,10 +6900,14 @@ static size_t WriteExclude(FILE* out, FACT* F, char* word, size_t lineSize, uint
 			}
 		}
 	}
+	char* key = WriteMeaning(F->subject, true);
+	char* u = key;
+	if (*key != '`' && *key != '"') while ((u = strchr(u, ' '))) *u = '_';// keys must be composites, not spaced words
+
 	if (*E->word == '"') word = MakeToken(E->word, word);// change string to std token
-	else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"!'%s ", WriteMeaning(F->subject, true));
-	else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"!!'%s ", WriteMeaning(F->subject, true));
-	else sprintf(word, (char*)"!%s ", WriteMeaning(F->subject, true));
+	else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"!'%s ", key);
+	else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"!!'%s ", key);
+	else sprintf(word, (char*)"!%s ", key);
 
 	lineSize = WriteCMore(F, word, out, lineSize, build);
 	KillFact(F);
@@ -6914,10 +6919,13 @@ static size_t WriteMember(FILE* out,FACT* F,char* word,size_t lineSize, uint64 b
 	WORDP D = Meaning2Word(F->subject);
 	language_bits = D->internalBits & LANGUAGE_BITS;
 	AddBeenHere(D);
+	char* member = WriteMeaning(F->subject, true);
+	char* u = member;
+	while ((u = strchr(u, ' '))) *u = '_';  // cannot be freestanding, must be _ or quoted or backquoted
 	if (*D->word == '"') word = MakeToken(D->word, word); // change string to std token
-	else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"'%s", WriteMeaning(F->subject, true));
-	else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"''%s", WriteMeaning(F->subject, true));
-	else sprintf(word, (char*)"%s", WriteMeaning(F->subject, true));
+	else if (F->flags & ORIGINAL_ONLY) sprintf(word, (char*)"'%s", member);
+	else if (F->flags & RAWCASE_ONLY) sprintf(word, (char*)"''%s", member);
+	else sprintf(word, (char*)"%s", member);
 	
 	// generate header words in correct language as well (universal as needed)
 	GetHeaderWord(word); // trigger any header word in correct language

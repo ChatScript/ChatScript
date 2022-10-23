@@ -200,6 +200,7 @@ char* GetTopicFile(int topic);
 void CreateFakeTopics(char* data);
 void ReleaseFakeTopics();
 bool TopLevelQuestion(char* word);
+bool TopLevelVoid(char* word);
 bool TopLevelStatement(char* word);
 bool TopLevelGambit(char* word);
 bool Rejoinder(char* word);

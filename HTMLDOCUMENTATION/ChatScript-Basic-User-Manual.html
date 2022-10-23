@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-basic-user-manual">ChatScript Basic User Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 11/10/2018 cs9.8</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
 <ul>
 <li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
 <li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple Topics</a></li>
@@ -114,12 +114,13 @@ s: (I hate meat) really? </code></pre>
 <p>If you want to learn about the simple Harry bot and try changing it, read the BOTHARRY document. Same if you want to build your own bot (starting by cloning Harry). Let’s quickly survey what comes built in.</p>
 <h1 id="fast-overview-of-topic-files-sample-rawdataharrychildhood.top">Fast Overview of topic files (sample: <code>RAWDATA/HARRY/childhood.top</code>)</h1>
 <p>Chatscript is so easy, a child could master it in seconds. And if you believe that, I have several bridges available for sale to you on special. But some people will try to dive right in, without reading the material, so here is a quick guide to what you see in this simple topic file.</p>
-<p>Rules start with <code>t:</code> or <code>?:</code> or <code>u:</code> or <code>s:</code></p>
+<p>Rules start with <code>t:</code> or <code>?:</code> or <code>u:</code> or <code>s:</code> or <code>v:</code></p>
 <ul>
 <li><code>s:</code> means the rule reacts to <em>statements</em>.</li>
 <li><code>?:</code> means the rule reacts to <em>questions</em>.</li>
 <li><code>u:</code> means the rule reacts to the union of both.</li>
-<li><code>t:</code> means the rule offers a topic <em>gambit</em> when chatbot has control</li>
+<li><code>t:</code> means the rule offers a text <em>gambit</em> when chatbot has control</li>
+<li><code>v:</code> means the rule is void and never executed except indirectly vis ^refine or ^reuse</li>
 </ul>
 <p>Rules also start with <code>a:</code> <code>b:</code> etc, but those are <em>rejoinders</em>, not top level rules. They are used to anticipate how a user might respond to output and give direct feedback based on that response.</p>
 <p>Rules are thus classified as:</p>
@@ -152,9 +153,14 @@ s: (I hate meat) really? </code></pre>
 <td align="center"><code>r:</code><br><code>t:</code></td>
 <td>are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. <code>r:</code> are random gambits (<a href="ChatScript-Advanced-User-Manual.html#random-gambit">explained later</a>).</td>
 </tr>
+<tr class="even">
+<td align="center"><strong>void</strong></td>
+<td align="center"><code>v:</code></td>
+<td>are only accessed via ^reuse and ^refine.</td>
+</tr>
 </tbody>
 </table>
-<p>Rules usually have pattern requirements in parens (except gambit <code>t:</code> rules for which a pattern is optional). These typically try to find specific words or sequences of words in the user’s input. In the rule:</p>
+<p>Rules usually have pattern requirements in parens (except gambit <code>t:</code> rules for which a pattern is optional and void <code>v:</code> who use an empty pattern). These typically try to find specific words or sequences of words in the user’s input. In the rule:</p>
 <pre><code>u: (run away) </code></pre>
 <p>the engine will see if the word run can be found anywhere in the sentence, and if so, is it immediately followed by the word away. Whenever you see <code>[...]</code> it means pick one of. So</p>
 <pre><code>u: ([scare afraid]) </code></pre>

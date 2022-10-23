@@ -601,12 +601,12 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 {
 	// need to get fact limit variable for WriteUserFacts BEFORE writing user variables, which clears them
 	unsigned int count = userFactCount;
-	char* value = GetUserVariable("$cs_userfactlimit",false,true);
+	char* value = GetUserVariable("$cs_userfactlimit",false);
     if (*value == '*') count = (unsigned int)-1;
     else if (*value) count = atoi(value);
 
 	int messageCount = MAX_USER_MESSAGES;
-	value = GetUserVariable("$cs_userhistorylimit", false, true);
+	value = GetUserVariable("$cs_userhistorylimit", false);
 	if (*value) messageCount = atoi(value);
 
 	// each line MUST end with cr/lf  so it can be made potentially safe for Mongo or encryption w/o adjusting size of data (which would be inefficient)
@@ -621,7 +621,7 @@ static char* GatherUserData(char* ptr,time_t curr,bool sharefile)
 		ReportBug("User file topic data too big %s",loginID);
 		return NULL;
 	}
-	char* saveJSON = GetUserVariable("$cs_saveusedJson", false, true);
+	char* saveJSON = GetUserVariable("$cs_saveusedJson", false);
 	if (!*saveJSON) saveJSON = NULL;
 
 	ptr = WriteUserVariables(ptr,sharefile,false, saveJSON);  // json safe - does not write kernel or boot bot variables
@@ -815,7 +815,7 @@ static  bool ReadFileData(char* bot) // passed  buffer with file content (where 
             return true;
 		}
 		if (trace & TRACE_USER) Log(USERLOG, "user loaded normally\r\n");
-		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex", false, true)) + (volleyCount % MAXRAND);	// rand base assigned to user
+		oldRandIndex = randIndex = atoi(GetUserVariable((char*)"$cs_randindex", false)) + (volleyCount % MAXRAND);	// rand base assigned to user
 	}
 	userRecordSourceBuffer = NULL;
 	if (traceUniversal) trace = traceUniversal;
@@ -868,7 +868,7 @@ void GetUserData(ResetMode& buildReset,char* incoming)
 		char oldc;
 		int oldCurrentLine;
 		BOMAccess(BOMvalue, oldc, oldCurrentLine); // copy out prior file access and reinit user file access
-		char* suppressUser = GetUserVariable("$cs_new_user", false, true); // command line
+		char* suppressUser = GetUserVariable("$cs_new_user", false); // command line
 		if (*suppressUser && strstr(originalUserInput, suppressUser)) newuser = true;
 		ReadUserData();		//   now bring in user state, uses readbuffer
 		BOMAccess(BOMvalue, oldc, oldCurrentLine); // restore old BOM values

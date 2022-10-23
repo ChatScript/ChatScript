@@ -288,7 +288,7 @@ static void StripEscape(char* from) // some escaped characters to normal, since 
 	}
 }
 
-static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING * retMeaning, int* flags, bool key, bool nofail,int ignore) {
+static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING * retMeaning, int* flags, bool key, bool nofail,int enableadjust) {
 	// Always build with duplicate on. create a fresh copy of whatever
 	jsmntok_t curr = tokens[currToken];
 	char namebuff[256];
@@ -308,7 +308,8 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			++text;
 			StripEscape(text);
 			if (jsonpurify) 	PurifyInput(text, text, size, INPUT_PURIFY); // change out special or illegal characters
-			if (ignore != 2) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
+			// enableadjust bit 2 means do not return this field	
+			if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
 			else *retMeaning = 1; // lie
 			text[size] = endchar;
 			break;
@@ -372,7 +373,7 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			{
 				if (str[1] == 'a') *flags = JSON_ARRAY_VALUE;
 				else *flags = JSON_OBJECT_VALUE;
-				if (ignore != 2)
+				if (!(enableadjust &  2)) 
 				{
 					MEANING M = jcopy(MakeMeaning(StoreWord(str, AS_IS)));
 					WORDP D = Meaning2Word(M);
@@ -383,7 +384,7 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			else if ((numberEnd = IsJsonNumber(str)) && numberEnd == (str + strlen(str))) { ; }
 			else *flags = JSON_STRING_VALUE; // cannot be number
 		}
-		if (ignore != 2) *retMeaning = MakeMeaning(StoreWord(str, AS_IS));
+		if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(str, AS_IS));
 		else *retMeaning = 1; // lie
 		break;
 	}
@@ -393,7 +394,13 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 		StripEscape(text);
 		if (jsonpurify) 	PurifyInput(text, text, size, INPUT_PURIFY); // change out special or illegal characters
 		*flags = JSON_STRING_VALUE; // string null
-        if (ignore != 2) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
+		if (enableadjust & 8) // convert to underscore all spaces in string
+		{
+			char* under = text - 1;
+			while ((under = strchr(under, ' '))) *under = '_';
+		}
+
+        if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
 		else *retMeaning = 1;
 		text[size] = endchar;
 		break;
@@ -402,7 +409,7 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 	{
 		// Build the object name
 		MEANING objectName = 0;
-		if (ignore != 2)
+		if (!(enableadjust & 2))
 		{
 			objectName = GetUniqueJsonComposite((char*)"jo-");
 			*retMeaning = objectName;
@@ -412,21 +419,22 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 		{
 				MEANING keyMeaning = 0;
 				int jflags = 0;
-				retToken = factsJsonHelper(jsontext, tokens, retToken, &keyMeaning, &jflags, true, nofail, ignore);
+				retToken = factsJsonHelper(jsontext, tokens, retToken, &keyMeaning, &jflags, true, nofail, enableadjust);
 				if (retToken == 0) return 0;
 
 				// dont expand into facts?
-				int oldignore = ignore;
+				int oldenable = enableadjust;
 				WORDP field = Meaning2Word(keyMeaning);
 				char* fieldname =  field->word;
-				if (ignore == 1 && field->internalBits & FUNCTION_NAME)  ignore = 2;
+				if ((enableadjust & 1) && field->internalBits & SETIGNORE)  enableadjust |= 2;
+				if ((enableadjust & 4) && field->internalBits & SETUNDERSCORE)  enableadjust |= 8;
 				MEANING valueMeaning = 0;
-				retToken = factsJsonHelper(jsontext, tokens, retToken, &valueMeaning, &jflags, false, nofail, ignore);
+				retToken = factsJsonHelper(jsontext, tokens, retToken, &valueMeaning, &jflags, false, nofail, enableadjust);
 				if (retToken == 0) return 0;
-				if (ignore != 2) 
+				if (!(enableadjust & 2)) 
 					CreateFact(objectName, keyMeaning, valueMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_OBJECT_FACT); // only the last value of flags matters. 5 means object fact in subject
 			
-				ignore = oldignore; // restore
+				enableadjust = oldenable; // restore
 		}
 		*flags = JSON_OBJECT_VALUE;
 		break;
@@ -434,7 +442,7 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 	case JSMN_ARRAY: 
 	{
 		MEANING arrayName = 0;
-		if (ignore != 2)
+		if (!(enableadjust &2))
 		{
 			arrayName = GetUniqueJsonComposite((char*)"ja-");
 			*retMeaning = arrayName;
@@ -443,22 +451,22 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 		for (int i = 0; i < curr.size; i++) 
 		{
 			MEANING index = 0;
-			if (ignore != 2)
+			if (!(enableadjust & 2))
 			{
 				sprintf(namebuff, "%d", i); // Build the array index
 				index = MakeMeaning(StoreWord(namebuff, AS_IS));
 			}
 			MEANING arrayMeaning = 0;
 			int jflags = 0;
-			retToken = factsJsonHelper(jsontext, tokens, retToken, &arrayMeaning, &jflags, false, nofail, ignore);
+			retToken = factsJsonHelper(jsontext, tokens, retToken, &arrayMeaning, &jflags, false, nofail, enableadjust);
 			if (retToken == 0) return 0;
-			if (ignore != 2) CreateFact(arrayName, index, arrayMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_ARRAY_FACT); // flag6 means subject is arrayfact
+			if (!(enableadjust & 2)) CreateFact(arrayName, index, arrayMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_ARRAY_FACT); // flag6 means subject is arrayfact
 		}
 		*flags = JSON_ARRAY_VALUE;
 		break;
 	}
 	default:
-		if (ignore != 2)
+		if (!(enableadjust & 2))
 		{
 			char* str = AllocateBuffer("jsmn default"); // cant use InfiniteStack because ReportBug will;.
 			strncpy(str, jsontext + curr.start, size);
@@ -510,6 +518,7 @@ ARGUMENT(1) - request method : POST, GET, POSTU, GETU
 ARGUMENT(2) - URL. The URL to use in the request
 ARGUMENT(3) - If a POST request, this argument contains the post data
 ARGUMENT(4) - This argument contains any needed extra REQUEST headers for the request(see note above).
+ARGUMENT(5) - concept of fields to ignore returning.
 
 	e.g.
 	$$url = "https://api.github.com/users/test/repos"
@@ -848,9 +857,11 @@ FunctionResult JSONOpenCode(char* buffer)
 
 	char* ignore = NULL;
 	if (*ARGUMENT(index) == '~') ignore = ARGUMENT(index++); // fields to ignore
+	char* underscore = NULL;
+	if (*ARGUMENT(index) == '~') underscore = ARGUMENT(index++); // fields to change underscore to spaces
 
-	char* timeoutstr = GetUserVariable("$cs_overrideJsontimelimit", false, true); // override user from cs_init world
-	if (!*timeoutstr)  timeoutstr = GetUserVariable("$cs_jsontimeout", false, true);
+	char* timeoutstr = GetUserVariable("$cs_overrideJsontimelimit", false); // override user from cs_init world
+	if (!*timeoutstr)  timeoutstr = GetUserVariable("$cs_jsontimeout", false);
 	if (IsDigit(*ARGUMENT(index))) timeoutstr = ARGUMENT(index); // local override
 	long timelimit = (*timeoutstr) ? atoi(timeoutstr) : 300L;
 	if (timelimit < 0) return FAILRULE_BIT; // instant fail
@@ -939,7 +950,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	}
 
 	// Assuming a content return type of JSON.
-	int gzip = 0;
+	int gzipstatus = 0;
 	int deflate = 0;
 	int compress = 0;
 	int identity = 0;
@@ -975,7 +986,7 @@ FunctionResult JSONOpenCode(char* buffer)
 				if (!strnicmp(name, "Content-type", 12)) contentSeen = true;
 				if (strstr(name, (char*)"accept-encoding"))
 				{
-					gzip = EncodingValue((char*)"gzip", value, gzip);
+					gzipstatus = EncodingValue((char*)"gzip", value, gzipstatus);
 					deflate = EncodingValue((char*)"deflate", value, deflate);
 					compress = EncodingValue((char*)"compress", value, compress);
 					identity = EncodingValue((char*)"identity", value, identity);
@@ -991,7 +1002,7 @@ FunctionResult JSONOpenCode(char* buffer)
 				MakeLowerCopy(value, fieldName);
 				if (strstr(value, (char*)"accept-encoding"))
 				{
-					gzip = EncodingValue((char*)"gzip", value, gzip);
+					gzipstatus = EncodingValue((char*)"gzip", value, gzipstatus);
 					deflate = EncodingValue((char*)"deflate", value, deflate);
 					compress = EncodingValue((char*)"compress", value, compress);
 					identity = EncodingValue((char*)"identity", value, identity);
@@ -1016,7 +1027,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	} // if (extraRequestHeadersRaw)
 	if (!contentSeen) header = curl_slist_append(header, "Content-Type: application/json");
 	header = curl_slist_append(header, "User-Agent: ChatScript");
-	char* correlationId = GetUserVariable("$correlation_id", false, true);	
+	char* correlationId = GetUserVariable("$correlation_id", false);	
 	if (*correlationId)
 	{
 		SAFE_SPRINTF(headerLine, sizeof(headerLine), "correlation-id: %s", correlationId);
@@ -1039,17 +1050,17 @@ FunctionResult JSONOpenCode(char* buffer)
 	*coding = 0;
 	if (wild == 2) // authorizes anything not mentioned
 	{
-		if (gzip == 0) gzip = 2;
+		if (gzipstatus == 0) gzipstatus = 2;
 		if (compress == 0) compress = 2;
 		if (identity == 0) identity = 2;
 		if (deflate == 0) deflate = 2;
 	}
 	if (compress == 2)
 	{
-		if (gzip == 0) gzip = 2;
+		if (gzipstatus == 0) gzipstatus = 2;
 		if (deflate == 0) deflate = 2;
 	}
-	if (gzip == 2) strcat(coding, (char*)"gzip,");
+	if (gzipstatus == 2) strcat(coding, (char*)"gzip,");
 	if (deflate == 2) strcat(coding, (char*)"deflate,");
 	if (identity == 2) strcat(coding, (char*)"identity,");
 	if (!*coding) strcpy(coding, (char*)"identity,");
@@ -1066,11 +1077,11 @@ FunctionResult JSONOpenCode(char* buffer)
 	res = CURLE_OK;
 
 	// proxy ability
-	char* proxyuser = GetUserVariable("$cs_proxycredentials", false, true); // "myname:thesecret"
+	char* proxyuser = GetUserVariable("$cs_proxycredentials", false); // "myname:thesecret"
 	if (res == CURLE_OK && proxyuser && *proxyuser) res = curl_easy_setopt(curl, CURLOPT_PROXYUSERPWD, proxyuser);
-	char* proxyserver = GetUserVariable("$cs_proxyserver", false, true); // "http://local.example.com:1080"
+	char* proxyserver = GetUserVariable("$cs_proxyserver", false); // "http://local.example.com:1080"
 	if (res == CURLE_OK && proxyserver && *proxyserver) res = curl_easy_setopt(curl, CURLOPT_PROXY, proxyserver);
-	char* proxymethod = GetUserVariable("$cs_proxymethod", false, true); // "CURLAUTH_ANY"
+	char* proxymethod = GetUserVariable("$cs_proxymethod", false); // "CURLAUTH_ANY"
 	if (res == CURLE_OK && proxymethod && *proxymethod) res = curl_easy_setopt(curl, CURLOPT_PROXYAUTH, atol(proxymethod));
 
 	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
@@ -1087,8 +1098,6 @@ FunctionResult JSONOpenCode(char* buffer)
 	if (res == CURLE_OK) res = curl_easy_perform(curl);
 
 	curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_response);
-	char code[MAX_WORD_SIZE];
-	sprintf(code, (char*)"%ld", http_response);
 	if (curlBufferBase) CompleteBindStack();
 	if (trace & TRACE_JSON && res != CURLE_OK)
 	{
@@ -1103,13 +1112,34 @@ FunctionResult JSONOpenCode(char* buffer)
 			if (kind == 'P' || kind == 'U')  sprintf(at, "Json  data: %s\r\n ", arg);
 		}
 
-		if (res == CURLE_URL_MALFORMAT) { ReportBug((char*)"\r\nINFO: Json url malformed %s", word); }
-		else if (res == CURLE_GOT_NOTHING) { ReportBug((char*)"\r\nINFO: Curl got nothing %s", word); }
-		else if (res == CURLE_UNSUPPORTED_PROTOCOL) { ReportBug((char*)"\r\nINFO: Curl unsupported protocol %s", word); }
-		else if (res == CURLE_COULDNT_CONNECT || res == CURLE_COULDNT_RESOLVE_HOST || res == CURLE_COULDNT_RESOLVE_PROXY) Log(USERLOG, "\r\nJson connect failed ");
-		else if (res == CURLE_OPERATION_TIMEDOUT) { ReportBug((char*)"\r\nINFO: Curl timeout "); }
+		if (res == CURLE_URL_MALFORMAT) 
+		{
+			http_response = -5;
+			ReportBug((char*)"\r\nINFO: Json url malformed %s", word);
+		}
+		else if (res == CURLE_GOT_NOTHING) 
+		{
+			http_response = -4;
+			ReportBug((char*)"\r\nINFO: Curl got nothing %s", word);
+		}
+		else if (res == CURLE_UNSUPPORTED_PROTOCOL) 
+		{
+			http_response = -3;
+			ReportBug((char*)"\r\nINFO: Curl unsupported protocol %s", word);
+		}
+		else if (res == CURLE_COULDNT_CONNECT || res == CURLE_COULDNT_RESOLVE_HOST || res == CURLE_COULDNT_RESOLVE_PROXY)
+		{
+			http_response = -2;
+			Log(USERLOG, "\r\nJson connect failed ");
+		}
+		else if (res == CURLE_OPERATION_TIMEDOUT) 
+		{ 
+			http_response = -1;
+			ReportBug((char*)"\r\nINFO: Curl timeout "); 
+		}
 		else
 		{
+			http_response = -6;
 			if (output.buffer && output.size) { ReportBug((char*)"\r\nINFO: Other curl return code %d %s  - %s ", (int)res, word, output.buffer); }
 			else { ReportBug((char*)"\r\nINFO: Other curl return code %d %s", (int)res, word); }
 		}
@@ -1163,7 +1193,7 @@ FunctionResult JSONOpenCode(char* buffer)
 	}
 	else
 	{
-		result = ParseJson(buffer, output.buffer, output.size, false,ignore,true); // purifies locally for strings
+		result = ParseJson(buffer, output.buffer, output.size, false,ignore,true,underscore); // purifies locally for strings
 		char x[MAX_WORD_SIZE];
 		if (result == NOPROBLEM_BIT)
 		{
@@ -1202,7 +1232,26 @@ static void jsmn_init(jsmn_parser* parser) {
 	parser->toksuper = -1;
 }
 
-FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,char* ignore,bool purify)
+static void MarkSet(FACT* F, unsigned int bit)
+{
+	while (F) // mark fields to ignore
+	{
+		WORDP subject = Meaning2Word(F->subject);
+		subject->internalBits |= bit;
+		F = GetObjectNext(F);
+	}
+}
+
+static void UnmarkSet(FACT* F, unsigned int bit)
+{
+	while (F) // mark fields to ignore
+	{
+		WORDP subject = Meaning2Word(F->subject);
+		subject->internalBits &= -1 ^ bit;
+		F = GetObjectNext(F);
+	}
+}
+FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,char* ignore,bool purify,char* underscore)
 {
 	jsonpurify = purify;
 	jsonIdIncrement = 1000; // fast hunt for a slot for names since this collection may be sizeable
@@ -1233,41 +1282,34 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,c
 	CompleteBindStack(used);
 
 	MEANING id = 0;
-	if (jtokenCount < 1) id = 0; // error
+	if (jtokenCount < 1) id = 0; // error in json syntax
 	else
 	{
 		MEANING retMeaning = 0;
 		int flags = 0;
 
 		FACT* setignore = NULL;
-		if (ignore) // fields to avoid processing
+		if (ignore && *ignore == '~') // fields to avoid processing
 		{
-			setignore = GetObjectNondeadHead(FindWord(ignore));
-			FACT* F = setignore;
-			while (F) // mark fields to ignore
-			{
-				WORDP subject = Meaning2Word(F->subject);
-				char* name = subject->word;
-				subject->internalBits |= FUNCTION_NAME;
-				F = GetObjectNondeadNext(F);
-			}
+			setignore = GetObjectHead(FindWord(ignore));
+			MarkSet(setignore, SETIGNORE);
+		}
+		FACT* setunderscore = NULL;
+		if (underscore && *underscore == '~') // fields to convert spaces to underscores
+		{
+			setunderscore = GetObjectHead(FindWord(underscore));
+			MarkSet(setunderscore, SETUNDERSCORE);
 		}
 
-		int X = factsJsonHelper(message, tokens, 0, &retMeaning, &flags, false, nofail, (ignore) ? 1 : 0);
+		int enableadjust = 0;
+		if (ignore) enableadjust |= 1;
+		if (underscore) enableadjust |= 4;
+		int X = factsJsonHelper(message, tokens, 0, &retMeaning, &flags, false, nofail,enableadjust);
 		id = (X) ? retMeaning : 0;
 		currentFact = NULL;	 // used up by putting into json
 
-		if (setignore)
-		{
-			FACT* F = setignore;
-			while (F)
-			{
-				WORDP subject = Meaning2Word(F->subject);
-				char* name = subject->word;
-				subject->internalBits &= -1 ^ FUNCTION_NAME;
-				F = GetObjectNondeadNext(F);
-			}
-		}
+		if (setignore) UnmarkSet(setignore, SETIGNORE);
+		if (setunderscore) UnmarkSet(setunderscore, SETUNDERSCORE);
 	}
 	if (timing & TIME_JSON)
 	{
@@ -1617,7 +1659,7 @@ static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bo
 				what[strlen(what) - 1] = 0; // remove closing quote
 			}
 			else strcpy(what, path + 1);
-			if (*what == USERVAR_PREFIX) strcpy(what, GetUserVariable(what, false, true));
+			if (*what == USERVAR_PREFIX) strcpy(what, GetUserVariable(what, false));
 			M = MakeMeaning(FindWord(what)); // is CASE sensitive
 			if (!M) return FAILRULE_BIT; // cant be in a fact if it cant be found
 			while (F)
@@ -2202,7 +2244,10 @@ FunctionResult JSONParseCode(char* buffer)
 		}
 		len = strlen(data);
 	}
-	FunctionResult result = ParseJson(buffer, data, len, nofail,NULL);
+	char* ignoreset = ARGUMENT(index++);;
+	char* underscoreset = ARGUMENT(index++);;
+	FunctionResult result = ParseJson(buffer, data, len, nofail, ignoreset,false, underscoreset);
+
 	if (close) *closer = close;
 	return result;
 }
@@ -2618,7 +2663,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 
 	// now find the root
 	WORDP base = FindWord(word);
-	char* val = GetUserVariable(word, false, true); // gets the initial variable value
+	char* val = GetUserVariable(word, false); // gets the initial variable value
 
 	*separator = c;
 	WORDP leftside = FindWord(val); // actual JSON structure  name
@@ -2674,7 +2719,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 		}
 		if (*keyx == '$') // indirection key user variable
 		{
-			char* answer = GetUserVariable(keyx, false, true);
+			char* answer = GetUserVariable(keyx, false);
 			strcpy(keyx, answer);
 			if (!*keyx)  return FAILRULE_BIT;
 		}

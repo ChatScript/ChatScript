@@ -433,7 +433,7 @@ static void C_POS(char* input)
 		}
 		else
 		{
-			char* token = GetUserVariable("$cs_token", false, true);
+			char* token = GetUserVariable("$cs_token", false);
 			int64 f;
 			ReadInt64(token, f);
 			if (f == 0) f = DO_ESSENTIALS | DO_PARSE | DO_CONTRACTIONS | NO_HYPHEN_END | NO_COLON_END | NO_SEMICOLON_END | TOKEN_AS_IS;
@@ -459,7 +459,7 @@ static void C_Prepare(char* input)
 	if (*input == USERVAR_PREFIX) // set token control to this
 	{
 		char* ptr = ReadCompiledWord(input, word);
-		char* value = GetUserVariable(word, false, true);
+		char* value = GetUserVariable(word, false);
 		if (value && *value)
 		{
 			input = ptr;
@@ -479,7 +479,7 @@ static void C_Prepare(char* input)
 	else
 	{
 		char prepassTopic[MAX_WORD_SIZE];
-		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 		unsigned int oldtrace = trace;
 		unsigned int oldtiming = timing;
 		AddInput(input, 0, true);
@@ -522,7 +522,7 @@ static void C_Canonize(char* input)
 	if (*input == USERVAR_PREFIX) // set token control to this
 	{
 		char* ptr = ReadCompiledWord(input, word);
-		char* value = GetUserVariable(word, false, true);
+		char* value = GetUserVariable(word, false);
 		if (value && *value)
 		{
 			input = ptr;
@@ -541,7 +541,7 @@ static void C_Canonize(char* input)
 	AddInput(input, 0, true);
 
 	char prepassTopic[MAX_WORD_SIZE];
-	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 	bool oobstart = (*input == '[');
 	while ((input = GetNextInput()))
 	{
@@ -582,7 +582,7 @@ static void C_Tokenize(char* input)
 	if (*input == USERVAR_PREFIX) // set token control to this
 	{
 		char* ptr = ReadCompiledWord(input, word);
-		char* value = GetUserVariable(word, false, true);
+		char* value = GetUserVariable(word, false);
 		if (value && *value)
 		{
 			input = ptr;
@@ -1538,7 +1538,7 @@ static void C_TestPattern(char* input)
 	}
 
 	char prepassTopic[MAX_WORD_SIZE];
-	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 	PrepareSentence(ptr, true, true);
 	PrepassSentence(prepassTopic);
 
@@ -1641,7 +1641,7 @@ static void GambitTestTopic(char* topic)
 		KillShare();
 		ReadNewUser();
 		char prepassTopic[MAX_WORD_SIZE];
-		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 		volleyCount = 1;
 		OnceCode((char*)"$cs_control_pre");
 		while (ALWAYS)
@@ -1853,7 +1853,7 @@ static void C_TestTopic(char* input)
 	char word[MAX_WORD_SIZE];
 	input = ReadCompiledWord(input, word);
 	char prepassTopic[MAX_WORD_SIZE];
-	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 	AddInput(input, 0, true);
 	while ((input = GetNextInput()))
 	{
@@ -2376,7 +2376,7 @@ static void C_Verify(char* input)
 	if (*ptr == USERVAR_PREFIX) // tokenize this way
 	{
 		ptr = ReadCompiledWord(ptr, tokens);
-		char* value = GetUserVariable(tokens, false, true);
+		char* value = GetUserVariable(tokens, false);
 		int64 flags = 0;
 		ReadInt64(value, flags);
 		verifyToken = flags;
@@ -2407,7 +2407,7 @@ static void C_Verify(char* input)
 	if (type != 'g')
 	{
 		char prepassTopic[MAX_WORD_SIZE];
-		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false, true));
+		strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 		if (*topic == '~' && !strchr(topic, '*')) VerifyAccess(topic, type, prepassTopic);
 		else VerifyAllTopics(type, prepassTopic, topic);
 	}
@@ -5112,7 +5112,11 @@ static void C_Build(char* input)
 		if (multidict) Log(USERLOG, "\r\n>>Setting language %s\r\n", current_language);
 		char word[MAX_WORD_SIZE];
 		sprintf(word, (char*)"files%s.txt", file);
-		if (file[len - 1] == '0') buildId = BUILD0;
+		if (file[len - 1] == '0')
+		{
+			buildId = BUILD0;
+			EraseTopicBin(BUILD1, "1");
+		}
 		else buildId = BUILD1; // global so WriteCanon can work
 		char filex[200];
 		sprintf(filex, "%s/missingSets.txt", topicfolder);
@@ -5989,49 +5993,43 @@ static void C_DualUpper(char* input)
 
 static void C_Word(char* input)
 {
-	char word[MAX_WORD_SIZE];
 	char junk[MAX_WORD_SIZE];
-	while (ALWAYS)
+	int limit = 0;
+	if (IsDigit(*input))
 	{
-		input = ReadCompiledWord(input, word);
-		if (!*word) break;
-		input = SkipWhitespace(input);
-		int limit = 0;
-		if (IsDigit(*input))
+		limit = atoi(input);
+		input = ReadCompiledWord(input, junk);
+	}
+	if (*input == '"')
 		{
-			limit = atoi(input);
-			input = ReadCompiledWord(input, junk);
+			size_t len = strlen(input);
+			input[len - 1] = 0;
+			memmove(input, input + 1, len);
 		}
-		if (*word == '"')
+		if (*input == '#')
 		{
-			size_t len = strlen(word);
-			word[len - 1] = 0;
-			memmove(word, word + 1, len);
-		}
-		if (*word == '#')
-		{
-			uint64 n = FindPropertyValueByName(word + 1);
+			uint64 n = FindPropertyValueByName(input + 1);
 			if (n)
 #ifdef WIN32
 				Log(USERLOG, "Value: %I64u  %llx\r\n", n, n);
 #else
 				Log(USERLOG, "Value: %llu  %llx\r\n", n, n);
 #endif
-			n = FindSystemValueByName(word + 1);
+			n = FindSystemValueByName(input + 1);
 			if (n)
 #ifdef WIN32
 				Log(USERLOG, "System: %I64u %llx\r\n", n, n);
 #else
 				Log(USERLOG, "System: %llu  %llx\r\n", n, n);
 #endif
-			n = FindParseValueByName(word + 1);
+			n = FindParseValueByName(input + 1);
 			if (n)
 #ifdef WIN32
 				Log(USERLOG, "Parse: %I64u  %llx\r\n", n, n);
 #else
 				Log(USERLOG, "Parse: %llu  %llx\r\n", n, n);
 #endif
-			n = FindMiscValueByName(word + 1);
+			n = FindMiscValueByName(input + 1);
 			if (n)
 #ifdef WIN32
 				Log(USERLOG, "Misc: %I64u  %llx\r\n", n, n);
@@ -6039,8 +6037,7 @@ static void C_Word(char* input)
 				Log(USERLOG, "Misc: %llu  %llz\r\n", n, n);
 #endif
 		}
-		else DumpDictionaryEntry(word, limit);
-	}
+		else DumpDictionaryEntry(input, limit);
 }
 
 static void WordDump(WORDP D, uint64 flags)
@@ -6672,7 +6669,7 @@ static void C_TimedFunctions(char* input)
 
 static void TracedTopic(WORDP D, uint64 style)
 {
-	if (D->internalBits & TOPIC)
+	if (*D->word == '~' && D->internalBits & TOPIC)
 	{
 		int topic = FindTopicIDByName(D->word);
 		topicBlock* block = TI(topic);
@@ -6876,8 +6873,15 @@ TestMode Command(char* input, char* buffer, bool scripted)
 		else wasCommand = COMMANDED;
 		testOutput = buffer;
 		if (buffer) *buffer = 0;
+
+		int oldlogging = userLog;
+#ifndef DLL
+		if (!server) userLog = FILE_LOG;
+#endif
 		if (!stricmp(info->word, ":do") && scripted) C_DoInternal(data, true);
 		else (*info->fn)(data);
+		userLog = oldlogging;
+
 		testOutput = NULL;
 		if (strcmp(info->word, (char*)":echo") && prepareMode == NO_MODE && !(trace & TRACE_TREETAGGER)) echo = oldecho;
 		if (scripted && strcmp(info->word, (char*)":echo")) echo = oldecho;
@@ -7397,6 +7401,40 @@ static void C_Ingestlog(char* input)
 
 	C_MemStats(input); // after
 	ShowIngestSummary(starttime, msgcnt, errorcnt);
+}
+
+static void C_FixUnderscore(char* input)
+{
+	char file[MAX_WORD_SIZE];
+	strcpy(file, "../topics/CONTROL/youtube.txt");
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		(*printer)("no such file");
+		return;
+	}
+
+	sprintf(file, "TMP/%s.txt", input);
+	FILE* out = FopenUTF8Write(file);
+	char* inbuffer = AllocateBuffer();
+	char* outbuffer = AllocateBuffer();
+	//{"The Smiths": [{"etag": "eTFg3s0PRv-gEDOBFsOOz3ZBTFc", "id": {"videoId": "0yrcCoaHqNE"} , "snippet": {"channelId": "UCQLhClnd1oOJ-mLyr_yr9SQ", "title": "Seeing Their Smiles After Doing This Makes It All Worth It ❤️", "description": "Visit River Kelly Fund here▻ https://www.riverkellyfund.org Yee Yee Apparel ▻ https://YeeYee.com Tickets to Granger's Tour▻ ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/0yrcCoaHqNE/default.jpg", "width": 120, "height": 90} } } } , {"etag": "ohquvQgpgP8F9_wmnsAjyWAbGh8", "id": {"videoId": "cJRP3LRcUFg"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - This Charming Man (Official Music Video)", "description": "Official video for This Charming Man by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/cJRP3LRcUFg/default.jpg", "width": 120, "height": 90} } } } , {"etag": "RW2tV2VtkqQ4xccWOAMgMBFbVYM", "id": {"videoId": "TjPhzgxe3L0"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Heaven Knows I'm Miserable Now (Official Music Video)", "description": "Official video for Heaven Knows I'm Miserable by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/TjPhzgxe3L0/default.jpg", "width": 120, "height": 90} } } } , {"etag": "p6AgQyMTOpr2u9l2k_Hk55-aNC8", "id": {"videoId": "hnpILIIo9ek"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - How Soon Is Now? (Official Music Video)", "description": "Official video for How Soon Is Now? by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/hnpILIIo9ek/default.jpg", "width": 120, "height": 90} } } } , {"etag": "kGk9LL_EvCnDfZNp8S-GpjrMofI", "id": {"videoId": "siO6dkqidc4"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - There Is A Light That Never Goes Out (Official Audio)", "description": "Official audio for There Is A Light That Never Goes Out by The Smiths Read more about TQID here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/siO6dkqidc4/default.jpg", "width": 120, "height": 90} } } } , {"etag": "QpGeIR9UOY2beVc_SUoWD07555g", "id": {"videoId": "ypMkEHHjXVI"} , "snippet": {"channelId": "UCvdWYU-NrdVX5xCefhTGZpw", "title": "The Smiths Greatest Hits Full Album - Best Songs Of The Smiths Playlist 2021", "description": "The Smiths Greatest Hits Full Album - Best Songs Of The Smiths Playlist 2021 The Smiths Greatest Hits Full Album - Best Songs ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/ypMkEHHjXVI/default.jpg", "width": 120, "height": 90} } } } , {"etag": "Rh7HR18ZfpperZtGP3J4ZwyXrFw", "id": {"videoId": "XbOx8TyvUmI"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - What Difference Does It Make? (Official Music Video)", "description": "Official video What Difference Does It Make? by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/XbOx8TyvUmI/default.jpg", "width": 120, "height": 90} } } } , {"etag": "hmCDo42gSb1dYRyGuCqws-MUpy4", "id": {"videoId": "w3qPMe_cCJk"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Please, Please, Please, Let Me Get What I Want (Official Audio)", "description": "Official Audio for Please, Please, Please, Let Me Get What I Want by The Smiths Stream The Smiths greatest hits here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/w3qPMe_cCJk/default.jpg", "width": 120, "height": 90} } } } , {"etag": "00aTL457k8aKfRv7HQnh1liKzMQ", "id": {"videoId": "SckD99B51IA"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Stop Me If You Think You've Heard This One Before (Official Music Video)", "description": "Official video for Stop Me If You Think You've Heard This One Before by The Smiths Read more about Strangeways, Here We ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/SckD99B51IA/default.jpg", "width": 120, "height": 90} } } } , {"etag": "G8Ea0QNVyRLTcTunmSrPx4Nw6LI", "id": {"videoId": "wMykYSQaG_c"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Panic (Official Music Video)", "description": "Official video for Panic by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/wMykYSQaG_c/default.jpg", "width": 120, "height": 90} } } } , {"etag": "9uTnkaIgoDhYvgAeabw-qcZdBSc", "id": {"videoId": "3RSt0QbxPGI"} , "snippet": {"channelId": "UCi3cbmdyFtBgy3H3wxmWNLw", "title": "T H E. S M I T H S Greatest Hits Full Album - Best Songs Of T H E. S M I T H S Playlist 2021", "description": "T H E. S M I T H S Greatest Hits Full Album - Best Songs Of T H E. S M I T H S Playlist 2021 T H E. S M I T H S Greatest Hits Full ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/3RSt0QbxPGI/default.jpg", "width": 120, "height": 90} } } } , {"etag": "HYG8_vpO-Oy70QM90r43IHSl-4w", "id": {"videoId": "iWcQqWW3QCI"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - This Night Has Opened My Eyes (Official Audio)", "description": "Official Audio for This Night Has Opened My Eyes by The Smiths Stream The Smiths greatest hits here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/iWcQqWW3QCI/default.jpg", "width": 120, "height": 90} } } } , {"etag": "dNl92fTS0kq5usMI4JUd1b7Lt38", "id": {"videoId": "PtzhvJh9NRY"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Bigmouth Strikes Again (Official Audio)", "description": "Official Audio for Bigmouth Strikes Again by The Smiths Read more about TQID here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/PtzhvJh9NRY/default.jpg", "width": 120, "height": 90} } } } , {"etag": "vLzNQ2oD3y-FVK5t4ANT3FMzbbk", "id": {"videoId": "3r-qDvD3F3c"} , "snippet": {"channelId": "UCklWLf-5N7mE8S06rj2OrQw", "title": "There Is a Light That Never Goes Out (2011 Remaster)", "description": "Provided to YouTube by WM UK There Is a Light That Never Goes Out (2011 Remaster) · The Smiths The Queen Is Dead ℗ 1986 ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/3r-qDvD3F3c/default.jpg", "width": 120, "height": 90} } } } , {"etag": "UNi7uUR3-rrlk10WqOMzFWbBun4", "id": {"videoId": "laXY5e5JaV0"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Back To The Old House (Official Audio)", "description": "Official Audio for Back To The Old House by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/laXY5e5JaV0/default.jpg", "width": 120, "height": 90} } } } , {"etag": "eIC1igElphz3QgyoP8ee0a0d8gA", "id": {"videoId": "qdOHPjMzY8s"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - The Boy With The Thorn In His Side (Official Music Video)", "description": "Official video for The Boy With The Thorn In His Side by The Smiths Read more about TQID here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/qdOHPjMzY8s/default.jpg", "width": 120, "height": 90} } } } , {"etag": "mKT-gwkRbcmJ9E_ENlL3FDQ0QnE", "id": {"videoId": "jEo2hs2N7r8"} , "snippet": {"channelId": "UCsdRi8Z0f6NY0swIYLQA_wA", "title": "T.h.e * S.m.i.t.h.s...Best I (1992)", "description": "BEM VINDO AO CANAL T.h.e * S.m.i.t.h.s...Best I (1992) Lista Das Faixas Faixa 01. 00:00 Faixa 02. 02:44 Faixa 03. 04:54 Faixa ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/jEo2hs2N7r8/default.jpg", "width": 120, "height": 90} } } } , {"etag": "CIGVeJp-rXoOdtb3G6SndQGD6Bo", "id": {"videoId": "zoo9Vu1a9bU"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Ask (Official Music Video)", "description": "Official video for Ask by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/zoo9Vu1a9bU/default.jpg", "width": 120, "height": 90} } } } , {"etag": "9purASPzid4FoFGyRZ-xvveXd_U", "id": {"videoId": "3GhoWZ5qTwI"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Girlfriend In A Coma (Official Music Video)", "description": "Official video for Girlfriend In A Coma by The Smiths Read more about Strangeways, Here We Come here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/3GhoWZ5qTwI/default.jpg", "width": 120, "height": 90} } } } , {"etag": "lsVq3l3EtYixEbnbRhIHdAWyrR0", "id": {"videoId": "5gQY0lCP8Kc"} , "snippet": {"channelId": "UCUaUBauuAxQn2--IfvrLhog", "title": "T H E. S M I T H S Greatest Hits Full Album - Best Songs Of T H E. S M I T H S Playlist 2021", "description": "T H E. S M I T H S Greatest Hits Full Album - Best Songs Of T H E. S M I T H S Playlist 2021 T H E. S M I T H S Greatest Hits Full ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/5gQY0lCP8Kc/default.jpg", "width": 120, "height": 90} } } } , {"etag": "EUMlAawJiiimzBWgSbwqGQQNQis", "id": {"videoId": "b_3oFRcTNHo"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Still Ill (Official Audio)", "description": "Official Audio for Still Ill by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/b_3oFRcTNHo/default.jpg", "width": 120, "height": 90} } } } , {"etag": "dqoYuAOHI2N4CkAU9Y1_6zkus9E", "id": {"videoId": "1fitMGZhulM"} , "snippet": {"channelId": "UCAW9kgqibdZZpdefcqoHpwg", "title": "The Smiths - The Smiths (1984) (FULL ALBUM)", "description": "Album's Title: The Smiths Artist: The Smiths Year: 1984 Genre: Post Punk Tracks: 1-Reel Around The Fountain (00:00) 2-You've ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/1fitMGZhulM/default.jpg", "width": 120, "height": 90} } } } , {"etag": "4VJNKQoYcAr1XMT3col00_wa9II", "id": {"videoId": "4PIi1LWkfDE"} , "snippet": {"channelId": "UCklWLf-5N7mE8S06rj2OrQw", "title": "How Soon Is Now? (2008 Remaster)", "description": "Provided to YouTube by Rhino/Warner Records How Soon Is Now? (2008 Remaster) · The Smiths The Sound of the Smiths ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/4PIi1LWkfDE/default.jpg", "width": 120, "height": 90} } } } , {"etag": "a68GRyl8ehl2WD3GmmKnE7UdOI4", "id": {"videoId": "PQyqrlFOe5s"} , "snippet": {"channelId": "UC2XdrkLEP0Zq-JZ6U-j8TaQ", "title": "The Smiths - Heaven Knows I'm Miserable Now", "description": "video upload powered by https://www.TunesToTube.com New Smiths Spotify Playlist!", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/PQyqrlFOe5s/default.jpg", "width": 120, "height": 90} } } } , {"etag": "vloPsY8oTaibzeXEGMPZZp734qo", "id": {"videoId": "M6o1SEj02t0"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - I Know It's Over (Official Audio)", "description": "Official Audio for I Know It's Over by The Smiths Read more about TQID here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/M6o1SEj02t0/default.jpg", "width": 120, "height": 90} } } } , {"etag": "CFyIfW7ruOwvXfThWTmQUrxFGW0", "id": {"videoId": "4zEF4ouEFSQ"} , "snippet": {"channelId": "UCcv8h9TQOohRaZm_bgEi3QA", "title": "The̤ ̤S̤m̤i̤ths--The̤ ̤B̤e̤s̤t  Vol 1 & 2 --Full Album", "description": "", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/4zEF4ouEFSQ/default.jpg", "width": 120, "height": 90} } } } , {"etag": "VwDbcRVbcA-McSnfFmrVjKCUw-0", "id": {"videoId": "kjLH3hipVsc"} , "snippet": {"channelId": "UCEzuOCz9-i0TSLePSbIoPWA", "title": "The Story Of The Smiths: Greatness and Controversy (Full Documentary) | Amplified", "description": "The full story and music of The Smiths. It features rare musical performances, videos, TV appearances, interviews with the band, ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/kjLH3hipVsc/default.jpg", "width": 120, "height": 90} } } } , {"etag": "jTh2nsZU3HO6dn3qZYO-vquwLaU", "id": {"videoId": "IYqCIa4zGYc"} , "snippet": {"channelId": "UCcv8h9TQOohRaZm_bgEi3QA", "title": ".T̤h̤e̤ ̤S̤M̤I̤T̤H̤S̤ ̤ ̤-̤T̤h̤e̤ ̤Q̤ṳe̤e̤n̤ ̤i̤s̤... Full Album HQ 1986", "description": "", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/IYqCIa4zGYc/default.jpg", "width": 120, "height": 90} } } } , {"etag": "kbFVKGFf04FdDZ9VMxoYeU23Jdo", "id": {"videoId": "OYYZFx7_DS8"} , "snippet": {"channelId": "UCklWLf-5N7mE8S06rj2OrQw", "title": "This Charming Man (2011 Remaster)", "description": "Provided to YouTube by WM UK This Charming Man (2011 Remaster) · The Smiths The Smiths ℗ 1986 Warner Music UK Ltd.", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/OYYZFx7_DS8/default.jpg", "width": 120, "height": 90} } } } , {"etag": "T0_7ITOIz-3OWHHdegh7P1WakbM", "id": {"videoId": "AitXDDv155A"} , "snippet": {"channelId": "UC1A9lJaqGfRMfJFMH7i9irg", "title": "The Smiths - Bigmouth Strikes Again - Live At Whistle Test 1986", "description": "The Smiths - Bigmouth Strikes Again - Live At Whistle Test 1986 Subscribe for more live music videos. Lyrics: Sweetness ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/AitXDDv155A/default.jpg", "width": 120, "height": 90} } } } , {"etag": "leaAz8eXgVNGaDilJAXXvnuq9TU", "id": {"videoId": "icXQxumuHAE"} , "snippet": {"channelId": "UCSerOYzMZT3Laju5u7CtfZA", "title": "The Smiths - There Is A Light That Never Goes Out (Live @ The Tube 1986)  (Remastered)", "description": "All Rights Reserved To The Smiths Song: There Is a Light That Never Goes Out (2008 Remaster) (Music taken from CD, Studio ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/icXQxumuHAE/default.jpg", "width": 120, "height": 90} } } } , {"etag": "lEC9EFbVxyYoLMuGmNpHEmpohBI", "id": {"videoId": "eubgWMwSD0k"} , "snippet": {"channelId": "UCZ1LAn15GfNapACZA8Eh-Ng", "title": "The Smiths - The Queen Is Dead", "description": "From the album: The Queen Is Dead.", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/eubgWMwSD0k/default.jpg", "width": 120, "height": 90} } } } , {"etag": "SgjzYmy1ySF6ud7IbpnrYsOOniI", "id": {"videoId": "q-8kKH4COvg"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Sheila Take A Bow (Official Music Video)", "description": "Official video for Sheila Take A Bow by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/q-8kKH4COvg/default.jpg", "width": 120, "height": 90} } } } , {"etag": "VcfdrLJhdRF2s4UajHgqaVdeZmg", "id": {"videoId": "5kLK8eCgmy4"} , "snippet": {"channelId": "UCS_-Ih5nF9dn2-W-_plHTvw", "title": "The Smiths - Strangeways, Here We Come (1987) Full album", "description": "Strangeways, Here We Come is the fourth and final studio album by English rock band the Smiths. Released on 28 September ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/5kLK8eCgmy4/default.jpg", "width": 120, "height": 90} } } } , {"etag": "UWMhYRthSaLgkGCUyERO59D0ffM", "id": {"videoId": "5lMXA1r6GMM"} , "snippet": {"channelId": "UCIENSdGJKQ7HXr62iGs6yHA", "title": "The Smiths - live Rockpalast 1984 (HQ)", "description": "The Smiths @ Rockpalast, 4 May 1984 Markthalle, Hamburg, Germany 00:00 Intro 01:03 Hand In Glove 04:10 Heaven Knows I'm ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/5lMXA1r6GMM/default.jpg", "width": 120, "height": 90} } } } , {"etag": "FQ4jdjoM7_19nstADh8asmSpbQk", "id": {"videoId": "dfXqxjMkyQ4"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Cemetry Gates (Official Audio)", "description": "Official Audio for Cemetry Gates by The Smiths Read more about TQID here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/dfXqxjMkyQ4/default.jpg", "width": 120, "height": 90} } } } , {"etag": "iw1ZzNhpPQ734G8eszWMFuWCc9g", "id": {"videoId": "lj0cI3XidFo"} , "snippet": {"channelId": "UCp8EGt-vDu7u4KS3301apGw", "title": "The Smiths - How Soon Is Now? (TOTP 1985)", "description": "The Smiths - How Soon Is Now? (Top Of The Pops 1985) Full track, redubbed. All ad revenue from the videos are claimed by ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/lj0cI3XidFo/default.jpg", "width": 120, "height": 90} } } } , {"etag": "ZyYAu4FcknG4w_ztfaPpMs1ZJSY", "id": {"videoId": "6psa1ptpGTc"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Well I Wonder (Official Audio)", "description": "Official Audio for Well I Wonder by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/6psa1ptpGTc/default.jpg", "width": 120, "height": 90} } } } , {"etag": "OcIZkn2S7u1fJIIAwgk-2IpxiFM", "id": {"videoId": "OBEV5qBLnzs"} , "snippet": {"channelId": "UCsZXuHKonP9utl5q2hFCkgA", "title": "The Smiths 2: The Brothers' Revenge", "description": "The Smiths 2: The Brothers' Revenge. Just when the farm seemed safe and sound, Mr. Smith's brothers showed up to town with a ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/OBEV5qBLnzs/default.jpg", "width": 120, "height": 90} } } } , {"etag": "SAcb3t4OIocga2YWpfy_OL2ZUTQ", "id": {"videoId": "sLX5Nym9fcs"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Half A Person (Official Audio)", "description": "Official Audio for Half A Person Anything by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/sLX5Nym9fcs/default.jpg", "width": 120, "height": 90} } } } , {"etag": "cpk2U3w05wwzpB15ZlDedd238OY", "id": {"videoId": "5mF4pKSi2SU"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - Asleep (Official Video)", "description": "Official Audio for Asleep by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits Subscribe here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/5mF4pKSi2SU/default.jpg", "width": 120, "height": 90} } } } , {"etag": "_EZz05IbR-Cjajv0d-CNP2FRM2Q", "id": {"videoId": "9Y6UyQClEj0"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - What Difference Does It Make? (Live on Top of the Pops, 1984)", "description": "The Smiths - What Difference Does It Make? (Live on Top of The Pops '84) What Difference Does It Make? performed live on Top ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/9Y6UyQClEj0/default.jpg", "width": 120, "height": 90} } } } , {"etag": "gya04Dtt7XxI75k5IymI4W2b5DY", "id": {"videoId": "P22TEf4pZZs"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths -  William, It Was Really Nothing (Official Audio)", "description": "Official Audio for William, It Was Really Nothing by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/P22TEf4pZZs/default.jpg", "width": 120, "height": 90} } } } , {"etag": "kroLFSOl8VwsDVEH7j6lp3uBwpU", "id": {"videoId": "igILhbNWvlk"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - That Joke Isn't Funny Anymore (Official Audio)", "description": "Official Audio for That Joke Isn't Funny Anymore by The Smiths Stream The Smiths greatest hits here ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/igILhbNWvlk/default.jpg", "width": 120, "height": 90} } } } , {"etag": "SLDOv7Qjay4ppxNQOtcBliz1bqY", "id": {"videoId": "f37lC0CSXlQ"} , "snippet": {"channelId": "UC-sdfo_ho6Nq3OH8RUHBrNg", "title": "The Smiths - The Headmaster Ritual (Official Audio)", "description": "Official Audio for The Headmaster Ritual by The Smiths Stream The Smiths greatest hits here ▷ https://lnk.to/TheSmithsHits ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/f37lC0CSXlQ/default.jpg", "width": 120, "height": 90} } } } , {"etag": "RiFXYvDbsBYiQ70HtPWH6eqdhbA", "id": {"videoId": "VH5BSkVQLsw"} , "snippet": {"channelId": "UCklWLf-5N7mE8S06rj2OrQw", "title": "What Difference Does It Make? (2011 Remaster)", "description": "Provided to YouTube by WM UK What Difference Does It Make? (2011 Remaster) · The Smiths The Smiths ℗ 1984 Warner Music ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/VH5BSkVQLsw/default.jpg", "width": 120, "height": 90} } } } , {"etag": "UWgWRR9f6e_6Bv59rmBixmDsI0k", "id": {"videoId": "d0LeL9BUPtA"} , "snippet": {"channelId": "UCYUxGkzWgLUeqyszI1W0Sbg", "title": "Morrissey - Everyday Is Like Sunday", "description": "Music video by Morrissey performing Everyday Is Like Sunday. (P) 2010 The copyright in this audiovisual recording is owned by ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/d0LeL9BUPtA/default.jpg", "width": 120, "height": 90} } } } , {"etag": "-9-iVba4yqxzs3FQ2O_M9Kzn1J8", "id": {"videoId": "W9Yr03gwhHc"} , "snippet": {"channelId": "UClWfwaNQkSB54ONps2mE_6Q", "title": "Morrissey - Please, Please, Please Let Me Get What I Want (HD)", "description": "Morrissey performs Please, Please, Please Let Me Get What I Want at the Hollywood Bowl, Los Angeles. 2004.", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/W9Yr03gwhHc/default.jpg", "width": 120, "height": 90} } } } , {"etag": "Zxsi4gNVnm3AmvuyU1EYSBPwIsk", "id": {"videoId": "0AvuweztG4Q"} , "snippet": {"channelId": "UCd1yjHMjahhWKUnl2qRyo0A", "title": "Morrissey - Suedehead", "description": "Music video by Morrissey performing Suedehead.", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/0AvuweztG4Q/default.jpg", "width": 120, "height": 90} } } } , {"etag": "J4UW2jJ_dL902Q4wnhs0_aRmm4I", "id": {"videoId": "C906lbkcYug"} , "snippet": {"channelId": "UCklWLf-5N7mE8S06rj2OrQw", "title": "Some Girls Are Bigger Than Others (2011 Remaster)", "description": "Provided to YouTube by WM UK Some Girls Are Bigger Than Others (2011 Remaster) · The Smiths The Queen Is Dead ℗ 1986 ...", "thumbnails": {"default": {"url": "https://i.ytimg.com/vi/C906lbkcYug/default.jpg", "width": 120, "height": 90} } } } ] } 
+	while (fgets(inbuffer, maxBufferSize, in))
+	{
+		if (*inbuffer == '{' && inbuffer[1] == '"')
+		{
+			char* end = strstr(inbuffer, "\":");
+			*end = 0;
+			char* at = inbuffer + 2;
+			while ((at = strchr(at, ' '))) *at = '_';
+			*end = '"';
+		}
+		fprintf(out, "%s", inbuffer);
+	}
+	fclose(out);
+	fclose(in);
+	FreeBuffer();
+	FreeBuffer();
 }
 
 static void C_FixFrench(char* input)
@@ -11913,7 +11951,7 @@ static void DisplayTables(char* topicid)
 {
 	char args[MAX_WORD_SIZE];
 	sprintf(args, (char*)"( %s )", topicid);
-	Callback(FindWord(GetUserVariable("$cs_abstract", false, true)), args, false, true);
+	Callback(FindWord(GetUserVariable("$cs_abstract", false)), args, false, true);
 }
 
 static FILE* abstractFile = NULL;
@@ -12120,7 +12158,7 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 		if (spelling & ABSTRACT_STORY)
 		{
 			char* topLevelRule = GetRule(topicID, TOPLEVELID(id));	// the top level rule (if a rejoinder)
-			if (TopLevelQuestion(topLevelRule) || TopLevelStatement(topLevelRule))
+			if (TopLevelQuestion(topLevelRule) || TopLevelStatement(topLevelRule) || TopLevelVoid(topLevelRule))
 			{
 				rule = FindNextRule(NEXTRULE, rule, id);
 				continue;
@@ -12129,7 +12167,7 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 		if (spelling & ABSTRACT_RESPONDER)
 		{
 			char* topLevelRule = GetRule(topicID, TOPLEVELID(id));	// the top level rule (if a rejoinder)
-			if (!TopLevelQuestion(topLevelRule) && !TopLevelStatement(topLevelRule))
+			if (!TopLevelQuestion(topLevelRule) && !TopLevelStatement(topLevelRule) && !TopLevelVoid(topLevelRule))
 			{
 				rule = FindNextRule(NEXTRULE, rule, id);
 				continue;
@@ -13461,12 +13499,18 @@ static void C_VerifyMatch(char* input)
 			char output[MAX_WORD_SIZE];
 			*output = 0;
 			char* outptr = strstr(readBuffer, "transcript\": \"");
-			if (outptr)
+			if (outptr) // start of transcript field
 			{
 				outptr += 14;
 				char* msg = outptr;
 				if (*outptr == '\\' && outptr[1] == '"') msg += 2; // skip opening quote
-				char* end = strchr(msg, '"');
+				char* end = msg;
+				while (1) // find end of field
+				{
+					end = strchr(end, '"');
+					if (end && *(end -1) == '\\') ++end;
+					else break;
+				}
 				if (end)
 				{
 					strncpy(output, msg, end - msg);
@@ -14336,6 +14380,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":splitlog",C_SplitLog,(char*)"separate log into topics" },
 	{ (char*)":translatetop",C_TranslateTop,(char*)"rewrite topic file translated to tmp/filename" },
 	{ (char*)":fixfrench",C_FixFrench,(char*)"fix tt french export nounsingulars which are plural" },
+	{ (char*)":fixunderscore",C_FixUnderscore,(char*)"fix initial string to underscore in json" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

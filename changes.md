@@ -1,3 +1,17 @@
+# Version 12.31 October 23, 2022
+
+1. Any nonjson loop limit given as a positive number will locally override whatever limits normally would
+	exist for a std non-json loop.  eg  Loop (20000) will make the limit be 20000 whereas Loop(^length(...))
+	would limit to whatever the current limit it even if ^length returned a greater value.
+2. ^jsonopen optionally takes 2 additional arguments. First is the name of a concept whose
+members are names of fields which if seen should be discarded. Second is the name of a 
+concept whose members are names of fields which are presumed to be string values, and
+all blanks in the string should be converted to underscores.
+2. ^jsonparse optionally takes 2 additional arguments. (see #2)
+3. %httpresponse has been extended with additional negative code values specific to curl failing to connect.
+4. New void rule kind  `v: LABEL ()` which is faster and clearer than writing `s: LABEL (?)`.
+	It is used as the target of ^reuse or ^refine.
+
 #  Version 12.3 October 16, 2022
 WARNING- You will need to recompile your script files! 
 Erase TOPIC folder and then run CS and rebuild.

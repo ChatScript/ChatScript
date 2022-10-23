@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/16/2022 cs12.3
+<br>Revision 10/24/2022 cs12.31
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
@@ -371,7 +371,7 @@ to do that yourself with the answer).
 | `%topic`            |  name of the current "real" topic . if control is currently in a topic or called from a topic which is not system or nostay, then that is the topic. Otherwise the most recent pending topic is found 
 | `%actualtopic`      |  literally the current topic being processed (system or not) 
 | `%trace`            |  Numeric value of the trace flag (:trace to set) 
-| `%httpresponse`     |  return code of most recent ^jsonopen call 
+| `%httpresponse`     |  return code of most recent ^jsonopen call (see below)
 | `%pid`              |  Linux process id or 0 for other systems 
 | `%restart`          |  You can set and retrieve a value here across a system restart. 
 | `%timeout`          |  Boolean tells if a timeout has happened, based on the timelimit command line parameter
@@ -387,6 +387,17 @@ to do that yourself with the answer).
 | `%curlversion`      |  curl version information  
 | `%dbversion`        |  db version information
 | `%testpattern`      |  The index number in the array of patterns of current pattern being matched in ^testpattern 
+
+%httpresponse returns the official http response codes when it succeeds in connecting to a server.
+When it fails, it returns various negative codes that are specific to curl.
+```
+-1 timeout - connection attempt was canceled
+-2 couldn't connect or not resolve host or proxy
+-3 unsupported protocol
+-4 curl got nothing (typically sent http to https site)
+-5 malformed url
+-6 other
+```
 
 ## ^testpattern control variables
 | `%testpattern-nosave` | blocks saving NL from ^testpattern if nlsave=1 was set in command line params

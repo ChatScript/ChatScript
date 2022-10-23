@@ -82,12 +82,12 @@ resume:
 				found = word1 + 2;	// preevaled function variable
 			else if (*word1 == SYSVAR_PREFIX) found = SystemVariable(word1, NULL);
 			else if (*word1 == '_') found = wildcardCanonicalText[GetWildcardID(word1)];
-			else if (*word1 == USERVAR_PREFIX) found = GetUserVariable(word1, false, true);
+			else if (*word1 == USERVAR_PREFIX) found = GetUserVariable(word1, false);
 			else if (*word1 == '?') found = (tokenFlags & QUESTIONMARK) ? "1" : "";
 			else if (*word1 == '^' && word1[1] == USERVAR_PREFIX) // indirect var
 			{
-				found = GetUserVariable(word1 + 1, false, true);
-				found = GetUserVariable(found, true, true);
+				found = GetUserVariable(word1 + 1, false);
+				found = GetUserVariable(found, true);
 			}
 			else if (*word1 == INDIRECT_PREFIX && word1[1] == '^' && IsDigit(word1[2])) found = ""; // indirect function var 
 			else if (*word1 == '^' && word1[1] == '_') found = ""; // indirect var
@@ -301,9 +301,10 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult& result, bool json)
 
 	if (!json)
 	{
-		limit = atoi(GetUserVariable((char*)"$cs_looplimit", false, true));
+		limit = atoi(GetUserVariable((char*)"$cs_looplimit", false));
 		if (limit == 0) limit = 1000;
-
+		char* given = SkipWhitespace(ptr + 1);
+		if (IsDigit(*given)) limit = atoi(given); // user explicit legal
 		ptr = GetCommandArg(ptr + 2, buffer, result, 0) + 2; //   get the loop counter value and skip closing ) space 
 	}
 	else
@@ -405,7 +406,10 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult& result, bool json)
 		counter = FACTSET_COUNT(set);
 	}
 	else if (json) counter = 1000000;
-	else counter = atoi(buffer);
+	else
+	{
+		counter = atoi(buffer);
+	}
 	*buffer = 0;
 	if (result & ENDCODES)
 	{
@@ -434,25 +438,25 @@ char* HandleLoop(char* ptr, char* buffer, FunctionResult& result, bool json)
 			if (var1)
 			{
 				var1->w.userValue = arg1;
-				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "%s=%s ", var1->word, arg1);
+				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "var1: %s=>%s ", var1->word, arg1);
 			}
 			else // match variable, not $ var
 			{
 				strcpy(wildcardOriginalText[match1], arg1);  //   spot wild cards can be stored
 				strcpy(wildcardCanonicalText[match1], arg1);  //   spot wild cards can be stored
-				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "_%d=%s ", match1, wildcardOriginalText[match1]);
+				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "var1: _%d=>%s ", match1, wildcardOriginalText[match1]);
 			}
 			char* arg2 = Meaning2Word(F->object)->word;
 			if (var2)
 			{
 				var2->w.userValue = arg2;
-				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "%s=%s ", var2->word, arg2);
+				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "    var2: %s=>%s\r\n", var2->word, arg2);
 			}
 			else
 			{
 				strcpy(wildcardOriginalText[match2], arg2);  //   spot wild cards can be stored
 				strcpy(wildcardCanonicalText[match2], arg2);  //   spot wild cards can be stored
-				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "_%d=%s ", match2, wildcardOriginalText[match2]);
+				if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "    var2: _%d=>%s\r\n", match2, wildcardOriginalText[match2]);
 			}
 		}
 

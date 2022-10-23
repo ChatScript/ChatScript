@@ -1708,7 +1708,7 @@ char* GetTimeInfo(struct tm* ptm, bool nouser,bool utc) //   Www Mmm dd hh:mm:ss
     if (regression) curr = 44444444; 
 	mylocaltime (&curr,ptm);
 
-	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset",false,true);
+	char* utcoffset = (nouser) ? (char*)"" : GetUserVariable((char*)"$cs_utcoffset",false);
 	if (utc) utcoffset = (char*)"+0";
 	if (*utcoffset) // report UTC relative time - so if time is 1PM and offset is -1:00, time reported to user is 12 PM.  
 	{

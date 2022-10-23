@@ -3041,10 +3041,6 @@ bool ReadDictionary(char* file)
 		end[0] = ' ';
 		if (lemma) *lemma = 'l';
 		WORDP D = StoreWord(word, AS_IS);
-		if (!strcmp(word, "pets"))
-		{
-			int xx = 0;
-		}
 		if (stricmp(D->word, word)) ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word);
 		unsigned int meaningCount = 0;
 		unsigned int glossCount = 0;
@@ -4827,6 +4823,7 @@ bool IsPastHelper(char* word)
 
 void DumpDictionaryEntry(char* word, unsigned int limit)
 {
+	word = SkipWhitespace(word);
 	char name[MAX_WORD_SIZE];
 	strcpy(name, word);
 	char* back;
@@ -5080,7 +5077,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 		MEANING master = GetMaster(M);
 
 		MEANING parent = 0;
-		FACT* F = GetSubjectNondeadHead(Meaning2Word(master));
+		FACT* F = GetSubjectHead(Meaning2Word(master));
 		while (F)
 		{
 			if (F->verb == Mis && F->subject == master)
@@ -5088,7 +5085,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 				parent = F->object;
 				break;
 			}
-			F = GetSubjectNondeadNext(F);
+			F = GetSubjectNext(F);
 		}
 		gloss = GetGloss(Meaning2Word(master), Meaning2Index(master));
 		if (!gloss) gloss = "";
@@ -5178,13 +5175,6 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	char* limited;
 	char* buffer = InfiniteStack(limited, "DumpDictionaryEntry");
 	Log(USERLOG, "  Facts:\r\n");
-	char* buf = AllocateBuffer();
-	F = EarliestObjectFact(M);
-	Log(USERLOG, "Earliest Object Fact: %d x%08x: %s\r\n", Fact2Index(F), F, WriteFact(F, false, buf, true, false, true));
-	F = EarliestFact(M);
-	Log(USERLOG, "Earliest Subject Fact: %d x%08x: %s\r\n", Fact2Index(F), F, WriteFact(F, false, buf, true, false, true));
-	FreeBuffer();
-	
 	count = 0;
 	F = GetSubjectHead(D);
 	while (F)

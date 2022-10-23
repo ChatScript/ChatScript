@@ -999,7 +999,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
                 ptr = ptr - len;
             }
 
-            char* value = GetUserVariable(word, nojson, true);
+            char* value = GetUserVariable(word, nojson);
             StdNumber(value, buffer, controls);
             char* at = SkipWhitespace(buffer);
             if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from a variable's data

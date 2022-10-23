@@ -72,7 +72,7 @@ void ClearUserVariableSetFlags();
 void ClearUserVariables(char* above = 0);
 void MigrateUserVariables();
 void RecoverUserVariables();
-char* GetUserVariable(const char* word, bool nojson = false,bool notracing = false);
+char* GetUserVariable(const char* word, bool nojson = false);
 void SetUserVariable(const char* var, char* word, bool assignment = false,bool reuse = false);
 FunctionResult Add2UserVariable(char* var, char* word,char* op,char* originalArg);
 

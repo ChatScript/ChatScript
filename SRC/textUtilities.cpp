@@ -2669,7 +2669,7 @@ char* ReadFlags(char* ptr, uint64& flags, bool& bad, bool& response, bool factca
 		char* word = word1;
 		ptr = ReadCompiledWord(ptr, word);
 		if (*word == '$') {
-			char* val = GetUserVariable(word, false, true);
+			char* val = GetUserVariable(word, false);
 			val = ReadCompiledWord(val, word);
 		}
 		if (!strnicmp(word, (char*)"RESPONSE_", 9)) response = true; // saw a response flag
