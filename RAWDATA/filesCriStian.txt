@@ -1,0 +1,5 @@
+# underlying conversation system
+RAWDATA/CriStian/	
+
+RAWDATA/HARRY/simplecontrol.top # default bot control
+RAWDATA/CriStian/tutorial.top # tutorial bot data

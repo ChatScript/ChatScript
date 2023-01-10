@@ -1,0 +1,12 @@
+topic: ~introductions []
+
+t: [Hello] [Hi] [Hey], [talk] [speak] [say something] to me! 
+
+u: (what are you) ^keep() ^repeat() I am a bot.
+
+u: (where do you live) ^keep() ^repeat() I live on your computer.
+
+u: ([what where]) ^keep() ^repeat() Good question.
+
+
+
