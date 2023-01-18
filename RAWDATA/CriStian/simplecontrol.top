@@ -1,0 +1,162 @@
+# This is the main control script. Start here to trace the ChatScript processing steps. 
+# When you see this "#", anything after this is a comment, it is not code that is executed. 
+# For example, this line is a comment.
+
+# this function is executed once for every new user chatting with CriStian
+outputmacro: CriStian()  # you get CriStian by default
+# The $cs_token is set to a variety of features I want for tokenizing input.
+$cs_token = #DO_INTERJECTION_SPLITTING  | #DO_SUBSTITUTE_SYSTEM   | #DO_NUMBER_MERGE | #DO_DATE_MERGE  | #DO_PROPERNAME_MERGE  | #DO_SPELLCHECK  | #DO_PARSE 
+$cs_token += #SPLIT_QUOTE | #NO_WITHIN | #STRICT_CASING
+$cs_token -= #DO_INTERJECTIONS
+
+# This sets the default topic to be using when running the system
+^addtopic(~introductions)
+
+$cs_control_main = ~control
+# $cs_control_post = ~XPOSTPROCESS  # uncomment to enable talk
+# The postprocess topic I define will allow windows system to use verbal output
+$userprompt = ^"%user: >"
+$botprompt = ^"CriStian: "
+
+
+# This means, after one output is generated, no more will be reacted to.
+# Alternatively one might have a reaction to every single sentence in the user's input.
+$singleResponse = 1 # issue only 1 output message
+
+# windows can do voice output if the next line is removed
+$SHUTUP = 1
+
+# This tells the engine what bot to use if no botname is provided in the message
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+CriStian
+
+# This topic is what gets executed for every sentence of user input because
+# it is set in the bot macro as the control script. It is declared "system" because
+# we dont wont rules erased from it as they are used.
+topic: ~control system ()
+
+# on startup, do introduction.  It takes the user input which starts a new conversation and looks for a response in  ~introductions
+u: ( %input<%userfirstline) 
+	gambit(~introductions)
+
+# if the user says shut up anywhere in the response, set the variable $shutup to 1, which is used later to stop using the talk output in windows
+u: (< shut up >) $shutup = 1
+# if the user says talk anywhere in the response, set the variable $shutup to null, which is used later to reestablish verbal output
+u: (< talk  >) $shutup = null
+
+# The below mere confirm oob data seen when using basic abilities
+u: (\[ callback \]) Callback seen.
+u: (\[ loopback \]) Loopback seen.
+u: (\[ alarm \]) Alarm seen.
+u: (< loopback test) \[ loopback=1000 \] Loopback requested.
+u: (< callback test) \[ callback=1000 \] Callback requested.
+u: (< alarm test) \[ alarm=5000 \] Alarm requested.
+
+u: () # main per-sentence processing
+	$_responseCount = %response
+    # %response == $_responseCount means we have not generated an output for this input yet,
+    # so allow continued analysis until we do.
+
+	if ($singleResponse) {$_responseCount = 0} # disable this to respond to each sentence in a volley
+
+	$$currenttopic = %topic		# get the current topic at start of volley
+
+	if ( %response == $_responseCount ) {nofail(TOPIC ^rejoinder())}	# try for rejoinders. might generate an answer directly from what we are looking for.
+
+	if (%length == 0 AND %response == $_responseCount )
+	{
+		nofail(TOPIC ^gambit($$currenttopic))  # gambit current topic since no input (usually start of conversation)
+	}
+
+	if (%response == $_responseCount) { nofail(TOPIC ^respond($$currenttopic)) } # current topic tries to respond to his input
+
+	if (%response == $_responseCount) # see if some other topic has keywords matching his input (given we have no response yet)
+	{
+		@8 = ^keywordtopics()	# get topics referred in input
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^respond($$topic))
+			if (%response != $_responseCount) # stop when we find something to say
+			{
+				^end(RULE)	# we are done, this terminates the loop (not the rule)
+			}
+		}
+	}	
+
+	# if no topic reacts, go to the last ditch keywordless topic
+	if (%response == $_responseCount) 
+	{
+		nofail(TOPIC ^respond(~keywordless))
+	}
+
+	# having no good response we know, now generate quibbles
+
+	# now we need to find fake responses 
+	if (%response == $_responseCount AND %rand > 50)
+	{
+		nofail(TOPIC respond(~QUIBBLE_ALL))
+	}
+
+	# if we have rejoinders for what we said OR we asked a question, stop here
+	if (%outputrejoinder OR %lastquestion) 
+	{
+		end(TOPIC)
+	}
+
+	if (%response == $_responseCount AND ^marked($$currenttopic)) { nofail(TOPIC ^gambit($$currenttopic)) } # gambit current topic since keywords match current topic
+
+	if (%response == $_responseCount) # gambit from ANY matching topic
+	{
+		@8 = ^keywordtopics()	# get topics referred in input
+		loop()
+		{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^Gambit($$topic))	# gambit in best matching topic
+			if (%response != $_responseCount) # stop when we find something
+			{
+				^end(RULE)
+			}
+		}
+	}
+	if (%response == $_responseCount){ nofail(TOPIC ^gambit($$currenttopic)) } # gambit from current topic even though no keywords matched
+	
+	if (%response == $_responseCount) 
+	{ 
+		@8 = ^GambitTopics()		# all topics with gambits (excluding system topics)
+		loop()
+		{
+			$$topic = pick(@8subject)
+			nofail(TOPIC ^Gambit($$topic))	# try a topic at random
+			if (%response != $_responseCount)
+			{
+				^end(RULE)
+			}
+		}
+	}
+	
+	if (%response == $_responseCount)  # we failed, somehow, to find something to say to user. Say something
+	{
+		 ^repeat() 
+         I don't know what to say.
+	}
+
+
+topic: ~XPOSTPROCESS system () # gambits only - not allowed to write to  output - generates speech on windows -- for Linux you'd want to install Festival (or equivalent) and call that instead.
+
+t: (^query(direct_v ? chatoutput ? -1 ? @9  ))  # get the sentences  (why is the object) -- no longer has quotes around it
+	loop()
+	{
+		$$tmp = ^last(@9subject) # note last output which is quoted string
+		if (!%server AND %os == windows  AND !$SHUTUP)
+		{
+			$$tmp = ^"talk \"$$tmp\" "
+			popen($$tmp null)
+		}
+        if (!%server AND %os == mac  AND !$SHUTUP)
+        {
+            $$shellerror = system(^"say \"$$tmp\" ")
+        }
+	}

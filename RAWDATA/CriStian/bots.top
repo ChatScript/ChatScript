@@ -1,0 +1,22 @@
+concept: ~ects (ects point "ects point")
+concept: ~course (course subject lecture class exercise laboratory)
+concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
+concept: ~teacher (tutor teacher "academic teacher" practitioner professor trainer)
+concept: ~comparison (equal greater lesser bigger smaller same equivalent equally identical)
+concept: ~bots ("project conversation bots and answering questions" "project conversational bots and answering questions" "bot project" "bots project" "chatbot project" "chatbots project")
+# TODO: dodaj pozostałe kursy
+concept: ~course_name (~bots)
+
+
+TOPIC: ~course_info (~course_name)
+
+
+# TODO: make the rules more general and use facts
+
+?: (many ~ects) 
+	You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.
+
+?: (0_~number ~ects) 
+	0_=~six [Yes. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.] 
+	No. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.
+
