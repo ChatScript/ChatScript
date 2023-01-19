@@ -1,0 +1,53 @@
+How many [ECTS] credits is subject X worth?
+How many [ECTS] credits can be obtained for subject X?
+Can you get 5 ECTS for subject X?
+Tell me about subject X.
+What do you know about subject X?
+What happens in subject X?
+What is the syllabus of subject X?
+What material is covered in subject X?
+What is the syllabus of subject X?
+What is done in subject X?
+What is the curriculum content of subject X?
+What are the assumed learning outcomes of subject X?
+What knowledge is gained in subject X?
+What skills are gained in subject X?
+What social competences are acquired in subject X?
+How is subject X passed?
+What are the requirements for passing subject X?
+What is the workload in subject X?
+What learning outcomes are achieved in subject X?
+Which group of courses does subject X belong to?
+What are the entry requirements for subject X?
+Is subject X recommended for the first year?
+What are the tags of subject X?
+Is subject X on offer this academic year?
+Is the subject on offer this cycle?
+How can I pass learning outcome Y?
+How many ECTS do I need to pass semester A?
+How many ECTS do I need to conditionally pass semester A?
+Which subjects are compulsory in semester 3?
+Which learning outcomes do I need to complete?
+Do I need to pass subject Z in order to take subject X?
+When are classes in subject X held?
+How many groups are there in subject X?
+Who is teaching subject X?
+Who is leading group one of subject X?
+In which semester does subject X take place?
+Does subject X take place in the summer?
+
+concept: ~ects (ects point "ects point")
+concept: ~course (course subject lecture class exercise laboratory)
+concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
+concept: ~teacher (tutor teacher "academic teacher" practitioner professor trainer)
+concept: ~comparison (equal greater lesser bigger smaller same equivalent equally identical)
+concept: ~boty ("project [conversation conversational] bots and answering questions" "[bot bots] project" "[chatbot chatbots] project")
+concapt: ~course_name (~boty)
+
+
+table: ~subjectects(^subject ^ects)
+createfact(^subject worth ^ects)
+
+DATA:
+~bots 6
+

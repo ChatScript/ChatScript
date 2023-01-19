@@ -1,22 +1,44 @@
-concept: ~ects (ects point "ects point")
+concept: ~ects (ects ECTS point "ects point" "ECTS point" "ects points" "ECTS points")
 concept: ~course (course subject lecture class exercise laboratory)
 concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
 concept: ~teacher (tutor teacher "academic teacher" practitioner professor trainer)
-concept: ~comparison (equal greater lesser bigger smaller same equivalent equally identical)
-concept: ~bots ("project conversation bots and answering questions" "project conversational bots and answering questions" "bot project" "bots project" "chatbot project" "chatbots project")
-# TODO: dodaj pozostałe kursy
+
+concept: ~greater (greater bigger)
+concept: ~lesser (lesser smaller)
+concept: ~equal (equal same equivalent equally identical)
+concept: ~comparison (~greater ~lesser ~equal)
+
+concept: ~bots ("project conversation bots and answering questions" "project conversational bots and answering questions" "bot project" "bots project" "chatbot project" "chatbots project" bots)
 concept: ~course_name (~bots)
 
+concept: ~one    (one    "1"  1)
+concept: ~two    (two    "2"  2)
+concept: ~three  (three  "3"  3)
+concept: ~four   (four   "4"  4)
+concept: ~five   (five   "5"  5)
+concept: ~six    (six    "6"  6)
+concept: ~seven  (seven  "7"  7)
+concept: ~eight  (eight  "8"  8)
+concept: ~nine   (nine   "9"  9)
+concept: ~ten    (ten    "10" 10)
+concept: ~eleven (eleven "11" 11)
+concept: ~twelfe (twelfe "12" 12)
+
+
+concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelfe)
 
 TOPIC: ~course_info (~course_name)
 
+t: What would you like to know about the courses?
 
-# TODO: make the rules more general and use facts
-
-?: (many ~ects) 
+?: (many ~ects) ^repeat() ^keep()
 	You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.
 
-?: (0_~number ~ects) 
-	0_=~six [Yes. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.] 
-	No. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.
+u: (_~number ~ects) ^repeat() ^keep()
+	if ( _0 ? ~six ) { Yes. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering. }
+	else { No. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering. }
+	
+u: ([about happen] * ~bots) ^repeat() ^keep()
+	The aim of the project is to create a conversational bot that could talk about all sorts of topics, especially those related to studies at our institute. A very important function will also be to answer questions referring to general knowledge (drawn from Wikipedia and other sources). The basic language of the bot will be Polish, but we may also consider introducing other languages (English, Ukrainian, Spanish). We will use Polish during the meetings, unless there is someone in the room who prefers English.
+
 
