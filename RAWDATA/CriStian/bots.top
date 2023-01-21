@@ -1,3 +1,5 @@
+concept: ~my_neagtion (~negation "don't")
+
 concept: ~ects (ects ECTS point "ects point" "ECTS point" "ects points" "ECTS points")
 concept: ~course (course subject lecture class exercise laboratory)
 concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
@@ -24,21 +26,35 @@ concept: ~ten    (ten    "10" 10)
 concept: ~eleven (eleven "11" 11)
 concept: ~twelfe (twelfe "12" 12)
 
-
 concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelfe)
 
-TOPIC: ~course_info (~course_name)
 
-t: What would you like to know about the courses?
+table: ~subjectects(^subject ^ects ^tag ^term ^offered)
 
-?: (many ~ects) ^repeat() ^keep()
-	You can get 6 ECTS ponits for the Project: conversational bots and questions-answering.
+if (^ects != *) { createfact(^subject ects ^ects) }
+if (^tag != *) { createfact(^subject tag ^tag) }
+if (^term != *) { createfact(^subject term ^term) }
+if (^offered != *) { createfact(^subject offer ^offered) }
 
-u: (_~number ~ects) ^repeat() ^keep()
-	if ( _0 ? ~six ) { Yes. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering. }
-	else { No. You can get 6 ECTS ponits for the Project: conversational bots and questions-answering. }
+DATA:
+bots 6 project winter true
+
+
+topic: ~course_info (~course_name)
+
+t: ^repeat() ^keep() What would you like to know about the courses in CS deparment?
+	
+u: ([many ~number] ~ects * _~course_name) ^repeat() ^keep() 
+  	if (^query(direct_sv '_0 ects ?)) { You can get @0object ECTS ponits for the @0subject. }
+  	else {I have no idea about '_0}
 	
 u: ([about happen] * ~bots) ^repeat() ^keep()
 	The aim of the project is to create a conversational bot that could talk about all sorts of topics, especially those related to studies at our institute. A very important function will also be to answer questions referring to general knowledge (drawn from Wikipedia and other sources). The basic language of the bot will be Polish, but we may also consider introducing other languages (English, Ukrainian, Spanish). We will use Polish during the meetings, unless there is someone in the room who prefers English.
+	a: (!~my_neagtion * more)
+	The bot (by design) will be a fairly complex system that combines traditional pattern-based approaches with various issues related to text processing, neural networks, information extraction, language modelling, etc.
+	Some meetings may take the form of mini-seminars where students will present research papers related to conversational agents and question answering (obviously such papers that have the potential to be used in the project)
+	It is possible to consider these classes as continuations of the subjects Text Exploration and Neural Networks and Natural Language Processing, but attendance at either of these courses is not a strict requirement Furthermore, we will do some difficult tasks in easy versions, focusing on the practical use of certain technologies, omitting (or reducing) their theoretical basis.
+	Some modules will perhaps be (in some basic version) prepared by the subject leader. Some bot modules will be done in teams.
+	
 
 
