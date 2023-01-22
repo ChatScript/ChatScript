@@ -1,52 +1,146 @@
+#
+# CONCEPTS
+#
+
 concept: ~my_neagtion (~negation "don't")
-
-concept: ~ects (ects ECTS point "ects point" "ECTS point" "ects points" "ECTS points")
-concept: ~course (course subject lecture class exercise laboratory)
-concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
-concept: ~teacher (tutor teacher "academic teacher" practitioner professor trainer)
-
 concept: ~greater (greater bigger)
 concept: ~lesser (lesser smaller)
 concept: ~equal (equal same equivalent equally identical)
 concept: ~comparison (~greater ~lesser ~equal)
 
-concept: ~bots ("project conversation bots and answering questions" "project conversational bots and answering questions" "bot project" "bots project" "chatbot project" "chatbots project" bots)
-concept: ~course_name (~bots)
+# ATTRIBUTES
+concept: ~ects (ects ECTS point "ects point" "ECTS point" "ects points" "ECTS points")
+concept: ~course (course subject lecture class exercise laboratory)
+concept: ~term (term semester "winter semester" "summer semester" "winter term" "summer term" winter summer) 
+concept: ~teacher (tutor teacher "academic teacher" practitioner professor trainer)
+concept: ~classtype (lecture class lab exercise project type)
 
-concept: ~one    (one    "1"  1)
-concept: ~two    (two    "2"  2)
-concept: ~three  (three  "3"  3)
-concept: ~four   (four   "4"  4)
-concept: ~five   (five   "5"  5)
-concept: ~six    (six    "6"  6)
-concept: ~seven  (seven  "7"  7)
+# COURSES
+concept: ~bots ("project conversation bots and answering questions" "project conversational bots and answering questions")
+concept: ~compulsory_courses ("Numerical Analysis")
+concept: ~course_name (~compulsory_courses ~bots)
+
+# NUMBERS
+concept: ~one    (one    "1"  1 1st first)
+concept: ~two    (two    "2"  2 2nd second)
+concept: ~three  (three  "3"  3 3rd third)
+concept: ~four   (four   "4"  4 4th fourth)
+concept: ~five   (five   "5"  5 5th fifth)
+concept: ~six    (six    "6"  6 6th sixth)
+concept: ~seven  (seven  "7"  7 7th seventh)
 concept: ~eight  (eight  "8"  8)
 concept: ~nine   (nine   "9"  9)
 concept: ~ten    (ten    "10" 10)
 concept: ~eleven (eleven "11" 11)
 concept: ~twelfe (twelfe "12" 12)
 
-concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelfe)
+concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelfe ~maintutor)
 
 
-table: ~subjectects(^subject ^ects ^tag ^term ^offered)
+#
+# DATA
+#
+
+# BASIC COURSE INFO
+table: ~subjectects(^subject ^ects ^classtype ^term ^offered ^compulsory ^firstyear ^maintutor)
 
 if (^ects != *) { createfact(^subject ects ^ects) }
-if (^tag != *) { createfact(^subject tag ^tag) }
+if (^classtype != *) { createfact(^subject classtype ^classtype) }
 if (^term != *) { createfact(^subject term ^term) }
 if (^offered != *) { createfact(^subject offer ^offered) }
 
 DATA:
-bots 6 project winter true
+"project conversation bots and answering questions" 6 project winter true false false prych
+"project conversational bots and answering questions"  6 project winter true false false prych
 
+
+
+
+#
+#
+# TOPICS
+# 
+#
+
+#
+# INTRODUCTORY TOPIC
+#
+
+topic: ~introductions ()
+
+t: [Hello] [Hi] [Hey], [talk] [speak] [say something] to me!  
+
+u: (what are you) I am a bot.
+
+u: (where do you live) I live on your computer.
+
+u: ([what where]) Good question.
+
+t: ^keep() What would you like to know about the courses in CS deparment?
+	a: () ^respond (~course_info)
+
+#	
+# COMPULSORY	
+#
+
+topic: ~compulsory (compulsory require requirement)
+
+u: COMPULSORYCOURSES (compulsory !~course_info)   # TODO
+	The compulsory courses are: AN, MD, LdI...
+	
+u: (compulsory _~course_info $cur='_0) 
+	I don't know.
+
+u: (~ects _~number ~term) You need some points to pass the ith term. 
+
+u: (~ects each !~number ~term) You need some points to pass the ith term. And list for all
+
+u: UNSPECIFIEDTERMECTS (~ects !each !~number ~term) Which one do you mean?
+	a: GETTERMNUMBER (_~number) get the info for the user.
+	a: (!~number) ^reuse ( UNSPECIFIEDTERMECTS )
+
+
+#
+# COURSE INFO
+#
 
 topic: ~course_info (~course_name)
 
-t: ^repeat() ^keep() What would you like to know about the courses in CS deparment?
+t: ^keep() Would you like to know know something about the offer of CS intitute?
+	a: ([~yes yes]) What of the subjects are you interested in? Maybe $cur=^pick(~course_name) $cur?
+		b: (~ects) ^reuse( CHECKECTS )
+		b: ([when ~term]) ^reuse( CHECKTERM )
+		b: (~classtype) ^reuse ( CHECKTYPE )
+		B: (offer) ^reuse( CHECKOFFER )
+
+u: CHECKECTS ([many ~number] ~ects * {_~course_name $cur='_0}) ^repeat() ^keep() 
+  	if (^query(direct_sv $cur ects ?)) { You can get @0object ECTS ponits for the @0subject. }
+  	else {I have no idea about $cur}
+  	
+u: CHECKTERM ([when ~term] < * {_~course_name  $cur='_0}) ^repeat() ^keep() 
+  	if (^query(direct_sv $cur term ?)) { The course @0subject is offered in the @0object term. }
+  	else {I have no idea about $cur}
+  	
+  	a: ([now "this year" "this time"]) ^reuse ( CHECKOFFER ) 
+  	
+u: CHECKTYPE (~classtype < * {_~course_name  $cur='_0}) ^repeat() ^keep() 
+  	if (^query(direct_sv $cur classtype ?)) { The course @0subject is offered in the @0object form. }
+  	else {I have no idea about $cur}
+  	
+u: CHECKOFFER (offer < * {_~course_name  $cur='_0}) ^repeat() ^keep() 
+	if (^query(direct_sv $cur offer ?))  {
+		if (@0object == "true") { The course @0subject is offered in the current cycle. }
+		else { The course @0subject is not offered in the current cycle. Please try next year. } }
+  	else {I have no idea about $cur}
+  	
+  	a: (~term) ^reuse ( CHECKTERM ) 
 	
-u: ([many ~number] ~ects * _~course_name) ^repeat() ^keep() 
-  	if (^query(direct_sv '_0 ects ?)) { You can get @0object ECTS ponits for the @0subject. }
-  	else {I have no idea about '_0}
+u: REQUIREMENTS ([require requirement] < * {_~course_info  $cur='_0}) 
+	I don't know the requirements for $cur. 
+	
+# TODO: check if compulsory ^respond(~compulsory)
+
+# TODO: check if appropriate for 1st year
 	
 u: ([about happen] * ~bots) ^repeat() ^keep()
 	The aim of the project is to create a conversational bot that could talk about all sorts of topics, especially those related to studies at our institute. A very important function will also be to answer questions referring to general knowledge (drawn from Wikipedia and other sources). The basic language of the bot will be Polish, but we may also consider introducing other languages (English, Ukrainian, Spanish). We will use Polish during the meetings, unless there is someone in the room who prefers English.
