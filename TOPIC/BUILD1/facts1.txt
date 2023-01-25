@@ -2,4 +2,12 @@
 $cs_language=UNIVERSAL
 #`end variables
 --dict
-( harry defaultbot defaultbot x00100000 )
+( CriStian defaultbot defaultbot x00100000 )
+( project_conversation_bots_and_answering_questions ects 6 x00100000 )
+( project_conversation_bots_and_answering_questions classtype project x00100000 )
+( project_conversation_bots_and_answering_questions term winter x00100000 )
+( project_conversation_bots_and_answering_questions offer true x00100000 )
+( project_conversational_bots_and_answering_questions ects 6 x00100000 )
+( project_conversational_bots_and_answering_questions classtype project x00100000 )
+( project_conversational_bots_and_answering_questions term winter x00100000 )
+( project_conversational_bots_and_answering_questions offer true x00100000 )

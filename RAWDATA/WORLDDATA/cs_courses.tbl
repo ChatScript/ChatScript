@@ -1,9 +1,9 @@
 table: ~subjectects(^subject ^ects ^tag ^term ^offered)
 
-if (^ects != *) { createfact(^subject worth ^ects) }
+if (^ects != *) { createfact(^subject ects ^ects) }
 if (^tag != *) { createfact(^subject tag ^tag) }
 if (^term != *) { createfact(^subject term ^term) }
 if (^offered != *) { createfact(^subject offer ^offered) }
 
 DATA:
-bots 6 project winter true
+~bots 6 project winter true

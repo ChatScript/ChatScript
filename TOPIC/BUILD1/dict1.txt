@@ -1,121 +1,37 @@
 ﻿1
-^ `seconds`   x00002000   c0000020      x20000700   00000000      @   0   `` 
-^ `makes`   x00002000   c0000010      x20000700   00000000      @   0   `` 2
-^ `boogie_man`   0     P     0   0   `` 
-^ `defaultbot`   0     0     0   0   `` 
-^ `loopback`   0     P     0   0   `` 
-^ `can_I_ask_you`   0     P     x00002000   0   `` 
-^ `can_I_ask_a_question`   0     P     x00002000   0   `` 
-^ `can_I_ask_the_question`   0     P     x00002000   0   `` 
-^ `babies`   x00000000   80000010      x00000700   00000000      0   0   `` 
-^ `to_go`   0     P     0   0   `` 
-^ `do_you_need`   0     P     0   0   `` 
-^ `do_you_want`   0     P     0   0   `` 
-^ `voices`   x00002000   c0000010      x00000700   00000000      0   0   `` 
-^ `do_you_watch`   0     P     0   0   `` 
-^ `do_you_see`   0     P     0   0   `` 
-^ `do_you_view`   0     P     0   0   `` 
-^ `fingers`   x00002000   c0000010      x00000700   00000000      0   0   `` 
-^ `brains`   x00002000   c0000010      x00000200   00000000      0   0   `` 
-^ `how_do_you_spell`   0     P     0   0   `` 
-^ `how_would_you_spell`   0     P     0   0   `` 
-^ `deflecting`   x00001000   40000802      x00000100   00000000      0   0   `` 
-^ `one_day`   0     P     0   0   `` 
-^ `a_moment_ago`   0     P     0   0   `` 
-^ `it_be`   0     P     0   0   `` 
-^ `be_it`   0     P     0   0   `` 
-^ `do_you_understand`   0     P     0   0   `` 
-^ `what_be`   0     P     0   0   `` 
-^ `faring`   x00001000   40000802      0     0   0   `` 
-^ `too_many`   0     P     0   0   `` 
-^ `not_enough`   0     P     0   0   `` 
-^ `too_few`   0     P     0   0   `` 
-^ `seemed`   x00000c00   40000840      x00000700   00000000      0   0   `` 
-^ `with_you`   0     P     0   0   `` 
-^ `causes`   x00002000   c0000010      x00000200   00000000      0   0   `` 
-^ `a_lot_of`   0     P     0   0   `` 
-^ `shoulds`   0     P     0   0   `` 
-^ `dream_about`   0     P     0   0   `` 
-^ `going_in_circles`   0     P     0   0   `` 
-^ `circular_conversation`   0     P     0   0   `` 
-^ `talking_in_circles`   0     P     0   0   `` 
-^ `does_that_make_sense`   0     P     0   0   `` 
-^ `does_it_make_sense_that`   0     P     0   0   `` 
-^ `a_little_bird`   0     P     0   0   `` 
-^ `a_little_birdie`   0     P     0   0   `` 
-^ `louder`   x00200000   20004000      x00000700   00000000      0   0   `` 
-^ `any_sense`   0     P     0   0   `` 
-^ `you_be_an`   0     P     0   0   `` 
-^ `you_be_a`   0     P     0   0   `` 
-^ `replied`   x00000c00   40000840      x00000700   00000000      0   0   `` 
-^ `give_I_a_way`   0     P     x00002000   0   `` 
-^ `tell_I_a_way`   0     P     x00002000   0   `` 
-^ `how_can_I_prove`   0     P     x00002000   0   `` 
-^ `how_can_you_prove`   0     P     0   0   `` 
-^ `nobody_has_ever`   0     P     0   0   `` 
-^ `no_one_has_ever`   0     P     0   0   `` 
-^ `have_you_done`   0     P     0   0   `` 
-^ `have_you_felt`   0     P     0   0   `` 
-^ `have_you_been`   0     P     0   0   `` 
-^ `have_you_been_to`   0     P     0   0   `` 
-^ `have_you_been_on`   0     P     0   0   `` 
-^ `be_this`   0     P     0   0   `` 
-^ `be_that`   0     P     0   0   `` 
-^ `where_to_begin`   0     P     0   0   `` 
-^ `where_to_start`   0     P     0   0   `` 
-^ `be_you_joking`   0     P     0   0   `` 
-^ `be_you_kdding`   0     P     0   0   `` 
-^ `you_must_be_kid`   0     P     0   0   `` 
-^ `you_must_be_joke`   0     P     0   0   `` 
-^ `you_are_a_what`   0     P     0   0   `` 
-^ `he_is_a_what`   0     P     0   0   `` 
-^ `she_is_a_what`   0     P     0   0   `` 
-^ `asked`   x00000c00   40000840      x00000200   00000000      0   0   `` 
-^ `you_liar`   0     P     0   0   `` 
-^ `you_lie`   0     P     0   0   `` 
-^ `I_bet_you_do_not`   0     P     x00002000   0   `` 
-^ `I_bet_you_would_not`   0     P     x00002000   0   `` 
-^ `I_bet_you_will_not`   0     P     x00002000   0   `` 
-^ `not_trust`   0     P     0   0   `` 
-^ `can_not`   0     P     0   0   `` 
-^ `what_does_it_matter`   0     P     0   0   `` 
-^ `why_does_it_matter`   0     P     0   0   `` 
-^ `how_much`   0     P     0   0   `` 
-^ `which_be`   0     P     0   0   `` 
-^ `has_that`   0     P     0   0   `` 
-^ `does_that_have`   0     P     0   0   `` 
-^ `be_you`   0     P     0   0   `` 
-^ `you_be`   0     P     0   0   `` 
-^ `what_do_you_think_about`   0     P     0   0   `` 
-^ `what_be_you_thought_on`   0     P     0   0   `` 
-^ `weekends`   x00002000   c0000010      x00000700   00000000      0   0   `` 
-^ `morals`   x00000000   80000010      x00000400   00000000      0   0   `` 
-^ `when_did_you`   0     P     0   0   `` 
-^ `when_did_I`   0     P     x00002000   0   `` 
-^ `when_will_it`   0     P     0   0   `` 
-^ `when_be_it`   0     P     0   0   `` 
-^ `when_will_I_meet_you`   0     P     x00002000   0   `` 
-^ `where_be_that`   0     P     0   0   `` 
-^ `where_be_it`   0     P     0   0   `` 
-^ `where_will_I_find`   0     P     x00002000   0   `` 
-^ `where_could_I_find`   0     P     x00002000   0   `` 
-^ `where_can_I_find`   0     P     x00002000   0   `` 
-^ `who_be_they`   0     P     0   0   `` 
-^ `who_be_them`   0     P     0   0   `` 
-^ `who_be_that`   0     P     0   0   `` 
-^ `who_be_she`   0     P     0   0   `` 
-^ `who_create_you`   0     P     0   0   `` 
-^ `who_made_you`   0     P     0   0   `` 
-^ `who_built_you`   0     P     0   0   `` 
-^ `who_be_you_in_love`   0     P     0   0   `` 
-^ `who_do_you_love`   0     P     0   0   `` 
-^ `cares`   x00002000   c0000010      x00000700   00000000      0   0   `` 
-^ `why_would_I_lie`   0     P     x00002000   0   `` 
-^ `why_would_I_be_lying`   0     P     x00002000   0   `` 
-^ `why_do_the`   0     P     0   0   `` 
-^ `why_do_a`   0     P     0   0   `` 
-^ `why_would_you_lie`   0     P     0   0   `` 
-^ `why_would_you_be_lying`   0     P     0   0   `` 
-^ `why_be_it_bad`   0     P     0   0   `` 
-^ `why_could_it_be_bad`   0     P     0   0   `` 
-^ `leave_you`   0     P     0   0   `` 
+^ `project`   @     @     @   0   `` 6
+^ `don`   @     @     @   0   `` 2
+^ `winter`   @     @     @   0   `` 2
+^ `summer`   @     @     @   0   `` 2
+^ `CriStian`   0     0     x00002000   0   `` 
+^ `don_'t`   0     P     0   0   `` 
+^ `ects`   0     P     0   0   `` 2
+^ `ECTS`   0     0     x00002000   0   `` 2
+^ `ects_point`   0     0     0   0   `` 
+^ `ECTS_point`   0     P     x00002000   0   `` 
+^ `ects_points`   0     P     0   0   `` 
+^ `ECTS_points`   0     0     x00002000   0   `` 
+^ `winter_semester`   0     P     0   0   `` 
+^ `summer_semester`   0     P     0   0   `` 
+^ `winter_term`   0     P     0   0   `` 
+^ `summer_term`   0     P     0   0   `` 
+^ `academic_teacher`   0     P     0   0   `` 
+^ `project_conversation_bots_and_answering_questions`   0     P     0   0   `` 
+^ `project_conversational_bots_and_answering_questions`   0     P     0   0   `` 
+^ `Numerical_Analysis`   0     0     x00002000   0   `` 
+^ `1st`   0     P     0   0   `` 
+^ `2nd`   0     P     0   0   `` 
+^ `3rd`   0     P     0   0   `` 
+^ `4th`   0     P     0   0   `` 
+^ `5th`   0     P     0   0   `` 
+^ `6th`   0     P     0   0   `` 
+^ `7th`   0     P     0   0   `` 
+^ `twelfe`   0     P     0   0   `` 
+^ `prych`   0     0     0   0   `` 
+^ `classtype`   0     0     0   0   `` 
+^ `this_year`   0     P     0   0   `` 
+^ `this_time`   0     P     0   0   `` 
+^ `'t`   0     P     0   0   `` 
+^ `points`   0     P     0   0   `` 
+^ `bots`   0     P     0   0   `` 
+^ `Numerical`   0     0     x00002000   0   `` 2

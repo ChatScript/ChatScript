@@ -8,5 +8,7 @@ u: (where do you live) ^keep() ^repeat() I live on your computer.
 
 u: ([what where]) ^keep() ^repeat() Good question.
 
+t: ^reuse (~course_info)
+
 
 
