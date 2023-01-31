@@ -2,7 +2,7 @@
 # CONCEPTS
 #
 
-concept: ~my_neagtion (~negation "don't")
+concept: ~my_negation (~negation "don't")
 concept: ~greater (greater bigger)
 concept: ~lesser (lesser smaller)
 concept: ~equal (equal same equivalent equally identical)
@@ -32,9 +32,9 @@ concept: ~eight  (eight  "8"  8)
 concept: ~nine   (nine   "9"  9)
 concept: ~ten    (ten    "10" 10)
 concept: ~eleven (eleven "11" 11)
-concept: ~twelfe (twelfe "12" 12)
+concept: ~twelve (twelve "12" 12)
 
-concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelfe ~maintutor)
+concept: ~number (~one ~two ~three ~four ~five ~six ~seven ~eight ~nine ~ten ~eleven ~twelve ~maintutor)
 
 
 #
@@ -76,7 +76,7 @@ u: (where do you live) I live on your computer.
 
 u: ([what where]) Good question.
 
-t: ^keep() What would you like to know about the courses in CS deparment?
+t: ^keep() What would you like to know about the courses in CS department?
 	a: () ^respond (~course_info)
 
 #	
@@ -144,7 +144,7 @@ u: REQUIREMENTS ([require requirement] < * {_~course_info  $cur='_0})
 	
 u: ([about happen] * ~bots) ^repeat() ^keep()
 	The aim of the project is to create a conversational bot that could talk about all sorts of topics, especially those related to studies at our institute. A very important function will also be to answer questions referring to general knowledge (drawn from Wikipedia and other sources). The basic language of the bot will be Polish, but we may also consider introducing other languages (English, Ukrainian, Spanish). We will use Polish during the meetings, unless there is someone in the room who prefers English.
-	a: (!~my_neagtion * more)
+	a: (!~my_negation * more)
 	The bot (by design) will be a fairly complex system that combines traditional pattern-based approaches with various issues related to text processing, neural networks, information extraction, language modelling, etc.
 	Some meetings may take the form of mini-seminars where students will present research papers related to conversational agents and question answering (obviously such papers that have the potential to be used in the project)
 	It is possible to consider these classes as continuations of the subjects Text Exploration and Neural Networks and Natural Language Processing, but attendance at either of these courses is not a strict requirement Furthermore, we will do some difficult tasks in easy versions, focusing on the practical use of certain technologies, omitting (or reducing) their theoretical basis.
