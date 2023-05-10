@@ -656,21 +656,10 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 		double fn = Convert2Double(value, numberStyle);
 		if ((double)n == fn)
 		{
-#ifdef WIN32
-			sprintf(number, (char*)"%I64d", n);
-#else
-			sprintf(number, (char*)"%lld", n);
-#endif
+			strcpy(number, PrintU64(n));
 		}
 		else if (strchr(value, numberPeriod) || strchr(value,'e') || strchr(value,'E')) WriteFloat(number, fn);
-		else
-		{
-#ifdef WIN32
-			sprintf(number, (char*)"%I64d", n);
-#else
-			sprintf(number, (char*)"%lld", n);
-#endif
-		}
+		else strcpy(number, PrintU64(n));
 		properties = NOUN | NOUN_NUMBER;
 		sysflags |= NOUN_NODETERMINER;
 		AddProperty(entry, CURRENCY);
@@ -714,19 +703,9 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 			if (val == NOT_A_NUMBER)
 			{
 				if (IsNumber(original, numberStyle, false)) strcpy(number, original);
-				else
-				{
-					strcpy(number, original); // we have no other use 
-				}
+				else strcpy(number, original); // we have no other use 
 			}
-			else
-			{
-#ifdef WIN32
-				sprintf(number, (char*)"%I64d", val);
-#else
-				sprintf(number, (char*)"%lld", val);
-#endif
-			}
+			else strcpy(number, PrintU64(val));
 		}
 		if (percent) original[len - 1] = '%';
 	}
@@ -864,14 +843,13 @@ WORDP FindGermanPlural(WORDP singular)
 	return NULL;
 }
 
-uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &canonical,uint64& sysflags,uint64 &cansysflags,bool firstTry,bool nogenerate, int start) // case sensitive, may add word to dictionary, will not augment flags of existing words
+uint64 GetPosData(unsigned  int at, char* original, WORDP& revise, WORDP& entry, WORDP& canonical, uint64& sysflags, uint64& cansysflags, bool firstTry, bool nogenerate, unsigned int start) // case sensitive, may add word to dictionary, will not augment flags of existing words
 { // this is not allowed to write properties/systemflags/internalbits if the word is preexisting
 	uint64 properties = 0;
 	sysflags = cansysflags = 0;
-	canonical = NULL;  
-	if (at < 1) { } // not from sentence
-	else if (canonicalLower[at]) canonical = canonicalLower[at];  // note canonicalLower may already be set by external postagging
-	else if (canonicalUpper[at]) canonical = canonicalUpper[at];  // note canonicalUpper may already be set by external postagging
+	canonical = NULL;
+	if (at < 1 || at == (unsigned int)-1) at = 0; // not from sentence
+	else if (canonicalWordp[at]) canonical = canonicalWordp[at];  // note canonicalWordp may already be set by external postagging
 	entry = 0;
 	if (start == 0) start = 1;
 	if (revise) revise = NULL;
@@ -916,7 +894,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
         if (!entry) entry = FindWord(original, xlen, STANDARD_LOOKUP);
         return properties;
     }
-	entry = FindWord(original, xlen, PRIMARY_CASE_ALLOWED);
+	entry = FindWord(original, xlen, PRIMARY_CASE_ALLOWED);  // BUG?
 	if (entry)
 	{
 		if (entry->systemFlags & PATTERN_WORD || !entry->word[1]) {} // english letters have no pos tag at present
@@ -967,7 +945,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 
 	if (at >= 2 && wordStarts[at-1] && *wordStarts[at-1] == '"') 
 	{
-		int x = at-1;
+		unsigned int x = at-1;
 		while (--x >= start) if (*wordStarts[x] == '"') break;
 		if (x > 0 && wordStarts[x] && *wordStarts[x] != '"') start = at; // there is no quote before us so we are starting quote (or ending quote on new sentence)
 	}
@@ -1038,6 +1016,16 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 		entry = canonical = StoreFlaggedWord(word,properties,WEB_URL);
 		cansysflags = sysflags = WEB_URL;
 		return properties;
+	}
+
+	///////////// EMOJI SHORT NAME
+	if (IsEmojiShortname(original))
+	{
+		char copy[MAX_WORD_SIZE];
+		MakeLowerCopy(copy, original);
+		entry = canonical = StoreWord(copy);
+		sysflags = 0;
+		return 0;
 	}
 
 	///////// WORD REWRITES particularly from pennbank tokenization
@@ -1147,6 +1135,8 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (entry && entry->properties & (PART_OF_SPEECH|TAG_TEST|PUNCTUATION)) // we know this usefully already
 	{
 		properties |= entry->properties;
+		// patch for "are" clobbered by foreign bits  BUG 
+		if (csEnglish && !stricmp(original, "are")) properties = AUX_BE  | VERB_PRESENT;
 		sysflags |= entry->systemFlags;
 		if (csEnglish && properties & VERB_PAST)
 		{
@@ -1192,6 +1182,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	}
 
 	/////// WHETHER OR NOT WE KNOW THE WORD, IT MIGHT BE ALSO SOME OTHER WORD IN ALTERED FORM (like plural noun or comparative adjective)
+	// Prefer a canonical which is different from original (if we have multiple postags, we wont know which it is)
 	char lower[MAX_WORD_SIZE];
 	// multidict might set verb on other language but not proper tensing for english
 	// eg filling in english is noun in dict, not listed as verb, but spanish lists it as verb (with no tense)
@@ -1209,11 +1200,12 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				if (pastparticiple && !strcmp(pastparticiple,lower)) properties |= VERB_PAST_PARTICIPLE | NOUN_ADJECTIVE;
 			}
 			entry = StoreWord(lower,properties);
-			canonical =  FindWord(verb,0,PRIMARY_CASE_ALLOWED); // we prefer verb as canonical form
+			// if forced canonical, keep it (better->good, not verb based bet)
+			if (!GetCanonical(entry)) canonical =  FindWord(verb,0,PRIMARY_CASE_ALLOWED); // we prefer verb as canonical form
 		}
 	}
-	
-	if (csEnglish && (multidict || !(properties & (NOUN_BITS|PRONOUN_BITS)))) // could it be plural noun we dont know directly -- eg dogs or the plural of a singular we know differently-- "arms is both singular and plural" - avoid pronouns like "his" or "hers"
+	// bug patch for spanish collision on are
+	if (csEnglish && stricmp(original,"are")  && (multidict || !(properties & (NOUN_BITS | PRONOUN_BITS)))) // could it be plural noun we dont know directly -- eg dogs or the plural of a singular we know differently-- "arms is both singular and plural" - avoid pronouns like "his" or "hers"
 	{
 		MakeLowerCopy(lower,original);
 		WORDP X = FindWord(original,0,LOWERCASE_LOOKUP);
@@ -1223,7 +1215,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 			if (!entry) entry = canonical = X;
 		}
 		char* lcnoun = GetSingularNoun(original, true, true);
-		if (lcnoun) // we know it's root as a noun
+		if (lcnoun) // we know it's root as a noun -- note longer is both noun and adverb, but has different canonical
 		{
 			X = StoreWord(original, NOUN);
 			uint64 which = NOUN_SINGULAR;
@@ -1250,7 +1242,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				uint64 which = (X->internalBits & UPPERCASE_HASH) ? NOUN_PROPER_PLURAL : NOUN_PLURAL;
 				AddProperty(X,which);
 				properties |= NOUN|which;
-				if (!canonical) canonical = FindWord(lcnoun,0,PRIMARY_CASE_ALLOWED); // 2ndary preference for canonical is noun
+				if (!canonical || stricmp(lcnoun, lower)) canonical = FindWord(lcnoun, 0, PRIMARY_CASE_ALLOWED);
 
 				// can it be a number?
 				unsigned int kind =  IsNumber(lcnoun, numberStyle);
@@ -1260,17 +1252,10 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 					int64 val = Convert2Integer(lcnoun, numberStyle);
 					if (val < 1000000000 && val >  -1000000000)
 					{
-						int smallval = (int) val;
-						sprintf(number,(char*)"%d",smallval);
+						int smallval = (int)val;
+						sprintf(number, (char*)"%d", smallval);
 					}
-					else
-					{
-		#ifdef WIN32
-						sprintf(number,(char*)"%I64d",val);	
-		#else
-						sprintf(number,(char*)"%lld",val);	
-		#endif
-					}
+					else strcpy(number, PrintU64(val));
 					properties = NOUN|NOUN_NUMBER;
 					canonical = StoreFlaggedWord(number,properties,sysflags);
 				}
@@ -1281,7 +1266,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	if (csEnglish && (multidict || !(properties & ADJECTIVE_BITS)) && (at == start || !IsUpperCase(*original)) && len > 3) // could it be comparative adjective we werent recognizing even if we know the word
 	{
 		MakeLowerCopy(lower,original);
-		if (lower[len-1] == 'r' && lower[len-2] == 'e' && !canonical) // if canonical its like "slaver" and should never be reduced
+		if (lower[len-1] == 'r' && lower[len-2] == 'e') 
 		{
 			char* adjective = GetAdjectiveBase(lower,true);
 			if (adjective && strcmp(adjective,lower)) 
@@ -1289,7 +1274,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				WORDP D = StoreWord(lower,ADJECTIVE|ADJECTIVE_NORMAL|adjectiveFormat);
 				if (!entry) entry = D;
 				properties |= ADJECTIVE|ADJECTIVE_NORMAL;
-				if (!canonical) canonical = FindWord(adjective,0,PRIMARY_CASE_ALLOWED); 
+				// we prefer canonicals to be different words
+				if (GetCanonical(entry)) { ; } // if canon is forced, dont override it
+				else if (!canonical || stricmp(adjective,lower)) canonical = FindWord(adjective,0,PRIMARY_CASE_ALLOWED); 
 				properties |= adjectiveFormat;
 			}
 		}
@@ -1301,7 +1288,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				WORDP D = StoreWord(lower,ADJECTIVE|ADJECTIVE_NORMAL|adjectiveFormat);
 				if (!entry) entry = D;
 				properties |= ADJECTIVE|ADJECTIVE_NORMAL;
-				if (!canonical) canonical = FindWord(adjective,0,PRIMARY_CASE_ALLOWED); 
+				// we prefer canonicals to be different words
+				if (GetCanonical(entry)) { ; } // if canon is forced, dont override it eg number->numb
+				else if (!canonical || stricmp(adjective, lower)) canonical = FindWord(adjective, 0, PRIMARY_CASE_ALLOWED);
 				properties |= adjectiveFormat;
 			}
 		}
@@ -1318,7 +1307,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				WORDP D = StoreWord(original,ADVERB|adverbFormat);
 				if (!entry) entry = D;
 				properties |= ADVERB;
-				if (!canonical) canonical = FindWord(adverb,0,PRIMARY_CASE_ALLOWED); 
+				// we prefer canonicals to be different words
+				if (GetCanonical(entry)) { ; } // if canon is forced, dont override it
+				else if (!canonical || stricmp(adverb, lower)) canonical = FindWord(adverb, 0, PRIMARY_CASE_ALLOWED);
 				properties |= adverbFormat;
 			}
 		}
@@ -1330,7 +1321,9 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				WORDP D = StoreWord(lower,ADVERB|adverbFormat);
 				if (!entry) entry = D;
 				properties |= ADVERB;
-				if (!canonical) canonical = FindWord(adverb,0,PRIMARY_CASE_ALLOWED); 
+				// we prefer canonicals to be different words
+				if (GetCanonical(entry)) { ; } // if canon is forced, dont override it
+				else if (!canonical || stricmp(adverb, lower)) canonical = FindWord(adverb, 0, PRIMARY_CASE_ALLOWED);
 				properties |= adverbFormat;
 			}
 		}
@@ -1589,11 +1582,7 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 				{
 					int64 n;
 					n = Convert2Integer((IsNumber(original, numberStyle) != NOT_A_NUMBER || IsDigit(*original)) ? original : (hyphen+1), numberStyle);
-					#ifdef WIN32
-					sprintf(tmpword,(char*)"%I64d",n); 
-#else
-					sprintf(tmpword,(char*)"%lld",n); 
-#endif
+					strcpy(tmpword, PrintU64(n));
 					*hyphen = '-';
 					properties = NOUN|NOUN_NUMBER|ADJECTIVE|ADJECTIVE_NUMBER;
 					entry = StoreFlaggedWord(original,properties,TIMEWORD|MODEL_NUMBER);
@@ -1821,7 +1810,124 @@ uint64 GetPosData( int at, char* original,WORDP& revise, WORDP &entry,WORDP &can
 	return properties;
 }
 
-void SetSentenceTense(int start, int end)
+static bool SetQuestionCommandPunctuation(unsigned int start,unsigned  int end)
+{
+	if (tokenFlags & (QUESTIONMARK | EXCLAMATIONMARK)) return false;
+	unsigned int loc = start;
+	if (!stricmp(wordStarts[loc], "that") ) return false; // starting that will be a statement
+
+	if (!stricmp(wordStarts[loc], "please") && end > 1) ++loc; // ignore please
+
+	WORDP D = FindWord("~qwords");
+	MARKDATA hitdata;
+	hitdata.start = 0;
+
+	// start sentence with interrogative word in any language, shift to next
+	if (GetNextSpot(D, 0, false, 0, &hitdata) && hitdata.start == loc)
+	{
+		if (wordCount == 1) return true; // simple question word-- like what? without ?
+		if (stricmp(current_language, "english")) return true; // all foreign
+		
+		unsigned int loc1 = hitdata.end + 1; // usually 1, but how_many is 2 word
+		
+											 // how are you?
+		if (loc1 <= wordCount && finalPosValues[loc1] & (AUX_VERB | VERB_BITS)) return true;  // what will happen
+
+		// how many is generally a question, as is how often, but how beatiful you are is not
+		if (!stricmp(wordStarts[loc], "how"))
+		{
+			if (!stricmp(wordStarts[loc + 1], "many") || !stricmp(wordStarts[loc + 1], "often")) return true;
+			// how beautiful are you 
+			if (finalPosValues[loc1] & ADJECTIVE_BITS && finalPosValues[loc1+1] & (AUX_VERB | VERB_BITS)) return true; 
+			//vs how beautiful the dog is
+			if (finalPosValues[loc1+1] & (DETERMINER_BITS | PRONOUN_BITS)) return false;
+		}
+		// what about your hair
+		if (!stricmp(wordStarts[loc], "what") && !stricmp(wordStarts[loc1], "about")) return true;
+
+		// how are you?
+		if (loc1 <= wordCount && finalPosValues[loc1] & (AUX_VERB | VERB_BITS)) return true;  // what will happen
+
+		// what boy or which girl
+		if (finalPosValues[loc1] & NOUN_BITS)
+		{
+			if (!strcmp(wordCanonical[loc], "what") || !strcmp(wordCanonical[loc], "which"))	return true;
+		}
+	}
+	if (stricmp(current_language, "english")) return false; // all foreign
+
+	// dont bother me but not  dont you ... which may be either
+	if (!stricmp(wordStarts[loc], "do") && !stricmp(wordStarts[loc + 1], "not") && !(finalPosValues[loc + 2] & PRONOUN_BITS)) return true;
+
+	// negative adverb starter: "Never can I go home" -- not a question
+	if (parseFlags[loc] & NEGATIVE_ADVERB_STARTER) return false;
+	// commands- do not run
+	if (finalPosValues[loc] & AUX_DO && !stricmp(wordStarts[loc+1],"not")) return false;
+	// commands- do  run
+	if (finalPosValues[loc] & AUX_DO && finalPosValues[loc+1] & VERB_INFINITIVE) return false;
+
+	// start sentence with be verb (were you there?) -- but not with command  Be there
+	if (!strcmp(wordCanonical[loc], "be") && !strcmp(wordStarts[loc], "be")) return true;
+
+	// command infinitive start
+	if (posValues[loc] & VERB_INFINITIVE && wordCount > 1 ) // avoid doctor and other role verb
+	{
+		hitdata.start = 0;
+		// hello is not imperativet
+		D = FindWord("~emohello");
+		if (GetNextSpot(D, 0, false, 0, &hitdata) && hitdata.start == loc) return false;
+		D = FindWord("~emohowzit");
+		if (GetNextSpot(D, 0, false, 0, &hitdata) && hitdata.start == loc) return false;
+
+		tokenFlags |= COMMANDMARK | IMPLIED_YOU; // treat as sentence command
+		return false;
+	}
+
+	// do you / does your
+	for (unsigned int i = start; i < end; ++i)
+	{
+		if (!strcmp(wordCanonical[i], "do") && !strcmp(wordCanonical[i + 1], "you")) return true;
+		if (!strcmp(wordCanonical[i], "can") && !strcmp(wordCanonical[i + 1], "I")) return true;
+		if (!strcmp(wordCanonical[i], "what") && !strcmp(wordStarts[i + 1], "will")) return true;
+	}
+
+	// skip to find verb or noun or pronoun
+	while (finalPosValues[loc] & (DETERMINER|ADVERB | ADJECTIVE| POSSESSIVE_BITS)) ++loc;
+	if (!stricmp(wordStarts[1], "what") && finalPosValues[loc] & NOUN_BITS) 
+	{
+		if (finalPosValues[loc+1] & (AUX_VERB | VERB_BITS)) return true;  // what month is this
+		// vs what a beautiful dog you have
+	}
+
+	if (finalPosValues[start + 1] & AUX_VERB) // what will the future bring
+	{
+		WORDP D = FindWord(wordStarts[start]);
+		if (D->properties & QWORD) return true;
+	}
+
+	// Noun before verb --- not question -- How beautiful you are  &   you look fine
+	if (finalPosValues[loc] & (NOUN_BITS | PRONOUN_BITS)) return false;
+	// aux verb will indicate question -- will you go
+	if (finalPosValues[loc] & AUX_VERB ) return true;
+	// command form is not a question -- go home.
+	if (finalPosValues[loc] & VERB_INFINITIVE) return false;
+	// scammed me
+	if (finalPosValues[loc] & (VERB_PAST | VERB_PAST_PARTICIPLE | VERB_PRESENT_PARTICIPLE)) return false;
+	// is this true -- verb before subject
+	if (finalPosValues[loc] & VERB)
+	{
+		while (finalPosValues[++loc] & (DETERMINER | ADVERB | ADJECTIVE | POSSESSIVE_BITS));
+		// took forever  (no subject or adjective later)
+		// or  took forever but ... (clause after)
+		if (!finalPosValues[loc] || finalPosValues[loc] & CONJUNCTION) return false; 
+		return true;
+	}
+	return false;
+}
+
+static bool logquestion = false;
+
+void SetSentenceTense(unsigned int start,unsigned  int end)
 {
 	uint64 aux[25];
 	unsigned int auxIndex = 0;
@@ -1836,59 +1942,74 @@ void SetSentenceTense(int start, int end)
 		if (  tmpPrepareMode == POS_MODE || prepareMode == POSVERIFY_MODE  || prepareMode == POSTIME_MODE ) Log(USERLOG,"Not doing a parse.\r\n");
 	}
 
+	if (SetQuestionCommandPunctuation((unsigned int)start, (unsigned int)end)) tokenFlags |= QUESTIONMARK;
+
+	if (logquestion)
+	{
+		FILE* out;
+		if (tokenFlags & QUESTIONMARK) out = FopenUTF8WriteAppend("TMP/questions.txt");
+		else if (tokenFlags & COMMANDMARK) out = FopenUTF8WriteAppend("TMP/imperative.txt");
+		else 	 out = FopenUTF8WriteAppend("TMP/statements.txt");
+		for (unsigned int i = 1; i <= wordCount; ++i) fprintf(out, "%s ", wordStarts[i]);
+		fprintf(out, "\r\n");
+		fclose(out);
+	}
+	if (stricmp(current_language, "english"))
+	{
+		// guess tense
+		if (!(tokenFlags & (PAST | FUTURE)) ) for (unsigned int i = 1; i <= wordCount; ++i)
+		{
+			if (finalPosValues[i] & (AUX_VERB_FUTURE | AUX_VERB_FUTURE))
+			{
+				tokenFlags |= FUTURE;
+				break;
+			}
+			if (finalPosValues[i] & (VERB_PAST_PARTICIPLE | VERB_PAST))
+			{
+				tokenFlags |= PAST;
+				break;
+			}
+		}
+		if (!(tokenFlags & (PAST | FUTURE))) tokenFlags |= PRESENT;
+
+		return;
+	}
+
 	// assign sentence type
 	if (!verbStack[MAINLEVEL] || !(roles[verbStack[MAINLEVEL]] &  MAINVERB)) // FOUND no verb, not a sentence
 	{
 		if ((trace & TRACE_POS || prepareMode == POS_MODE) && CheckTopicTrace()) Log(USERLOG,"Not a sentence\r\n");
 		if (tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK)) {;}
-		else if (posValues[startSentence] & AUX_VERB
+		else  if (posValues[startSentence] & AUX_VERB
 			&& !(posValues[startSentence + 1] & TO_INFINITIVE))
 		{	// would have, could have, etc are not aux subject. Rather implied "I" for example before them
 			if (posValues[startSentence + 1] & AUX_VERB || roles[startSentence + 1] & MAINOBJECT) 
 				tokenFlags |= IMPLIED_SUBJECT; // includes "hit dog" "does nothing"
-			else tokenFlags |= QUESTIONMARK; 
 		}
-		else if (allOriginalWordBits[startSentence]  & QWORD)
+		else if (!(tokenFlags & (QUESTIONMARK | EXCLAMATIONMARK))) // see if question or statement if we dont know
 		{
-            int i = startSentence;
-            if (posValues[i + 1] & (ADVERB | ADJECTIVE)) ++i;
-            if (i < wordCount && !stricmp(wordStarts[i + 1], "much")) ++i;
-            // how
-            if (posValues[i+1] & (VERB_BITS | AUX_VERB))
-                tokenFlags |= QUESTIONMARK;
-		}
-		else if (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD) 
-            tokenFlags |= QUESTIONMARK;
-	}
-	else if (!(tokenFlags & (QUESTIONMARK|EXCLAMATIONMARK))) // see if question or statement if we dont know
-	{
-		int i;
-		for (i = startSentence; i <= endSentence; ++i) 
-		{
-			if (roles[i] & MAINSUBJECT) 
+			unsigned int i;
+			for (i = startSentence; i <= endSentence; ++i)
 			{
-				subjectFound = true;
-				break;
+				if (roles[i] & MAINSUBJECT)
+				{
+					subjectFound = true;
+					break;
+				}
 			}
 		}
-		if (subjectStack[MAINLEVEL] && subjectStack[MAINLEVEL] > verbStack[MAINLEVEL] && (allOriginalWordBits[startSentence] & QWORD || (allOriginalWordBits[startSentence] & PREPOSITION && allOriginalWordBits[startSentence+1] & QWORD)))  
-            tokenFlags |= QUESTIONMARK; // qword + flipped order must be question (vs emphasis?)
 	
 		bool foundVerb = false;
         bool foundsubject2 = false;
         bool foundverb2 = false;
+		unsigned int i;
 		for (i = startSentence; i <= endSentence; ++i) 
 		{
 			if (ignoreWord[i]) continue;
             if (roles[i] & SUBJECT2) foundsubject2 = true;
             if (roles[i] & VERB2) foundverb2 = true;
             if (roles[i] & MAINVERB) foundVerb = true;
-			if (roles[i] & MAINSUBJECT) 
-			{
-				if (i == startSentence && originalLower[startSentence] && originalLower[startSentence]->properties & QWORD && (posValues[startSentence+1] & (VERB_BITS | AUX_VERB_TENSES))) 
-                    tokenFlags |= QUESTIONMARK;
-				break;
-			}
+			if (roles[i] & MAINSUBJECT)  break;
 			if (phrases[i] || clauses[i] || verbals[i]) continue;
 			if ( bitCounts[i] != 1) break;	// all bets about structure are now off
 			if (posValues[i] & AUX_VERB)
@@ -1903,19 +2024,14 @@ void SetSentenceTense(int start, int end)
 					// would have, could have, etc are not aux subject. Rather implied "I" for example before them
 					if (posValues[i + 1] & AUX_VERB || roles[i + 1] & MAINOBJECT)
 						tokenFlags |= IMPLIED_SUBJECT; // includes "hit dog" "does nothing"
-					else if (i != wordCount && !stricmp(wordStarts[i], "do") && !stricmp(wordStarts[i + 1], "not") && (posValues[i + 2] & VERB_INFINITIVE)); // command
-					else tokenFlags |= QUESTIONMARK;
+					//else if (i != wordCount && !stricmp(wordStarts[i], "do") && !stricmp(wordStarts[i + 1], "not") && (posValues[i + 2] & VERB_INFINITIVE)); // command
 					break;
 				}
 				else if (!subjectFound && !foundVerb) // its a question because AUX or VERB comes before MAINSUBJECT unless we have a command before
 				{
 					// EXCEPT for negative adverb starter: (char*)"never can I go home"
 					if (parseFlags[i-1] & NEGATIVE_ADVERB_STARTER ) {;}
-					else
-					{
-						tokenFlags |= QUESTIONMARK;
-						break;
-					}
+					else break;
 				}
 			}
 			if (roles[i] & CONJUNCT_SENTENCE && i > 3) break;	// do only one of the sentences
@@ -1923,7 +2039,7 @@ void SetSentenceTense(int start, int end)
 	}
 
 	// command?
-	int i;
+	unsigned int i;
 	for (i = start; i <= end; ++i)
     {
 		if (ignoreWord[i]) continue;
@@ -1931,11 +2047,9 @@ void SetSentenceTense(int start, int end)
 	}
 	if (!stricmp(wordStarts[start],(char*)"why"))
 	{
-		tokenFlags |= QUESTIONMARK; 
+		//tokenFlags |= QUESTIONMARK; 
 		if (posValues[start+1] & VERB_INFINITIVE || posValues[start+2] & VERB_INFINITIVE) tokenFlags |= IMPLIED_YOU;
 	}
-	else if (!stricmp(wordStarts[start],(char*)"how") && !stricmp(wordStarts[start+1],(char*)"many")) 
-        tokenFlags |= QUESTIONMARK; 
 	else if (posValues[start] & AUX_VERB && (!(posValues[start] & AUX_DO) || !(allOriginalWordBits[start] & AUX_VERB_PRESENT))){;} // not "didn't leave today." ommited subject
 	else if (roles[start] & MAINVERB && !stricmp(wordStarts[start],(char*)"assume")) tokenFlags |= COMMANDMARK|IMPLIED_YOU; // treat as sentence command
     // dont want "ate a cherry" to be a question so commented out rule
@@ -1954,7 +2068,7 @@ void SetSentenceTense(int start, int end)
     }
 
 	// determine sentence tense when not past from verb using aux (may pick wrong aux)
-	for (i = start; i <= end; ++i)
+	for (unsigned i = start; i <= end; ++i)
     {
 		if (ignoreWord[i]) continue;
 		if (roles[i] & MAINSUBJECT) mainSubject = i;
@@ -1982,14 +2096,14 @@ void SetSentenceTense(int start, int end)
 
 		if (posValues[i] & AUX_VERB && notclauseverbal)
 		{
-			aux[auxIndex] = originalLower[i] ? (originalLower[i]->properties & (AUX_VERB | VERB_BITS)) : 0;	// pattern of aux
+			aux[auxIndex] = originalWordp[i] ? (originalWordp[i]->properties & (AUX_VERB | VERB_BITS)) : 0;	// pattern of aux
 
 			// question? 
 			if (i == start && !(tokenControl & NO_INFER_QUESTION) && subjectFound) 
 			{ 
 				// do not run
 				if (i != wordCount && !stricmp(wordStarts[i], "do") && !stricmp(wordStarts[i + 1], "not") && (posValues[i+2] & VERB_INFINITIVE)) { ; }
-				else tokenFlags |= QUESTIONMARK;
+				// else tokenFlags |= QUESTIONMARK;
 			}
 			if (defaultTense){;}
 			else if (aux[auxIndex] & AUX_BE)
@@ -2007,16 +2121,16 @@ void SetSentenceTense(int start, int end)
 			if (auxIndex > 20) break;
 		}
 	}
-	if (!stricmp(wordStarts[start],(char*)"what") && posValues[start] & DETERMINER_BITS) 
-		tokenFlags |= QUESTIONMARK; 
-	if (!auxIndex && canonicalLower[start] && !stricmp(canonicalLower[start]->word,(char*)"be") && !(tokenControl & NO_INFER_QUESTION)) 
-		tokenFlags |= QUESTIONMARK;  // are you a bank teller
+	//if (!stricmp(wordStarts[start],(char*)"what") && posValues[start] & DETERMINER_BITS) 
+	//	tokenFlags |= QUESTIONMARK; 
+	//if (!auxIndex && canonicalWordp[start] && !stricmp(canonicalWordp[start]->word,(char*)"be") && !(tokenControl & NO_INFER_QUESTION)) 
+	//	tokenFlags |= QUESTIONMARK;  // are you a bank teller
 	// How very american is NOT a question
-	if (canonicalLower[start] && !stricmp(canonicalLower[start]->word,(char*)"how") && (tokenFlags & PERIODMARK || !mainVerb)){;} // just believe them
-	else if ( canonicalLower[start] && canonicalLower[start]->properties & QWORD && canonicalLower[start+1] && canonicalLower[start+1]->properties & AUX_VERB  && !(tokenControl & NO_INFER_QUESTION))  
-		tokenFlags |= QUESTIONMARK;  // what are you doing?  what will you do?
-	else if ( posValues[start] & PREPOSITION && canonicalLower[start+1] && canonicalLower[start+1]->properties & QWORD && canonicalLower[start+2] && canonicalLower[start+2]->properties & AUX_VERB  && !(tokenControl & NO_INFER_QUESTION))   
-		tokenFlags |= QUESTIONMARK;  // what are you doing?  what will you do?
+	if (canonicalWordp[start] && !stricmp(canonicalWordp[start]->word,(char*)"how") && (tokenFlags & PERIODMARK || !mainVerb)){;} // just believe them
+	//else if ( canonicalWordp[start] && canonicalWordp[start]->properties & QWORD && canonicalWordp[start+1] && canonicalWordp[start+1]->properties & AUX_VERB  && !(tokenControl & NO_INFER_QUESTION))  
+	//	tokenFlags |= QUESTIONMARK;  // what are you doing?  what will you do?
+	//else if ( posValues[start] & PREPOSITION && canonicalWordp[start+1] && canonicalWordp[start+1]->properties & QWORD && canonicalWordp[start+2] && canonicalWordp[start+2]->properties & AUX_VERB  && !(tokenControl & NO_INFER_QUESTION))   
+	//	tokenFlags |= QUESTIONMARK;  // what are you doing?  what will you do?
 
 #ifdef INFORMATION
 	Active tenses:  have + past participle makes things perfect  --		 be + present particicple makes things continuous
@@ -2068,7 +2182,7 @@ void SetSentenceTense(int start, int end)
 		}
 		else if (aux[auxIndex-1] & AUX_BE && mainverbTense & VERB_PRESENT_PARTICIPLE) tokenFlags |= CONTINUOUS; 
 
-		if ((aux[auxIndex-1] & AUX_BE || (canonicalLower[auxIndex-1] && !stricmp(canonicalLower[auxIndex-1]->word,(char*)"get"))) && mainverbTense & VERB_PAST_PARTICIPLE) // "he is lost" "he got lost"
+		if ((aux[auxIndex-1] & AUX_BE || (canonicalWordp[auxIndex-1] && !stricmp(canonicalWordp[auxIndex-1]->word,(char*)"get"))) && mainverbTense & VERB_PAST_PARTICIPLE) // "he is lost" "he got lost"
 		{
 			if (aux[auxIndex-1] & VERB_PRESENT_PARTICIPLE)  tokenFlags |= CONTINUOUS;	// being xxx
 		}
@@ -2739,6 +2853,8 @@ char* GetInfinitive(char* word, bool nonew)
 
 	if (D && (!IS_NEW_WORD(D)) && D->properties & VERB_INFINITIVE)
 	{
+		WORDP E = GetCanonical(D);
+		if (E) D = E; // saw goes to see, not saw
 		verbFormat = VERB_INFINITIVE| VERB_PRESENT;  // fall  (fell) conflict -- note that find->found  but found is also an infinitive!
 		return D->word; //    infinitive value
 	}

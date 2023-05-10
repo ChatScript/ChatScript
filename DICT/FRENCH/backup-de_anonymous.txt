@@ -1,0 +1,19 @@
+﻿USERS/topic_de_anonymous.txt
+jul2116 Mar11'23-14:06:10-1678543570243 0 0 |
+1 0 0 DY 0 0 0 0 # start, input#, no rejoinder, #0topics, #1topics, layer2
+#pending
+#`end topics
+$cs_language=ENGLISH
+$cs_jid=0
+$cs_login=de
+$cs_bot=Anonymous
+$cs_randindex=1934
+$cs_trace=0
+$cs_time=0
+#`end variables
+0 #set flags
+#`end fact sets
+#`end user facts 0
+#context 
+#`end user
+#`end chatbot

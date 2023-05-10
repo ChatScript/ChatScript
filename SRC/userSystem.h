@@ -1,7 +1,7 @@
 #ifndef _USERSYSTEMH
 #define _USERSYSTEMH
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -33,6 +33,7 @@ extern unsigned int userFactCount;
 extern FACT* migratetop;
 extern char caller[MAX_WORD_SIZE];
 extern char callee[MAX_WORD_SIZE];
+extern char* userDataBase;
 
 // login data
 extern char computerID[ID_SIZE];

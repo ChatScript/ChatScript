@@ -41,6 +41,7 @@ extern unsigned int errorIndex;
 extern char warnings[MAX_WARNINGS][MAX_WORD_SIZE];
 extern unsigned int warnIndex;
 extern char* tableinput;
+extern bool nowarndupconcept;
 extern char* patternStarter;
 extern char* patternEnder;
 extern unsigned int supplementalColumn;
@@ -69,13 +70,13 @@ void ScriptWarn();
 #endif
 
 // ALWAYS AVAILABLE
-extern HEAPREF deadfacts;
-extern HEAPREF languageadjustedfacts;
+extern HEAPREF deadfactsList;
+extern HEAPREF languageadjustedfactsList;
 extern unsigned int hasErrors;
 void UnbindBeenHere();
 void AddWarning(char* buffer);
 void AddError(char* buffer);
 char* ReadNextSystemToken(FILE* in,char* ptr, char* word, bool separateUnderscore=true,bool peek=false);
 char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore=true);
-
+void InitBuild(unsigned int build);
 #endif

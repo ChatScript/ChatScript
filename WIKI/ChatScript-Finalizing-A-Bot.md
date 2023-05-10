@@ -76,7 +76,7 @@ These #! VERIFY comments can be stacked in succession  and also accept:
 To use this system, you start by doing `:verifylist` which will read your compiled bot and generate
 the file tmp/tmp.txt with top level rule commands to execute and expectations of where they end up.  
 It does not generate tests on rejoinders. Then if you say `:verifyrun` those commands are
-executed, generating a user log file. Then `:verifymatch` will generate a csv file whose columns are:
+executed, generating a user log file (YOU MUST HAVE USER LOGGING ENABLED TO FILE). Then `:verifymatch` will generate a csv file whose columns are:
 Expected, Actual, Input, Persona, Response. Expected and Actual are rule labels. Input is from the
 verification sample input. If your bot as part of its oob output has a field of bot: and a botname (personality)
 then that is listed here as who said it. And finally the actual text of the response is shown.  By
@@ -464,6 +464,16 @@ gives you how many times a variable was used. Things used only once are highly s
 (set or used without the corresponding other side).
 Helps you see instances where maybe
 you typed the misspelled your variable. 
+
+### `:mergelines file {all}`
+
+The function outputs to tmp/tmp.txt. It reads in lines and for adjacent exact matches, it outputs
+a single line with a count in front. This you can then use extern sort routine (eg sort tmp.txt >x.txt)
+to order the file by frequency of occurence. Normally :mergelines compares just the first word
+of the line, which is good if lines start with their rule name. If you add the optional all argument,
+then it is good if either user input or bot output lead the line.  
+
+I use this to find unique user inputs (low count) and see if they are well handled.
 
 ### `:topicinfo ~topic how`
 

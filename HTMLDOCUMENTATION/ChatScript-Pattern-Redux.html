@@ -117,11 +117,13 @@ so which one is found first in the sentence is what sets the position. For an in
 <p>which will grab the next 4 or 3 or 2 or 1 words, depending on how many are available.</p>
 <p>Generally done with an underscore in front to memorize the sequence.</p>
 <p><code>*-2</code> is like <code>*2</code>, only it matchs backwards instead of forwards. Valid thru <code>*-9</code>.</p>
-<h3 id="negation-and">Negation <code>!</code> and <code>!!</code></h3>
+<h3 id="negation-and-and--">Negation <code>!</code> and <code>!!</code> and '!-'</h3>
 <p><code>!x</code> means match only if x is not found anywhere in the sentence later than where we are:</p>
 <pre><code>u: ( !not I love you )</code></pre>
 <p>This pattern says the word not cannot occur anywhere in the sentence.</p>
 <p><code>!!x</code> means match only if x is not the next word.</p>
+<p>This pattern says the word not cannot occur anywhere before us in the sentence.</p>
+<p><code>!-x</code> means match only if x is not any prior word.</p>
 <h3 id="original-form">Original Form <code>'</code></h3>
 <p>While CS normally matches both original and canonical forms of words when you give a pattern word in canonical form, you can require it only match the original form by quoting it.</p>
 <pre><code>u: ( I * &#39;take it ) </code></pre>

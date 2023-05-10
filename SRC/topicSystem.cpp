@@ -1,5 +1,6 @@
 #include "common.h"
 #include "common.h"
+#include "common.h"
 
 #define MAX_NO_ERASE 300
 #define MAX_REPEATABLE 300
@@ -11,7 +12,7 @@ int hasFundamentalMeanings = 0;
 bool noteRulesMatching = false;
 HEAPREF rulematches = NULL;
 WORDP keywordBase = NULL;
-WORDP* changedPreexistingWords = NULL;
+WORDP* changedWordsDuringLoading = NULL; // list of words changing data during topic loading
 bool monitorChange = false;
 char* textBase = NULL;
 static void ClearFastLoad(const char* topicfolder, const char* name);
@@ -165,7 +166,7 @@ bool DifferentTopicContext(int depthadjust, int topicid)
 	int depth = globalDepth + depthadjust + 1;
 	while (--depth > 0) // start from prior to us
 	{
-		CALLFRAME* frame = releaseStackDepth[depth];
+		CALLFRAME* frame = frameList[depth];
 		if (*frame->label == '~') return topicid != (int)frame->oldTopic;
 		if (*frame->label == '^' && frame->code) return true; // user function breaks chain of access
 	}
@@ -1169,8 +1170,8 @@ void SetRejoinder(char* rule)
 	if (ptr && *ptr == level) //   will be on the level we want
 	{
 		if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG, "  **set rejoinder at %s\r\n", ShowRule(ptr));
-		outputRejoinderRuleID = rejoinderID;
-		outputRejoinderTopic = currentTopicID;
+		outputRejoinderRuleID = rejoinderID - ONE_REJOINDER;
+		outputRejoinderTopic = currentTopicID ;
 	}
 }
 
@@ -1351,9 +1352,9 @@ FunctionResult TestRule(int ruleID, char* rule, char* buffer, bool refine)
 	}
 	++ruleCount;
 	FunctionResult result = NOPROBLEM_BIT;
-	int start = 0;
-	int oldstart = 0;
-	int end = 0;
+	unsigned int start = 0;
+	unsigned int oldstart = 0;
+	unsigned int end = 0;
 	int limit = MAX_SENTENCE_LENGTH + 2;
 	char label[MAX_LABEL_SIZE];
 	char* ptr = GetLabel(rule, label); // now at pattern if there is one
@@ -1388,13 +1389,16 @@ retry:
 	if (*ptr == '(') // pattern requirement
 	{
 		wildcardIndex = 0;
-		int uppercasem = 0;
 		whenmatched = 0;
 		char oldmark[MAX_SENTENCE_LENGTH];
 		memcpy(oldmark, unmarked, MAX_SENTENCE_LENGTH);
 		++adjustIndent;
-		if (start > wordCount || !Match(buffer, ptr + 2, 0, start, (char*)"(", 1, 0, start, end, uppercasem, whenmatched, 0, 0))
+		MARKDATA hitdata;
+		hitdata.start = start;
+		if (start > wordCount || !Match(ptr + 2, 0, hitdata, 1, 0, whenmatched, '('))
 			result = FAILMATCH_BIT;  // skip paren and blank, returns start as the location for retry if appropriate
+		start = hitdata.start;
+		end = hitdata.end;
 		--adjustIndent;
 		memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
 	}
@@ -1417,7 +1421,7 @@ retry:
 		}
 		else if (!patternRetry)
 		{
-			if (noteRulesMatching) rulematches = AllocateHeapval(rulematches, (uint64)GetTopicName(currentTopicID), TOPLEVELID(ruleID), REJOINDERID(ruleID));
+			if (noteRulesMatching) rulematches = AllocateHeapval(HV1_STRING|HV2_INT|HV3_INT,rulematches, (uint64)GetTopicName(currentTopicID), TOPLEVELID(ruleID), REJOINDERID(ruleID));
 			result = DoOutput(buffer, currentRule, currentRuleID, refine);
 			if ((trace & TRACE_FLOW) && (trace & (-1 ^ (TRACE_ON | TRACE_ECHO | TRACE_FLOW)))) Log(USERLOG, "end rule\r\n");  // only if other tracing
 		}
@@ -1456,7 +1460,7 @@ retry:
 				if (trace & (TRACE_PATTERN | TRACE_MATCH | TRACE_SAMPLE) && CheckTopicTrace())
 				{
 					Log(USERLOG, "RetryRule on sentence at word %d %s: ", start + 1, wordStarts[start + 1]);
-					for (int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s ", wordStarts[i]);
+					for (unsigned int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s ", wordStarts[i]);
 					Log(USERLOG, "\r\n");
 				}
 				retried = true;
@@ -1785,12 +1789,12 @@ char* WriteUserTopics(char* ptr, bool sharefile)
 		, numberOfTopicsInLayer[0], numberOfTopicsInLayer[1], numberOfTopicsInLayer[2], buildStamp[2]);
 	else
 	{
-		sprintf(ptr, (char*)"%u %u %s ", userFirstLine, volleyCount, GetTopicName(outputRejoinderTopic));
+		sprintf(ptr, (char*)"%u %u %s -", userFirstLine, volleyCount, GetTopicName(outputRejoinderTopic));
 		ptr += strlen(ptr);
 		ptr = FullEncode(outputRejoinderRuleID, ptr);
 		ptr = FullEncode(TI(outputRejoinderTopic)->topicChecksum, ptr);
 		sprintf(ptr, (char*)" DY %u %u %u %s # start, input#, rejoindertopic,rejoinderid (%s),checksum\r\n",
-			numberOfTopicsInLayer[0], numberOfTopicsInLayer[1], numberOfTopicsInLayer[2], buildStamp[2], ShowRule(GetRule(outputRejoinderTopic, outputRejoinderRuleID)));
+			numberOfTopicsInLayer[0], numberOfTopicsInLayer[1], numberOfTopicsInLayer[2], buildStamp[2], ShowRule(GetRule(outputRejoinderTopic, outputRejoinderRuleID+ONE_REJOINDER)));
 	}
 	ptr += strlen(ptr);
 	if (topicIndex)  ReportBug((char*)"topic system failed to clear out topic stack\r\n");
@@ -1877,7 +1881,10 @@ bool ReadUserTopics()
 		char ruleid[MAX_WORD_SIZE];
 		inputRejoinderTopic = FindTopicIDByName(word, true);
 		ptr = ReadCompiledWord(ptr, ruleid); //  rejoinder location
-		inputRejoinderRuleID = ((int)FullDecode(ruleid));
+		char* idptr = ruleid;
+		if (*idptr == '-') ++idptr;
+		if (*ruleid == '-') 	inputRejoinderRuleID = ((int)FullDecode(idptr)); // new style points to rule above
+		else inputRejoinderRuleID = ((int)FullDecode(ruleid)) - ONE_REJOINDER; // old style points at rejoinder rule, we now want rule above
 		// prove topic didnt change (in case of system topic or one we didnt write out)
 		int checksum;
 		ptr = ReadCompiledWord(ptr, ruleid);
@@ -1904,7 +1911,6 @@ bool ReadUserTopics()
 	unsigned int lev2topics = atoi(word);
 	ReadCompiledWord(ptr, word);
 	ptr = ReadCompiledWord(ptr, word);
-	if (*word != '0' || word[1]) LoadLayer(LAYER_BOOT, word, BUILD2); // resume existing layer 2
 	if (lev2topics != numberOfTopicsInLayer[LAYER_BOOT]) {}  // things have changed. after :build there are a different number of topics.
 
 	//   pending stack
@@ -2200,7 +2206,7 @@ void CreateFakeTopics(char* data) // ExtraTopic can be used to test this, naming
 		if (!bytes) bytes = 1;
 		endrules[5] = 'x';
 		SetTopicData(++numberOfTopics, topicData);
-		AllocateTopicMemory(numberOfTopics, word, BUILD1 | CONCEPT | TOPIC, topLevelRules, gambitCount);
+		AllocateTopicMemory(numberOfTopics, word, BUILD1 | TOPIC, topLevelRules, gambitCount);
 		TI(numberOfTopics)->topicFlags = flags; // carry over flags from topic of same name
 		data = ReadCompiledWord(endrules + 6, word);
 	}
@@ -2261,7 +2267,7 @@ static void LoadTopicData(const char* fname, const char* layerid, unsigned int b
 		}
 		if (!topicBlockPtrs[layer]) //  || !topicBlockPtrs[layer]->topicName
 		{
-			fclose(in);
+			FClose(in);
 			if (build == BUILD0)
 			{
 				EraseTopicFiles(BUILD0, (char*)"0");
@@ -2283,13 +2289,13 @@ static void LoadTopicData(const char* fname, const char* layerid, unsigned int b
 		compiling = PIECE_COMPILE;
 		int topicid = FindTopicIDByName(name, true); // may preexist (particularly if this is layer 2)
 		compiling = NOT_COMPILING;
-		if (!topicid || build == BUILD2) topicid = ++numberOfTopics;
+		if (!topicid ) topicid = ++numberOfTopics;
 		else if (plan) ReportBug((char*)"FATAL: duplicate plan name");
 
 		topicBlock* block = TI(topicid);
 		if (!block)
 		{
-			fclose(in);
+			FClose(in);
 			(*printer)("FATAL: Incompletely compiled unit %s\r\n", name);
 			EraseTopicFiles(build, (build == BUILD1) ? (char*)"1" : (char*)"0");
 			Log(ECHOUSERLOG, (char*)"\r\nIncompletely compiled unit - press Enter to quit. Then fix and try again.\r\n");
@@ -2340,7 +2346,7 @@ static void LoadTopicData(const char* fname, const char* layerid, unsigned int b
 		block->topicRestriction = (strstr(start, (char*)" all ")) ? NULL : start;
 
 		SetTopicData(topicid, ptr);
-		if (!plan) AllocateTopicMemory(topicid, name, build | CONCEPT | TOPIC, topLevelRules, gambitCount);
+		if (!plan) AllocateTopicMemory(topicid, name, build | TOPIC, topLevelRules, gambitCount);
 		else
 		{
 			WORDP P = AllocateTopicMemory(topicid, name, FUNCTION_NAME | build | IS_PLAN_MACRO, topLevelRules, 0);
@@ -2352,12 +2358,12 @@ static void LoadTopicData(const char* fname, const char* layerid, unsigned int b
 }
 
 void AddWordItem(WORDP D, bool dictionaryBuild)
-{
+{ // words changing during loading that we need to write adjustments for
 	if (dictionaryBuild) return;
 	if (D <= keywordBase) // preexisted, save it to handle.  new ones we deal with by walking from keywordBase
 	{
 		if (D->systemFlags & MARKED_WORD) return; // already in our list
-		*changedPreexistingWords++ = D;
+		*changedWordsDuringLoading++ = D;
 		AddSystemFlag(D, MARKED_WORD);
 	}
 }
@@ -2519,9 +2525,10 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 	*++bindata = (((uint64)D->internalBits) << 32) | (uint64)D->parseBits;
 
 	*++bindata = D->properties;
-	if (SUPERCEDED(D)) *bindata |= AS_IS;
 
 	*++bindata = D->systemFlags;
+
+	// CURRENTLY not allowed to change D->foreignFlags from script
 
 	*++bindata = (((uint64)D->subjectHead) << 32) | (uint64)D->verbHead;
 
@@ -2560,7 +2567,6 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 		// dont alter values from frozen before lest level rip out releases wrong memory
 		else // warn on attempt to change memory location
 		{ // BUG ? 
-			int xx = 0;
 			if (strcmp(D->w.userValue, val))printf("Not allowed to alter query or variable %s from earlier level %s to %s. Ignored\r\n", D->word, D->w.userValue, val);
 			//ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignored\r\n",D->word, val);
 		}
@@ -2591,7 +2597,6 @@ static uint64* UnpackBinWord(uint64* bindata)
 	uint64 c = *bindata;
 	if (c != counter)
 	{
-		int xx = 0;
 		ReportBug("unpackbin sync error");
 		return 0;
 	}
@@ -2603,7 +2608,7 @@ static uint64* UnpackBinWord(uint64* bindata)
 	if (*bindata & 0x0000000080000000) // isnew flag
 	{
 		isnew = true;
-		E = AllocateEntry();
+		E = AllocateEntry(NULL);
 		if (D != E) // it wasnt the next one in line?
 		{
 			EraseTopicBin(BUILD0, (char*)"0"); // dont trust the cache, force a rebuild
@@ -2618,9 +2623,6 @@ static uint64* UnpackBinWord(uint64* bindata)
 	D->parseBits = *bindata & 0x00000000ffffffff;
 
 	D->properties = *++bindata;
-	bool superceded = D->properties & AS_IS;
-	if (superceded) D->properties ^= AS_IS;
-
 	D->systemFlags = *++bindata;
 
 	D->subjectHead = (unsigned int)(*++bindata >> 32);
@@ -2702,7 +2704,7 @@ static void WriteFastDictionary(uint64* bindata, const char* layer, const char* 
 		bindata = PackBinWord(bindata, D, true);
 	}
 	// pack the old changed words from before
-	while (changedwords < changedPreexistingWords)
+	while (changedwords < changedWordsDuringLoading)
 	{
 		D = *changedwords++;
 		if (SUPERCEDED(D))
@@ -2716,7 +2718,7 @@ static void WriteFastDictionary(uint64* bindata, const char* layer, const char* 
 	*++bindata = dictionaryFree - dictionaryBase;  // total words in dictionary now
 	int units = (bindata - base);
 	fwrite(base + 1, sizeof(uint64), units, out);
-	fclose(out);
+	FClose(out);
 	myBot = 0;
 }
 
@@ -2752,14 +2754,13 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 	unsigned int oldlanguagebits = language_bits;
 	// bufferIndex will be low, we want infinite stack but its in use.
 	// allocate a bunch of  buffer space (like 50) which will be contiguous
-	MEANING* stack = (MEANING*)AllocateBuffer();
 	for (unsigned int x = 1; x <= 50; ++x) AllocateBuffer();
-	int stackIndex = 0;
 	while (ReadALine(readBuffer, in) >= 0) //~hate (~dislikeverb )
 	{// T~tax_expert~2  is a multibot reference  vx'801 is a bot referenced member on basic concept
 		*word = 0;
 		char name[MAX_WORD_SIZE];
 		char* ptr = readBuffer;
+
 		// process topic/concept definition
 		if (*readBuffer == '~' || endseen || *readBuffer == 'T') // concept, not-a-keyword, topic
 		{
@@ -2776,9 +2777,8 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 			strcpy(name, word);
 			T = ReadMeaning(name, true, true);
 			set = Meaning2Word(T);
-			stackIndex = 0;
 			AddWordItem(set, dictionaryBuild);
-			AddInternalFlag(set, (unsigned int)(CONCEPT | build));// sets and concepts are both sets. Topics get extra labelled on script load
+			AddInternalFlag(set, (unsigned int)build);// sets and concepts are both sets. Topics get extra labelled on script load
 			if (dictionaryBuild)
 			{
 				AddSystemFlag(set, MARKED_WORD);
@@ -2861,15 +2861,16 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 			// may have ` after it as bot id and/or language separator so simulate ReadCompiledWord which wont tolerate it
 			ptr = ReadToken(ptr, keyword);
 			if (*keyword == ')' || !*keyword) break; // til end of keywords or end of line
+
 			MEANING U;
 			myBot = 0;
 
 			// similar to LanguageRestrict() but broader
-			char* end = strstr(keyword, "~l");
+			char* end = strstr(keyword+1, "~l"); // avoid concept keywords in search
 			unsigned int fact_language = 0;
 			if (end)
 			{
-				fact_language = end[2] - '0';
+				fact_language = atoi(end+2);
 				if (!multidict && fact_language > max_fact_language)
 					continue; // ignore other languages when not using multi
 				*end = 0; // hid this so atoi64 doesnt complain for any bot restriction
@@ -2911,6 +2912,7 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 			}
 			WORDP D = Meaning2Word(U);
 			language_bits = (D->internalBits & LANGUAGE_BITS);
+			if (D->internalBits & UNIVERSAL_WORD) language_bits = LANGUAGE_UNIVERSAL;
 			fact_language = language_bits >> LANGUAGE_SHIFT;
 
 			if (dictionaryBuild)
@@ -3010,30 +3012,14 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 			if (casesensitive) flags |= RAWCASE_ONLY;
 			if (startOnly) flags |= START_ONLY;
 			if (endOnly) flags |= END_ONLY;
-			if (build == BUILD2) flags |= FACTBUILD2;
-			else if (build == BUILD1) flags |= FACTBUILD1;
-			stack[stackIndex++] = U;
-			stack[stackIndex++] = verb;
-			stack[stackIndex++] = T;
-			stack[stackIndex++] = flags;
-			// CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
+			if (build == BUILD1) flags |= FACTBUILD1;
+			CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
 			Meaning2Word(U)->internalBits |= BIT_CHANGED; // we modified the weave
 			Meaning2Word(verb)->internalBits |= BIT_CHANGED; // we modified the weave
 			Meaning2Word(T)->internalBits |= BIT_CHANGED; // we modified the weave
 			CheckFundamentalMeaning(Meaning2Word(U)->word);
 		}
-		if (*keyword == ')') // end of keywords found. OTHERWISE we continue on next line
-		{
-			endseen = true;
-			while (stackIndex)
-			{
-				unsigned int flags = stack[--stackIndex];
-				MEANING T = stack[--stackIndex];
-				MEANING verb = stack[--stackIndex];
-				MEANING U = stack[--stackIndex];
-				CreateFact(U, verb, T, flags); // script compiler will have removed duplicates if that was desired
-			}
-		}
+		if (*keyword == ')') endseen = true; // end of keywords found. OTHERWISE we continue on next line
 	}
 	language_bits = oldlanguagebits;
 
@@ -3089,7 +3075,7 @@ static int ReadFastDictionary(char* name, const char* layer, unsigned int build)
 	char* limit;
 	char* stack = InfiniteStack(limit, "Readfastdictionary");
 	unsigned long read = fread(stack, 1, size, in);
-	fclose(in);
+	FClose(in);
 	ReleaseInfiniteStack(); // we can keep using that space since we dont use stack more
 	if (size != read)
 	{
@@ -3153,7 +3139,7 @@ static void InitMacros(const char* name, const char* layer, unsigned int build)
 		else if (*tmpWord == 'd') AddInternalFlag(D, IS_PATTERN_MACRO | IS_OUTPUT_MACRO);
 		else
 		{
-			fclose(in);
+			FClose(in);
 			(*printer)("FATAL: Old style function compile of %s. Recompile your script", name);
 			EraseTopicFiles(build, (build == BUILD1) ? (char*)"1" : (char*)"0");
 			Log(ECHOUSERLOG, (char*)"\r\nOld style function compile of %s. Recompile your script", name);
@@ -3407,7 +3393,7 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		char* limit;
 
 		WORDP* basechangedwords = (WORDP*)InfiniteStack(limit, "loadlayer"); // for tracking changes to old words
-		changedPreexistingWords = basechangedwords;
+		changedWordsDuringLoading = basechangedwords;
 
 		sprintf(filename, (char*)"keywords%s.txt", name);
 		InitKeywords(filename, name, build); // alters words and facts
@@ -3424,7 +3410,7 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		// create binary dictionary of this level - factstart was the old highw
 		sprintf(filename, (char*)"allwords%s.bin", name);
 		monitorChange = false;
-		uint64* stack = (uint64*)(changedPreexistingWords); // remains from prior infinite stack use
+		uint64* stack = (uint64*)(changedWordsDuringLoading); // remains from prior infinite stack use
 		WriteFastDictionary(stack, name, filename, keywordBase, basechangedwords);
 		ReleaseInfiniteStack();
 

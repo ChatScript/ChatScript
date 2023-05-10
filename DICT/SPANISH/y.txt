@@ -1,240 +1,99 @@
-﻿ yacer ( ) 
-
- yo ( PRONOUN_SUBJECT PRONOUN_OBJECT PRONOUN_I PRONOUN_SINGULAR ) 
-
- YY ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=YY 
-
- Yamagué ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yeltsin ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yemen ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yens ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yique ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yiña ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Ymodem ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yolanda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yompe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yonatán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- York ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yosemite ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Young ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yucatán ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yugoslavia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yugov ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yuri ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yuvia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Yvancho ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- y ( CONJUNCTION_COORDINATE ) lemma=y 
-
+﻿﻿
+ YY ( NOUN NOUN_PROPER_PLURAL ) lemma=`YY`YY` CODE  NP  
+ Yamagué ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yeltsin ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yemen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yens ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yique ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yiña ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ymodem ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yolanda ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yompe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yonatán ( NOUN NOUN_PROPER_SINGULAR ) 
+ York ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yosemite ( NOUN NOUN_PROPER_SINGULAR ) 
+ Young ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yucatán ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yugoslavia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yugov ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yuri ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yuvia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Yvancho ( NOUN NOUN_PROPER_SINGULAR ) 
+ y ( CONJUNCTION_COORDINATE ) lemma=`y`y` ALFS  CC  
  y-carboxilación ( NOUN NOUN_SINGULAR ) 
-
  y-o ( CONJUNCTION_COORDINATE ) 
-
  ya ( ADVERB CONJUNCTION_SUBORDINATE ) 
-
- yace ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yacen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=yacer 
-
+ yace ( VERB ) lemma=`yacer` VLfin  
+ yacen ( VERB ) lemma=`yacer` VLfin  
  yacimiento ( NOUN NOUN_SINGULAR ) 
-
- yacíá ( VERB ) lemma=yacer 
-
- yacíán ( VERB ) lemma=yacer 
-
- yanqui ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yanqui 
-
+ yacimientos ( NOUN NOUN_PLURAL ) lemma=`yacimiento` NC  
+ yacía ( VERB ) lemma=`yacer` VLfin  
+ yacían ( VERB ) lemma=`yacer` VLfin  
+ yanqui ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yanqui`yanqui` ADJ  NC  
  yanquilandia ( NOUN NOUN_SINGULAR ) 
-
- yanquis ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yanqui 
-
+ yanquis ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yanqui`yanqui` ADJ  NC  
  yapa ( NOUN NOUN_SINGULAR ) 
-
  yarda ( NOUN NOUN_SINGULAR ) 
-
+ yardas ( NOUN NOUN_PLURAL ) lemma=`yarda` NC  
  yate ( NOUN NOUN_SINGULAR ) 
-
- yatrogénico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- yatrógenos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=yatrógeno 
-
- yatrógeno ( ) 
-
- yay ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- yayay ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- yeah ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
+ yates ( NOUN NOUN_PLURAL ) lemma=`yate` NC  
+ yatrogénico ( ADJECTIVE ) 
+ yatrógenos ( ADJECTIVE ) lemma=`yatrógeno` ADJ  
+ yay ( NOUN NOUN_PROPER_SINGULAR ) 
+ yayay ( NOUN NOUN_PROPER_SINGULAR ) 
+ yeah ( NOUN NOUN_PROPER_SINGULAR ) 
  yema ( NOUN NOUN_SINGULAR ) 
-
- yemenita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yemenita 
-
- yemenitas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yemenita 
-
- yemení ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yemení 
-
- yemeníes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yemení 
-
- yen ( NOUN CURRENCY NOUN_SINGULAR ) 
-
- yendo ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=ir 
-
+ yemas ( NOUN NOUN_PLURAL ) lemma=`yema` NC  
+ yemenita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yemenita`yemenita` ADJ  NC  
+ yemenitas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yemenita`yemenita` ADJ  NC  
+ yemení ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yemení`yemení` ADJ  NC  
+ yemeníes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yemení`yemení` ADJ  NC  
+ yen ( NOUN NOUN_SINGULAR ) 
+ yendo ( VERB_PAST_PARTICIPLE VERB ) lemma=`ir` VLadj  
+ yenes ( NOUN NOUN_PLURAL ) lemma=`yen` NC  
  yerba ( NOUN NOUN_SINGULAR ) 
-
- yerma ( VERB ) lemma=yermar 
-
- yermar ( ) 
-
- yermas ( VERB ) lemma=yermar 
-
- yermo ( NOUN VERB NOUN_SINGULAR ) lemma=`yermo`yermar` NC  VLfin 
-
+ yerbas ( NOUN NOUN_PLURAL ) lemma=`yerba` NC  
+ yerma ( VERB ) lemma=`yermar` VLfin  
+ yermas ( VERB ) lemma=`yermar` VLfin  
+ yermo ( NOUN VERB NOUN_PLURAL ) lemma=`yermo`yermar` NC  VLfin  
+ yermos ( NOUN NOUN_PLURAL ) lemma=`yermo` NC  
  yerno ( NOUN NOUN_SINGULAR ) 
-
- yerro ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=errar 
-
+ yernos ( NOUN NOUN_PLURAL ) lemma=`yerno` NC  
+ yerro ( VERB ) lemma=`errar` VLfin  
  yeso ( NOUN NOUN_SINGULAR ) 
-
- yeyunal ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ yesos ( NOUN NOUN_PLURAL ) lemma=`yeso` NC  
+ yeyunal ( ADJECTIVE ) 
  yeyuno ( NOUN NOUN_SINGULAR ) 
-
- yiak ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- yodado ( VERB_PAST_PARTICIPLE VERB ) lemma=yodar 
-
- yodar ( ) 
-
- yodados ( VERB_PAST_PARTICIPLE VERB ) lemma=yodar 
-
+ yiak ( NOUN NOUN_PROPER_SINGULAR ) 
+ yo ( PRONOUN_SUBJECT PRONOUN_OBJECT ) 
+ yodado ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodar` VLadj  
+ yodados ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodar` VLadj  
  yodo ( NOUN NOUN_SINGULAR ) 
-
- yodurada ( VERB_PAST_PARTICIPLE VERB ) lemma=yodurar 
-
- yodurar ( ) 
-
+ yodurada ( VERB_PAST_PARTICIPLE VERB ) lemma=`yodurar` VLadj  
  yogur ( NOUN NOUN_SINGULAR ) 
-
+ yogures ( NOUN NOUN_PLURAL ) lemma=`yogur` NC  
  yola ( NOUN NOUN_SINGULAR ) 
-
  yorkvml ( NOUN NOUN_SINGULAR ) 
-
+ you ( ) 
  young ( NOUN NOUN_SINGULAR ) 
-
  yubarta ( NOUN NOUN_SINGULAR ) 
-
- yucateca ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yucateco 
-
- yucateco ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yucateco 
-
- yucatecos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yucateco 
-
+ yucateca ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yucateco`yucateco` ADJ  NC  
+ yucateco ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yucateco`yucateco` ADJ  NC  
+ yucatecos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yucateco`yucateco` ADJ  NC  
  yugo ( NOUN NOUN_SINGULAR ) 
-
- yugoslava ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yugoslavo 
-
- yugoslavo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yugoslavo 
-
- yugoslavas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yugoslavo 
-
- yugoslavos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=yugoslavo 
-
- yugular ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- yugulares ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=yugular 
-
+ yugoslava ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yugoslavo`yugoslavo` ADJ  NC  
+ yugoslavas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yugoslavo`yugoslavo` ADJ  NC  
+ yugoslavo ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yugoslavo`yugoslavo` ADJ  NC  
+ yugoslavos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`yugoslavo`yugoslavo` ADJ  NC  
+ yugular ( ADJECTIVE ) 
+ yugulares ( ADJECTIVE ) lemma=`yugular` ADJ  
  yunque ( NOUN NOUN_SINGULAR ) 
-
  yunyún ( NOUN NOUN_SINGULAR ) 
-
- yuxtacapilare ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- yuxtaglomerular ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ yuxtacapilare ( ADJECTIVE ) 
+ yuxtaglomerular ( ADJECTIVE ) 
  yuyo ( NOUN NOUN_SINGULAR ) 
-
- yéndome ( VERB_PAST_PARTICIPLE VERB ) lemma=ir 
-
- yéndonos ( VERB_PAST_PARTICIPLE VERB ) lemma=ir 
-
- yéndose ( VERB_PRESENT VERB_PAST_PARTICIPLE PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=irse 
-
- yéndote ( VERB_PAST_PARTICIPLE VERB ) lemma=ir 
-
- ya_que ( CONJUNCTION_SUBORDINATE ) lemma=ya~que 
-
- ya~que ( ) 
-
- yerra ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=errar 
-
- yerran ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=errar 
-
- yerre ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=errar 
-
- yerren ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=errar 
-
- yazco ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yacemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yacéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yaciendo ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yacido ( NOUN VERB NOUN_GERUND ) lemma=yacer 
-
- yaceré ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yacerá ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_SINGULAR ) lemma=yacer 
-
- yaceremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yaceréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yacerán ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=yacer 
-
- yací ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yació ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=yacer 
-
- yacimos ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yacisteis ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yacieron ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=yacer 
-
- yazca ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yazcamos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yazcáis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yazcan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yaciere ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=yacer 
-
- yaciéremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=yacer 
-
- yaciereis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=yacer 
-
- yacieren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=yacer 
-
+ yéndome ( VERB_PAST_PARTICIPLE VERB ) lemma=`ir` VLadj  
+ yéndonos ( VERB_PAST_PARTICIPLE VERB ) lemma=`ir` VLadj  
+ yéndose ( VERB_PAST_PARTICIPLE VERB ) lemma=`ir` VLadj  
+ yéndote ( VERB_PAST_PARTICIPLE VERB ) lemma=`ir` VLadj  
+ ya_que ( CONJUNCTION_SUBORDINATE ) lemma=`ya~que` CSUBF  

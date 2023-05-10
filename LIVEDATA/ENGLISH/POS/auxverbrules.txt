@@ -56,6 +56,12 @@ DISCARD
 	HAS DETERMINER ADJECTIVE_BITS  NOUN_BITS PRONOUN_BITS
 KEEP
 
+# what *do or any query word
+-1	 ISCANONICAL what
+	STAY ISORIGINALMEMBER  ~qwords
+	INCLUDE * AUX_DO
+KEEP
+
 # normal be followed by common participle adjective with no  object
 0	INCLUDE * AUX_BE
 	STAY HASORIGINAL VERB_PRESENT VERB_PRESENT_3PS VERB_PAST  # am are is was were

@@ -2,7 +2,6 @@
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br>
 <br>Revision 4/24/2022 cs12.1
 
-
 * [Review](ChatScript-Advanced-User-Manual.md#review-overview-of-how-cs-works)
 * [Advanced Tokenization](ChatScript-Advanced-User-Manual.md#advanced-tokenization)
 * [Out of Band Communication](ChatScript-Advanced-User-Manual.md#out-of-band-communication)
@@ -905,7 +904,6 @@ spacing and punctuation, and stripping off the double quotes.
 
     u: ( test ) ^"This $var is good." # if $var is kid the result is This kid is good.
 
-
 ___What really happens on the output side of a rule?___
 
 Well, really, the system "evaluates" every token. Simple English words and punctuation
@@ -974,6 +972,7 @@ make a `#!` comment of it. Then, the best thing is to type `:prepare` followed b
 sentence. This will tell you how the system will tokenize it and what concepts it will
 trigger. This will help you decide what the structure of the pattern should be and how
 general you can make important keywords.
+
 
 ___What really happens with rule erasure?___
 
@@ -1173,9 +1172,6 @@ be a value and that value will be associated with any output generated thereafte
 `%why = quibble`.
 The system also sets `$cs_tokencontrol` to results that happen from input processing.
 
-
-
-
 # Updating CS Versions Easily
 
 ChatScript gets updated often on a regular basis. And you probably don't want to have to
@@ -1215,7 +1211,4 @@ meaning values (if needed) and then just delete dict.bin. If you want to edit th
 ontology hierarchy, you need to edit facts.txt and delete facts.bin The system will rebuild
 them when you run CS.
 
----
-
-[[Wiki home](/WIKI/README.md)] - [[Basic User Manual](ChatScript-Basic-User-Manual.md)]
 

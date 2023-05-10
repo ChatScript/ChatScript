@@ -1,5 +1,5 @@
 # http://data.iana.org/TLD/tlds-alpha-by-domain.txt
-# Version 2020082800, Last Updated Fri Aug 28 07:07:01 2020 UTC
+# Version 2023032100, Last Updated Tue Mar 21 07:07:01 2023 UTC
 aaa
 aarp
 abarth
@@ -18,7 +18,6 @@ accountants
 aco
 actor
 ad
-adac
 ads
 adult
 ae
@@ -26,7 +25,6 @@ aeg
 aero
 aetna
 af
-afamilycompany
 afl
 africa
 ag
@@ -178,8 +176,6 @@ brother
 brussels
 bs
 bt
-budapest
-bugatti
 build
 builders
 business
@@ -199,7 +195,6 @@ calvinklein
 cam
 camera
 camp
-cancerresearch
 canon
 capetown
 capital
@@ -213,7 +208,6 @@ careers
 cars
 casa
 case
-caseih
 cash
 casino
 cat
@@ -225,7 +219,6 @@ cbre
 cbs
 cc
 cd
-ceb
 center
 ceo
 cern
@@ -304,7 +297,6 @@ crown
 crs
 cruise
 cruises
-csc
 cu
 cuisinella
 cv
@@ -363,7 +355,6 @@ download
 drive
 dtv
 dubai
-duck
 dunlop
 dupont
 durban
@@ -463,7 +454,6 @@ frontdoor
 frontier
 ftr
 fujitsu
-fujixerox
 fun
 fund
 furniture
@@ -498,7 +488,6 @@ gifts
 gives
 giving
 gl
-glade
 glass
 gle
 global
@@ -614,7 +603,6 @@ institute
 insurance
 insure
 int
-intel
 international
 intuit
 investments
@@ -630,11 +618,9 @@ istanbul
 it
 itau
 itv
-iveco
 jaguar
 java
 jcb
-jcp
 je
 jeep
 jetzt
@@ -665,6 +651,7 @@ kg
 kh
 ki
 kia
+kids
 kim
 kinder
 kindle
@@ -722,12 +709,10 @@ lilly
 limited
 limo
 lincoln
-linde
 link
 lipsy
 live
 living
-lixil
 lk
 llc
 llp
@@ -735,7 +720,6 @@ loan
 loans
 locker
 locus
-loft
 lol
 london
 lotte
@@ -750,13 +734,11 @@ ltd
 ltda
 lu
 lundbeck
-lupin
 luxe
 luxury
 lv
 ly
 ma
-macys
 madrid
 maif
 maison
@@ -786,7 +768,6 @@ memorial
 men
 menu
 merckmsd
-metlife
 mg
 mh
 miami
@@ -830,6 +811,7 @@ mtn
 mtr
 mu
 museum
+music
 mutual
 mv
 mw
@@ -840,7 +822,6 @@ na
 nab
 nagoya
 name
-nationwide
 natura
 navy
 nba
@@ -853,7 +834,6 @@ netflix
 network
 neustar
 new
-newholland
 news
 next
 nextdirect
@@ -888,7 +868,6 @@ nyc
 nz
 obi
 observer
-off
 office
 okinawa
 olayan
@@ -901,7 +880,6 @@ one
 ong
 onl
 online
-onyourside
 ooo
 open
 oracle
@@ -988,10 +966,8 @@ qa
 qpon
 quebec
 quest
-qvc
 racing
 radio
-raid
 re
 read
 realestate
@@ -1023,7 +999,6 @@ ricoh
 ril
 rio
 rip
-rmit
 ro
 rocher
 rocks
@@ -1069,7 +1044,6 @@ school
 schule
 schwarz
 science
-scjohnson
 scot
 sd
 se
@@ -1081,7 +1055,6 @@ seek
 select
 sener
 services
-ses
 seven
 sew
 sex
@@ -1101,7 +1074,6 @@ shopping
 shouji
 show
 showtime
-shriram
 si
 silk
 sina
@@ -1131,10 +1103,10 @@ solutions
 song
 sony
 soy
+spa
 space
 sport
 spot
-spreadbetting
 sr
 srl
 ss
@@ -1163,7 +1135,6 @@ surgery
 suzuki
 sv
 swatch
-swiftcover
 swiss
 sx
 sy

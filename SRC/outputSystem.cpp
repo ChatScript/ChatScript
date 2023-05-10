@@ -2,9 +2,11 @@
 unsigned int maxOutputUsed = 0;
 unsigned int currentOutputLimit = MAX_BUFFER_SIZE;	// max size of current output base
 char* currentOutputBase = NULL;		// current base of buffer which must not overflow
+char* outputBase = NULL;
 char* currentRuleOutputBase = NULL;	// the partial buffer within outputbase started for current rule, whose output can be canceled.
 #define MAX_OUTPUT_NEST 50
 static char* oldOutputBase[MAX_OUTPUT_NEST];
+static char* oldOutput[MAX_OUTPUT_NEST];
 static char* oldOutputRuleBase[MAX_OUTPUT_NEST];
 static unsigned int oldOutputLimit[MAX_OUTPUT_NEST];
 char* outputCode[MAX_GLOBAL];
@@ -47,6 +49,7 @@ void ResetOutput()
 
 void PushOutputBuffers()
 {
+    oldOutput[oldOutputIndex] = outputBase;
     oldOutputBase[oldOutputIndex] = currentOutputBase;
     oldOutputRuleBase[oldOutputIndex] = currentRuleOutputBase;
     oldOutputLimit[oldOutputIndex] = currentOutputLimit;
@@ -65,19 +68,20 @@ void PopOutputBuffers()
     currentOutputBase = oldOutputBase[oldOutputIndex];
     currentRuleOutputBase = oldOutputRuleBase[oldOutputIndex];
     currentOutputLimit = oldOutputLimit[oldOutputIndex];
+    outputBase = oldOutput[oldOutputIndex];
 }
 
 void AllocateOutputBuffer()
 {
     PushOutputBuffers();
-    currentRuleOutputBase = currentOutputBase = AllocateBuffer("allocateoutputbuffer"); // cant use stack- others may allocate on it from output and we cant free them
-    currentOutputLimit = maxBufferSize;
+    outputBase = currentRuleOutputBase = currentOutputBase = AllocateStack(NULL, outputsize); // cant use stack- others may allocate on it from output and we cant free them
+    currentOutputLimit = outputsize;
     *currentOutputBase = 0;
 }
 
 void FreeOutputBuffer()
 {
-    FreeBuffer("freeoutputbuffer"); // presumed the current buffer allocated via AllocateOutputBuffer
+    ReleaseStack(outputBase);
     PopOutputBuffers();
 }
 
@@ -95,9 +99,8 @@ char* GetCommandArg(char* ptr, char* buffer, FunctionResult& result, unsigned in
     if (control == 0) control |= OUTPUT_KEEPSET | OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG;
     else control |= OUTPUT_ONCE | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG;
 
-    unsigned int size = MAX_BUFFER_SIZE - (buffer - currentOutputBase); // how much used
-    if (size > MAX_BUFFER_SIZE) size = MAX_WORD_SIZE * 4; // arbitrary assumption
-    ptr = FreshOutput(ptr, buffer, result, control, size);
+    unsigned int remains = outputsize - (buffer - outputBase); // how much is left in buffer
+    ptr = FreshOutput(ptr, buffer, result, control, remains);
     if (!(control & ASSIGNMENT))  impliedSet = oldImpliedSet; // assignment of @0 = ^querytopics needs to be allowed to change to alreadyhandled
     return ptr;
 }
@@ -303,7 +306,7 @@ void ReformatString(char starter, char* input, char*& output, FunctionResult& re
         {
             char* base = input;
             while (*++input && IsDigit(*input)) { ; } // find end of function variable name 
-            char* tmp1 = FNVAR(base + 1);
+            char* tmp1 = FNVAR(base);
             // if tmp turns out to be $var or _var %var, need to recurse to get it
             if (*tmp1 == LCLVARDATA_PREFIX && tmp1[1] == LCLVARDATA_PREFIX)
             {
@@ -477,11 +480,7 @@ char* StdIntOutput(int n)
     char buffer[50];
     static char answer[50];
     *answer = 0;
-#ifdef WIN32
-    sprintf(buffer, (char*)"%I64d", (long long int) n);
-#else
-    sprintf(buffer, (char*)"%lld", (long long int) n);
-#endif
+    strcpy(buffer,Print64(n));
     char* ptr = answer;
     StdNumber(buffer, ptr, 0);
     return answer;
@@ -664,14 +663,14 @@ static char* Output_FunctionVariable(char* word, char* ptr, char*& buffer, Funct
 {
     if (!once && IsAssignmentOperator(ptr)) ptr = PerformAssignment(word, ptr, buffer, result);
 
-    else if ((word[2] && !IsDigit(word[2])) || (word[2] && word[3]) || atoi(word + 1) >= MAX_ARG_LIMIT) // values start at 0
+    else if ((word[2] && !IsDigit(word[2])) || (word[2] && word[3]) || atoi(word + 1) >= MAX_ARG_LIMIT) // values start at 1
     {
         strcpy(buffer, word); // a non function and nonfunction variable
         return ptr;
     }
     else
     {
-        char* value = FNVAR(word + 1);
+        char* value = FNVAR(word );
         size_t len = strlen(value);
         size_t size = (buffer - currentOutputBase);
         if ((size + len) >= (currentOutputLimit - 50))
@@ -751,7 +750,6 @@ static char* Output_OrdinaryFunction(char* word, char* ptr, char* space, char*& 
         if (*end && !AddResponse(currentRuleOutputBase, responseControl)) result = FAILRULE_BIT;
         if (*start == '`') buffer = ResetOutputPtr(start, buffer);
     }
-
     ptr = DoFunction(word, ptr, buffer, result);
 
     if (space && *space != ' ' && result != ENDCALL_BIT) // we need to add a space, but not if requesting a call return ^return
@@ -836,7 +834,8 @@ static char* Output_AtSign(char* word, char* ptr, char* space, char*& buffer, un
         }
         else if (type == 'a' && impliedWild != ALREADY_HANDLED)
         {
-            ARGUMENT(1) = AllocateStack(word);
+            CALLFRAME* frame = GetCallFrame(globalDepth);
+            frame->arguments[1] = AllocateStack(word);
             result = FLR(buffer, (char*)"l");
             return ptr;
         }
@@ -899,7 +898,7 @@ static char* Output_Quote(char* word, char* ptr, char* space, char*& buffer, uns
     }
     else if (word[1] == '^' && IsDigit(word[2]))  //   function variable quoted, means dont reeval its content
     {
-        size_t len = strlen(FNVAR(word + 2));
+        size_t len = strlen(QUOTEDFNVAR(word ));
         size_t size = (buffer - currentOutputBase);
         if ((size + len) >= (currentOutputLimit - 50))
         {
@@ -907,7 +906,7 @@ static char* Output_Quote(char* word, char* ptr, char* space, char*& buffer, uns
             return ptr;
         }
 
-        strcpy(buffer, FNVAR(word + 2));
+        strcpy(buffer, QUOTEDFNVAR(word ));
     }
     else StdNumber(word, buffer, controls);
     return ptr;
@@ -1000,6 +999,7 @@ static char* Output_Dollar(char* word, char* ptr, char* space, char*& buffer, un
             }
 
             char* value = GetUserVariable(word, nojson);
+            if (trace & TRACE_OUTPUT && !strchr(word,'.') && !strchr(word,'['))  Log(USERLOG, " %s`%s` ", word, value);
             StdNumber(value, buffer, controls);
             char* at = SkipWhitespace(buffer);
             if (controls & OUTPUT_NOQUOTES && *at == '"') // remove quotes from a variable's data

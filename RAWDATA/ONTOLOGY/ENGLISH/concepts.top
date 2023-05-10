@@ -79,7 +79,7 @@ concept: ~age_gender (~age_words ~family_adult_female ~family_adult_male ~family
 concept: ~age_nouns  (adult child infant old_fogie senior_citizen teenager ) 
 concept: ~age_reference (~age_adjectives ~age_words ~agenoun ) 
 concept: ~age_words (age day millennium month old week year young ) 
-concept: ~aged_adults (~adult adult centenarian eightysomething fiftysomething fortysomething grandmother grandparent grownup legal mature ninetysomething old_enough quadragenarian 
+concept: ~aged_adults ( centenarian eightysomething fiftysomething fortysomething grandmother grandparent grownup legal mature ninetysomething old_enough quadragenarian 
           senior senior_citizen septuagenarian seventysomething sexagenarian sixtysomething thirtysomething twentysomething ) 
 concept: ~aged_children (baby boy child girl infant kid teen teen-ager teenager toddler young ) 
 concept: ~agenoun (~aged_adults ~aged_children ) 
@@ -240,7 +240,7 @@ concept: ~carnivore (alligator badger cat cheetah crocodile dog dolphin eagle fa
 concept: ~carryable (~nutrient ) 
 concept: ~cashable_item (cash coin money treasure ) 
 concept: ~cat_breeds   PROBABLE_NOUN ANIMATE_BEING (Abysinnian Aegean Americal_Curl American_Bobtail American_Shorthair American_Wirehair Arabian_Mau  Asian_Semi-longhair 
-          Australian_Mist Balinese Bambino Bengal Birman Bombay Brazilian_Shorthair British_Longhair British_Semi-longhair British_Shorthair coon kitten kitty maine Mau Persian siamese 
+          Australian_Mist Balinese Bambino Bengal Birman Bombay Brazilian_Shorthair British_Longhair British_Semi-longhair British_Shorthair coon kitten kitty Maine Mau Persian Siamese 
           tabby Toybob ) 
 concept: ~category (brand breed breed_of category class class_of division flavor_of genre grouping kind kind_of kind_of_stuff kinds_of make_of model sort_of species style_of subdivision 
           type type_of ) 

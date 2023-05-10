@@ -1,2360 +1,1181 @@
-﻿﻿ KFOR ( ) 
-
+﻿﻿
+ KFOR ( ) 
  KGB ( ) 
-
  KO ( ) 
-
  Kadett ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kahn ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kant ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Karel ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Karima ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Karl ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Karr ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Katharina ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Katrin ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Keller ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kelvin ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kennedy ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kermit ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kerr ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Khaled ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kieffer ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kinnock ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kirsty ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kitchener ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kitty ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Klein ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Klopstein ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Klopstock ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kluck ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kléber ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Koch ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Koenigsmark ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Koller ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kong ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Koran ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Korsakof ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kosovo ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kostunica ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kouchner ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Koumba ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kourou ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Krestowsky ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kristowsky ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kyoto ( NOUN NOUN_PROPER_SINGULAR ) 
-
  Kévin ( NOUN NOUN_PROPER_SINGULAR ) 
-
  k-way ( NOUN NOUN_SINGULAR ) 
-
- k-ways ( NOUN  NOUN_PLURAL  ) lemma=`k-way` NOM  
-
+ k-ways ( NOUN NOUN_PLURAL   ) lemma=`k-way` NOM  
  ka ( NOUN NOUN_SINGULAR ) 
-
  kabbale ( NOUN NOUN_SINGULAR ) 
-
- kabbales ( NOUN  NOUN_PLURAL  ) lemma=`kabbale` NOM  
-
+ kabbales ( NOUN NOUN_PLURAL   ) lemma=`kabbale` NOM  
  kabbaliste ( NOUN NOUN_SINGULAR ) 
-
- kabbalistes ( NOUN  NOUN_PLURAL  ) lemma=`kabbaliste` NOM  
-
+ kabbalistes ( NOUN NOUN_PLURAL   ) lemma=`kabbaliste` NOM  
  kabig ( NOUN NOUN_SINGULAR ) 
-
- kabigs ( NOUN  NOUN_PLURAL  ) lemma=`kabig` NOM  
-
+ kabigs ( NOUN NOUN_PLURAL   ) lemma=`kabig` NOM  
  kablouna ( NOUN NOUN_SINGULAR ) 
-
- kablounas ( NOUN  NOUN_PLURAL  ) lemma=`kablouna` NOM  
-
+ kablounas ( NOUN NOUN_PLURAL   ) lemma=`kablouna` NOM  
  kabuki ( NOUN NOUN_SINGULAR ) 
-
- kabukis ( NOUN  NOUN_PLURAL  ) lemma=`kabuki` NOM  
-
- kabyle ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kabyle`kabyle` ADJ  NOM  
-
- kabyles ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kabyle`kabyle` ADJ  NOM  
-
+ kabukis ( NOUN NOUN_PLURAL   ) lemma=`kabuki` NOM  
+ kabyle ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kabyle`kabyle` ADJ  NOM  
+ kabyles ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kabyle`kabyle` ADJ  NOM  
  kacha ( NOUN NOUN_SINGULAR ) 
-
- kachas ( NOUN  NOUN_PLURAL  ) lemma=`kacha` NOM  
-
- kachoube ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kachoube`kachoube` ADJ  NOM  
-
- kachoubes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kachoube`kachoube` ADJ  NOM  
-
+ kachas ( NOUN NOUN_PLURAL   ) lemma=`kacha` NOM  
+ kachoube ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kachoube`kachoube` ADJ  NOM  
+ kachoubes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kachoube`kachoube` ADJ  NOM  
  kacochnyk ( NOUN NOUN_SINGULAR ) 
-
- kacochnyks ( NOUN  NOUN_PLURAL  ) lemma=`kacochnyk` NOM  
-
+ kacochnyks ( NOUN NOUN_PLURAL   ) lemma=`kacochnyk` NOM  
  kaddisch ( NOUN NOUN_SINGULAR ) 
-
- kaddischs ( NOUN  NOUN_PLURAL  ) lemma=`kaddisch` NOM  
-
+ kaddischs ( NOUN NOUN_PLURAL   ) lemma=`kaddisch` NOM  
  kadi ( NOUN NOUN_SINGULAR ) 
-
- kadis ( NOUN  NOUN_PLURAL  ) lemma=`kadi` NOM  
-
+ kadis ( NOUN NOUN_PLURAL   ) lemma=`kadi` NOM  
  kadsura ( NOUN NOUN_SINGULAR ) 
-
- kadsuras ( NOUN  NOUN_PLURAL  ) lemma=`kadsura` NOM  
-
+ kadsuras ( NOUN NOUN_PLURAL   ) lemma=`kadsura` NOM  
  kaempférie ( NOUN NOUN_SINGULAR ) 
-
- kaempféries ( NOUN  NOUN_PLURAL  ) lemma=`kaempférie` NOM  
-
+ kaempféries ( NOUN NOUN_PLURAL   ) lemma=`kaempférie` NOM  
  kafir ( NOUN NOUN_SINGULAR ) 
-
- kafirs ( NOUN  NOUN_PLURAL  ) lemma=`kafir` NOM  
-
+ kafirs ( NOUN NOUN_PLURAL   ) lemma=`kafir` NOM  
  kafkaïen ( ADJECTIVE ) 
-
  kafkaïenne ( ADJECTIVE ) lemma=`kafkaïen` ADJ  
-
  kafkaïennes ( ADJECTIVE ) lemma=`kafkaïen` ADJ  
-
  kafkaïens ( ADJECTIVE ) lemma=`kafkaïen` ADJ  
-
  kagou ( NOUN NOUN_SINGULAR ) 
-
- kagous ( NOUN  NOUN_PLURAL  ) lemma=`kagou` NOM  
-
+ kagous ( NOUN NOUN_PLURAL   ) lemma=`kagou` NOM  
  kahoua ( NOUN NOUN_SINGULAR ) 
-
- kahouas ( NOUN  NOUN_PLURAL  ) lemma=`kahoua` NOM  
-
+ kahouas ( NOUN NOUN_PLURAL   ) lemma=`kahoua` NOM  
  kaire ( NOUN NOUN_SINGULAR ) 
-
- kaires ( NOUN  NOUN_PLURAL  ) lemma=`kaire` NOM  
-
+ kaires ( NOUN NOUN_PLURAL   ) lemma=`kaire` NOM  
  kaiser ( NOUN NOUN_SINGULAR ) 
-
  kaiserlick ( NOUN NOUN_SINGULAR ) 
-
- kaiserlicks ( NOUN  NOUN_PLURAL  ) lemma=`kaiserlick` NOM  
-
- kaisers ( NOUN  NOUN_PLURAL  ) lemma=`kaiser` NOM  
-
+ kaiserlicks ( NOUN NOUN_PLURAL   ) lemma=`kaiserlick` NOM  
+ kaisers ( NOUN NOUN_PLURAL   ) lemma=`kaiser` NOM  
  kakapo ( NOUN NOUN_SINGULAR ) 
-
- kakapos ( NOUN  NOUN_PLURAL  ) lemma=`kakapo` NOM  
-
+ kakapos ( NOUN NOUN_PLURAL   ) lemma=`kakapo` NOM  
  kakatoès ( NOUN NOUN_SINGULAR ) 
-
  kakerlak ( NOUN NOUN_SINGULAR ) 
-
- kakerlaks ( NOUN  NOUN_PLURAL  ) lemma=`kakerlak` NOM  
-
- kaki ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kaki`kaki` ADJ  NOM  
-
- kakis ( NOUN  NOUN_PLURAL  ) lemma=`kaki` NOM  
-
+ kakerlaks ( NOUN NOUN_PLURAL   ) lemma=`kakerlak` NOM  
+ kaki ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kaki`kaki` ADJ  NOM  
+ kakis ( NOUN NOUN_PLURAL   ) lemma=`kaki` NOM  
  kakochnik ( NOUN NOUN_SINGULAR ) 
-
- kakochniks ( NOUN  NOUN_PLURAL  ) lemma=`kakochnik` NOM  
-
+ kakochniks ( NOUN NOUN_PLURAL   ) lemma=`kakochnik` NOM  
  kakémono ( NOUN NOUN_SINGULAR ) 
-
- kakémonos ( NOUN  NOUN_PLURAL  ) lemma=`kakémono` NOM  
-
+ kakémonos ( NOUN NOUN_PLURAL   ) lemma=`kakémono` NOM  
  kala-azar ( NOUN NOUN_SINGULAR ) 
-
- kala-azars ( NOUN  NOUN_PLURAL  ) lemma=`kala-azar` NOM  
-
+ kala-azars ( NOUN NOUN_PLURAL   ) lemma=`kala-azar` NOM  
  kalachnikov ( NOUN NOUN_SINGULAR ) 
-
- kalachnikovs ( NOUN  NOUN_PLURAL  ) lemma=`kalachnikov` NOM  
-
+ kalachnikovs ( NOUN NOUN_PLURAL   ) lemma=`kalachnikov` NOM  
  kalanchoé ( NOUN NOUN_SINGULAR ) 
-
- kalanchoés ( NOUN  NOUN_PLURAL  ) lemma=`kalanchoé` NOM  
-
+ kalanchoés ( NOUN NOUN_PLURAL   ) lemma=`kalanchoé` NOM  
  kali ( NOUN NOUN_SINGULAR ) 
-
  kalicine ( NOUN NOUN_SINGULAR ) 
-
- kalicines ( NOUN  NOUN_PLURAL  ) lemma=`kalicine` NOM  
-
+ kalicines ( NOUN NOUN_PLURAL   ) lemma=`kalicine` NOM  
  kalicytie ( NOUN NOUN_SINGULAR ) 
-
- kalicyties ( NOUN  NOUN_PLURAL  ) lemma=`kalicytie` NOM  
-
- kalis ( NOUN  NOUN_PLURAL  ) lemma=`kali` NOM  
-
+ kalicyties ( NOUN NOUN_PLURAL   ) lemma=`kalicytie` NOM  
+ kalis ( NOUN NOUN_PLURAL   ) lemma=`kali` NOM  
  kalisme ( NOUN NOUN_SINGULAR ) 
-
- kalismes ( NOUN  NOUN_PLURAL  ) lemma=`kalisme` NOM  
-
+ kalismes ( NOUN NOUN_PLURAL   ) lemma=`kalisme` NOM  
  kalium ( NOUN NOUN_SINGULAR ) 
-
- kaliums ( NOUN  NOUN_PLURAL  ) lemma=`kalium` NOM  
-
+ kaliums ( NOUN NOUN_PLURAL   ) lemma=`kalium` NOM  
  kaliémie ( NOUN NOUN_SINGULAR ) 
-
- kaliémies ( NOUN  NOUN_PLURAL  ) lemma=`kaliémie` NOM  
-
+ kaliémies ( NOUN NOUN_PLURAL   ) lemma=`kaliémie` NOM  
  kallikréine ( NOUN NOUN_SINGULAR ) 
-
- kallikréines ( NOUN  NOUN_PLURAL  ) lemma=`kallikréine` NOM  
-
+ kallikréines ( NOUN NOUN_PLURAL   ) lemma=`kallikréine` NOM  
  kalmia ( NOUN NOUN_SINGULAR ) 
-
- kalmias ( NOUN  NOUN_PLURAL  ) lemma=`kalmia` NOM  
-
+ kalmias ( NOUN NOUN_PLURAL   ) lemma=`kalmia` NOM  
  kalmie ( NOUN NOUN_SINGULAR ) 
-
- kalmies ( NOUN  NOUN_PLURAL  ) lemma=`kalmie` NOM  
-
- kalmouk ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kalmouk`kalmouk` ADJ  NOM  
-
- kalmouks ( NOUN  NOUN_PLURAL  ) lemma=`kalmouk` NOM  
-
+ kalmies ( NOUN NOUN_PLURAL   ) lemma=`kalmie` NOM  
+ kalmouk ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kalmouk`kalmouk` ADJ  NOM  
+ kalmouks ( NOUN NOUN_PLURAL   ) lemma=`kalmouk` NOM  
  kalpack ( NOUN NOUN_SINGULAR ) 
-
- kalpacks ( NOUN  NOUN_PLURAL  ) lemma=`kalpack` NOM  
-
+ kalpacks ( NOUN NOUN_PLURAL   ) lemma=`kalpack` NOM  
  kalpak ( NOUN NOUN_SINGULAR ) 
-
- kalpaks ( NOUN  NOUN_PLURAL  ) lemma=`kalpak` NOM  
-
+ kalpaks ( NOUN NOUN_PLURAL   ) lemma=`kalpak` NOM  
  kaléidoscopa ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopai ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopaient ( VERB ) lemma=`kaléidoscoper` VER:impf  
-
  kaléidoscopais ( VERB ) lemma=`kaléidoscoper` VER:impf  
-
  kaléidoscopait ( VERB ) lemma=`kaléidoscoper` VER:impf  
-
  kaléidoscopant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`kaléidoscoper` VER:ppre  
-
  kaléidoscopas ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopasse ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
  kaléidoscopassent ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
  kaléidoscopasses ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
  kaléidoscopassiez ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
  kaléidoscopassions ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
- kaléidoscope ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`kaléidoscope`kaléidoscoper`kaléidoscoper`kaléidoscoper` NOM  VER:impe  VER:pres  VER:subp  
-
+ kaléidoscope ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL   ) lemma=`kaléidoscope`kaléidoscoper`kaléidoscoper`kaléidoscoper` NOM  VER:impe  VER:pres  VER:subp  
  kaléidoscopent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaléidoscoper`kaléidoscoper` VER:pres  VER:subp  
-
  kaléidoscoper ( VERB_INFINITIVE VERB ) 
-
  kaléidoscopera ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
  kaléidoscoperai ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
  kaléidoscoperaient ( VERB ) lemma=`kaléidoscoper` VER:cond  
-
  kaléidoscoperais ( VERB ) lemma=`kaléidoscoper` VER:cond  
-
  kaléidoscoperait ( VERB ) lemma=`kaléidoscoper` VER:cond  
-
  kaléidoscoperas ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
  kaléidoscoperez ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
  kaléidoscoperiez ( VERB ) lemma=`kaléidoscoper` VER:cond  
-
  kaléidoscoperions ( VERB ) lemma=`kaléidoscoper` VER:cond  
-
  kaléidoscoperons ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
  kaléidoscoperont ( VERB ) lemma=`kaléidoscoper` VER:futu  
-
- kaléidoscopes ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`kaléidoscope`kaléidoscoper`kaléidoscoper` NOM  VER:pres  VER:subp  
-
+ kaléidoscopes ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL   ) lemma=`kaléidoscope`kaléidoscoper`kaléidoscoper` NOM  VER:pres  VER:subp  
  kaléidoscopez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaléidoscoper`kaléidoscoper` VER:impe  VER:pres  
-
  kaléidoscopie ( NOUN NOUN_SINGULAR ) 
-
- kaléidoscopies ( NOUN  NOUN_PLURAL  ) lemma=`kaléidoscopie` NOM  
-
+ kaléidoscopies ( NOUN NOUN_PLURAL   ) lemma=`kaléidoscopie` NOM  
  kaléidoscopiez ( VERB ) lemma=`kaléidoscoper`kaléidoscoper` VER:impf  VER:subp  
-
  kaléidoscopions ( VERB ) lemma=`kaléidoscoper`kaléidoscoper` VER:impf  VER:subp  
-
  kaléidoscopique ( ADJECTIVE ) 
-
  kaléidoscopiques ( ADJECTIVE ) lemma=`kaléidoscopique` ADJ  
-
  kaléidoscopons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaléidoscoper`kaléidoscoper` VER:impe  VER:pres  
-
  kaléidoscopâmes ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopât ( VERB ) lemma=`kaléidoscoper` VER:subi  
-
  kaléidoscopâtes ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopèrent ( VERB_PAST VERB ) lemma=`kaléidoscoper` VER:simp  
-
  kaléidoscopé ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaléidoscoper` VER:pper  
-
  kaléidoscopée ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaléidoscoper` VER:pper  
-
  kaléidoscopées ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaléidoscoper` VER:pper  
-
  kaléidoscopés ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaléidoscoper` VER:pper  
-
  kama ( NOUN NOUN_SINGULAR ) 
-
  kamala ( NOUN NOUN_SINGULAR ) 
-
- kamalas ( NOUN  NOUN_PLURAL  ) lemma=`kamala` NOM  
-
- kamas ( NOUN  NOUN_PLURAL  ) lemma=`kama` NOM  
-
- kamchadale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamchadale`kamchadale` ADJ  NOM  
-
- kamchadales ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamchadale`kamchadale` ADJ  NOM  
-
+ kamalas ( NOUN NOUN_PLURAL   ) lemma=`kamala` NOM  
+ kamas ( NOUN NOUN_PLURAL   ) lemma=`kama` NOM  
+ kamchadale ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamchadale`kamchadale` ADJ  NOM  
+ kamchadales ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamchadale`kamchadale` ADJ  NOM  
  kami ( NOUN NOUN_SINGULAR ) 
-
  kamichi ( NOUN NOUN_SINGULAR ) 
-
- kamichis ( NOUN  NOUN_PLURAL  ) lemma=`kamichi` NOM  
-
+ kamichis ( NOUN NOUN_PLURAL   ) lemma=`kamichi` NOM  
  kamik ( NOUN NOUN_SINGULAR ) 
-
- kamikaze ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamikaze`kamikaze` ADJ  NOM  
-
- kamikazes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamikaze`kamikaze` ADJ  NOM  
-
- kamiks ( NOUN  NOUN_PLURAL  ) lemma=`kamik` NOM  
-
- kamis ( NOUN  NOUN_PLURAL  ) lemma=`kami` NOM  
-
+ kamikaze ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamikaze`kamikaze` ADJ  NOM  
+ kamikazes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamikaze`kamikaze` ADJ  NOM  
+ kamiks ( NOUN NOUN_PLURAL   ) lemma=`kamik` NOM  
+ kamis ( NOUN NOUN_PLURAL   ) lemma=`kami` NOM  
  kampong ( NOUN NOUN_SINGULAR ) 
-
- kampongs ( NOUN  NOUN_PLURAL  ) lemma=`kampong` NOM  
-
- kampuchéen ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
-
- kampuchéenne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
-
- kampuchéennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
-
- kampuchéens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
-
+ kampongs ( NOUN NOUN_PLURAL   ) lemma=`kampong` NOM  
+ kampuchéen ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
+ kampuchéenne ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
+ kampuchéennes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
+ kampuchéens ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kampuchéen`kampuchéen` ADJ  NOM  
  kampung ( NOUN NOUN_SINGULAR ) 
-
- kampungs ( NOUN  NOUN_PLURAL  ) lemma=`kampung` NOM  
-
+ kampungs ( NOUN NOUN_PLURAL   ) lemma=`kampung` NOM  
  kamsin ( NOUN NOUN_SINGULAR ) 
-
- kamsins ( NOUN  NOUN_PLURAL  ) lemma=`kamsin` NOM  
-
- kamtchadale ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamtchadale`kamtchadale` ADJ  NOM  
-
- kamtchadales ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kamtchadale`kamtchadale` ADJ  NOM  
-
+ kamsins ( NOUN NOUN_PLURAL   ) lemma=`kamsin` NOM  
+ kamtchadale ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamtchadale`kamtchadale` ADJ  NOM  
+ kamtchadales ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kamtchadale`kamtchadale` ADJ  NOM  
  kan ( NOUN NOUN_SINGULAR ) 
-
  kana ( NOUN NOUN_SINGULAR ) 
-
- kanake ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kanake`kanake` ADJ  NOM  
-
- kanakes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kanake`kanake` ADJ  NOM  
-
+ kanake ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kanake`kanake` ADJ  NOM  
+ kanakes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kanake`kanake` ADJ  NOM  
  kanamycine ( NOUN NOUN_SINGULAR ) 
-
- kanamycines ( NOUN  NOUN_PLURAL  ) lemma=`kanamycine` NOM  
-
- kanaque ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kanaque`kanaque` ADJ  NOM  
-
- kanaques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kanaque`kanaque` ADJ  NOM  
-
- kanas ( NOUN  NOUN_PLURAL  ) lemma=`kana` NOM  
-
+ kanamycines ( NOUN NOUN_PLURAL   ) lemma=`kanamycine` NOM  
+ kanaque ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kanaque`kanaque` ADJ  NOM  
+ kanaques ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kanaque`kanaque` ADJ  NOM  
+ kanas ( NOUN NOUN_PLURAL   ) lemma=`kana` NOM  
  kanat ( NOUN NOUN_SINGULAR ) 
-
- kanats ( NOUN  NOUN_PLURAL  ) lemma=`kanat` NOM  
-
+ kanats ( NOUN NOUN_PLURAL   ) lemma=`kanat` NOM  
  kandjar ( NOUN NOUN_SINGULAR ) 
-
- kandjars ( NOUN  NOUN_PLURAL  ) lemma=`kandjar` NOM  
-
+ kandjars ( NOUN NOUN_PLURAL   ) lemma=`kandjar` NOM  
  kandji ( NOUN NOUN_SINGULAR ) 
-
- kandjis ( NOUN  NOUN_PLURAL  ) lemma=`kandji` NOM  
-
+ kandjis ( NOUN NOUN_PLURAL   ) lemma=`kandji` NOM  
  kangourou ( NOUN NOUN_SINGULAR ) 
-
- kangourous ( NOUN  NOUN_PLURAL  ) lemma=`kangourou` NOM  
-
+ kangourous ( NOUN NOUN_PLURAL   ) lemma=`kangourou` NOM  
  kanji ( NOUN NOUN_SINGULAR ) 
-
- kanjis ( NOUN  NOUN_PLURAL  ) lemma=`kanji` NOM  
-
+ kanjis ( NOUN NOUN_PLURAL   ) lemma=`kanji` NOM  
  kanoun ( NOUN NOUN_SINGULAR ) 
-
- kanouns ( NOUN  NOUN_PLURAL  ) lemma=`kanoun` NOM  
-
- kans ( NOUN  NOUN_PLURAL  ) lemma=`kan` NOM  
-
- kantien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantien`kantien` ADJ  NOM  
-
- kantienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantien`kantien` ADJ  NOM  
-
- kantiennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantien`kantien` ADJ  NOM  
-
- kantiens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantien`kantien` ADJ  NOM  
-
+ kanouns ( NOUN NOUN_PLURAL   ) lemma=`kanoun` NOM  
+ kans ( NOUN NOUN_PLURAL   ) lemma=`kan` NOM  
+ kantien ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantien`kantien` ADJ  NOM  
+ kantienne ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantien`kantien` ADJ  NOM  
+ kantiennes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantien`kantien` ADJ  NOM  
+ kantiens ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantien`kantien` ADJ  NOM  
  kantisme ( NOUN NOUN_SINGULAR ) 
-
- kantismes ( NOUN  NOUN_PLURAL  ) lemma=`kantisme` NOM  
-
- kantiste ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantiste`kantiste` ADJ  NOM  
-
- kantistes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kantiste`kantiste` ADJ  NOM  
-
+ kantismes ( NOUN NOUN_PLURAL   ) lemma=`kantisme` NOM  
+ kantiste ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantiste`kantiste` ADJ  NOM  
+ kantistes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kantiste`kantiste` ADJ  NOM  
  kaoliang ( NOUN NOUN_SINGULAR ) 
-
- kaoliangs ( NOUN  NOUN_PLURAL  ) lemma=`kaoliang` NOM  
-
+ kaoliangs ( NOUN NOUN_PLURAL   ) lemma=`kaoliang` NOM  
  kaolin ( NOUN NOUN_SINGULAR ) 
-
  kaolinique ( ADJECTIVE ) 
-
  kaoliniques ( ADJECTIVE ) lemma=`kaolinique` ADJ  
-
  kaolinisa ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisai ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisaient ( VERB ) lemma=`kaoliniser` VER:impf  
-
  kaolinisais ( VERB ) lemma=`kaoliniser` VER:impf  
-
  kaolinisait ( VERB ) lemma=`kaoliniser` VER:impf  
-
  kaolinisant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`kaoliniser` VER:ppre  
-
  kaolinisas ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisasse ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisassent ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisasses ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisassiez ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisassions ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisation ( NOUN NOUN_SINGULAR ) 
-
- kaolinisations ( NOUN  NOUN_PLURAL  ) lemma=`kaolinisation` NOM  
-
+ kaolinisations ( NOUN NOUN_PLURAL   ) lemma=`kaolinisation` NOM  
  kaolinise ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaoliniser`kaoliniser`kaoliniser` VER:impe  VER:pres  VER:subp  
-
  kaolinisent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaoliniser`kaoliniser` VER:pres  VER:subp  
-
  kaoliniser ( VERB_INFINITIVE VERB ) 
-
  kaolinisera ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaoliniserai ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaoliniseraient ( VERB ) lemma=`kaoliniser` VER:cond  
-
  kaoliniserais ( VERB ) lemma=`kaoliniser` VER:cond  
-
  kaoliniserait ( VERB ) lemma=`kaoliniser` VER:cond  
-
  kaoliniseras ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaoliniserez ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaoliniseriez ( VERB ) lemma=`kaoliniser` VER:cond  
-
  kaoliniserions ( VERB ) lemma=`kaoliniser` VER:cond  
-
  kaoliniserons ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaoliniseront ( VERB ) lemma=`kaoliniser` VER:futu  
-
  kaolinises ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaoliniser`kaoliniser` VER:pres  VER:subp  
-
  kaolinisez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaoliniser`kaoliniser` VER:impe  VER:pres  
-
  kaolinisiez ( VERB ) lemma=`kaoliniser`kaoliniser` VER:impf  VER:subp  
-
  kaolinisions ( VERB ) lemma=`kaoliniser`kaoliniser` VER:impf  VER:subp  
-
  kaolinisons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kaoliniser`kaoliniser` VER:impe  VER:pres  
-
  kaolinisâmes ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisât ( VERB ) lemma=`kaoliniser` VER:subi  
-
  kaolinisâtes ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisèrent ( VERB_PAST VERB ) lemma=`kaoliniser` VER:simp  
-
  kaolinisé ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaoliniser` VER:pper  
-
  kaolinisée ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaoliniser` VER:pper  
-
  kaolinisées ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaoliniser` VER:pper  
-
  kaolinisés ( VERB_PAST_PARTICIPLE VERB ) lemma=`kaoliniser` VER:pper  
-
  kaolinite ( NOUN NOUN_SINGULAR ) 
-
- kaolinites ( NOUN  NOUN_PLURAL  ) lemma=`kaolinite` NOM  
-
- kaolins ( NOUN  NOUN_PLURAL  ) lemma=`kaolin` NOM  
-
+ kaolinites ( NOUN NOUN_PLURAL   ) lemma=`kaolinite` NOM  
+ kaolins ( NOUN NOUN_PLURAL   ) lemma=`kaolin` NOM  
  kaon ( NOUN NOUN_SINGULAR ) 
-
- kaons ( NOUN  NOUN_PLURAL  ) lemma=`kaon` NOM  
-
+ kaons ( NOUN NOUN_PLURAL   ) lemma=`kaon` NOM  
  kaori ( NOUN NOUN_SINGULAR ) 
-
- kaoris ( NOUN  NOUN_PLURAL  ) lemma=`kaori` NOM  
-
+ kaoris ( NOUN NOUN_PLURAL   ) lemma=`kaori` NOM  
  kapo ( NOUN NOUN_SINGULAR ) 
-
  kapok ( NOUN NOUN_SINGULAR ) 
-
  kapokier ( NOUN NOUN_SINGULAR ) 
-
- kapokiers ( NOUN  NOUN_PLURAL  ) lemma=`kapokier` NOM  
-
- kapoks ( NOUN  NOUN_PLURAL  ) lemma=`kapok` NOM  
-
- kapos ( NOUN  NOUN_PLURAL  ) lemma=`kapo` NOM  
-
+ kapokiers ( NOUN NOUN_PLURAL   ) lemma=`kapokier` NOM  
+ kapoks ( NOUN NOUN_PLURAL   ) lemma=`kapok` NOM  
+ kapos ( NOUN NOUN_PLURAL   ) lemma=`kapo` NOM  
  kapout ( NOUN NOUN_SINGULAR ) 
-
- kapouts ( NOUN  NOUN_PLURAL  ) lemma=`kapout` NOM  
-
+ kapouts ( NOUN NOUN_PLURAL   ) lemma=`kapout` NOM  
  kappa ( NOUN NOUN_SINGULAR ) 
-
- kappas ( NOUN  NOUN_PLURAL  ) lemma=`kappa` NOM  
-
+ kappas ( NOUN NOUN_PLURAL   ) lemma=`kappa` NOM  
  karakul ( NOUN NOUN_SINGULAR ) 
-
- karakuls ( NOUN  NOUN_PLURAL  ) lemma=`karakul` NOM  
-
+ karakuls ( NOUN NOUN_PLURAL   ) lemma=`karakul` NOM  
  karata ( NOUN NOUN_SINGULAR ) 
-
- karatas ( NOUN  NOUN_PLURAL  ) lemma=`karata` NOM  
-
+ karatas ( NOUN NOUN_PLURAL   ) lemma=`karata` NOM  
  karateka ( NOUN NOUN_SINGULAR ) 
-
- karatekas ( NOUN  NOUN_PLURAL  ) lemma=`karateka` NOM  
-
+ karatekas ( NOUN NOUN_PLURAL   ) lemma=`karateka` NOM  
  karaté ( NOUN NOUN_SINGULAR ) 
-
- karatés ( NOUN  NOUN_PLURAL  ) lemma=`karaté` NOM  
-
+ karatés ( NOUN NOUN_PLURAL   ) lemma=`karaté` NOM  
  karbau ( NOUN NOUN_SINGULAR ) 
-
- karbaux ( NOUN  NOUN_PLURAL  ) lemma=`karbau` NOM  
-
+ karbaux ( NOUN NOUN_PLURAL   ) lemma=`karbau` NOM  
  kari ( NOUN NOUN_SINGULAR ) 
-
- karis ( NOUN  NOUN_PLURAL  ) lemma=`kari` NOM  
-
+ karis ( NOUN NOUN_PLURAL   ) lemma=`kari` NOM  
  karité ( NOUN NOUN_SINGULAR ) 
-
- karités ( NOUN  NOUN_PLURAL  ) lemma=`karité` NOM  
-
+ karités ( NOUN NOUN_PLURAL   ) lemma=`karité` NOM  
  karma ( NOUN NOUN_SINGULAR ) 
-
  karman ( NOUN NOUN_SINGULAR ) 
-
- karmans ( NOUN  NOUN_PLURAL  ) lemma=`karman` NOM  
-
- karmas ( NOUN  NOUN_PLURAL  ) lemma=`karma` NOM  
-
+ karmans ( NOUN NOUN_PLURAL   ) lemma=`karman` NOM  
+ karmas ( NOUN NOUN_PLURAL   ) lemma=`karma` NOM  
  karmatique ( ADJECTIVE ) 
-
  karmatiques ( ADJECTIVE ) lemma=`karmatique` ADJ  
-
  karpatique ( ADJECTIVE ) 
-
  karpatiques ( ADJECTIVE ) lemma=`karpatique` ADJ  
-
  karst ( NOUN NOUN_SINGULAR ) 
-
  karstique ( ADJECTIVE ) 
-
  karstiques ( ADJECTIVE ) lemma=`karstique` ADJ  
-
  karstologie ( NOUN NOUN_SINGULAR ) 
-
- karstologies ( NOUN  NOUN_PLURAL  ) lemma=`karstologie` NOM  
-
- karsts ( NOUN  NOUN_PLURAL  ) lemma=`karst` NOM  
-
+ karstologies ( NOUN NOUN_PLURAL   ) lemma=`karstologie` NOM  
+ karsts ( NOUN NOUN_PLURAL   ) lemma=`karst` NOM  
  kart ( NOUN NOUN_SINGULAR ) 
-
  karting ( NOUN NOUN_SINGULAR ) 
-
- kartings ( NOUN  NOUN_PLURAL  ) lemma=`karting` NOM  
-
- karts ( NOUN  NOUN_PLURAL  ) lemma=`kart` NOM  
-
+ kartings ( NOUN NOUN_PLURAL   ) lemma=`karting` NOM  
+ karts ( NOUN NOUN_PLURAL   ) lemma=`kart` NOM  
  karyokinèse ( NOUN NOUN_SINGULAR ) 
-
- karyokinèses ( NOUN  NOUN_PLURAL  ) lemma=`karyokinèse` NOM  
-
- kas ( NOUN  NOUN_PLURAL  ) lemma=`ka` NOM  
-
+ karyokinèses ( NOUN NOUN_PLURAL   ) lemma=`karyokinèse` NOM  
+ kas ( NOUN NOUN_PLURAL   ) lemma=`ka` NOM  
  kasatchok ( NOUN NOUN_SINGULAR ) 
-
- kasatchoks ( NOUN  NOUN_PLURAL  ) lemma=`kasatchok` NOM  
-
+ kasatchoks ( NOUN NOUN_PLURAL   ) lemma=`kasatchok` NOM  
  kasbah ( NOUN NOUN_SINGULAR ) 
-
- kasbahs ( NOUN  NOUN_PLURAL  ) lemma=`kasbah` NOM  
-
+ kasbahs ( NOUN NOUN_PLURAL   ) lemma=`kasbah` NOM  
  kascher ( ADJECTIVE ) 
-
  kasha ( NOUN NOUN_SINGULAR ) 
-
- kashas ( NOUN  NOUN_PLURAL  ) lemma=`kasha` NOM  
-
+ kashas ( NOUN NOUN_PLURAL   ) lemma=`kasha` NOM  
  kata ( NOUN NOUN_SINGULAR ) 
-
  katabatique ( ADJECTIVE ) 
-
  katabatiques ( ADJECTIVE ) lemma=`katabatique` ADJ  
-
  katafront ( NOUN NOUN_SINGULAR ) 
-
- katafronts ( NOUN  NOUN_PLURAL  ) lemma=`katafront` NOM  
-
+ katafronts ( NOUN NOUN_PLURAL   ) lemma=`katafront` NOM  
  katakana ( NOUN NOUN_SINGULAR ) 
-
- katakanas ( NOUN  NOUN_PLURAL  ) lemma=`katakana` NOM  
-
+ katakanas ( NOUN NOUN_PLURAL   ) lemma=`katakana` NOM  
  katana ( NOUN NOUN_SINGULAR ) 
-
- katanas ( NOUN  NOUN_PLURAL  ) lemma=`katana` NOM  
-
- katas ( NOUN  NOUN_PLURAL  ) lemma=`kata` NOM  
-
+ katanas ( NOUN NOUN_PLURAL   ) lemma=`katana` NOM  
+ katas ( NOUN NOUN_PLURAL   ) lemma=`kata` NOM  
  katiba ( NOUN NOUN_SINGULAR ) 
-
- katibas ( NOUN  NOUN_PLURAL  ) lemma=`katiba` NOM  
-
+ katibas ( NOUN NOUN_PLURAL   ) lemma=`katiba` NOM  
  kauri ( NOUN NOUN_SINGULAR ) 
-
- kauris ( NOUN  NOUN_PLURAL  ) lemma=`kauri` NOM  
-
+ kauris ( NOUN NOUN_PLURAL   ) lemma=`kauri` NOM  
  kava ( NOUN NOUN_SINGULAR ) 
-
- kavas ( NOUN  NOUN_PLURAL  ) lemma=`kava` NOM  
-
+ kavas ( NOUN NOUN_PLURAL   ) lemma=`kava` NOM  
  kawa ( NOUN NOUN_SINGULAR ) 
-
- kawas ( NOUN  NOUN_PLURAL  ) lemma=`kawa` NOM  
-
+ kawas ( NOUN NOUN_PLURAL   ) lemma=`kawa` NOM  
  kawaïsme ( NOUN NOUN_SINGULAR ) 
-
- kawaïsmes ( NOUN  NOUN_PLURAL  ) lemma=`kawaïsme` NOM  
-
+ kawaïsmes ( NOUN NOUN_PLURAL   ) lemma=`kawaïsme` NOM  
  kayac ( NOUN NOUN_SINGULAR ) 
-
- kayacs ( NOUN  NOUN_PLURAL  ) lemma=`kayac` NOM  
-
+ kayacs ( NOUN NOUN_PLURAL   ) lemma=`kayac` NOM  
  kayak ( NOUN NOUN_SINGULAR ) 
-
  kayakiste ( NOUN NOUN_SINGULAR ) 
-
- kayakistes ( NOUN  NOUN_PLURAL  ) lemma=`kayakiste` NOM  
-
- kayaks ( NOUN  NOUN_PLURAL  ) lemma=`kayak` NOM  
-
- kazakh ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kazakh`kazakh` ADJ  NOM  
-
- kazakhs ( NOUN  NOUN_PLURAL  ) lemma=`kazakh` NOM  
-
+ kayakistes ( NOUN NOUN_PLURAL   ) lemma=`kayakiste` NOM  
+ kayaks ( NOUN NOUN_PLURAL   ) lemma=`kayak` NOM  
+ kazakh ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kazakh`kazakh` ADJ  NOM  
+ kazakhs ( NOUN NOUN_PLURAL   ) lemma=`kazakh` NOM  
  kaïd ( NOUN NOUN_SINGULAR ) 
-
- kaïds ( NOUN  NOUN_PLURAL  ) lemma=`kaïd` NOM  
-
+ kaïds ( NOUN NOUN_PLURAL   ) lemma=`kaïd` NOM  
  kaïffa ( NOUN NOUN_SINGULAR ) 
-
- kaïffas ( NOUN  NOUN_PLURAL  ) lemma=`kaïffa` NOM  
-
+ kaïffas ( NOUN NOUN_PLURAL   ) lemma=`kaïffa` NOM  
  kaïmac ( NOUN NOUN_SINGULAR ) 
-
- kaïmacs ( NOUN  NOUN_PLURAL  ) lemma=`kaïmac` NOM  
-
+ kaïmacs ( NOUN NOUN_PLURAL   ) lemma=`kaïmac` NOM  
  kaïnite ( NOUN NOUN_SINGULAR ) 
-
- kaïnites ( NOUN  NOUN_PLURAL  ) lemma=`kaïnite` NOM  
-
+ kaïnites ( NOUN NOUN_PLURAL   ) lemma=`kaïnite` NOM  
  kaïnophobie ( NOUN NOUN_SINGULAR ) 
-
- kaïnophobies ( NOUN  NOUN_PLURAL  ) lemma=`kaïnophobie` NOM  
-
+ kaïnophobies ( NOUN NOUN_PLURAL   ) lemma=`kaïnophobie` NOM  
  kchatriya ( NOUN NOUN_SINGULAR ) 
-
- kchatriyas ( NOUN  NOUN_PLURAL  ) lemma=`kchatriya` NOM  
-
+ kchatriyas ( NOUN NOUN_PLURAL   ) lemma=`kchatriya` NOM  
  kchatrya ( NOUN NOUN_SINGULAR ) 
-
- kchatryas ( NOUN  NOUN_PLURAL  ) lemma=`kchatrya` NOM  
-
+ kchatryas ( NOUN NOUN_PLURAL   ) lemma=`kchatrya` NOM  
  kebab ( NOUN NOUN_SINGULAR ) 
-
- kebabs ( NOUN  NOUN_PLURAL  ) lemma=`kebab` NOM  
-
+ kebabs ( NOUN NOUN_PLURAL   ) lemma=`kebab` NOM  
  keepsake ( NOUN NOUN_SINGULAR ) 
-
- keepsakes ( NOUN  NOUN_PLURAL  ) lemma=`keepsake` NOM  
-
+ keepsakes ( NOUN NOUN_PLURAL   ) lemma=`keepsake` NOM  
  kef ( NOUN NOUN_SINGULAR ) 
-
  keffieh ( NOUN NOUN_SINGULAR ) 
-
- keffiehs ( NOUN  NOUN_PLURAL  ) lemma=`keffieh` NOM  
-
- kefs ( NOUN  NOUN_PLURAL  ) lemma=`kef` NOM  
-
+ keffiehs ( NOUN NOUN_PLURAL   ) lemma=`keffieh` NOM  
+ kefs ( NOUN NOUN_PLURAL   ) lemma=`kef` NOM  
  kelvin ( NOUN NOUN_SINGULAR ) 
-
  kelvinomètre ( NOUN NOUN_SINGULAR ) 
-
- kelvinomètres ( NOUN  NOUN_PLURAL  ) lemma=`kelvinomètre` NOM  
-
- kelvins ( NOUN  NOUN_PLURAL  ) lemma=`kelvin` NOM  
-
+ kelvinomètres ( NOUN NOUN_PLURAL   ) lemma=`kelvinomètre` NOM  
+ kelvins ( NOUN NOUN_PLURAL   ) lemma=`kelvin` NOM  
  kendo ( NOUN NOUN_SINGULAR ) 
-
- kendos ( NOUN  NOUN_PLURAL  ) lemma=`kendo` NOM  
-
+ kendos ( NOUN NOUN_PLURAL   ) lemma=`kendo` NOM  
  kennedye ( NOUN NOUN_SINGULAR ) 
-
- kennedyes ( NOUN  NOUN_PLURAL  ) lemma=`kennedye` NOM  
-
+ kennedyes ( NOUN NOUN_PLURAL   ) lemma=`kennedye` NOM  
  kennédie ( NOUN NOUN_SINGULAR ) 
-
- kennédies ( NOUN  NOUN_PLURAL  ) lemma=`kennédie` NOM  
-
+ kennédies ( NOUN NOUN_PLURAL   ) lemma=`kennédie` NOM  
  kentia ( NOUN NOUN_SINGULAR ) 
-
- kentias ( NOUN  NOUN_PLURAL  ) lemma=`kentia` NOM  
-
+ kentias ( NOUN NOUN_PLURAL   ) lemma=`kentia` NOM  
  kentrophylle ( NOUN NOUN_SINGULAR ) 
-
- kentrophylles ( NOUN  NOUN_PLURAL  ) lemma=`kentrophylle` NOM  
-
+ kentrophylles ( NOUN NOUN_PLURAL   ) lemma=`kentrophylle` NOM  
  kerdomètre ( NOUN NOUN_SINGULAR ) 
-
- kerdomètres ( NOUN  NOUN_PLURAL  ) lemma=`kerdomètre` NOM  
-
+ kerdomètres ( NOUN NOUN_PLURAL   ) lemma=`kerdomètre` NOM  
  kerma ( NOUN NOUN_SINGULAR ) 
-
- kermas ( NOUN  NOUN_PLURAL  ) lemma=`kerma` NOM  
-
+ kermas ( NOUN NOUN_PLURAL   ) lemma=`kerma` NOM  
  kermesse ( NOUN NOUN_SINGULAR ) 
-
- kermesses ( NOUN  NOUN_PLURAL  ) lemma=`kermesse` NOM  
-
+ kermesses ( NOUN NOUN_PLURAL   ) lemma=`kermesse` NOM  
  kermès ( NOUN NOUN_SINGULAR ) 
-
  kermétisé ( ADJECTIVE ) 
-
  kermétisée ( ADJECTIVE ) lemma=`kermétisé` ADJ  
-
  kermétisées ( ADJECTIVE ) lemma=`kermétisé` ADJ  
-
  kermétisés ( ADJECTIVE ) lemma=`kermétisé` ADJ  
-
  kerria ( NOUN NOUN_SINGULAR ) 
-
- kerrias ( NOUN  NOUN_PLURAL  ) lemma=`kerria` NOM  
-
+ kerrias ( NOUN NOUN_PLURAL   ) lemma=`kerria` NOM  
  kerrie ( NOUN NOUN_SINGULAR ) 
-
- kerries ( NOUN  NOUN_PLURAL  ) lemma=`kerrie` NOM  
-
+ kerries ( NOUN NOUN_PLURAL   ) lemma=`kerrie` NOM  
  ketch ( NOUN NOUN_SINGULAR ) 
-
- ketchs ( NOUN  NOUN_PLURAL  ) lemma=`ketch` NOM  
-
+ ketchs ( NOUN NOUN_PLURAL   ) lemma=`ketch` NOM  
  ketchup ( NOUN NOUN_SINGULAR ) 
-
- ketchups ( NOUN  NOUN_PLURAL  ) lemma=`ketchup` NOM  
-
+ ketchups ( NOUN NOUN_PLURAL   ) lemma=`ketchup` NOM  
  ketmie ( NOUN NOUN_SINGULAR ) 
-
- ketmies ( NOUN  NOUN_PLURAL  ) lemma=`ketmie` NOM  
-
+ ketmies ( NOUN NOUN_PLURAL   ) lemma=`ketmie` NOM  
  keuper ( NOUN NOUN_SINGULAR ) 
-
- keupers ( NOUN  NOUN_PLURAL  ) lemma=`keuper` NOM  
-
+ keupers ( NOUN NOUN_PLURAL   ) lemma=`keuper` NOM  
  keynésien ( ADJECTIVE ) 
-
  keynésienne ( ADJECTIVE ) lemma=`keynésien` ADJ  
-
  keynésiennes ( ADJECTIVE ) lemma=`keynésien` ADJ  
-
  keynésiens ( ADJECTIVE ) lemma=`keynésien` ADJ  
-
  kg ( ) 
-
  khalifat ( NOUN NOUN_SINGULAR ) 
-
- khalifats ( NOUN  NOUN_PLURAL  ) lemma=`khalifat` NOM  
-
+ khalifats ( NOUN NOUN_PLURAL   ) lemma=`khalifat` NOM  
  khalife ( NOUN NOUN_SINGULAR ) 
-
- khalifes ( NOUN  NOUN_PLURAL  ) lemma=`khalife` NOM  
-
+ khalifes ( NOUN NOUN_PLURAL   ) lemma=`khalife` NOM  
  khalkha ( NOUN NOUN_SINGULAR ) 
-
- khalkhas ( NOUN  NOUN_PLURAL  ) lemma=`khalkha` NOM  
-
+ khalkhas ( NOUN NOUN_PLURAL   ) lemma=`khalkha` NOM  
  khammès ( NOUN NOUN_SINGULAR ) 
-
  khamsin ( NOUN NOUN_SINGULAR ) 
-
- khamsins ( NOUN  NOUN_PLURAL  ) lemma=`khamsin` NOM  
-
+ khamsins ( NOUN NOUN_PLURAL   ) lemma=`khamsin` NOM  
  khan ( NOUN NOUN_SINGULAR ) 
-
  khanat ( NOUN NOUN_SINGULAR ) 
-
- khanats ( NOUN  NOUN_PLURAL  ) lemma=`khanat` NOM  
-
+ khanats ( NOUN NOUN_PLURAL   ) lemma=`khanat` NOM  
  khandjar ( NOUN NOUN_SINGULAR ) 
-
- khandjars ( NOUN  NOUN_PLURAL  ) lemma=`khandjar` NOM  
-
+ khandjars ( NOUN NOUN_PLURAL   ) lemma=`khandjar` NOM  
  khani ( NOUN NOUN_SINGULAR ) 
-
- khanis ( NOUN  NOUN_PLURAL  ) lemma=`khani` NOM  
-
+ khanis ( NOUN NOUN_PLURAL   ) lemma=`khani` NOM  
  khanoun ( NOUN NOUN_SINGULAR ) 
-
- khanouns ( NOUN  NOUN_PLURAL  ) lemma=`khanoun` NOM  
-
- khans ( NOUN  NOUN_PLURAL  ) lemma=`khan` NOM  
-
+ khanouns ( NOUN NOUN_PLURAL   ) lemma=`khanoun` NOM  
+ khans ( NOUN NOUN_PLURAL   ) lemma=`khan` NOM  
  kharidjisme ( NOUN NOUN_SINGULAR ) 
-
- kharidjismes ( NOUN  NOUN_PLURAL  ) lemma=`kharidjisme` NOM  
-
- kharidjite ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kharidjite`kharidjite` ADJ  NOM  
-
- kharidjites ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kharidjite`kharidjite` ADJ  NOM  
-
- kharijite ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kharijite`kharijite` ADJ  NOM  
-
- kharijites ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kharijite`kharijite` ADJ  NOM  
-
+ kharidjismes ( NOUN NOUN_PLURAL   ) lemma=`kharidjisme` NOM  
+ kharidjite ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kharidjite`kharidjite` ADJ  NOM  
+ kharidjites ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kharidjite`kharidjite` ADJ  NOM  
+ kharijite ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kharijite`kharijite` ADJ  NOM  
+ kharijites ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kharijite`kharijite` ADJ  NOM  
  khi ( NOUN NOUN_SINGULAR ) 
-
- khis ( NOUN  NOUN_PLURAL  ) lemma=`khi` NOM  
-
+ khis ( NOUN NOUN_PLURAL   ) lemma=`khi` NOM  
  khlong ( NOUN NOUN_SINGULAR ) 
-
- khlongs ( NOUN  NOUN_PLURAL  ) lemma=`khlong` NOM  
-
- khmer ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`khmer`khmer` ADJ  NOM  
-
- khmers ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`khmer`khmer` ADJ  NOM  
-
- khmère ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`khmer`khmer` ADJ  NOM  
-
- khmères ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`khmer`khmer` ADJ  NOM  
-
+ khlongs ( NOUN NOUN_PLURAL   ) lemma=`khlong` NOM  
+ khmer ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`khmer`khmer` ADJ  NOM  
+ khmers ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`khmer`khmer` ADJ  NOM  
+ khmère ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`khmer`khmer` ADJ  NOM  
+ khmères ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`khmer`khmer` ADJ  NOM  
  khodja ( NOUN NOUN_SINGULAR ) 
-
- khodjas ( NOUN  NOUN_PLURAL  ) lemma=`khodja` NOM  
-
+ khodjas ( NOUN NOUN_PLURAL   ) lemma=`khodja` NOM  
  khotba ( NOUN NOUN_SINGULAR ) 
-
- khotbas ( NOUN  NOUN_PLURAL  ) lemma=`khotba` NOM  
-
+ khotbas ( NOUN NOUN_PLURAL   ) lemma=`khotba` NOM  
  khâgne ( NOUN NOUN_SINGULAR ) 
-
- khâgnes ( NOUN  NOUN_PLURAL  ) lemma=`khâgne` NOM  
-
- khâgneuse ( NOUN  NOUN_PLURAL  ) lemma=`khâgneux` NOM  
-
- khâgneuses ( NOUN  NOUN_PLURAL  ) lemma=`khâgneux` NOM  
-
+ khâgnes ( NOUN NOUN_PLURAL   ) lemma=`khâgne` NOM  
+ khâgneuse ( NOUN NOUN_PLURAL   ) lemma=`khâgneux` NOM  
+ khâgneuses ( NOUN NOUN_PLURAL   ) lemma=`khâgneux` NOM  
  khâgneux ( NOUN NOUN_SINGULAR ) 
-
  khédival ( ADJECTIVE ) 
-
  khédivale ( ADJECTIVE ) lemma=`khédival` ADJ  
-
  khédivales ( ADJECTIVE ) lemma=`khédival` ADJ  
-
  khédivat ( NOUN NOUN_SINGULAR ) 
-
- khédivats ( NOUN  NOUN_PLURAL  ) lemma=`khédivat` NOM  
-
+ khédivats ( NOUN NOUN_PLURAL   ) lemma=`khédivat` NOM  
  khédivaux ( ADJECTIVE ) lemma=`khédival` ADJ  
-
  khédive ( NOUN NOUN_SINGULAR ) 
-
- khédives ( NOUN  NOUN_PLURAL  ) lemma=`khédive` NOM  
-
+ khédives ( NOUN NOUN_PLURAL   ) lemma=`khédive` NOM  
  khédivial ( ADJECTIVE ) 
-
  khédiviale ( ADJECTIVE ) lemma=`khédivial` ADJ  
-
  khédiviales ( ADJECTIVE ) lemma=`khédivial` ADJ  
-
  khédiviat ( NOUN NOUN_SINGULAR ) 
-
- khédiviats ( NOUN  NOUN_PLURAL  ) lemma=`khédiviat` NOM  
-
+ khédiviats ( NOUN NOUN_PLURAL   ) lemma=`khédiviat` NOM  
  khédiviaux ( ADJECTIVE ) lemma=`khédivial` ADJ  
-
  khéroub ( NOUN NOUN_SINGULAR ) 
-
- khéroubs ( NOUN  NOUN_PLURAL  ) lemma=`khéroub` NOM  
-
+ khéroubs ( NOUN NOUN_PLURAL   ) lemma=`khéroub` NOM  
  khôl ( NOUN NOUN_SINGULAR ) 
-
- khôls ( NOUN  NOUN_PLURAL  ) lemma=`khôl` NOM  
-
+ khôls ( NOUN NOUN_PLURAL   ) lemma=`khôl` NOM  
  kibboutzique ( ADJECTIVE ) 
-
  kibboutziques ( ADJECTIVE ) lemma=`kibboutzique` ADJ  
-
  kibboutznik ( NOUN NOUN_SINGULAR ) 
-
  kibitka ( NOUN NOUN_SINGULAR ) 
-
- kibitkas ( NOUN  NOUN_PLURAL  ) lemma=`kibitka` NOM  
-
+ kibitkas ( NOUN NOUN_PLURAL   ) lemma=`kibitka` NOM  
  kibla ( NOUN NOUN_SINGULAR ) 
-
  kiblah ( NOUN NOUN_SINGULAR ) 
-
- kiblahs ( NOUN  NOUN_PLURAL  ) lemma=`kiblah` NOM  
-
- kiblas ( NOUN  NOUN_PLURAL  ) lemma=`kibla` NOM  
-
+ kiblahs ( NOUN NOUN_PLURAL   ) lemma=`kiblah` NOM  
+ kiblas ( NOUN NOUN_PLURAL   ) lemma=`kibla` NOM  
  kiche ( NOUN NOUN_SINGULAR ) 
-
  kichenotte ( NOUN NOUN_SINGULAR ) 
-
- kichenottes ( NOUN  NOUN_PLURAL  ) lemma=`kichenotte` NOM  
-
- kiches ( NOUN  NOUN_PLURAL  ) lemma=`kiche` NOM  
-
+ kichenottes ( NOUN NOUN_PLURAL   ) lemma=`kichenotte` NOM  
+ kiches ( NOUN NOUN_PLURAL   ) lemma=`kiche` NOM  
  kick ( NOUN NOUN_SINGULAR ) 
-
  kick-starter ( NOUN NOUN_SINGULAR ) 
-
- kick-starters ( NOUN  NOUN_PLURAL  ) lemma=`kick-starter` NOM  
-
- kicks ( NOUN  NOUN_PLURAL  ) lemma=`kick` NOM  
-
+ kick-starters ( NOUN NOUN_PLURAL   ) lemma=`kick-starter` NOM  
+ kicks ( NOUN NOUN_PLURAL   ) lemma=`kick` NOM  
  kid ( NOUN NOUN_SINGULAR ) 
-
  kidnappa ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappage ( NOUN NOUN_SINGULAR ) 
-
- kidnappages ( NOUN  NOUN_PLURAL  ) lemma=`kidnappage` NOM  
-
+ kidnappages ( NOUN NOUN_PLURAL   ) lemma=`kidnappage` NOM  
  kidnappai ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappaient ( VERB ) lemma=`kidnapper` VER:impf  
-
  kidnappais ( VERB ) lemma=`kidnapper` VER:impf  
-
  kidnappait ( VERB ) lemma=`kidnapper` VER:impf  
-
  kidnappant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`kidnapper` VER:ppre  
-
  kidnappas ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappasse ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappassent ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappasses ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappassiez ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappassions ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappe ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kidnapper`kidnapper`kidnapper` VER:impe  VER:pres  VER:subp  
-
  kidnappent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kidnapper`kidnapper` VER:pres  VER:subp  
-
  kidnapper ( VERB_INFINITIVE VERB ) 
-
  kidnappera ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnapperai ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnapperaient ( VERB ) lemma=`kidnapper` VER:cond  
-
  kidnapperais ( VERB ) lemma=`kidnapper` VER:cond  
-
  kidnapperait ( VERB ) lemma=`kidnapper` VER:cond  
-
  kidnapperas ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnapperez ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnapperiez ( VERB ) lemma=`kidnapper` VER:cond  
-
  kidnapperions ( VERB ) lemma=`kidnapper` VER:cond  
-
  kidnapperons ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnapperont ( VERB ) lemma=`kidnapper` VER:futu  
-
  kidnappes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kidnapper`kidnapper` VER:pres  VER:subp  
-
  kidnappeur ( NOUN NOUN_SINGULAR ) 
-
- kidnappeurs ( NOUN  NOUN_PLURAL  ) lemma=`kidnappeur` NOM  
-
- kidnappeuse ( NOUN  NOUN_PLURAL  ) lemma=`kidnappeur` NOM  
-
- kidnappeuses ( NOUN  NOUN_PLURAL  ) lemma=`kidnappeur` NOM  
-
+ kidnappeurs ( NOUN NOUN_PLURAL   ) lemma=`kidnappeur` NOM  
+ kidnappeuse ( NOUN NOUN_PLURAL   ) lemma=`kidnappeur` NOM  
+ kidnappeuses ( NOUN NOUN_PLURAL   ) lemma=`kidnappeur` NOM  
  kidnappez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kidnapper`kidnapper` VER:impe  VER:pres  
-
  kidnappiez ( VERB ) lemma=`kidnapper`kidnapper` VER:impf  VER:subp  
-
  kidnapping ( NOUN NOUN_SINGULAR ) 
-
- kidnappings ( NOUN  NOUN_PLURAL  ) lemma=`kidnapping` NOM  
-
+ kidnappings ( NOUN NOUN_PLURAL   ) lemma=`kidnapping` NOM  
  kidnappions ( VERB ) lemma=`kidnapper`kidnapper` VER:impf  VER:subp  
-
  kidnappons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kidnapper`kidnapper` VER:impe  VER:pres  
-
  kidnappâmes ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappât ( VERB ) lemma=`kidnapper` VER:subi  
-
  kidnappâtes ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappèrent ( VERB_PAST VERB ) lemma=`kidnapper` VER:simp  
-
  kidnappé ( VERB_PAST_PARTICIPLE VERB ) lemma=`kidnapper` VER:pper  
-
  kidnappée ( VERB_PAST_PARTICIPLE VERB ) lemma=`kidnapper` VER:pper  
-
  kidnappées ( VERB_PAST_PARTICIPLE VERB ) lemma=`kidnapper` VER:pper  
-
  kidnappés ( VERB_PAST_PARTICIPLE VERB ) lemma=`kidnapper` VER:pper  
-
- kids ( NOUN  NOUN_PLURAL  ) lemma=`kid` NOM  
-
+ kids ( NOUN NOUN_PLURAL   ) lemma=`kid` NOM  
  kief ( NOUN NOUN_SINGULAR ) 
-
- kiefs ( NOUN  NOUN_PLURAL  ) lemma=`kief` NOM  
-
+ kiefs ( NOUN NOUN_PLURAL   ) lemma=`kief` NOM  
  kieselguhr ( NOUN NOUN_SINGULAR ) 
-
- kieselguhrs ( NOUN  NOUN_PLURAL  ) lemma=`kieselguhr` NOM  
-
+ kieselguhrs ( NOUN NOUN_PLURAL   ) lemma=`kieselguhr` NOM  
  kieselgur ( NOUN NOUN_SINGULAR ) 
-
- kieselgurs ( NOUN  NOUN_PLURAL  ) lemma=`kieselgur` NOM  
-
+ kieselgurs ( NOUN NOUN_PLURAL   ) lemma=`kieselgur` NOM  
  kiesérite ( NOUN NOUN_SINGULAR ) 
-
- kiesérites ( NOUN  NOUN_PLURAL  ) lemma=`kiesérite` NOM  
-
+ kiesérites ( NOUN NOUN_PLURAL   ) lemma=`kiesérite` NOM  
  kif ( NOUN NOUN_SINGULAR ) 
-
  kif-kif ( ADJECTIVE ) 
-
  kifomanie ( NOUN NOUN_SINGULAR ) 
-
- kifomanies ( NOUN  NOUN_PLURAL  ) lemma=`kifomanie` NOM  
-
- kifs ( NOUN  NOUN_PLURAL  ) lemma=`kif` NOM  
-
- kiki ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kiki`kiki` ADJ  NOM  
-
- kikis ( NOUN  NOUN_PLURAL  ) lemma=`kiki` NOM  
-
+ kifomanies ( NOUN NOUN_PLURAL   ) lemma=`kifomanie` NOM  
+ kifs ( NOUN NOUN_PLURAL   ) lemma=`kif` NOM  
+ kiki ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kiki`kiki` ADJ  NOM  
+ kikis ( NOUN NOUN_PLURAL   ) lemma=`kiki` NOM  
  kil ( NOUN NOUN_SINGULAR ) 
-
  kilim ( NOUN NOUN_SINGULAR ) 
-
- kilims ( NOUN  NOUN_PLURAL  ) lemma=`kilim` NOM  
-
+ kilims ( NOUN NOUN_PLURAL   ) lemma=`kilim` NOM  
  kilo ( NOUN NOUN_SINGULAR ) 
-
  kiloampère ( NOUN NOUN_SINGULAR ) 
-
  kiloampèremètre ( NOUN NOUN_SINGULAR ) 
-
- kiloampèremètres ( NOUN  NOUN_PLURAL  ) lemma=`kiloampèremètre` NOM  
-
- kiloampères ( NOUN  NOUN_PLURAL  ) lemma=`kiloampère` NOM  
-
+ kiloampèremètres ( NOUN NOUN_PLURAL   ) lemma=`kiloampèremètre` NOM  
+ kiloampères ( NOUN NOUN_PLURAL   ) lemma=`kiloampère` NOM  
  kilobar ( NOUN NOUN_SINGULAR ) 
-
- kilobars ( NOUN  NOUN_PLURAL  ) lemma=`kilobar` NOM  
-
+ kilobars ( NOUN NOUN_PLURAL   ) lemma=`kilobar` NOM  
  kilocalorie ( NOUN NOUN_SINGULAR ) 
-
- kilocalories ( NOUN  NOUN_PLURAL  ) lemma=`kilocalorie` NOM  
-
+ kilocalories ( NOUN NOUN_PLURAL   ) lemma=`kilocalorie` NOM  
  kilocycle ( NOUN NOUN_SINGULAR ) 
-
- kilocycles ( NOUN  NOUN_PLURAL  ) lemma=`kilocycle` NOM  
-
+ kilocycles ( NOUN NOUN_PLURAL   ) lemma=`kilocycle` NOM  
  kilogramme ( NOUN NOUN_SINGULAR ) 
-
- kilogrammes ( NOUN  NOUN_PLURAL  ) lemma=`kilogramme` NOM  
-
+ kilogrammes ( NOUN NOUN_PLURAL   ) lemma=`kilogramme` NOM  
  kilogrammètre ( NOUN NOUN_SINGULAR ) 
-
- kilogrammètres ( NOUN  NOUN_PLURAL  ) lemma=`kilogrammètre` NOM  
-
+ kilogrammètres ( NOUN NOUN_PLURAL   ) lemma=`kilogrammètre` NOM  
  kilojoule ( NOUN NOUN_SINGULAR ) 
-
- kilojoules ( NOUN  NOUN_PLURAL  ) lemma=`kilojoule` NOM  
-
- kilomètre ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`kilomètre`kilométrer`kilométrer`kilométrer` NOM  VER:impe  VER:pres  VER:subp  
-
+ kilojoules ( NOUN NOUN_PLURAL   ) lemma=`kilojoule` NOM  
+ kilomètre ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL   ) lemma=`kilomètre`kilométrer`kilométrer`kilométrer` NOM  VER:impe  VER:pres  VER:subp  
  kilomètrent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kilométrer`kilométrer` VER:pres  VER:subp  
-
- kilomètres ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_SINGULAR ) lemma=`kilomètre`kilométrer`kilométrer` NOM  VER:pres  VER:subp  
-
+ kilomètres ( VERB_PRESENT VERB_PRESENT_3PS NOUN VERB NOUN_PLURAL   ) lemma=`kilomètre`kilométrer`kilométrer` NOM  VER:pres  VER:subp  
  kilométra ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométrage ( NOUN NOUN_SINGULAR ) 
-
- kilométrages ( NOUN  NOUN_PLURAL  ) lemma=`kilométrage` NOM  
-
+ kilométrages ( NOUN NOUN_PLURAL   ) lemma=`kilométrage` NOM  
  kilométrai ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométraient ( VERB ) lemma=`kilométrer` VER:impf  
-
  kilométrais ( VERB ) lemma=`kilométrer` VER:impf  
-
  kilométrait ( VERB ) lemma=`kilométrer` VER:impf  
-
  kilométrant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`kilométrer` VER:ppre  
-
  kilométras ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométrasse ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrassent ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrasses ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrassiez ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrassions ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrer ( VERB_INFINITIVE VERB ) 
-
  kilométrera ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométrerai ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométreraient ( VERB ) lemma=`kilométrer` VER:cond  
-
  kilométrerais ( VERB ) lemma=`kilométrer` VER:cond  
-
  kilométrerait ( VERB ) lemma=`kilométrer` VER:cond  
-
  kilométreras ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométrerez ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométreriez ( VERB ) lemma=`kilométrer` VER:cond  
-
  kilométrerions ( VERB ) lemma=`kilométrer` VER:cond  
-
  kilométrerons ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométreront ( VERB ) lemma=`kilométrer` VER:futu  
-
  kilométrez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kilométrer`kilométrer` VER:impe  VER:pres  
-
  kilométriez ( VERB ) lemma=`kilométrer`kilométrer` VER:impf  VER:subp  
-
  kilométrions ( VERB ) lemma=`kilométrer`kilométrer` VER:impf  VER:subp  
-
  kilométrique ( ADJECTIVE ) 
-
  kilométriquement ( ADVERB ) 
-
  kilométriques ( ADJECTIVE ) lemma=`kilométrique` ADJ  
-
  kilométrons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kilométrer`kilométrer` VER:impe  VER:pres  
-
  kilométrâmes ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométrât ( VERB ) lemma=`kilométrer` VER:subi  
-
  kilométrâtes ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométrèrent ( VERB_PAST VERB ) lemma=`kilométrer` VER:simp  
-
  kilométré ( VERB_PAST_PARTICIPLE VERB ) lemma=`kilométrer` VER:pper  
-
  kilométrée ( VERB_PAST_PARTICIPLE VERB ) lemma=`kilométrer` VER:pper  
-
  kilométrées ( VERB_PAST_PARTICIPLE VERB ) lemma=`kilométrer` VER:pper  
-
  kilométrés ( VERB_PAST_PARTICIPLE VERB ) lemma=`kilométrer` VER:pper  
-
- kilos ( NOUN  NOUN_PLURAL  ) lemma=`kilo` NOM  
-
+ kilos ( NOUN NOUN_PLURAL   ) lemma=`kilo` NOM  
  kilotonne ( NOUN NOUN_SINGULAR ) 
-
- kilotonnes ( NOUN  NOUN_PLURAL  ) lemma=`kilotonne` NOM  
-
+ kilotonnes ( NOUN NOUN_PLURAL   ) lemma=`kilotonne` NOM  
  kilotonnique ( ADJECTIVE ) 
-
  kilotonniques ( ADJECTIVE ) lemma=`kilotonnique` ADJ  
-
  kilovar ( NOUN NOUN_SINGULAR ) 
-
- kilovars ( NOUN  NOUN_PLURAL  ) lemma=`kilovar` NOM  
-
+ kilovars ( NOUN NOUN_PLURAL   ) lemma=`kilovar` NOM  
  kilovolt ( NOUN NOUN_SINGULAR ) 
-
- kilovolts ( NOUN  NOUN_PLURAL  ) lemma=`kilovolt` NOM  
-
+ kilovolts ( NOUN NOUN_PLURAL   ) lemma=`kilovolt` NOM  
  kilowatt ( NOUN NOUN_SINGULAR ) 
-
  kilowattheure ( NOUN NOUN_SINGULAR ) 
-
- kilowattheures ( NOUN  NOUN_PLURAL  ) lemma=`kilowattheure` NOM  
-
- kilowatts ( NOUN  NOUN_PLURAL  ) lemma=`kilowatt` NOM  
-
- kils ( NOUN  NOUN_PLURAL  ) lemma=`kil` NOM  
-
+ kilowattheures ( NOUN NOUN_PLURAL   ) lemma=`kilowattheure` NOM  
+ kilowatts ( NOUN NOUN_PLURAL   ) lemma=`kilowatt` NOM  
+ kils ( NOUN NOUN_PLURAL   ) lemma=`kil` NOM  
  kilt ( NOUN NOUN_SINGULAR ) 
-
- kilts ( NOUN  NOUN_PLURAL  ) lemma=`kilt` NOM  
-
+ kilts ( NOUN NOUN_PLURAL   ) lemma=`kilt` NOM  
  kimberlite ( NOUN NOUN_SINGULAR ) 
-
- kimberlites ( NOUN  NOUN_PLURAL  ) lemma=`kimberlite` NOM  
-
+ kimberlites ( NOUN NOUN_PLURAL   ) lemma=`kimberlite` NOM  
  kimono ( NOUN NOUN_SINGULAR ) 
-
- kimonos ( NOUN  NOUN_PLURAL  ) lemma=`kimono` NOM  
-
+ kimonos ( NOUN NOUN_PLURAL   ) lemma=`kimono` NOM  
  kina ( NOUN NOUN_SINGULAR ) 
-
- kinas ( NOUN  NOUN_PLURAL  ) lemma=`kina` NOM  
-
+ kinas ( NOUN NOUN_PLURAL   ) lemma=`kina` NOM  
  kinase ( NOUN NOUN_SINGULAR ) 
-
- kinases ( NOUN  NOUN_PLURAL  ) lemma=`kinase` NOM  
-
+ kinases ( NOUN NOUN_PLURAL   ) lemma=`kinase` NOM  
  kincajou ( NOUN NOUN_SINGULAR ) 
-
- kincajous ( NOUN  NOUN_PLURAL  ) lemma=`kincajou` NOM  
-
+ kincajous ( NOUN NOUN_PLURAL   ) lemma=`kincajou` NOM  
  kinescope ( NOUN NOUN_SINGULAR ) 
-
- kinescopes ( NOUN  NOUN_PLURAL  ) lemma=`kinescope` NOM  
-
+ kinescopes ( NOUN NOUN_PLURAL   ) lemma=`kinescope` NOM  
  kinescopie ( NOUN NOUN_SINGULAR ) 
-
- kinescopies ( NOUN  NOUN_PLURAL  ) lemma=`kinescopie` NOM  
-
+ kinescopies ( NOUN NOUN_PLURAL   ) lemma=`kinescopie` NOM  
  kinesthésie ( NOUN NOUN_SINGULAR ) 
-
- kinesthésies ( NOUN  NOUN_PLURAL  ) lemma=`kinesthésie` NOM  
-
+ kinesthésies ( NOUN NOUN_PLURAL   ) lemma=`kinesthésie` NOM  
  kinesthésique ( ADJECTIVE ) 
-
  kinesthésiques ( ADJECTIVE ) lemma=`kinesthésique` ADJ  
-
  king-charles ( NOUN NOUN_SINGULAR ) 
-
  kinine ( NOUN NOUN_SINGULAR ) 
-
- kinines ( NOUN  NOUN_PLURAL  ) lemma=`kinine` NOM  
-
+ kinines ( NOUN NOUN_PLURAL   ) lemma=`kinine` NOM  
  kinkajou ( NOUN NOUN_SINGULAR ) 
-
- kinkajous ( NOUN  NOUN_PLURAL  ) lemma=`kinkajou` NOM  
-
+ kinkajous ( NOUN NOUN_PLURAL   ) lemma=`kinkajou` NOM  
  kinnara ( NOUN NOUN_SINGULAR ) 
-
  kinnor ( NOUN NOUN_SINGULAR ) 
-
- kinnors ( NOUN  NOUN_PLURAL  ) lemma=`kinnor` NOM  
-
+ kinnors ( NOUN NOUN_PLURAL   ) lemma=`kinnor` NOM  
  kino ( NOUN NOUN_SINGULAR ) 
-
- kinos ( NOUN  NOUN_PLURAL  ) lemma=`kino` NOM  
-
+ kinos ( NOUN NOUN_PLURAL   ) lemma=`kino` NOM  
  kiné ( NOUN NOUN_SINGULAR ) 
-
  kinési ( NOUN NOUN_SINGULAR ) 
-
  kinésimètre ( NOUN NOUN_SINGULAR ) 
-
- kinésimètres ( NOUN  NOUN_PLURAL  ) lemma=`kinésimètre` NOM  
-
- kinésique ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kinésique`kinésique` ADJ  NOM  
-
- kinésiques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kinésique`kinésique` ADJ  NOM  
-
+ kinésimètres ( NOUN NOUN_PLURAL   ) lemma=`kinésimètre` NOM  
+ kinésique ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kinésique`kinésique` ADJ  NOM  
+ kinésiques ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kinésique`kinésique` ADJ  NOM  
  kinésithérapeute ( NOUN NOUN_SINGULAR ) 
-
- kinésithérapeutes ( NOUN  NOUN_PLURAL  ) lemma=`kinésithérapeute` NOM  
-
+ kinésithérapeutes ( NOUN NOUN_PLURAL   ) lemma=`kinésithérapeute` NOM  
  kinésithérapie ( NOUN NOUN_SINGULAR ) 
-
- kinésithérapies ( NOUN  NOUN_PLURAL  ) lemma=`kinésithérapie` NOM  
-
+ kinésithérapies ( NOUN NOUN_PLURAL   ) lemma=`kinésithérapie` NOM  
  kinétoscope ( NOUN NOUN_SINGULAR ) 
-
- kinétoscopes ( NOUN  NOUN_PLURAL  ) lemma=`kinétoscope` NOM  
-
+ kinétoscopes ( NOUN NOUN_PLURAL   ) lemma=`kinétoscope` NOM  
  kiosquaire ( NOUN NOUN_SINGULAR ) 
-
- kiosquaires ( NOUN  NOUN_PLURAL  ) lemma=`kiosquaire` NOM  
-
+ kiosquaires ( NOUN NOUN_PLURAL   ) lemma=`kiosquaire` NOM  
  kiosque ( NOUN NOUN_SINGULAR ) 
-
- kiosques ( NOUN  NOUN_PLURAL  ) lemma=`kiosque` NOM  
-
+ kiosques ( NOUN NOUN_PLURAL   ) lemma=`kiosque` NOM  
  kiosquier ( NOUN NOUN_SINGULAR ) 
-
- kiosquiers ( NOUN  NOUN_PLURAL  ) lemma=`kiosquier` NOM  
-
- kiosquière ( NOUN  NOUN_PLURAL  ) lemma=`kiosquier` NOM  
-
- kiosquières ( NOUN  NOUN_PLURAL  ) lemma=`kiosquier` NOM  
-
+ kiosquiers ( NOUN NOUN_PLURAL   ) lemma=`kiosquier` NOM  
+ kiosquière ( NOUN NOUN_PLURAL   ) lemma=`kiosquier` NOM  
+ kiosquières ( NOUN NOUN_PLURAL   ) lemma=`kiosquier` NOM  
  kip ( NOUN NOUN_SINGULAR ) 
-
  kippa ( NOUN NOUN_SINGULAR ) 
-
- kippas ( NOUN  NOUN_PLURAL  ) lemma=`kippa` NOM  
-
+ kippas ( NOUN NOUN_PLURAL   ) lemma=`kippa` NOM  
  kipper ( NOUN NOUN_SINGULAR ) 
-
- kippers ( NOUN  NOUN_PLURAL  ) lemma=`kipper` NOM  
-
- kips ( NOUN  NOUN_PLURAL  ) lemma=`kip` NOM  
-
+ kippers ( NOUN NOUN_PLURAL   ) lemma=`kipper` NOM  
+ kips ( NOUN NOUN_PLURAL   ) lemma=`kip` NOM  
  kir ( NOUN NOUN_SINGULAR ) 
-
- kirs ( NOUN  NOUN_PLURAL  ) lemma=`kir` NOM  
-
+ kirs ( NOUN NOUN_PLURAL   ) lemma=`kir` NOM  
  kirsch ( NOUN NOUN_SINGULAR ) 
-
- kirschs ( NOUN  NOUN_PLURAL  ) lemma=`kirsch` NOM  
-
+ kirschs ( NOUN NOUN_PLURAL   ) lemma=`kirsch` NOM  
  kiswahili ( NOUN NOUN_SINGULAR ) 
-
- kiswahilis ( NOUN  NOUN_PLURAL  ) lemma=`kiswahili` NOM  
-
+ kiswahilis ( NOUN NOUN_PLURAL   ) lemma=`kiswahili` NOM  
  kit ( NOUN NOUN_SINGULAR ) 
-
- kitch ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kitch`kitch` ADJ  NOM  
-
+ kitch ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kitch`kitch` ADJ  NOM  
  kitchenette ( NOUN NOUN_SINGULAR ) 
-
- kitchenettes ( NOUN  NOUN_PLURAL  ) lemma=`kitchenette` NOM  
-
- kitchs ( NOUN  NOUN_PLURAL  ) lemma=`kitch` NOM  
-
- kits ( NOUN  NOUN_PLURAL  ) lemma=`kit` NOM  
-
- kitsch ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kitsch`kitsch` ADJ  NOM  
-
- kitschs ( NOUN  NOUN_PLURAL  ) lemma=`kitsch` NOM  
-
+ kitchenettes ( NOUN NOUN_PLURAL   ) lemma=`kitchenette` NOM  
+ kitchs ( NOUN NOUN_PLURAL   ) lemma=`kitch` NOM  
+ kits ( NOUN NOUN_PLURAL   ) lemma=`kit` NOM  
+ kitsch ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kitsch`kitsch` ADJ  NOM  
+ kitschs ( NOUN NOUN_PLURAL   ) lemma=`kitsch` NOM  
  kiwi ( NOUN NOUN_SINGULAR ) 
-
- kiwis ( NOUN  NOUN_PLURAL  ) lemma=`kiwi` NOM  
-
+ kiwis ( NOUN NOUN_PLURAL   ) lemma=`kiwi` NOM  
  kjökkenmödding ( NOUN NOUN_SINGULAR ) 
-
- kjökkenmöddings ( NOUN  NOUN_PLURAL  ) lemma=`kjökkenmödding` NOM  
-
+ kjökkenmöddings ( NOUN NOUN_PLURAL   ) lemma=`kjökkenmödding` NOM  
  klaxon ( NOUN NOUN_SINGULAR ) 
-
  klaxonna ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonnai ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonnaient ( VERB ) lemma=`klaxonner` VER:impf  
-
  klaxonnais ( VERB ) lemma=`klaxonner` VER:impf  
-
  klaxonnait ( VERB ) lemma=`klaxonner` VER:impf  
-
  klaxonnant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`klaxonner` VER:ppre  
-
  klaxonnas ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonnasse ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonnassent ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonnasses ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonnassiez ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonnassions ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonne ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`klaxonner`klaxonner`klaxonner` VER:impe  VER:pres  VER:subp  
-
  klaxonnent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`klaxonner`klaxonner` VER:pres  VER:subp  
-
  klaxonner ( VERB_INFINITIVE VERB ) 
-
  klaxonnera ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonnerai ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonneraient ( VERB ) lemma=`klaxonner` VER:cond  
-
  klaxonnerais ( VERB ) lemma=`klaxonner` VER:cond  
-
  klaxonnerait ( VERB ) lemma=`klaxonner` VER:cond  
-
  klaxonneras ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonnerez ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonneriez ( VERB ) lemma=`klaxonner` VER:cond  
-
  klaxonnerions ( VERB ) lemma=`klaxonner` VER:cond  
-
  klaxonnerons ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonneront ( VERB ) lemma=`klaxonner` VER:futu  
-
  klaxonnes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`klaxonner`klaxonner` VER:pres  VER:subp  
-
  klaxonnez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`klaxonner`klaxonner` VER:impe  VER:pres  
-
  klaxonniez ( VERB ) lemma=`klaxonner`klaxonner` VER:impf  VER:subp  
-
  klaxonnions ( VERB ) lemma=`klaxonner`klaxonner` VER:impf  VER:subp  
-
  klaxonnons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`klaxonner`klaxonner` VER:impe  VER:pres  
-
  klaxonnâmes ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonnât ( VERB ) lemma=`klaxonner` VER:subi  
-
  klaxonnâtes ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonnèrent ( VERB_PAST VERB ) lemma=`klaxonner` VER:simp  
-
  klaxonné ( VERB_PAST_PARTICIPLE VERB ) lemma=`klaxonner` VER:pper  
-
  klaxonnée ( VERB_PAST_PARTICIPLE VERB ) lemma=`klaxonner` VER:pper  
-
  klaxonnées ( VERB_PAST_PARTICIPLE VERB ) lemma=`klaxonner` VER:pper  
-
  klaxonnés ( VERB_PAST_PARTICIPLE VERB ) lemma=`klaxonner` VER:pper  
-
- klaxons ( NOUN  NOUN_PLURAL  ) lemma=`klaxon` NOM  
-
+ klaxons ( NOUN NOUN_PLURAL   ) lemma=`klaxon` NOM  
  klebs ( NOUN NOUN_SINGULAR ) 
-
  kleenex ( NOUN NOUN_SINGULAR ) 
-
  klephte ( NOUN NOUN_SINGULAR ) 
-
- klephtes ( NOUN  NOUN_PLURAL  ) lemma=`klephte` NOM  
-
+ klephtes ( NOUN NOUN_PLURAL   ) lemma=`klephte` NOM  
  klepper ( NOUN NOUN_SINGULAR ) 
-
- kleppers ( NOUN  NOUN_PLURAL  ) lemma=`klepper` NOM  
-
+ kleppers ( NOUN NOUN_PLURAL   ) lemma=`klepper` NOM  
  kleptomane ( NOUN NOUN_SINGULAR ) 
-
- kleptomanes ( NOUN  NOUN_PLURAL  ) lemma=`kleptomane` NOM  
-
+ kleptomanes ( NOUN NOUN_PLURAL   ) lemma=`kleptomane` NOM  
  kleptomanie ( NOUN NOUN_SINGULAR ) 
-
- kleptomanies ( NOUN  NOUN_PLURAL  ) lemma=`kleptomanie` NOM  
-
+ kleptomanies ( NOUN NOUN_PLURAL   ) lemma=`kleptomanie` NOM  
  klippe ( NOUN NOUN_SINGULAR ) 
-
  klipper ( NOUN NOUN_SINGULAR ) 
-
- klippers ( NOUN  NOUN_PLURAL  ) lemma=`klipper` NOM  
-
- klippes ( NOUN  NOUN_PLURAL  ) lemma=`klippe` NOM  
-
+ klippers ( NOUN NOUN_PLURAL   ) lemma=`klipper` NOM  
+ klippes ( NOUN NOUN_PLURAL   ) lemma=`klippe` NOM  
  klong ( NOUN NOUN_SINGULAR ) 
-
- klongs ( NOUN  NOUN_PLURAL  ) lemma=`klong` NOM  
-
+ klongs ( NOUN NOUN_PLURAL   ) lemma=`klong` NOM  
  klystron ( NOUN NOUN_SINGULAR ) 
-
- klystrons ( NOUN  NOUN_PLURAL  ) lemma=`klystron` NOM  
-
+ klystrons ( NOUN NOUN_PLURAL   ) lemma=`klystron` NOM  
  km ( ) lemma=`kilomètre` ABR  
-
  km/h ( ) lemma=`kilomètres-heure` ABR  
-
  knesset ( NOUN NOUN_SINGULAR ) 
-
- knessets ( NOUN  NOUN_PLURAL  ) lemma=`knesset` NOM  
-
+ knessets ( NOUN NOUN_PLURAL   ) lemma=`knesset` NOM  
  knickerbockers ( NOUN NOUN_SINGULAR ) 
-
  knickers ( NOUN NOUN_SINGULAR ) 
-
- knock-down ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`knock-down`knock-down` ADJ  NOM  
-
- knock-downs ( NOUN  NOUN_PLURAL  ) lemma=`knock-down` NOM  
-
- knock-out ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`knock-out`knock-out` ADJ  NOM  
-
+ knock-down ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`knock-down`knock-down` ADJ  NOM  
+ knock-downs ( NOUN NOUN_PLURAL   ) lemma=`knock-down` NOM  
+ knock-out ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`knock-out`knock-out` ADJ  NOM  
  knock-outa ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outai ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outaient ( VERB ) lemma=`knock-outer` VER:impf  
-
  knock-outais ( VERB ) lemma=`knock-outer` VER:impf  
-
  knock-outait ( VERB ) lemma=`knock-outer` VER:impf  
-
  knock-outant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`knock-outer` VER:ppre  
-
  knock-outas ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outasse ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-outassent ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-outasses ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-outassiez ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-outassions ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-oute ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knock-outer`knock-outer`knock-outer` VER:impe  VER:pres  VER:subp  
-
  knock-outent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knock-outer`knock-outer` VER:pres  VER:subp  
-
  knock-outer ( VERB_INFINITIVE VERB ) 
-
  knock-outera ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outerai ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outeraient ( VERB ) lemma=`knock-outer` VER:cond  
-
  knock-outerais ( VERB ) lemma=`knock-outer` VER:cond  
-
  knock-outerait ( VERB ) lemma=`knock-outer` VER:cond  
-
  knock-outeras ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outerez ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outeriez ( VERB ) lemma=`knock-outer` VER:cond  
-
  knock-outerions ( VERB ) lemma=`knock-outer` VER:cond  
-
  knock-outerons ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outeront ( VERB ) lemma=`knock-outer` VER:futu  
-
  knock-outes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knock-outer`knock-outer` VER:pres  VER:subp  
-
  knock-outez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knock-outer`knock-outer` VER:impe  VER:pres  
-
  knock-outiez ( VERB ) lemma=`knock-outer`knock-outer` VER:impf  VER:subp  
-
  knock-outions ( VERB ) lemma=`knock-outer`knock-outer` VER:impf  VER:subp  
-
  knock-outons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knock-outer`knock-outer` VER:impe  VER:pres  
-
- knock-outs ( NOUN  NOUN_PLURAL  ) lemma=`knock-out` NOM  
-
+ knock-outs ( NOUN NOUN_PLURAL   ) lemma=`knock-out` NOM  
  knock-outâmes ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outât ( VERB ) lemma=`knock-outer` VER:subi  
-
  knock-outâtes ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outèrent ( VERB_PAST VERB ) lemma=`knock-outer` VER:simp  
-
  knock-outé ( VERB_PAST_PARTICIPLE VERB ) lemma=`knock-outer` VER:pper  
-
  knock-outée ( VERB_PAST_PARTICIPLE VERB ) lemma=`knock-outer` VER:pper  
-
  knock-outées ( VERB_PAST_PARTICIPLE VERB ) lemma=`knock-outer` VER:pper  
-
  knock-outés ( VERB_PAST_PARTICIPLE VERB ) lemma=`knock-outer` VER:pper  
-
  knoedel ( NOUN NOUN_SINGULAR ) 
-
  knout ( NOUN NOUN_SINGULAR ) 
-
  knouta ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knoutai ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knoutaient ( VERB ) lemma=`knouter` VER:impf  
-
  knoutais ( VERB ) lemma=`knouter` VER:impf  
-
  knoutait ( VERB ) lemma=`knouter` VER:impf  
-
  knoutant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`knouter` VER:ppre  
-
  knoutas ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knoutasse ( VERB ) lemma=`knouter` VER:subi  
-
  knoutassent ( VERB ) lemma=`knouter` VER:subi  
-
  knoutasses ( VERB ) lemma=`knouter` VER:subi  
-
  knoutassiez ( VERB ) lemma=`knouter` VER:subi  
-
  knoutassions ( VERB ) lemma=`knouter` VER:subi  
-
  knoute ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knouter`knouter`knouter` VER:impe  VER:pres  VER:subp  
-
  knoutent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knouter`knouter` VER:pres  VER:subp  
-
  knouter ( VERB_INFINITIVE VERB ) 
-
  knoutera ( VERB ) lemma=`knouter` VER:futu  
-
  knouterai ( VERB ) lemma=`knouter` VER:futu  
-
  knouteraient ( VERB ) lemma=`knouter` VER:cond  
-
  knouterais ( VERB ) lemma=`knouter` VER:cond  
-
  knouterait ( VERB ) lemma=`knouter` VER:cond  
-
  knouteras ( VERB ) lemma=`knouter` VER:futu  
-
  knouterez ( VERB ) lemma=`knouter` VER:futu  
-
  knouteriez ( VERB ) lemma=`knouter` VER:cond  
-
  knouterions ( VERB ) lemma=`knouter` VER:cond  
-
  knouterons ( VERB ) lemma=`knouter` VER:futu  
-
  knouteront ( VERB ) lemma=`knouter` VER:futu  
-
  knoutes ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knouter`knouter` VER:pres  VER:subp  
-
  knoutez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knouter`knouter` VER:impe  VER:pres  
-
  knoutiez ( VERB ) lemma=`knouter`knouter` VER:impf  VER:subp  
-
  knoutions ( VERB ) lemma=`knouter`knouter` VER:impf  VER:subp  
-
  knoutons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`knouter`knouter` VER:impe  VER:pres  
-
- knouts ( NOUN  NOUN_PLURAL  ) lemma=`knout` NOM  
-
+ knouts ( NOUN NOUN_PLURAL   ) lemma=`knout` NOM  
  knoutâmes ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knoutât ( VERB ) lemma=`knouter` VER:subi  
-
  knoutâtes ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knoutèrent ( VERB_PAST VERB ) lemma=`knouter` VER:simp  
-
  knouté ( VERB_PAST_PARTICIPLE VERB ) lemma=`knouter` VER:pper  
-
  knoutée ( VERB_PAST_PARTICIPLE VERB ) lemma=`knouter` VER:pper  
-
  knoutées ( VERB_PAST_PARTICIPLE VERB ) lemma=`knouter` VER:pper  
-
  knoutés ( VERB_PAST_PARTICIPLE VERB ) lemma=`knouter` VER:pper  
-
  know-how ( NOUN NOUN_SINGULAR ) 
-
  knémide ( NOUN NOUN_SINGULAR ) 
-
- knémides ( NOUN  NOUN_PLURAL  ) lemma=`knémide` NOM  
-
+ knémides ( NOUN NOUN_PLURAL   ) lemma=`knémide` NOM  
  knödel ( NOUN NOUN_SINGULAR ) 
-
  koala ( NOUN NOUN_SINGULAR ) 
-
- koalas ( NOUN  NOUN_PLURAL  ) lemma=`koala` NOM  
-
+ koalas ( NOUN NOUN_PLURAL   ) lemma=`koala` NOM  
  koan ( NOUN NOUN_SINGULAR ) 
-
  kob ( NOUN NOUN_SINGULAR ) 
-
  kobold ( NOUN NOUN_SINGULAR ) 
-
- kobolds ( NOUN  NOUN_PLURAL  ) lemma=`kobold` NOM  
-
- kobs ( NOUN  NOUN_PLURAL  ) lemma=`kob` NOM  
-
+ kobolds ( NOUN NOUN_PLURAL   ) lemma=`kobold` NOM  
+ kobs ( NOUN NOUN_PLURAL   ) lemma=`kob` NOM  
  koch ( NOUN NOUN_SINGULAR ) 
-
  kocher ( ADJECTIVE ) 
-
  kochia ( NOUN NOUN_SINGULAR ) 
-
- kochias ( NOUN  NOUN_PLURAL  ) lemma=`kochia` NOM  
-
- kochs ( NOUN  NOUN_PLURAL  ) lemma=`koch` NOM  
-
+ kochias ( NOUN NOUN_PLURAL   ) lemma=`kochia` NOM  
+ kochs ( NOUN NOUN_PLURAL   ) lemma=`koch` NOM  
  kodak ( NOUN NOUN_SINGULAR ) 
-
- kodaks ( NOUN  NOUN_PLURAL  ) lemma=`kodak` NOM  
-
+ kodaks ( NOUN NOUN_PLURAL   ) lemma=`kodak` NOM  
  koff ( NOUN NOUN_SINGULAR ) 
-
- koffs ( NOUN  NOUN_PLURAL  ) lemma=`koff` NOM  
-
+ koffs ( NOUN NOUN_PLURAL   ) lemma=`koff` NOM  
  koheul ( NOUN NOUN_SINGULAR ) 
-
- koheuls ( NOUN  NOUN_PLURAL  ) lemma=`koheul` NOM  
-
+ koheuls ( NOUN NOUN_PLURAL   ) lemma=`koheul` NOM  
  kohl ( NOUN NOUN_SINGULAR ) 
-
- kohls ( NOUN  NOUN_PLURAL  ) lemma=`kohl` NOM  
-
+ kohls ( NOUN NOUN_PLURAL   ) lemma=`kohl` NOM  
  kohol ( NOUN NOUN_SINGULAR ) 
-
- kohols ( NOUN  NOUN_PLURAL  ) lemma=`kohol` NOM  
-
+ kohols ( NOUN NOUN_PLURAL   ) lemma=`kohol` NOM  
  kola ( NOUN NOUN_SINGULAR ) 
-
  kolatier ( NOUN NOUN_SINGULAR ) 
-
- kolatiers ( NOUN  NOUN_PLURAL  ) lemma=`kolatier` NOM  
-
+ kolatiers ( NOUN NOUN_PLURAL   ) lemma=`kolatier` NOM  
  kolatisme ( NOUN NOUN_SINGULAR ) 
-
- kolatismes ( NOUN  NOUN_PLURAL  ) lemma=`kolatisme` NOM  
-
+ kolatismes ( NOUN NOUN_PLURAL   ) lemma=`kolatisme` NOM  
  kolback ( NOUN NOUN_SINGULAR ) 
-
- kolbacks ( NOUN  NOUN_PLURAL  ) lemma=`kolback` NOM  
-
+ kolbacks ( NOUN NOUN_PLURAL   ) lemma=`kolback` NOM  
  kolinski ( NOUN NOUN_SINGULAR ) 
-
- kolinskis ( NOUN  NOUN_PLURAL  ) lemma=`kolinski` NOM  
-
+ kolinskis ( NOUN NOUN_PLURAL   ) lemma=`kolinski` NOM  
  kolkhoze ( NOUN NOUN_SINGULAR ) 
-
- kolkhozes ( NOUN  NOUN_PLURAL  ) lemma=`kolkhoze` NOM  
-
- kolkhozien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
-
- kolkhozienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
-
- kolkhoziennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
-
- kolkhoziens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
-
+ kolkhozes ( NOUN NOUN_PLURAL   ) lemma=`kolkhoze` NOM  
+ kolkhozien ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
+ kolkhozienne ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
+ kolkhoziennes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
+ kolkhoziens ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kolkhozien`kolkhozien` ADJ  NOM  
  kominform ( NOUN NOUN_SINGULAR ) 
-
- kominforms ( NOUN  NOUN_PLURAL  ) lemma=`kominform` NOM  
-
+ kominforms ( NOUN NOUN_PLURAL   ) lemma=`kominform` NOM  
  komintern ( NOUN NOUN_SINGULAR ) 
-
- kominterns ( NOUN  NOUN_PLURAL  ) lemma=`komintern` NOM  
-
+ kominterns ( NOUN NOUN_PLURAL   ) lemma=`komintern` NOM  
  kommandantur ( NOUN NOUN_SINGULAR ) 
-
- kommandanturs ( NOUN  NOUN_PLURAL  ) lemma=`kommandantur` NOM  
-
+ kommandanturs ( NOUN NOUN_PLURAL   ) lemma=`kommandantur` NOM  
  kommando ( NOUN NOUN_SINGULAR ) 
-
- kommandos ( NOUN  NOUN_PLURAL  ) lemma=`kommando` NOM  
-
+ kommandos ( NOUN NOUN_PLURAL   ) lemma=`kommando` NOM  
  kompas ( NOUN NOUN_SINGULAR ) 
-
  komsomol ( NOUN NOUN_SINGULAR ) 
-
- komsomols ( NOUN  NOUN_PLURAL  ) lemma=`komsomol` NOM  
-
+ komsomols ( NOUN NOUN_PLURAL   ) lemma=`komsomol` NOM  
  konel ( NOUN NOUN_SINGULAR ) 
-
- konels ( NOUN  NOUN_PLURAL  ) lemma=`konel` NOM  
-
+ konels ( NOUN NOUN_PLURAL   ) lemma=`konel` NOM  
  konzern ( NOUN NOUN_SINGULAR ) 
-
- konzerns ( NOUN  NOUN_PLURAL  ) lemma=`konzern` NOM  
-
+ konzerns ( NOUN NOUN_PLURAL   ) lemma=`konzern` NOM  
  kopeck ( NOUN NOUN_SINGULAR ) 
-
- kopecks ( NOUN  NOUN_PLURAL  ) lemma=`kopeck` NOM  
-
+ kopecks ( NOUN NOUN_PLURAL   ) lemma=`kopeck` NOM  
  koppa ( NOUN NOUN_SINGULAR ) 
-
- koppas ( NOUN  NOUN_PLURAL  ) lemma=`koppa` NOM  
-
+ koppas ( NOUN NOUN_PLURAL   ) lemma=`koppa` NOM  
  kora ( NOUN NOUN_SINGULAR ) 
-
  koran ( NOUN NOUN_SINGULAR ) 
-
- korans ( NOUN  NOUN_PLURAL  ) lemma=`koran` NOM  
-
- koras ( NOUN  NOUN_PLURAL  ) lemma=`kora` NOM  
-
+ korans ( NOUN NOUN_PLURAL   ) lemma=`koran` NOM  
+ koras ( NOUN NOUN_PLURAL   ) lemma=`kora` NOM  
  korrigan ( NOUN NOUN_SINGULAR ) 
-
- korrigane ( NOUN  NOUN_PLURAL  ) lemma=`korrigan` NOM  
-
- korriganes ( NOUN  NOUN_PLURAL  ) lemma=`korrigan` NOM  
-
- korrigans ( NOUN  NOUN_PLURAL  ) lemma=`korrigan` NOM  
-
+ korrigane ( NOUN NOUN_PLURAL   ) lemma=`korrigan` NOM  
+ korriganes ( NOUN NOUN_PLURAL   ) lemma=`korrigan` NOM  
+ korrigans ( NOUN NOUN_PLURAL   ) lemma=`korrigan` NOM  
  koré ( NOUN NOUN_SINGULAR ) 
-
- korés ( NOUN  NOUN_PLURAL  ) lemma=`koré` NOM  
-
+ korés ( NOUN NOUN_PLURAL   ) lemma=`koré` NOM  
  korê ( NOUN NOUN_SINGULAR ) 
-
- korês ( NOUN  NOUN_PLURAL  ) lemma=`korê` NOM  
-
+ korês ( NOUN NOUN_PLURAL   ) lemma=`korê` NOM  
  koto ( NOUN NOUN_SINGULAR ) 
-
- kotos ( NOUN  NOUN_PLURAL  ) lemma=`koto` NOM  
-
+ kotos ( NOUN NOUN_PLURAL   ) lemma=`koto` NOM  
  kouan-houa ( NOUN NOUN_SINGULAR ) 
-
- kouan-houas ( NOUN  NOUN_PLURAL  ) lemma=`kouan-houa` NOM  
-
+ kouan-houas ( NOUN NOUN_PLURAL   ) lemma=`kouan-houa` NOM  
  koubba ( NOUN NOUN_SINGULAR ) 
-
- koubbas ( NOUN  NOUN_PLURAL  ) lemma=`koubba` NOM  
-
+ koubbas ( NOUN NOUN_PLURAL   ) lemma=`koubba` NOM  
  kouglof ( NOUN NOUN_SINGULAR ) 
-
- kouglofs ( NOUN  NOUN_PLURAL  ) lemma=`kouglof` NOM  
-
+ kouglofs ( NOUN NOUN_PLURAL   ) lemma=`kouglof` NOM  
  koulak ( NOUN NOUN_SINGULAR ) 
-
- koulaks ( NOUN  NOUN_PLURAL  ) lemma=`koulak` NOM  
-
+ koulaks ( NOUN NOUN_PLURAL   ) lemma=`koulak` NOM  
  koulibiac ( NOUN NOUN_SINGULAR ) 
-
- koulibiacs ( NOUN  NOUN_PLURAL  ) lemma=`koulibiac` NOM  
-
+ koulibiacs ( NOUN NOUN_PLURAL   ) lemma=`koulibiac` NOM  
  koumis ( NOUN NOUN_SINGULAR ) 
-
  kourgane ( NOUN NOUN_SINGULAR ) 
-
- kourganes ( NOUN  NOUN_PLURAL  ) lemma=`kourgane` NOM  
-
+ kourganes ( NOUN NOUN_PLURAL   ) lemma=`kourgane` NOM  
  kouros ( NOUN NOUN_SINGULAR ) 
-
  kourtchatovium ( NOUN NOUN_SINGULAR ) 
-
- kourtchatoviums ( NOUN  NOUN_PLURAL  ) lemma=`kourtchatovium` NOM  
-
- koweitien ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`koweitien`koweitien` ADJ  NOM  
-
- koweitienne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`koweitien`koweitien` ADJ  NOM  
-
- koweitiennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`koweitien`koweitien` ADJ  NOM  
-
- koweitiens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`koweitien`koweitien` ADJ  NOM  
-
+ kourtchatoviums ( NOUN NOUN_PLURAL   ) lemma=`kourtchatovium` NOM  
+ koweitien ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`koweitien`koweitien` ADJ  NOM  
+ koweitienne ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`koweitien`koweitien` ADJ  NOM  
+ koweitiennes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`koweitien`koweitien` ADJ  NOM  
+ koweitiens ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`koweitien`koweitien` ADJ  NOM  
  kraal ( NOUN NOUN_SINGULAR ) 
-
- kraals ( NOUN  NOUN_PLURAL  ) lemma=`kraal` NOM  
-
+ kraals ( NOUN NOUN_PLURAL   ) lemma=`kraal` NOM  
  krach ( NOUN NOUN_SINGULAR ) 
-
- krachs ( NOUN  NOUN_PLURAL  ) lemma=`krach` NOM  
-
+ krachs ( NOUN NOUN_PLURAL   ) lemma=`krach` NOM  
  kraft ( NOUN NOUN_SINGULAR ) 
-
- krafts ( NOUN  NOUN_PLURAL  ) lemma=`kraft` NOM  
-
+ krafts ( NOUN NOUN_PLURAL   ) lemma=`kraft` NOM  
  krak ( NOUN NOUN_SINGULAR ) 
-
  kraken ( NOUN NOUN_SINGULAR ) 
-
- krakens ( NOUN  NOUN_PLURAL  ) lemma=`kraken` NOM  
-
- kraks ( NOUN  NOUN_PLURAL  ) lemma=`krak` NOM  
-
+ krakens ( NOUN NOUN_PLURAL   ) lemma=`kraken` NOM  
+ kraks ( NOUN NOUN_PLURAL   ) lemma=`krak` NOM  
  kramerie ( NOUN NOUN_SINGULAR ) 
-
- krameries ( NOUN  NOUN_PLURAL  ) lemma=`kramerie` NOM  
-
+ krameries ( NOUN NOUN_PLURAL   ) lemma=`kramerie` NOM  
  krapfen ( NOUN NOUN_SINGULAR ) 
-
- krapfens ( NOUN  NOUN_PLURAL  ) lemma=`krapfen` NOM  
-
+ krapfens ( NOUN NOUN_PLURAL   ) lemma=`krapfen` NOM  
  kraurosis ( NOUN NOUN_SINGULAR ) 
-
  kreep ( NOUN NOUN_SINGULAR ) 
-
- kreeps ( NOUN  NOUN_PLURAL  ) lemma=`kreep` NOM  
-
+ kreeps ( NOUN NOUN_PLURAL   ) lemma=`kreep` NOM  
  kremlin ( NOUN NOUN_SINGULAR ) 
-
  kremlinologie ( NOUN NOUN_SINGULAR ) 
-
- kremlinologies ( NOUN  NOUN_PLURAL  ) lemma=`kremlinologie` NOM  
-
+ kremlinologies ( NOUN NOUN_PLURAL   ) lemma=`kremlinologie` NOM  
  kremlinologue ( NOUN NOUN_SINGULAR ) 
-
- kremlinologues ( NOUN  NOUN_PLURAL  ) lemma=`kremlinologue` NOM  
-
- kremlins ( NOUN  NOUN_PLURAL  ) lemma=`kremlin` NOM  
-
+ kremlinologues ( NOUN NOUN_PLURAL   ) lemma=`kremlinologue` NOM  
+ kremlins ( NOUN NOUN_PLURAL   ) lemma=`kremlin` NOM  
  kreutzer ( NOUN NOUN_SINGULAR ) 
-
- kreutzers ( NOUN  NOUN_PLURAL  ) lemma=`kreutzer` NOM  
-
+ kreutzers ( NOUN NOUN_PLURAL   ) lemma=`kreutzer` NOM  
  kriegspiel ( NOUN NOUN_SINGULAR ) 
-
- kriegspiels ( NOUN  NOUN_PLURAL  ) lemma=`kriegspiel` NOM  
-
+ kriegspiels ( NOUN NOUN_PLURAL   ) lemma=`kriegspiel` NOM  
  krill ( NOUN NOUN_SINGULAR ) 
-
- krills ( NOUN  NOUN_PLURAL  ) lemma=`krill` NOM  
-
+ krills ( NOUN NOUN_PLURAL   ) lemma=`krill` NOM  
  kriss ( NOUN NOUN_SINGULAR ) 
-
  kronstadt ( NOUN NOUN_SINGULAR ) 
-
- kronstadts ( NOUN  NOUN_PLURAL  ) lemma=`kronstadt` NOM  
-
+ kronstadts ( NOUN NOUN_PLURAL   ) lemma=`kronstadt` NOM  
  kroumir ( NOUN NOUN_SINGULAR ) 
-
- kroumirs ( NOUN  NOUN_PLURAL  ) lemma=`kroumir` NOM  
-
+ kroumirs ( NOUN NOUN_PLURAL   ) lemma=`kroumir` NOM  
  krypton ( NOUN NOUN_SINGULAR ) 
-
- kryptons ( NOUN  NOUN_PLURAL  ) lemma=`krypton` NOM  
-
+ kryptons ( NOUN NOUN_PLURAL   ) lemma=`krypton` NOM  
  ksar ( NOUN NOUN_SINGULAR ) 
-
- ksars ( NOUN  NOUN_PLURAL  ) lemma=`ksar` NOM  
-
+ ksars ( NOUN NOUN_PLURAL   ) lemma=`ksar` NOM  
  kshatriya ( NOUN NOUN_SINGULAR ) 
-
- kshatriyas ( NOUN  NOUN_PLURAL  ) lemma=`kshatriya` NOM  
-
+ kshatriyas ( NOUN NOUN_PLURAL   ) lemma=`kshatriya` NOM  
  ksi ( NOUN NOUN_SINGULAR ) 
-
- ksis ( NOUN  NOUN_PLURAL  ) lemma=`ksi` NOM  
-
+ ksis ( NOUN NOUN_PLURAL   ) lemma=`ksi` NOM  
  kuatsu ( NOUN NOUN_SINGULAR ) 
-
- kuatsus ( NOUN  NOUN_PLURAL  ) lemma=`kuatsu` NOM  
-
+ kuatsus ( NOUN NOUN_PLURAL   ) lemma=`kuatsu` NOM  
  kuffieh ( NOUN NOUN_SINGULAR ) 
-
- kuffiehs ( NOUN  NOUN_PLURAL  ) lemma=`kuffieh` NOM  
-
+ kuffiehs ( NOUN NOUN_PLURAL   ) lemma=`kuffieh` NOM  
  kufieh ( NOUN NOUN_SINGULAR ) 
-
- kufiehs ( NOUN  NOUN_PLURAL  ) lemma=`kufieh` NOM  
-
+ kufiehs ( NOUN NOUN_PLURAL   ) lemma=`kufieh` NOM  
  kugelhof ( NOUN NOUN_SINGULAR ) 
-
- kugelhofs ( NOUN  NOUN_PLURAL  ) lemma=`kugelhof` NOM  
-
+ kugelhofs ( NOUN NOUN_PLURAL   ) lemma=`kugelhof` NOM  
  kummel ( NOUN NOUN_SINGULAR ) 
-
- kummels ( NOUN  NOUN_PLURAL  ) lemma=`kummel` NOM  
-
+ kummels ( NOUN NOUN_PLURAL   ) lemma=`kummel` NOM  
  kumquat ( NOUN NOUN_SINGULAR ) 
-
- kumquats ( NOUN  NOUN_PLURAL  ) lemma=`kumquat` NOM  
-
+ kumquats ( NOUN NOUN_PLURAL   ) lemma=`kumquat` NOM  
  kung-fu ( NOUN NOUN_SINGULAR ) 
-
- kung-fus ( NOUN  NOUN_PLURAL  ) lemma=`kung-fu` NOM  
-
- kurde ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kurde`kurde` ADJ  NOM  
-
- kurdes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kurde`kurde` ADJ  NOM  
-
+ kung-fus ( NOUN NOUN_PLURAL   ) lemma=`kung-fu` NOM  
+ kurde ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kurde`kurde` ADJ  NOM  
+ kurdes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kurde`kurde` ADJ  NOM  
  kursaal ( NOUN NOUN_SINGULAR ) 
-
- kursaals ( NOUN  NOUN_PLURAL  ) lemma=`kursaal` NOM  
-
+ kursaals ( NOUN NOUN_PLURAL   ) lemma=`kursaal` NOM  
  kurtchatovium ( NOUN NOUN_SINGULAR ) 
-
- kurtchatoviums ( NOUN  NOUN_PLURAL  ) lemma=`kurtchatovium` NOM  
-
+ kurtchatoviums ( NOUN NOUN_PLURAL   ) lemma=`kurtchatovium` NOM  
  kvas ( NOUN NOUN_SINGULAR ) 
-
  kwa ( ADJECTIVE ) 
-
  kwas ( NOUN NOUN_SINGULAR ) 
-
  kwashiorkor ( NOUN NOUN_SINGULAR ) 
-
- kwashiorkors ( NOUN  NOUN_PLURAL  ) lemma=`kwashiorkor` NOM  
-
+ kwashiorkors ( NOUN NOUN_PLURAL   ) lemma=`kwashiorkor` NOM  
  kymographe ( NOUN NOUN_SINGULAR ) 
-
- kymographes ( NOUN  NOUN_PLURAL  ) lemma=`kymographe` NOM  
-
+ kymographes ( NOUN NOUN_PLURAL   ) lemma=`kymographe` NOM  
  kymographie ( NOUN NOUN_SINGULAR ) 
-
- kymographies ( NOUN  NOUN_PLURAL  ) lemma=`kymographie` NOM  
-
- kymri ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kymri`kymri` ADJ  NOM  
-
- kymrique ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kymrique`kymrique` ADJ  NOM  
-
- kymriques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kymrique`kymrique` ADJ  NOM  
-
- kymris ( NOUN  NOUN_PLURAL  ) lemma=`kymri` NOM  
-
+ kymographies ( NOUN NOUN_PLURAL   ) lemma=`kymographie` NOM  
+ kymri ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kymri`kymri` ADJ  NOM  
+ kymrique ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kymrique`kymrique` ADJ  NOM  
+ kymriques ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kymrique`kymrique` ADJ  NOM  
+ kymris ( NOUN NOUN_PLURAL   ) lemma=`kymri` NOM  
  kyogen ( NOUN NOUN_SINGULAR ) 
-
- kyogens ( NOUN  NOUN_PLURAL  ) lemma=`kyogen` NOM  
-
+ kyogens ( NOUN NOUN_PLURAL   ) lemma=`kyogen` NOM  
  kyrie ( NOUN NOUN_SINGULAR ) 
-
  kyrielle ( NOUN NOUN_SINGULAR ) 
-
- kyrielles ( NOUN  NOUN_PLURAL  ) lemma=`kyrielle` NOM  
-
+ kyrielles ( NOUN NOUN_PLURAL   ) lemma=`kyrielle` NOM  
  kyriologique ( ADJECTIVE ) 
-
  kyriologiques ( ADJECTIVE ) lemma=`kyriologique` ADJ  
-
  kyste ( NOUN NOUN_SINGULAR ) 
-
- kystes ( NOUN  NOUN_PLURAL  ) lemma=`kyste` NOM  
-
+ kystes ( NOUN NOUN_PLURAL   ) lemma=`kyste` NOM  
  kysteuse ( ADJECTIVE ) lemma=`kysteux` ADJ  
-
  kysteuses ( ADJECTIVE ) lemma=`kysteux` ADJ  
-
  kysteux ( ADJECTIVE ) 
-
  kystique ( ADJECTIVE ) 
-
  kystiques ( ADJECTIVE ) lemma=`kystique` ADJ  
-
  kyu ( NOUN NOUN_SINGULAR ) 
-
  kyudo ( NOUN NOUN_SINGULAR ) 
-
- kyudos ( NOUN  NOUN_PLURAL  ) lemma=`kyudo` NOM  
-
- kyus ( NOUN  NOUN_PLURAL  ) lemma=`kyu` NOM  
-
- kâvya ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kâvya`kâvya` ADJ  NOM  
-
- kâvyas ( NOUN  NOUN_PLURAL  ) lemma=`kâvya` NOM  
-
+ kyudos ( NOUN NOUN_PLURAL   ) lemma=`kyudo` NOM  
+ kyus ( NOUN NOUN_PLURAL   ) lemma=`kyu` NOM  
+ kâvya ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kâvya`kâvya` ADJ  NOM  
+ kâvyas ( NOUN NOUN_PLURAL   ) lemma=`kâvya` NOM  
  kère ( NOUN NOUN_SINGULAR ) 
-
- kères ( NOUN  NOUN_PLURAL  ) lemma=`kère` NOM  
-
+ kères ( NOUN NOUN_PLURAL   ) lemma=`kère` NOM  
  kébour ( NOUN NOUN_SINGULAR ) 
-
- kébours ( NOUN  NOUN_PLURAL  ) lemma=`kébour` NOM  
-
+ kébours ( NOUN NOUN_PLURAL   ) lemma=`kébour` NOM  
  kébroque ( NOUN NOUN_SINGULAR ) 
-
- kébroques ( NOUN  NOUN_PLURAL  ) lemma=`kébroque` NOM  
-
+ kébroques ( NOUN NOUN_PLURAL   ) lemma=`kébroque` NOM  
  kéfir ( NOUN NOUN_SINGULAR ) 
-
- kéfirs ( NOUN  NOUN_PLURAL  ) lemma=`kéfir` NOM  
-
+ kéfirs ( NOUN NOUN_PLURAL   ) lemma=`kéfir` NOM  
  kémia ( NOUN NOUN_SINGULAR ) 
-
- kémias ( NOUN  NOUN_PLURAL  ) lemma=`kémia` NOM  
-
+ kémias ( NOUN NOUN_PLURAL   ) lemma=`kémia` NOM  
  kénotron ( NOUN NOUN_SINGULAR ) 
-
- kénotrons ( NOUN  NOUN_PLURAL  ) lemma=`kénotron` NOM  
-
- kényen ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kényen`kényen` ADJ  NOM  
-
- kényenne ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kényen`kényen` ADJ  NOM  
-
- kényennes ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kényen`kényen` ADJ  NOM  
-
- kényens ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kényen`kényen` ADJ  NOM  
-
+ kénotrons ( NOUN NOUN_PLURAL   ) lemma=`kénotron` NOM  
+ kényen ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kényen`kényen` ADJ  NOM  
+ kényenne ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kényen`kényen` ADJ  NOM  
+ kényennes ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kényen`kényen` ADJ  NOM  
+ kényens ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kényen`kényen` ADJ  NOM  
  képhir ( NOUN NOUN_SINGULAR ) 
-
- képhirs ( NOUN  NOUN_PLURAL  ) lemma=`képhir` NOM  
-
+ képhirs ( NOUN NOUN_PLURAL   ) lemma=`képhir` NOM  
  képhyr ( NOUN NOUN_SINGULAR ) 
-
- képhyrs ( NOUN  NOUN_PLURAL  ) lemma=`képhyr` NOM  
-
+ képhyrs ( NOUN NOUN_PLURAL   ) lemma=`képhyr` NOM  
  képi ( NOUN NOUN_SINGULAR ) 
-
- képis ( NOUN  NOUN_PLURAL  ) lemma=`képi` NOM  
-
+ képis ( NOUN NOUN_PLURAL   ) lemma=`képi` NOM  
  képissier ( NOUN NOUN_SINGULAR ) 
-
- képissiers ( NOUN  NOUN_PLURAL  ) lemma=`képissier` NOM  
-
+ képissiers ( NOUN NOUN_PLURAL   ) lemma=`képissier` NOM  
  képlérien ( ADJECTIVE ) 
-
  képlérienne ( ADJECTIVE ) lemma=`képlérien` ADJ  
-
  képlériennes ( ADJECTIVE ) lemma=`képlérien` ADJ  
-
  képlériens ( ADJECTIVE ) lemma=`képlérien` ADJ  
-
  kérabau ( NOUN NOUN_SINGULAR ) 
-
- kérabaux ( NOUN  NOUN_PLURAL  ) lemma=`kérabau` NOM  
-
+ kérabaux ( NOUN NOUN_PLURAL   ) lemma=`kérabau` NOM  
  kératalgie ( NOUN NOUN_SINGULAR ) 
-
- kératalgies ( NOUN  NOUN_PLURAL  ) lemma=`kératalgie` NOM  
-
+ kératalgies ( NOUN NOUN_PLURAL   ) lemma=`kératalgie` NOM  
  kératectomie ( NOUN NOUN_SINGULAR ) 
-
- kératectomies ( NOUN  NOUN_PLURAL  ) lemma=`kératectomie` NOM  
-
+ kératectomies ( NOUN NOUN_PLURAL   ) lemma=`kératectomie` NOM  
  kératine ( NOUN NOUN_SINGULAR ) 
-
- kératines ( NOUN  NOUN_PLURAL  ) lemma=`kératine` NOM  
-
+ kératines ( NOUN NOUN_PLURAL   ) lemma=`kératine` NOM  
  kératinisa ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisai ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisaient ( VERB ) lemma=`kératiniser` VER:impf  
-
  kératinisais ( VERB ) lemma=`kératiniser` VER:impf  
-
  kératinisait ( VERB ) lemma=`kératiniser` VER:impf  
-
  kératinisant ( VERB_PRESENT_PARTICIPLE VERB ) lemma=`kératiniser` VER:ppre  
-
  kératinisas ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisasse ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisassent ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisasses ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisassiez ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisassions ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisation ( NOUN NOUN_SINGULAR ) 
-
- kératinisations ( NOUN  NOUN_PLURAL  ) lemma=`kératinisation` NOM  
-
+ kératinisations ( NOUN NOUN_PLURAL   ) lemma=`kératinisation` NOM  
  kératinise ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kératiniser`kératiniser`kératiniser` VER:impe  VER:pres  VER:subp  
-
  kératinisent ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kératiniser`kératiniser` VER:pres  VER:subp  
-
  kératiniser ( VERB_INFINITIVE VERB ) 
-
  kératinisera ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératiniserai ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératiniseraient ( VERB ) lemma=`kératiniser` VER:cond  
-
  kératiniserais ( VERB ) lemma=`kératiniser` VER:cond  
-
  kératiniserait ( VERB ) lemma=`kératiniser` VER:cond  
-
  kératiniseras ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératiniserez ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératiniseriez ( VERB ) lemma=`kératiniser` VER:cond  
-
  kératiniserions ( VERB ) lemma=`kératiniser` VER:cond  
-
  kératiniserons ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératiniseront ( VERB ) lemma=`kératiniser` VER:futu  
-
  kératinises ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kératiniser`kératiniser` VER:pres  VER:subp  
-
  kératinisez ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kératiniser`kératiniser` VER:impe  VER:pres  
-
  kératinisiez ( VERB ) lemma=`kératiniser`kératiniser` VER:impf  VER:subp  
-
  kératinisions ( VERB ) lemma=`kératiniser`kératiniser` VER:impf  VER:subp  
-
  kératinisons ( VERB_PRESENT VERB_PRESENT_3PS VERB ) lemma=`kératiniser`kératiniser` VER:impe  VER:pres  
-
  kératinisâmes ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisât ( VERB ) lemma=`kératiniser` VER:subi  
-
  kératinisâtes ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisèrent ( VERB_PAST VERB ) lemma=`kératiniser` VER:simp  
-
  kératinisé ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`kératinisé`kératiniser` ADJ  VER:pper  
-
  kératinisée ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`kératinisé`kératiniser` ADJ  VER:pper  
-
  kératinisées ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`kératinisé`kératiniser` ADJ  VER:pper  
-
  kératinisés ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`kératinisé`kératiniser` ADJ  VER:pper  
-
  kératique ( ADJECTIVE ) 
-
  kératiques ( ADJECTIVE ) lemma=`kératique` ADJ  
-
  kératite ( NOUN NOUN_SINGULAR ) 
-
- kératites ( NOUN  NOUN_PLURAL  ) lemma=`kératite` NOM  
-
+ kératites ( NOUN NOUN_PLURAL   ) lemma=`kératite` NOM  
  kérato-conjonctivite ( NOUN NOUN_SINGULAR ) 
-
- kérato-conjonctivites ( NOUN  NOUN_PLURAL  ) lemma=`kérato-conjonctivite` NOM  
-
+ kérato-conjonctivites ( NOUN NOUN_PLURAL   ) lemma=`kérato-conjonctivite` NOM  
  kératocèle ( NOUN NOUN_SINGULAR ) 
-
- kératocèles ( NOUN  NOUN_PLURAL  ) lemma=`kératocèle` NOM  
-
+ kératocèles ( NOUN NOUN_PLURAL   ) lemma=`kératocèle` NOM  
  kératocône ( NOUN NOUN_SINGULAR ) 
-
- kératocônes ( NOUN  NOUN_PLURAL  ) lemma=`kératocône` NOM  
-
+ kératocônes ( NOUN NOUN_PLURAL   ) lemma=`kératocône` NOM  
  kératodermie ( NOUN NOUN_SINGULAR ) 
-
- kératodermies ( NOUN  NOUN_PLURAL  ) lemma=`kératodermie` NOM  
-
+ kératodermies ( NOUN NOUN_PLURAL   ) lemma=`kératodermie` NOM  
  kératolyse ( NOUN NOUN_SINGULAR ) 
-
- kératolyses ( NOUN  NOUN_PLURAL  ) lemma=`kératolyse` NOM  
-
+ kératolyses ( NOUN NOUN_PLURAL   ) lemma=`kératolyse` NOM  
  kératomalacie ( NOUN NOUN_SINGULAR ) 
-
- kératomalacies ( NOUN  NOUN_PLURAL  ) lemma=`kératomalacie` NOM  
-
+ kératomalacies ( NOUN NOUN_PLURAL   ) lemma=`kératomalacie` NOM  
  kératome ( NOUN NOUN_SINGULAR ) 
-
- kératomes ( NOUN  NOUN_PLURAL  ) lemma=`kératome` NOM  
-
+ kératomes ( NOUN NOUN_PLURAL   ) lemma=`kératome` NOM  
  kératoplastie ( NOUN NOUN_SINGULAR ) 
-
- kératoplasties ( NOUN  NOUN_PLURAL  ) lemma=`kératoplastie` NOM  
-
+ kératoplasties ( NOUN NOUN_PLURAL   ) lemma=`kératoplastie` NOM  
  kératoplastique ( ADJECTIVE ) 
-
  kératoplastiques ( ADJECTIVE ) lemma=`kératoplastique` ADJ  
-
  kératose ( NOUN NOUN_SINGULAR ) 
-
- kératoses ( NOUN  NOUN_PLURAL  ) lemma=`kératose` NOM  
-
+ kératoses ( NOUN NOUN_PLURAL   ) lemma=`kératose` NOM  
  kératotomie ( NOUN NOUN_SINGULAR ) 
-
- kératotomies ( NOUN  NOUN_PLURAL  ) lemma=`kératotomie` NOM  
-
+ kératotomies ( NOUN NOUN_PLURAL   ) lemma=`kératotomie` NOM  
  kérion ( NOUN NOUN_SINGULAR ) 
-
- kérions ( NOUN  NOUN_PLURAL  ) lemma=`kérion` NOM  
-
+ kérions ( NOUN NOUN_PLURAL   ) lemma=`kérion` NOM  
  kérithérapie ( NOUN NOUN_SINGULAR ) 
-
- kérithérapies ( NOUN  NOUN_PLURAL  ) lemma=`kérithérapie` NOM  
-
+ kérithérapies ( NOUN NOUN_PLURAL   ) lemma=`kérithérapie` NOM  
  kérogène ( NOUN NOUN_SINGULAR ) 
-
- kérogènes ( NOUN  NOUN_PLURAL  ) lemma=`kérogène` NOM  
-
+ kérogènes ( NOUN NOUN_PLURAL   ) lemma=`kérogène` NOM  
  kérosène ( NOUN NOUN_SINGULAR ) 
-
- kérosènes ( NOUN  NOUN_PLURAL  ) lemma=`kérosène` NOM  
-
+ kérosènes ( NOUN NOUN_PLURAL   ) lemma=`kérosène` NOM  
  kérotracose ( NOUN NOUN_SINGULAR ) 
-
- kérotracoses ( NOUN  NOUN_PLURAL  ) lemma=`kérotracose` NOM  
-
+ kérotracoses ( NOUN NOUN_PLURAL   ) lemma=`kérotracose` NOM  
  kéroub ( NOUN NOUN_SINGULAR ) 
-
- kéroubs ( NOUN  NOUN_PLURAL  ) lemma=`kéroub` NOM  
-
+ kéroubs ( NOUN NOUN_PLURAL   ) lemma=`kéroub` NOM  
  kérygme ( NOUN NOUN_SINGULAR ) 
-
- kérygmes ( NOUN  NOUN_PLURAL  ) lemma=`kérygme` NOM  
-
+ kérygmes ( NOUN NOUN_PLURAL   ) lemma=`kérygme` NOM  
  kétol ( NOUN NOUN_SINGULAR ) 
-
- kétols ( NOUN  NOUN_PLURAL  ) lemma=`kétol` NOM  
-
+ kétols ( NOUN NOUN_PLURAL   ) lemma=`kétol` NOM  
  kévatron ( NOUN NOUN_SINGULAR ) 
-
- kévatrons ( NOUN  NOUN_PLURAL  ) lemma=`kévatron` NOM  
-
- kûfique ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kûfique`kûfique` ADJ  NOM  
-
- kûfiques ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`kûfique`kûfique` ADJ  NOM  
-
+ kévatrons ( NOUN NOUN_PLURAL   ) lemma=`kévatron` NOM  
+ kûfique ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kûfique`kûfique` ADJ  NOM  
+ kûfiques ( NOUN ADJECTIVE NOUN_PLURAL   ) lemma=`kûfique`kûfique` ADJ  NOM  

@@ -1,7 +1,7 @@
 #ifndef _MAXH_
 #define _MAXH_
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -137,11 +137,13 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 	#include <dirent.h>
 	#include <mach/clock.h>
 	#include <mach/mach.h>
+    #define USESIGNALHANDLER 1
 #else  // LINUX
 	#include <dirent.h>
 	#ifndef LINUX
 		#define LINUX 1
 	#endif
+    #define USESIGNALHANDLER 1
 #endif
 
 #ifdef IOS
@@ -197,6 +199,19 @@ using namespace std;
 	#endif
 #endif
 
+#ifndef DISCARDJSONOPEN
+#ifdef WIN32
+#include "curl.h"
+#ifdef DEBUG
+#pragma comment(lib, "../SRC/curl/libcurld.lib")
+#else
+#pragma comment(lib, "../SRC/curl/libcurl.lib")
+#endif
+#else
+#include <curl/curl.h>
+#endif
+#endif
+
 #include "common1.h"
 
 #include "os.h"
@@ -250,7 +265,7 @@ using namespace std;
 
 #endif
 
-#ifdef LINUX
+#ifdef USESIGNALHANDLER
 	// headers for error handling
 	#include <signal.h>
 	#include <execinfo.h>

@@ -18,7 +18,6 @@
 #ifndef MONGOC_H
 #define MONGOC_H
 
-
 #include <bson/bson.h>
 
 #define MONGOC_INSIDE

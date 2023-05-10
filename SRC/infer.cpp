@@ -48,7 +48,7 @@ int	  factFlags[MAX_FIND+1];
 int	  factIndex[MAX_FIND+1];
 unsigned int factSetNext[MAX_FIND_SETS+1];		// when walking a set over time, which index to continue from
 
-static void AddSet2Scan(unsigned int flags,WORDP D,int depth);
+static void AddSet2Scan(unsigned int flags,WORDP D,int depth,int fieldid);
 
 unsigned int NextInferMark() // set up for a new inference
 {
@@ -261,7 +261,7 @@ FunctionResult QueryTopicsOf(char* word,unsigned int store,char* kind) // find t
 	return  NOPROBLEM_BIT;
 }
 
-static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int type) // mark (and maybe queue) this word + implied wordnet up hierarchy + auto-equivalences
+static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int type,int fieldid) // mark (and maybe queue) this word + implied wordnet up hierarchy + auto-equivalences
 {
     if (queueIndex >= MAX_QUEUE || !M) return false; 
 	if (type && !(M & type) && GETTYPERESTRICTION(M)) return false;	// not valid type restriction
@@ -276,20 +276,23 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 		return false;	
 	}
 
-	// concept set has exclusions, so if excluded is already marked, do not allow this topic to be marked
-	FACT* G = GetObjectNondeadHead(D);
-	while (G)
+	// if a concept set with exclusions,  if excluded is already marked, do not allow this topic to be marked
+	if (*D->word == '~')
 	{
-		if (G->verb == Mexclude)
+		FACT* G = GetObjectNondeadHead(D);
+		while (G)
 		{
-			if (Meaning2Word(G->subject)->inferMark == saveMark) return false;
-		}
-		if (G->verb == Mmember) break;
-		G = GetObjectNondeadNext(G);
+			if (G->verb == Mexclude)
+			{
+				if (Meaning2Word(G->subject)->inferMark == saveMark) return false;
+			}
+			if (G->verb == Mmember) break;
+			G = GetObjectNondeadNext(G);
+		}	
 	}
 
 	D->inferMark = saveMark; 
-	if (flags & QUEUE) queue[queueIndex++] = M;
+	if (flags & QUEUE) queue[queueIndex++] = M; // our word is now on the q
 
 	if (trace & TRACE_QUERY && CheckTopicTrace("^query"))
 	{
@@ -315,7 +318,7 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 		if (F->verb == Mmember)  // can be member of an ordinary word (like USA member United_States_of_America), creates equivalence
 		{
 			WORDP E = Meaning2Word(F->object);
-			if (*E->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type); // member is not to a set, but to a word. So it's an equivalence
+			if (*E->word != '~') AddWord2Scan(flags,F->object,F->subject,depth+1,type,fieldid); // member is not to a set, but to a word. So it's an equivalence
 		}
         F = GetSubjectNondeadNext(F);
     }
@@ -324,13 +327,13 @@ static bool AddWord2Scan(int flags,MEANING M,MEANING from,int depth,unsigned int
 	if (index == 0 && !(flags & ORIGINALWORD))
 	{
 		unsigned int count = GetMeaningCount(D);
-		for (unsigned int i = 1; i <= count; ++i) AddWord2Scan(flags,GetMeaning(D,i),M,depth+1,type);
+		for (unsigned int i = 1; i <= count; ++i) AddWord2Scan(flags,GetMeaning(D,i),M,depth+1,type,fieldid);
 	}
 
 	return true;
 }
 
-static bool AddWordOnly(int flags,char* word,unsigned int type) // mark (and maybe queue) this word 
+static bool AddWordOnly(int flags,char* word,unsigned int type,int fieldid) // mark (and maybe queue) this word 
 {
     if (queueIndex >= MAX_QUEUE || !*word) return false; 
 
@@ -346,7 +349,7 @@ static bool AddWordOnly(int flags,char* word,unsigned int type) // mark (and may
 	return true;
 }
 
-static void AddWordOrSet2Scan(unsigned int how, char* word,int depth)
+static void AddWordOrSet2Scan(unsigned int how, char* word,int depth,int fieldid)
 {
 	++depth;
 	if (!(how & ORIGINALWORD) && *word == '~' && word[1]) //   recursive on set and all its members
@@ -355,7 +358,7 @@ static void AddWordOrSet2Scan(unsigned int how, char* word,int depth)
 		if (D)
 		{
 			if (how & NOTOPIC && D->internalBits & TOPIC) {;} 
-			else if (AddWord2Scan(how, MakeMeaning(D,0),0,depth,0)) AddSet2Scan(how,D,depth);  //   mark the original name and then follow its members
+			else if (AddWord2Scan(how, MakeMeaning(D,0),0,depth,0,fieldid)) AddSet2Scan(how,D,depth,fieldid);  //   mark the original name and then follow its members
 		}
 	}
 	else 
@@ -367,27 +370,27 @@ static void AddWordOrSet2Scan(unsigned int how, char* word,int depth)
 			++word; // but dont harm 'tween_decks which is natural
 		}
 		// readmeaning false will not create word if it is not in dict. And no facts could be found therefore.
-		AddWord2Scan(how, ReadMeaning(word, false, true), 0, depth, 0);
+		AddWord2Scan(how, ReadMeaning(word, false, true), 0, depth, 0,fieldid);
 	}
 }
 
-static void AddSet2Scan(unsigned int how,WORDP D,int depth)
+static void AddSet2Scan(unsigned int how,WORDP D,int depth,int fieldid)
 {
 	++depth;
 	FACT* F = GetObjectNondeadHead(D);
 	while (F)
 	{
-		if (F->verb == Mmember)  AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth);
+		if (F->verb == Mmember)  AddWordOrSet2Scan(how | (F->flags & ORIGINALWORD),Meaning2Word(F->subject)->word,depth,fieldid);
 		F = GetObjectNondeadNext(F);
 	}
 }
 
 // used by query setup - scans noun hierarchies upwards for inference
-static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,unsigned int flag, unsigned int type)
+static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,unsigned int flag, unsigned int type,int fieldid)
 {
 	if (!T) return;
 	if (trace & TRACE_QUERY && CheckTopicTrace("^query")) Log(USERLOG,"\r\nHierarchy: (%s=>) ",WriteMeaning(T));
-	if (!AddWord2Scan(flag,T,0,0,type)) return;
+	if (!AddWord2Scan(flag,T,0,0,type,fieldid)) return;
 
 	parentIndex = parentWalk  = 0;
 	parents[parentIndex++] = T;
@@ -414,7 +417,7 @@ static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,u
 			else T1 = GetMaster(T1);
 
 			if (type && !(T1 & type)) continue;	
-			if (! AddWord2Scan(flag,T1,T,0,type)) continue; //   either already marked OR to be ignored
+			if (! AddWord2Scan(flag,T1,T,0,type,fieldid)) continue; //   either already marked OR to be ignored
 			parents[parentIndex++] = T1;	
 		}
 	}
@@ -443,7 +446,7 @@ static void ScanHierarchy(MEANING T,int savemark,unsigned int flowmark,bool up,u
 			if (index && T !=  G->subject) continue; //   generic can run all meanings out of here
 			MEANING x = G->object; 
 			if (type && GETTYPERESTRICTION(G->subject )  && !(type & GETTYPERESTRICTION(G->subject ))) continue;  // fact has bad type restriction on subject
-			if (!AddWord2Scan(flag,x,G->subject,0,type)) continue;	//   either already marked OR to be ignored
+			if (!AddWord2Scan(flag,x,G->subject,0,type,fieldid)) continue;	//   either already marked OR to be ignored
 			parents[parentIndex++] = x;
 		}
 	}
@@ -766,7 +769,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			}
 			if (choice[0] == '^') // replace the function arg
 			{
-				strcpy(word,FNVAR(choice+1));
+				strcpy(word,FNVAR(choice));
 				choice = word;
 			}
 			// dynamic choices
@@ -811,7 +814,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 						return 0;
 					}
 					if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))  Log(USERLOG," %s ",WriteMeaning(M));
-					AddWord2Scan((control[1] == 'q') ? (QUEUE|flags) : flags,M,0,0,0);
+					AddWord2Scan((control[1] == 'q') ? (QUEUE|flags) : flags,M,0,0,0,mark);
 				}
 				continue;
 			}
@@ -844,7 +847,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					Log(USERLOG,"Tag+Queue: %s ",buf);
 				}
 				qMark = saveMark;	//   if we q more later, use this mark by default
-				if (*choice) AddWordOrSet2Scan(QUEUE|flags,choice,0); //   mark and queue items
+				if (*choice) AddWordOrSet2Scan(QUEUE|flags,choice,0,mark); //   mark and queue items
 			}
 			else if (*control == 'Q') 
 			{
@@ -854,7 +857,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					Log(USERLOG,"Tag+QueueWord: %s ",buf);
 				}
 				qMark = saveMark;	//   if we q more later, use this mark by default
-				if (*choice) AddWordOnly(QUEUE|flags,choice,0); //   mark and queue item
+				if (*choice) AddWordOnly(QUEUE|flags,choice,0,mark); //   mark and queue item
 			}
 			else  if (*control == 't') 
 			{
@@ -865,8 +868,8 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					if (flags & ORIGINALWORD) Log(USERLOG," don't expand ");
 				}
 				if (!*choice);
-				else if (*choice == '\'') AddWord2Scan(flags, ReadMeaning(choice+1,true,true),0,0,0); // ignore unneeded quote
-				else AddWord2Scan(flags, ReadMeaning(choice,true,true),0,0,0);
+				else if (*choice == '\'') AddWord2Scan(flags, ReadMeaning(choice+1,true,true),0,0,0,mark); // ignore unneeded quote
+				else AddWord2Scan(flags, ReadMeaning(choice,true,true),0,0,0,mark);
 			}
 			else  if (*control == 'T') // tag and dont follow
 			{
@@ -877,7 +880,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					if (flags & ORIGINALWORD) Log(USERLOG," don't expand ");
 				}
 				qMark = saveMark;	//   if we q more later, use this mark by default
- 				if (*choice) AddWordOnly(flags,choice,0); //   mark and queue item
+ 				if (*choice) AddWordOnly(flags,choice,0,mark); //   mark and queue item
 			}
 			else  if (*control == 'e') 
 			{
@@ -886,7 +889,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					Log(USERLOG,"\r\n");
 					Log(USERLOG," ExpandTag: %s ",buf);
 				}
-				if (*choice) AddWordOrSet2Scan(flags,choice,0); // tag but dont queue
+				if (*choice) AddWordOrSet2Scan(flags,choice,0,mark); // tag but dont queue
 			}
 			else if (*control == '<' || *control == '>') //   chase hierarchy (exclude VERB hierarchy-- we infer on nouns)
 			{ //   callArgumentList are:  flowverbs,  queue or mark, 
@@ -900,7 +903,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				}
 				// if (flag & QUEUE) flag |= BLOCKMEANING;
 				// mark subject 0 and object 2 are nouns, 1 is verb
-				if (*choice) ScanHierarchy(ReadMeaning(choice,true,true),saveMark,flows,kind == '<',flag, (mark != 1) ? NOUN : VERB);
+				if (*choice) ScanHierarchy(ReadMeaning(choice,true,true),saveMark,flows,kind == '<',flag, (mark != 1) ? NOUN : VERB,mark);
 			}
 			else 
 			{
@@ -1205,11 +1208,9 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 	//   now perform the query
 	FACT* F;
 	unsigned int  scanIndex = 0;
-	int pStart,pEnd;
 	while (scanIndex < queueIndex)
 	{
 		MEANING next = queue[scanIndex++];
-		next &= SIMPLEMEANING; // no type bits, just word ref
         unsigned int index;
 
 		//   get node which has fact list on it
@@ -1223,6 +1224,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		}
 		else // q data is meanings
 		{
+			next &= SIMPLEMEANING; // no type bits, just word ref
 			WORDP D = Meaning2Word((ulong_t)next);
 			if (baseOffset == 0) F = GetSubjectNondeadHead(D);
 			else if (baseOffset == 1) F = GetVerbNondeadHead(D);
@@ -1234,7 +1236,6 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 		while (F)
 		{
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query")) TraceFact(F, true);
-
 			//   prepare for next fact to walk
 			FACT* G = F;
 
@@ -1302,7 +1303,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			if (baseFlags & UPDICTIONARY && G->verb == Mis && !once)
 			{
 				once = true;
-				if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0)){;} // add object onto queue
+				if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0,mark)){;} // add object onto queue
 				continue;
 			}
 
@@ -1313,9 +1314,9 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			else if (marknv && V->inferMark == marknv)  match = false;
 			if (marko && O->inferMark != marko)  match = false;
 			else if (markno && O->inferMark == markno)  match = false;
-			if (sentences && !GetNextSpot(S,0,pStart,pEnd)) match = false;
-			if (sentencev && !GetNextSpot(V,0,pStart,pEnd)) match = false;
-			if (sentenceo && !GetNextSpot(O,0,pStart,pEnd)) match = false;
+			if (sentences && !GetNextSpot(S,0)) match = false;
+			if (sentencev && !GetNextSpot(V,0)) match = false;
+			if (sentenceo && !GetNextSpot(O,0)) match = false;
 			if (rangelow != -20000.0)
 			{
 				float val;
@@ -1422,10 +1423,10 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					break;
 				}
 				if (G->flags & MARKED_FACT) {;} // stored this fact, stop propogation
-				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
+				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0,mark)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
 				G->flags |= MARKED_FACT;
 			}
-			else if (match && baseFlags & FINDCONCEPT && OTHER->internalBits & CONCEPT && !(OTHER->internalBits & TOPIC)) // supposed to find a concept
+			else if (match && baseFlags & FINDCONCEPT && OTHER->word[0] == '~' && !(OTHER->internalBits & TOPIC)) // supposed to find a concept
 			{
 				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
@@ -1445,7 +1446,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 					break;
 				}
 				if (G->flags & MARKED_FACT) {;} // stored this fact, stop propogation
-				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
+				else if (AddWord2Scan(QUEUE,OUTGOING,INCOMING,0,0, mark)) SetFactBack(OTHER,INCOMING);  // add object onto queue and provide traceback
 			}
 
             if (propogateVerb && V->inferMark == propogateVerb) // this is not a fact to check, this is a fact to propogate on
@@ -1455,7 +1456,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
                     Log(USERLOG,"\r\n propogate %s", Meaning2Word(OUTGOING)->word);
                     Log(USERLOG,"");
                 }
-                if (AddWord2Scan(QUEUE, OUTGOING, INCOMING, 0, 0)) SetFactBack(OTHER, INCOMING);  // add object onto queue and provide traceback
+                if (AddWord2Scan(QUEUE, OUTGOING, INCOMING, 0, 0, mark)) SetFactBack(OTHER, INCOMING);  // add object onto queue and provide traceback
                 if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
                 {
                     Log(USERLOG,"\r\n");

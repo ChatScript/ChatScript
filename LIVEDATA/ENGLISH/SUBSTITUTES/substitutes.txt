@@ -459,7 +459,6 @@ innit is+not+it
  andthe and+the
  anonymous_stranger stranger
  appeared_to_be was
- apple_iphone iPhone
  are_lead_by are+led+by
  archeological archaeological
  archeologically archaeologically
@@ -946,7 +945,6 @@ innit is+not+it
  itym I+think+you+mean
  itz it+is
  ive I+have
- ja yes
  jive_with jibe+with
  job_functions job
  join_together join

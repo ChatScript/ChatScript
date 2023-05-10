@@ -2,7 +2,7 @@
 #define _TOPICSYSTEMH
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -89,7 +89,7 @@ extern int currentRuleTopic;
 extern bool monitorChange;
 extern bool shared;
 extern WORDP keywordBase;
-extern WORDP* changedPreexistingWords;
+extern WORDP* changedWordsDuringLoading;
 extern bool loading;
 extern int outputRejoinderRuleID;
 extern int outputRejoinderTopic;

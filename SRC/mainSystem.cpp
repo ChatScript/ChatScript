@@ -1,17 +1,20 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "12.31";
+char* version = "13.1";
+const char* buildString = "compiled " __DATE__ ", " __TIME__ ".";
 char sourceInput[200];
 int cs_qsize = 0;
 char repairinput[20];
 bool integrationTest = false;
+char websocketclient[200];
+bool nophrases = false;
 char* repairat = NULL;
 static char baseLanguage[50];
 static char* retryInput;
-char* tracebuffer;
+char* tracebuffer; // preallocated buffer for possible api tracing
 int volleyFile = 0;
 unsigned long startLogDelay = 0;
-unsigned int forcedRandom = 0;
+int forcedRandom = -1;
 char* releaseBotVar = NULL;
 char rootdir[MAX_WORD_SIZE];
 char incomingDir[MAX_WORD_SIZE];
@@ -28,6 +31,7 @@ char serverlogauthcode[30];
 uint64 chatstarted = 0;
 char websocketparams[300];
 char websocketmessage[300];
+char websocketbot[300];
 char jmeter[100];
 int sentenceloopcount = 0;
 static uint64 lastCrashTime = 0;
@@ -131,7 +135,7 @@ FILE* tsvFile = NULL;
 bool nosuchbotrestart = false; // restart if no such bot
 char* derivationSentence[MAX_SENTENCE_LENGTH];
 char derivationSeparator[MAX_SENTENCE_LENGTH];
-int derivationLength;
+unsigned int derivationLength;
 char authorizations[200];	// for allowing debug commands
 char* ourMainInputBuffer = NULL;				// user input buffer - ptr to primaryInputBuffer
 char* ourMainOutputBuffer = NULL;				// main user output buffer
@@ -264,6 +268,8 @@ void HandlePermanentBuffers(bool init)
 #ifndef DLL
 		ourMainInputBuffer = mymalloc(fullInputLimit);  // precaution for overflow
 		ourMainOutputBuffer = mymalloc(outputsize);
+#else
+		ourMainOutputBuffer = revertBuffer; // for boot call to function on startup potentially
 #endif
 		currentOutputLimit = outputsize;
 
@@ -290,7 +296,7 @@ void HandlePermanentBuffers(bool init)
 
 void InitStandalone()
 {
-	startSystem = clock() / CLOCKS_PER_SEC;
+	startSystem = CPU_TICKS;
 	*currentFilename = 0;	//   no files are open (if logging bugs)
 	tokenControl = 0;
 	outputlevel = 0;
@@ -391,7 +397,7 @@ static void HandleReBoot(WORDP boot, bool volleyboot)
 		if (in)
 		{
 			trace = (unsigned int)-1;
-			fclose(in);
+			FClose(in);
 		}
 	}
 	int olduserlog = userLog;
@@ -402,7 +408,7 @@ static void HandleReBoot(WORDP boot, bool volleyboot)
 	else 	currentBeforeLayer = LAYER_BOOT; // be in user layer (before is boot layer)
 	FACT* F = lastFactUsed; // note facts allocated before running boot
 	Callback(boot, (char*)"()", true, true); // do before world is locked
-	*ourMainOutputBuffer = 0; // remove any boot message
+	if (ourMainOutputBuffer) *ourMainOutputBuffer = 0; // remove any boot message
 	myBot = 0;	// restore fact owner to generic all
 	   // cs_reboot may call boot to reload layer, this flag
 	   // rebooting might be wrong...
@@ -467,7 +473,7 @@ static void ReadBotVariable(char* file)
 			if (*word == 'V') 
 				SetBotVariable(word); // these are level 1 values
 		}
-		fclose(in);
+		FClose(in);
 		CloseBotVariables();
 	}
 }
@@ -605,7 +611,7 @@ void CreateSystem()
 	sprintf(data, (char*)"Params:   dict:%lu  fact:%lu text:%lukb hash:%lu \r\n", (unsigned long)maxDictEntries, (unsigned long)maxFacts, (unsigned long)(maxHeapBytes / 1000), (unsigned long)maxHashBuckets);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
-	sprintf(data, (char*)"          buffer:%ux%ukb cache:%ux%ukb userfacts:%u outputlimit:%u loglimit:%u\r\n", (unsigned int)maxBufferLimit, (unsigned int)(maxBufferSize / 1000), (unsigned int)userCacheCount, (unsigned int)(userCacheSize / 1000), (unsigned int)userFactCount,
+	sprintf(data, (char*)"          buffer:%ux%ukb ucache:%ux%ukb fcache:%ux%ukb userfacts:%u outputlimit:%u loglimit:%u\r\n", (unsigned int)maxBufferLimit, (unsigned int)(maxBufferSize / 1000), (unsigned int)userCacheCount, (unsigned int)(userCacheSize / 1000), (unsigned int)fileCacheCount, (unsigned int)(fileCacheSize / 1000), (unsigned int)userFactCount,
 		outputsize, logsize);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
@@ -674,6 +680,8 @@ void CreateSystem()
 	strcpy(dbparams, mysqlparams);
 #endif
 
+	buildbootjid = 0;
+	builduserjid = 0;
 	HandleReBoot(FindWord((char*)"^csboot"), false);// run script on startup of system. data it generates will also be layer 1 data
 	LockLayer(true);
 	currentBeforeLayer = LAYER_BOOT;
@@ -785,14 +793,20 @@ static void ProcessArgument(char* arg)
 		strcpy(current_language, arg + 9);
 		MakeUpperCase(current_language);
 		strcpy(language_list, current_language);
+
 		max_language = LANGUAGE_1; // for now
 		max_fact_language = FACTLANGUAGE_1; // for now
+		languageCount = 1;
 		char* x = strchr(current_language, ','); // is a multi list
 		if (x)
 		{
 			multidict = true;
 			*x = 0; // default 1st one
+			// how many languages are we loading
+			x = language_list - 1;
+			while ((x = strchr(++x, ','))) ++languageCount;
 		}
+
 		strcpy(baseLanguage, current_language);
 	}
 	else if (!strnicmp(arg, (char*)"buildflags=", 11)) 		CopyParam(buildflags, arg + 11, 100);
@@ -877,7 +891,15 @@ static void ProcessArgument(char* arg)
 		char* number = strchr(arg + 6, 'x');
 		if (number) userCacheCount = atoi(number + 1);
 	}
+	else if (!strnicmp(arg, "nophrases", 9)) nophrases = true;
 	else if (!strnicmp(arg, "random=", 7)) forcedRandom = atoi(arg + 7);
+	else if (!strnicmp(arg, "legacymatch=", 12)) legacyMatch = atoi(arg+12);
+	else if (!strnicmp(arg, (char*)"filecache=", 10)) // read only cache of files
+	{
+		fileCacheSize = atoi(arg + 10) * 1000;
+		char* number = strchr(arg + 10, 'x');
+		if (number) fileCacheCount = atoi(number + 1);
+	}
 	else if (!strnicmp(arg, (char*)"nofastload", 10)) fastload = false; // how many user facts allowed
 	else if (!strnicmp(arg, (char*)"userfacts=", 10)) userFactCount = atoi(arg + 10); // how many user facts allowed
 	else if (!stricmp(arg, (char*)"redo")) redo = true; // enable redo
@@ -943,6 +965,7 @@ static void ProcessArgument(char* arg)
 		CopyParam(websocketparams, arg + 10, 300);
 		server = true;
 	}
+	else if (!strnicmp(arg, (char*)"websocketbot=", 13)) strcpy(websocketbot, arg + 13);
 	else if (!strnicmp(arg, (char*)"websocketmessage=", 17))  CopyParam(websocketmessage, arg + 17, 300);
 #endif
 #ifndef DISCARDMONGO
@@ -977,7 +1000,6 @@ static void ProcessArgument(char* arg)
 		exit(0);
 	}
 #endif
-	else if (!strnicmp(arg, "nl_save=", 8)) do_nl_save = atoi(arg + 8);
 	else if (!stricmp(arg, (char*)"nouserlog")) userLog = 0;
 	else if (!strnicmp(arg, "userlogging=", 12))
 	{
@@ -997,6 +1019,7 @@ static void ProcessArgument(char* arg)
 			else  userLog = NO_LOG;
 		}
 	}
+	else if (!stricmp(arg, "nopatterndata")) nopatterndata = true;
 	else if (!stricmp(arg, "jabugpatch")) jabugpatch = true;
 	else if (!strnicmp(arg, "autorestartdelay=", 17)) autorestartdelay = atoi(arg + 17);
 	else if (!strnicmp(arg, "jmeter=", 7)) CopyParam(jmeter, arg + 7);
@@ -1101,12 +1124,6 @@ static void ProcessConfigLines() {
 	}
 }
 
-#ifdef WIN32
-#include "curl.h"
-#else
-#include <curl/curl.h>
-#endif
-
 static size_t ConfigCallback(void* contents, size_t size, size_t nmemb, void* userp)
 {
 	((string*)userp)->append((char*)contents, size * nmemb);
@@ -1178,7 +1195,7 @@ static void ReadConfig()
 	{
 		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
 			ProcessArgument(TrimSpaces(buffer, true));
-		fclose(in);
+		FClose(in);
 	}
 	in = FopenReadOnly(configFile2);
 	if (in)
@@ -1187,7 +1204,7 @@ static void ReadConfig()
 		{
 			ProcessArgument(TrimSpaces(buffer, true));
 		}
-		fclose(in);
+		FClose(in);
 	}
 	sprintf(buffer, "cs_init%s", current_language);
 	in = FopenReadOnly(buffer);
@@ -1197,7 +1214,7 @@ static void ReadConfig()
 		{
 			ProcessArgument(TrimSpaces(buffer, true));
 		}
-		fclose(in);
+		FClose(in);
 	}
 }
 
@@ -1311,6 +1328,7 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 	GetCurrentDir(incomingDir, MAX_WORD_SIZE);
 	sprintf(serverLogfileName, (char*)"LOGS/serverlog1024.txt");
 	bool rootgiven = false;
+	strcpy(websocketclient, "websocketbot");
 	FILE* in;
 	for (int i = 1; i < argcx; ++i)
 	{
@@ -1389,7 +1407,7 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 	int oldserverlog = serverLog;
 	serverLog = FILE_LOG;
 
-#ifdef LINUX
+#ifdef USESIGNALHANDLER
 	setSignalHandlers();
 #endif
 
@@ -1434,6 +1452,8 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
+			InitBuild(BUILD0);
+			// NO_Spell because there is no value in giving warning messages about spellings
 			int result = ReadTopicFiles(argv[i] + 7, BUILD0, NO_SPELL);
 			myexit((char*)"build0 complete", result);
 		}
@@ -1443,8 +1463,9 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 			in = FopenUTF8Write(logFilename);
 			FClose(in);
 			commandLineCompile = true;
+			InitBuild(BUILD1);
+			// NO_Spell because there is no value in giving warning messages about spellings
 			int result = ReadTopicFiles(argv[i] + 7, BUILD1, NO_SPELL);
-
 			myexit((char*)"build1 complete", result);
 		}
 #endif
@@ -1573,9 +1594,9 @@ int kbhit(void)
 }
 #endif
 
-int FindOOBEnd(int start)
+int FindOOBEnd(unsigned int start)
 {
-	int begin = start;
+	unsigned int begin = start;
 	if (*wordStarts[start] == OOB_START)
 	{
 		while (++start < wordCount && *wordStarts[start] != OOB_END); // find a close
@@ -1758,7 +1779,7 @@ void ExecuteVolleyFile(FILE* sourceFile)
 	char* ptr = ourMainInputBuffer;
 	while (fgets(ptr, actualSize, sourceFile))
 	{
-		if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(ptr, ptr + 3, strlen(ptr + 2));// UTF8 BOM
+		if (HasUTF8BOM(ptr))  memmove(ptr, ptr + 3, strlen(ptr + 2));// UTF8 BOM
 		char* x = TrimSpaces(ptr);
 		if (!*x && sourceFile != stdin) continue;
 		size_t len = strlen(ptr);
@@ -1770,7 +1791,7 @@ void ExecuteVolleyFile(FILE* sourceFile)
 		ptr += len; // ignore blank lines
 	}
 	*ptr = 0;
-	if (sourceFile != stdin) fclose(sourceFile);
+	if (sourceFile != stdin) FClose(sourceFile);
 	
 	callStartTime = ElapsedMilliseconds();
 	PerformChat(loginID, computerID, ourMainInputBuffer, NULL, ourMainOutputBuffer);
@@ -1926,7 +1947,7 @@ bool GetInput()
 		{
 			if (ide) return true; // only are here because input is entered
 			else if (ReadALine(ourMainInputBuffer + 1, sourceFile, fullInputLimit - 100,
-				false, true, true)
+				false, true, false)
 				< 0) 
 				return true; // end of input
 		}
@@ -1934,7 +1955,7 @@ bool GetInput()
 		{
 			if (!UseTSVInput()) // ran dry
 			{
-				fclose(tsvFile); 
+				FClose(tsvFile); 
 				*speaker = 0;
 				tsvFile = NULL;
 				sourceFile = stdin;
@@ -2096,7 +2117,6 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 					char* a1 = actual;
 					while (*e1++ == *a1++ && *e1);
 					printf("input: %s\r\n%s  expected\r\n%s  actual\r\n%s  diff expected\r\n%s  diff actual\r\n", ourMainInputBuffer, expect,actual,e1 -1, a1 -1);
-					int xx = 0;
 				}
 				else
 				{
@@ -2127,6 +2147,7 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 		}
 		else sourceFile = stdin;
 		int diff = (int)(ElapsedMilliseconds() - sourceStart);
+		printf("Sourcefile Time used %ld ms for %d sentences %d tokens.\r\n", diff, sourceLines, sourceTokens);
 		Log(USERLOG, "Sourcefile Time used %ld ms for %d sentences %d tokens.\r\n", diff, sourceLines, sourceTokens);
 		if (documentMode || silent) { ; } // no prompt in document mode
 		else if (*userPrefix)
@@ -2193,6 +2214,7 @@ static void ClearFunctionTracing()
 
 void ResetToPreUser(bool saveBuffers) // prepare for multiple sentences being processed - data lingers over multiple sentences
 {
+	currentMemoryFact = NULL;
 	testpatterninput = NULL;
 	postProcessing = false;
 	stackFree = stackStart; // drop any possible stack used
@@ -2221,7 +2243,6 @@ void ResetToPreUser(bool saveBuffers) // prepare for multiple sentences being pr
 	ClearVolleyWordMaps();
 	ClearHeapThreads(); // volley start
 	ResetTopicSystem(false);
-	ResetFunctionSystem();
 	ResetTopicReply();
 	lastheapfree = heapFree;
 	currentBeforeLayer = LAYER_USER;
@@ -2313,7 +2334,7 @@ static void FactizeResult() // takes the initial given result
 		while (ptr && *ptr) // find sentences of response
 		{
 			char* old = ptr;
-			int count;
+			unsigned int count;
 			char* starts[MAX_SENTENCE_LENGTH];
 			memset(starts, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
 			ptr = Tokenize(ptr, count, (char**)starts, NULL, false);   //   only used to locate end of sentence but can also affect tokenFlags (no longer care)
@@ -2530,7 +2551,6 @@ void EmergencyResetUser()
 {
 	globalDepth = 0;
 	responseIndex = 0;
-	callArgumentIndex = 0;
 	ResetBuffers();
 	ClearUserVariables();
 	ClearHeapThreads();
@@ -2667,11 +2687,11 @@ static void LimitUserInput(char* at)
 	if (inputLimit && inputLimit <= (int)len1) at[inputLimit] = 0; // relative limit on user component
 }
 
+
 int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
-
-	// skip UTF8 BOM (from file)
-	if ((unsigned char)incomingmessage[0] == 0xEF && (unsigned char)incomingmessage[1] == 0xBB && (unsigned char)incomingmessage[2] == 0xBF)
+  // skip UTF8 BOM (from file)
+	if (HasUTF8BOM(incomingmessage))
 	{
 		incomingmessage += 3;
 	}
@@ -2682,6 +2702,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	int ctrvalid = 1;
 	bool colon = false;
 	output[0] = 0;
+	http_response = 0;
 	// dont start immediately if requested after a crash
 	if (crashBack && autorestartdelay) 
 	{
@@ -2698,12 +2719,14 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	GetCurrentDir(incomingDir, MAX_WORD_SIZE);
 	char* timecheat = GetUserVariable("$FakeTimeOffset");
 	if (*timecheat) callStartTime -= atoi(timecheat);
-
 	*repairinput = 0;
 	softRestart = false;
 	timeout = false;
 	SetDirectory(rootdir); // an outside caller cant be trusted
 	currentInput = "";
+	buildtransientjid = 0;
+	builduserjid = 0;
+	char* safeInput = NULL; // will become base of stack allocation for input buffer
 
 	CheckForOutputAPI(incomingmessage); // set flag if is such a call -- alters what  PurifyInput does later 
 	incomingmessage = SkipWhitespace(incomingmessage); 
@@ -2744,11 +2767,12 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 
 #ifdef PRIVATE_CODE
 	// Check for private hook function to potentially scan and adjust the input
-	static HOOKPTR fn = FindHookFunction((char*)"PerformChatArguments");
-	if (fn)
+	static HOOKPTR fns = FindHookFunction((char*)"PerformChatArguments");
+	static HOOKPTR fne = FindHookFunction((char*)"EndChat");
+	if (fns)
 	{
-		((PerformChatArgumentsHOOKFN)fn)(user, usee, incomingmessage);
-	}
+		((PerformChatArgumentsHOOKFN)fns)(user, usee, incoming);
+}
 #endif
 
 	LoggingCheats(incomingmessage);
@@ -2765,7 +2789,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	if (in) // trigger restart
 	{
 		restartBack = true;
-		fclose(in);
+		FClose(in);
 		unlink("restart.txt");
 	}
 	// dont let user with bad input crash us. Crash next one after so his input wont reenter system
@@ -2794,6 +2818,9 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	{
 		int count = Crashed(output, reloading, ip);
 		RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+		if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 		RestoreCallingDirectory();
 		serverLog = holdServerLog; // global remember so we can restore against local change
 		userLog = holdUserLog ;
@@ -2820,7 +2847,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 		if (priortrace) trace = priortrace;
 
 		// prelog done before purify, to know what log what we got exactly, now we change
-		// now see if we ingest oob directly
+		// now see if we should ingest oob directly rather than waiting for tokenize
 		bool directoob = false;
 		if (*incomingmessage == '[' && !stricmp(GetUserVariable("$cs_directfromoob"), "true"))
 		{
@@ -2828,7 +2855,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 			tokenControl |= JSON_DIRECT_FROM_OOB;
 			directoob = true;
 			loading = true; // block fact language assign, so oob json visible to all languages
-			int count = 0;
+			unsigned int count = 0;
 			char* starts[256];
 			char separators[MAX_SENTENCE_LENGTH];
 			// strip off oob into single token
@@ -2851,7 +2878,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 		// clean up input, with a copy of the input on stack and perhaps in json facts
 		char* limit;
 		size_t size;
-		char* safeInput = InfiniteStack(limit, "PerformChat"); // dynamically allocate a copy of the input we can change
+		safeInput = InfiniteStack(limit, "PerformChat"); // dynamically allocate a copy of the input we can change
 		originalUserMessage = PurifyInput(incomingmessage, safeInput, size, INPUT_PURIFY); // change out special or illegal characters
 		CompleteBindStack(size);
 		if (!originalUserMessage) originalUserMessage = safeInput; // all user message
@@ -2875,7 +2902,11 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 			if (fakeContinue)
 			{
 				RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+				if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 				RestoreCallingDirectory();
+				ReleaseStack(safeInput);
 				return volleyCount;
 			}
 		if (!*computerID && (!originalUserMessage || *originalUserMessage != ':'))  // a  command will be allowed to execute independent of bot- ":build" works to create a bot
@@ -2896,7 +2927,11 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 			CopyUserTopicFile("nosuchbot");
 			if (nosuchbotrestart) pendingRestart = true;
 			RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+			if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 			RestoreCallingDirectory();
+			ReleaseStack(safeInput);
 			return 0;	// no such bot
 		}
 
@@ -2920,13 +2955,17 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 		{
 			if (userlogFile)
 			{
-				fclose(userlogFile);
+				FClose(userlogFile);
 				userlogFile = NULL;
 			}
 			RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+			if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 			RestoreCallingDirectory();
 			serverLog = holdServerLog; // global remember so we can restore against local change
 			userLog = holdUserLog;
+			ReleaseStack(safeInput);
 			return ok; // command processed
 		}
 
@@ -2948,10 +2987,14 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 		if (softRestart)
 		{
 			ReturnBeforeLayer(LAYER_BOOT, true); // erase it
+			buildbootjid = 0;
+			char* buffer = AllocateBuffer();
+			strcpy(buffer, ourMainOutputBuffer);
 			Callback(FindWord("^csboot"), (char*)"()", true, true); // do before world is locked
 			NoteBotVariables(); // convert user variables read into bot variables in boot layer
 			LockLayer(true);
-			*ourMainOutputBuffer = 0; // remove any boot message
+			strcpy(ourMainOutputBuffer,buffer); // remove any boot message
+			FreeBuffer();
 			myBot = 0;	// restore fact owner to generic all
 		}
 
@@ -2965,6 +3008,9 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 			printf("Summary-  Prepare: %d  Reply: %d  Finish: %d\r\n", (int)preparationtime, (int)replytime, (int)chatstarted);
 		}
 		RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+		if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 	} // end of try
 #ifndef HARDCRASH
 #ifdef WIN32
@@ -2974,6 +3020,9 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 #endif
 	{
 		RESTORE_LOGGING();
+#ifdef PRIVATE_CODE
+		if (fne) ((EndChatHOOKFN)fne)();   // finish the chat
+#endif
 		char word[MAX_WORD_SIZE];
 		sprintf(word, (char*)"Try/catch");
 		Log(SERVERLOG, word);
@@ -2986,9 +3035,11 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	}
 #endif // hardcrash
 
+	if (safeInput) ReleaseStack(safeInput);
+
 	if (userlogFile)
 	{
-		fclose(userlogFile);
+		FClose(userlogFile);
 		userlogFile = NULL;
 	}
 	RestoreCallingDirectory();
@@ -3003,14 +3054,13 @@ FunctionResult Reply()
 	callback = (wordCount > 1 && *wordStarts[1] == OOB_START && (!stricmp(wordStarts[2], (char*)"callback") || !stricmp(wordStarts[2], (char*)"alarm") || !stricmp(wordStarts[2], (char*)"loopback"))); // dont write temp save
 	withinLoop = 0;
 	choiceCount = 0;
-	callIndex = 0;
 	ResetOutput();
 	ResetTopicReply();
 	ResetReuseSafety();
 	if (trace & TRACE_OUTPUT)
 	{
 		Log(USERLOG, "\r\n\r\nReply to: ");
-		for (int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s ", wordStarts[i]);
+		for (unsigned int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s ", wordStarts[i]);
 		Log(USERLOG, "\r\n  Pending topics: %s\r\n", ShowPendingTopics());
 	}
 	FunctionResult result = NOPROBLEM_BIT;
@@ -3257,6 +3307,7 @@ loopback:
 	strcpy(prepassTopic, GetUserVariable("$cs_prepass", false));
 	if (!documentMode)  AddHumanUsed(input);
 	sentenceloopcount = 0;
+
 	while ((((input = GetNextInput()) && input && *input) || startConversation) && (volleyFile || sentenceloopcount < sentenceLimit)) // loop on user input sentences
 	{
 		sentenceOverflow = !volleyFile && (sentenceloopcount + 1) >= sentenceLimit; // is this the last one we will do
@@ -3372,12 +3423,19 @@ retry:
 	}
 	if (trace && sentenceRetry) DumpUserVariables(true);
 	bool oobstart = (input && *input == '[');
-	PrepareSentence(input, true, true, false, oobstart); // user input.. sets nextinput up to continue
-	if (atlimit) sentenceOverflow = true;
 
-	if (changedEcho) echo = oldecho;
+	bool prepare = true;
+#ifndef NOMAIN
+	if (strstr(originalUserInput,"VERIFY")) prepare = false;
+#endif
 
-	if (PrepassSentence(prepassTopic)) return NOPROBLEM_BIT; // user input revise and resubmit?  -- COULD generate output and set rejoinders
+	if (prepare)
+	{
+		PrepareSentence(input, true, true, false, oobstart); // user input.. sets nextinput up to continue
+		if (atlimit) sentenceOverflow = true;
+		if (changedEcho) echo = oldecho;
+		if (PrepassSentence(prepassTopic)) return NOPROBLEM_BIT; // user input revise and resubmit?  -- COULD generate output and set rejoinders
+	}
 	if (prepareMode == PREPARE_MODE || prepareMode == POS_MODE || tmpPrepareMode == POS_MODE)
 	{
 		return NOPROBLEM_BIT; // just do prep work, no actual reply
@@ -3401,12 +3459,12 @@ retry:
 			Log(USERLOG, "%s (%s) : (char*)", name, N->word);
 			//   look at references for this topic
 			int startx = -1;
-			int startPosition = 0;
-			int endPosition = 0;
+			unsigned int startPosition = 0;
+			unsigned int endPosition = 0;
 			while (GetIthSpot(D, ++startx, startPosition, endPosition)) // find matches in sentence
 			{
 				// value of match of this topic in this sentence
-				for (int k = startPosition; k <= endPosition; ++k)
+				for (unsigned int k = startPosition; k <= endPosition; ++k)
 				{
 					if (k != startPosition) Log(USERLOG, "_");
 					Log(USERLOG, "%s", wordStarts[k]);
@@ -3453,7 +3511,6 @@ FunctionResult OnceCode(const char* var, char* function) //   run before doing a
 	// cannot drop stack because may be executing from ^reset(USER)
 	// stackFree = stackStart; // drop any possible stack used
 	withinLoop = 0;
-	callIndex = 0;
 	topicIndex = currentTopicID = 0;
 	char* name = (!function || !*function) ? GetUserVariable(var, false) : function;
 	if (trace & (TRACE_MATCH | TRACE_PREPARE) && CheckTopicTrace())
@@ -3487,6 +3544,7 @@ FunctionResult OnceCode(const char* var, char* function) //   run before doing a
 	}
 	ruleErased = false;
 	howTopic = (char*)"gambit";
+	
 	result = PerformTopic(GAMBIT, currentOutputBase);
 	ChangeDepth(-1, name);
 
@@ -3683,7 +3741,7 @@ void NLPipeline(int mytrace)
 {
 	char* original[MAX_SENTENCE_LENGTH];
 	if (mytrace & TRACE_INPUT || prepareMode) memcpy(original + 1, wordStarts + 1, wordCount * sizeof(char*));	// replicate for test
-	int originalCount = wordCount;
+	unsigned int originalCount = wordCount;
 	if (tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE))
 	{
 		// test for punctuation not done by substitutes (eg "?\")
@@ -3701,7 +3759,7 @@ void NLPipeline(int mytrace)
 		{
 			int changed = 0;
 			if (wordCount != originalCount) changed = true;
-			for (int i = 1; i <= wordCount; ++i)
+			for (unsigned int i = 1; i <= wordCount; ++i)
 			{
 				if (original[i] != wordStarts[i])
 				{
@@ -3723,7 +3781,7 @@ void NLPipeline(int mytrace)
 				if (tokenFlags & DO_PRIVATE) Log(USERLOG, "private ");
 				if (tokenFlags & NO_CONDITIONAL_IDIOM) Log(USERLOG, "conditional idiom ");
 				Log(USERLOG, ") into: ");
-				for (int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+				for (unsigned int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
 				Log(USERLOG, "\r\n");
 				memcpy(original + 1, wordStarts + 1, wordCount * sizeof(char*));	// replicate for test
 			}
@@ -3746,19 +3804,18 @@ void NLPipeline(int mytrace)
 		}
 	}
 
-	int i, j;
 	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 	{
 		int changed = 0;
 		if (wordCount != originalCount) changed = true;
-		for (j = 1; j <= wordCount; ++j) if (original[j] != wordStarts[j]) changed = j;
+		for (unsigned j = 1; j <= wordCount; ++j) if (original[j] != wordStarts[j]) changed = j;
 		if (changed)
 		{
 			if (tokenFlags & DO_PROPERNAME_MERGE) Log(USERLOG, "Name-");
 			if (tokenFlags & DO_NUMBER_MERGE) Log(USERLOG, "Number-");
 			if (tokenFlags & DO_DATE_MERGE) Log(USERLOG, "Date-");
 			Log(USERLOG, "merged: ");
-			for (i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+			for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
 			Log(USERLOG, "\r\n");
 			memcpy(original + 1, wordStarts + 1, wordCount * sizeof(char*));	// replicate for test
 			originalCount = wordCount;
@@ -3774,8 +3831,8 @@ void NLPipeline(int mytrace)
 		else if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 		{
 			int changed = 0;
-			if (wordCount != originalCount) changed = true;
-			for (i = 1; i <= wordCount; ++i)
+			if (wordCount != originalCount) changed = 1;
+			for (unsigned i = 1; i <= wordCount; ++i)
 			{
 				if (original[i] != wordStarts[i])
 				{
@@ -3786,7 +3843,7 @@ void NLPipeline(int mytrace)
 			if (changed)
 			{
 				Log(USERLOG, "Spelling changed into: ");
-				for (i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+				for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
 				Log(USERLOG, "\r\n");
 			}
 		}
@@ -3800,11 +3857,11 @@ void NLPipeline(int mytrace)
 		{
 			int changed = 0;
 			if (wordCount != originalCount) changed = true;
-			for (i = 1; i <= wordCount; ++i) if (original[i] != wordStarts[i]) changed = i;
+			for (unsigned i = 1; i <= wordCount; ++i) if (original[i] != wordStarts[i]) changed = i;
 			if (changed)
 			{
 				Log(USERLOG, "Substitution changed into: ");
-				for (i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+				for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
 				Log(USERLOG, "\r\n");
 			}
 		}
@@ -3824,7 +3881,7 @@ static void TraceDerivation(bool analyze)
 		Log(USERLOG, "%s", wordStarts[i]);
 		int start = derivationIndex[i] >> 8;
 		int end = derivationIndex[i] & 0x00ff;
-		if (start == end && wordStarts[i] == derivationSentence[start]) { ; } // unchanged from original
+		if (start == end && !strcmp(wordStarts[i], derivationSentence[start])) { ; } // unchanged from original
 		else // it came from somewhere else
 		{
 			start = derivationIndex[i] >> 8;
@@ -3851,12 +3908,106 @@ static void TraceTokenization(char* input)
 	if (tokenFlags & USERINPUT) Log(USERLOG, "Original User Input: %s\r\n", input);
 	else Log(USERLOG, "Original Chatbot Output: %s\r\n", input);
 	Log(USERLOG, "Tokenized into: ");
-	for (int i = 1; i <= wordCount; ++i) Log(FORCESTAYUSERLOG, (char*)"%s  ", wordStarts[i]);
+	for (unsigned int i = 1; i <= wordCount; ++i) Log(FORCESTAYUSERLOG, (char*)"%s  ", wordStarts[i]);
 	Log(FORCESTAYUSERLOG, (char*)"\r\n");
 }
 
-void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobstart, bool atlimit)
+static void FixCasing()
 {
+	bool lowercase = false;
+	for (unsigned int i = 1; i <= wordCount; ++i)
+	{
+		char* word = wordStarts[i];
+		size_t len = strlen(word);
+		for (int j = 0; j < (int)len; ++j)
+		{
+			if (IsLowerCase(word[j])) // lower case letter detected?
+			{
+				lowercase = true;
+				i = j = len + 10000; // len might be BIG (oob data) so make sure beyond it)
+			}
+		}
+	}
+
+	if (!lowercase && wordCount > 2) // must have multiple words all in uppercase
+	{
+		for (unsigned int i = 1; i <= wordCount; ++i)
+		{
+			char* word = wordStarts[i];
+			char myword[MAX_WORD_SIZE];
+			MakeLowerCopy(myword, word);
+			WORDP D = StoreWord(myword);
+			wordStarts[i] = D->word;
+		}
+	}
+
+	// force Lower case on plural start word which has singular meaning (but for substitutes
+	if (wordCount)
+	{
+		char word[MAX_WORD_SIZE];
+		MakeLowerCopy(word, wordStarts[1]);
+		size_t len = strlen(word);
+		if (strcmp(word, wordStarts[1]) && word[1] && word[len - 1] == 's') // is a different case and seemingly plural
+		{
+			WORDP O = FindWord(word, len, UPPERCASE_LOOKUP);
+			WORDP D = FindWord(word, len, LOWERCASE_LOOKUP);
+			if (D && D->properties & PRONOUN_BITS) { ; } // dont consider hers and his as plurals of some noun
+			else if (O && O->properties & NOUN) { ; }// we know this noun (like name James)
+			else
+			{
+				char* singular = GetSingularNoun(word, true, false);
+				D = FindWord(singular);
+				if (D && stricmp(singular, word)) // singular exists different from plural, use lower case form
+				{
+					D = StoreWord(word); // lower case plural form
+					if (D->internalBits & UPPERCASE_HASH) AddProperty(D, NOUN_PROPER_PLURAL | NOUN);
+					else AddProperty(D, NOUN_PLURAL | NOUN);
+					wordStarts[1] = D->word;
+				}
+			}
+		}
+	}
+}
+
+static void SplitInterjection(bool analyze)
+{
+	unsigned int i;
+			// formulate an input insertion
+		char* buffer = AllocateBuffer(); // needs to be able to hold all input queued
+		*buffer = 0;
+		unsigned int more = (derivationIndex[1] & 0x000f) + 1; // at end
+		if (more <= derivationLength && *derivationSentence[more] == ',') // swallow comma into original
+		{
+			++more;	// dont add comma onto input
+			derivationIndex[1]++;	// extend end onto comma
+		}
+		for (i = more; i <= derivationLength; ++i) // rest of data after input.
+		{
+			if (i == 1) strncat(buffer, &derivationSeparator[0], 1);
+			strcat(buffer, derivationSentence[i]);
+			strncat(buffer, &derivationSeparator[i], 1);
+		}
+
+		// what the rest of the input had as punctuation OR insure it does have it
+		char* end = buffer + strlen(buffer);
+		char* tail = end - 1;
+		while (tail > buffer && *tail == ' ') --tail;
+		if (tokenFlags & QUESTIONMARK && *tail != '?') strcat(tail, (char*)"? ");
+		else if (tokenFlags & EXCLAMATIONMARK && *tail != '!') strcat(tail, (char*)"! ");
+		else if (*tail != '.') strcat(tail, (char*)". ");
+
+		if (!analyze)
+		{
+			EraseCurrentInput();
+			AddInput(buffer, 0);
+		}
+		FreeBuffer();
+		wordCount = 1; // truncate current analysis to just the interjection
+		tokenFlags |= DO_INTERJECTION_SPLITTING;
+}
+
+void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobstart, bool atlimit)
+{ // nlp processing
 	unsigned int mytrace = trace;
 	uint64 start_time = ElapsedMilliseconds();
 	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
@@ -3901,7 +4052,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	upperCount = 0;
 	lowerCount = 0;
 	int repeat = 0;
-	for (int i = 1; i <= wordCount; ++i)   // see about SHOUTing
+	for (unsigned int i = 1; i <= wordCount; ++i)   // see about SHOUTing
 	{
 		if (i < wordCount) // junk input?
 		{
@@ -3927,7 +4078,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 
 	// set derivation data on original words of user before we do substitution
 	// separators might use the first character when there is a single quoted word
-	for (int i = 1; i <= wordCount; ++i)
+	for (unsigned int i = 1; i <= wordCount; ++i)
 	{
 		derivationIndex[i] = (unsigned short)((i << 8) | i); // track where substitutions come from
 		derivationSentence[i] = wordStarts[i];
@@ -3946,71 +4097,14 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 
 	if (tokenControl & ONLY_LOWERCASE && !oobExists) // force lower case
 	{
-		for (int i = FindOOBEnd(1); i <= wordCount; ++i)
+		for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
 		{
 			if (wordStarts[i][0] != 'I' || wordStarts[i][1]) MakeLowerCase(wordStarts[i]);
 		}
 	}
 
-	// check for all uppercase (capslock)
-	for (int i = 1; i <= wordCount; ++i)  originalCapState[i] = IsUpperCase(*wordStarts[i]); // note cap state
-	bool lowercase = false;
-	if (!oobExists)
-	{
-		for (int i = 1; i <= wordCount; ++i)
-		{
-			char* word = wordStarts[i];
-			size_t len = strlen(word);
-			for (int j = 0; j < (int)len; ++j)
-			{
-				if (IsLowerCase(word[j])) // lower case letter detected?
-				{
-					lowercase = true;
-					i = j = len + 10000; // len might be BIG (oob data) so make sure beyond it)
-				}
-			}
-		}
+	if (!oobExists) FixCasing();
 
-		if (!lowercase && wordCount > 2) // must have multiple words all in uppercase
-		{
-			for (int i = 1; i <= wordCount; ++i)
-			{
-				char* word = wordStarts[i];
-				char myword[MAX_WORD_SIZE];
-				MakeLowerCopy(myword, word);
-				WORDP D = StoreWord(myword);
-				wordStarts[i] = D->word;
-				originalCapState[i] = false;
-			}
-		}
-
-		// force Lower case on plural start word which has singular meaning (but for substitutes
-		if (wordCount)
-		{
-			char word[MAX_WORD_SIZE];
-			MakeLowerCopy(word, wordStarts[1]);
-			size_t len = strlen(word);
-			if (strcmp(word, wordStarts[1]) && word[1] && word[len - 1] == 's') // is a different case and seemingly plural
-			{
-				WORDP O = FindWord(word, len, UPPERCASE_LOOKUP);
-				WORDP D = FindWord(word, len, LOWERCASE_LOOKUP);
-				if (D && D->properties & PRONOUN_BITS) { ; } // dont consider hers and his as plurals of some noun
-				else if (O && O->properties & NOUN) { ; }// we know this noun (like name James)
-				else
-				{
-					char* singular = GetSingularNoun(word, true, false);
-					D = FindWord(singular);
-					if (D && stricmp(singular, word)) // singular exists different from plural, use lower case form
-					{
-						D = StoreWord(word); // lower case plural form
-						if (D->internalBits & UPPERCASE_HASH) AddProperty(D, NOUN_PROPER_PLURAL | NOUN);
-						else AddProperty(D, NOUN_PLURAL | NOUN);
-						wordStarts[1] = D->word;
-					}
-				}
-			}
-		}
-	}
 	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
 	{
 		TraceTokenization(input);
@@ -4037,62 +4131,28 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	else // need wordcanonical to be valid (nonzero)  for any savesentence call
 	{
 		marklimit = 0;
-		for (int i = 1; i <= wordCount; ++i)
+		for (unsigned int i = 1; i <= wordCount; ++i)
 		{
 			wordCanonical[i] = wordStarts[i];
 			// even oob has possible pattern match, so mark its components
 			MarkWordHit(0, EXACTNOTSET, StoreWord(wordStarts[i], AS_IS), 0, i, i);
 		}
 	}
-	int i, j;
 	if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
-	{
-		// formulate an input insertion
-		char* buffer = AllocateBuffer(); // needs to be able to hold all input queued
-		*buffer = 0;
-		int more = (derivationIndex[1] & 0x000f) + 1; // at end
-		if (more <= derivationLength && *derivationSentence[more] == ',') // swallow comma into original
-		{
-			++more;	// dont add comma onto input
-			derivationIndex[1]++;	// extend end onto comma
-		}
-		for (i = more; i <= derivationLength; ++i) // rest of data after input.
-		{
-			if (i == 1) strncat(buffer, &derivationSeparator[0], 1);
-			strcat(buffer, derivationSentence[i]);
-			strncat(buffer, &derivationSeparator[i], 1);
-		}
-
-		// what the rest of the input had as punctuation OR insure it does have it
-		char* end = buffer + strlen(buffer);
-		char* tail = end - 1;
-		while (tail > buffer && *tail == ' ') --tail;
-		if (tokenFlags & QUESTIONMARK && *tail != '?') strcat(tail, (char*)"? ");
-		else if (tokenFlags & EXCLAMATIONMARK && *tail != '!') strcat(tail, (char*)"! ");
-		else if (*tail != '.') strcat(tail, (char*)". ");
-
-		if (!analyze)
-		{
-			EraseCurrentInput();
-			AddInput(buffer, 0);
-		}
-		FreeBuffer();
-		wordCount = 1; // truncate current analysis to just the interjection
-		tokenFlags |= DO_INTERJECTION_SPLITTING;
-	}
+		SplitInterjection(analyze);
 
 	// copy the raw sentence original input that this sentence used
 	*rawSentenceCopy = 0;
 	char* atword = rawSentenceCopy;
-	int reach = 0;
-	for (i = 1; i <= wordCount; ++i)
+	unsigned int reach = 0;
+	for (unsigned i = 1; i <= wordCount; ++i)
 	{
-		int start = derivationIndex[i] >> 8;
-		int end = derivationIndex[i] & 0x00ff;
+		unsigned int start = derivationIndex[i] >> 8;
+		unsigned int end = derivationIndex[i] & 0x00ff;
 		if (start > reach)
 		{
 			reach = end;
-			for (j = start; j <= reach; ++j)
+			for (unsigned int j = start; j <= reach; ++j)
 			{
 				if (j == 1) strncat(atword, &derivationSeparator[0], 1);
 				strcpy(atword, derivationSentence[j]);
@@ -4111,15 +4171,21 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 	if (echoSource == SOURCE_ECHO_LOG)
 	{
 		Log(ECHOUSERLOG, (char*)"  => ");
-		for (i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+		for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
 		Log(ECHOUSERLOG, (char*)"\r\n");
 	}
 
 	wordStarts[0] = wordStarts[wordCount + 1] = AllocateHeap((char*)""); // visible end of data in debug display
 	wordStarts[wordCount + 2] = 0;
-	if (!oobExists &&  mark && wordCount) MarkAllImpliedWords((*bad || timeover || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false);
 
-	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & (TRACE_POS & TRACE_PREPARE) || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
+	if (!oobExists && mark && wordCount)
+	{
+		bool limitnlp = (*bad || timeover || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false;
+		TagIt(limitnlp); // pos tag and maybe parse
+		MarkAllImpliedWords(limitnlp);
+		SetSentenceTense(1, wordCount); // english, mostly, some foreign
+	}
+	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & (TRACE_POS | TRACE_PREPARE) || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
 	if (timing & TIME_PREPARE) {
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0)
@@ -4131,7 +4197,7 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
 			strncpy(input + 50, hold, 4);
 		}
 	}
-}
+	}
 
 #ifndef NOMAIN
 int main(int argc, char* argv[])

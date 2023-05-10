@@ -1,7 +1,7 @@
 #ifndef MAINSYSTEMH
 #define MAINSYSTEMH
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -47,10 +47,11 @@ extern DEBUGVARAPI debugVar;
 extern unsigned int parseLimit;
 extern DEBUGVARAPI debugMark;
 extern char myip[100];
+extern const char* buildString;
 extern uint64 timedeployed;
 extern char repairinput[20];
 extern char* repairat;
-
+extern bool nophrases;
 extern bool outputapicall;
 extern unsigned long startLogDelay;
 extern int cs_qsize;
@@ -110,7 +111,7 @@ extern char* originalUserMessage; // user input component
  extern char* tracebuffer;
  extern char treetaggerParams[200];
 extern unsigned short int derivationIndex[MAX_SENTENCE_LENGTH];
-extern int derivationLength;
+extern unsigned int derivationLength;
 extern bool client;
 extern char* derivationSentence[MAX_SENTENCE_LENGTH];
 extern char derivationSeparator[MAX_SENTENCE_LENGTH];
@@ -130,7 +131,7 @@ extern int sentenceLimit;
 extern char rootdir[MAX_WORD_SIZE];
 extern char incomingDir[MAX_WORD_SIZE];
 extern int volleyFile;
-extern unsigned int forcedRandom;
+extern  int forcedRandom;
 extern unsigned char responseOrder[MAX_RESPONSE_SENTENCES+1];
 extern RESPONSE responseData[MAX_RESPONSE_SENTENCES+1];
 extern bool logline;
@@ -272,7 +273,7 @@ extern "C" __declspec(dllexport) unsigned int InitSystem(int argc, char* argv[],
 unsigned int InitSystem(int argc, char* argv[], char* unchangedPath = NULL, char* readonlyPath = NULL, char* writablePath = NULL, USERFILESYSTEM* userfiles = NULL, DEBUGAPI in = NULL, DEBUGAPI out = NULL);
 #endif
 
-int FindOOBEnd(int start);
+int FindOOBEnd(unsigned int start);
 void InitStandalone();
 void CreateSystem();
 void LoadSystem();

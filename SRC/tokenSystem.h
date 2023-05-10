@@ -3,7 +3,7 @@
 #include "common.h"
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -24,8 +24,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 extern uint64 tokenFlags;  
 extern char* wordStarts[MAX_SENTENCE_LENGTH];
 extern bool capState[MAX_SENTENCE_LENGTH];	
-extern bool originalCapState[MAX_SENTENCE_LENGTH];
-extern  int wordCount;
+extern unsigned int wordCount;
+#define MAX_BURST 400
+extern char burstWords[MAX_BURST][MAX_WORD_SIZE];
 extern int inputNest;
 extern int hasFundamentalMeanings;
 extern int actualTokenCount;
@@ -35,7 +36,7 @@ char* GetBurstWord(unsigned int n);
 char* JoinWords(unsigned int n,bool output = false,char* buffer = NULL);
 void ProcessSplitUnderscores();
 WORDP ApostropheBreak(char* aword);
-char* Tokenize(char* input,int& count,char** words, char* separators, bool all = false,bool oobstart = false);
+char* Tokenize(char* input, unsigned int& count,char** words, char* separators, bool all = false,bool oobstart = false);
 int ValidPeriodToken(char* start, char* end, char next,char next2);
 char* ReadTokenMass(char* ptr, char* word);
 void ProcessSubstitutes();
@@ -43,7 +44,7 @@ FunctionResult GetDerivationText(int start, int end, char* buffer);
 void ProcessCompositeNumber();
 void ProcessCompositeDate();
 void ProperNameMerge();
-bool DateZone(int i, int& start, int& end);
+bool DateZone(unsigned int i, unsigned  int& start, unsigned int& end);
 bool ParseTime(char* ptr, char** minute, char** meridiem);
 char* FindTimeMeridiem(char* ptr, int len = 0);
 unsigned int TransformCount(char* dictword, unsigned int inputLen, char* inputSet, uint64 min);

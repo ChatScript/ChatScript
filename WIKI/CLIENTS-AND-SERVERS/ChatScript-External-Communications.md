@@ -124,6 +124,9 @@ If you use the param websocket=url the system on startup will become a websocket
 as its input/output loop channel. If you also supply parameter websocketmessage="send this first" then that
 message will be sent when the socket is opened.
 
+By default the bot name used for websocket chatting is 'websocketbot'. The param websocketbot=xxx
+will change that to xxx.
+
 ## Tracking User Data
 
 Normally ChatScript tracks user data in a topic file in USERS. If you want to maintain your own state

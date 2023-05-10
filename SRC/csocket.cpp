@@ -505,7 +505,7 @@ restart: // start with user
 			{
 				ptr = data;
 				if (Myfgets(ptr, 100000 - 100, sourceFile) == NULL) break;
-				if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+				if (HasUTF8BOM(ptr)) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 																																							   // (*printer)((char*)"Read %s\r\n",  data);
 				strcpy(copy, ptr);
 				size_t l = strlen(ptr);
@@ -564,7 +564,7 @@ restart: // start with user
 				*blank = '\t';
 
 				ptr = data; // process current data
-				if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+				if (HasUTF8BOM(ptr)) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 
 							// Get User name
 				blank = strchr(ptr, '\t');
@@ -692,7 +692,7 @@ restart: // start with user
 				if (--count < 0)
 					break;
 				strcpy(copy, ptr);
-				if ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF) memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
+				if (HasUTF8BOM(data))  memmove(data, data + 3, strlen(data + 2));// UTF8 BOM
 				strcpy(user, "user1");
 				strcpy(sendbuffer, user);
 				userlen = strlen(sendbuffer);
@@ -730,18 +730,24 @@ restart: // start with user
 			delete(sock);
 			char* pastoob = strrchr(response, ']');
 			if (pastoob) ++pastoob;
+			*data = 0;
 
 			// we say that  until :exit
 			if (!converse && !jastarts && !raw)
 			{
 				(*printer)((char*)"%s", response);
 				(*printer)((char*)"%s", (char*)"\r\n>    ");
+
+				// check for oob callback 
+				ProcessOOB(response);
+				while (ProcessInputDelays(data + 1, KeyReady())) { ; }// use our fake callback input? loop waiting if no user input found
 			}
 			else if (jastarts || raw) {}
 			else Log(USERLOG, "%s %s %s\r\n", user, bot, response);
 			if (!converse && !jastarts && !jaconverse && !raw)
 			{
-				if (ReadALine(data, sourceFile, 100000 - 100) < 0) break; // next thing we want to send
+				if (*data) {}
+				else if (ReadALine(data, sourceFile, 100000 - 100) < 0) break; // next thing we want to send
 				strcat(data, (char*)" "); // never send empty line
 				msg = data;
 				ptr = data;
@@ -803,7 +809,7 @@ restart: // start with user
 						printf(output);
 						server = false;
 					}
-					if (sourceFile) fclose(sourceFile);
+					FClose(sourceFile);
 					printf("\r\ndone\r\n");
 					FreeBuffer();
 					FreeBuffer();
@@ -846,7 +852,7 @@ restart: // start with user
 	catch (SocketException e) {
 		myexit((char*)"failed to connect to server");
 	}
-	if (sourceFile) fclose(sourceFile);
+	FClose(sourceFile);
 #endif
 }
 #endif

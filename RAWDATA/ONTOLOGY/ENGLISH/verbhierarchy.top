@@ -1,5 +1,5 @@
 ##<<ENGLISH concept: ~determinerlist (a an the ) ##>>
-##<<ENGLISH concept: ~qwords (where when why how whom who whose whomever whoever what which whichever whatever ) ##>>
+##<<ENGLISH concept: ~qwords (how_many who where when why how whom who whose how whomever whoever what which whichever whatever ) ##>>
 
 canon: spat spit
 
@@ -9,20 +9,20 @@ canon: spat spit
 # exceptions to "of" following a noun (these are not going to be nouns)
 ##<<ENGLISH concept: ~verbof_exceptions (talk tell think come dream give tire) ##>> 
 ##<<ENGLISH concept: ~static_verbs ( ~states_of_being ~sensory_states ~mental_states ~own ~measurement_states ~eternal_truths) ##>>
-##<<ENGLISH concept: ~states_of_being (be~v seem~v appear~v look~v resemble~v "looks like" becomes~v get~v) ##>> # descriptors
-##<<ENGLISH concept: ~sensory_states (appear~v feel~v hear~v look~v  see~v  smell~v sound~v taste~v ) ##>> # descriptors
-##<<ENGLISH concept: ~mental_states (agree~v believe~v depend~v desire~v dislike~v doubt~v  exist~v feel~v forget~v have~v imagine~v impress~v know~v like~v matter~v mean~v mind~v need~v own~v possess~v prefer~v promise~v recognize~v remember~v seem~v suppose~v surprise~v  think~v understand~v want~v wish~v ) ##>>
+##<<ENGLISH concept: ~states_of_being (be seem appear look resemble "looks like" becomes get~v) ##>> # descriptors
+##<<ENGLISH concept: ~sensory_states (appear feel hear look  see  smell sound taste ) ##>> # descriptors
+##<<ENGLISH concept: ~mental_states (agree believe depend desire dislike doubt  exist feel forget have imagine impress know like matter mean mind need own possess prefer promise recognize remember seem suppose surprise  think understand want wish ) ##>>
 ##<<ENGLISH concept: ~measurement_states ( equal "add up to" reach measure make cost owe include contain weigh) ##>> # descriptors - make is for numbers
 ##<<ENGLISH concept: ~eternal_truths ( concern consist  fit include involve move share ) ##>> # share borders, move the earth
 
-##<<ENGLISH concept: ~abort (annul~v cancel~v fail~v invalidate~v nullify~v quash~v void~v ) ##>>
+##<<ENGLISH concept: ~abort (annul cancel fail invalidate nullify quash void ) ##>>
 ##<<ENGLISH concept: ~absorb (absorb inject insert ) ##>>
 ##<<ENGLISH concept: ~accept_obey (comply give_in obey submit succumb yield ) ##>>
 ##<<ENGLISH concept: ~achieve (accomplish attain complete earn fulfill satisfy succeed win ) ##>>
 ##<<ENGLISH concept: ~acquiring_verbs (~BEGIVEN ~GET ~GIVE ~STEAL ) ##>>
 ##<<ENGLISH concept: ~act (act attempt can commit dedicate devote do intend labor perform retry strive toil try ) ##>>
 ##<<ENGLISH concept: ~active_verbs (~AFFECT_OBJECT_VERBS ~ANIMATE_MOVE_VERBS ~BODY_VERBS ~CONTROLLING_VERBS ~HEALTH_VERBS ~POSSESSION_VERBS ~SPECIAL_ACTIVITIES_VERBS ) ##>>
-##<<ENGLISH concept: ~add_magnetism (magnetise~v magnetize~v ) ##>>
+##<<ENGLISH concept: ~add_magnetism (magnetise magnetize ) ##>>
 ##<<ENGLISH concept: ~add_smell (aromatise aromatize odorize odourise ) ##>>
 ##<<ENGLISH concept: ~affect_object_verbs (~alter ~ALTER_AGE ~ALTER_CHEMISTRY_VERBS ~ALTER_CLEANLINESS_VERBS ~ALTER_COMPLEXITY_VERBS ~ALTER_CONTAINER_VERBS ~ALTER_ELECTRICITY_VERBS ~ALTER_ESTHETICS_VERBS ~ALTER_FUNCTIONALITY_VERBS
           ~ALTER_LOCATION_VERBS ~ALTER_MAGNETISM_VERBS ~ALTER_MOISTURE_VERBS ~ALTER_ORIENTATION ~ALTER_QUANTITY_VERBS ~ALTER_RADIATION ~ALTER_SHARPNESS_VERBS ~ALTER_SIZE_VERBS ~ALTER_SMELL_VERBS
@@ -75,13 +75,13 @@ canon: spat spit
 ##<<ENGLISH concept: ~animate_verbs (~AFFECT_OBJECT_VERBS ~ANIMATE_MOVE_VERBS ~BODY_VERBS ~GENERIC_DO_VERBS ~HEALTH_VERBS ~MENTAL_VERBS ~PERCEPTION_VERBS ~SOCIAL_VERBS ~SPECIAL_ACTIVITIES_VERBS ~ASSOCIATION_VERBS) ##>>
 ##<<ENGLISH concept: ~arrange (align arrange categorize codify coil design dot formalize heap layer mound organize pile rack rearrange reorganize schedule scramble
           unscramble ) ##>>
-##<<ENGLISH concept: ~arrive (arrive~v get_to~v go_to~v reach~v return~v visit~v ) ##>>
+##<<ENGLISH concept: ~arrive (arrive get_to go_to reach return visit ) ##>>
 ##<<ENGLISH concept: ~attachment_verbs (~CHANGE_STATE_BY_MIXING ~JOIN ~UNJOIN ) ##>>
-##<<ENGLISH concept: ~auxverblist (am~v are~v been~v being~v be~v can~v could~v dared~v dares~v dare~v did~v does~v do~v going_to~v had~v has~v have~v is~v may~v might~v must~v
-          ought~v shall~v should~v was~v were~v will~v would~v ) ##>>
-##<<ENGLISH concept: ~avoid (avoid~v boycott~v circumvent~v dodge~v duck~v elude~v eschew~v evade~v forgo~v shun~v sidestep~v ) ##>>
-##<<ENGLISH concept: ~awareof (appear~v be_you_aware_of be_you_familiar_with detect~v discern~v discover~v do_you_know experience~v have_you_heard_of have_you_run_across intuit~v materialize~v
-          perceive~v sense~v show_up what_do_you_know_about who_be ) ##>>
+##<<ENGLISH concept: ~auxverblist (am are been being be can could dared dares dare did does do going_to had has have is may might must~v
+          ought shall should was were will would ) ##>>
+##<<ENGLISH concept: ~avoid (avoid boycott circumvent dodge duck elude eschew evade forgo shun sidestep ) ##>>
+##<<ENGLISH concept: ~awareof (appear be_you_aware_of be_you_familiar_with detect discern discover do_you_know experience have_you_heard_of have_you_run_across intuit materialize~v
+          perceive sense show_up what_do_you_know_about who_be ) ##>>
 ##<<ENGLISH concept: ~balance (balance dizzy ) ##>>
 ##<<ENGLISH concept: ~banish (banish deport disbar discharge disenfranchise disfranchise evacuate evict excommunicate exile expel fire ignore ostracise ostracize
           sack terminate unfrock ) ##>>
@@ -318,8 +318,8 @@ canon: spat spit
 ##<<ENGLISH concept: ~like (adore approve be_big_on attached_to be_keen_on be_partial_to care_about care_for care cherish cotton_to deify delight_in desire dote_on enjoy esteem exalt fancy
            favor go_for idolize indulge_in interested_in like love need prefer prize relish require respect revel_in savor treasure trust value
           venerate worship ) ##>>
-##<<ENGLISH concept: ~linkingverb (am~v appear~v are~v become~v been~v being~v be~v feel~v get~v go~v grow~v is~v keep~v lie~v look~v prove~v remain~v run~v seem~v smell~v sound~v stay~v taste~v
-          turn~v was~v were~v ) ##>>
+##<<ENGLISH concept: ~linkingverb (am appear are become been being be feel get go grow is keep lie look prove remain run seem smell sound stay taste~v
+          turn was were ) ##>>
 ##<<ENGLISH concept: ~list (enumerate list name) ##>>
 ##<<ENGLISH concept: ~live (abide board domicile dwell exist frequent infest inhabit live_with live lodge nest occupy rent reside shelter stay ) ##>>
 ##<<ENGLISH concept: ~loosen (loosen ) ##>>
@@ -352,10 +352,10 @@ canon: spat spit
 ##<<ENGLISH concept: ~moving_escape (bolt depart disappear disembark escape evade exit flee leave retreat skedaddle slip_away vacate vamoose vanish withdraw ) ##>>
 ##<<ENGLISH concept: ~moving_fast_land (barrel bound breeze canter careen carom charge chase dart dash gallop hasten hurry hurtle hustle jog lope race rocket
           run rush scamper scoot scramble scram scurry speed sprint streak zoom ) ##>>
-##<<ENGLISH concept: ~moving_generic (ascend~v bounce~v bowl~v cavort~v climb~v coast~v continue~v cross~v cruise~v curve~v distance~v dog~v fit~v flit~v follow~v glide~v go_by~v guide~v head~v hop~v
-			jump~v lay~v leap~v meander~v migrate~v move_onward~v navigate~v pedal~v place~v prance~v proceed~v pursue~v put~v rally~v ramble~v rise~v roam~v romp~v rove~v set~v shadow~v
-			shove~v sidle~v skip~v skitter~v slow~v spiral~v squire~v stray~v sweep~v swerve~v tour~v trail~v traverse~v usher~v vault~v wander~v wend~v yaw~v zag~v zig-zag~v zigzag~v
-			zig~v ) ##>>
+##<<ENGLISH concept: ~moving_generic (ascend bounce bowl cavort climb coast continue cross cruise curve distance dog fit flit follow glide go_by guide head hop~v
+			jump lay leap meander migrate move_onward navigate pedal place prance proceed pursue put rally ramble rise roam romp rove set shadow~v
+			shove sidle skip skitter slow spiral squire stray sweep swerve tour trail traverse usher vault wander wend yaw zag zig-zag zigzag~v
+			zig ) ##>>
 ##<<ENGLISH concept: ~moving_object (accompany convoy escort move pull push shove_along slide steer tow truck ) ##>>
 ##<<ENGLISH concept: ~moving_slow_land (amble backpack burrow clamber climb crawl creep dodder drag drift file frolic gambol glide goose_step hike hobble inch
           jog limp lumber lurch march_on march_onward march mosey parade perambulate plod prance promenade prowl pull push reel roll sashay saunter
@@ -430,7 +430,7 @@ canon: spat spit
 ##<<ENGLISH concept: ~speak_thru_device (broadcast page phone radio tape_record telecommunicate telephone wireless ) ##>>
 ##<<ENGLISH concept: ~speak_verbs (~CHAT ~DECEIVE ~SOCIAL_REPUTATION_VERBS ~SPEAK_THRU_DEVICE ~TALKSTYLE ~TELL verbal_agree verbal_disagree ) ##>>
 ##<<ENGLISH concept: ~special_activities_verbs ( ~COOKING_VERBS ~DRIVE ~EXERCISE_VERBS ~FARM ~GAMBLE ~GOLFING ~LIVE ~MINE ~PHOTOGRAPHING ~play_instrument ~play_sport ) ##>>
-##<<ENGLISH concept: ~start (begin~v  cause~v continue~v inaugurate~v initialize~v initiate~v proceed~v provoke~v restart~v resume~v start~v trigger~v assemble~v birth~v build~v create~v  invent~v release~v ship~v ) ##>>
+##<<ENGLISH concept: ~start (begin  cause continue inaugurate initialize initiate proceed provoke restart resume start trigger assemble birth build create  invent release ship ) ##>>
 
 
 ##<<ENGLISH concept: ~steal (abduct abscond annex burglarise burglarize burgle carjack confiscate cop emancipate embezzle extort filch gip grab highjack hijack
@@ -477,8 +477,8 @@ canon: spat spit
 ##<<ENGLISH concept: ~vehicle_verbs (balloon boat bobsled bus cab caravan chariot coach dogsled ferry gondola helicopter jeep jet moped motor parachute punt pilot
           rickshaw ride rocket sledge sleigh taxi tram trolley yacht  drive pilot race) ##>>
 ##<<ENGLISH concept: ~verbal_agree (acknowledge affirm agree approve compromise consent rubberstamp stipulate ) ##>>
-##<<ENGLISH concept: ~verbal_disagree (argue~v bicker~v confute~v contend~v contest~v contradict~v controvert~v counter~v differ~v disagree~v dispute~v dissent~v nitpick~v object~v quarrel~v
-          quibble~v rebut~v refute~v reject~v squabble~v veto~v vie~v ) ##>>
+##<<ENGLISH concept: ~verbal_disagree (argue bicker confute contend contest contradict controvert counter differ disagree dispute dissent nitpick object quarrel~v
+          quibble rebut refute reject squabble veto vie ) ##>>
 ##<<ENGLISH concept: ~verblist ONLY_VERBS (~ANIMATE_VERBS ~INANIMATE_VERBS ~TIME_EVENT_VERBS ~WEATHER_VERBS ) ##>>
 ##<<ENGLISH concept: ~videoing (broadcast film microfilm satellite tape telecast televise ) ##>>
 ##<<ENGLISH concept: ~vision_verbs (~BECOME_VISIBLE ~DISAPPEAR ~READ ~WATCH assess audit canvass descry explore expose investigate note recognize reveal review riffle

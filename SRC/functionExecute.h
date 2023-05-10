@@ -3,7 +3,7 @@
 
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -65,18 +65,56 @@ enum TestMode {
 	LANGUAGECMD = 7
 };
 
+#define MAX_ARG_LIMIT 31 // max args to a call -- limit using 2 bit (COMPILE/KEEP_QUOTES) per arg for table mapping behavior
+
+typedef struct CALLFRAME
+{
+    char* label;
+    char* rule;
+    char** display; // where display archive is saved
+    char* definition; // actual definition chosen to execute: (locals) + code
+    WORDP name; // basic name
+    char* code; // code after locals
+    char* oldRule;
+    char* heapstart;
+    char* arguments[MAX_ARG_LIMIT + 1];
+    uint64 index; // debug data for crashes
+    unsigned int n_arguments; // how many arguments function has
+    CALLFRAME* currentFNVarFrame; // where ^n variables are gotten
+    CALLFRAME* currentCallFrame; // where current executing code gets its arguments
+    unsigned int outputlevel;
+    unsigned int oldRuleID;
+    unsigned int oldTopic;
+    unsigned int oldRuleTopic;
+    unsigned int memindex;
+    unsigned int heapDepth;
+    union {
+        FunctionResult result;
+        int ownvalue;
+    }x;
+
+}CALLFRAME;
+
+enum APICall {
+    NO_API_CALL = 0,
+    COMPILE_PATTERN = 1,
+    COMPILE_OUTPUT = 2,
+    TEST_PATTERN = 3,
+    TEST_OUTPUT = 4
+};
 //   argument data for system calls
 extern TestMode wasCommand;
 extern char* traceTestPatternBuffer;
 extern int tracepatterndata;
 extern bool directAnalyze;
+extern CALLFRAME* frameList[MAX_GLOBAL];
+
 extern HEAPREF patternwordthread;
 extern HEAPREF memoryMarkThreadList;
 extern HEAPREF memoryVariableThreadList;
 extern HEAPREF memoryVariableChangesThreadList;
 #define MAX_ARG_LIST 200
 #define MAX_CALL_DEPTH 400
-extern char* codeStart;
 extern char* rawtestpatterninput;
 extern char testpatternlabel[100];
 extern bool softRestart;
@@ -86,21 +124,14 @@ extern int rulesExecuted;
 extern char* traceTestPattern;
 extern bool testpatternblocksave;
 extern char* realCode;
-extern int do_nl_save;
-extern unsigned int callIndex;
-extern WORDP callStack[MAX_CALL_DEPTH];
-extern int callArgumentBases[MAX_CALL_DEPTH];    // arguments to functions
-extern unsigned int callArgumentIndex;
 extern int maxGlobalSeen;
 extern long http_response;
 extern char lastcurltime[100];
 extern char* currentFunctionName;
 extern HEAPREF savedSentencesThreadList;
-extern HEAPREF savedSentencesBinaryList;
 extern char* testpatterninput;
 extern int testPatternIndex;
 
-#define MAX_ARG_LIMIT 31 // max args to a call -- limit using 2 bit (COMPILE/KEEP_QUOTES) per arg for table mapping behavior
 extern unsigned int currentIterator;
 extern char* fnOutput;
 extern bool allowBootKill;
@@ -116,6 +147,8 @@ FunctionResult WebsocketCloseCode(char* buffer);
 #ifdef WIN32
 FunctionResult InitWinsock();
 #endif
+
+CALLFRAME* ChangeDepth(int value, const char* where, bool nostackCutboack = false, char* code = NULL);
 FunctionResult GambitCode(char* buffer);
 FunctionResult RunJavaScript(char* definition, char* buffer,unsigned int args);
 void DeletePermanentJavaScript();
@@ -123,7 +156,6 @@ void DeleteTransientJavaScript();
 void ShowChangedVariablesList();
 HEAPREF MakeFunctionDefinition(char* data);
 unsigned int MACRO_ARGUMENT_COUNT(unsigned char* defn);
-void DebugConcepts(HEAPREF list, int wordindex);
 FunctionResult FindRuleCode1(char* buffer, char* word);
 int GetFnArgCount(char* func,int& flags);
 bool NeedNL(MEANING patterns);
@@ -133,9 +165,11 @@ void RestoreDisplay(char** base, char* list);
 extern SystemFunctionInfo systemFunctionSet[];
 extern bool planning;
 extern bool nobacktrack;
+extern CALLFRAME* currentFNVarFrame;
+extern CALLFRAME* currentCallFrame;
 CALLFRAME* GetCallFrame(int depth);
 FunctionResult MemoryMarkCode(char* buffer);
-char* GetArgOfMacro(int i, char* buffer, int limit);
+char* GetArgOfMacro(CALLFRAME* frame,int i, char* buffer, int limit);
 FunctionResult MemoryFreeCode(char* buffer);
 unsigned char* FindAppropriateDefinition(WORDP D, FunctionResult& result,bool finddefn = false);
 void ResetReuseSafety();
@@ -144,7 +178,6 @@ void InitFunctionSystem();
 char* DoFunction(char* name, char* ptr, char* buffer,FunctionResult &result);
 void DumpFunctions();
 unsigned int Callback(WORDP D,char* arguments,bool boot,bool mainoutput = false);
-void ResetFunctionSystem();
 void SaveMark(char* buffer,unsigned int iterator);
 FunctionResult RegularReuse(int topic, int id, char* rule,char* buffer,char* arg3,bool crosstopic);
 void UpdateTrace(char* value);

@@ -1109,6 +1109,7 @@
  orthodontic ( meanings=2 glosses=1 ADJECTIVE ADJECTIVE_NORMAL COMMON2 COMMON1 posdefault:ADJECTIVE ) 
     orthodontic~1az of or relating to or involving or practicing orthodontics
     orthodontic~2az 
+ orthotist ( NOUN NOUN_SINGULAR )
  orthoptics ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON1 ) 
     orthoptics~1nz (^treatment~1) treatment of defects of binocular vision by nonsurgical measures (especially by exercises to strengthen the eye muscles)
  osteopathy ( meanings=1 glosses=1 NOUN_ABSTRACT NOUN NOUN_SINGULAR COMMON2 NOUN_NODETERMINER posdefault:NOUN ) 

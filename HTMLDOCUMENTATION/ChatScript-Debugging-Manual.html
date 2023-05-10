@@ -245,7 +245,9 @@
 <p>The above will turn on a bunch of trace values and then assign them to the function, clearing the trace values.</p>
 <p>Note: If you want to set a regular trace value and a topic and/or function, the regular trace values must occur last, after all topic and function traces.</p>
 <h3 id="trace-factcreate-subject-verb-object"><code>:trace factcreate subject verb object</code></h3>
-<p>subject, verb, and object name values of those fields. You can use null when you don't want to name a value. This trace will show whenever facts matching this template are created. You can insert a trace command in the data of a table declaration, to trace a table being built (the log file will be from the build in progress). E.g.,</p>
+<p>subject, verb, and object name values of those fields. You can use null when you don't want to name a value. This trace will show whenever facts matching this template are created.</p>
+<h3 id="tracing-tables"><code>Tracing tables</code></h3>
+<p>You can insert a trace command (eg :trace all or :trace none) in the data of a table declaration, to trace a table being built (the log file will be from the build in progress). E.g.,</p>
 <pre><code>table: ~capital (^base ^city)
 _9 = join(^city , _ ^base)
 ^createfact(_9 member ~capital)
@@ -254,11 +256,13 @@ DATA:
 :trace all
 Utah Salt_lake_city
 :trace none</code></pre>
+<h3 id="tracing-compiling-of-files"><code>Tracing compiling of files</code></h3>
 <p>You can insert a trace in the list of files to process for a build. From files1.txt</p>
 <pre><code>RAWDATA/simplecontrol.top # conversational control
 :trace all
 RAWDATA/simpletopic.top # things we can chat about
 :trace none</code></pre>
+<h3 id="tracing-compiling-of-a-topic"><code>Tracing compiling of a topic</code></h3>
 <p>And you can insert a trace in the list of commands of a topic file:</p>
 <pre><code>topic: foo […]
 ...
@@ -271,6 +275,9 @@ RAWDATA/simpletopic.top # things we can chat about
 <p>NOTE: if you want tracing to start at startup, when you don't have control, login with a botname of trace. E.g, at the login type:</p>
 <pre><code>john:trace</code></pre>
 <p>This will turn on all tracing.</p>
+<h3 id="tracing-readfile"><code>Tracing ^readfile</code></h3>
+<p>You can do :trace all and :trace none as lines of a file being read in via ^readfile.</p>
+<h3 id="tracing-specific-things"><code>Tracing specific things</code></h3>
 <p><code>:trace</code> also has individual collections and items it can trace. If you just say :trace you get a listing of things.</p>
 <pre><code>:notrace {ON,OFF} ~topic1 ~topic2 {ON,OFF} ~topic3</code></pre>
 <p>Regardless of the use of <code>:trace</code>, <code>:notrace</code> marks some topics to not trace. Particularly useful to do :notrace ^Query which omits most of the guts of query calls, which can often be extensive.</p>
@@ -586,8 +593,14 @@ railroad_executive
 chief_executive
 chief_executive_officer
 Dancing_and_singing_are_my_idea_of_exercise.</code></pre>
+<h3 id="respondonly-filename"><code>:respondonly filename</code></h3>
+<p>Take serverlog named and replicate in tmp but without serverpre or separator lines.</p>
+<h3 id="splitfile-filename"><code>:splitfile filename</code></h3>
+<p>Reads a really large file, line by line. The filename omits the .txt which is assumed. Writes new files limited to 20MB in tmp of the same name, with a number index before the suffix .txt.</p>
 <h3 id="overlap-set1-set2"><code>:overlap set1 set2</code></h3>
 <p>This tests atomic members of set1 to see if they are also in set2, printing out the ones that are in both.</p>
+<h3 id="dumpcache"><code>:dumpcache</code></h3>
+<p>This dumps data about files currently cached by server.</p>
 <h2 id="system-control-commands">System Control Commands</h2>
 <h3 id="build"><code>:build</code></h3>
 <p>This compiles script into ready-to-use data in the TOPICS folder. You name a file to build. If the file name has a 0 at the end of it, it will build as level 0. Any other file name will build as level 1. You can build levels in any order or just update a single level.</p>

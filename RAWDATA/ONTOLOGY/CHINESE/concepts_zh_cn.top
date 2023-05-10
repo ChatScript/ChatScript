@@ -158,8 +158,8 @@ concept: ~coronavirus (冠状病毒  2019冠状病毒病 )
 	concept: ~age_reference (~age_adjectives ~age_words ~agenoun )
 # -- concept: ~age_words (age day millennium month old week year young ) 
 	concept: ~age_words (年龄  日  千年  月  老  周  年  年轻  )
-# -- concept: ~aged_adults (~adult adult centenarian eightysomething fiftysomething fortysomething grandmother grandparent grownup legal mature ninetysomething old_enough quadragenarian 
-	concept: ~aged_adults (~adult 成人  百岁_老人  八十多岁  五十多岁  四十多岁  奶奶  祖父母  大人  法律  成熟  九十多岁  足够老  四次级  
+# -- concept: ~aged_adults (  centenarian eightysomething fiftysomething fortysomething grandmother grandparent grownup legal mature ninetysomething old_enough quadragenarian 
+	concept: ~aged_adults ( 百岁_老人  八十多岁  五十多岁  四十多岁  奶奶  祖父母  大人  法律  成熟  九十多岁  足够老  四次级  
 # --           senior senior_citizen septuagenarian seventysomething sexagenarian sixtysomething thirtysomething twentysomething ) 
           前辈  老年人  七旬老人  七十多岁  六十进制  六十多岁  三十多岁  二十多岁  )
 # -- concept: ~aged_children (baby boy child girl infant kid teen teen-ager teenager toddler young ) 

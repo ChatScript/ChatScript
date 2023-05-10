@@ -18,6 +18,17 @@ The marker fact is normally bypassed by all accesses to the items of a json obje
 #endif
 
 	// GENERAL JSON SUPPORT
+char detectedlanguage[100];
+unsigned int build0jid = 0;
+unsigned int build1jid = 0;
+unsigned int buildbootjid = 0;
+unsigned int builduserjid = 0;
+unsigned int buildtransientjid = 0;
+
+int conceptSeen = 0;
+MEANING jsonconceptName;
+char* jsonconceptname;
+static char jsonoldlang[MAX_WORD_SIZE];
 
 #include "jsmn.h"
 static bool jsonpurify = false;
@@ -44,7 +55,6 @@ static char* curlBufferBase = NULL;
 static int objectcnt = 0;
 static FunctionResult JSONpath(char* buffer, char* path, char* jsonstructure, bool raw, bool nofail);
 static MEANING jcopy(MEANING M);
-static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer, WORDP D, int subject, int nest);
 
 typedef enum {
 	URL_SCHEME = 0,
@@ -104,6 +114,95 @@ void InitJson()
 	jsonDefaults = 0;
 	curlFail = false;
 	InitJSONNames();
+}
+
+static void JsonReuseKill(FACT* F);
+
+static void jreusekillfact(WORDP D)
+{
+	if (!D) return;
+	FACT* F = GetSubjectNondeadHead(D); // delete everything including marker
+	while (F)
+	{
+		FACT* G = GetSubjectNondeadNext(F);
+		if (F->flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT)) JsonReuseKill(F); // json object/array no longer has this fact
+		if (F->flags & FACTAUTODELETE) { ; } // AutoKillFact(F->object); // kill the fact
+		F = G;
+	}
+}
+
+static void JsonReuseKill(FACT* F)
+{
+	if (!F || F->flags & FACTDEAD) return; // already dead
+
+	if (F <= factsPreBuild[currentBeforeLayer])
+		return;	 // may not kill off facts built into world
+
+	F->flags |= FACTDEAD;
+
+	if (trace & TRACE_FACT && CheckTopicTrace())
+	{
+		Log(USERLOG, "Kill: ");
+		TraceFact(F);
+	}
+	if (F->flags & FACTAUTODELETE) // not doing facts as fields here
+	{
+		return;
+		//	if (F->flags & FACTSUBJECT) AutoKillFact(F->subject);
+		//	if (F->flags & FACTVERB) AutoKillFact(F->verb);
+		//	if (F->flags & FACTOBJECT) AutoKillFact(F->object);
+	}
+
+	// recurse on JSON datastructures below if they are being deleted on right side
+	if (F->flags & (JSON_ARRAY_VALUE | JSON_OBJECT_VALUE))
+	{
+		WORDP jsonarray = Meaning2Word(F->object);
+		// should it recurse to kill guy refered to?
+		// if no other living fact refers to it, you can also kill the referred object/array
+		FACT* H = GetObjectNondeadHead(jsonarray);  // facts which link to this
+		if (!H) jkillfact(jsonarray);
+	}
+	// we dont renumber arrays because we will be destroying the whole thing
+	// if (F->flags & JSON_ARRAY_FACT) JsonRenumber(F);// have to renumber this array
+
+	if (planning) SpecialFact(Fact2Index(F), 0, 0); // save to restore
+
+	// if this fact has facts depending on it, they too must die
+	FACT* G = GetSubjectNondeadHead(F);
+	while (G)
+	{
+		JsonReuseKill(G);
+		G = GetSubjectNondeadNext(G);
+	}
+	G = GetVerbNondeadHead(F);
+	while (G)
+	{
+		JsonReuseKill(G);
+		G = GetVerbNondeadNext(G);
+	}
+	G = GetObjectNondeadHead(F);
+	while (G)
+	{
+		JsonReuseKill(G);
+		G = GetObjectNondeadNext(G);
+	}
+
+	F->subject = Fact2Index(factFreeList);
+	factFreeList = F;
+}
+
+FunctionResult JsonReuseKillCode(char* buffer)
+{
+	char* arg = ARGUMENT(1);
+	if (!IsValidJSONName(arg)) return FAILRULE_BIT;
+	WORDP D = FindWord(arg);
+	FACT* F = GetSubjectNondeadHead(D);
+	while (F)
+	{
+		JsonReuseKill(F);
+		F = GetSubjectNondeadNext(F);
+	}
+	return NOPROBLEM_BIT;
 }
 
 static int JSONArgs()
@@ -190,26 +289,47 @@ void InitJSONNames()
 
 MEANING GetUniqueJsonComposite(char* prefix, unsigned int permanent)
 {
-	char namebuff[MAX_WORD_SIZE];
+	int index = 0;
 	char* permanence = "";
-	if (permanent == FACTTRANSIENT) permanence = "t";
-	else if (jsonPermanent == FACTTRANSIENT) permanence = "t";
-	else if (jsonPermanent == FACTBOOT) permanence = "b";
-	const char* dup = "";
-    if (prefix[1] == 'a' && !jsonNoArrayduplicate) dup = "+";
-    else if (prefix[1] == 'o' && jsonObjectDuplicate) dup = "+";
-	while (1)
+	char newlabel[100];
+	char* label = jsonLabel;
+	if (permanent == FACTTRANSIENT)
 	{
-		sprintf(namebuff, "%s%s%s%s%d", prefix, permanence, dup,jsonLabel, objectcnt);
-		objectcnt += jsonIdIncrement;
-		WORDP D = FindWord(namebuff);
-		if (!D) break;
+		permanence = "t";
+		index = ++buildtransientjid;
 	}
-	jsonIdIncrement = 1; // return to linear hunting of open slots from here
-	unsigned int oldbits = language_bits;
-	language_bits = LANGUAGE_UNIVERSAL; // json header is universal, seeable from all languages
+	else if (jsonPermanent == FACTTRANSIENT)
+	{
+		permanence = "t";
+		index = ++buildtransientjid;
+	}
+	else if (jsonPermanent == FACTBOOT)
+	{
+		permanence = "b";
+		index = ++buildbootjid;
+	}
+	else if (compiling && csapicall == NO_API_CALL && buildID == BUILD0)
+	{
+		index = ++build0jid;
+		sprintf(newlabel, "qx%s", jsonLabel); // build0 not api
+		label = newlabel;
+	}
+	else if (compiling && csapicall == NO_API_CALL && buildID == BUILD1)
+	{
+		index = ++build1jid;
+		sprintf(newlabel, "qy%s", jsonLabel); // buil1 not api
+		label = newlabel;
+	}
+	else
+	{
+		index = ++builduserjid;
+		sprintf(newlabel, "qu%s", jsonLabel); // api composite
+		label = newlabel;
+	}
+	const char* dup = (!jsonNoArrayduplicate || jsonObjectDuplicate) ? "+" : "";
+	char namebuff[MAX_WORD_SIZE];
+	sprintf(namebuff, "%s%s%s%s%d", prefix, permanence, dup, label, index);
 	WORDP D = StoreWord(namebuff, AS_IS);
-	language_bits = oldbits;
 	return MakeMeaning(D);
 }
 
@@ -288,18 +408,23 @@ static void StripEscape(char* from) // some escaped characters to normal, since 
 	}
 }
 
-static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, MEANING * retMeaning, int* flags, bool key, bool nofail,int enableadjust) {
+static int factsJsonHelper(int depth, char* jsontext, jsmntok_t* tokens, int currToken, MEANING* retMeaning, int* flags, bool key, bool nofail, int enableadjust) {
 	// Always build with duplicate on. create a fresh copy of whatever
 	jsmntok_t curr = tokens[currToken];
-	char namebuff[256];
 	*flags = 0;
 	int retToken = currToken + 1;
 	size_t size = curr.end - curr.start;
 	char* text = jsontext + curr.start;
 	char endchar = text[size];
+	text[size] = 0; // terminating token allows us to keep mods to it from affecting other tokens
+
 	switch (curr.type) {
 	case JSMN_PRIMITIVE: { //  true  false, numbers, null
-		text[size] = 0;
+		if (size >= 100)
+		{
+			if (!nofail) ReportBug((char*)"Bad Json primitive size  %s", jsontext); // if we are not expecting it to fail
+			return 0;
+		}
 		// see if its string literal using single quotes instead of double quotes. 
 		if (*text == '\'' && text[size - 1] == '\'')
 		{
@@ -311,31 +436,22 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			// enableadjust bit 2 means do not return this field	
 			if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
 			else *retMeaning = 1; // lie
-			text[size] = endchar;
 			break;
 		}
 
-		char str[1000];
-		if (size >= 1000)
-		{
-			if (!nofail) ReportBug((char*)"Bad Json primitive size  %s", jsontext); // if we are not expecting it to fail
-			return 0;
-		}
-		strncpy(str, text, size);
-		str[size] = 0;
-		if (!strnicmp(str, "ja-", 3)) *flags = JSON_ARRAY_VALUE;
-		else if (!strnicmp(str, "jo-", 3)) *flags = JSON_OBJECT_VALUE;
+		if (!strncmp(text, "ja-", 3)) *flags = JSON_ARRAY_VALUE;
+		else if (!strnicmp(text, "jo-", 3)) *flags = JSON_OBJECT_VALUE;
 		else *flags = JSON_PRIMITIVE_VALUE; // json primitive type
-		if (*str == USERVAR_PREFIX && str[1] == '^')
+		if (*text == USERVAR_PREFIX && text[1] == '^')
 		{ // user function variable does not have a value we want
 			*flags = JSON_STRING_VALUE;
 		}
-		else if (*str == USERVAR_PREFIX || *str == SYSVAR_PREFIX || *str == '_' || *str == '\'') // variable values from CS
+		else if (*text == USERVAR_PREFIX || *text == SYSVAR_PREFIX || *text == '_' || *text == '\'') // variable values from CS
 		{
 			// get path to safety if any
 			char mainpath[MAX_WORD_SIZE];
-			char* path = strchr(str, '.');
-			char* pathbracket = strchr(str, '[');
+			char* path = strchr(text, '.');
+			char* pathbracket = strchr(text, '[');
 			char* first = path;
 			if (pathbracket && path && pathbracket < path) first = pathbracket;
 			if (first) strcpy(mainpath, first);
@@ -345,52 +461,51 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 
 			char word1[MAX_WORD_SIZE];
 			FunctionResult result;
-			ReadShortCommandArg(str, word1, result); // get the basic item
-			strcpy(str, word1);
+			ReadShortCommandArg(text, word1, result); // get the basic item
+			strcpy(text, word1);
 			char* numberEnd = NULL;
 
 			// now see if we must process a path
 			if (*mainpath) // access field given
 			{
 				char word[MAX_WORD_SIZE];
-				result = JSONpath(word, mainpath, str, true, nofail); // raw mode
+				result = JSONpath(word, mainpath, word, true, nofail); // raw mode
 				if (result != NOPROBLEM_BIT)
 				{
-					if (!nofail) ReportBug((char*)"INFO: Bad Json path building facts from template %s%s data", str, mainpath, jsontext); // if we are not expecting it to fail
+					if (!nofail) ReportBug((char*)"INFO: Bad Json path building facts from template %s%s data", text, mainpath, jsontext); // if we are not expecting it to fail
 					return 0;
 				}
-				else strcpy(str, word);
+				else strcpy(word, word);
 			}
-			if (!*str) // empty string treated as null
+
+			if (!*text) // empty string treated as null
 			{
-				strcpy(str, (char*)"null");
+				strcpy(text, (char*)"null");
 				*flags = JSON_STRING_VALUE; // string null
 			}
-			else if (!strcmp(str, (char*)"true") || !strcmp(str, (char*)"false"))
+			else if (!strcmp(text, (char*)"true") || !strcmp(text, (char*)"false"))
 			{
 			}
-			else if (!strncmp(str, (char*)"ja-", 3) || !strncmp(str, (char*)"jo-", 3))
+			else if (!strncmp(text, (char*)"ja-", 3) || !strncmp(text, (char*)"jo-", 3))
 			{
-				if (str[1] == 'a') *flags = JSON_ARRAY_VALUE;
-				else *flags = JSON_OBJECT_VALUE;
+				*flags = (text[1] == 'a') ? JSON_ARRAY_VALUE :  JSON_OBJECT_VALUE;
 				if (!(enableadjust &  2)) 
 				{
-					MEANING M = jcopy(MakeMeaning(StoreWord(str, AS_IS)));
+					MEANING M = jcopy(MakeMeaning(StoreWord(text, AS_IS)));
 					WORDP D = Meaning2Word(M);
-					strcpy(str, D->word);
+					strcpy(text, D->word);
 				}
-				else *str = 0;
+				else *text = 0;
 			}
-			else if ((numberEnd = IsJsonNumber(str)) && numberEnd == (str + strlen(str))) { ; }
+			else if ((numberEnd = IsJsonNumber(text)) && numberEnd == (text + strlen(text))) { ; }
 			else *flags = JSON_STRING_VALUE; // cannot be number
 		}
-		if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(str, AS_IS));
+		if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
 		else *retMeaning = 1; // lie
 		break;
 	}
 	case JSMN_STRING: 
 	{
-		text[size] = 0;
 		StripEscape(text);
 		if (jsonpurify) 	PurifyInput(text, text, size, INPUT_PURIFY); // change out special or illegal characters
 		*flags = JSON_STRING_VALUE; // string null
@@ -400,9 +515,12 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			while ((under = strchr(under, ' '))) *under = '_';
 		}
 
-        if (!(enableadjust & 2)) *retMeaning = MakeMeaning(StoreWord(text, AS_IS));
+		if (!(enableadjust & 2))
+		{
+		
+			*retMeaning = MakeMeaning(StoreWord(text, AS_IS));
+		}
 		else *retMeaning = 1;
-		text[size] = endchar;
 		break;
 	}
 	case JSMN_OBJECT: 
@@ -415,25 +533,61 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			*retMeaning = objectName;
 		}
 		else *retMeaning = 1;
+
+	
 		for (int i = 0; i < curr.size / 2; i++)  // each entry takes an id and a value
 		{
 				MEANING keyMeaning = 0;
 				int jflags = 0;
-				retToken = factsJsonHelper(jsontext, tokens, retToken, &keyMeaning, &jflags, true, nofail, enableadjust);
+				retToken = factsJsonHelper(depth+1,jsontext, tokens, retToken, &keyMeaning, &jflags, true, nofail, enableadjust);
 				if (retToken == 0) return 0;
 
 				// dont expand into facts?
 				int oldenable = enableadjust;
 				WORDP field = Meaning2Word(keyMeaning);
 				char* fieldname =  field->word;
+
+				// high speed concepts bypass enable
+				// concepts": [{"name": "~badanswerwords", "values": ["confuse
+				if (conceptSeen && depth <= conceptSeen) // reset after completion of concept
+				{
+					conceptSeen = 0;
+					if (*detectedlanguage) SetLanguage(jsonoldlang); // restore prior language
+				}
+				 if (!stricmp(fieldname, "concepts"))
+				{ // while whole of json is in default language, the concepts are in given language
+					 // which may not have been parsed yet. so we change language since we looked ahead
+					conceptSeen = depth;
+					if (*detectedlanguage)
+					{
+						SetLanguage(detectedlanguage); // restore prior language
+					}
+				}
 				if ((enableadjust & 1) && field->internalBits & SETIGNORE)  enableadjust |= 2;
 				if ((enableadjust & 4) && field->internalBits & SETUNDERSCORE)  enableadjust |= 8;
 				MEANING valueMeaning = 0;
-				retToken = factsJsonHelper(jsontext, tokens, retToken, &valueMeaning, &jflags, false, nofail, enableadjust);
+				retToken = factsJsonHelper(depth+1,jsontext, tokens, retToken, &valueMeaning, &jflags, false, nofail, enableadjust);
 				if (retToken == 0) return 0;
-				if (!(enableadjust & 2)) 
+				// dont swallow null field value, discard field - but accept null input field
+				char* key = Meaning2Word(keyMeaning)->word;
+				char* value = Meaning2Word(valueMeaning)->word;
+				if (conceptSeen && !strcmp(fieldname, "name"))
+				{
+					if (!stricmp(value, "~noun") || !stricmp(value, "~verb") ||
+						!stricmp(value, "~adjective") || !stricmp(value, "~adverb") ||
+						!stricmp(value, "~replace_spelling"))
+					{
+						jsonconceptName = 0;
+					}
+					else
+					{
+						jsonconceptName = valueMeaning;
+						jsonconceptname = value;
+						Meaning2Word(jsonconceptName)->internalBits |= OVERRIDE_CONCEPT;
+					}
+				}
+				if (!(enableadjust & 2) ) 
 					CreateFact(objectName, keyMeaning, valueMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_OBJECT_FACT); // only the last value of flags matters. 5 means object fact in subject
-			
 				enableadjust = oldenable; // restore
 		}
 		*flags = JSON_OBJECT_VALUE;
@@ -448,20 +602,53 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			*retMeaning = arrayName;
 		}
 		else *retMeaning = 1;
-		for (int i = 0; i < curr.size; i++) 
+		int arrayindex = 0;
+		for (int i = 0; i < curr.size; i++)
 		{
-			MEANING index = 0;
-			if (!(enableadjust & 2))
-			{
-				sprintf(namebuff, "%d", i); // Build the array index
-				index = MakeMeaning(StoreWord(namebuff, AS_IS));
-			}
 			MEANING arrayMeaning = 0;
 			int jflags = 0;
-			retToken = factsJsonHelper(jsontext, tokens, retToken, &arrayMeaning, &jflags, false, nofail, enableadjust);
+			retToken = factsJsonHelper(depth + 1, jsontext, tokens, retToken, &arrayMeaning, &jflags, false, nofail, enableadjust);
 			if (retToken == 0) return 0;
-			if (!(enableadjust & 2)) CreateFact(arrayName, index, arrayMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_ARRAY_FACT); // flag6 means subject is arrayfact
+			char* word = Meaning2Word(arrayMeaning)->word;
+			
+			// concept value formats include:
+			bool conceptvalid = false;
+			if (jsonconceptName) conceptvalid = true;
+			char* value = Meaning2Word(arrayMeaning)->word;
+			if (conceptvalid)
+			{
+				char* safestart = SkipWhitespace(value);
+				if (strchr(value, '|')) conceptvalid = false; // remap concept field
+				else if (*value == '"' && (*safestart == '(' || safestart[1] == '(')) conceptvalid = false; // pattern in "
+				else if (*safestart == '(' && strchr(value, ')')) conceptvalid = false; // pattern in  ()  -- skip over leading whitespace
+				else if (*value == '^' && value[1] == '(') conceptvalid = false;
+			}
+			if (conceptvalid) // express concept create
+			{
+				int flags = FACTTRANSIENT | OVERRIDE_MEMBER_FACT | FACTDUPLICATE;
+				char hold[MAX_WORD_SIZE];
+				char* at = hold;
+				if (*value == '~') strcpy(hold, value);
+				else strcpy(hold, JoinWords(BurstWord(value, CONTRACTIONS))); // unneeded because compile should have handled it BUG 
+				at = hold;
+				if (*at == '\'')
+				{
+					flags |= ORIGINAL_ONLY;
+					at++;
+				}
+				arrayMeaning = MakeMeaning(StoreWord(at, AS_IS));
+				CreateFastFact(arrayMeaning, Mmember, jsonconceptName, flags);
+			}
+			else if (!(enableadjust & 2))
+			{
+				MEANING index = 0;
+				char namebuff[256];
+				sprintf(namebuff, "%d", arrayindex++); // Build the array index
+				index = MakeMeaning(StoreWord(namebuff, AS_IS));
+				CreateFact(arrayName, index, arrayMeaning, jsonCreateFlags | jsonPermanent | jflags | JSON_ARRAY_FACT); // flag6 means subject is arrayfact
+			}
 		}
+		jsonconceptName = 0;
 		*flags = JSON_ARRAY_VALUE;
 		break;
 	}
@@ -475,6 +662,8 @@ static int factsJsonHelper(char* jsontext, jsmntok_t * tokens, int currToken, ME
 			ReportBug((char*)"FATAL: (factsJsonHelper) Unknown JSON type encountered: %s", str);
 		}
 	}
+	text[size] = endchar;
+
 	currentFact = NULL;
 	return retToken;
 }
@@ -580,17 +769,6 @@ static int EncodingValue(char* name, char* field, int value)
 	return 1;
 }
 
-#ifndef DISCARDJSONOPEN
-#ifdef WIN32
-#include "curl.h"
-#ifdef DEBUG
-#pragma comment(lib, "../SRC/curl/libcurld.lib")
-#else
-#pragma comment(lib, "../SRC/curl/libcurl.lib")
-#endif
-#else
-#include <curl/curl.h>
-#endif
 
 CURL* curl;
 
@@ -860,11 +1038,15 @@ FunctionResult JSONOpenCode(char* buffer)
 	char* underscore = NULL;
 	if (*ARGUMENT(index) == '~') underscore = ARGUMENT(index++); // fields to change underscore to spaces
 
-	char* timeoutstr = GetUserVariable("$cs_overrideJsontimelimit", false); // override user from cs_init world
-	if (!*timeoutstr)  timeoutstr = GetUserVariable("$cs_jsontimeout", false);
-	if (IsDigit(*ARGUMENT(index))) timeoutstr = ARGUMENT(index); // local override
+	char* timeoutstr = GetUserVariable("$cs_jsontimeout", false); // bot level
+	if ( IsDigit(*ARGUMENT(index))) timeoutstr = ARGUMENT(index); // local call override
+	if (!*timeoutstr)  timeoutstr  = GetUserVariable("$cs_overrideJsontimelimit", false); // override user from cs_init world
 	long timelimit = (*timeoutstr) ? atoi(timeoutstr) : 300L;
-	if (timelimit < 0) return FAILRULE_BIT; // instant fail
+	if (timelimit <= 0)
+	{
+		http_response = -1;
+		return FAILRULE_BIT; // instant fail
+	}
 
 	// Make sure the raw extra REQUEST headers parameter value is not empty and
 	//  not the ChatScript empty argument character.
@@ -1034,18 +1216,6 @@ FunctionResult JSONOpenCode(char* buffer)
 		header = curl_slist_append(header, headerLine);
 	}
     
-	if (trace & TRACE_JSON)
-	{
-		Log(USERLOG, "\r\n");
-		curl_slist* list = header;
-		while (list)
-		{
-			Log(USERLOG, "JSON header: %s\r\n", list->data);
-			list = list->next;
-		}
-		Log(USERLOG, "\r\n");
-	}
-
 	char coding[MAX_WORD_SIZE];
 	*coding = 0;
 	if (wild == 2) // authorizes anything not mentioned
@@ -1084,7 +1254,6 @@ FunctionResult JSONOpenCode(char* buffer)
 	char* proxymethod = GetUserVariable("$cs_proxymethod", false); // "CURLAUTH_ANY"
 	if (res == CURLE_OK && proxymethod && *proxymethod) res = curl_easy_setopt(curl, CURLOPT_PROXYAUTH, atol(proxymethod));
 
-	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
 	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, CurlWriteMemoryCallback); // callback for memory
 	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void*)&output); // store output here
 	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_URL, fixedUrl);
@@ -1092,6 +1261,27 @@ FunctionResult JSONOpenCode(char* buffer)
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, timelimit); // 300 second timeout to connect (once connected no effect)
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_TIMEOUT, timelimit * 2);
 	if (res == CURLE_OK) curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1); // dont generate signals in unix
+
+#ifdef PRIVATE_CODE
+// Check for private hook function to record start of the request
+// not static because if ^csboot() makes ^jsonOpen() calls then PrivateInit has not been called and hence hooks are not registered
+	HOOKPTR fns = FindHookFunction((char*)"JsonOpenStart");
+	if (fns) ((JsonOpenStartHOOKFN)fns)(curl, header);
+#endif
+
+	if (res == CURLE_OK) res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, header);
+
+	if (trace & TRACE_JSON)
+	{
+		Log(USERLOG, "\r\n");
+		curl_slist* list = header;
+		while (list)
+		{
+			Log(USERLOG, "JSON header: %s\r\n", list->data);
+			list = list->next;
+		}
+		Log(USERLOG, "\r\n");
+	}
 
 	/* the DEBUGFUNCTION has no effect until we enable VERBOSE */
 	if (trace & TRACE_JSON && deeptrace) curl_easy_setopt(curl, CURLOPT_VERBOSE, (long)1);
@@ -1134,7 +1324,7 @@ FunctionResult JSONOpenCode(char* buffer)
 		}
 		else if (res == CURLE_OPERATION_TIMEDOUT) 
 		{ 
-			http_response = -1;
+			http_response = -7;
 			ReportBug((char*)"\r\nINFO: Curl timeout "); 
 		}
 		else
@@ -1159,11 +1349,21 @@ FunctionResult JSONOpenCode(char* buffer)
 		//sprintf(lastcurltime,"Time Analysis:\nName Look up:%.6f\nHost/proxy connect:%.6f\nApp(SSL) connect:%.6f\nPretransfer:%.6f\nTotal Transfer:%.6f\nEND\n", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 		sprintf(lastcurltime, "%.6fs %.6fs %.6fs %.6fs %.6fs", namelookuptime, proxyconnecttime, appconnecttime, pretransfertime, totaltransfertime);
 	}
-	else curlFail = true;
+	else if (timelimit)
+	{
+		if (!http_response) http_response = -7;
+		curlFail = true;
+	}
 
 	int timediff = (int)(ElapsedMilliseconds() - start_time);
 	++json_open_counter;
 	json_open_time += timediff;
+
+#ifdef PRIVATE_CODE
+	// Check for private hook function to record end of request
+	HOOKPTR fne = FindHookFunction((char*)"JsonOpenEnd");
+	if (fne) ((JsonOpenEndHOOKFN)fne)();
+#endif
 
 	if (timing & TIME_JSON)
 	{
@@ -1220,8 +1420,6 @@ FunctionResult JSONOpenCode(char* buffer)
 	return result;
 }
 
-#endif
-
 /**
  * Creates a new parser based over a given  buffer with an array of tokens
  * available.
@@ -1251,6 +1449,179 @@ static void UnmarkSet(FACT* F, unsigned int bit)
 		F = GetObjectNext(F);
 	}
 }
+
+static void Markem(char* ignore, char* underscore,FACT*& setignore, FACT*& setunderscore)
+{
+	MEANING id = 0;
+	MEANING retMeaning = 0;
+	int flags = 0;
+
+	setignore = NULL;
+	char* defaultignore = GetUserVariable("$cs_ignore"); // external default
+	if (*defaultignore)
+	{
+		WORDP D = StoreWord(defaultignore, AS_IS);
+		D->internalBits |= SETIGNORE; // no need to undo it
+	}
+
+	if (ignore && *ignore == '~') // fields to avoid processing
+	{
+		setignore = GetObjectHead(FindWord(ignore));
+		MarkSet(setignore, SETIGNORE);
+	}
+	setunderscore = NULL;
+	if (underscore && *underscore == '~') // fields to convert spaces to underscores
+	{
+		setunderscore = GetObjectHead(FindWord(underscore));
+		MarkSet(setunderscore, SETUNDERSCORE);
+	}
+}
+
+FunctionResult ParseXML(char* buffer, char* ptr, size_t size, bool nofail, char* ignore, bool purify, char* underscore)
+{
+	MEANING levels[100];
+	bool blocked[100];
+	MEANING objects[100];
+	memset(levels, 0, sizeof(levels));
+	memset(blocked, 0, sizeof(blocked));
+	memset(objects, 0, sizeof(objects));
+	unsigned int oldlanguage = language_bits;
+	language_bits = LANGUAGE_UNIVERSAL;
+	int depth = 0;
+	MEANING M = 0;
+	FACT* F;
+	//<note>
+	//	<to>Tove< / to>
+	//	<from>Jani< / from>
+	//	<heading>Reminder< / heading>
+	//	<body>Don't forget me this weekend!</body>
+	//	< / note >
+	// <a href = "http://www.tutorialspoint.com/">Tutorialspoint!</a>
+	// has a name, a value, and possible attributes before a > which faces the value
+	// if next name at same level is same, we have array, otherwise object field
+	//<note >
+	//	<to>Tove</to>
+	//	<a href = "http://www.tutorialspoint.com/" bing = "test">Tutorialspoint!</a>
+	//	</note>
+	//trace = -1;
+	//echo = true;
+	while (ptr && *ptr)
+	{
+		ptr = SkipWhitespace(ptr);
+		bool endtag = (*ptr == '<' && (ptr[1] == '/' || ptr[2] == '/') );
+		if (*ptr == '/' && ptr[1] == '>') endtag = true;
+		if (endtag) // end tag
+		{
+			MEANING current = levels[depth]; // what we finished
+			M = levels[--depth]; // resume prior level
+			if (depth == 0) break; // top level
+
+			printf("return to %d %s\r\n", depth, Meaning2Word(M)->word);
+			FACT* F = GetSubjectNondeadHead(Meaning2Word(objects[depth]));
+			if (F && F->verb== levels[depth + 1]) // we have a fact already of this name, make an array
+			{
+				F->flags |= FACTDEAD;
+				MEANING xarray = GetUniqueJsonComposite((char*)"ja-");
+				CreateFact(F->subject, F->verb, xarray, JSON_OBJECT_FACT | JSON_ARRAY_VALUE);
+				objects[depth] = xarray; // change over to array basis
+				CreateFact(xarray, MakeMeaning(StoreWord("0",AS_IS)), F->object, JSON_ARRAY_FACT | JSON_OBJECT_VALUE);
+				CreateFact(xarray, MakeMeaning(StoreWord("1", AS_IS)), objects[depth + 1], JSON_ARRAY_FACT | JSON_OBJECT_VALUE);
+			}
+			else if (F) // adding to array
+			{
+				int index = 0;
+				FACT* G = GetSubjectNondeadHead(Meaning2Word(objects[depth]));
+				while (G)
+				{
+					++index;
+					G = GetSubjectNondeadNext(G);
+				}
+				char label[20];
+				sprintf(label, "%d", index);
+				CreateFact(objects[depth], MakeMeaning(StoreWord(label, AS_IS)), objects[depth + 1], JSON_ARRAY_VALUE | JSON_OBJECT_FACT);
+			}
+			else
+			{
+				CreateFact(objects[depth], levels[depth + 1], objects[depth + 1], JSON_OBJECT_VALUE | JSON_OBJECT_FACT);
+			}
+			ptr = strchr(ptr, '>');
+			++ptr; // past the close
+		}
+		else if (*ptr == '<') // start tag - 
+		{
+			char name[MAX_WORD_SIZE];
+			char attribute[MAX_WORD_SIZE];
+			ptr = ReadToken(ptr + 1, name);
+			MEANING namemeaning = MakeMeaning(StoreWord(name));
+			levels[++depth] = namemeaning;
+			char* end = strchr(ptr, '>'); // would close any attributes and preceed the value 
+			if (end && *(end - 1) == '/') --end;
+			if (end) *end = 0; // block out the area of this level
+			M = GetUniqueJsonComposite((char*)"jo-");
+			objects[depth] = M; // we store attributes of this level here
+			if (strchr(ptr, '=')) // we have attributes
+			{
+				// attributes of this level
+				while (ptr && *ptr)
+				{
+					char* assign = strchr(ptr, '=');
+					if (!assign) break; // end of attributes
+					*assign = 0;
+
+					ptr = ReadToken(ptr, attribute);
+					char value[MAX_WORD_SIZE];
+					ptr = ReadToken(assign+1, value);
+					char* quote = value;
+					while ((quote = strchr(value, '\"'))) memmove(quote, quote + 1, strlen(quote));
+					unsigned int flags = 0;
+					MEANING valx = jsonValue(value, flags, true);// not deleting using json literal   ^"" or "" would be the literal null in json
+					if (valx == 0)
+					{
+						flags |= JSON_PRIMITIVE_VALUE;
+						valx = MakeMeaning(StoreWord("null", AS_IS));
+					}
+		//			F = CreateFact(M, MakeMeaning(StoreWord(attribute)), valx, JSON_OBJECT_FACT | flags);
+				}
+
+				if (end[1] == '>') *end = '/';
+				else *end = '>'; // end of attributes
+
+				// now is either value or <... nest or close
+				ptr = SkipWhitespace(end+1); // now at value if any
+				if (*end == '/' && end[1] == '>') { ptr = end; }  // no value, closing level
+				else if (*ptr == '<') {  }  // no value, nesting entity
+				else // text value of field
+				{
+					end = strchr(ptr, '<');
+					if (!*end) return FAILRULE_BIT;
+					*end = 0;
+					char* back = end;
+					while (*--back == ' ') *back = 0;
+					if (back != ptr) // non blank value
+					{
+						strcpy(attribute, ptr);
+						F = CreateFact(M, levels[depth], MakeMeaning(StoreWord(attribute)), JSON_OBJECT_FACT | JSON_STRING_VALUE);
+					}
+					*end = '<';
+				}
+			}
+			else // only have a text value and no attributes
+			{
+				ptr = ReadToken(ptr, attribute);
+				char* quote = ptr;
+				while ((quote == strchr(ptr, '\"'))) memmove(ptr, ptr + 1, strlen(ptr));
+				F = CreateFact(M, levels[depth], MakeMeaning(StoreWord(attribute)), JSON_OBJECT_FACT | JSON_STRING_VALUE);
+				*end = '>';
+				ptr = end + 1;
+			}
+		}
+	}
+	language_bits = oldlanguage;
+	currentFact = NULL;
+	sprintf(buffer, "%s", Meaning2Word(objects[1])->word);
+	return NOPROBLEM_BIT;
+}
+
 FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,char* ignore,bool purify,char* underscore)
 {
 	jsonpurify = purify;
@@ -1269,6 +1640,24 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,c
 	}
 	if (size < 1) return NOPROBLEM_BIT; // nothing to parse
 
+	message = SkipWhitespace(message);
+	if (*message != '<' && *message != '{' && *message != '[') // not json or xml
+	{
+		return FAILRULE_BIT;
+	}
+	FACT* setignore = NULL;
+	FACT* setunderscore = NULL;
+	Markem(ignore, underscore, setignore, setunderscore);
+
+	// its XML, not json, convert to json 
+	if (*message == '<')
+	{
+		FunctionResult result = ParseXML(buffer, message, size, nofail, ignore, purify, underscore);
+		if (setignore) UnmarkSet(setignore, SETIGNORE);
+		if (setunderscore) UnmarkSet(setunderscore, SETUNDERSCORE);
+		return result;
+	}
+
 	uint64 start_time = ElapsedMilliseconds();
 
 	FACT* start = lastFactUsed;
@@ -1277,34 +1666,22 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,c
 	jsmntok_t* tokens = (jsmntok_t*)InfiniteStack(limit, "JSONPARSE");
 	jsmn_parser parser;
 	jsmn_init(&parser);
+	*detectedlanguage = 0;
 	jsmnerr_t  jtokenCount = jsmn_parse(&parser, message, size, tokens);
 	int used = (jtokenCount > 0) ? (sizeof(jsmntok_t) * jtokenCount) : 0;
 	CompleteBindStack(used);
-
+	strcpy(jsonoldlang, current_language);
 	MEANING id = 0;
 	if (jtokenCount < 1) id = 0; // error in json syntax
 	else
 	{
 		MEANING retMeaning = 0;
 		int flags = 0;
-
-		FACT* setignore = NULL;
-		if (ignore && *ignore == '~') // fields to avoid processing
-		{
-			setignore = GetObjectHead(FindWord(ignore));
-			MarkSet(setignore, SETIGNORE);
-		}
-		FACT* setunderscore = NULL;
-		if (underscore && *underscore == '~') // fields to convert spaces to underscores
-		{
-			setunderscore = GetObjectHead(FindWord(underscore));
-			MarkSet(setunderscore, SETUNDERSCORE);
-		}
-
 		int enableadjust = 0;
+		conceptSeen = 0;
 		if (ignore) enableadjust |= 1;
 		if (underscore) enableadjust |= 4;
-		int X = factsJsonHelper(message, tokens, 0, &retMeaning, &flags, false, nofail,enableadjust);
+		int X = factsJsonHelper(0,message, tokens, 0, &retMeaning, &flags, false, nofail,enableadjust);
 		id = (X) ? retMeaning : 0;
 		currentFact = NULL;	 // used up by putting into json
 
@@ -1316,13 +1693,13 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,c
 		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Json parse time: %d ms\r\n", diff);
 	}
+
 	if (id != 0) // worked, this is name of json structure
 	{
 		if (trace & TRACE_JSON )
 		{
 			NextInferMark();
 			WORDP D = Meaning2Word(id);
-		//	jwrite(currentOutputBase, buffer, Meaning2Word(id), 1, true, currentOutputLimit); // json structure
 			jwritehierarchy(false, false, 2, currentOutputBase, D,(D->word[1] == 'o') ? JSON_OBJECT_VALUE : JSON_ARRAY_VALUE, 100); // nest of 0 (unspecified) is infinitiy
 			Log(ECHOUSERLOG, "%s\r\n", currentOutputBase);
 		}
@@ -1333,6 +1710,9 @@ FunctionResult ParseJson(char* buffer, char* message, size_t size, bool nofail,c
 	else // failed, delete any facts created along the way
 	{
 		while (lastFactUsed > start) FreeFact(lastFactUsed--); //   restore back to facts alone
+		FILE* out = FopenUTF8WriteAppend("tmp/badjson.txt");
+		fprintf(out, "%s\r\n", message);
+		FClose(out);
 	}
 	stackFree = oldstack;
 	return (nofail) ? NOPROBLEM_BIT : FAILRULE_BIT;
@@ -1381,7 +1761,7 @@ int orderJsonArrayMembers(WORDP D, FACT * *store,size_t & size)
 	return max + 1; // for the 0th value
 }
 
-static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer, WORDP D, int subject, int nest)
+char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer, WORDP D, int subject, int nest)
 {
 	char* xxoriginal = buffer;
 	char* basis = buffer;
@@ -1477,7 +1857,7 @@ static char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer
 		size = (buffer - currentOutputBase + 400); // 400 slop to protect us
 		if (size >= currentOutputLimit)
 		{
-			ReportBug((char*)"INFO: JsonWrite too much output %d items size %d", indexsize, size);
+			// ReportBug((char*)"INFO: JsonWrite too much output %d items size %d", indexsize, size);
 			ReleaseStack((char*)stack);
 			return buffer; // too much output
 		}
@@ -1758,7 +2138,7 @@ void jkillfact(WORDP D)
 	while (F)
 	{
 		FACT* G = GetSubjectNondeadNext(F);
-		if (F->flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT)) KillFact(F); // json object/array no longer has this fact
+		if (F->flags & (JSON_ARRAY_FACT | JSON_OBJECT_FACT)) KillFact(F, true, false); // json object/array no longer has this fact
 		if (F->flags & FACTAUTODELETE) AutoKillFact(F->object); // kill the fact
 		F = G;
 	}
@@ -1793,6 +2173,11 @@ char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigne
 			{
 				strcpy(buffer, (char*)"\"null\"");
 				buffer += 6;
+			}
+			else if (D->word[0] == '"' && D->word[1] == '"')
+			{
+				strcpy(buffer, D->word);
+				buffer += 2;
 			}
 			else
 			{
@@ -1878,7 +2263,7 @@ char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigne
 			}
 		}
 		else continue;	 // not a json fact, an accident of something else that matched
-		
+		char* before = buffer;
 		buffer = jwrite(start,buffer, Meaning2Word(F->object), F->flags & JSON_FLAGS, plain,limit);
 		if (i < (indexsize - 1))
 		{
@@ -1973,14 +2358,7 @@ static MEANING MergeObject(bool keyonly, int sum, MEANING obj1, MEANING obj2)
                 {
                     char* resultText = AllocateBuffer();
                     long x = (long) result;
-                    if ((double)x == result)
-                    {
-#ifdef WIN32
-                        sprintf(resultText,(char*)"%I64d",(long long int) x);
-#else
-                        sprintf(resultText,(char*)"%lld",(long long int) x);
-#endif
-                    }
+                    if ((double)x == result) strcpy(resultText, Print64(x));
                     else WriteFloat(resultText,result);
 
                     WORDP newObject = StoreWord(resultText,AS_IS);
@@ -2048,6 +2426,7 @@ static MEANING MergeArray(bool keyonly,MEANING ar1, MEANING ar2)
 		else if (ar2G->flags & JSON_OBJECT_VALUE)
 		{ // 2nd array has an object as value, find corresponding object in our 1st copy
 			FACT* basis = EarliestFact(ar2G->object);
+			if (!basis) return 0;
 			MEANING label = basis->verb;
 			MEANING value = basis->object; // presumed simple type for now
 			// we want to merge ar2G into some other object where first field matches
@@ -2598,7 +2977,7 @@ static void  DoJSONAssign(WORDP base,bool changedBase,WORDP leftside, WORDP keyn
 
 	if (changedBase && (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT) && base->word[1] != '$' && base->word[1] != '_') // track we changed this
 	{
-		variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,(uint64)base, oldbase, 0);
+		variableChangedThreadlist = AllocateHeapval(HV1_WORDP|HV2_INT,variableChangedThreadlist,(uint64)base, oldbase);
 	}
 
 	jsonNoArrayduplicate = false;
@@ -2650,7 +3029,7 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 	char fullpath[MAX_WORD_SIZE] = "";
 	*fullpath = 0;
 	bool changedBase = false;
-
+	
 	// locate 1st piecef
 	char* separator = strchr(word + 1, '.');
 	char* openbracket = strchr(word + 1, '[');
@@ -2735,7 +3114,10 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 
 		// now we have retrieved the key/index
 		if (*keyx == ']') keyname = NULL;  // [] use
-		else keyname = StoreWord(keyx, AS_IS);  // key indexing
+		else
+		{
+			keyname = StoreWord(keyx, AS_IS);  // key indexing - case sensitive
+		}
 
 		// show the path for tracing
 		if (trace & TRACE_JSON)
@@ -2769,6 +3151,9 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 			}
 			if (!F) // key is not found (we need to auto create something - maybe just the fact )
 			{ // NOTE we cannot create an array index out of order. We can create the next index in line however.
+				// if we are not replacing a value, dont save a null value
+				if (!*value) return NOPROBLEM_BIT; // we dont need to report NEW null values, only replacement and only to api calls
+				
 				char* arg1;
 				if (*separator == '[' && keyname && atoi(keyx) != (lastindex + 1))
 					return FAILRULE_BIT; // attempt to create out of order index to array
@@ -2847,13 +3232,13 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 	// now at final resting place, do assignment there
 	DoJSONAssign(base, changedBase, leftside, keyname, value, stripQuotes, fullpath, 0);
 
-	if (trace & TRACE_VARIABLESET) Log(USERLOG, " JsonVar: %s -> %s ", fullpath, value);
+	if (trace & TRACE_VARIABLESET) Log(USERLOG, " JsonVar: %s(%s) -> `%s` ", basicname,fullpath, value);
 	if (base->internalBits & MACRO_TRACE)
 	{
 		char pattern[MAX_WORD_SIZE];
 		char label[MAX_LABEL_SIZE];
 		GetPattern(currentRule, label, pattern, true, 100);  // go to output
-		Log(ECHOUSERLOG, "%s -> %s at %s.%d.%d %s %s\r\n", base->word, value, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
+		Log(ECHOUSERLOG, "%s(%s) -> `%s` at %s.%d.%d %s %s\r\n", basicname,base->word, value, GetTopicName(currentTopicID), TOPLEVELID(currentRuleID), REJOINDERID(currentRuleID), label, pattern);
 	}
 
 	return NOPROBLEM_BIT;
@@ -2932,8 +3317,8 @@ FunctionResult DoJSONArrayInsert(bool nodup, WORDP array, MEANING value, int fla
 	// get the field values
 	char arrayIndex[20];
 
-    // cannot insert a 0 meaning value
-    if (!value) return NOPROBLEM_BIT;
+	// cannot insert a 0 meaning value
+	if (!value) return NOPROBLEM_BIT;
 
 	// how many existing elements
 	FACT* F = GetSubjectNondeadHead(array);
@@ -2968,7 +3353,7 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
 	if (!O) return FAILRULE_BIT;
 	char* val = ARGUMENT(index);
 	jsonPermanent = (IsTransientJson(arrayname)) ? FACTTRANSIENT : 0; // ja-t1
-    if (IsValidJSONName(val) && IsTransientJson(val)) jsonPermanent = FACTTRANSIENT;
+	if (IsValidJSONName(val) && IsTransientJson(val)) jsonPermanent = FACTTRANSIENT;
 	if (IsBootJson(arrayname)) jsonPermanent = FACTBOOT; // ja-b1
 	unsigned int flags = JSON_ARRAY_FACT | jsonPermanent | jsonCreateFlags;
 	MEANING value = jsonValue(val, flags); // sets flags and may revise the val
@@ -2981,7 +3366,7 @@ FunctionResult JSONArrayInsertCode(char* buffer) //  objectfact objectvalue  BEF
 	{
 		if ((csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT) && O->word[1] != '$' && O->word[1] != '_') // track we changed this
 		{
-			variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist, (uint64)O, (uint64)O->w.userValue, 0);
+			variableChangedThreadlist = AllocateHeapval(HV1_WORDP | HV2_STRING, variableChangedThreadlist, (uint64)O, (uint64)O->w.userValue);
 		}
 	}
 	return result;
@@ -3107,6 +3492,7 @@ FunctionResult JSONReadCSVCode(char* buffer)
 	bool commadelimit = (!stricmp(ARGUMENT(index), "comma"));
 	bool tabdelimit = (!stricmp(ARGUMENT(index), "tab"));
 	bool wholeLine = (!stricmp(ARGUMENT(index), "line"));
+	bool pause = false;
 	if (!tabdelimit && !wholeLine) return FAILRULE_BIT;
 	++index;
 	char* data;
@@ -3201,6 +3587,30 @@ FunctionResult JSONReadCSVCode(char* buffer)
 			if (!*readBuffer) break;
 			char* ptrx = readBuffer;
 			if ((unsigned char)ptrx[0] == 0xEF && (unsigned char)ptrx[1] == 0xBB && (unsigned char)ptrx[2] == 0xBF) ptrx += 3;// UTF8 BOM
+			ptrx = SkipWhitespace(ptrx);
+			if (*ptrx == '#') continue;
+			if (!strnicmp(ptrx, ":trace ", 7))
+			{
+				if (strstr(ptrx, "all")) trace = (unsigned int)-1;
+				else trace = 0;
+				echo = true;
+				continue;
+			}
+			if (!strnicmp(ptrx, ":quit", 5) || !strnicmp(ptrx, ":exit", 5))
+			{
+				break;
+			}
+			if (!strnicmp(ptrx, ":pause", 6))
+			{
+				pause = true;
+				continue;
+			}
+			if (!strnicmp(ptrx, ":resume", 7))
+			{
+				pause = false;
+				continue;
+			}
+			if (pause) continue;
 
 			sprintf(var, "$__%d", field++); // internal variable cannot be entered in script
 			WORDP V = StoreWord(var);
@@ -3211,7 +3621,6 @@ FunctionResult JSONReadCSVCode(char* buffer)
 			strcat(call, var);
 			strcat(call, " ");
 		}
-
 
 		if (fnname) // invoke function
 		{
@@ -3228,7 +3637,7 @@ FunctionResult JSONReadCSVCode(char* buffer)
 		}
 	}
 
-	fclose(in);
+	FClose(in);
 	currentFact = NULL;
 	return result;
 }

@@ -286,7 +286,12 @@ value4 value5 value6</code></pre>
 <p>These synonyms are represented using the member verb, sort of like making a concept set of the full name. The system detects this specially during inferencing, and if an argument to ^query were <em>Paris</em>, it could automatically transfer across and consider facts for *Paris,_France* as well.</p>
 <p>It would not go the other way, however, so if the argument were <em>Paris_France</em>, it would not move over to <em>Paris</em>.</p>
 <p>You should store your facts on the full name. The mechanism allows user input to use the short name.</p>
+<p>NOTE: whenever you have double-quoted entries in your data, by default they are stored as single words without the double-quotes and with spaces replaced with underscores. If you are trying to pattern match these entries, you need to be aware that when CS sees</p>
+<pre><code>   u: ( test _*2)</code></pre>
+<p>it will store the paired words using _ or space, depending on the setting of $cs_wildcardseparator, which defaults to space. So queries would fail and in your botmacro you would need to</p>
+<pre><code>$cs_wildcardseparator= _</code></pre>
 <p>NOTE: Tables are executed (built) at compile time. And their resulting data and variables are saved in the TOPIC folder along with your compiled scripts and loaded when the server starts up. The data is &quot;owned&quot; by the server and not written out to user files. Also, normally you cannot alter table data on the fly from a user script interaction (true of all facts, not just table facts). In the event you are compiling multiple bots at once, the facts of the table are owned by whatever bot is considered to be compiling that chunk of code.</p>
+<p>NOTE: Tables are the only thing executed at compile time, so if there is some arbitrary data manipulation you need doing, you can do it in a dummy table (whose data you just ignore).</p>
 <h2 id="variable-argument-tables">Variable Argument Tables</h2>
 <p>While a line of table data must fill all fields of the table exactly (no more or less), you can tell the system to fill in the remaining arguments with <code>*</code> by putting <code>…</code> as your last value. Eg.</p>
 <pre><code>table: test(^item1 ^item2 ^item3 ^item4)

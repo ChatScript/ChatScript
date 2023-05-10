@@ -1,4 +1,4 @@
-/*** Tokenizes for japanese/chinese chars */
+﻿/*** Tokenizes for japanese/chinese chars */
 #include "common.h"
 #include <stdio.h>
 #ifndef DISCARD_JAPANESE
@@ -31,31 +31,28 @@ int malloc_jp_token_buffers() {
 void JapaneseNLP()
 {
     const char* at = get_jp_canon_str();
-    for (int i = 1; i <= wordCount; ++i)
+    for (unsigned int i = 1; i <= wordCount; ++i)
     {
-        originalLower[i] = StoreWord(wordStarts[i], AS_IS); // japanese is case insensitive
+        originalWordp[i] = StoreWord(wordStarts[i], AS_IS); // japanese is case insensitive
 
         const char* separator = (char*)strchr(at, ' ');
         if (separator != NULL) { // nominal path
             wordCanonical[i] = AllocateHeap(at, separator - at);
-            canonicalLower[i] = StoreWord(wordCanonical[i], AS_IS);
             at = separator + 1;
         }
         else if (*at != 0) {    // got a token with no space at the end
             separator = at + strlen(at);
             wordCanonical[i] = AllocateHeap(at, separator - at);
-            canonicalLower[i] = StoreWord(wordCanonical[i], AS_IS);
             at = separator;
         }
-        else {                  // got an empty token (unexpected)
-            wordCanonical[i] = AllocateHeap("");
-            canonicalLower[i] = StoreWord(wordCanonical[i], AS_IS);
-        }
+        else wordCanonical[i] = AllocateHeap("");                  // got an empty token (unexpected)
+        canonicalWordp[i] = StoreWord(wordCanonical[i], AS_IS);
     }
 }
 
 void MarkJapaneseTags(int i, char* testDictionary)
 {
+   
     char* at = (char*)get_jp_pos_str();
     int base = 0;
     while (++base <= i && *at)
@@ -66,6 +63,31 @@ void MarkJapaneseTags(int i, char* testDictionary)
         *pos = '~';
         strcpy(pos + 1, at);
         if (end) *end = ' ';
+        char* b = pos + 1;
+        char* hyphen = strchr(b, '-');
+        if (hyphen) *hyphen = 0;
+        if (!strcmp(b, u8"代名詞"))
+            finalPosValues[i] |= PRONOUN_BITS;
+        else if (!strcmp(b, u8"記号")) {}// symbol
+        else if (!strcmp(b, u8"助詞")) {}// particle 
+        else if (!strcmp(b, u8"形容詞")) 
+            finalPosValues[i] |= ADJECTIVE;
+        else if (!strcmp(b, u8"副詞"))
+            finalPosValues[i] |= ADVERB;
+        else if (!strcmp(b, u8"助動詞"))
+            finalPosValues[i] |= AUX_VERB;
+        else if (!strcmp(b, u8"動詞"))
+            finalPosValues[i] |= VERB;
+        else if (!strcmp(b, u8"名詞"))
+            finalPosValues[i] |= NOUN_SINGULAR;
+        else if (!strcmp(b, u8"接続詞"))
+            finalPosValues[i] |= CONJUNCTION;
+        else
+        { // unknown tag
+            int xx = 0;
+        }
+        if (hyphen) *hyphen = '-';
+
         if (testDictionary == NULL) // nominal case
         {
             MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(pos, AS_IS)), i, i);

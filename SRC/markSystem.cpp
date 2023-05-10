@@ -42,14 +42,12 @@ In a pattern, an author can request:
 #define GENERIC_MEANING 0  // not a specific meaning of the word
 int verbwordx = -1;
 
-int uppercaseFind = -1; // unknown
 static bool failFired = false;
 bool trustpos = false;
 int marklimit = 0;
 std::map <WORDP, HEAPINDEX> triedData; // per volley index into heap space
-static STACKREF wordlist = NULL;
 static HEAPREF pendingConceptList = NULL;
-static int MarkSetPath(int depth, int exactWord, MEANING M, int start, int end, unsigned int level, int kind); //   walks set hierarchy
+static int MarkSetPath(int depth, int exactWord, MEANING M, unsigned int start, unsigned int end, unsigned int level, int kind); //   walks set hierarchy
 // mark debug tracing
 bool showMark = false;
 static unsigned int markLength = 0; // prevent long lines in mark listing trace
@@ -57,6 +55,7 @@ static unsigned int markLength = 0; // prevent long lines in mark listing trace
 int upperCount, lowerCount;
 ExternalTaggerFunction externalPostagger = NULL;
 char unmarked[MAX_SENTENCE_LENGTH]; // can completely disable a word from mark recognition
+char oldunmarked[MAX_SENTENCE_LENGTH]; // cached version of marks for ^mark()/^unmark()
 
 /**************************************/
 /* Word Reference in Sentence system				*/
@@ -105,9 +104,9 @@ bool RemoveMatchValue(WORDP D, int position)
     return didmod;
 }
 
-static int WhereWordHitWithData(WORDP D, int start,unsigned char* data)
+static unsigned int WhereWordHitWithData(WORDP D,unsigned int start,unsigned char* data)
 {
-	if (data) for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
+	if (data) for (unsigned int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
 	{
 		if (data[i] >= start) 
 		{
@@ -118,10 +117,10 @@ static int WhereWordHitWithData(WORDP D, int start,unsigned char* data)
 	return 0;
 }
 
-static int WhereWordHit(WORDP D, int start)
-{
+static unsigned int WhereWordHit(WORDP D, unsigned int start)
+{ // but phrases can be hit multiply, as can other things
 	unsigned char* data = GetWhereInSentence(D);
-	if (data) for (int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
+	if (data) for (unsigned int i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE)
 	{
 		if (data[i] >= start)
 		{
@@ -156,24 +155,22 @@ void ShowMarkData(char* word)
 	}
 	printf("\r\n");
 }
-bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int start, int end)
-{	//   keep closest to start at bottom, when run out, drop later ones 
-    if (!D || !D->word) return false;
-	if (start > wordCount) 
-	{
-		ReportBug((char*)"INFO: save position is too big");
-		return false;
-	}
-	if (end > wordCount) end = wordCount;
-	if (start == verbwordx && !stricmp(wordStarts[start], "verify")) 
-		return false;
 
+bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, unsigned int start,unsigned int end,unsigned int prefix,unsigned int kind)
+{	//   keep closest to start at bottom, when run out, drop later ones 
+
+	if (!D || !D->word) return false;
+	if (end > wordCount) end = wordCount;
+	if (start == (unsigned int)verbwordx && !stricmp(wordStarts[start], "verify")) 
+		return false;
+	// if (*D->word == '~') D->inferMark = inferMark; // we have marked this concept in this position, avoid rescan
+	// but that code must account for start AND end, like Morphine Sulphate which both single and double trigger stuff
+	// 
 	// been here before?
 	unsigned char* data = GetWhereInSentence(D); // has 2 hidden int fields before this point
 	if (!data)  data = (unsigned char*)AllocateWhereInSentence(D);
 	if (!data) return false; // allocate failure
-	int whereHitEnd = WhereWordHitWithData(D, start,data); // word in sentence index
-
+	unsigned int whereHitEnd = WhereWordHitWithData(D, start,data); // word in sentence index
 	if (*D->word != '~') // real word, not a concept
 	{
 		uint64 meaningBit = 1ull << meaningIndex; // convert index into bit
@@ -182,7 +179,7 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 		if (meaningBit & triedBits) return false; // did this meaning already
 		SetTriedMeaningWithData(triedBits | meaningBit, (unsigned int*)data); // update more
 	}
-	else if (whereHitEnd >= end) return false; // no need since already covering concept in this area
+	//else if (whereHitEnd >= end) return false; // no need since already covering concept in this area
 	if (++marklimit > 5000)
 	{
 		if (!failFired) ReportBug("INFO: Mark limit hit");
@@ -203,6 +200,15 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 		}
 		else // insert here
 		{
+			if (prefix) // split verbal
+			{
+				// no room to store 2 things? we are on last element
+				if (i == (MAXREFSENTENCE_BYTES - REF_ELEMENT_SIZE)) break;
+				memmove(data + i + REF_ELEMENT_SIZE, data + i, MAXREFSENTENCE_BYTES - i - REF_ELEMENT_SIZE); // create a hole for entry
+				data[i] = 0;
+				data[i + 1] = (unsigned char)prefix;
+				i += REF_ELEMENT_SIZE;
+			}
 			memmove(data+i+ REF_ELEMENT_SIZE,data+i,MAXREFSENTENCE_BYTES - i - REF_ELEMENT_SIZE); // create a hole for entry
 			data[i] = (unsigned char)start;
 			added = true;
@@ -213,7 +219,9 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 			data[i + 2] = (unsigned char) (end >> 8);  // for fundamental meanings this is the 3rd field reference
 			data[i + 3] = 0;
 			MEANING* exact = (MEANING*)(data + i + 4);
-			*exact = exactWord;
+			if (exactWord == (MEANING)-1) 
+				exactWord = Word2Index(D); // stay with this word
+			*exact = exactWord; // -1 means dont use an alternative lower case, stay upper
 		}
 		break; // have location
 	}
@@ -234,13 +242,30 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, int st
 				Log(USERLOG,"\r\n");
 				Log(USERLOG,"");
 			}
-			while (depth-- >= 0) Log((showMark) ? ECHOUSERLOG : USERLOG, "  ");
+			int d = depth;
+			while (d-- >= 0) Log((showMark) ? ECHOUSERLOG : USERLOG, "  ");
 			char which[20];
 			*which = 0;
 			which[1] = 0;
 			if (exactWord && D->internalBits & UPPERCASE_HASH) which[0] = '^';
+			char* kindlabel = "";
+			char other[MAX_WORD_SIZE];
+			*other = 0;
+			if (depth == 0 && *D->word != '~')
+			{
+				char lang[20];
+				char* status;
+				status = "";
+				 if (D->foreignFlags) status = "universal multilanguage";
+				else if (!GET_LANGUAGE_INDEX(D)) status = "universal all";
+				*lang = 0;
+				if (multidict) sprintf(lang, "%x", GET_LANGUAGE_INDEX(D));
+				sprintf(other, " (languagebits 0x%s %s):\r\n", lang, status);
+			}
+			if (kind == RAW || kind == RAWCASE) kindlabel = "(raw)";
 			Log((showMark) ? ECHOUSERLOG : USERLOG, (D->internalBits & TOPIC) ? "+T%s%s " : (char*)" +%s%s", D->word, which);
-			Log((showMark) ? ECHOUSERLOG : USERLOG," (%d-%d)\r\n", start, end);
+			if (prefix) Log((showMark) ? ECHOUSERLOG : USERLOG, " (%d,%d-%d)\r\n", prefix,start, end);
+			else Log((showMark) ? ECHOUSERLOG : USERLOG," (%d-%d) %s %s\r\n", start, end,kindlabel,other);
 			markLength = 0;
 		}
 	}
@@ -281,6 +306,7 @@ void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
 
 	triedData.clear();
 	memset(unmarked, 0, MAX_SENTENCE_LENGTH);
+    oldunmarked[255] = 0; // no cache of unmarked in progress
 }
 
 unsigned int* AllocateWhereInSentence(WORDP D)
@@ -328,7 +354,7 @@ uint64 GetTriedMeaning(WORDP D) // which meanings have been used (up to 64)
 	return value; // back up to the correct meaning zone
 }
 
-unsigned int GetIthSpot(WORDP D, int i, int& start, int& end)
+unsigned int GetIthSpot(WORDP D, int i, unsigned int& start,unsigned int& end)
 {
 	if (!D) return 0; //   not in sentence
 	unsigned char* data = GetWhereInSentence(D);
@@ -418,41 +444,56 @@ static unsigned char* DataIntersect(WORDP D)
 	return data;
 }
 
-unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPosition, bool reverse, int legalgap)
+unsigned int GetNextSpot(WORDP D, int start, bool reverse, int legalgap,MARKDATA* hitdata)
 {//   spot can be 1-31,  range can be 0-7 -- 7 means its a string, set last marker back before start so can rescan
     //   BUG - we should note if match is literal or canonical, so can handle that easily during match eg
     //   '~shapes matches square but not squares (whereas currently literal fails because it is not ~shapes)
-    if (!D) return 0; //   not in sentence
-    unsigned char* data = GetWhereInSentence(D);
-    char* ptr = D->word;
-	if (!data && D->internalBits & HAS_CASEMARKING) data = DataIntersect(D); // word with ~casemarking data added, has no data on its own, not trial~n or trial~1 - or concept intersect: ~pet~tasty
-    if (!data) return 0;
-
+	if (!D) return 0; //   not in sentence
+	unsigned char* data = GetWhereInSentence(D);
+	if (!data)
+	{
+		const char* at = strchr(D->word + 1, '~');
+		if (at && at[2]) data = DataIntersect(D); // word with ~casemarking data added, has no data on its own, not trial~n or trial~1 - or concept intersect: ~pet~tasty - but BUG for trial~12
+	}
+    
+	if (!data) return 0;
 	// now perform the real analysis 
-    uppercaseFind = -1;
-    int i;
-    startPosition = 0;
+	if (hitdata) hitdata->word = 0;
+	int i;
+    int startPosition = 0;
     for (i = 0; i < MAXREFSENTENCE_BYTES; i += REF_ELEMENT_SIZE) // each 8 byte ref is start,end,extra,unused, 4byte exact,
     {
         unsigned char at = data[i];
-		if (at == END_OF_REFERENCES) // end of unit marker
-		{
-			if (!reverse) 	return 0;
-			else break; // cannot back further
-		}
-		unsigned char end = data[i + 1];
-		unsigned char fundamentalExtra = data[i + 2]; // usually 0, except for fundamental meaning matches
-		MEANING* exact = (MEANING*)(data + i + 4);
+		if (!at) continue; // skip over disjoint data
+		if (at == 0xff) break; // end of data
 
-		if (unmarked[at]) { ; }
+		unsigned char end = data[i + 1];
+        bool unmarkedWords = false;
+        if (unmarked[0]) for (int j = at; j <= end; ++j)
+        {
+            if (unmarked[j])
+            {
+                unmarkedWords = true;
+                break;
+            }
+        }
+        if (unmarkedWords) { ; }
         else if (reverse)
         {
             if (at < start) // valid. but starts far from where we are
             {
-                startPosition = at; // bug fix backward gaps as well
-				endPosition = end | (fundamentalExtra << 8); // hidden subject data for fundamental meanings
-				uppercaseFind = (int)*exact;
-                continue; // find the CLOSEST without going over
+				startPosition = at; // bug fix backward gaps as well
+				if (hitdata)
+				{
+					unsigned char fundamentalExtra = data[i + 2]; // usually 0, except for fundamental meaning matches
+					hitdata->start = at;
+					hitdata->end = end | (fundamentalExtra << 8); // hidden subject data for fundamental meanings
+					MEANING* exact = (MEANING*)(data + i + 4);
+					hitdata->word = (int)*exact;
+					if (i > 0 && !data[i - REF_ELEMENT_SIZE]) hitdata->disjoint = data[i - REF_ELEMENT_SIZE + 1];// disjoint data
+					else hitdata->disjoint = 0;
+				}
+				continue; // find the CLOSEST without going over
             }
             else if (at >= start) break; // getting worse
         }
@@ -462,8 +503,18 @@ unsigned int GetNextSpot(WORDP D, int start, int &startPosition, int& endPositio
 			else
 			{
 				startPosition = at;
-				endPosition = end | (fundamentalExtra << 8); // hidden subject data for fundamental meanings
-				uppercaseFind = (int)*exact;
+				if (hitdata)
+				{
+					hitdata->start = at;
+					unsigned char fundamentalExtra = data[i + 2]; // usually 0, except for fundamental meaning matches
+					hitdata->end = end | (fundamentalExtra << 8); // hidden subject data for fundamental meanings
+					MEANING* exact = (MEANING*)(data + i + 4);
+					MEANING MM = *exact;
+					WORDP DD = Meaning2Word(MM);
+					hitdata->word = (int) MM;
+					if (i > 0 && !data[i - REF_ELEMENT_SIZE]) hitdata->disjoint = data[i - REF_ELEMENT_SIZE + 1];// disjoint data
+					else hitdata->disjoint = 0;
+				}
 			}
             break;
         }
@@ -492,19 +543,19 @@ static void TraceHierarchy(FACT* F,char* msg)
 
 static void AddPendingConcept(FACT* F, unsigned int start, unsigned int end)
 {
-    pendingConceptList = AllocateHeapval(pendingConceptList, (uint64)F, start, end);
-    TraceHierarchy(F,"delayed");
+    pendingConceptList = AllocateHeapval(HV1_FACTI|HV2_INT|HV3_INT,pendingConceptList, (uint64)Fact2Index(F), start, end);
+    TraceHierarchy(F,"delayed"); 
 }
 
-static bool ProcessPendingFact(FACT* F, int start, int end)
+static bool ProcessPendingFact(FACT* F, unsigned int start, unsigned int end)
 {
     WORDP O = Meaning2Word(F->object);
     if (WhereWordHit(O, start) >= (int)end) return true; // already marked this set
                                                     // FACT wanted to map subject to concept object, but it had an exclude on a set that needed completion
     int depth = 4;
     WORDP S = Meaning2Word(F->subject);
-    int startPosition, endPosition;
-    if (GetNextSpot(S, start - 1, startPosition, endPosition) && startPosition == start && endPosition == end)
+	MARKDATA hitdata;
+    if (GetNextSpot(S, start - 1,false,0,&hitdata) && hitdata.start == start && hitdata.end == end)
     {
         TraceHierarchy(F,"");
         return true; // not allowed to proceed
@@ -535,7 +586,7 @@ static void ProcessPendingConcepts()
         uint64* currentEntry = (uint64*) startList;
         uint64 Fx;
         startList = UnpackHeapval(startList, Fx, start,end);
-        FACT* F = (FACT*)Fx;
+        FACT* F = (FACT*)Index2Fact((unsigned int)Fx);
         WORDP concept = NULL; // set we want to trigger
         while (F) // will be NULL if we have already finished with it
         {
@@ -544,16 +595,18 @@ static void ProcessPendingConcepts()
 
             // before we can trigger this set membership
             concept = Meaning2Word(F->object);
-            if (ProcessPendingFact(F, (int)start, (int)end)) // failed 
+            if (ProcessPendingFact(F, (unsigned int)start, (unsigned int)end)) // failed 
             {
                 currentEntry[1] = 0; // kill fact use
                 changed = true;
+                WORDP S = Meaning2Word(F->subject);
+                if (*S->word != '~') break;  // specific words are a hard exclusion
             }
             F = GetObjectNondeadNext(F);
         }
 
         // now flow path of this set upwards since all excludes have been considered
-        if (F && F->verb != Mexclude)
+        if (!changed && F && F->verb != Mexclude)
         {
             TraceHierarchy(F,"resume");
             if (MarkWordHit(4, EXACTNOTSET, concept, 0, (int)start, (int)end)) // new ref added
@@ -574,7 +627,7 @@ static void ProcessPendingConcepts()
         pendingConceptList = UnpackHeapval(pendingConceptList, Fx,start,end);
         if (!Fx) continue; 
 
-        FACT* F = (FACT*)Fx;
+        FACT* F = (FACT*)Index2Fact((unsigned int)Fx);
         WORDP E = (F) ? Meaning2Word(F->object) : NULL;
         // mark all members of the link
         TraceHierarchy(F,"defaulting");
@@ -636,7 +689,7 @@ MEANING EncodeConceptMember(char* word,int& flags)
 	return MakeMeaning(StoreWord(at,AS_IS));
 }
 
-static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, unsigned int level, int kind) //   walks set hierarchy
+static int MarkSetPath(int depth,int exactWord,MEANING M, unsigned int start, unsigned int end, unsigned int level, int kind) //   walks set hierarchy
 {//   travels up concept/class sets only, though might start out on a synset node or a regular word
     unsigned int flags = GETTYPERESTRICTION(M);
 	if (!flags) flags = BASIC_POS; // what POS we allow from Meaning
@@ -649,21 +702,24 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 	while (H)
 	{
 		FACT* F = H;
-		H = GetSubjectNondeadNext(H);
+ 		H = GetSubjectNondeadNext(H);
 		if (F->verb != Mmember) continue;
-		
+
+		WORDP C = Meaning2Word(F->object);
+		// if (C->inferMark == inferMark) continue; // already scanned this concept
+
 		// ~concept members and word equivalent
         if (trace & TRACE_HIERARCHY) TraceHierarchy(F,"");
         WORDP concept = Meaning2Word(F->object);
         if (concept->internalBits & OVERRIDE_CONCEPT) // override by ^testpattern, is this legal fact?
         {
-			if (!(F->flags & OVERRIDE_MEMBER_FACT)) continue; // pretend he doesnt exist
+			if (!(F->flags & OVERRIDE_MEMBER_FACT)) break; // pretend he and earlier facts doesnt exist
         }
 
         // if subject has type restriction, it must pass
 		unsigned int restrict = GETTYPERESTRICTION(F->subject );
 		if (!restrict && index) restrict = GETTYPERESTRICTION(GetMeaning(D,index)); // new (may be unneeded)
- 
+
 		// reasons we cant use this fact
         // for true interjection, END_ONLY can mean wordCount or next word is , or - 
 		bool block = false;
@@ -683,7 +739,6 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 				else block = true;
 			}
 		}
-
 		int mindex = Meaning2Index(F->subject);
         //   index meaning restriction (0 means all)
         if (!block && index == mindex) // match generic or exact subject 
@@ -716,9 +771,9 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
                         if (G->verb == Mexclude) // see if this is marked for this position, if so, DONT trigger topic
 						{
 							WORDP S = Meaning2Word(G->subject); // what to exclude
-							int startPosition,endPosition;
+							MARKDATA hitdata;
                             // need to test for original only as well - BUG
-							if (GetNextSpot(S,start-1,startPosition,endPosition) && startPosition == start && endPosition == end)
+							if (GetNextSpot(S,start-1,false,0,&hitdata) && hitdata.start == start && hitdata.end == end)
 							{
                                 if (trace & TRACE_HIERARCHY) TraceHierarchy(F,"");
                                 mark = false;
@@ -734,7 +789,6 @@ static int MarkSetPath(int depth,int exactWord,MEANING M, int start, int end, un
 						}
                         else if (G->verb == Mmember) // ran out of excludes
                         {
-                            mark = true; 
                             break;
                         }
 						G = GetObjectNondeadNext(G);
@@ -770,6 +824,7 @@ static void RiseUp(int depth, int exactWord,MEANING M,unsigned int start, unsign
 {	// M is always a synset head 
 	M &= -1 ^ SYNSET_MARKER;
 	unsigned int index = Meaning2Index(M);
+	if (index > MAX_MEANING) return; // cant use this 
 	WORDP D = Meaning2Word(M);
 	if (!D) return;
 	char word[MAX_WORD_SIZE];
@@ -813,16 +868,16 @@ static void MarkAllMeaningAndImplications(int depth, MEANING M, int start, int e
 	}
 }
 
-void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start, int end,int kind,bool sequence,bool once) 
+void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start, int end,int kind,bool sequence,bool once,int prefix) 
 { // M is always a word or sequence from a sentence
     if (!M) return;
 	WORDP D = Meaning2Word(M);
 	if (D->properties & NOUN_TITLE_OF_WORK && kind == CANONICAL) return; // accidental canonical match of a title. not intended
 																 // We want to avoid wandering fact relationships for meanings we have already scanned.
-	if (!exactWord)
+	if (!exactWord) // has not been defined yet how to treat this word (original vs canonical)
 	{
-		if (D->internalBits & UPPERCASE_HASH) MarkAllMeaningAndImplications(depth,  M, start, end,kind,sequence, once);
-		else  if (kind == CANONICAL) exactWord = (MEANING)DONTUSEEXACT; // dont use concept word or lowercase word as the match
+		if (D->internalBits & UPPERCASE_HASH) MarkAllMeaningAndImplications(depth, M, start, end, kind, sequence, once);
+		else  if (kind == CANONICAL) exactWord = (MEANING)-1; // dont use concept word or lowercase word as the match
 	}
   // We mark words/phrases  and concepts and words/concepts implied by them.
 	// We mark words by meaning (63) + generic. They always have a fixed size match.
@@ -831,7 +886,7 @@ void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start
 	// Because we can come in here with a general word with and without a type restriction,
 	// we have scan out from the word because we cant mark the different ways we scanned before,
 	int index = Meaning2Index(M);
-	int whereHit = WhereWordHit(D, start);
+	//int whereHit = WhereWordHit(D, start);
 	unsigned int restrict = GETTYPERESTRICTION(M);
 	unsigned int size = GetMeaningCount(D);
 	if (size == 0)
@@ -841,19 +896,18 @@ void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start
 	}
 	if (*D->word == '~')
 	{
-		if (whereHit >= end) return; // already have best concept storage
+		//if (whereHit >= end) return; // already have best concept storage
 	}
 	else
 	{
-		if (whereHit < end) SetTriedMeaning(D, 0); // found nothing at this index, insure nothing to start
+		//if (whereHit < end) SetTriedMeaning(D, 0); // found nothing at this index, insure nothing to start
 	}
-    
     // we mark word hit before using MarkSetPath, so that exclude is supported
     // words we dont know we dont bother marking
     if (!once || D->properties & (PART_OF_SPEECH | NOUN_TITLE_OF_WORK | NOUN_HUMAN) || D->systemFlags & PATTERN_WORD || *D->word == '~')
     {
-        MarkWordHit(depth, exactWord, D, 0, start, end);
-        MarkSetPath(depth + 2, exactWord, M, start, end, 0, kind); // generic membership of this word all the way to top
+        MarkWordHit(depth, exactWord, D, 0, start, end,0,(unsigned int) kind);
+		if (!failFired) MarkSetPath(depth + 2, exactWord, M, start, end, 0, kind); // generic membership of this word all the way to top
     }
     // we dont mark random junk discovered, only significant sequences
     else if (sequence) // phrase is not a pattern word, maybe it goes to some concepts
@@ -894,80 +948,75 @@ void MarkMeaningAndImplications(int depth, MEANING exactWord,MEANING M,int start
 	}
 
 	//   now follow out the allowed synset hierarchies 
-	if (!restrict) restrict = ESSENTIAL_FLAGS & finalPosValues[end]; // unmarked ptrs can rise all branches compatible with final values - end of a multiword (idiom or to-infintiive) is always the posvalued one
-
-	if (!once && *D->word != '~') for  (unsigned int k = 1; k <= size; ++k) 
+	if (!restrict)
 	{
-		M = GetMeaning(D,k); // it is a flagged meaning unless it self points
-		if (!(GETTYPERESTRICTION(M) & restrict)) continue;	// cannot match type
+		restrict = ESSENTIAL_FLAGS & finalPosValues[end]; // unmarked ptrs can rise all branches compatible with final values - end of a multiword (idiom or to-infintiive) is always the posvalued one
+		if (finalPosValues[end] & ADJECTIVE_NOUN) restrict = NOUN;
+	}
 
-		// walk the synset words and see if any want vague concept matching like dog~~
-		MEANING T = M; // starts with basic meaning
-		unsigned int n = (index && (int)k != index) ? (unsigned int)80 : (unsigned int) 0;	// only on this meaning or all synset meanings 
-		while (n < 50) // insure not infinite loop
+	// follow meanings up the hierarchy of nouns
+	if (!once && !failFired && *D->word != '~')
+	{
+		unsigned int meaningstart = (index) ? index : 1;
+		
+		// only go up noun hierarchies -  if its really a verb or number , dont try to track it
+		if (sequence) {} // pos tags on sequences (composite) wont be necessarily correct- old man (old is adjective)
+		else if (!(finalPosValues[start] & (NOUN_BITS | ADJECTIVE_NOUN))) meaningstart = size + 1;
+		else if (finalPosValues[start] & (NOUN_INFINITIVE | NOUN_GERUND| NOUN_NUMBER))  meaningstart = size + 1;
+		
+		for (unsigned int k = meaningstart; k <= size; ++k)
 		{
-			WORDP X = Meaning2Word(T);
-			unsigned int ind = Meaning2Index(T);
-			sprintf(word,(char*)"%s~~",X->word);
-			MarkWordHit(depth, exactWord, FindWord(word, 0, PRIMARY_CASE_ALLOWED),0,start,end); // direct reference in a pattern
-			if (!ind) break;	// has no meaning index
-			MEANING* meanings = GetMeanings(X);
-			if (!meanings) break;
-			T = meanings[ind];
-			if (!T) break;
-			if ((T & MEANING_BASE) == (M & MEANING_BASE)) break; // end of loop
-			++n;
-		}
+			M = GetMeaning(D, k); // it is a flagged meaning unless it self points
+			WORDP Z = Meaning2Word(M);
+			unsigned int indexother = Meaning2Index(M);
+			if (indexother == 0) continue; // we cant use this reference
+			if (!(GETTYPERESTRICTION(M) & restrict)) continue;	// cannot match type
+			// walk the synset words and see if any want vague concept matching like dog~~
+			// BUT dont do this for verbs or adjectives- they are not well organized in wordnet
+			if (!(M & NOUN)) continue;
 
-		M = (M & SYNSET_MARKER) ? MakeMeaning(D,k) : GetMaster(M); // we are the master itself or we go get the master
-		RiseUp(depth+1, exactWord,M,start,end,0,kind); // allowed meaning pos (self ptrs need not rise up)
+			// walk the synset of this meaning and mark all meanings
+			MEANING T = M; // starts with basic meaning
+			unsigned int n = (unsigned int)0;	// only on this meaning or all synset meanings 
+			while (n < 50) // insure not infinite loop around the synset
+			{
+				WORDP X = Meaning2Word(T);
+				unsigned int ind = Meaning2Index(T);
+				if (ind == 0) break; // cant reference high meaning
+				sprintf(word, (char*)"%s~~", X->word);
+				MarkWordHit(depth, exactWord, FindWord(word, 0, PRIMARY_CASE_ALLOWED), 0, start, end); // direct reference in a pattern
+			
+				if (!ind) break;	// has no meaning index
+				MEANING* meanings = GetMeanings(X);
+				if (!meanings) break;
+
+				T = meanings[ind];
+				if (!T) break;
+				if ((T & MEANING_BASE) == (M & MEANING_BASE)) break; // end of loop
+				++n;
+			}
+			M = (M & SYNSET_MARKER) ? MakeMeaning(D, k) : GetMaster(M); // we are the master itself or we go get the master
+			RiseUp(depth + 1, exactWord, M, start, end, 0, kind); // allowed meaning pos (self ptrs need not rise up)
+			if (index) break; // did the one and only given index
+		}
 	}
 }
 
-static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsigned int& usetrace)
+void HuntMatch(int kind, char* word,bool strict,int start, int end, unsigned int& usetrace, unsigned int restriction)
 {
-	
 	WORDP D;
 	int oldtrace = trace;
-    // if user typed upper case specifically, trust him
-    if (start == end && start != 1 && IsUpperCase(word[0]))
-    {
-        if (!IsUpperCase(word[1])) strict = true;
-    }
+	bool sequence = strchr(word, '_');
 	WORDP set[GETWORDSLIMIT];
 	int i = GetWords(word,set,strict); // words in any case and with mixed underscore and spaces
 	while (i) 
 	{
 		D = set[--i];
 
-		// dont redo effort
-		if (D->internalBits & BEEN_HERE) continue;	// huntmatch already covered this
-		D->internalBits |= BEEN_HERE;
-        wordlist = AllocateStackval(wordlist, (uint64) D,0);
-		// markallimplied matches words with part of speech. This doesnt
-		if (!(D->systemFlags & PATTERN_WORD) && !(D->properties & PART_OF_SPEECH) && !(D->internalBits & UPPERCASE_HASH)) // given no flag reason to use, see if concept member
-		{
-			FACT* F = GetSubjectHead(D); // is it a part of some concept? Or a direct word
-			while (F)
-			{
-				if (F->verb == Mmember && AcceptableFact(F)) break; 
-				F = GetSubjectNext(F);
-			}
-			if (!F) continue;
-		}
         // not allowed to detect uppercase when user input 
         // is form is conjugated (fitted != Fit) except
         // for Plural noun  OR   monitoring => Monitor as canonical
 		if (WORDLENGTH(D) == 2 && !strcmp(D->word,"AM") && start > 1 && start == end && *wordStarts[start-1] == 'I' && !wordStarts[start-1][1]) continue;
-        if (start == end && IsUpperCase(*D->word) && kind == FIXED){ ; }
-        else if (start == end && IsUpperCase(*D->word)  &&  kind == CANONICAL &&
-			stricmp(D->word, wordStarts[start])) // user didnt type this, upper case should be noun singular -- bug for us  if he did proper noun plural
-        {
-			 continue; // avoiding canonical Monitor of monitoring
-		}
-		trace = (D->subjectHead || D->systemFlags & PATTERN_WORD || D->properties & PART_OF_SPEECH) ? usetrace : 0; // being a subject head means belongs to some set. being a marked word means used as a keyword
-		if ((*D->word == 'I' || *D->word == 'i') && !D->word[1]) continue; // dont follow out this I or i word
-
 		int refined = kind;
 		if (kind == RAW) // promote to rawcase?
 		{
@@ -980,26 +1029,107 @@ static void HuntMatch(int kind, char* word,bool strict,int start, int end, unsig
 			}
 		}
 		if (end > start && *D->word != '~') Add2ConceptTopicList(concepts, D, start, end, true); // add multi-words to concept list directly as WordHit will not store anything but concepts
-		unsigned int restriction = 0;
-		if (start == end && false) restriction = (unsigned int)(finalPosValues[start] & BASIC_POS);
-		MarkMeaningAndImplications(0, 0, MakeTypedMeaning(D, 0, restriction), start, end, refined, true);
+		MEANING M = MakeMeaning(D);
+		MEANING M1 = M;
+		if (restriction && !strcmp(word, D->word)) M |= restriction; // declare POS on fixed word
+		MarkMeaningAndImplications(0, M1, M, start, end, refined, sequence);
 	}
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+}
+
+static void MarkPhrases()
+{
+	// prep phrases
+	for (unsigned int i = 1; i <= wordCount; ++i)
+	{
+		unsigned int x = phrases[i];
+		if (!x) continue;
+
+		unsigned int start = i;
+		while (phrases[++i] == x) {}	// find actual end
+		--i;
+		WORDP D = FindWord("~prep_phrase");
+		MarkMeaningAndImplications(0, 0, MakeMeaning(D, 0), start, i, false, false);
+	}
+
+	int firstverb = 0;
+	for (unsigned int i = 1; i <= wordCount; ++i)
+	{ // does not handle question form where helper is split from verb by subject
+		// i have been doing 
+		// have you been doing
+		// what have you been doing
+		// who have you been doing it with
+		if (!(finalPosValues[i] & VERB)) continue;
+		if (finalPosValues[i] & AUX_VERB) continue;
+
+		int end = i;
+		int start = i;
+		while (finalPosValues[start - 1] & AUX_VERB || !strcmp(wordStarts[start - 1], "not")) --start; // will have been studying
+		if (!firstverb) firstverb = i;
+		WORDP D = FindWord("~verb_phrase");
+		int prefix = 0;
+
+		// only first occurrance can use the aux verb as prefix of a phrase
+		if (finalPosValues[1] & AUX_VERB && start == firstverb && start != 1) prefix = 1;
+		else if (finalPosValues[2] & AUX_VERB && start == firstverb && start != 2) prefix = 2;
+
+		MarkMeaningAndImplications(0, 0, MakeMeaning(D, 0), start, end, FIXED, true, true, prefix);
+	}
+	for (unsigned int i = 1; i <= wordCount; ++i)
+	{
+		if (!(finalPosValues[i] & (NOUN | PRONOUN_BITS))) continue;
+
+		//NextInferMark();
+		unsigned int end = i;
+		while (finalPosValues[--i] & (ADJECTIVE | DETERMINER | POSSESSIVE_BITS | NOUN)) {}	// find actual end
+		++i;
+		if (finalPosValues[end + 1] & ADJECTIVE) ++end; // post adj
+		unsigned int x = phrases[end + 1];
+		if (x)
+		{
+			while (phrases[++end] == x) {}	// find actual end
+			--end;
+		}
+		if (i != end)
+		{
+			WORDP D = FindWord("~noun_phrase");
+			MarkMeaningAndImplications(0, 0, MakeMeaning(D, 0), i, end, false, false);
+		}
+		i = end;
+	}
 }
 
 static void FindSequences() //   mark words in sequence, original and canonical (but not mixed) - detects proper name potential up to 5 words  - and does discontiguous phrasal verbs
 {// words are always fully generic, never restricted by meaning or postag
 	// these use underscores and are often concept multi-word or phrase keywords 
 	char* fixedbuffer = AllocateStack(NULL, maxBufferSize);
+	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
+	char* rawbuffer = AllocateStack(NULL, maxBufferSize);
 	char* limit = GetUserVariable("$cs_sequence", false);
 	int sequenceLimit = (*limit) ? atoi(limit) : SEQUENCE_LIMIT;
+	bool sameword[MAX_SENTENCE_LENGTH];
+	bool sameraw[MAX_SENTENCE_LENGTH];
+	memset(sameword, 0, sizeof(sameword));
+	memset(sameraw, 0, sizeof(sameraw)); // raw == fixed?
+	unsigned int fixedlength[MAX_SENTENCE_LENGTH];
+	unsigned int canonlength[MAX_SENTENCE_LENGTH];
+	for (unsigned int i = 1; i <= wordCount; ++i)
+	{
+		// huntmatch is case insensitive, so note when fixed and canonical are same or vary
+		if (derivationSentence[i] && !stricmp(wordStarts[i], derivationSentence[i])) sameraw[i] = true;
+		if (!stricmp(wordStarts[i], wordCanonical[i])) sameword[i] = true;
+		fixedlength[i] = strlen(wordStarts[i]);
+		canonlength[i] = strlen(wordCanonical[i]);
+	}
 
 	if (parseLimited && sequenceLimit > 2) sequenceLimit = 2;
 
-	char* canonbuffer = AllocateStack(NULL, maxBufferSize);
-	char* rawbuffer = AllocateStack(NULL, maxBufferSize); // includes typos
+	// We have 3 sources of input- the fixed original text, the canonical text of that, and the raw user input.
+	// Raw text is adjusted for 2 reasons. Either it is an actual typo or unknown word by user OR we force a substitution on it for our own reasons.
+    // When we force a substitution, we have recognized his input and change it. So we don't need
+	// to mark his words. When we have an actual unknown word, it won't have any references.
+	// But it might be part of a phrase that we would know, so we have to keep it if we do know the phrase.
 
-	wordlist = NULL;
 	unsigned int oldtrace = trace;
 	unsigned int usetrace = trace;
 	if (trace & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE)
@@ -1008,26 +1138,25 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 		usetrace = (unsigned int)-1;
 		if (oldtrace && !(oldtrace & TRACE_ECHO)) usetrace ^= TRACE_ECHO;
 	}
+
+	// find phrases
+	if (!nophrases && !stricmp(current_language, "ENGLISH")) MarkPhrases();
+	
+	bool hasParticle = false;
+
 	//   consider all sets of up to 5-in-a-row 
 	if (endSentence > wordCount)
 		endSentence = wordCount;
-	for (int i = startSentence; i <= (int)endSentence; ++i)
+	for (unsigned int i = startSentence; i <= (int)endSentence; ++i)
 	{
-		marklimit = 0; // per word scan limit
-		while (wordlist)
-		{
-			uint64 D;
-			wordlist = UnpackStackval(wordlist, D, discard);
-			((WORDP)D)->internalBits &= -1 ^ BEEN_HERE;
-		}
-
 		if (!IsAlphaUTF8OrDigit(*wordStarts[i])) continue; // we only composite words, not punctuation or quoted stuff
 		if (IsDate(wordStarts[i])) continue;// 1 word date, caught later
 		// check for dates
-		int start, end;
+		unsigned int start, end;
+		unsigned int rawstart, rawend;
 		if (DateZone(i, start, end) && i != wordCount)
 		{
-			int at = start - 1;
+			unsigned int at = start - 1;
 			*fixedbuffer = 0;
 			while (++at <= end)
 			{
@@ -1061,94 +1190,93 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 			}
 		}
 
-		// do hyphenated forms of pairs
-		strcpy(fixedbuffer, wordStarts[i]);
-		if (*wordStarts[i + 1])
-		{
-			strcat(fixedbuffer, "-");
-			strcat(fixedbuffer, wordStarts[i + 1]);
-		}
-		HuntMatch(FIXED, fixedbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i+1, usetrace);
-		strcpy(canonbuffer, wordCanonical[i]);
-		if (wordCanonical[i + 1] != NULL) 
-		{		
-			strcat(canonbuffer, "-");
-			strcat(canonbuffer, wordCanonical[i + 1]);
-		}
+		marklimit = 0; // per word scan limit
+		if (posValues[i] & PARTICLE) hasParticle = true;
 
-		HuntMatch(CANONICAL,canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + 1, usetrace);
-
-		//   set base phrase
-		strcpy(fixedbuffer,wordStarts[i]);
-		strcpy(canonbuffer,wordCanonical[i]);
+		// do raw first before fixed, because if fixed matches raw, we dont need to do fixed, but we need rawonly flag
+		rawstart = derivationIndex[i] >> 8; // from here
+		rawend = derivationIndex[i] & 0x00ff;  // to here
 		*rawbuffer = 0;
-        int rawend = i;
-		start = derivationIndex[i] >> 8; // from here
-		end = derivationIndex[i] & 0x00ff;  // to here
-		for (int j = start; j <= end; ++j)
+		char* atp = rawbuffer;
+		for (unsigned int j = rawstart; j <= rawend; ++j)
 		{
-			if (!derivationSentence[j]) break; // in case sentence is empty
-			strcat(rawbuffer,derivationSentence[j]);
-			if ( j != end && derivationSeparator[j] && !(derivationSeparator[j] == '"' || derivationSeparator[j] == '\'')) strcat(rawbuffer,"_");
+			strcpy(atp, derivationSentence[j]);
+			atp += strlen(atp);
+			*atp++ = '_';
 		}
-        // check to see how long this goes on for when a raw word is split into multiple actual words
-        for (int j = i; j <= wordCount; ++j)
-        {
-            int a = derivationIndex[j] >> 8;
-            int b = derivationIndex[j] & 0x00ff;
-            if (a <= end && b >= start) rawend = j;
-        }
+		*--atp = 0;
+
+		strcpy(fixedbuffer, wordStarts[i]);
+		strcpy(canonbuffer, wordCanonical[i]);
+		unsigned int fixedlen = fixedlength[i];
+		unsigned int canonlen = canonlength[i];
 		
-		// scan interesting initial words (spaced, underscored, capitalized) but we need to recognize bots in lower case, so try all cases here as well
-        if (!trustpos || tokenControl & TRUST_POS) // the base words would already be scanned and marked by pos
-        { // test in most specific order
-            HuntMatch(RAW, rawbuffer, (tokenControl & STRICT_CASING) ? true : false, i, rawend, usetrace);
-			HuntMatch(FIXED , fixedbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
-			HuntMatch(CANONICAL, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i, usetrace);
-        }
-		//   fan out for addon pieces
-		int k = 0;
-		int index = 0;
-		while ((++k + i) <= endSentence)
+		// we only need to check fixed vs canonical when they differ
+		bool same = sameword[i];
+		bool rawsame = sameraw[i];
+
+		// do hyphenated forms of pairs
+		if (i < wordCount)
 		{
-            rawend = i + k;
-			strcat(rawbuffer,(char*)"_");
-			start = derivationIndex[i+k] >> 8; // from here
-			end = derivationIndex[i+k] & 0x00ff;  // to here
-			for (int j = start; j <= end; ++j)
+			strcpy(fixedbuffer + fixedlen, "-");
+			strcpy(fixedbuffer + fixedlen + 1, wordStarts[i + 1]);
+			HuntMatch(FIXED, fixedbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + 1, usetrace);
+			strcpy(canonbuffer + canonlen, "-");
+			strcpy(canonbuffer + canonlen + 1, wordCanonical[i + 1]);
+			HuntMatch(CANONICAL, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + 1, usetrace);
+		}
+
+		//   fan out for addon pieces up thru n additional words in a phrase
+		unsigned int index = i;
+		unsigned int limit = index + sequenceLimit;
+		while (++index <= endSentence && index < limit)
+		{
+			same &= sameword[index];
+			rawsame &= sameraw[index];
+			strcpy(fixedbuffer + fixedlen, (char*)"_");
+			strcpy(fixedbuffer + fixedlen + 1, wordStarts[index]);
+			strcpy(canonbuffer + canonlen, (char*)"_");
+			strcpy(canonbuffer + canonlen + 1, wordCanonical[index]);
+			fixedlen += fixedlength[index] + 1;
+			canonlen += canonlength[index] + 1;
+			
+			// add on additional raw
+			unsigned int oldrawend = rawend;
+			rawend = derivationIndex[index] & 0x00ff;  // to here
+			for (unsigned int j = oldrawend + 1; j <= rawend; ++j)
 			{
-				if (!derivationSentence[j]) break; // in case sentence is empty
-				strcat(rawbuffer,derivationSentence[j]);
-				if ( j != end && derivationSeparator[j] && !(derivationSeparator[j] == '"' || derivationSeparator[j] == '\''))  strcat(rawbuffer,"_");
+				if (derivationSentence[j])
+				{
+					*atp++ = '_';
+					strcpy(atp, derivationSentence[j]);
+					atp += strlen(atp);
+				}
 			}
-            // work out how many actual words are covered
-            for (int j = i+k; j <= wordCount; ++j)
-            {
-                int a = derivationIndex[j] >> 8;
-                int b = derivationIndex[j] & 0x00ff;
-                if (a <= end && b >= start) rawend = j;
-            }
-
-			strcat(fixedbuffer, (char*)"_");
-			strcat(fixedbuffer, wordStarts[i + k]);
-
-			strcat(canonbuffer, (char*)"_");
-			strcat(canonbuffer, wordCanonical[i + k]);
 
 			// we  composite anything, not just words, in case they made a typo
-            HuntMatch(RAW , rawbuffer, (tokenControl & STRICT_CASING) ? true : false, i, rawend, usetrace);
-			HuntMatch(FIXED,fixedbuffer,(tokenControl & STRICT_CASING) ? true : false,i,i+k,usetrace);
-			HuntMatch(CANONICAL, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, i + k, usetrace);
-
-			if (++index >= sequenceLimit) break; //   up thru n additional words in a phrase
+			HuntMatch(RAW, rawbuffer, (tokenControl& STRICT_CASING) ? true : false, i, index, usetrace);
+			if (!rawsame) HuntMatch(FIXED,fixedbuffer,(tokenControl & STRICT_CASING) ? true : false,i,index,usetrace);
+			if (!same) HuntMatch(CANONICAL, canonbuffer, (tokenControl & STRICT_CASING) ? true : false, i, index, usetrace);
 		}
+        
+    #ifdef PRIVATE_CODE
+        // Check for private hook function to perform additional sequence marking from this word
+        static HOOKPTR fnSequenceMark = FindHookFunction((char*)"SequenceMark");
+        if (fnSequenceMark)
+        {
+            ((SequenceMarkHOOKFN) fnSequenceMark)(i);
+        }
+    #endif
+
 	}
 	
 	// mark disjoint particle verbs as whole
-	for (int i = wordCount; i >= 1; --i)
+	if (hasParticle) for (int i = wordCount; i >= 1; --i)
 	{
-		marklimit = 0; // per word scan limit
 		if (!(posValues[i] & PARTICLE)) continue;
+	
+		//NextInferMark();
+		marklimit = 0; // per word scan limit
 		// find the particle
 		unsigned int at = i;
 		while (posValues[--at] & PARTICLE){;}	// back up thru contiguous particles
@@ -1197,26 +1325,21 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 	}
 	if (trace & TRACE_FLOW || prepareMode == PREPARE_MODE) Log(USERLOG,"\r\n"); 
 
-	while (wordlist)
-	{
-        uint64 D;
-        wordlist = UnpackStackval(wordlist, D, discard);
-		((WORDP)D)->internalBits &= -1 ^ BEEN_HERE;
-	}
-
 #ifdef TREETAGGER
 	MarkChunk();
 #endif
 
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
-	ReleaseStack(fixedbuffer); // short term
+	ReleaseStack(fixedbuffer); // short term, covers canonbuffer as well
 }
 
 static void StdMark(MEANING M, unsigned int start, unsigned int end, int kind) 
 {
 	if (!M) return;
 	WORDP D = Meaning2Word(M);
-	MarkMeaningAndImplications(0,0,M,start,end,kind);		//   the basic word
+	MEANING pass = M;
+	if (kind == CANONICAL) pass = 0; // dont force singular save here - My theologians got busted for DUI this weekend. 
+	MarkMeaningAndImplications(0,0, pass,start,end,kind);		//   the basic word
 	if (IsModelNumber(D->word) && kind != CANONICAL) MarkMeaningAndImplications(0,0, MakeMeaning(StoreWord("~modelnumber")), start, end, FIXED);
 	if (D->systemFlags & TIMEWORD && !(D->properties & PREPOSITION)) MarkMeaningAndImplications(0, 0,MakeMeaning(Dtime),start,end,FIXED);
 }
@@ -1354,15 +1477,15 @@ static void MarkFundamentalMeaning()
     {
         Log(USERLOG,"Fundamental Meanings:\r\n");
     }
-    int subject = 0;
-    int object = 0;
-    int verb = 0;
-    for (int i = 1; i <= wordCount; ++i)
+	unsigned int subject = 0;
+	unsigned int object = 0;
+	unsigned int verb = 0;
+    for (unsigned int i = 1; i <= wordCount; ++i)
     {
         if (roles[i] & MAINVERB)
         {
             verb = i;
-            int j = i;
+			unsigned int j = i;
 
             if (roles[i] & PASSIVE_VERB) // find subject as object
             { // he was attacked
@@ -1424,26 +1547,11 @@ static void MarkFundamentalMeaning()
     }
 }
 
-void MarkAllImpliedWords(bool limitnlp)
+static void MarkSentence(bool limitnlp)
 {
-	int i;	
-	pendingConceptList = NULL;
-	for (i = 1; i <= wordCount; ++i)  capState[i] = IsUpperCase(*wordStarts[i]); // note cap state
-	failFired = false;
-	TagIt(limitnlp); // pos tag and maybe parse
-
-	if (prepareMode == POS_MODE || tmpPrepareMode == POS_MODE || prepareMode == PENN_MODE || prepareMode == POSVERIFY_MODE || prepareMode == POSTIME_MODE)
-	{
-		return;
-	}
-	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
-	{
-		char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
-		if (*bad) Log(USERLOG,"\r\nNLP Suppressed by spellcheck.\r\n");
-		else Log(USERLOG,"\r\nConcepts %s: \r\n", current_language);
-	}
-	if (showMark)  Log(ECHOUSERLOG, (char*)"----------------\r\n");
-	markLength = 0;
+	unsigned int i;
+	// prior analysis (tokenization) will have set wordStarts array
+	// NL analysis should have set originalWordp and canonicalWordp and wordCanonical
 
 	//   now mark every word in all seen
 	for (i = 1; i <= wordCount; ++i) //   mark that we have found this word, either in original or canonical form
@@ -1452,87 +1560,52 @@ void MarkAllImpliedWords(bool limitnlp)
 		char* original = wordStarts[i];
 		if (!*original)
 			continue;	// ignore this
-		if (!wordCanonical[i] || !*wordCanonical[i]) wordCanonical[i] = original; // in case failure below
+
+		WORDP orig = originalWordp[i];
+		if (!orig) orig = originalWordp[i] = StoreWord(original);
+		char* canon = wordCanonical[i];
+		WORDP can = NULL;
+		if (!canon)
+		{
+			canon = wordCanonical[i] = original;
+			can = canonicalWordp[i] = orig;
+		}
 
 		if (showMark) Log(ECHOUSERLOG, (char*)"\r\n");
 
 		if (trace & (TRACE_HIERARCHY | TRACE_PREPARE) || prepareMode == PREPARE_MODE)
 		{
-			WORDP D = FindWord(original);
 			char lang[20];
+			char* status;
+			status = "";
+			if (orig->foreignFlags) status = "universal multilanguage";
+			else if (GET_LANGUAGE_INDEX(orig)) status = "universal all";
 			*lang = 0;
-			if (multidict) sprintf(lang, "~%d", (D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT);
-			Log(USERLOG, "%d: %s (raw %s):\r\n", i, original, lang);
+			if (multidict) sprintf(lang, "%x", GET_LANGUAGE_INDEX(orig));
+			Log(USERLOG, "%d: %s (languagebits 0x%s @x%s %s):\r\n", i, original, lang,PrintX64((uint64)orig), status);
 		}
 		char word[MAX_WORD_SIZE];
 		GetDerivationText(i, i, word);
 		if (word[1] && upperCount != lowerCount && IsAllUpper(word)) // this is shout, not caps lock
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~shout")), i, i);
-
-		uint64 flags = posValues[i];
-		WORDP D = originalLower[i] ? originalLower[i] : originalUpper[i]; // one of them MUST have been set
-		if (!D) D = StoreWord(original,AS_IS); // just so we can't fail later
-
-										 // put back non-tagger generalized forms of bits
-		if (flags & NOUN_BITS) flags |= NOUN;
-		if (flags & (VERB_BITS | NOUN_INFINITIVE | NOUN_GERUND)) flags |= VERB;
-		if (flags & ADJECTIVE_BITS) flags |= ADJECTIVE | (allOriginalWordBits[i] & (MORE_FORM | MOST_FORM));
-		if (flags & NOUN_ADJECTIVE) flags |= (allOriginalWordBits[i] & (MORE_FORM | MOST_FORM)) | ADJECTIVE_NORMAL | ADJECTIVE; // what actress is the *prettiest  -- be NOUN OR ADJECTIVE
-		if (flags & ADVERB) flags |= ADVERB | (allOriginalWordBits[i] & (MORE_FORM | MOST_FORM));
-		if (D->properties & CURRENCY)  flags |= CURRENCY;
-		if (D->systemFlags & ORDINAL)
+	
+		if (original[1] && (original[1] == ':' || original[2] == ':')) // time info 1:30 or 11:30
 		{
-			flags |= PLACE_NUMBER;
-			AddParseBits(D, QUANTITY_NOUN);
-		}
-		if (!stricmp(wordCanonical[i], (char*)"be"))
-		{
-			if (!stricmp(original, (char*)"am") || !stricmp(original, (char*)"was")) flags |= SINGULAR_PERSON;
-		}
-		if (flags & NOUN_INFINITIVE && !(flags & NOUN_SINGULAR)) // transcribe back to verb only, leaving noun_infinitive status and not verb tense status
-		{
-			flags &= -1 ^ NOUN; // but still a noun_infinitive
-			flags |= VERB;
-		}
-		finalPosValues[i] = flags; // these are what we finally decided were correct pos flags from tagger
-		if (wordStarts[i][1] && (wordStarts[i][1] == ':' || wordStarts[i][2] == ':')) // time info 1:30 or 11:30
-		{
-			if (originalLower[i] && IsDigit(wordStarts[i][0]) && IsDigit(wordStarts[i][3]))
+			if ( IsDigit(original[0]) && IsDigit(original[3]))
 			{
-				AddSystemFlag(D, ACTUAL_TIME);
+				AddSystemFlag(orig, ACTUAL_TIME);
 			}
 		}
 
-		WORDP OL = originalLower[i];
-		WORDP CL = canonicalLower[i];
-		WORDP OU = originalUpper[i];
-		WORDP CU = canonicalUpper[i];
-		if (tokenControl & TOKENIZE_BY_CHARACTER)
-		{ // canonical is same as original when doing ideographic
-			CL = OL;
-			CU = OU;
-		}
+		// WE need to mark the words themselves, before any inferred sets 
+		// because user may use EXCLUDE on an inferred set
 
-		if (!CU && original[1]) // dont convert single letters to upper case "a" if it hasnt already decided its not a determiner
+		// both twitter usernames and hashtags are alphanumberic or _
+		// https://help.twitter.com/en/managing-your-account/twitter-username-rules
+		// https://www.hashtags.org/featured/what-characters-can-a-hashtag-include/
+		if ((*original== '@' || *original == '#') && strlen(original) > 2)
 		{
-			CU = FindWord(original, 0, UPPERCASE_LOOKUP);	// try to find an upper to go with it, in case we can use that, but not as a human name
-			if (OU) { ; } // it was originally uppercase or there is no lower case meaning
-			else if (finalPosValues[i] & IDIOM) { ; }	// keep if idiom
-			else if (CU && CU->properties & (NOUN_FIRSTNAME | NOUN_HUMAN)) CU = NULL;	// remove accidental names 
-			else if (CU && !CU->properties && !(CU->systemFlags & PATTERN_WORD)) CU = NULL; // there is no use for this (maybe only a sequence head)
-		}
-		if (!(finalPosValues[i] & (NOUN_BITS | ADJECTIVE_NOUN | IDIOM)))
-			CU = OU = NULL;	// cannot be upper case
-
-							// WE need to mark the words themselves, before any inferred sets 
-							// because user may use EXCLUDE on an inferred set
-
-							// both twitter usernames and hashtags are alphanumberic or _
-							// https://help.twitter.com/en/managing-your-account/twitter-username-rules
-							// https://www.hashtags.org/featured/what-characters-can-a-hashtag-include/
-		if ((*wordStarts[i] == '@' || *wordStarts[i] == '#') && strlen(wordStarts[i]) > 2)
-		{
-			char* ptr = wordStarts[i];
+			char* ptr = original;
 			bool hasAlpha = false;
 			bool hasFirstAlpha = IsAlphaUTF8(*(ptr + 1));
 			while (*++ptr)
@@ -1542,31 +1615,30 @@ void MarkAllImpliedWords(bool limitnlp)
 			}
 			if (!*ptr && hasAlpha)
 			{
-				if (*wordStarts[i] == '@') MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~twitter_name")), i, i);
-				if (*wordStarts[i] == '#' && hasFirstAlpha) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~hashtag_label")), i, i);
+				if (*original == '@') MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~twitter_name")), i, i);
+				if (*original == '#' && hasFirstAlpha) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~hashtag_label")), i, i);
 			}
 		}
 
 		// detect a filename
-		if (IsFileName(wordStarts[i]))
-        {
+		if (IsFileName(original))
+		{
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~filename")), i, i, FIXED);
 		}
-        
-        // detect an emoji shortcode
-        if (IsEmojiShortCode(wordStarts[i]) || (OL && OL->properties & EMOJI) || (OU && OU->properties & EMOJI) )
-        {
-            MarkMeaningAndImplications(0, 0,MakeMeaning(StoreWord("~emoji")),i,i);
-        }
 
+		// detect an emoji short name
+		if (IsEmojiShortname(original) || orig->properties & EMOJI)
+		{
+			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~emoji")), i, i);
+		}
 
 		// detect acronym
-		char* ptrx = wordStarts[i];
+		char* ptrx = original;
 		while (*++ptrx)
 		{
 			if (!IsUpperCase(*ptrx) && *ptrx != '&') break;
 		}
-		if (!*ptrx && wordStarts[i][1])
+		if (!*ptrx && original[1])
 		{
 			bool ok = true;
 			if (wordStarts[i - 1] && IsUpperCase(wordStarts[i - 1][0])) ok = false;
@@ -1577,33 +1649,33 @@ void MarkAllImpliedWords(bool limitnlp)
 
 		if (finalPosValues[i] & (ADJECTIVE_NOUN | NOUN_PROPER_SINGULAR))  // a date can become an idiom, marking it as a proper noun and not a number
 		{
-			if (IsDigit(*wordStarts[i]) && IsDigit(wordStarts[i][1]) && IsDigit(wordStarts[i][2]) && IsDigit(wordStarts[i][3]) && !wordStarts[i][4]) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~yearnumber")), i, i);
+			if (IsDigit(*original) && IsDigit(original[1]) && IsDigit(original[2]) && IsDigit(original[3]) && !original[4]) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~yearnumber")), i, i);
 		}
-		if (IsDate(wordStarts[i]))
+		if (IsDate(original))
 		{
 			MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~dateinfo")), i, i, FIXED, false);
 			MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~formatteddate")), i, i, FIXED, false);
 		}
 
-		int number = IsNumber(wordStarts[i], numberStyle);
+		int number = IsNumber(original, numberStyle);
 		if (number && number != NOT_A_NUMBER)
 		{
-			if (!wordCanonical[i][1] || !wordCanonical[i][2]) // 2 digit or 1 digit
+			if (!canon[1] || !canon[2]) // 2 digit or 1 digit
 			{
-				int n = atoi(wordCanonical[i]);
-				if (n > 0 && n < 32 && *wordStarts[i] != '$') MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~daynumber")), i, i);
+				int n = atoi(canon);
+				if (n > 0 && n < 32 && *original != '$') MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~daynumber")), i, i);
 			}
 
-			if (IsDigit(*wordStarts[i]) && IsDigit(wordStarts[i][1]) && IsDigit(wordStarts[i][2]) && IsDigit(wordStarts[i][3]) && !wordStarts[i][4]) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~yearnumber")), i, i);
+			if (IsDigit(*original) && IsDigit(original[1]) && IsDigit(original[2]) && IsDigit(original[3]) && !original[4]) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord((char*)"~yearnumber")), i, i);
 
 			MarkMeaningAndImplications(0, 0, Mnumber, i, i);
 
 			// let's mark kind of number also
-			if (strchr(wordCanonical[i], '.')) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~float")), i, i, CANONICAL);
+			if (strchr(canon, '.')) MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~float")), i, i, CANONICAL);
 			else
 			{
 				MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~integer")), i, i, CANONICAL);
-				if (*wordStarts[i] != '-') MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~positiveInteger")), i, i, CANONICAL);
+				if (*original != '-') MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~positiveInteger")), i, i, CANONICAL);
 				else MarkMeaningAndImplications(0, 0, MakeMeaning(FindWord("~negativeinteger")), i, i, CANONICAL);
 			}
 
@@ -1611,9 +1683,9 @@ void MarkAllImpliedWords(bool limitnlp)
 			if (i < wordCount && *wordStarts[i + 1] == '/' && wordStarts[i + 1][1] == 0 && IsDigitWord(wordStarts[i + 2], numberStyle))
 			{
 				MarkMeaningAndImplications(0, 0, MakeMeaning(Dplacenumber), i, i);
-				if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG,"=%s/%s \r\n", wordStarts[i], wordStarts[i + 2]);
+				if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG, "=%s/%s \r\n", wordStarts[i], wordStarts[i + 2]);
 			}
-			else if (IsPlaceNumber(wordStarts[i], numberStyle)) // finalPosValues[i] & (NOUN_NUMBER | ADJECTIVE_NUMBER) 
+			else if (IsPlaceNumber(original, numberStyle)) // finalPosValues[i] & (NOUN_NUMBER | ADJECTIVE_NUMBER) 
 			{
 				MarkMeaningAndImplications(0, 0, MakeMeaning(Dplacenumber), i, i);
 			}
@@ -1626,13 +1698,13 @@ void MarkAllImpliedWords(bool limitnlp)
 				else if (c == 'K')  MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~kelvin")), i, i);
 				char number1[MAX_WORD_SIZE];
 				sprintf(number1, (char*)"%d", atoi(original));
-				WORDP canon = StoreWord(number1, (NOUN_NUMBER | ADJECTIVE_NUMBER, NOUN_NODETERMINER));
-				if (canon) wordCanonical[i] = canon->word;
+				WORDP can = StoreWord(number1, (NOUN_NUMBER | ADJECTIVE_NUMBER, NOUN_NODETERMINER));
+				if (can) wordCanonical[i] = can->word;
 			}
 
 			// special currency property
 			char* number1;
-			unsigned char* currency = GetCurrency((unsigned char*)wordStarts[i], number1);
+			unsigned char* currency = GetCurrency((unsigned char*)original, number1);
 			if (currency)
 			{
 				MarkMeaningAndImplications(0, 0, Mmoney, i, i);
@@ -1644,33 +1716,46 @@ void MarkAllImpliedWords(bool limitnlp)
 				}
 			}
 		}
-		else if (IsNumber(wordStarts[i], numberStyle) == WORD_NUMBER)
+		else if (IsNumber(original, numberStyle) == WORD_NUMBER)
 		{
 			MarkMeaningAndImplications(0, 0, Mnumber, i, i);
 		}
-		if (FindTopicIDByName(wordStarts[i])) MarkMeaningAndImplications(0, 0, MakeMeaning(Dtopic), i, i);
+		if (FindTopicIDByName(original)) MarkMeaningAndImplications(0, 0, MakeMeaning(Dtopic), i, i);
 
-		if (CL && CL == DunknownWord) // allow unknown proper names to be marked unknown
+		if (can == DunknownWord) // allow unknown proper names to be marked unknown
 		{
-			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(original)), i, i);		// allowed word
 			MarkMeaningAndImplications(0, 0, MakeMeaning(Dunknown), i, i); // unknown word
 		}
+		unsigned int usetrace = 0;
 
+		// scan raw first so raw fact marking used (if fixed first, no repeat will block trying raw)
+		char* rawbuffer = AllocateBuffer();
+		GetDerivationText(i, i, rawbuffer);
+
+		unsigned int restriction = 0;
+		if (finalPosValues[i] & NOUN_BITS) restriction |= NOUN;
+		if (finalPosValues[i] & VERB_BITS) restriction |= VERB;
+		if (finalPosValues[i] & ADJECTIVE_BITS) restriction |= ADJECTIVE;
 		// note "bank teller" we want bank to have recognizion of its noun meaning in concepts - must do FIRST as noun, since adjective value is abnormal
-		unsigned int restriction = (unsigned int)(finalPosValues[i] & BASIC_POS);
-		if (finalPosValues[i] & ADJECTIVE_NOUN)
-		{
-			StdMark(MakeTypedMeaning(OL, 0, NOUN), i, i, FIXED); //  mark word as a noun
-		}
-		else // mark the original form do upper, lower and original if neither detected
-		{
-			WORDP raw = OL;
-			if (!raw) raw = OU;
-			if (!raw) raw = StoreWord(original);
-			StdMark(MakeTypedMeaning(StoreWord(original), 0, restriction), i, i, FIXED);
-		}
+		if (finalPosValues[i] & ADJECTIVE_NOUN) restriction |= NOUN;
+		if (finalPosValues[i] & ADVERB) restriction |= ADVERB;
 
-		if (!stricmp(current_language, "spanish") && OL)   MarkSpanishTags(OL,i); // object pronoun and tense data
+		HuntMatch(RAW, rawbuffer,  false, i, i, trace, 0);
+		if (stricmp(original, rawbuffer))  HuntMatch(FIXED, original, false, i, i, trace, restriction);
+		if (IsModelNumber(original)) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~modelnumber")), i, i, FIXED);
+		if (orig->systemFlags & TIMEWORD && !(orig->properties & PREPOSITION)) MarkMeaningAndImplications(0, 0, MakeMeaning(Dtime), i, i, FIXED);
+		FreeBuffer();
+
+#ifdef PRIVATE_CODE
+		// Check for private hook function to perform additional marking of this word
+		static HOOKPTR fn = FindHookFunction((char*)"MarkWord");
+		if (fn)
+		{
+			((MarkWordHOOKFN)fn)(i);
+		}
+#endif
+
+		if (!stricmp(current_language, "spanish") )   MarkSpanishTags(originalWordp[i], i); // object pronoun and tense data
 
 		// mark ancillary stuff
 		MarkMeaningAndImplications(0, 0, MakeMeaning(wordTag[i]), i, i); // may do nothing
@@ -1681,127 +1766,84 @@ void MarkAllImpliedWords(bool limitnlp)
 #endif
 
 		markLength = 0;
-		if (IS_NEW_WORD(OU) && (OL || CL)) { ; } // uppercase original was unknown and we have lower case forms, ignore upper.
-		else
-		{
-			if (finalPosValues[i] & ADJECTIVE_NOUN) StdMark(MakeTypedMeaning(OU, 0, NOUN), i, i, FIXED); //  mark word as a noun first, adjective is not normal
-			else StdMark(MakeTypedMeaning(OU, 0, restriction), i, i, FIXED);
-		}
-		bool hasCL = CL ? true : false;
-		if (!CL) CL = CU;
-		if (CL) wordCanonical[i] = CL->word; //    original meanings lowercase
-		else if (!wordCanonical[i]) wordCanonical[i] = (char*)"";
 
 		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
 		{
-			Log(USERLOG,"%d: %s (canonical):\r\n", i, wordCanonical[i]); //    original meanings lowercase
+			Log(USERLOG, "%d: %s (canonical):\r\n", i, canon); //    original meanings lowercase
 		}
 
-		//   canonical word
-		if (CL == OL) {} // dont bother
-		else if (finalPosValues[i] & ADJECTIVE_BITS && allOriginalWordBits[i] & (VERB_PRESENT_PARTICIPLE | VERB_PAST_PARTICIPLE)) // see if adj is verb as canonical base - "ing and ed" forms
-		{
-			StdMark(MakeTypedMeaning(CL, 0, VERB), i, i, CANONICAL);
-		}
-		else if (finalPosValues[i] & (NOUN_GERUND | NOUN_INFINITIVE))
-		{
-			StdMark(MakeTypedMeaning(CL, 0, VERB), i, i, CANONICAL);
-		}
-		else if (finalPosValues[i] & ADJECTIVE_NOUN)
-		{
-			StdMark(MakeTypedMeaning(CL, 0, NOUN), i, i, CANONICAL);
-			StdMark(MakeTypedMeaning(CU, 0, NOUN), i, i, CANONICAL);
-		}
-		else StdMark(MakeTypedMeaning(CL, 0, (unsigned int)(finalPosValues[i] & BASIC_POS)), i, i, CANONICAL);
-
+		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG, " "); //   close canonical form uppercase
 		markLength = 0;
-		if (hasCL && CU != OU) // not yet done  CU since had  CL
-		{
-			// mark upper case canonical 
-			StdMark(MakeTypedMeaning(CU, 0, NOUN), i, i, CANONICAL);
-		}
-
-
-		if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG," "); //   close canonical form uppercase
-		markLength = 0;
+		if (stricmp(original, canon)) HuntMatch(CANONICAL, canon, false, i, i, trace);
+		// patch for seconds which is considered a number also 
+		if (!stricmp(original,"seconds") && *canon == '2') 
+			HuntMatch(CANONICAL, "second", false, i, i, trace);
 
 		//   peer into multiword expressions  (noncanonical), in case user is emphasizing something so we dont lose the basic match on words
 		//   accept both upper and lower case forms . 
 		// But DONT peer into something proper like "Moby Dick"
-		unsigned int  n = BurstWord(wordStarts[i]); // peering INSIDE a single token....
-		WORDP E;
-		if (tokenControl & NO_WITHIN || n == 1);  // dont peek within hypenated words 
-		else if (finalPosValues[i] & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL)) // mark first and last word, if they are recognized words
+		if (orig->internalBits & MULTIPLE_WORD)
 		{
-			char* w = GetBurstWord(0);
-			WORDP D1 = FindWord(w);
-			w = GetBurstWord(n - 1);
-			if (D1 && allOriginalWordBits[i] & NOUN_HUMAN) MarkMeaningAndImplications(0, 0, MakeMeaning(D1), i, i); // allow first name recognition with human names
-
-			WORDP D2 = FindWord(w, 0, LOWERCASE_LOOKUP);
-			if (D2 && (D2->properties & (NOUN | VERB | ADJECTIVE | ADVERB) || D->systemFlags & PATTERN_WORD)) MarkMeaningAndImplications(0, 0, MakeMeaning(D2), i, i); // allow final word as in "Bill Gates" "United States of America" , 
-			D2 = FindWord(w, 0, UPPERCASE_LOOKUP);
-			if (D2 && (D2->properties & (NOUN | VERB | ADJECTIVE | ADVERB) || D->systemFlags & PATTERN_WORD)) MarkMeaningAndImplications(0, 0, MakeMeaning(D2), i, i); // allow final word as in "Bill Gates" "United States of America" , 
-		}
-		else if (n >= 2 && n <= 4) //   longer than 4 is not emphasis, its a sentence - we do not peer into titles
-		{
-			static char words[5][MAX_WORD_SIZE];
-			unsigned int k;
-			for (k = 0; k < n; ++k) strcpy(words[k], GetBurstWord(k)); // need local copy since burstwords might be called again..
-
-			for (unsigned int m = n - 1; m < n; ++m) // just last word since common form  "bank teller"
+			unsigned int  n = BurstWord(original); // peering INSIDE a single token....
+			WORDP E;
+			if (tokenControl & NO_WITHIN || n == 1);  // dont peek within hypenated words 
+			else if (finalPosValues[i] & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL)) // mark first and last word, if they are recognized words
 			{
-				unsigned int prior = (m == (n - 1)) ? i : (i - 1); //   -1  marks its word match INSIDE a string before the last word, allow it to see last word still
-				E = FindWord(words[m], 0, LOWERCASE_LOOKUP);
-				if (E) StdMark(MakeMeaning(E), i, prior, FIXED);
+				char* w = GetBurstWord(0);
+				WORDP D1 = FindWord(w);
+				w = GetBurstWord(n - 1);
+				if (D1 && allOriginalWordBits[i] & NOUN_HUMAN) MarkMeaningAndImplications(0, 0, MakeMeaning(D1), i, i); // allow first name recognition with human names
+
+				WORDP D2 = FindWord(w, 0, LOWERCASE_LOOKUP);
+				if (D2 && (D2->properties & (NOUN | VERB | ADJECTIVE | ADVERB) || orig->systemFlags & PATTERN_WORD)) MarkMeaningAndImplications(0, 0, MakeMeaning(D2), i, i); // allow final word as in "Bill Gates" "United States of America" , 
+				D2 = FindWord(w, 0, UPPERCASE_LOOKUP);
+				if (D2 && (D2->properties & (NOUN | VERB | ADJECTIVE | ADVERB) || orig->systemFlags & PATTERN_WORD)) MarkMeaningAndImplications(0, 0, MakeMeaning(D2), i, i); // allow final word as in "Bill Gates" "United States of America" , 
+			}
+			else if (n >= 2 && n <= 4) //   longer than 4 is not emphasis, its a sentence - we do not peer into titles
+			{
+				static char words[5][MAX_WORD_SIZE];
+				unsigned int k;
+				for (k = 0; k < n; ++k) strcpy(words[k], GetBurstWord(k)); // need local copy since burstwords might be called again..
+
+				for (unsigned int m = n - 1; m < n; ++m) // just last word since common form  "bank teller"
+				{
+					unsigned int prior = (m == (n - 1)) ? i : (i - 1); //   -1  marks its word match INSIDE a string before the last word, allow it to see last word still
+					E = FindWord(words[m], 0, LOWERCASE_LOOKUP);
+					if (E) StdMark(MakeMeaning(E), i, prior, FIXED);
+				}
 			}
 		}
 
 		// now look on either side of a hypenated word
-		char* hypen = strchr(wordStarts[i], '-');
-		if (!number && hypen && hypen != wordStarts[i] && hypen[1])
+		char* hypen = strchr(original, '-');
+		if (!number && hypen && hypen != original && hypen[1])
 		{
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(hypen)), i, i); // post form -colored
 			char word[MAX_WORD_SIZE];
-			strcpy(word, wordStarts[i]);
-			word[hypen + 1 - wordStarts[i]] = 0;
+			strcpy(word, original);
+			word[hypen + 1 - original] = 0;
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(word)), i, i); // pre form  light-
 		}
 
 		// now look on either side of a "plussed" word
-		char* plus = strchr(wordStarts[i], '+');
-		if (!number && plus && plus != wordStarts[i] && plus[1])
+		char* plus = strchr(original, '+');
+		if (!number && plus && plus != original && plus[1])
 		{
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(plus)), i, i); // post form +05:30
 			char word[MAX_WORD_SIZE];
-			strcpy(word, wordStarts[i]);
-			word[plus + 1 - wordStarts[i]] = 0;
+			strcpy(word, original);
+			word[plus + 1 - original] = 0;
 			MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord(word)), i, i); // pre form  word+
 		}
 
-		D = (CL) ? CL : CU; //   best recognition
-		if (!D) D = StoreWord(original); // just so we can't fail later
 		char* last;
-		if (!(tokenControl & NO_WITHIN) && D->properties & NOUN && !(D->internalBits & UPPERCASE_HASH) && (last = strrchr(D->word, '_')) && finalPosValues[i] & NOUN)
+		if (!(tokenControl & NO_WITHIN) && orig->properties & NOUN && !(orig->internalBits & UPPERCASE_HASH) && (last = strrchr(orig->word, '_')) && finalPosValues[i] & NOUN)
 			StdMark(MakeMeaning(FindWord(last + 1, 0)), i, i, CANONICAL); //   composite noun, store last word as referenced also
 
 		// ALL Foreign words detectable by utf8 char
-		D = (OL) ? OL : OU;
-		if (!D) D = StoreWord(original); // just so we can't fail later
-		if (D->internalBits & UTF8) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~utf8")), i, i);
-		if (D->internalBits & UPPERCASE_HASH && WORDLENGTH(D) > 1 && !stricmp(current_language, "english"))  MarkMeaningAndImplications(0, 0, MakeMeaning(Dpropername), i, i);  // historical - internal is uppercase
+		if (orig->internalBits & UTF8) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord((char*)"~utf8")), i, i);
+		if (orig->internalBits & UPPERCASE_HASH && WORDLENGTH(orig) > 1 && !stricmp(current_language, "english"))  MarkMeaningAndImplications(0, 0, MakeMeaning(Dpropername), i, i);  // historical - internal is uppercase
 
-		D = FindWord(wordStarts[i]);
-		if (*wordStarts[i] == 'I' && !wordStarts[i][1]) { ; } // ignore "I"
-		else if (D && D->internalBits & UPPERCASE_HASH && tokenControl & MARK_LOWER)
-		{
-			char word[MAX_WORD_SIZE];
-			MakeLowerCopy(word, D->word);
-			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG,"%d: %s (lower): ", i, word); //    original meanings lowercase
-			D = StoreWord(word);
-			StdMark(MakeMeaning(D), i, i, CANONICAL);
-			if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG,"\r\n");
-		}
 		ProcessPendingConcepts();
 	}
 
@@ -1843,6 +1885,38 @@ void MarkAllImpliedWords(bool limitnlp)
 	if (hasFundamentalMeanings && !limitnlp) MarkFundamentalMeaning();
 
 	ExecuteConceptPatterns(); // now use concept patterns
+}
+
+void MarkAllImpliedWords(bool limitnlp)
+{
+	unsigned int i;	
+	pendingConceptList = NULL;
+	for (i = 1; i <= wordCount; ++i)  capState[i] = IsUpperCase(*wordStarts[i]); // note cap state
+	failFired = false;
+
+	if (prepareMode == POS_MODE || tmpPrepareMode == POS_MODE || prepareMode == PENN_MODE || prepareMode == POSVERIFY_MODE || prepareMode == POSTIME_MODE)
+	{
+		return;
+	}
+	if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE)
+	{
+		char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
+		if (*bad) Log(USERLOG,"\r\nNLP Suppressed by spellcheck.\r\n");
+		else Log(USERLOG,"\r\nConcepts %s: \r\n", current_language);
+	}
+	if (showMark)  Log(ECHOUSERLOG, (char*)"----------------\r\n");
+	markLength = 0;
+
+	MarkSentence(limitnlp); // perform concept markings
+
+#ifdef PRIVATE_CODE
+    // Check for private hook function to perform additional marking of words
+    static HOOKPTR fn = FindHookFunction((char*)"AdditionalMarks");
+    if (fn)
+    {
+        ((AdditionalMarksHOOKFN) fn)();
+    }
+#endif
 }
 
 #pragma GCC diagnostic pop

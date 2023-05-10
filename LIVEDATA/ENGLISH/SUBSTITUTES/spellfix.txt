@@ -1,12 +1,5 @@
  Hawai'n Hawaiian
- The the
  A a
- This this
-  His his
-  Then then
-  Thus thus
- These these
- An an
  ca+not can+not
  wo_not will+not
  obviosly obviously
@@ -1181,7 +1174,6 @@ convetional conventional
 conviently conveniently
 convo conversation 
 conyak cognac
-coo coup
 cooger cougar
 cookoo cuckoo
 coolot culottes
@@ -2503,7 +2495,6 @@ negotiaing negotiating
 neigbors neighbors 
 neighbouring neighboring
 neihborhoods neighborhoods 
-nein no
 neral neural 
 nervana nirvana
 nessacary necessary

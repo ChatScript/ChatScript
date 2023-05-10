@@ -32,7 +32,7 @@ resume:
 
 	if (trace & TRACE_OUTPUT && !header && CheckTopicTrace() && *word1 == '1' && word1[1] == 0)
 		id = Log(USERLOG, "else( ");
-	else if (trace & TRACE_OUTPUT && !header && CheckTopicTrace()) id = Log(USERLOG, "If (");
+	else if (trace & TRACE_OUTPUT && !header && CheckTopicTrace()) id = Log(USERLOG, "if (");
 	header = true;
 
 	if (*op == '(') // function call instead of a variable. but the function call might output a value which if not used, must be considered for failure
@@ -76,7 +76,7 @@ resume:
 		{
 			char* remap = AllocateStack(NULL, maxBufferSize);
 			strcpy(remap, word1); // for tracing
-			if (*word1 == INDIRECT_PREFIX && IsDigit(word1[1])) strcpy(word1, FNVAR(word1 + 1));  // simple function var, remap it
+			if (*word1 == INDIRECT_PREFIX && IsDigit(word1[1])) strcpy(word1, FNVAR(word1));  // simple function var, remap it
 			const char* found;
 			if (word1[0] == LCLVARDATA_PREFIX && word1[1] == LCLVARDATA_PREFIX)
 				found = word1 + 2;	// preevaled function variable
@@ -198,7 +198,6 @@ char* HandleIf(char* ptr, char* buffer, FunctionResult& result)
 			int start = 0;
 			int end = 0;
 			wildcardIndex = 0;
-			int uppercasem = 0;
 			int whenmatched = 0;
 			bool failed = false;
 			char oldmark[MAX_SENTENCE_LENGTH];
@@ -207,8 +206,11 @@ char* HandleIf(char* ptr, char* buffer, FunctionResult& result)
 			{
 				Log(USERLOG, "  IF Pattern... \r\n");
 			}
-
-			if (!Match(buffer, ptr + 10, 0, start, (char*)"(", 1, 0, start, end, uppercasem, whenmatched, 0, 0)) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
+			MARKDATA hitdata;
+			hitdata.start = start;
+			if (!Match(ptr + 10, 0, hitdata, 1, 0, whenmatched, '(')) failed = true;  // skip paren and blank, returns start as the location for retry if appropriate
+			start = hitdata.start;
+			end = hitdata.end;
 			memcpy(unmarked, oldmark, MAX_SENTENCE_LENGTH);
 			ShowMatchResult((failed) ? FAILRULE_BIT : NOPROBLEM_BIT, ptr + 10, NULL);
 			// cannot use @retry here
@@ -543,7 +545,42 @@ FunctionResult HandleRelation(char* word1, char* op, char* word2, bool output, i
 	FunctionResult result, val1Result;
 	FreshOutput(word1, val1, result, OUTPUT_ONCE | OUTPUT_KEEPSET | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG); // 1st arg
 	val1Result = result;
+	if (trace & TRACE_OUTPUT && output && CheckTopicTrace())
+	{
+		char* traceop = op;
+		if (!traceop) traceop = "x";
+		char x[MAX_WORD_SIZE];
+		*x =  0;
+		if (*op == '&')
+		{
+#ifdef WIN32
+			sprintf(x, (char*)"0x%016I64x", v1);
+#else
+			sprintf(x, (char*)"0x%016llx", v1);
+#endif		
+		}
+		if (!stricmp(word1, val1))
+		{
+			if (*word1) Log(USERLOG, "%s %s ", word1, traceop); // no need to show value
+			else Log(USERLOG, "null %s ", traceop);
+		}
+		else Log(USERLOG, " %s ",op);
+	}
+	
 	if (word2 && *word2) FreshOutput(word2, val2, result, OUTPUT_ONCE | OUTPUT_KEEPSET | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG); // 2nd arg
+	if (word2 && *word2 && trace & TRACE_OUTPUT && output && CheckTopicTrace())
+	{
+		char x[MAX_WORD_SIZE];
+		*x = 0;
+		if (*op == '&') strcpy(x, PrintX64(v1));
+		if (word2 && !strcmp(word2, val2))
+		{
+			if (*val2) id = Log(USERLOG, " %s ", word2); // no need to show value
+			else id = Log(USERLOG, " null ");
+		}
+		//else if (*op == '&') id = Log(USERLOG, " %s`%s` ", word2, x);
+	}
+	
 	result = FAILRULE_BIT;
 	if (!stricmp(val1, (char*)"null")) *val1 = 0; // JSON null values
 	if (!stricmp(val2, (char*)"null")) *val2 = 0;
@@ -563,8 +600,8 @@ FunctionResult HandleRelation(char* word1, char* op, char* word2, bool output, i
 			D = FindWord(val2); // as is
 			if (begin && D)
 			{
-				int start, end;
-				if (GetNextSpot(D, begin - 1, start, end) == begin && (unsigned int)(end & REMOVE_SUBJECT) == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
+				MARKDATA hitdata;
+				if (GetNextSpot(D, begin - 1, false,0,&hitdata) == begin && (unsigned int)(hitdata.end & REMOVE_SUBJECT) == finish) result = NOPROBLEM_BIT; // otherwise failed and we would have known
 			}
 			if (*op == '!') result = (result != NOPROBLEM_BIT) ? NOPROBLEM_BIT : FAILRULE_BIT;
 		}
@@ -713,47 +750,6 @@ FunctionResult HandleRelation(char* word1, char* op, char* word2, bool output, i
 			else result = FAILRULE_BIT;
 		}
 	}
-	if (trace & TRACE_OUTPUT && output && CheckTopicTrace())
-	{
-		char x[MAX_WORD_SIZE];
-		char y[MAX_WORD_SIZE];
-		*x = *y = 0;
-		if (*op == '&')
-		{
-#ifdef WIN32
-			sprintf(x, (char*)"0x%016I64x", v1);
-			sprintf(y, (char*)"0x%016I64x", v2);
-#else
-			sprintf(x, (char*)"0x%016llx", v1);
-			sprintf(y, (char*)"0x%016llx", v2);
-#endif		
-		}
-		if (!stricmp(word1, val1))
-		{
-			if (*word1) Log(USERLOG, "%s %s ", (*x) ? x : word1, op); // no need to show value
-			else Log(USERLOG, "null %s ", op);
-		}
-		else if (!*val1) Log(USERLOG, "%s(null) %s ", word1, op);
-		else if (*op == '&')  Log(USERLOG, "%s(%s) %s ", word1, x, op);
-		else Log(USERLOG, "%s(%s) %s ", word1, val1, op);
-
-		if (word2 && !strcmp(word2, val2))
-		{
-			if (*val2) id = Log(USERLOG, " %s ", (*y) ? y : word2); // no need to show value
-			else id = Log(USERLOG, " null ");
-		}
-		else if (!*val2)  id = Log(USERLOG, " %s(null) ", word2);
-		else if (*op == '&') id = Log(USERLOG, " %s(%s) ", word2, y);
-		else id = Log(USERLOG, " %s(%s) ", word2, val2);
-	}
-	else if (trace & TRACE_PATTERN && !output && CheckTopicTrace())
-	{
-		if (strlen(val1) >= (MAX_WORD_SIZE - 1)) val1[MAX_WORD_SIZE - 1] = 0;
-		if (strlen(val2) >= (MAX_WORD_SIZE - 1)) val2[MAX_WORD_SIZE - 1] = 0;
-		strcpy(word1val, val1);
-		strcpy(word2val, val2);
-	}
-
 	ReleaseStack(val1);
 	return result;
 }

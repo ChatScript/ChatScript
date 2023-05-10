@@ -2,7 +2,7 @@
 #define _TEXTUTILITIESH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -53,7 +53,7 @@ enum PurifyKind {
 #define INDIAN_NUMBERS 1
 #define FRENCH_NUMBERS 2  // and german and spanish
 
-#define UNINIT -1
+#define UNINIT ((unsigned int)-1)
 
 #define SHOUT 1
 #define ABBREVIATION 2
@@ -95,8 +95,8 @@ extern int conditionalCompiledIndex;
 void CheckForOutputAPI(char* msg);
 extern char numberComma;
 extern char numberPeriod;
-extern int startSentence;
-extern int endSentence;
+extern unsigned int startSentence;
+extern unsigned int endSentence;
 extern unsigned char toHex[16];
 extern unsigned char hasHighChar;
 extern bool showBadUTF;
@@ -208,7 +208,7 @@ bool IsTLD(char* word);
 bool IsUrl(char* word, char* end);
 bool IsFileExtension(char* word);
 bool IsFileName(char* word);
-bool IsEmojiShortCode(char* word);
+bool IsEmojiShortname(char* word, bool all = true);
 bool IsPureNumber(char* word);
 unsigned int IsMadeOfInitials(char * word,char* end);
 bool IsNumericDate(char* word,char* end);

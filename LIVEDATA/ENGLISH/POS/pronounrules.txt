@@ -24,14 +24,6 @@ DISCARD
     ISORIGINAL of
 KEEP 
 
-# wont be singular pronoun before nonsingular verb possibility - other (+Adjective_normal Pronoun_subject Determiner)  major (Noun_singular Verb_present +Adjective_normal) 
-0 INCLUDE * PRONOUN_SUBJECT
- 	STAY  SINGULAR
-	STAY !PLURAL
-	HAS VERB_PRESENT	
-	STAY !HAS VERB_PAST VERB_PAST_PARTICIPLE AUX_VERB # not "I like that it can believe in you"
-DISCARD
-
 # following prep must be possessive over other choices - in (Preposition)  his/he (Pronoun_object Pronoun_subject Pronoun_possessive)
 -1 IS PREPOSITION
 	INCLUDE * PRONOUN_POSSESSIVE

@@ -1,0 +1,48 @@
+﻿USERS/topic_dt_rose.txt
+jul2116 Mar11'23-16:40:10-1678552810944 0 0 |
+1 0 0 DY 0 408 408 0 # start, input#, no rejoinder, #0topics, #1topics, layer2
+~hello #pending
+~hello + 2 dGJ^7 caaa 0 0 0 
+#`end topics
+$cs_language=ENGLISH
+$cs_jid=0
+$prior1said=Good morning.
+$time=1678622039
+$priorutter=Just a bathroom break?
+$whatsaid=That was quick.Just a bathroom break?
+$begintime=1678622038
+$olduser=1
+$repeatstart=11
+$cs_botid=1
+$here=\"San Francisco\"
+$youlastname=Flynn-Bell
+$cs_userfactlimit=3000
+$cs_wildcardseparator=_
+$lastyes=0
+$cs_utcoffset=-8
+$lastno=0
+$avoidchat=500
+$cs_prepass=~xfixsentence
+$stdtoken=31743
+$cs_token=31743
+$cs_control_post=~xpostprocess
+$cs_control_main=~main_control
+$cs_control_pre=~pre_control
+$cs_login=dt
+$cs_bot=Rose
+$cs_randindex=1949
+$cs_trace=0
+$cs_time=0
+$priorsaid=Hi, again.
+#`end variables
+800 #set flags
+#`end fact sets
+( 770 itcommon~l1 bathroom~l1 x00000001 1 )
+( ( 770 itcommon~l1 bathroom~l1 x00000001 1 ) pronounreference~l1 0 x00000081 1 )
+#`end user facts 2
+#context 
+#`end user
+ Good morning.
+ Hi, again.
+ That was quick. Just a bathroom break?
+#`end chatbot

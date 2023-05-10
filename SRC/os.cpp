@@ -86,7 +86,7 @@ char* buffers = 0;							//   collection of output buffers
 #define MAX_OVERFLOW_BUFFERS 20
 static char* overflowBuffers[MAX_OVERFLOW_BUFFERS];	// malloced extra buffers if base allotment is gone
 
-CALLFRAME* releaseStackDepth[MAX_GLOBAL];				// ReleaseStack at start of depth
+CALLFRAME* frameList[MAX_GLOBAL];				// ReleaseStack at start of depth
 
 static unsigned int overflowLimit = 0;
 unsigned int overflowIndex = 0;
@@ -338,7 +338,7 @@ void mystart(char* msg)
 /////////////////////////////////////////////////////////
 /// Fatal Error/signal logging
 /////////////////////////////////////////////////////////
-#ifdef LINUX 
+#ifdef USESIGNALHANDLER
 #include <signal.h>
 void setSignalHandlers();
 
@@ -366,37 +366,43 @@ void setSignalHandlers ()
 	struct sigaction sa = {};
 	sa.sa_handler = &signalHandler;
 	sigfillset(&sa.sa_mask); // Block every signal during the handler
-		// Handle relevant signals
-		if (sigaction(SIGFPE, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGFPE");
-			Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
-		if (sigaction(SIGSEGV, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGSEGV");
-            Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
-		if (sigaction(SIGBUS, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGBUS");
-			Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
-		if (sigaction(SIGILL, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGILL");
-			Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
-		if (sigaction(SIGTRAP, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGTRAP");
-			Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
-		if (sigaction(SIGHUP, &sa, NULL) == -1) {
-			sprintf(word, (char*)"Error: cannot handle SIGHUP");
-			Log(BUGLOG, word);
-			Log(SERVERLOG, word);
-		}
+    
+    // Handle relevant signals
+    if (sigaction(SIGFPE, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGFPE");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGSEGV, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGSEGV");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGBUS, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGBUS");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGILL, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGILL");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGTRAP, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGTRAP");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGHUP, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGHUP");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
+    if (sigaction(SIGPIPE, &sa, NULL) == -1) {
+        sprintf(word, (char*)"Error: cannot handle SIGPIPE");
+        Log(BUGLOG, word);
+        Log(SERVERLOG, word);
+    }
 }
 
 #endif
@@ -409,7 +415,7 @@ void ResetBuffers()
 {
 	globalDepth = 0;
 	bufferIndex = baseBufferIndex;
-	memset(releaseStackDepth,0,sizeof(releaseStackDepth)); 
+	memset(frameList,0,sizeof(frameList)); 
 	outputNest = oldOutputIndex = 0;
 	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer;
 	currentOutputLimit = outputsize;
@@ -448,6 +454,31 @@ FunctionResult AuthorizedCode(char* buffer)
 	return NOPROBLEM_BIT;
 }
 
+char* PrintX64(uint64 val)
+{
+	static char buffer[32];
+#ifdef WIN32
+	sprintf(buffer, (char*)"0x%016I64x", val);
+#else
+	sprintf(buffer, (char*)"0x%016llx", val);
+#endif
+	return buffer;
+}
+
+char* Print64(long long int val)
+{
+	static char buffer[32];
+	sprintf(buffer, (char*)"%lld", val);
+	return buffer;
+}
+
+char* PrintU64(uint64 val)
+{
+	static char buffer[32];
+	sprintf(buffer, (char*)"%llu", val);
+	return buffer;
+}
+
 void LoggingCheats(char* incoming)
 {
 	// startup logging
@@ -460,7 +491,7 @@ void LoggingCheats(char* incoming)
 	if (in)
 	{
 		serverLog |= FILE_LOG | PRE_LOG;
-		fclose(in);
+		FClose(in);
 	}
 	in = FopenReadOnly("prelogging.txt"); // per external file created, enable prelogging
 	if (in)
@@ -468,20 +499,20 @@ void LoggingCheats(char* incoming)
 		serverLog |= PRE_LOG;
 		userLog |= PRE_LOG;
 		prelog = true;
-		fclose(in);
+		FClose(in);
 	}
 	in = FopenReadOnly("userlogging.txt"); // per external file created, enable user log
 	if (in)
 	{
 		userLog |= FILE_LOG | PRE_LOG;
-		fclose(in);
+		FClose(in);
 	}
 	in = FopenReadOnly("tracelogging.txt"); // per external file created, enable user log
 	if (in)
 	{
 		trace = (unsigned int)-1;
 		userLog |= FILE_LOG;
-		fclose(in);
+		FClose(in);
 	}
 
 	*debugdata = 0;
@@ -579,7 +610,7 @@ char* Myfgets(char* buffer,  int size, FILE* in)
 		//return answer;
 }
 
-char* AllocateBuffer(char* name)
+char* AllocateBuffer(char* name,char*content)
 {
 	if (!buffers) return (char*)""; // IDE before start
 
@@ -606,15 +637,19 @@ char* AllocateBuffer(char* name)
 		buffer = overflowBuffers[overflowIndex++];
 	}
 	else if (bufferIndex > maxBufferUsed) maxBufferUsed = bufferIndex;
-	if (showmem) Log(USERLOG,"%d Buffer alloc %d %s %s\r\n",globalDepth,bufferIndex,name, releaseStackDepth[globalDepth]->name);
+	if (showmem) Log(USERLOG,"%d Buffer alloc %d %s %s\r\n",globalDepth,bufferIndex,name, frameList[globalDepth]->name);
 	*buffer = 0;	//   empty string
-
+	if (content)
+	{
+		size_t len = strlen(content);
+		strcpy(buffer, content);
+	}
 	return buffer;
 }
 
 void FreeBuffer(char* name)
 { // if longjump happens this may not be called. manually restore counts in setjump code
-	if (showmem) Log(USERLOG,"%d Buffer free %s %d %s\r\n", globalDepth,name, bufferIndex, releaseStackDepth[globalDepth]->name);
+	if (showmem) Log(USERLOG,"%d Buffer free %s %d %s\r\n", globalDepth,name, bufferIndex, frameList[globalDepth]->name);
 	if (overflowIndex) --overflowIndex; // keep the dynamically allocated memory for now.
 	else if (bufferIndex)  --bufferIndex; 
 	else ReportBug((char*)"Buffer allocation underflow");
@@ -796,7 +831,7 @@ void CheckHeap(HEAPREF linkval, const char* file, unsigned int line) {
 	int loop_count = 0;
 	printf("CheckHeap: entering # %d with %p\n", call_count++, linkval);
 	while (cur && loop_count++ < 1000) {
-		printf("CheckHeap: cur %p %s %d\n", cur, file, line);
+		printf("CheckHeap: cur %p %s %u\n", cur, file, line);
 		if (!InHeap((char*)cur)) {
 			printf("CheckHeap: bad\n");
 			exit(-1);
@@ -808,13 +843,14 @@ void CheckHeap(HEAPREF linkval, const char* file, unsigned int line) {
 	printf("CheckHeap: good\n");
 }
 
-HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
+HEAPREF AllocateHeapval(unsigned int descriptor,HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3)
 {
-    uint64* heapval = (uint64*)AllocateHeap(NULL, 4, sizeof(uint64), false);
+    uint64* heapval = (uint64*)AllocateHeap(NULL, 5, sizeof(uint64), false);
     heapval[0] = (uint64)linkval;
     heapval[1] = val1;
     heapval[2] = val2;
     heapval[3] = val3;
+	heapval[4] = descriptor;
 #ifdef DO_HEAP_CHECKING
 	CheckHeap((HEAPREF)heapval);
 #endif
@@ -827,6 +863,7 @@ HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64 & va
     val1 = data[1];
     val2 = data[2];
     val3 = data[3];
+	// heapval[4] = descriptor; // not unpacked, ignored
 #ifdef DO_HEAP_CHECKING
 	CheckHeap((HEAPREF)data);
 #endif
@@ -849,7 +886,7 @@ STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2, uint64 val
 }
 
 STACKREF UnpackStackval(STACKREF linkval, uint64& val1, uint64& val2, uint64& val3)
-{ // factthread requires all 5, writes on its own
+{ // factThreadList requires all 5, writes on its own
     uint64* data = (uint64*) linkval;
     val1 = data[1];
     val2 = data[2];
@@ -1162,22 +1199,11 @@ static int JsonOpenCryption(char* buffer, size_t size, char* xserver, bool decry
 	// set up call to json open
 	char header[500];
 	strcpy(header,"Content-Type: application/json");
-	int oldArgumentIndex = callArgumentIndex;
-	int oldArgumentBase = callArgumentBase;
-	callArgumentBase = callArgumentIndex - 1;
-	callArgumentList[callArgumentIndex++] = (char*)"direct"; // get the text of it gives us, dont make facts out of it
-	callArgumentList[callArgumentIndex++] = (char*)"POST";
 	strcpy(url, serverurl);
-	callArgumentList[callArgumentIndex++] =    url;
-	callArgumentList[callArgumentIndex++] =    (char*) buffer;
-	callArgumentList[callArgumentIndex++] =    header;
-	callArgumentList[callArgumentIndex++] =    (char*)""; // timer override
 	FunctionResult result = FAILRULE_BIT;
 #ifndef DISCARDJSONOPEN
-	result = JSONOpenCode((char*) buffer); 
+	result = InternalCall("^JSONOpenCode", JSONOpenCode, "direct", "POST",url, buffer,header, ""); // analyze returns leftover input in buffer
 #endif
-	callArgumentIndex = oldArgumentIndex;	 
-	callArgumentBase = oldArgumentBase;
 	if (http_response != 200 || result != NOPROBLEM_BIT) 
 	{
 		ReportBug("Encrpytion/decryption server failed %s doing %s\r\n",buffer,decrypt ? (char*) "decrypt" : (char*) "encrypt");
@@ -1258,8 +1284,8 @@ void CopyFile2File(const char* newname,const char* oldname, bool automaticNumber
 		{
 			sprintf(endbase,(char*)"%d.%s",j,at+1);
 			out = FopenReadWritten(name);
-			if (out) fclose(out);
-			else break;
+			FClose(out);
+			if (!out) break;
 		}
 	}
 	else strcpy(name,newname);
@@ -1292,8 +1318,8 @@ void CopyFile2File(const char* newname,const char* oldname, bool automaticNumber
 		fwrite(buffer,1,size,out);
 	}
 
-	fclose(out);
-	fclose(in);
+	FClose(out);
+	FClose(in);
 }
 int SetDirectory(const char* directory)
 {
@@ -1303,9 +1329,43 @@ int SetDirectory(const char* directory)
 	return chdir(directory) != -1;
 #endif
 }
+
+void MakeDirectoryPath(const char* path)
+{
+	// create directory path
+	char* sep = strchr((char*)path, '/');
+	if (sep)
+	{
+		char name[MAX_WORD_SIZE];
+		strcpy(name, path);
+		sep = name;
+		while ((sep = strchr(sep, '/')))
+		{
+			*sep = 0;
+			MakeDirectory(name);
+			*sep++ = '/';
+		}
+	}
+}
+
 int MakeDirectory(const char* directory)
 {
 	int result;
+
+	// create directory path
+	char* sep = strchr((char*)directory,'/');
+	if (sep)
+	{
+		char name[MAX_WORD_SIZE];
+		strcpy(name, directory);
+		sep = name;
+		while ((sep = strchr(sep, '/')))
+		{
+			*sep = 0;
+			MakeDirectory(name);
+			*sep++ = '/';
+		}
+	}
 
 #ifdef WIN32
 	char word[MAX_WORD_SIZE];
@@ -1382,6 +1442,11 @@ FILE* FopenStaticReadOnly(const char* name) // static data file read path, never
 	else if (*readPath) sprintf(path,(char*)"%s/%s",staticPath,name);
 	else strcpy(path,name);
 	return fopen(path,(char*)"rb");
+}
+
+bool HasUTF8BOM(char* ptr)
+{
+	return ((unsigned char)ptr[0] == 0xEF && (unsigned char)ptr[1] == 0xBB && (unsigned char)ptr[2] == 0xBF); // UTF8 BOM
 }
 
 FILE* FopenReadOnly(const char* name) // read-only potentially changed data file read path (TOPIC)
@@ -1941,20 +2006,32 @@ unsigned int GetFutureSeconds(unsigned int seconds)
 
 HookInfo hookSet[] =
 {
-    { (char*)"PerformChatArguments",0,(char*)"Adjust the arguments to PerformChat" },
-    { (char*)"SignalHandler",0,(char*)"Extend signal handler processing" },
-    { (char*)"TokenizeWord",0,(char*)"Extend word tokenization" },
-    { (char*)"IsValidTokenWord",0,(char*)"Checks to see if a token is recognised" },
-    { (char*)"SpellCheckWord",0,(char*)"Spell check an individual word" },
-#ifndef DISCARDMONGO
-    { (char*)"MongoQueryParams",0,(char*)"Add query parameters to Mongo query" },
-    { (char*)"MongoUpsertKeyValues",0,(char*)"Add key values to Mongo upsert" },
-    { (char*)"MongoGotDocument",0,(char*)"Process document results from Mongo query" },
+	{ (char*)"PerformChatArguments",0,(char*)"Adjust the arguments to PerformChat" },
+	{ (char*)"EndChat",0,(char*)"End of chat" },
+	{ (char*)"SignalHandler",0,(char*)"Extend signal handler processing" },
+	{ (char*)"TokenizeWord",0,(char*)"Extend word tokenization" },
+	{ (char*)"IsValidTokenWord",0,(char*)"Checks to see if a token is recognised" },
+	{ (char*)"SpellCheckWord",0,(char*)"Spell check an individual word" },
+	{ (char*)"PosTag",0,(char*)"Perform additional POS tagging" },
+	{ (char*)"CheckRoles",0,(char*)"Check all the roles that have been applied" },
+	{ (char*)"MarkWord",0,(char*)"Perform additional marking for an individual word" },
+	{ (char*)"SequenceMark",0,(char*)"Perform additional sequence marking starting from a word" },
+	{ (char*)"AdditionalMarks",0,(char*)"Perform additional marking" },
+	{ (char*)"BugLog",0,(char*)"Bug has been raised" },
+#ifndef DISCARDJSONOPEN
+	{ (char*)"JsonOpenStart",0,(char*)"Record start of jsonOpen" },
+	{ (char*)"JsonOpenEnd",0,(char*)"Record end of jsonOpen" },
 #endif
+#ifndef DISCARDMONGO
+	{ (char*)"MongoQueryParams",0,(char*)"Add query parameters to Mongo query" },
+	{ (char*)"MongoUpsertKeyValues",0,(char*)"Add key values to Mongo upsert" },
+	{ (char*)"MongoGotDocument",0,(char*)"Process document results from Mongo query" },
+#endif
+	{ (char*)"DatabaseOperationStart",0,(char*)"Record start of a database operation" },
+	{ (char*)"DatabsaeOperationEnd",0,(char*)"Record end of a database operation" },
 
-    { 0,0,(char*)"" }
+	{ 0,0,(char*)"" }
 };
-
 
 HOOKPTR FindHookFunction(char* hookName)
 {
@@ -1994,8 +2071,12 @@ void RegisterHookFunction(char* hookName, HOOKPTR fn)
 /// RANDOM NUMBERS
 ////////////////////////////////////////////////////////////////////////
 
-uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters)
+unsigned int Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters, bool& hasSeparatorCharacters)
 {
+	hasUpperCharacters = false;
+	hasUTF8Characters = false;
+	hasSeparatorCharacters = false;
+
 	len &= 0x00ffffff;
 	uint64 crc = HASHSEED;
 	while (len-- > 0)
@@ -2006,6 +2087,7 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 			c += 32;
 			hasUpperCharacters = true;
 		}
+		else if (c == ' ') c = '_';	// force common hash on space vs _
 		else if (c & 0x80) // some kind of utf8 extended char
 		{
 			hasUTF8Characters = true;
@@ -2037,10 +2119,10 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 				}
 			}
 		}
-		if (c == ' ') c = '_';	// force common hash on space vs _
+		if (c == '_') hasSeparatorCharacters = true;
         crc = HASHFN(crc, c);
 	}
-	return crc;
+	return (unsigned int)crc;
 } 
 
 // Better random numbers based on LCG using good values from https://arxiv.org/pdf/2001.05304.pdf
@@ -2050,6 +2132,7 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 unsigned int random(unsigned int range)
 {
 	if (regression || range <= 1) return 0;
+	if (forcedRandom >= 0) return forcedRandom;
     randIndex = (RANDA * randIndex + RANDC) % RANDM;
 	return randIndex % range;
 }
@@ -2059,18 +2142,18 @@ unsigned int random(unsigned int range)
 /////////////////////////////////////////////////////////
 uint64 logCount = 0;
 
-bool TraceFunctionArgs(FILE* out, char* name, int start, int end)
+bool TraceFunctionArgs(FILE* out, char* name,CALLFRAME* frame)
 {
 	if (!name || name[0] == '~') return false;
 	WORDP D = FindWord(name);
 	if (!D) return false;		// like fake ^ruleoutput
 
-	unsigned int args = end - start;
+	unsigned int args = frame->n_arguments;
 	char arg[MAX_WORD_SIZE];
 	fprintf(out, "( ");
 	for (unsigned int i = 0; i < args; ++i)
 	{
-		strncpy(arg, callArgumentList[start + i], 50); // may be name and not value?
+		strncpy(arg, frame->arguments[i], 50); // may be name and not value?
 		arg[50] = 0;
 		fprintf(out, "%s  ", arg);
 	}
@@ -2093,8 +2176,8 @@ void BugBacktrace(FILE* out)
 		}
         CALLFRAME* priorframe = GetCallFrame(i - 1);
 		fprintf(out,"CurrentDepth %u: heapusedOnEntry: %u heapUsedNow: %u buffers:%u stackused: %u stackusedNow:%u   %s ",
-			i,frame->heapDepth,(unsigned int)(heapBase-heapFree),frame->memindex,(unsigned int)(heapFree - (char*)releaseStackDepth[i]), (unsigned int)(stackFree-stackStart),frame->label);
-		if (priorframe && !TraceFunctionArgs(out, frame->label, (i > 0) ? priorframe->argumentStartIndex: 0, frame->argumentStartIndex)) fprintf(out, " - %s", rule);
+			i,frame->heapDepth,(unsigned int)(heapBase-heapFree),frame->memindex,(unsigned int)(heapFree - (char*)frameList[i]), (unsigned int)(stackFree-stackStart),frame->label);
+		if (priorframe && !TraceFunctionArgs(out, frame->label,frame)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
 	int limit = 3;
@@ -2106,90 +2189,11 @@ void BugBacktrace(FILE* out)
         rule[50] = 0;
 		fprintf(out,"Depth %u: heapusedOnEntry: %u buffers:%u stackused: %u   %s ",
 			i,frame->heapDepth,GetCallFrame(i)->memindex,
-            (unsigned int)(heapFree - (char*)releaseStackDepth[i]), frame->label);
+            (unsigned int)(heapFree - (char*)frameList[i]), frame->label);
         CALLFRAME* priorFrame = GetCallFrame(i - 1);
-		if (priorFrame && !TraceFunctionArgs(out, frame->label, priorFrame->argumentStartIndex, priorFrame->argumentStartIndex)) fprintf(out, " - %s", rule);
+		if (priorFrame && !TraceFunctionArgs(out, frame->label, frame)) fprintf(out, " - %s", rule);
 		fprintf(out, "\r\n");
 	}
-}
-
-CALLFRAME* ChangeDepth(int value,const char* name,bool nostackCutback, char* code)
-{
-    if (value == 0) // secondary call from userfunction. frame is now valid
-    {
-        CALLFRAME* frame = releaseStackDepth[globalDepth];
-        if (showDepth) Log(USERLOG,"same depth %u %s \r\n", globalDepth, name);
-        if (name) frame->label = (char*)name; // override
-        if (code) frame->code = code;
-#ifndef DISCARDTESTING
-        if (debugCall) (*debugCall)(frame->label, true);
-#endif
-        return frame;
-    }
-	else if (value < 0) // leaving depth
-	{
-        bool abort = false;
-        CALLFRAME* frame = releaseStackDepth[globalDepth];
-		releaseStackDepth[globalDepth] = NULL;
-
-#ifndef DISCARDTESTING
-        if (globalDepth && *name && debugCall)
-        {
-            char* result = (*debugCall)((char*) name, false);
-            if (result) abort = true;
-        }
-#endif
-        if (frame->memindex != bufferIndex)
-        {
-            ReportBug((char*)"INFO: depth %d not closing bufferindex correctly at %s bufferindex now %d was %d\r\n", globalDepth, name, bufferIndex, frame->memindex);
-            bufferIndex = frame->memindex; // recover release
-        }
-        frame->name = NULL;
-        frame->rule = NULL;
-        frame->label = NULL;
-        callArgumentIndex = frame->argumentStartIndex;
-        currentRuleID = frame->oldRuleID;
-        currentTopicID = frame->oldTopic;
-        currentRuleTopic = frame->oldRuleTopic;
-        currentRule = frame->oldRule;
-
-		// engine functions that are streams should not destroy potential local adjustments
-		if (!nostackCutback) 
-			stackFree = (char*) frame; // deallocoate ARGUMENT space
-		if (showDepth) Log(USERLOG,"-depth %d %s bufferindex %d heapused:%d\r\n", globalDepth,name, bufferIndex,(int)(heapBase-heapFree));
-        globalDepth += value;
-        if (globalDepth < 0) { ReportBug((char*)"bad global depth in %s", name); globalDepth = 0; }
-        return (abort) ?  (CALLFRAME*)1 : NULL; // abort code
-    }
-	else // value > 0
-	{
-        stackFree = (char*)(((uint64)stackFree + 7) & 0xFFFFFFFFFFFFFFF8ULL);
-        CALLFRAME* frame = (CALLFRAME*) stackFree;
-        stackFree += sizeof(CALLFRAME);
-        memset(frame, 0,sizeof(CALLFRAME));
-        frame->label = (char*)name;
-        frame->code = code;
-		frame->heapstart = heapFree;
-        frame->rule = (currentRule) ? currentRule : (char*) "";
-        frame->outputlevel = outputlevel + 1;
-        frame->argumentStartIndex = callArgumentIndex;
-        frame->oldRuleID = currentRuleID;
-        frame->oldTopic = currentTopicID;
-        frame->oldRuleTopic = currentRuleTopic;
-        frame->oldRule = currentRule;
-        frame->memindex = bufferIndex;
-        frame->heapDepth = heapBase - heapFree;
-        globalDepth += value;
-        if (showDepth) Log(USERLOG,"+depth %d %s bufferindex %d heapused: %d stackused:%d gap:%d\r\n", globalDepth, name, bufferIndex, (int)(heapBase - heapFree), (int)(stackFree - stackStart), (int)(heapFree - stackFree));
-		frame->depth = globalDepth;
-		releaseStackDepth[globalDepth] = frame; // define argument start space - release back to here on exit
-#ifndef DISCARDTESTING
-		if (globalDepth && *name != '*' && debugCall) (*debugCall)((char*)name, true); 
-#endif
-        if (globalDepth >= (MAX_GLOBAL - 1)) ReportBug((char*)"FATAL: globaldepth too deep at %s\r\n", name);
-        if (globalDepth > maxGlobalSeen) maxGlobalSeen = globalDepth;
-        return frame;
-    }
 }
 
 bool LogEndedCleanly()
@@ -2199,95 +2203,107 @@ bool LogEndedCleanly()
 
 char* myprinter(const char* ptr, char* at, va_list ap)
 {
-    char* base = at;
-    // start writing normal data here
-    char* s;
-    int i;
-    while (*++ptr)
-    {
-        if (*ptr == '%')
-        {
-            ++ptr;
-            if (*ptr == 'c') sprintf(at, (char*)"%c", (char)va_arg(ap, int)); // char
-            else if (*ptr == 'd') sprintf(at, (char*)"%d", va_arg(ap, int)); // int %d
-            else if (*ptr == 'I') //   I64
-            {
+	char* base = at;
+	// start writing normal data here
+	char* s;
+	int i;
+	while (*++ptr)
+	{
+		if (*ptr == '%')
+		{
+			++ptr;
+			if (*ptr == 'c') sprintf(at, (char*)"%c", (char)va_arg(ap, int)); // char
+			else if (*ptr == 'd') sprintf(at, (char*)"%d", va_arg(ap, int)); // int %d
+			else if (*ptr == 'I') //   I64
+			{
 #ifdef WIN32
-                sprintf(at, (char*)"%I64u", va_arg(ap, uint64));
+				sprintf(at, (char*)"%I64u", va_arg(ap, uint64));
 #else
-                sprintf(at, (char*)"%llu", va_arg(ap, uint64));
+				sprintf(at, (char*)"%llu", va_arg(ap, uint64));
 #endif
-                ptr += 2;
-            }
-            else if (*ptr == 'l' && ptr[1] == 'd') // ld
-            {
-                sprintf(at, (char*)"%ld", va_arg(ap, long int));
-                ++ptr;
-            }
-            else if (*ptr == 'l' && ptr[1] == 'l') // lld
-            {
+				ptr += 2;
+			}
+			else if (*ptr == 'l' && ptr[1] == 'd') // ld
+			{
+				sprintf(at, (char*)"%ld", va_arg(ap, long int));
+				++ptr;
+			}
+			else if (*ptr == 'l' && ptr[1] == 'l') // lld
+			{
 #ifdef WIN32
-                sprintf(at, (char*)"%I64u", (uint64)va_arg(ap, long long int));
+				sprintf(at, (char*)"%I64u", (uint64)va_arg(ap, long long int));
 #else
-                sprintf(at, (char*)"%llu", (uint64)va_arg(ap, long long int));
+				sprintf(at, (char*)"%llu", (uint64)va_arg(ap, long long int));
 #endif
-                ptr += 2;
-            }
-            else if (*ptr == 'p') sprintf(at, (char*)"%p", va_arg(ap, char*)); // ptr
-            else if (*ptr == 'f')
-            {
-                double f = (double)va_arg(ap, double);
-                sprintf(at, (char*)"%f", f); // float
-            }
-            else if (*ptr == 's') // string
-            {
-                s = va_arg(ap, char*);
-                if (s)
-                {
-                    unsigned int len = strlen(s);
-                    if ((at - base + len) > (logsize - SAFE_BUFFER_MARGIN))
-                    {
-                        sprintf(at, (char*)" ... ");
-                        break;
-                    }
-                    sprintf(at, (char*)"%s", s);
-                }
-            }
-            else if (*ptr == 'x') sprintf(at, (char*)"%x", (unsigned int)va_arg(ap, unsigned int)); // hex 
-            else if (IsDigit(*ptr)) // int %2d or %08x
-            {
-                i = va_arg(ap, int);
-                unsigned int precision = atoi(ptr);
-                while (*ptr && *ptr != 'd' && *ptr != 'x') ++ptr;
-                if (*ptr == 'd')
-                {
-                    if (precision == 2) sprintf(at, (char*)"%2d", i);
-                    else if (precision == 3) sprintf(at, (char*)"%3d", i);
-                    else if (precision == 4) sprintf(at, (char*)"%4d", i);
-                    else if (precision == 5) sprintf(at, (char*)"%5d", i);
-                    else if (precision == 6) sprintf(at, (char*)"%6d", i);
-                    else sprintf(at, (char*)" Bad int precision %u ", precision);
-                }
-                else
-                {
-                    if (precision == 8) sprintf(at, (char*)"%08x", i);
-                    else sprintf(at, (char*)" Bad hex precision %u ", precision);
-                }
-            }
-            else
-            {
-                sprintf(at, (char*)"%s", (char*)"unknown format ");
-                ptr = 0;
-            }
-        }
-        else  sprintf(at, (char*)"%c", *ptr);
+				ptr += 2;
+			}
+			else if (*ptr == 'p') sprintf(at, (char*)"%p", va_arg(ap, char*)); // ptr
+			else if (*ptr == 'f')
+			{
+				double f = (double)va_arg(ap, double);
+				sprintf(at, (char*)"%f", f); // float
+			}
+			else if (*ptr == 's') // string
+			{
+				s = va_arg(ap, char*);
+				if (s)
+				{
+					unsigned int len = strlen(s);
+					if ((at - base + len) > (logsize - SAFE_BUFFER_MARGIN))
+					{
+						sprintf(at, (char*)" ... ");
+						break;
+					}
+					sprintf(at, (char*)"%s", s);
+				}
+			}
+			else if (*ptr == 'x') sprintf(at, (char*)"%x", (unsigned int)va_arg(ap, unsigned int)); // hex 
+			else if (IsDigit(*ptr)) // int %2d or %08x
+			{
+				unsigned int precision = atoi(ptr);
+				while (*ptr && *ptr != 'd' && *ptr != 'x') ++ptr;
+				if (*ptr == 'd')
+				{
+					i = va_arg(ap, int);
+					if (precision == 2) sprintf(at, (char*)"%2d", i);
+					else if (precision == 3) sprintf(at, (char*)"%3d", i);
+					else if (precision == 4) sprintf(at, (char*)"%4d", i);
+					else if (precision == 5) sprintf(at, (char*)"%5d", i);
+					else if (precision == 6) sprintf(at, (char*)"%6d", i);
+					else if (precision == 7) sprintf(at, (char*)"%7d", i);
+					else if (precision == 8) sprintf(at, (char*)"%8d", i);
+					else if (precision == 9) sprintf(at, (char*)"%9d", i);
+					else if (precision == 10) sprintf(at, (char*)"%10d", i);
+					else sprintf(at, (char*)" Bad int precision %u ", precision);
+				}
+				else
+				{
+					if (precision == 8) sprintf(at, (char*)"%08x", va_arg(ap, int));
+					else if (precision == 16)
+					{
+#ifdef WIN32
+						sprintf(at, (char*)"%016I64x", va_arg(ap, uint64));
+#else
+						sprintf(at, (char*)"%016llx", va_arg(ap, uint64));
+#endif
+					}
+					else sprintf(at, (char*)" Bad hex precision %u ", precision);
+				}
+			}
+			else
+			{
+				sprintf(at, (char*)"%s", (char*)"unknown format ");
+				ptr = 0;
+			}
+		}
+		else  sprintf(at, (char*)"%c", *ptr);
 
-        at += strlen(at);
-        if (!ptr) break;
-        if ((at - base) >= ((int)logsize - SAFE_BUFFER_MARGIN)) break; // prevent log overflow
-    }
-    *at = 0;
-    return at;
+		at += strlen(at);
+		if (!ptr) break;
+		if ((at - base) >= ((int)logsize - SAFE_BUFFER_MARGIN)) break; // prevent log overflow
+	}
+	*at = 0;
+	return at;
 }
 
 static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
@@ -2320,7 +2336,7 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
     if (size > loglimit)
     {
         // roll log if it is too big
-        fclose(out);
+       FClose(out);
         time_t curr = time(0);
         char* when = GetMyTime(curr); // now
         char newname[MAX_WORD_SIZE];
@@ -2358,7 +2374,7 @@ static FILE* rotateLogOnLimit(const char *fname,const char* directory) {
 			if (x)
 			{
 				fprintf(x, "%s", msg);
-				fclose(x);
+				FClose(x);
 			}
 		}
 #ifdef WIN32
@@ -2521,7 +2537,7 @@ static void NormalLog(const char* name, const char* folder, FILE* out, int chann
 			fwrite("\r\n", 1, 2, out); 
 		}
 	}
-	if (out && out != userlogFile && out != stdout && out != stderr)  fclose(out); // dont use FClose
+	if ( out != userlogFile && out != stdout && out != stderr)  FClose(out); // dont use FClose
 	if (input) *input = '`';
 }
 
@@ -2543,18 +2559,26 @@ static void BugLog(char* name, char* folder, FILE* bug,char* located)
 			fprintf(bug, "%s\r\n", originalUserInput);
 		}
 		if (!strstr(logmainbuffer, "No such bot")) BugBacktrace(bug);
+#ifdef PRIVATE_CODE
+		// Check for private hook function to adjust the Mongo upsert parameters
+		static HOOKPTR fn = FindHookFunction((char*)"BugLog");
+		if (fn)
+		{
+			((BugLogHOOKFN)fn)(logmainbuffer);
+		}
+#endif
 	}
 	else if (*currentFilename && bug)
 	{
 		fprintf(bug, (char*)"BUG in %s at %u: %s | %s\r\n", currentFilename, currentFileLine, readBuffer, logmainbuffer);
 	}
-	if (isFile && bug) fclose(bug); // dont use FClose
+	if (isFile && bug) FClose(bug); // dont use FClose
 
 	if (serverLog) // show in context
 	{
 		FILE* server = rotateLogOnLimit(serverLogfileName, logsfolder);
 		if (server) fprintf(server, "BUG%s\r\n", logmainbuffer);
-		fclose(server);
+		FClose(server);
 	}
 }
 
@@ -2584,7 +2608,7 @@ void Prelog(char* user, char* usee, char* incoming)
 		if (serverLog || userLog || prelog)
 		{
             char startdate[40];
-            GetTimeMS(ElapsedMilliseconds(), startdate);
+            GetTimeMS(startNLTime, startdate);
             char buffer[MAX_WORD_SIZE];
 			sprintf(buffer,"\r\n%s ServerPre: pid: %d %s (%s) size=%zu `*`\r\n", startdate, id, user, usee, len);
 			if (serverLog & PRE_LOG || prelog) Log(PASSTHRUSERVERLOG, buffer);
@@ -2653,7 +2677,11 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 			char wait[100];
 			*wait = 0;
 			if (cs_qsize) sprintf(wait, "%dq", cs_qsize);
-			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d \r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout);
+			int pid = 0;
+#ifdef LINUX
+			pid = getpid();
+#endif
+			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d pid:%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout,pid);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();

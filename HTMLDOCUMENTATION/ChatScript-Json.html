@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <h1 id="chatscript-json-manual">ChatScript JSON Manual</h1>
-<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
+<p>© Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/10/2022 cs13.1</p>
 <h1 id="real-world-json">Real World JSON</h1>
 <p>JSON (JavaScript Object Notation) is an open standard format using human-readable text to transmit data objects over the web. It is a common standard largely replacing XML which is too wordy and hard to read. JSON has primitive datatypes (text without doublequotes that cannot contain any whitespace). These are null, false, true, integers, and floats. The string datatype is a sequence of characters in double quotes. JSON also has two datatypes that represent collections of values, the array and the object. A JSON array is a list of JSON datatypes separated by commas and placed within square brackets <code>[]</code>, e.g.,</p>
 <pre><code>[ A, 2, [ help, life], [] ]</code></pre>
@@ -143,6 +143,8 @@ $_x.value = json_null                   # special value meaning json null primit
 $_y = 5
 $_y = $_x.value         # clears $_y (acts like null)
 $_x.value = $_y     # assigns JSON null</code></pre>
+<p>Note, also, that while JSON is case sensitive in its field names, CS will lookup insensitive. It doesn't matter if you mis-capitalize the name of a field. CS doesn't believe you should have two fields with the same name but different capitalization and will treat them as the same.</p>
+<p>JSON is case sensitive in field names. CS is not. If you offer a new case field name and it already has a field with a different case, it will use the preexisting one.</p>
 <h3 id="json-facts">JSON FACTS</h3>
 <p>Since JSON data structures are implemented as facts, they can use the ^query abilities just as ordinary facts can. Whereas in JSON you can only access data going top down, with CS you can equally access data at any level directly querying on some field name. So depending on how you name a field and whether or not the field only exists for a single object, you might be able to query directly to it.</p>
 <p>Note that JSON has no mechanism for sharing JSON subtrees. Hence anytime you create a JSON fact structure in CS, the facts will all be unique. You do this like this:</p>
@@ -348,6 +350,7 @@ $x.field = null</code></pre>
 <p>You can build up a JSON structure without using <code>^jsonparse</code> if you want to build it piece by piece. And you can edit existing structures.</p>
 <h3 id="jsoncreate-jsonflags-type"><code>^jsoncreate</code>( {JSONFLAGS} type )</h3>
 <p>Type is either <code>array</code> or <code>object</code> and a json composite with no content is created and its name returned. See <code>^jsonarrayinsert</code>, <code>^jsonobjectinsert</code>, and <code>^jsondelete</code> for how to manipulate it. See writeup earlier about optional json flags.</p>
+<p>The system makes ids with different names for build0, build1, and user. And increments ids as it creates new ones. If the id created already exists, the system increments and tries again. If there are lots of collisions you can speed things up by setting $cs_jid. This changes the number to start with.</p>
 <h3 id="jsonarrayinsert-jsonflags-arrayname-value"><code>^jsonarrayinsert</code>( {JSONFLAGS} arrayname value )</h3>
 <p>Given the name of a json array and a value, it adds the value to the end of the array. See writeup earlier about optional json flags. If you use the flag unique then if value already exists in the array, no duplicate will be added.</p>
 <h3 id="jsonarraydelete-index-value-arrayname-value"><code>^jsonarraydelete</code>( [<code>INDEX</code>, <code>VALUE</code>] arrayname value )</h3>
@@ -359,6 +362,8 @@ $x.field = null</code></pre>
 <p>You can delete every matching <code>VALUE</code> entry by adding the optional argument <code>ALL</code>. Like: <code>^jsonarraydelete(&quot;VALUE ALL&quot; $array 4)</code></p>
 <p>If there are numbered elements after this one, then those elements immediately renumber downwards so that the array indexing range is contiguous.</p>
 <p>If the key has an existing value then if the value is a json object it will be recursively deleted provided its data is not referenced by some other fact (not by any variables). You can suppress this with the <code>SAFE</code> flag. <code>^jsonarraydelete(SAFE $obj $key)</code>.</p>
+<h3 id="jsonreusekill-jsonstruct"><code>^jsonreusekill</code>( $jsonstruct )</h3>
+<p>Kills the facts of this struct and makes them immediately available for reuse as free facts.</p>
 <h3 id="jsonarraysize-name"><code>^jsonarraysize</code>( name )</h3>
 <p>deprecated in favor of ^length</p>
 <h3 id="jsontextfactid"><code>^jsontext</code>(factid)</h3>
@@ -387,6 +392,7 @@ This allows you to remove their transient flags or save them in the users perman
 <p>If an optional 3rd parameter of a function name is given, the code does not create a JSON structure to return. Instead it calls the function with each field of a line being an argument. This is sort of analogous to <code>:document</code> mode in that you can potentially read large amounts of data in a single volley and may need to use <code>^memorymark</code> and <code>^memoryfree</code> to manage the issue.</p>
 <p><code>^readfile ( LINE filepath 'function)</code> reads a file and passes each line untouched as the sole argument to the function.</p>
 <p>Formerly called ^jsonreadfile (still accepted).</p>
+<p>An input line can be :trace all or :trace none to observe behavior of the data between them.</p>
 <h3 id="jsonundecodestring-string"><code>^jsonundecodestring</code>( string )</h3>
 <p>removes all json escape markers back to normal for possible printout to a user. This translates \n to newline, \r to carriage return, \t to tab, and \&quot; to a simple quote.</p>
 <h2 id="web-json">WEB JSON</h2>

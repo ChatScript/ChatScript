@@ -14,22 +14,19 @@ CONVERTERS	  & `
 
 int inputNest = 0;
 int actualTokenCount = 0;
-#define MAX_BURST 400
-static char burstWords[MAX_BURST][MAX_WORD_SIZE];	// each token burst from a text string
+char burstWords[MAX_BURST][MAX_WORD_SIZE];	// each token burst from a text string
 static unsigned int burstLimit = 0;					// index of burst  words
 static WORDP lastMatch = NULL;
 static int lastMatchLocation = 0;
 
 uint64 tokenFlags;										// what tokenization saw
 char* wordStarts[MAX_SENTENCE_LENGTH];				// current sentence tokenization (always points to D->word values or allocated values)
- int wordCount;								// how many words/tokens in sentence
+unsigned int wordCount;								// how many words/tokens in sentence
 bool capState[MAX_SENTENCE_LENGTH];					
-bool originalCapState[MAX_SENTENCE_LENGTH];			// was input word capitalized by user
 
 void ResetTokenSystem()
 {
 	tokenFlags = 0;
-	wordStarts[0] = AllocateHeap((char*)"");    
     wordCount = 0;
 	memset(wordStarts,0,sizeof(char*)*MAX_SENTENCE_LENGTH); // reinit for new volley - sharing of word space can occur throughout this volley
 	wordStarts[0] = ""; // underflow protection
@@ -205,8 +202,9 @@ int BurstWord(const char* word, int contractionStyle)
     if (*copy == '"' || *copy == '\'') // used to also be  || *copy == '*' || *copy == '.'
     {
        size_t len = strlen(copy);
-       if (len > 2 &&  copy[len-1] == *copy) // start and end same and has something between
-       {
+	   if (len == 3 && *copy == '.' && copy[1] == '.' && copy[2] == '.'); // keep ellipsis
+	   else if (len > 2 && copy[len - 1] == *copy) // start and end same and has something between
+	   {
            copy[len-1] = 0;  // remove trailing quote
            ++copy;
        }
@@ -426,14 +424,14 @@ WORDP ApostropheBreak(char* aword)
     return NULL;
 }
 
-static WORDP UnitSubstitution(char* buffer,int i)
+static WORDP UnitSubstitution(char* buffer, unsigned int i)
 {
 	char value[MAX_WORD_SIZE];
 	char* at = buffer - 1;
 	if (IsSign(*(at + 1)) ) ++at; // negative units
 	while (IsDigit(*++at) || *at == '.' || *at == ','); // skip past number
 
-	strcpy(value, "?`");
+	strcpy(value, "?|"); // SUBSTITUTE_SEPARATOR used
 
 	// also consider next word not conjoined
 	if (!*at && i > 0 && i < wordCount)
@@ -798,6 +796,22 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
         return ptr + urlLen;
     }
 
+	// copyright, registered, trademark 
+	char* atend = strchr(token, '@');
+	if (atend && atend != token)
+	{
+		if ((atend[1] == 't' || atend[1] == 's') && atend[2] == 'm' && (!atend[3] || IsPunctuation(atend[3])))
+		{ 
+			if (atend[3]) --urlLen; // discard punc
+			return ptr + urlLen - 3;
+		}
+		else if ((atend[1] == 'r' || atend[1] == 'c') && (!atend[2] || IsPunctuation(atend[2])))
+		{
+			if (atend[2]) --urlLen; // discard punc
+			return ptr + urlLen - 2;
+		}
+	}
+
 	WORDP X = FindWord(token);
 	size_t xx = strlen(token);
 	if (X && X->properties & EMOJI) return ptr + xx;
@@ -835,6 +849,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 
     // could be in the middle of splitting two times, 2pm-3 or 2:30-3:30
     if (*token == '-' && ParseTime(priorToken, NULL, NULL)) return ptr + 1;
+
+	if (strlen(token) > 1 && IsDigit(*priorToken) && *(ptr - 1) != ' ' && (*token == 'x' || *token == 'X') && IsDigit(*(token + 1))) return ptr + 1; // continuing a 4x4 split, not 4 X4's
 
 	X = FindWord(token); // in case token embedded changed
 	xx = strlen(token);
@@ -1288,8 +1304,8 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 	}
 	int lsize = strlen(token);
     
-    // could be an emoji shortcode
-    if (IsEmojiShortCode(token)) return ptr+lsize;
+    // could be an emoji short name
+    if (IsEmojiShortname(token)) return ptr+lsize;
     
 	while (lsize > 0 && IsPunctuation(token[lsize-1])) token[--lsize] = 0; // remove trailing punctuation
 	char* after = start + lsize;
@@ -1310,6 +1326,9 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 	int len = end - ptr;
 	char next2;
 	if (*ptr == '/') return ptr+1; // split of things separated
+	
+	if (!(tokenControl & TOKEN_AS_IS) && (*ptr == ':' || *ptr == '&')) return ptr + 1;  // leading piece of punctuation
+
 	while (++ptr && !IsWordTerminator(*ptr)) // now scan to find end of token one by one, stopping where appropriate
     {
 		if (isJapanese) // break off anything like 7xxx
@@ -1391,6 +1410,7 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 			}
 			if ( c == ']' || c == ')') break; //closers
 			if ((c == 'x' || c== 'X') && IsDigit(*start) && IsDigit(next)) break; // break  4x4
+			if (c == ':' && IsEmojiShortname(ptr, false)) return ptr; // upcoming emoji, break here
 		}
 
 		if (kind & BRACKETS) break; // separate brackets
@@ -1412,6 +1432,36 @@ static char* FindWordEnd(char* ptr, char* priorToken, char** words, int& count, 
 			else if (x == TOKEN_INCOMPLETE) continue;
 			else break;
         }
+		if (c == '&' || (c == ':' && !IsDigit(ptr[1]) && !IsDigit(*(ptr - 1))))
+		{
+			// would like AT&T&H&M and at&t&h&m to be tokenized to "AT&T & H&M"
+			WORDP X = NULL;
+			unsigned int len = 0;
+			char* ptr2 = ptr;
+			while (ptr2 <= end)
+			{
+				while (++ptr2 && !IsWordTerminator(*ptr2) && !IsPunctuation(*ptr2)) { ; }
+				len = (unsigned int)(ptr2 - start);
+				X = FindWord(start, len);
+				if (X && (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD))) return ptr2;
+				if (primaryLookupSucceeded)
+				{
+					X = FindWord(start, len, SECONDARY_CASE_ALLOWED);
+					if (X && (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD))) return ptr2;
+				}
+				++ptr2;
+			}
+
+			len = (unsigned int)(ptr - start);
+			X = FindWord(start, len);
+			if (X && (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD))) return ptr;
+			if (primaryLookupSucceeded)
+			{
+				X = FindWord(start, len, SECONDARY_CASE_ALLOWED);
+				if (X && (!IS_NEW_WORD(X) || (X->systemFlags & PATTERN_WORD))) return ptr;
+			}
+		}
+
 	}
 	if (*(ptr-1) == '"' && start != (ptr-1)) --ptr;// trailing double quote stuck on something else
     return ptr;
@@ -1458,7 +1508,7 @@ char* find_closest_jp_period(char* input)
     return result;
 }
 
-char* TokenizeJapanese(char* input, int& count, char** words, char* separators) //   return ptr to stuff to continue analyzing later
+char* TokenizeJapanese(char* input, unsigned int& count, char** words, char* separators) //   return ptr to stuff to continue analyzing later
 {
 	// find sentence end if there is one, break off
 	char* period = find_closest_jp_period(input);
@@ -1515,7 +1565,7 @@ char* TokenizeJapanese(char* input, int& count, char** words, char* separators) 
 	return continuation;
 }
 
-char* RawTokenize(char* input, int& count, char** words, char* separators)
+static char* RawTokenize(char* input, unsigned int& count, char** words, char* separators)
 { // space separator only
 	count = 0;
 	while (ALWAYS) {
@@ -1538,7 +1588,7 @@ char* RawTokenize(char* input, int& count, char** words, char* separators)
 		return input;
 }
 
-char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
+char* Tokenize(char* input, unsigned int &mycount,char** words,char* separators,bool all1,bool oobStart) //   return ptr to stuff to continue analyzing later
 {	// all1 is true if to pay no attention to end of sentence -- eg for a quoted string
 	mycount = 0;
 	char* ptr = input;
@@ -1559,6 +1609,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 	if (useJapanese) return TokenizeJapanese(input, mycount, words, separators);
 	
 	if (*ptr != '[') input = FixHtmlTags(input); 
+
     // json oob may have \", users wont
 	html = input-1;
 	while (!oobStart && (html = strchr(++html,'\\')) != 0) // \"  remove this -- but not for json input!
@@ -1774,7 +1825,7 @@ char* Tokenize(char* input,int &mycount,char** words,char* separators,bool all1,
 // POST PROCESSING CODE
 ////////////////////////////////////////////////////////////////////////
 
-static WORDP MergeProperNoun(int& start, int end,bool upperStart) 
+static WORDP MergeProperNoun(unsigned int& start, unsigned int end,bool upperStart)
 { // end is inclusive
 	WORDP D;
 	uint64 gender = 0;
@@ -1786,7 +1837,7 @@ static WORDP MergeProperNoun(int& start, int end,bool upperStart)
 	bool uppercase = false;
 	bool name = false;
 	if (IsUpperCase(*wordStarts[start]) && IsUpperCase(*wordStarts[end])) uppercase = true;	// MUST BE UPPER
-    for (int i = start; i <= end; ++i)
+    for (unsigned int i = start; i <= end; ++i)
     {
 		char* word = wordStarts[i];
         size_t len = strlen(word);
@@ -1881,7 +1932,7 @@ static bool HasCaps(char* word)
     return false;
 }
 
-static int FinishName(int& start, int& end, bool& upperStart,uint64 kind,WORDP name)
+static int FinishName(unsigned int& start, unsigned  int& end, bool& upperStart,uint64 kind,WORDP name)
 { // start is beginning of sequence, end is on the sequence last word. i is where to continue outside after having done this one
 	
     if (end == UNINIT) end = start;
@@ -1977,7 +2028,7 @@ static void HandleFirstWord() // Handle capitalization of starting word of sente
 	}
 }
 
-bool DateZone(int i, int& start, int& end)
+bool DateZone(unsigned int i, unsigned int& start, unsigned int& end)
 {
 	WORDP D = FindWord(wordStarts[i],0,UPPERCASE_LOOKUP);
 	if (!D || !(D->systemFlags & MONTH)) return false;
@@ -2062,15 +2113,15 @@ char* FindTimeMeridiem(char* ptr, int len)
 
 void ProcessCompositeDate()
 {
-    for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
+    for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
 	{
-		int start,end;
+		unsigned int start,end;
 		if (DateZone(i,start,end))
 		{
 			char word[MAX_WORD_SIZE];
 			strcpy(word,wordStarts[i]); // force month first
 			word[0] = toUppercaseData[*word]; // insure upper case
-			int at = start - 1;
+			unsigned int at = start - 1;
 			while (++at <= end)
 			{
 				if (at != i && stricmp(wordStarts[at],(char*)"of") && *wordStarts[at] != ',')
@@ -2099,15 +2150,15 @@ void ProperNameMerge()
 {
 	if (tokenControl & ONLY_LOWERCASE) return;
 
-    int start = UNINIT;
-    int end = UNINIT;
+	unsigned  int start = UNINIT;
+	unsigned int end = UNINIT;
     uint64 kind = 0;
 	bool upperStart = false;
 	wordStarts[wordCount+1] = "";
 	wordStarts[wordCount+2] = "";
 	bool isGerman = !stricmp(current_language, "german");
 
-    for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
+    for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
     {
 		char* word = wordStarts[i];
 		if (isGerman)
@@ -2135,14 +2186,14 @@ void ProperNameMerge()
 		}
 		if (*word != ',' && !IsUpperCase(*word) && FindWord(word) && tokenControl & NO_LOWERCASE_PROPER_MERGE) // dont allow lowercase words to merge into a title
 		{
-			int localend = i-1;
+			unsigned int localend = i-1;
 			if (start != UNINIT) i = FinishName(start,localend,upperStart,kind,Z);
 			continue;
 		}
 
 		if (IsUpperCase(*word) && start != UNINIT && i == wordCount) // composite at end of sentence
 		{
-			int end1 = i;
+			unsigned int end1 = i;
 			i = FinishName(start,end1,upperStart,kind,Z);
 			continue;
 		}
@@ -2182,7 +2233,7 @@ void ProperNameMerge()
 				if (Z && Z->systemFlags & NO_PROPER_MERGE) Z = NULL;
 				if (Z && (Z->properties & NOUN || Z->systemFlags & PATTERN_WORD)) 
 				{
-					int count = i + 2;
+					unsigned int count = i + 2;
 					bool fakeupper = false;
 					i = FinishName(i,count,fakeupper,0,Z);
 					continue;
@@ -2323,11 +2374,11 @@ void ProperNameMerge()
 	HandleFirstWord();
 }
 
-static void MergeNumbers(int& start,int& end) //   four score and twenty = four-score-twenty
+static void MergeNumbers(unsigned int& start, unsigned int& end) //   four score and twenty = four-score-twenty
 {//   start thru end exclusive of end, but put in number power order if out of order (four and twenty becomes twenty-four)
     char word[MAX_WORD_SIZE];
     char* ptr = word;
-    for (int i = start; i < end; ++i)
+    for (unsigned int i = start; i < end; ++i)
     {
 		char* item = wordStarts[i];
         if (*item == numberComma) continue; //   ignore commas
@@ -2405,7 +2456,7 @@ static void MergeNumbers(int& start,int& end) //   four score and twenty = four-
 void ProcessSplitUnderscores()
 {
 	char* tokens[10];
-	for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
+	for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
     {
 		char* original = wordStarts[i];
 		if (*original == '\'' || *original == '"') continue;	// quoted expression, do not split
@@ -2414,7 +2465,7 @@ void ProcessSplitUnderscores()
 		if (!under) continue;
 
 		// dont split if email or url or hashtag or an emoji shortcode
-		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#' || IsEmojiShortCode(original)) continue;
+		if (strchr(original, '@') || strchr(original, '.') || original[0] == '#' || IsEmojiShortname(original)) continue;
 
 		int index = 0;
 		while (under)
@@ -2436,11 +2487,11 @@ void ProcessCompositeNumber()
 {
     //  convert a series of numbers into one hypenated one and remove commas from a comma-digited string.
 	// merge all numbers into one, even if not interpretable.  9  1 1 become such a number as does twenty forty sixty-five
-    int start = UNINIT;
-	int end = UNINIT;
+	unsigned int start = UNINIT;
+	unsigned int end = UNINIT;
 	char* number;
 
-    for (int i = FindOOBEnd(1); i <= wordCount; ++i) 
+    for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
     {
 		char* word = wordStarts[i];
         bool isNumber = IsNumber(word,numberStyle) != NOT_A_NUMBER && !IsPlaceNumber(word,numberStyle) && !GetCurrency((unsigned char*) word,number);
@@ -2492,7 +2543,7 @@ void ProcessCompositeNumber()
 			if (IsDigit(*wordStarts[start]))
 			{
 				bool multidigit = true;
-				for ( int j = start + 1; j < end; ++j) 
+				for (unsigned  int j = start + 1; j < end; ++j)
 				{
 					if (wordStarts[j][1] || !IsDigit(wordStarts[j][0])) multidigit = false; 
 
@@ -2523,7 +2574,7 @@ void ProcessCompositeNumber()
 			if (IsDigit(*wordStarts[start]))
 			{
 				bool multidigit = true;
-				for (int j = start + 1; j < end; ++j) 
+				for (unsigned int j = start + 1; j < end; ++j)
 				{
 					if (wordStarts[j][1] || !IsDigit(wordStarts[j][0])) multidigit = false; 
 					//  cannot merge numbers like 1 2 3  instead numbers after the 1st digit number must be triples (international)
@@ -2549,14 +2600,17 @@ bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	memcpy(backupDerivations,derivationIndex + i + oldlength,sizeof(short int) * afterCount); // save old derivations
 
 	// move in new tokens which are insured to be in dictionary.
-	for (int j = 1; j <= newlength; ++j) wordStarts[i + j - 1] = StoreWord(tokens[j],AS_IS)->word;
+	for (int j = 1; j <= newlength; ++j)
+	{
+		wordStarts[i + j - 1] = StoreWord(tokens[j], AS_IS)->word;
+	}
 
 	// the derivations of each new token is from the range of derviations of the old
 	unsigned int start = derivationIndex[i] >> 8;
 	unsigned int end = derivationIndex[i+oldlength-1] & 0x0ff;
 	unsigned int derivation = (start << 8) | end;
 	int endAt = (i + newlength);
-	for (int at = i; at <= endAt; ++at) derivationIndex[at] = (unsigned short)derivation;
+	for (int at = i; at < endAt; ++at) derivationIndex[at] = (unsigned short)derivation;
 
 	// now restore the trailing data.
 	memcpy(wordStarts+i+newlength,backupTokens,sizeof(char*) * afterCount);
@@ -2569,7 +2623,7 @@ bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 		char* limit;
 		char* buffer = InfiniteStack(limit,"ReplaceWords");
 		char* original = buffer;
-		for (int i1 = 1; i1 <= wordCount; ++i1)
+		for (unsigned int i1 = 1; i1 <= wordCount; ++i1)
 		{
 			strcpy(buffer,wordStarts[i1]);
 			buffer += strlen(buffer);
@@ -2583,7 +2637,7 @@ bool ReplaceWords(char* why,int i, int oldlength,int newlength,char** tokens)
 	return true;
 }
 
-static bool Substitute(WORDP found, char* sub, int i, int erasing)
+static bool Substitute(WORDP found, char* sub, unsigned  int i, int erasing)
 { //   erasing is 1 less than the number of words involved
 	if (sub && !strchr(sub, '+') && erasing == 0 && !strcmp(sub, wordStarts[i]))
 		return 0; // changing single word case to what it already is?
@@ -2757,7 +2811,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		return 0; // failed to find type info
 	}
 	// avoid ?'  becoming feet from unit substitution which was not detected
-	else if (*found->word == '?' && found->word[1] == '`') // unit substitution
+	else if (*found->word == '?' && found->word[1] == SUBSTITUTE_SEPARATOR) // unit substitution
 	{
 		char* tokens[50];
 		char newwords[50][1000];
@@ -2819,7 +2873,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		return (result) ? i : 0; 
 	}
 
-	int erase = 1 + erasing;
+	unsigned int erase = 1 + erasing;
 	if (!sub || *sub == '%') // just delete the word or note tokenbit and then delete
 	{
 		if (tokenControl & TOKEN_AS_IS && *found->word != '.' &&  *found->word != '?' && *found->word != '!') // cannot tamper with word count (pennbank pretokenied stuff) except trail punctuation
@@ -2835,7 +2889,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 		else if (trace & TRACE_SUBSTITUTE && CheckTopicTrace())
 		{
 			Log(USERLOG,"  substitute erase:  ");
-			for (int j = i; j < i + erasing + 1; ++j) Log(USERLOG,"%s ", wordStarts[j]);
+			for (unsigned int j = i; j < i + erasing + 1; ++j) Log(USERLOG,"%s ", wordStarts[j]);
 			Log(USERLOG,"\r\n");
 		}
 		char* tokens[15];
@@ -2855,7 +2909,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 
 	char* tokens[MAX_SENTENCE_LENGTH];			// the new tokens we will substitute
 	memset(tokens, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
-	int count;
+	unsigned int count;
 	if (*sub == '\'') ++sub;
 	if (*sub == '"') // use the content internally literally - like "a_lot"  meaning want it as a single word
 	{
@@ -2884,7 +2938,7 @@ static bool Substitute(WORDP found, char* sub, int i, int erasing)
 	return i;
 }
 
-static WORDP Viability(WORDP word, int i, unsigned int n)
+static WORDP Viability(WORDP word, unsigned  int i, unsigned int n)
 {
 	if (!word) return NULL;
 	if (word->systemFlags & ALWAYS_PROPER_NAME_MERGE) return word;
@@ -2987,14 +3041,14 @@ static WORDP ViableIdiom(char* text, int i, unsigned int n)
 	return D;
 }
 
-static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
+static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* ptr)
 {//   buffer is 1st word, ptr is end of it
     WORDP word;
     WORDP found = NULL;
     unsigned int idiomMatch = 0;
     bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	unsigned int n = 0;
-    for ( int j = i; j <= wordCount; ++j)
+    for (unsigned  int j = i; j <= wordCount; ++j)
     {
 		if (j != i) // add next word onto original starter
 		{
@@ -3092,7 +3146,7 @@ static WORDP ProcessMyIdiom(int i,unsigned int max,char* buffer,char* ptr)
 	} //   end J loop
 
 	// handle repeat substitute jack_russell->jack+russell+terrier  (cycles)
-	if (!found || (lastMatch == found && lastMatchLocation == i) ) return NULL;
+	if (!found || (lastMatch == found && lastMatchLocation == (int)i) ) return NULL;
 
 	WORDP D = GetSubstitute(found);
     if (D == found)  return NULL;
@@ -3151,12 +3205,12 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 	lastMatchLocation = 0;
 	unsigned int cycles = 0;
 	WORDP done[3];
-	int doneat[3];
-	int doneindex = 0;
+	unsigned int doneat[3];
+	unsigned int doneindex = 0;
 	doneat[0] = doneat[1] = doneat[2] = 0;
 	done[0] = done[1] = done[2] = 0;
 
-	for (int i = FindOOBEnd(1); i <= wordCount; ++i)
+	for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
 	{
 		if (!stricmp(loginID, wordStarts[i])) continue; // dont match user's name
 
@@ -3218,7 +3272,7 @@ void ProcessSubstitutes() // revise contiguous words based on LIVEDATA files
 				}
 
 				i -= 5;  //   restart earlier since we modified sentence
-				if (i < 0) i = 0;
+				if (i < 0 || i > wordCount) i = 0;
 				++cycles;
 			}
 		}

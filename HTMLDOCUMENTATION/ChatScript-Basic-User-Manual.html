@@ -156,7 +156,7 @@ s: (I hate meat) really? </code></pre>
 <tr class="even">
 <td align="center"><strong>void</strong></td>
 <td align="center"><code>v:</code></td>
-<td>are only accessed via ^reuse and ^refine.</td>
+<td>are only accessed via ^reuse and ^refine and ^setrejoinder.</td>
 </tr>
 </tbody>
 </table>
@@ -465,13 +465,16 @@ u: ( &quot;The Beatles&quot; )</code></pre>
 s: ( I was ) This matches I was and Me was but not I am</code></pre>
 <p>The same is true for concepts:</p>
 <pre><code>u: ( &#39;~extent_adverbs ) </code></pre>
-<h2 id="not-and-notnot">Not <code>!</code> And NotNot <code>!!</code></h2>
+<h2 id="not-and-notnot-and-notbefore--">Not <code>!</code> And NotNot <code>!!</code> And NotBefore <code>!-</code></h2>
 <p>The absence of words is represented using <code>!</code> and means it must not be found anywhere after the current match location. When placed at the start of the pattern, it means not anywhere in the sentence at all:</p>
 <pre><code>u: ( ![ not never rarely ] I * ~ingest * ~meat ) You eat meat.
 u: ( !~negativeWords I * ~like * ~meat ) You like meat. </code></pre>
 <p>While <code>!</code> Checks for the entire rest of the sentence, <code>!!</code> checks just the next word from where you are. So</p>
 <pre><code>u: ( test !!this)  I win</code></pre>
 <p>Will match input <em>test that this works</em> and not match <em>test this works</em>.</p>
+<p><code>!-</code> checks for the entire prior part of the sentence, so</p>
+<pre><code>u: ( test !-this)  I win</code></pre>
+<p>Will match input <em>test that this works</em> and not match <em>This test works</em>.</p>
 <h2 id="optional-words">Optional Words <code>{</code> <code>}</code></h2>
 <p>Sometimes you can expect a word might or might not be supplied. Your pattern can reflect this and swallow it when present. <code>{``}</code> is just like choice <code>[``]</code>, except the match is optional. It is allowed to fail.</p>
 <pre><code>?: ( how hot is ~number {degree deg} Farenheit ) Sounds hot.

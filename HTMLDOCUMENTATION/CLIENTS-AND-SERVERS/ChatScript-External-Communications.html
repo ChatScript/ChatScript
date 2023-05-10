@@ -61,6 +61,7 @@
 <p>^websocketsend(message) - send message to opened socket</p>
 <p>^websocketreceive(timeout) - listen for response back. timeout value of -1 means block until message received. 0 means retrieve immediately if something is there, otherwise return with nothing. Other values are milliseconds will be willing to wait for response.</p>
 <p>If you use the param websocket=url the system on startup will become a websocket client and use that as its input/output loop channel. If you also supply parameter websocketmessage=&quot;send this first&quot; then that message will be sent when the socket is opened.</p>
+<p>By default the bot name used for websocket chatting is 'websocketbot'. The param websocketbot=xxx will change that to xxx.</p>
 <h2 id="tracking-user-data">Tracking User Data</h2>
 <p>Normally ChatScript tracks user data in a topic file in USERS. If you want to maintain your own state and not use CS tracking, then set the startup command line paramater to</p>
 <pre><code>cache=0x0</code></pre>

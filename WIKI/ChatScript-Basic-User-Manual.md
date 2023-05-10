@@ -239,7 +239,7 @@ Rules are thus classified as:
 |**responders** |`s:`<br>`?:`<br>`u:` | which are rules that try to react to unprovoked input from the user. That is, he might out of the blue ask you something or say something, and these attempt to cope with that.
 |**rejoinders** |`a:`<br>`b:`<br>`c:`<br>`d:`<br>`e:`<br>`f:`<br>`g:`<br>`h:`<br>`i:`<br>`j:`<br>`k:`<br>`l:`<br>`m:`<br>`n:`<br>`o:`<br>`p:`<br>`q:`| are attempts to predict a user’s immediate response to something the chatbot says. They cannot be triggered except on input immediately after the rule they follow has issued output. 
 |**gambits**    |`r:`<br>`t:` | are the story the chatbot wants to tell on a subject or the conversation the chatbot is trying to steer the user into. `r:` are random gambits ([explained later](ChatScript-Advanced-User-Manual.md#random-gambit)).
-|**void**    |`v:` | are only accessed via ^reuse and ^refine.
+|**void**    |`v:` | are only accessed via ^reuse and ^refine and ^setrejoinder.
 
 Rules usually have pattern requirements in parens (except gambit `t:` rules for which a pattern is optional and void `v:` who use an empty pattern). 
 These typically try to find specific words or sequences of words in the user’s input. In the rule: 
@@ -862,7 +862,7 @@ The same is true for concepts:
     u: ( '~extent_adverbs ) 
 
 
-## Not `!` And NotNot `!!`
+## Not `!` And NotNot `!!` And NotBefore `!-`
 
 The absence of words is represented using `!` and means it must not be found anywhere
 after the current match location. When placed at the start of the pattern, it means not
@@ -877,6 +877,12 @@ While `!` Checks for the entire rest of the sentence, `!!` checks just the next 
     u: ( test !!this)  I win
 
 Will match input _test that this works_ and not match _test this works_.
+
+ `!-` checks for the entire prior part of the sentence, so
+
+    u: ( test !-this)  I win
+
+Will match input _test that this works_ and not match _This test works_.
 
 
 ## Optional Words `{` `}`
@@ -1260,6 +1266,3 @@ there (though truly we have barely scratched the surface here). Just remember, t
 you need is to write a topic, with keywords, trivial gambits, responders and rejoinders
 with simple patterns, and output that is simply exactly what you want the bot to say. 
 
----
-
-[[Wiki home](/WIKI/README.html)] - [[Advanced User Manual](ChatScript-Advanced-User-Manual.md)]

@@ -6782,7 +6782,9 @@
  hello ( meanings=2 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
     how-do-you-do~1nz (^salutation~2) an expression of greeting
     hello~2vz 
- hullo ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
+hiyah ( meanings=1 glosses=1 NOUN_ABSTRACT VERB_PRESENT VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN VERB_DIRECTOBJECT VERB_NOOBJECT ) 
+    how-do-you-do~1nz (^salutation~2) an expression of greeting
+hullo ( meanings=1 NOUN NOUN_SINGULAR COMMON2 posdefault:NOUN ) 
     hello~1n 
  hi ( meanings=1 NOUN NOUN_SINGULAR COMMON4 COMMON1 KINDERGARTEN posdefault:NOUN ) 
     hullo~1n 

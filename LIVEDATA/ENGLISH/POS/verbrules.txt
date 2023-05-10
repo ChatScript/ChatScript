@@ -570,8 +570,8 @@ DISCARD
 # sentence start using what as subject/object xxx  requires potential verb to not be VERB_PRESENT but be VERB_PRESENT_3PS "what games the system"  
 -1  START
 	STAY ISORIGINAL what
-	INCLUDE * VERB_PRESENT
-DISCARD
+	INCLUDE * VERB_PRESENT_3PS
+KEEP
 
 # known verb after precludes this as verb - "I *even went home" but adjective particle could be -- but "another way he can hide is by shooting ink" as a clause is legal
 

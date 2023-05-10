@@ -306,7 +306,7 @@ void mongoAppendKeys(bson_t *doc, char* var)
 
 // connect to server, db, and collection
 eReturnValue EstablishConnection(	const char* pStrSeverUri, // eg "mongodb://localhost:27017"
-									const char* pStrDBName,   // eg "testMongo""testMongo"
+									const char* pStrDBName,   // eg "testMongo"
 									const char* pStrCollName, // eg "testCollection"
 									mongoc_collection_t** mycollect)
 {
@@ -460,20 +460,24 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 		size_t len = strlen(key);
 		if (key[len-1] == '"') key[len-1] = 0;
 	}
-    mongoc_collection_t* collection;
+    mongoc_database_t* db = NULL;
+    mongoc_collection_t* collection = NULL;
     mongoc_read_prefs_t* read_prefs = NULL;
 	if (user)
     {
+        db = g_pDatabase;
         collection = g_pCollection;
         read_prefs = g_pReadPrefs;
     }
 	else if (hasMongoCollectionHandle(ARGUMENT(2)))
     {
+        db = g_filesysDatabase;
         collection = getMongoCollectionHandle(ARGUMENT(2));
         read_prefs = getMongoCollectionReadPrefs(ARGUMENT(2));
     }
 	else
     {
+        db = g_filesysDatabase;
         collection = g_filesysCollectionTopic;
         read_prefs = g_filesysReadPrefsTopic;
     }
@@ -515,6 +519,11 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
         if (fnq)
         {
             ((MongoQueryParamsHOOKFN) fnq)(psQuery);
+        }
+        static HOOKPTR fnos = FindHookFunction((char*)"DatabaseOperationStart");
+        if (fnos)
+        {
+            ((DatabaseOperationStartHOOKFN) fnos)("Mongo", mongoc_database_get_name(db), mongoc_collection_get_name(collection), "get", key);
         }
 #endif
 
@@ -564,6 +573,13 @@ FunctionResult mongoGetDocument(char* key,char* buffer,int limit,bool user)
 			sprintf(dbmsg,"%s Mongo Find took longer than expected for %s, with total retrieved data size in bytes = %zu, cursor read time = %ums And time taken = %ums\r\n", GetTimeInfo(&ptm),key, retrievedDataSize, crdiff, diff);
 			Log(DBTIMELOG, dbmsg);
 		}
+#ifdef PRIVATE_CODE
+        static HOOKPTR fnoe = FindHookFunction((char*)"DatabaseOperationEnd");
+        if (fnoe)
+        {
+            ((DatabaseOperationEndHOOKFN) fnoe)();
+        }
+#endif
     }while(false);
     
     FunctionResult result = NOPROBLEM_BIT;
@@ -603,9 +619,14 @@ FunctionResult mongoDeleteDocument(char* buffer)
 {
 	char* dot = strchr(ARGUMENT(1),'.');
 	if (dot) *dot = 0; // not allowed by mongo
+    mongoc_database_t* db = g_filesysDatabase;
 	mongoc_collection_t* collection;
-	if (buffer) collection =  g_pCollection; // user script
-    else if (hasMongoCollectionHandle(ARGUMENT(2))) collection = getMongoCollectionHandle(ARGUMENT(2));
+	if (buffer)
+    {
+        db = g_pDatabase;
+        collection = g_pCollection; // user script
+    }
+	else if (hasMongoCollectionHandle(ARGUMENT(2))) collection = getMongoCollectionHandle(ARGUMENT(2));
 	else collection = g_filesysCollectionTopic;
     if (!collection)
     {
@@ -635,6 +656,13 @@ FunctionResult mongoDeleteDocument(char* buffer)
         }
         
         BSON_APPEND_UTF8 ( pDoc, "KeyName", keyname );
+#ifdef PRIVATE_CODE
+        static HOOKPTR fnos = FindHookFunction((char*)"DatabaseOperationStart");
+        if (fnos)
+        {
+            ((DatabaseOperationStartHOOKFN) fnos)("Mongo", mongoc_database_get_name(db), mongoc_collection_get_name(collection), "delete", keyname);
+        }
+#endif
         
         bson_error_t sError;
     	uint64 starttime = ElapsedMilliseconds();
@@ -655,6 +683,13 @@ FunctionResult mongoDeleteDocument(char* buffer)
 	    	sprintf(dbmsg,"%s Mongo Delete took longer than expected for %s, time taken = %ums\r\n", GetTimeInfo(&ptm),keyname, diff);
 	    	Log(DBTIMELOG, dbmsg);
 	    }
+#ifdef PRIVATE_CODE
+        static HOOKPTR fnoe = FindHookFunction((char*)"DatabaseOperationEnd");
+        if (fnoe)
+        {
+            ((DatabaseOperationEndHOOKFN) fnoe)();
+        }
+#endif
     }while(false);
     
     if( pDoc != NULL ) bson_destroy( pDoc );
@@ -705,6 +740,11 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     {
         ((MongoQueryParamsHOOKFN) fnq)(query);
     }
+    static HOOKPTR fnos = FindHookFunction((char*)"DatabaseOperationStart");
+    if (fnos)
+    {
+        ((DatabaseOperationStartHOOKFN) fnos)("Mongo", mongoc_database_get_name(collection == g_pCollection ? g_pDatabase : g_filesysDatabase), mongoc_collection_get_name(collection), "upsert", keyname);
+    }
 #endif
 
     uint64 starttime = ElapsedMilliseconds();
@@ -742,18 +782,26 @@ static FunctionResult MongoUpsertDoc(mongoc_collection_t* collection,char* keyna
     	sprintf(dbmsg,"%s Mongo Upsert took longer than expected for %s, time taken = %ums\r\n", GetTimeInfo(&ptm),keyname, diff);
     	Log(DBTIMELOG, dbmsg);
     }
+#ifdef PRIVATE_CODE
+    static HOOKPTR fnoe = FindHookFunction((char*)"DatabaseOperationEnd");
+    if (fnoe)
+    {
+        ((DatabaseOperationEndHOOKFN) fnoe)();
+    }
+#endif
+
     return result;
 }
 
 FunctionResult mongoInsertDocument(char* buffer)
 { // always comes from USER script, not the file system
-	char* revisedBuffer = GetUserFileBuffer(); // use a filesystem buffer
+	char* revisedBuffer = GetFileBuffer(); // use a filesystem buffer
 	char* dot = strchr(ARGUMENT(1),'.');
 	if (dot) *dot = 0;	 // terminate any suffix, not legal in mongo key
 	strcpy(revisedBuffer,ARGUMENT(2)); // content to do
 	FunctionResult result =  MongoUpsertDoc(g_pCollection,ARGUMENT(1),revisedBuffer);
 	if (dot) *dot = '.';	 // terminate any suffix, not legal in mongo key
-	FreeUserCache();	// release back to file system
+    FreeFileBuffer();	// release back to file system
 	return result;
 }
 

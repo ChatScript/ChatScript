@@ -1,3 +1,8 @@
+@sm SYMBOL
+@tm  SYMBOL
+@r SYMBOL
+@c  SYMBOL
+
 #	equal conjunctions:  claim is only and, &, but, or, nor, for, yet, so
 for CONJUNCTION_COORDINATE
 and CONJUNCTION_COORDINATE

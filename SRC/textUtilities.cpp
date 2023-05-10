@@ -7,10 +7,10 @@ typedef struct JapanCharInfo
 bool outputapicall = false;
 char* currentInput = NULL; // latest input we are processing from GetNextInput for error reporting
 static HEAPREF startSupplementalInput = NULL;
-int startSentence;
+unsigned int startSentence;
 bool moreToComeQuestion = false;				// is there a ? in later sentences
 bool moreToCome = false;						// are there more sentences pending
-int endSentence;
+unsigned int endSentence;
 bool fullfloat = false;	// 2 float digits or all
 int numberStyle = AMERICAN_NUMBERS;
 FILE* docOut = NULL;
@@ -91,6 +91,7 @@ typedef struct CURRENCYDECODE
 static CURRENCYDECODE* currencies[MAX_MULTIDICT];
 static int* monthnames[MAX_MULTIDICT];
 static int* topleveldomains;
+static int* emojishortnames;
 
 unsigned char toLowercaseData[256] = // convert upper to lower case
 {  // encoder/decoder https://mothereff.in/utf-8
@@ -247,7 +248,7 @@ unsigned char realPunctuation[256] = // punctuation characters
 	0,0,0,0,0,0,
 };
 
-unsigned char isAlphabeticDigitData[256] = //    non-digit number starter (+-.) == 1 isdigit == 2 isupper == 3 islower == 4 isletter >= 3 utf8 == 5
+unsigned char isAlphabeticDigitData[256] = //    non-digit number starter (+-.) == 1 isdigit == 2 isupper == 3 leower == 4 isletter >= 3 utf8 == 5
 {
 	0,0,0,0,0,0,0,0,0,0,	0,0,0,0,0,0,0,0,0,0,
 	0,0,0,0,0,0,0,0,0,0,	0,0,0,0,0,1,1,0,0,0,  //   # and $
@@ -315,6 +316,7 @@ unsigned char digitGroupingData[3] = // American, Indian, French
 	',',',','.'
 };
 
+
 /////////////////////////////////////////////
 // STARTUP
 /////////////////////////////////////////////
@@ -330,7 +332,6 @@ void Clear_CRNL(char* incoming)
 	at = incoming;
 	while ((at = strchr(at, '\n'))) *at = ' ';
 }
-
 
 void InitUniversalTextUtilities()
 {
@@ -377,8 +378,11 @@ void InitUniversalTextUtilities()
 		size /= 8;     // 64bit chunks
 		topleveldomains = (int*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
-		fclose(in);
+		FClose(in);
 	}
+
+	// create the empty word
+	StoreWord("", AS_IS);
 }
 
 void Translate_UTF16_2_UTF8(char* input)
@@ -561,7 +565,7 @@ void InitTextUtilitiesByLanguage(char* lang)
 		size /= 8;	 // 64bit chunks
 		numberValues[languageIndex] = (NUMBERDECODE*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
-		fclose(in);
+		FClose(in);
 	}
 
 	sprintf(file, (char*)"%s/%s/currencies.txt", livedataFolder, lang);
@@ -591,7 +595,7 @@ void InitTextUtilitiesByLanguage(char* lang)
 		size /= 8;	 // 64bit chunks
 		currencies[languageIndex] = (CURRENCYDECODE*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
-		fclose(in);
+		FClose(in);
 	}
 
 	sprintf(file, (char*)"%s/%s/months.txt", livedataFolder, lang);
@@ -613,6 +617,39 @@ void InitTextUtilitiesByLanguage(char* lang)
 		size = (char*)data - stack;
 		size /= 8;	 // 64bit chunks
 		monthnames[languageIndex] = (int*)AllocateHeap(stack, size + 1, 8);
+		ReleaseInfiniteStack();
+		FClose(in);
+	}
+
+	// emoji short names, see https://unicode.org/Public/emoji/13.0/emoji-sequences.txt
+	// or https://raw.githubusercontent.com/omnidan/node-emoji/master/lib/emoji.json
+	sprintf(file, (char*)"%s/emojishortnames.txt", systemFolder);
+	in = FopenStaticReadOnly(file);
+	if (in)
+	{
+		stack = InfiniteStack(limit, "initemoji");
+		data = (int*)stack;
+
+		while (ReadALine(readBuffer, in) >= 0) // short name
+		{
+			if (*readBuffer == '#' || *readBuffer == 0) continue;
+			ReadCompiledWord(readBuffer, word);
+			// strip any colons
+			char* ptr = word;
+			if (*ptr == ':')
+			{
+				++ptr;
+				size_t len = strlen(ptr) - 1;
+				if (ptr[len] == ':') {
+					ptr[len] = 0;
+				}
+			}
+			*data++ = Heap2Index(AllocateHeap(ptr, 0));
+		}
+		*data++ = 0;     // terminal value for end detection
+		size = (char*)data - stack;
+		size /= 8;     // 64bit chunks
+		emojishortnames = (int*)AllocateHeap(stack, size + 1, 8);
 		ReleaseInfiniteStack();
 		fclose(in);
 	}
@@ -1098,6 +1135,15 @@ char* AddEscapes(char* to, const char* from, bool normal, int limit, bool addesc
 			UTF8_2_UTF16((unsigned char*&)at, (unsigned char*&)to);
 		}
 #endif
+        else if (*at < 32)
+        {
+            // ASCII control characters are not valid by themselves
+            if (!normal) *to++ = ESCAPE_FLAG;
+            *to++ = '\\';
+            *to++ = 'u';
+            sprintf(to, "%04x", *at);
+            to += 4;
+        }
 		else *to++ = *at;
 		if ((to - start) > limit && false) 	// dont overflow just abort silently
 		{
@@ -1168,7 +1214,7 @@ void AcquireDefines(const char* fileName)
 		{
 			offset = 1;
 		}
-		else if (!strnicmp(readBuffer, (char*)"// parse flags", 14))  // start of parse flags seen
+		else if (!strnicmp(readBuffer, (char*)"// parse flags", 14))  // start of parse flags seen, have ```
 		{
 			word[1] = UNIQUEENTRY; // parse flag words have ``` in front
 			word[2] = UNIQUEENTRY; // parse flag words have ``` in front
@@ -1246,15 +1292,10 @@ void AcquireDefines(const char* fileName)
 		WORDP D = StoreWord(word, AS_IS);
 		D->properties = result; // all values stored here, using top (as_is) bit if needed
 		AddInternalFlag(D, DEFINES);
-
-#ifdef WIN32
-		sprintf(word + offset, (char*)"%I64u", result);
-#else
-		sprintf(word + offset, (char*)"%llu", result);
-#endif
+		strcpy(word + offset, PrintU64(result));
 		if (!endsystem) // cross ref from number to value only for properties and system flags and parsemarks for decoding bits back to words for marking
 		{
-			WORDP E = StoreWord(word);
+			WORDP E = StoreWord(word, AS_IS);
 			AddInternalFlag(E, DEFINES);
 			if (!E->parseBits) E->parseBits = MakeMeaning(D); // if number value NOT already defined, use this definition
 		}
@@ -1324,6 +1365,9 @@ void AcquirePosMeanings(bool facts)
 	ConceptFact((char*)"~pronoun_possessive", M, facts);
 
 	M = ConceptFact((char*)"~noun_bits", pos, facts);
+	ConceptFact((char*)"~verb_phrase", M, facts);
+	ConceptFact((char*)"~noun_phrase", M, facts);
+	ConceptFact((char*)"~prep_phrase", M, facts);
 	ConceptFact((char*)"~noun_singular", M, facts);
 	ConceptFact((char*)"~noun_plural", M, facts);
 	ConceptFact((char*)"~noun_proper_singular", M, facts);
@@ -1378,11 +1422,7 @@ char* FindNameByValue(uint64 val) // works for invertable pos bits only
 {
 	char word[MAX_WORD_SIZE];
 	word[0] = UNIQUEENTRY;
-#ifdef WIN32
-	sprintf(word + 1, (char*)"%I64u", val);
-#else
-	sprintf(word + 1, (char*)"%llu", val);
-#endif
+	strcpy(word + 1, PrintU64(val));
 	WORDP D = FindWord(word);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	D = Meaning2Word(D->parseBits);
@@ -1419,11 +1459,7 @@ char* FindSystemNameByValue(uint64 val) // works for invertable system bits only
 	char word[MAX_WORD_SIZE];
 	word[0] = UNIQUEENTRY;
 	word[1] = UNIQUEENTRY;
-#ifdef WIN32
-	sprintf(word + 2, (char*)"%I64u", val);
-#else
-	sprintf(word + 2, (char*)"%llu", val);
-#endif
+	strcpy(word + 2, PrintU64(val));
 	WORDP D = FindWord(word,0, PRIMARY_CASE_ALLOWED);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return Meaning2Word(D->parseBits)->word + 2;
@@ -1435,11 +1471,7 @@ char* FindParseNameByValue(uint64 val)
 	word[0] = UNIQUEENTRY;
 	word[1] = UNIQUEENTRY;
 	word[2] = UNIQUEENTRY;
-#ifdef WIN32
-	sprintf(word + 3, (char*)"%I64u", val);
-#else
-	sprintf(word + 3, (char*)"%llu", val);
-#endif
+	strcpy(word + 3, PrintU64(val));
 	WORDP D = FindWord(word,0, PRIMARY_CASE_ALLOWED);
 	if (!D || !(D->internalBits & DEFINES)) return 0;
 	return Meaning2Word(D->parseBits)->word + 3;
@@ -1683,22 +1715,21 @@ bool IsInteger(char* ptr, bool comma, int useNumberStyle)
 
 char* FixHtmlTags(char* html)
 {
-	char* start = html;
-	// convert html data
-	char* at = --html;
-	while ((at = strstr(++at, (char*)"&#")) != 0)
-	{
-		int n = atoi(at + 2);
-		// dont convert _ (95) because cs does _ to space mapping on output - html is an escape for that
-		if (IsDigit(at[2]) && IsDigit(at[3]) && at[4] == ';' && n != 95) // &#32;
-		{
-			*at = (char)n; // normal ascii value
-			memmove(at + 1, at + 5, strlen(at + 4));
-		}
-	}
-	
+	char* start = html--;
 	while ((html = strchr(++html, '&')))
 	{
+		if (html[1] == '#')
+		{
+			int n = atoi(html + 2);
+			// dont convert _ (95) because cs does _ to space mapping on output - html is an escape for that
+			if (IsDigit(html[2]) && IsDigit(html[3]) && html[4] == ';' && n != 95) // &#32;
+			{
+				*html = (char)n; // normal ascii value
+				memmove(html + 1, html + 5, strlen(html + 4));
+				continue;
+			}
+		}
+
 		if (!strnicmp(html, (char*)"&lt;", 4))
 		{
 			memmove(html + 1, html + 4, strlen(html + 3)); // all moves include closing nul
@@ -1776,11 +1807,6 @@ char* FixHtmlTags(char* html)
 			memmove(html + 1, html + 7, strlen(html + 6));
 			*html = '\'';
 		}
-		else if (!strnicmp(html, (char*)"&#39;", 5))
-		{
-			memmove(html + 1, html + 5, strlen(html + 4));
-			*html = '\'';
-		}
 		else if (html[1] == '#' && html[2] == 'x' && 
 			(html[6] == ';' || html[7] == ';')) // hex html
 		{
@@ -1819,7 +1845,6 @@ char* FixHtmlTags(char* html)
 			size_t n = strlen(answer);
 			strncpy(html, answer, n);
 			memmove(html + n, end + 1, strlen(end));
-
 		}
 	}
 	return start;
@@ -2142,10 +2167,15 @@ FunctionResult AnalyzeCode(char* buffer)
 	ClearSupplementalInput();
 	AddInput(word, 2); // analyze
 	SAVEOLDCONTEXT()
-	FunctionResult result;
+		FunctionResult result;
 	uint64 flags = OUTPUT_NOCOMMANUMBER + OUTPUT_KEEPQUERYSET;
+
 	if (!directAnalyze) Output(word, buffer, result, (unsigned int)flags); // need to eval the input variable to get real data
 	else strcpy(buffer, word);
+	// really need to purify the input 
+	size_t xsize = strlen(buffer);
+	PurifyInput(buffer, buffer, xsize, INPUT_PURIFY); // change out special or illegal characters
+
 	if (*buffer == '"') // if a string, remove quotes
 	{
 		size_t len = strlen(buffer);
@@ -2171,12 +2201,17 @@ FunctionResult AnalyzeCode(char* buffer)
 	{
 		char* normal = AllocateBuffer();
 		char* canonical = AllocateBuffer();
-		for (int i = 1; i <= wordCount; ++i)
+		for (unsigned int i = 1; i <= wordCount; ++i)
 		{
 			strcat(normal, wordStarts[i]);
 			strcat(normal, " ");
 			strcat(canonical, wordCanonical[i]);
 			strcat(canonical, " ");
+			if (!stricmp(current_language, "japanese") || !stricmp(current_language, "chinese"))
+			{
+				strcat(normal, " ");
+				strcat(canonical, " ");
+			}
 		}
 		Log(USERLOG, "normal Analyze: %s\r\n", normal);
 		Log(USERLOG, "canonical Analyze: %s\r\n", canonical);
@@ -2187,7 +2222,7 @@ FunctionResult AnalyzeCode(char* buffer)
 	}
 
 	RESTOREOLDCONTEXT()
-	startSupplementalInput = oldinput; // recover prior status
+		startSupplementalInput = oldinput; // recover prior status
 	MoreToCome();
 	return NOPROBLEM_BIT;
 }
@@ -2259,7 +2294,7 @@ void SetContinuationInput(char* buffer) // set upon tokenization of prior piece
 	if (!ref)
 	{
 		char* item = AllocateHeap(buffer);
-		startSupplementalInput = AllocateHeapval(startSupplementalInput, (uint64)item, 0, 0);  // 1 == internal input
+		startSupplementalInput = AllocateHeapval(HV1_STRING,startSupplementalInput, (uint64)item);  // 1 == internal input
 	}
 	else
 	{
@@ -2301,7 +2336,7 @@ bool AddInput(char* buffer, int kind, bool clear)
 	buffer = SkipWhitespace(buffer);
 	if (!*buffer) buffer = (char*)" ";
 	char* item = AllocateHeap(buffer);
-	startSupplementalInput = AllocateHeapval(startSupplementalInput, (uint64)item, kind, 0);  // 1 == internal input
+	startSupplementalInput = AllocateHeapval(HV1_STRING|HV2_STRING,startSupplementalInput, (uint64)item, kind);  // 1 == internal input
 	MoreToCome();
 	return true;
 }
@@ -2426,6 +2461,7 @@ bool IsMail(char* word)
 	if (*word == '@') return false;
 	if (strchr(word, ' ') || !strchr(word, '.')) return false; // cannot have space, must have dot dot
 	char* at = strchr(word, '@');	// check for email
+	bool valid = false;
 	if (at)
 	{
 		// check local part, before @, for possible previous word end
@@ -2438,16 +2474,29 @@ bool IsMail(char* word)
 			if (IsInvalidEmailCharacter(*ptr)) return false;
 		}
 
+		// find end of email
+		char* emailEnd = at;
+		while (*++emailEnd && !IsInvalidEmailCharacter(*emailEnd)); // fred,andy@kore.com
+
+		// cannot have a second @ before the end
+		char* at2 = strchr(at + 1, '@');
+		if (at2 && at2 < emailEnd) return false;
+
 		char* dot = strchr(at + 2, '.'); // must have character or digit after @ and before . (RFC1123 section 2.1)
-		if (dot && IsAlphaUTF8OrDigit(dot[1])) return true;
+		if (!dot || !IsAlphaUTF8OrDigit(dot[1])) return false;
+		while (*(emailEnd - 1) == '.') --emailEnd;
+		char endChar = *emailEnd;
+		*emailEnd = 0;
+		valid = IsTLD(strrchr(at + 2, '.'));
+		*emailEnd = endChar;
 	}
-	return false;
+	return valid;
 }
 
 bool IsTLD(char* word)
 {
 	char* ptr = word;
-	if (strlen(ptr) < 2) return false;
+	if (!ptr || strlen(ptr) < 2) return false;
 	if (*ptr == '.') ++ptr;
 
 	// check for a known top level domain
@@ -2603,10 +2652,34 @@ bool IsFileName(char* word)
 	return valid;
 }
 
-bool IsEmojiShortCode(char* word)
+bool IsEmojiShortname(char* word, bool all)
 {
 	size_t len = strlen(word);
-	if (len > 2 && word[0] == ':' && word[len - 1] == ':') return true;
+	if (len < 3 || word[0] != ':') return false;
+	char* at = ++word;
+	len -= 2;
+
+	// check for a known emjoi short names
+	int* emoji = emojishortnames;
+	for (unsigned int i = 0; i < 10000; ++i)
+	{
+		if (!emoji || !*emoji) break;
+		char* w = Index2Heap(*emoji);
+		emoji++;
+
+		size_t n = strlen(w);
+		if (n > len || at[n] != ':') continue;
+
+		char c = at[n];
+		at[n] = 0;
+		if (!stricmp(w, at))
+		{
+			at[n] = c;
+			return (all ? n == len : true);
+		}
+		at[n] = c;
+	}
+
 	return false;
 }
 
@@ -2903,10 +2976,37 @@ static bool PurifyUTF8(PurifyKind kind, char* start, char c, char*& read, char*&
 			*write++ = ' ';
 			++read;
 		}
+		else if (c == 0xEF && read[1] == 0xBB && read[2] == 0xBF) read += 2; // UTF8 BOM
 		else if (c == 0xc2 && read[1] == 0xb4) // a form of '
 		{
 			*write++ = '\'';
 			read++;
+		}
+		else if (c == 0xc2 && read[1] == 0xa9) // copyright sign
+		{
+			read += 2;
+			*write++ = '@';
+			*write++ = 'c';
+		}
+		else if (c == 0xc2 && read[1] == 0xae) // registered sign
+		{
+			read += 2;
+			*write++ = '@';
+			*write++ = 'r';
+		}
+		else if (c == 0xe2 && read[1] == 0x84 && read[2] == 0xa2) // trademark sign
+		{
+			read += 3;
+			*write++ = '@';
+			*write++ = 't';
+			*write++ = 'm';
+		}
+		else if (c == 0xe2 && read[1] == 0x84 && read[2] == 0xa0) // servicemark sign
+		{
+			read += 3;
+			*write++ = '@';
+			*write++ = 's';
+			*write++ = 'm';
 		}
 		else if (c == 0xe2 && read[1] == 0x80 && read[2] == 0x98)  // open single quote
 		{
@@ -2925,24 +3025,7 @@ static bool PurifyUTF8(PurifyKind kind, char* start, char c, char*& read, char*&
 		}
 		else if (c == 0xe2 && read[1] == 0x80 && read[2] == 0x99)  // closing single quote (may be embedded or acting as a quoted expression
 		{
-			if (read != start && IsAlphaUTF8(prior) && IsAlphaUTF8(*x)) // embedded contraction
-			{
-				*write++ = '\'';
-			}
-			else if (prior == 's' && !IsAlphaUTF8(*x)) // ending possessive
-			{
-				*write++ = '\'';
-			}
-			else if (prior == '.' || prior == '?' || prior == '!') // leave writetached to prior so readdocument can leave them together
-			{
-				*write++ = '\'';
-			}
-			else
-			{
-				*write++ = ' ';
-				*write++ = '\'';
-				*write++ = ' ';
-			}
+			*write++ = '\'';
 			read += 2;
 		}
 		else if (c == 0xe2 && read[1] == 0x80 && read[2] == 0x9c)  // open double quote
@@ -3268,7 +3351,8 @@ char* PurifyInput(char* input, char* copy,size_t& size, PurifyKind kind)
 			*write++ = *++read;
 			continue;
 		}
-		else if (c == '`') *write++ = '\''; // do not allow backtick from outside, make forward
+		else if (c == '`') 
+			*write++ = '\''; // do not allow backtick from outside, make forward
 		else if (c == '\t' && kind != TAB_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
 		else if (c < 32 && c != '\t' && kind != SYSTEM_PURIFY) *write++ = ' '; // convert control stuff to spaces - protect logging usage
 		else if (c == 0x92) *write++ = '\''; // windows smart quote not real unicode
@@ -3908,7 +3992,7 @@ RESUME:
 		// strip UTF8 BOM marker if any and just keep reading
 		if (hasutf && currentFileLine == 0 && (buffer - start) == 3) // only from file system 
 		{
-			if ((unsigned char)start[0] == 0xEF && (unsigned char)start[1] == 0xBB && (unsigned char)start[2] == 0xBF) // UTF8 BOM
+			if (HasUTF8BOM(start))
 			{
 				buffer -= 3;
 				*start = 0;
@@ -3920,7 +4004,7 @@ RESUME:
 		// strip UTF8 BOM marker if any and just keep reading
 		if (currentFileLine == 0 && (buffer - start) == 3) // only from file system 
 		{
-			if ((unsigned char)start[0] == 0xEF && (unsigned char)start[1] == 0xBB && (unsigned char)start[2] == 0xBF) // UTF8 BOM
+			if (HasUTF8BOM(start))
 			{
 				buffer -= 3;
 				*start = 0;
@@ -4116,7 +4200,7 @@ char* ReadArgument(char* ptr, char* buffer, FunctionResult& result) //   looking
 		ptr = ReadCompiledWord(ptr, buffer); // get name and prepare to peek at next token
 		if (IsDigit(buffer[1]))
 		{
-			strcpy(buffer, FNVAR(buffer + 1)); // use the value and keep going // NEW
+			strcpy(buffer, FNVAR(buffer)); // use the value and keep going // NEW
 			return ptr;
 		}
 		else if (*ptr != '(')  return ptr; // not a function call
@@ -4452,11 +4536,11 @@ char* ReadCodeWord(const char* ptr, char* word, bool noquote, bool var, bool nol
 	if (*original == '$' && end == ']') end = 0;
 	else if (strchr(original, '=')) end = 0; // dont break off assignments
 	else if (*original == '\\' && original[1] == end) end = 0; // dont break off escaped char
-	if (original[1] && (end == ']' || end == '}' || end == ')'))
+	if (original[1] && (end == ']' || end == '}' || end == ')')) //attached closing marker of some kind
 	{
-		*word = 0; // separate
-		end = *--ptr;
-		if (end != ']' && end != '}' && end != ')') --ptr;
+		word[len - 1] = 0; // separate
+		end = *--answer;
+		if (end != ']' && end != '}' && end != ')') --answer;
 	}
 	else if (end == '>' && word[1] == '>')
 	{
@@ -6403,6 +6487,8 @@ char* PartialLowerCopy(char* to, const char* from, int begin, int end)  	//exclu
 
 char* MakeLowerCopy(char* to, const char* from)
 {
+	if (!from) 
+		return "unknown";
 	char* start = to;
 	while (*from)
 	{

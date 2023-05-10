@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/10/2022 cs13.1</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -556,9 +556,25 @@
 <td><code>~filename</code></td>
 <td>looks like a filename with extension</td>
 </tr>
+<tr class="odd">
+<td><code>~modelnumber</code></td>
+<td>not a true number, but a word with both alpha and numeric</td>
+</tr>
+<tr class="even">
+<td><code>~prep_phrase</code></td>
+<td>chunk of text forming a prepositional phrase</td>
+</tr>
+<tr class="odd">
+<td><code>~verb_phrase</code></td>
+<td>chunk of text forming a verb phrase</td>
+</tr>
+<tr class="even">
+<td><code>~noun_phrase</code></td>
+<td>chunk of text forming a noun phrase</td>
+</tr>
 </tbody>
 </table>
-<p>To can be a preposition or it can be special. When used in the infinitive phrase To go, it is marked <code>~to_infinitive</code> and is followed by <code>~noun_infinitive</code>.</p>
+<p>&quot;To&quot; can be a preposition or it can be special. When used in the infinitive phrase To go, it is marked <code>~to_infinitive</code> and is followed by <code>~noun_infinitive</code>.</p>
 <table style="width:53%;">
 <colgroup>
 <col width="31%" />
@@ -1129,15 +1145,15 @@
 </tbody>
 </table>
 <p>%httpresponse returns the official http response codes when it succeeds in connecting to a server. When it fails, it returns various negative codes that are specific to curl.</p>
-<pre><code>-1 timeout - connection attempt was canceled
+<pre><code>-1 timeout - connection attempt was canceled or no time was allowed (instant fail)
 -2 couldn&#39;t connect or not resolve host or proxy
 -3 unsupported protocol
 -4 curl got nothing (typically sent http to https site)
 -5 malformed url
--6 other</code></pre>
+-6 other
+-7 curl operation timeout</code></pre>
 <h2 id="testpattern-control-variables">^testpattern control variables</h2>
-<div style="white-space: pre-line;"><code>%testpattern-nosave</code> | blocks saving NL from ^testpattern if nlsave=1 was set in command line params
-<code>%testpattern-prescan</code> | execute this pattern on all sentences before doing other patterns one-by-one
+<div style="white-space: pre-line;"><code>%testpattern-prescan</code> | execute this pattern on all sentences before doing other patterns one-by-one
 <code>%trace_on</code> | starting here, do :trace pattern in ^testpattern
 <code>%trace_on all</code> | starting here, do :trace all in ^testpattern
 <code>%trace_off</code> | turn off tracing (also turns off at end of cs call)</div>
@@ -1627,6 +1643,14 @@ canon: faster fast</code></pre>
 <tr class="even">
 <td><code>$cs_new_user</code></td>
 <td>set to 1, treat user as always new (don't try to read topic file)</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_jid</code></td>
+<td>number to start with when starting indexing of new json structure ids</td>
+</tr>
+<tr class="even">
+<td><code>$cs_directfromoob</code></td>
+<td>when set to true tells cs to convert any incoming oob directly into a json structure</td>
 </tr>
 </tbody>
 </table>

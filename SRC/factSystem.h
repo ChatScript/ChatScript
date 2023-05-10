@@ -1,7 +1,7 @@
 #ifndef _FACTSYSTEMH_
 #define _FACTSYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -37,14 +37,16 @@ extern FACT* factEnd;		//   end of fact space
 extern FACT* currentFact;	//   most recent fact found or created
 extern FACT* factsPreBuild[NUMBER_OF_LAYERS+1];	//   end of build0 facts (start of build1 facts)
 extern FACT* lastFactUsed;		//   end of facts - most recent fact allocated (ready for next allocation)
+extern FACT* factFreeList;
 
 // pre-reserved verb types
 extern MEANING Mmember;
 extern MEANING Mexclude;
 extern MEANING Mis;
+extern MEANING Mremapfact;
 extern HEAPREF botVariableThreadList;
-extern HEAPREF factThread;
-
+extern HEAPREF factThreadList;
+extern FACT* currentMemoryFact;
 extern bool factsExhausted;
 extern size_t maxFacts;		// allocation limit of facts
 extern uint64 myBot;
@@ -91,7 +93,6 @@ void KillFact(FACT* F,bool jsonrecurse = true, bool autoreviseArray = true);
 FACT* SpecialFact(FACTOID_OR_MEANING verb, FACTOID_OR_MEANING object,unsigned int flags);
 void FreeFact(FACT* F);
 char* GetSetEnd(char* x);
-
 void C_Fact(char* word);
 void AdjustFactLanguage(FACT* F,MEANING M, unsigned int field);
 // fact reading and writing

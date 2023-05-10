@@ -24,7 +24,7 @@ char wildcardCanonicalText[MAX_WILDCARDS + 1][MAX_MATCHVAR_SIZE + 1];  // spot w
 unsigned int wildcardPosition[MAX_WILDCARDS + 1]; // spot it started and ended in sentence
 char wildcardSeparator[2];
 bool wildcardSeparatorGiven = false;
-
+bool legacyMatch = true;
 //   list of active variables needing saving
 
 WORDP tracedFunctionsList[MAX_TRACED_FUNCTIONS];
@@ -79,16 +79,24 @@ static void FlipSeparator(char* word, char* buffer)
 	}
 }
 
-void JoinMatch(int start, int end, int index, bool inpattern)
+static void JoinMatch(unsigned int start, unsigned  int end, unsigned int index, bool inpattern,MARKDATA* hitdata)
 {
     // ignore invalid index
     if (index > MAX_WILDCARDS) return;
     // concatenate the match value
     bool started = false;
     bool proper = false;
-    int realend = end & REMOVE_SUBJECT;
+    unsigned  int realend = end & REMOVE_SUBJECT;
+
+    if (hitdata && hitdata->disjoint  && !unmarked[hitdata->disjoint])
+    {
+        strcat(wildcardOriginalText[index], wordStarts[hitdata->disjoint]);
+        strcat(wildcardOriginalText[index], "_");
+        strcat(wildcardCanonicalText[index], wordCanonical[hitdata->disjoint] ? wordCanonical[hitdata->disjoint] : wordStarts[hitdata->disjoint]);
+        strcat(wildcardCanonicalText[index], "_");
+    }
 	// generate the std expected memorizations
-    for (int i = start; i <= realend; ++i)
+    for (unsigned int i = start; i <= realend; ++i)
     {
         if (unmarked[i] || i < 1 || i > wordCount) continue;	// ignore words masked or off end
         char* word = wordStarts[i];
@@ -119,88 +127,58 @@ void JoinMatch(int start, int end, int index, bool inpattern)
 		strcpy(wildcardCanonicalText[index], "unknown-word");  
 	// proper names canonical is same, but merely having 1 uppercase is not proper if multiword "I live here" _*
     
-	WORDP D = NULL;
-	WORDP upperfoundword = NULL;
-	if  (uppercaseFind > EXACTNOTSET) upperfoundword = Meaning2Word(uppercaseFind );
-	// specific uppercase form requested, but we will not use it if it was not from user input but merely ^mark value
-	int len = strlen(wildcardOriginalText[index]);
-	int lenc = strlen(wildcardCanonicalText[index]);
-	char* word = AllocateBuffer();
+    WORDP D = NULL;
+    char* word = AllocateBuffer();
+    WORDP foundword = (hitdata && hitdata->word) ? Meaning2Word(hitdata->word) : NULL;
+    // specific uppercase form requested, but we will not use it if it was not from user input but merely ^mark value
+    int len = strlen(wildcardOriginalText[index]);
+    int lenc = strlen(wildcardCanonicalText[index]);
+    if (foundword)  D = foundword; // need a specific capitalization ?
 
-	if (upperfoundword) 
-	{
-		if (!stricmp(upperfoundword->word, wildcardCanonicalText[index]) || !stricmp(upperfoundword->word, wildcardOriginalText[index]))
-		{ // we have a match for what we want in the way we want it
-				D = upperfoundword; // match was to be capitalized this way
-		}
-		else
-		{
-			FlipSeparator(wildcardOriginalText[index], word);
-			if (!stricmp(word, upperfoundword->word)) D = upperfoundword; // alternate form matches
-			else
-			{
-				FlipSeparator(wildcardCanonicalText[index], word);
-				if (!stricmp(word, upperfoundword->word)) D = upperfoundword;// alternate form matches
-			}
-		}
-	}
+    if (!legacyMatch)
+    {
+        if (D) // use what we matched in canonical from concept, leaving original alone
+        {
+            // for a concept match, we have what user typed (original) and the actual cased match (canonical)
+            strcpy(wildcardCanonicalText[index], D->word); // we match a specific request, it becomes canonical automatically
+        }
+    }
+    else
+    {
+        if (D && D->internalBits & UPPERCASE_HASH) // we match a request, it becomes original and canonical 
+        {
+            strcpy(wildcardOriginalText[index], D->word);
+            strcpy(wildcardCanonicalText[index], D->word);
+        }
+    }
 
-	if (D) // we match an uppercase request, it becomes original and canonical (we ignore original being plural)
-	{
-		strcpy(wildcardOriginalText[index], upperfoundword->word);
-		strcpy(wildcardCanonicalText[index], upperfoundword->word);
-	}
-	else  // we do what we can with the match
-	{
-		D = FindWord(wildcardOriginalText[index], len);
-		if (D) strcpy(wildcardOriginalText[index], D->word); // use capitalization from dictionary
-		else if (start != end) // consider if alternate is in dictionary (we used a separator)
-		{
-				FlipSeparator(wildcardOriginalText[index], word);
-				D = FindWord(word, len);
-				if (D) strcpy(wildcardOriginalText[index], D->word);
-		}
-		D = FindWord(wildcardCanonicalText[index], lenc);
-		if (D) strcpy(wildcardCanonicalText[index], D->word); // use capitalization from dictionary
-		else if (start != realend) // consider if alternate is in dictionary (we used a separator)
-		{
-			FlipSeparator(wildcardCanonicalText[index], word);
-			D = FindWord(word, lenc);
-			if (D) strcpy(wildcardCanonicalText[index], D->word);
-		}
-	}
-	FreeBuffer();
-   uppercaseFind = EXACTUSEDUP; // use it up if set
-
+    if (!D) // we do what we can with the match when not from concept set
+    {
+        D = FindWord(wildcardOriginalText[index], len);
+        if (D) strcpy(wildcardOriginalText[index], D->word); // use capitalization from dictionary
+        else if (start != end) // consider if alternate is in dictionary (we used a separator)
+        {
+            FlipSeparator(wildcardOriginalText[index], word);
+            D = FindWord(word, len);
+            if (D) strcpy(wildcardOriginalText[index], D->word);
+        }
+        D = FindWord(wildcardCanonicalText[index], lenc);
+        if (D)
+        {
+            strcpy(wildcardCanonicalText[index], D->word); // use capitalization from dictionary
+        }
+        else if (start != realend) // consider if alternate is in dictionary (we used a separator)
+        {
+            FlipSeparator(wildcardCanonicalText[index], word);
+            D = FindWord(word, lenc);
+            if (D) strcpy(wildcardCanonicalText[index], D->word);
+        }
+    }
+    FreeBuffer();
     if (trace & TRACE_OUTPUT && !inpattern && CheckTopicTrace()) Log(USERLOG,"_%d=%s/%s ", index, wildcardOriginalText[index], wildcardCanonicalText[index]);
 }
 
-void SetWildCard(int start, int end, bool inpattern)
-{
-    if (end < start) end = start;				// matched within a token
-    if (end > wordCount)
-    {
-        if (start != end) end = wordCount; // for start==end we allow being off end, eg _>
-        else start = end = wordCount;
-    }
-    while (unmarked[start]) ++start; // skip over unmarked words at start
-    while (unmarked[end]) --end; // skip over unmarked words at end
-    wildcardPosition[wildcardIndex] = start | WILDENDSHIFT(end);
-    *wildcardOriginalText[wildcardIndex] = 0;
-    *wildcardCanonicalText[wildcardIndex] = 0;
-    if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
-    {
-        ++wildcardIndex;
-        if (wildcardIndex > MAX_WILDCARDS) wildcardIndex = 0;
-    }
-    else // did match
-    {
-        JoinMatch(start, end, wildcardIndex, inpattern);
-        CompleteWildcard();
-    }
-}
-
-void SetWildCardGiven(int start, int end, bool inpattern, int index)
+void SetWildCardGiven(unsigned int start, unsigned int end, bool inpattern, int index,MARKDATA* hitdata)
 {
     // ignore invalid index
     if (index > MAX_WILDCARDS) return;
@@ -218,28 +196,28 @@ void SetWildCardGiven(int start, int end, bool inpattern, int index)
     if (start == 0 || wordCount == 0 || (end == 0 && start != 1)) // null match, like _{ .. }
     {
     }
-    else JoinMatch(start, end, index, inpattern); // did match
+    else JoinMatch(start, end, index, inpattern,hitdata); // did match
 }
 
 void SetWildCardNull()
 {
-    SetWildCardGivenValue((char*)"", (char*)"", -1, -1, wildcardIndex);
+    SetWildCardGivenValue((char*)"", (char*)"",(unsigned int) -1, (unsigned int)-1, wildcardIndex,NULL);
     CompleteWildcard();
 }
 
-void SetWildCardGivenValue(char* original, char* canonical, int start, int end, int index)
+void SetWildCardGivenValue(char* original, char* canonical,unsigned  int start,unsigned  int end, int index,MARKDATA* hitdata)
 {
     // ignore invalid index
     if (index > MAX_WILDCARDS) return;
-    int realend = end & REMOVE_SUBJECT;
+    unsigned int realend = end & REMOVE_SUBJECT;
     if (realend < start) realend = end = start;				// matched within a token
     if (realend > wordCount && start != realend) realend = wordCount; // for start==end we allow being off end, eg _>
     *wildcardOriginalText[index] = 0;
     *wildcardCanonicalText[index] = 0;
-    if (start <= 0 || wordCount == 0 || (realend <= 0 && start != 1)) // null match, like _{ .. }
+    if ((int)start <= 0 || wordCount == 0 || (realend <= 0 && start != 1)) // null match, like _{ .. }
     {
     }
-    else JoinMatch(start, end, index, false); // did match
+    else JoinMatch(start, end, index, false,hitdata); // did match
     if (start == 0) start = end = 1;
     if (start == -1) start = end = 0;
 	if (!*original) end = start = 0; // no match found, indicate no position
@@ -249,6 +227,10 @@ void SetWildCardGivenValue(char* original, char* canonical, int start, int end, 
 void SetWildCardIndexStart(int index)
 {
     wildcardIndex = index;
+    // CANNOT do this while pearl is badly coded legal bot
+    //wildcardPosition[index] = 0;
+    //*wildcardOriginalText[index] = 0;
+    //*wildcardCanonicalText[index] = 0;
 }
 
 void SetWildCard(char* value, char* canonicalValue, const char* index, unsigned int position)
@@ -288,8 +270,8 @@ char* GetUserVariable(const char* word, bool nojson)
 {
     if (!dictionaryLocked && !compiling && !rebooting && currentBeforeLayer != LAYER_BOOT) return "";
     int len = 0;
-    const char* separator = (nojson) ? (const char*)NULL : strchr(word, '.');
-    const char* bracket = (nojson) ? (const char*)NULL : strchr(word, '[');
+    char* separator = (nojson) ? NULL : (char*)strchr(word, '.');
+    char* bracket = (nojson) ? NULL : (char*)strchr(word, '[');
     if (!separator && bracket) separator = bracket;
     if (bracket && bracket < separator) separator = bracket;	// this happens first
     if (separator) len = separator - word;
@@ -307,29 +289,18 @@ char* GetUserVariable(const char* word, bool nojson)
     }
 
     item = D->w.userValue;
-    if (localvar) // is $_local variable whose value we get
+    if (!item)
     {
-        if (!item)
-        {
-            if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "%s''", D->word);
-            goto NULLVALUE;
-        }
-        if (*item == LCLVARDATA_PREFIX && item[1] == LCLVARDATA_PREFIX) // should be true
-        {
-            item += 2; // skip `` marker
-        }
+        if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "%s`null`'", D->word);
+        goto NULLVALUE;
     }
-    else if (!item)
-    {
-        if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "%s''", D->word);
-        goto NULLVALUE; // null value normal
-    }
+    if (localvar && *item == LCLVARDATA_PREFIX && item[1] == LCLVARDATA_PREFIX)    item += 2; // skip `` marker
     if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "%s", D->word);
 
     if (separator) // json object or array follows this
     {
     LOOPDEEPER:
-        if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "'%s'%c", item,*separator);
+        if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "`%s`%c", item,*separator);
         FACT* factvalue = NULL;
         if (IsDigitWord(item, AMERICAN_NUMBERS) && (!strnicmp(separator, ".subject", 8) || !strnicmp(separator, ".verb", 5) || !strnicmp(separator, ".object", 7) || !strnicmp(separator, ".flags", 6))) // fact id?
         {
@@ -391,7 +362,7 @@ char* GetUserVariable(const char* word, bool nojson)
             if ((*label != '_' && *label != '\'') || (separator[1] == '_' && !IsDigit(separator[2])) || (separator[1] == '\'' && separator[2] == '_' && !IsDigit(separator[3]))) // any variable ref will be in dictionary as will field name
             {
                 if (*label == '\\') ++label; // escaped $, not indirection
-                key = FindWord(label, len, PRIMARY_CASE_ALLOWED); // case sensitive find
+                key = FindWord(label, len); // json is case sensitive- we are NOT
                 if (!key)
                 {
                     if (trace & TRACE_VARIABLE)
@@ -404,6 +375,7 @@ char* GetUserVariable(const char* word, bool nojson)
                     goto NULLVALUE; // dont recognize such a name
                 }
                 label = key->word; // actual key name was given
+                if (trace & TRACE_VARIABLE) Log(USERLOG, "%s", label);
                 strcpy(originalkeyname, label);
                 pendingkey = label;
             }
@@ -531,7 +503,7 @@ char* GetUserVariable(const char* word, bool nojson)
     // OLD NO LONGER VALID? if item is in fact & there are problems   return (*item == '&') ? (item + 1) : item; //   value is quoted or not
 
 ANSWER:
-    if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "=>`%s`  ", answer);
+    if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "`%s`  ", answer);
     if (localvar)
     {
         char* limit;
@@ -544,7 +516,7 @@ ANSWER:
     return answer;
 
 NULLVALUE:
-    if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "=>``  ");
+    if (trace & TRACE_VARIABLE && separator) Log(USERLOG, "``  ");
     return (localvar) ? (nullLocal + 2) : nullGlobal; // null value for locals
 }
 
@@ -582,7 +554,7 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
 	else if (D->internalBits & BOTVAR) {}  // system vars have already been inited
     else if (!(D->internalBits & VAR_CHANGED))	// not changed already this volley
     {
-		userVariableThreadList = AllocateHeapval(userVariableThreadList, (uint64)D, (uint64)0, (uint64)0);
+		userVariableThreadList = AllocateHeapval(HV1_WORDP,userVariableThreadList, (uint64)D);
 		D->internalBits |= VAR_CHANGED; // bypasses even locked preexisting variables
  		if (init) D->w.userValue = NULL;
 	}
@@ -593,128 +565,127 @@ void PrepareVariableChange(WORDP D, char* word, bool init)
         UnpackHeapval(memoryMarkThreadList, memory, discard);
         if ((uint64)D->w.userValue >= memory)
         {
-            memoryVariableChangesThreadList = AllocateHeapval(memoryVariableChangesThreadList,
-                (uint64)D, (uint64)D->w.userValue, (uint64)0);// save name
+            memoryVariableChangesThreadList = AllocateHeapval(HV1_WORDP|HV2_STRING,memoryVariableChangesThreadList,
+                (uint64)D, (uint64)D->w.userValue);// save name
         }
     }
 }
 
-static  void HandleMonitoredVariables(const char* var, char* word, bool assignment)
+static  void HandleMonitoredEngineVariables(const char* var, char* word, bool assignment)
 {
-    if (var[1] == 'c' && var[2] == 's' && var[3] == '_')
+    if (var[1] != 'c' || var[2] != 's' || var[3] != '_') return; // not a monitored $cs_  variable
+
+    // all variables are in lower case after compilation
+    if (!strcmp(var, (char*)"$cs_json_array_defaults"))
     {
-        if (!stricmp(var, (char*)"$cs_json_array_defaults"))
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        jsonDefaults = (int)val;
+    }
+    // tokencontrol changes are noticed by the engine
+    else if (!strcmp(var, (char*)"$cs_language"))
+    {
+        SetLanguage(word);
+    }
+    // id to use for user json composite creation
+    else if (!strcmp(var, (char*)"$cs_jid"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        builduserjid = (int)val;
+    }
+    // cs_float changes are noticed by the engine
+    else if (!strcmp(var, (char*)"$cs_fullfloat"))
+        fullfloat = (word && *word) ? true : false;
+    // tokencontrol changes are noticed by the engine
+    else if (!strcmp(var, (char*)"$cs_token"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        else
         {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            jsonDefaults = (int)val;
+            val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
+            if (!stricmp(current_language, "ENGLISH")) val |= DO_PARSE;
         }
-        // tokencontrol changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_language"))
-        {
-            SetLanguage(word);
-        }
-        // tokencontrol changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_token"))
-        {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            else
-            {
-                val = (DO_INTERJECTION_SPLITTING | DO_SUBSTITUTE_SYSTEM | DO_NUMBER_MERGE | DO_PROPERNAME_MERGE | DO_SPELLCHECK);
-                if (!stricmp(current_language, "english")) val |= DO_PARSE;
-            }
-            tokenControl = val;
-        }
+        tokenControl = val;
+    }
+    // cs_numbers changes are noticed by the engine (india, french, other)
+    else if (!strcmp(var, (char*)"$cs_numbers"))
+    {
+        if (!word) numberStyle = AMERICAN_NUMBERS;
+        else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
+        else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
+        else numberStyle = AMERICAN_NUMBERS;
 
-        // cs_float changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_fullfloat"))
-            fullfloat = (word && *word) ? true : false;
-
-        // cs_numbers changes are noticed by the engine (india, french, other)
-        else if (!stricmp(var, (char*)"$cs_numbers"))
+        if (numberStyle == FRENCH_NUMBERS)
         {
-            if (!word) numberStyle = AMERICAN_NUMBERS;
-            else if (!stricmp(word, "indian")) numberStyle = INDIAN_NUMBERS;
-            else if (!stricmp(word, "french")) numberStyle = FRENCH_NUMBERS;
-            else numberStyle = AMERICAN_NUMBERS;
-
-            if (numberStyle == FRENCH_NUMBERS)
-            {
-                numberComma = '.';
-                numberPeriod = ',';
-            }
-            else
-            {
-                numberComma = ',';
-                numberPeriod = '.';
-            }
+            numberComma = '.';
+            numberPeriod = ',';
         }
-        // trace
-        else if (!stricmp(var, (char*)"$cs_trace"))
+        else
         {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            trace = (unsigned int)val;
-            if (assignment) // remember script changed it
-            {
-                modifiedTraceVal = trace;
-                modifiedTrace = true;
-            }
+            numberComma = ',';
+            numberPeriod = '.';
         }
-        // time
-        else if (!stricmp(var, (char*)"$cs_time"))
+    }
+    else if (!strcmp(var, (char*)"$cs_trace"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        trace = (unsigned int)val;
+        if (assignment) // remember script changed it
         {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            timing = (unsigned int)val;
-            if (assignment) // remember script changed it
-            {
-                modifiedTimingVal = timing;
-                modifiedTiming = true;
-            }
+            modifiedTraceVal = trace;
+            modifiedTrace = true;
         }
-        // output random choice selection
-        else if (!stricmp(var, (char*)"$cs_outputchoice"))
+    }
+    else if (!strcmp(var, (char*)"$cs_time"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        timing = (unsigned int)val;
+        if (assignment) // remember script changed it
         {
-            int64 val = -1;
-            if (word && *word) ReadInt64(word, val);
-            outputchoice = (unsigned int)val;
+            modifiedTimingVal = timing;
+            modifiedTiming = true;
         }
-        // responsecontrol changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_response"))
-        {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            else val = ALL_RESPONSES;
-            responseControl = (unsigned int)val;
-        }
-        // cs_botid changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_botid"))
-        {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            myBot = (uint64)val;
-        }
-        // wildcardseparator changes are noticed by the engine
-        else if (!stricmp(var, (char*)"$cs_wildcardSeparator"))
-        {
-            wildcardSeparatorGiven = true;
-            if (!word) *wildcardSeparator = 0;
-            else if (*word == '\\') *wildcardSeparator = word[2];
-            else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
-        }
-        // random index
-        else if (!stricmp(var, (char*)"$cs_randIndex"))
-        {
-            int64 val = 0;
-            if (word && *word) ReadInt64(word, val);
-            randIndex = (unsigned int)val;
-        }
+    }
+    // output random choice selection
+    else if (!strcmp(var, (char*)"$cs_outputchoice"))
+    {
+        int64 val = -1;
+        if (word && *word) ReadInt64(word, val);
+        outputchoice = (unsigned int)val;
+    }
+    else if (!strcmp(var, (char*)"$cs_response"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        else val = ALL_RESPONSES;
+        responseControl = (unsigned int)val;
+    }
+    else if (!strcmp(var, (char*)"$cs_botid"))
+    {
+        int64 val = 0;
+        if (word && *word) ReadInt64(word, val);
+        myBot = (uint64)val;
+    }
+    else if (!strcmp(var, (char*)"$cs_wildcardseparator"))
+    {
+        wildcardSeparatorGiven = true;
+        if (!word) *wildcardSeparator = 0;
+        else if (*word == '\\') *wildcardSeparator = word[2];
+        else *wildcardSeparator = (*word == '"') ? word[1] : *word; // 1st char in string if need be
+    }
+    else if (!strcmp(var, (char*)"$cs_randIndex"))
+    {
+        int rand = 0;
+        if (word && *word) ReadInt(word, rand);
+        randIndex = rand;
     }
 }
 
-void SetVariable(WORDP D, char* value) //  coming from api
+void SetAPIVariable(WORDP D, char* value) //  coming from api
 {
     // check for json assign
     if (strchr(D->word, '.') || strchr(D->word, '['))
@@ -727,7 +698,7 @@ void SetVariable(WORDP D, char* value) //  coming from api
 
         if (D->word[1] != '_' && D->word[1] != '$' && (!D->w.userValue || !value || strcmp(D->w.userValue, value))) // only permanent variables get tracked
         {
-            variableChangedThreadlist = AllocateHeapval(variableChangedThreadlist,
+            variableChangedThreadlist = AllocateHeapval(HV1_WORDP|HV2_STRING|HV3_INT,variableChangedThreadlist,
                 (uint64)D, (uint64)D->w.userValue, (uint64)D->internalBits);// save name
         }
         D->w.userValue = value;
@@ -740,14 +711,11 @@ void SetVariable(WORDP D, char* value) //  coming from api
 
 void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
 {
-    char varname[MAX_WORD_SIZE];
-    MakeLowerCopy(varname, (char*)var);
-    WORDP D = StoreWord(varname,AS_IS);				// find or create the var.
+    WORDP D = StoreWord(var,AS_IS);				// find or create the var.
     if (!D) return; // ran out of memory
 #ifndef DISCARDTESTING
-    if (debugVar) (*debugVar)(varname, word);
+    if (debugVar) (*debugVar)((char*)var, word);
 #endif
-
     // adjust value
     if (word) // has a nonnull value?
     {
@@ -757,8 +725,9 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
             if (D->w.userValue && !strcmp(word, D->w.userValue))
                 return; // no change is happening 
             bool purelocal = (D->word[1] == LOCALVAR_PREFIX);
-            if (purelocal) word = AllocateStack(word, 0, true); // trying to save on permanent space
-			else if (!reuse) word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
+          //  if (purelocal) word = AllocateStack(word, 0, true); // trying to save on permanent space
+			//else 
+                if (!reuse) word = AllocateHeap(word, 0, 1, false, purelocal); // we may be restoring old value which doesnt need allocation
 			if (!word) return; // no memory?
         }
     }
@@ -770,11 +739,10 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
         if (D->w.userValue == NULL) SpecialFact(MakeMeaning(D), (MEANING)1, 0);
         else SpecialFact(MakeMeaning(D), (MEANING)(D->w.userValue - heapBase), 0);
     }
-    if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT)  SetVariable(D, word);
+    if (csapicall == TEST_PATTERN || csapicall == TEST_OUTPUT)  SetAPIVariable(D, word);
     else D->w.userValue = word;
 
-	// monitored engine variables
-    HandleMonitoredVariables(var, word,assignment);
+    HandleMonitoredEngineVariables(var, word,assignment);
 
     if (trace && D->internalBits & MACRO_TRACE)
     {
@@ -789,12 +757,12 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
 {
     if (*oldValue == '_') oldValue = GetwildcardText(GetWildcardID(oldValue), true); // onto a wildcard
     else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue,false); // onto user variable
-    else if (*oldValue == '^') oldValue = FNVAR(oldValue + 1); // onto function argument
+    else if (*oldValue == '^') oldValue = FNVAR(oldValue); // onto function argument
     else if (*oldValue && !IsNumberStarter(*oldValue)) return FAILRULE_BIT; // illegal
 
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
     else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue, false);
-    else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
+    else if (*moreValue == '^') moreValue = FNVAR(moreValue );
     else if (*oldValue && !IsNumberStarter(*moreValue)) return FAILRULE_BIT; // illegal
 
                                                         // perform numeric op
@@ -851,11 +819,7 @@ static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char
         else if (op == '>') newval >>= more;
         else newval += more;
         char tracex[MAX_WORD_SIZE];
-#ifdef WIN32
-        sprintf(result, (char*)"%I64d", newval);
-#else
         sprintf(result, (char*)"%lld", newval);
-#endif        
         if (trace & TRACE_OUTPUT && CheckTopicTrace())
         {
             sprintf(tracex, "0x%016llx", newval);
@@ -872,14 +836,14 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
     char* oldValue;
     if (*var == '_') oldValue = GetwildcardText(GetWildcardID(var), true); // onto a wildcard
     else if (*var == USERVAR_PREFIX) oldValue = GetUserVariable(var, false); // onto user variable
-    else if (*var == '^') oldValue = FNVAR(var + 1); // onto function argument
+    else if (*var == '^') oldValue = FNVAR(var ); // onto function argument
     else if (*var == SYSVAR_PREFIX) oldValue =  SystemVariable(var, NULL); 
     else return FAILRULE_BIT; // illegal
 
                               // get augment value
     if (*moreValue == '_') moreValue = GetwildcardText(GetWildcardID(moreValue), true);
     else if (*moreValue == USERVAR_PREFIX) moreValue = GetUserVariable(moreValue, false);
-    else if (*moreValue == '^') moreValue = FNVAR(moreValue + 1);
+    else if (*moreValue == '^') moreValue = FNVAR(moreValue );
 
     // try json array set op?
     if (IsValidJSONName(oldValue, 'a'))
@@ -946,7 +910,7 @@ FunctionResult Add2UserVariable(char* var, char* moreValue, char* op, char* orig
             JSONVariableAssign(var, result);// json object insert
         }
     }
-    else if (*var == '^') strcpy(FNVAR(var + 1), result);
+    else if (*var == '^') strcpy(FNVAR(var ), result); 
     else if (*var == SYSVAR_PREFIX)  SystemVariable(var, result);
     
     return NOPROBLEM_BIT;
@@ -982,7 +946,7 @@ void NoteBotVariables() // system defined variables
         {
             if (!strnicmp(D->word, "$cs_", 4)) continue; // dont force these, they are for user
 			D->internalBits |= (unsigned int)BOTVAR; // mark it
-            botVariableThreadList = AllocateHeapval(botVariableThreadList, (uint64)D, (uint64)D->w.userValue, (uint64)0);
+            botVariableThreadList = AllocateHeapval(HV1_WORDP|HV2_STRING,botVariableThreadList, (uint64)D, (uint64)D->w.userValue);
         }
         RemoveInternalFlag(D, VAR_CHANGED);
 		if (!stricmp(D->word, "$verb")) 
@@ -1012,7 +976,7 @@ void RecoverUserVariables()
         WORDP D = (WORDP)Dx;
         D->w.userValue = AllocateHeap(D->w.userValue, 0);
         D->word = AllocateHeap(D->word, 0);
-        userVariableThreadList = AllocateHeapval(userVariableThreadList,(uint64)D, (uint64)0, (uint64)0);
+        userVariableThreadList = AllocateHeapval(HV1_WORDP,userVariableThreadList,(uint64)D);
     }
 }
 
@@ -1168,7 +1132,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
 
     if (*word == '^' && word[1] == '^' && IsDigit(word[2])) // indirect function variable assign
     {
-        char* value = FNVAR(word + 2);
+        char* value = QUOTEDFNVAR(word );
         if (*value == LCLVARDATA_PREFIX && value[1] == LCLVARDATA_PREFIX)//  not allowed to write indirect to caller arg
         {
             result = FAILRULE_BIT;
@@ -1184,7 +1148,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     }
     else if (*word == '^' && IsDigit(word[1])) // indirect function variable assign
     {
-        char* value = FNVAR(word + 1);
+        char* value = FNVAR(word );
         if (*value == LCLVARDATA_PREFIX && value[1] == LCLVARDATA_PREFIX)//  not allowed to write indirect to caller arg
         {
             result = FAILRULE_BIT;
@@ -1237,7 +1201,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     bool wildwild = false;
     if (*word == '_' && *originalWord1 == '^' && IsDigit(originalWord1[1])) // function argument
     {
-        char* value = FNVAR(originalWord1 + 1);
+        char* value = FNVAR(originalWord1 );
         if (*value == '_'  && IsDigit(value[1]))
         {
             assignFromWild = GetWildcardID(value);
@@ -1276,11 +1240,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
             if (!n) n = FindSystemValueByName(buffer + 1);
             if (n)
             {
-#ifdef WIN32
-                sprintf(buffer, (char*)"%I64d", (long long int) n);
-#else
                 sprintf(buffer, (char*)"%lld", (long long int) n);
-#endif	
             }
         }
         if (result & ENDCODES) goto exit;
@@ -1447,7 +1407,7 @@ char* PerformAssignment(char* word, char* ptr, char* buffer, FunctionResult &res
     else if (*word == '^') // overwrite function arg
     {
         if (trace & TRACE_OUTPUT && CheckTopicTrace()) Log(USERLOG,"%s = %s\r\n", word, buffer);
-        FNVAR(word + 1) = AllocateStack(buffer);
+        FNVAR(word ) = AllocateStack(buffer);
     }
     else // cannot touch a  word, or number
     {

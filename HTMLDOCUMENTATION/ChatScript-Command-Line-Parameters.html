@@ -95,9 +95,14 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <td><code>cache=50x1</code></td>
 <td>allocate a 50K buffer for handling 1 user file at a time. A server might want to cache multiple users at a time.</td>
 </tr>
+<tr class="even">
+<td><code>filecache=5000x100</code></td>
+<td>allocate a 5M buffer for caching 100 files (enables caching).</td>
+</tr>
 </tbody>
 </table>
 <p>A default version of ChatScript will allocate much more than it needs, because it doesn't know what you might need.</p>
+<p>A server might want to cache common files across volleys and users, using filecache.</p>
 <p>If you want to use the least amount of memory (multiple servers on a machine or running on a mobile device), you should look at the USED line on startup and add small amounts to the entries (unless your application does unusual things with facts).</p>
 <p>If you want to know how much, try doing <code>:show stats</code> and then <code>:source REGRESS/bigregress.txt</code>. This will run your bot against a wide range of input and the stats at the end will include the maximum values needed during a volley. To be paranoid, add beyond those valuse. Take your max dict value and double it. Same with max fact. Add 10000 to max text.</p>
 <p>Just for reference, for our most advanced bot, the actual max values used were: max dict: 346 max fact: 689 max text: 38052.</p>
@@ -327,19 +332,32 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <td>if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed</td>
 </tr>
 <tr class="even">
-<td><code>nl_save=1</code></td>
-<td>for ^testpattern, enables results of nl analysis to be saved onto the $cs_nlinfo variable so that outside can pass it back in on future calls</td>
-</tr>
-<tr class="odd">
 <td><code>parselimit=1</code></td>
 <td>inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>random=n</code></td>
 <td>will force a specific value to be returned from %random</td>
 </tr>
+<tr class="even">
+<td><code>legacymatch=n</code></td>
+<td>alters match variable content when matching concepts</td>
+</tr>
+<tr class="odd">
+<td><code>nophrases</code></td>
+<td>suppresses marking ~prep_phrase, ~verb_phrase, ~noun_phrase (minor speedup)</td>
+</tr>
+<tr class="even">
+<td><code>nopatterndata</code></td>
+<td>disables pattern data gathering that supports ^MatchesCode (minor speedup)</td>
+</tr>
 </tbody>
 </table>
+<p>Legacymatch default if not given is legacymatch=1. It redefines match variable contents when matching a concept. Canonical (eg _0) is the concept member NOT the canonical form of the words. Original (eg '_0) 'is what user typed (after corrections)</p>
+<pre><code>    concept: ~food (&quot;baked potato&quot;) with input &quot;baked potatoes&quot;
+                legacy=1 : (_~food) =&gt;  &#39;_0 - baked_potatoes  _0 - bake_potato
+                legacy=0 : (_~food) =&gt; &#39;_0 - baked_potatoes  _0 - baked_potato</code></pre>
+<p>If you don't have code that depends on legacy, you are better off adding legacy=0 to your init file. Then you don't need code like this for concept matches of unknown-words. <code>if (_0 == unknown-word){_0 = '_0'}</code>'</p>
 <p>Trustpos is normally off by default because CS is only about 94% accurate in its built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of a word rather than miss a match. Ergo concept: <sub>all(feel</sub>n) will match any use of &quot;feel&quot; rather than just noun meaning. But combining CS with Treetagger for english (if you license it) is better at pos-tagging than either alone, making it competitive with the best taggers in the world.</p>
 <p>Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):</p>
 <p>Rebuild <em>level0</em> (compiling system ChatScript files, listed usually in file <code>files0.txt</code>):</p>

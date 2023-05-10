@@ -1,6 +1,6 @@
 # ChatScript Engine
 Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br>
-<br>Revision 10/16/2022 cs12.3
+<br>Revision 5/10/2022 cs13.1
 
 
 * [Code Zones](ChatScript-Engine-md#code-zones)
@@ -123,24 +123,30 @@ Strings can be part of facts (triples of strings) and the users input sentence i
 ## Dictionary Entries
 
 The second fundamental datatype is the dictionary entry (typedef WORDENTRY). A dictionary entry points to a string in the heap and has
-other data attached. For example, function names in the dictionary tell you how many arguments they require,
+other data attached like pos-tags, canonical value, etc, when the word is from the vocabulary of some language.
+Non-vocabulary like,  for example, function names in the dictionary tell you how many arguments they require,
 where to go to execute their code. User variable names in the dictionary store a pointer to their value string
-(in the heap). Topic names track which bots are allowed to use them. 
+(in the heap). Topic names track which bots are allowed to use them.  A concept name holds the fact list of all of its members.
+
+A word is letters. They may come in upper or lower case, leading to different words.
+Even upper case words can be different based on which letters are uppercased.
+Furthermore, the same spellings can show up in multiple languages.
+The caseAllowed parameter to FindWord specifies which casing to prefer. 
+```
+	UPPERCASE_LOOKUP and LOWERCASE_LOOKUP specify a required casing.
+	PRIMARY_CASE_ALLOWED means prefer casing as given in lookup request word
+    SECONDARY_CASE_ALLOWED is prefer opposite first
+    STANDARD_LOOKUP is both cases allowed
+```
 
 Dictionary entries have property bits (describing them re part of speech tagging), systemflag bits (more about usage of the
 word in English like does it require a direct object), internalBits (that may indicate features like is it a function definition,
-a query, a concept or topic, does it have uppercase letter in it anywhere, etc). See dictionarySystem.h for full form of typedef
-below:
+a query, a concept or topic, does it have uppercase letter in it anywhere, etc). See dictionarySystem.h for full form of typedef.
 
-```
-typedef struct WORDENTRY //   a dictionary entry
-{
-    char*     word;		
-    union {
-        char* userValue; 
-    }w;
-    MEANING  meanings;
-```    
+The wordnet dictionary separates multi-word phrases/words using underscore. Users may
+build table data using underscores or spaces. If underscorespaceequivalent is true, the 
+system will find what was given in either form. It is assumed that phrases will be not large
+and will only be in the dictionary in one form.
 
 Ordinary words have multiple meanings which can vary in their part of speech and their
 ontology, so the list of possible meanings and descriptions is part of the dictionary entry. When
@@ -456,7 +462,7 @@ can reside in the dictionary and have properties, even if the property is merely
 of some pattern or concept somewhere.
 
 Words have zillions of bits representing language properties of the word (well, maybe not zillions, but
-3x64 bytes worth of bits). Many are permanent core properties like it can be a noun, a singular noun, it
+a bunch of bits). Many are permanent core properties like it can be a noun, a singular noun, it
 refers to a unit of time (like `month`), it refers to an animate being, or it's a word learned typically in first
 grade. Eg.,
 ```
@@ -479,9 +485,10 @@ They may live on in text as data stored in the user's topic file and will reappe
 Words like dogs are not in the permanent dictionary but will get created as transient entries if they show up in the user's input.
 
 The dictionary consists of `WORDENTRY`s, stored in hash buckets when the system starts up. 
-The hash code is the same for lower and upper case words, but upper case adds 1 to the bucket it stores in. 
+The hash code is the same for lower and upper case words, but upper case stores in the next bucket up. 
 This makes it easy to perform lookups where we are uncertain of the proper casing 
-(which is common because casing in user input is unreliable). The system can store multiple ways of upper-casing a word. 
+(which is common because casing in user input is unreliable).
+The system can store multiple ways of upper-casing a word. 
 
 The ontology structure of CS is represented as facts (which allows them to be queried). 
 Words are hierarchically linked (WordNet's ontology) using facts (using the `is` verb). 
@@ -998,7 +1005,7 @@ and makes decisions about hypenated words.
 For English, since the dictionary only contains lemma (canonical) forms of words, 
 it checks standard conjugations to see if it recognizes a word. 
 
-For foreign languages, the engine lacks the ability to conjugate words, 
+For foreign languages, the engine usually lacks the ability to conjugate words, 
 so the dictionary needs to include all conjugated forms of a word.
 
 ### Merging
@@ -1157,10 +1164,14 @@ with a backtick which completes this definition.
 
 # Multiple Languages
 
-ChatScript leans heavily on its dictionary, which normally 
-is in a single language. But you can support up to 3 languages in the
-dictionary simultanously as well as the "universal" language as well as Japanese, which is not treated as needing a dictionary. Words and
-facts are segregated by language. 
+ChatScript leans heavily on its dictionary, which often 
+is in a single language. But you can support up to 7 languages in the
+dictionary simultanously as well as the "universal" language. 
+
+A word in a language has pos-tagging flags and may participate in facts.
+Each word has bits indicating which language from the given paramlist of languages the word comes from.
+Each fact must consist only of words from a single language and/or the universal language and the fact has bits
+that indicate what language it is using.
 
 The command line parameter `language=` can consist of a series of 
 languages separated by commas. This enables multi-dictionary behavior
@@ -1169,25 +1180,43 @@ E.g., `language=english,spanish,german,japanese`
 Note that japanese involves no dictionary at all, so it can be listed
 without compromising the 3-language limit.
 
-Words in different languages in the real world are listed
-in separate dictionaries by language (with some foreign words listed also in a language's
-dictionary as imported). Aside from that reason, words are segregated by language because
-the parts of speech data may vary as may its meanings (concept sets it belongs to, etc).
-and facts (which depend on words) may be language specific. One cannot
-have a fact consisting of words from different languages. All
-words must come from the same language or from universal language.
+Some spellings exist in multiple languages, typically with different meanings and different pos-taggings and facts.
+This is not a problem when languages are all independent. Each language has its own copy of the word with
+its own pos tags, facts, etc.
 
-Words that ChatScript depends upon, like "member" and "is" are part of the
-universal language, visible no matter what language you are currently in.
+A problem arises when fact data you want needs to be replicated for every language. An iPhone is a model
+of Apple's smartphones, in all languages. It is wasteful to replicate all these words and facts in every
+language. The solution is to declare some words and some facts as UNIVERSAL, visible no matter
+which language you are currently talking in. 
+
+Universal words always have D->internalBits & UNIVERSAL_WORD on. Normally when all languages are loaded, their words
+are not yet universal, so completely distinct. The exception to this are a handful of words declared by the engine
+to be used by the system:  'member', 'exclude', 'is', 'api-remap'. These words are loaded first as univeral words, from the 
+universal language. All languages do not have their own entries for these.
+
+When multiple dictionaries are loaded and later some words are declared as UNIVERSAL, then the system will
+share some specific entry (preferring english). That word will be visible to any language, have the facts of all languages
+copied onto its entry, and will have the pointers of the word in each language stored in D->foreignFlags[i] where i is the index of the language being looked for.
+This points to the word in any language NOT selected to be the universal word entry and the language entry still has
+all the special data bits. But all facts will be on the universal word. 
+The universal entry knows both what its original language was. all its original properties, as well as that it is now,
+universal. The original facts will be killed. The original dictionary entries will be hidden but still exist
+and can be found when using in-built pos-taggers for those languages.' In addition to having
+D->internalBits & UNIVERSAL_WORD, the universal entry has D->foreignFlags[n]. And all cross
+references  NOT made universal will have their words marked D->internalFlags & IS_SUPERCEDED.
+
+Lookups generally return the universal word, and various routines switch to the appropriate language
+entry using it when properties in a particular language need to be accessed.
+
 Variables, concept and topic names, numbers, operators and punctuation are
-also language agnostic and always visible.
+ language agnostic and always visible, having a single entry.
 
 ## Internal data representations
-WORDENTRY has 2 bits in internal bits, which represent which of 4 languages the word
-is associated with (universal and up to 3 others). All dictionary lookup 
+WORDENTRY has 3 bits in internal bits, which represent which of 8 languages the word
+is associated with (universal and up to 7 others). All dictionary lookup 
 routines only return answers from the current or univeral language.
 
-FACT also has 2 bits in its flags, representing the same thing. This is needed
+FACT also has 3 bits in its flags, representing the same thing. This is needed
 because when facts are written out in pure ascii, any association of a word
 and its language would be lost. Again, code that retrieves facts only finds facts
 from the current language or universal. When facts are created after loading, they are automatically 
@@ -1289,12 +1318,20 @@ Debug table entries like this:
 ```
 
 There are some hooks you can define to tap into execution of the engine. Use
-	a) PerformChatArguments call at start of PerformChat
+	a) PerformChatArguments call at start of PerformChat and EndChat at end
 	b) SignalHandler on linux exception
 	c) MongoQueryParams adjustments for document query
 	d) MongoUpsertKeyvalues adds additional params for upsert
 	e) MongoGotDocument invoked if mongo successfully retrieves document
     f) PerformChatArguments is called on starting user volley processing
+	g) PosTag for start of postagging
+	h) CheckRoles for start of role marking
+	i) 	MarkWord after marking a word
+	j) SequenceMark after marking sequences
+	k) AdditionalMarks after doing all marks
+	l) for Mongo - DatabaseOperationStart and DatabaseOperationStop
+	m) BugLog for bugs detected in ReportBug
+
 
     Private code should call RegisterHookFunction, typically in PrivateInit, to connect an actual function to a 
     hook name.

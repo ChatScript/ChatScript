@@ -20,7 +20,8 @@ Locate the security tab on the left. Click the “Create Security Group” butto
 name and description. When it shows up in the list, click the name. Click on the Inbound tab.
 This will allow you to change incoming port access to your machine. 
 
-You want to enable HTTP if this will be a web server. Select `HTTP` from the dropdown and then click `Add Rule`. 
+You want to enable HTTP if this will be a web server. 
+Select `HTTP` from the dropdown and then click `Add Rule`. 
 You’ll see the rule added to the right side of the panel. It will use 0.0.0.0/0 as the IP addresses, 
 which means let anyone come into the HTTP port. 
 

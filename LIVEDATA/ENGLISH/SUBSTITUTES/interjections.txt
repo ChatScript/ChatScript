@@ -1,3 +1,4 @@
+ ja ~yes
  # texting interjections
    bfn ~emogoodbye
  lol ~emolaugh
@@ -317,6 +318,7 @@ bbfn ~emogoodbye
  <highly_likely> ~yes
  <hip_hip_hooray ~emohappy
  <hiya ~emohello
+ <hiyah ~emohello
  <ho-hum ~emobored
  <hola ~emohello
  <hold_on_there ~emoprotest
@@ -456,6 +458,7 @@ bbfn ~emogoodbye
  <it_will_be_a_pleasure_to ~yes
  <it_will_be_my_pleasure_to ~yes
  <it_would_be_a_pleasure ~yes
+ ja ~yes
  <jajaja ~emolaugh
  <jesum_crow ~emosurprise
  <jesus_Christ ~emosurprise

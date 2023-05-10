@@ -355,7 +355,7 @@ static char* Srand(char* value) // 1 .. 100
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	if (forcedRandom)
+	if (forcedRandom>= 0)
 	{
 		sprintf(systemValue, (char*)"%u", forcedRandom);
 		return systemValue;
@@ -522,7 +522,7 @@ static char* Sversion(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-	sprintf(systemValue,(char*)"Version: %s",version);
+	sprintf(systemValue,(char*)"Version: %s %s",version, buildString);
     return systemValue;
 }
 
@@ -1093,11 +1093,7 @@ static char* StokenFlags(char* value)
 	static char hold[50] = ".";
 	if (value) return AssignValue(hold,value);
 	if (*hold != '.') return hold;
-#ifdef WIN32
-	sprintf(systemValue,(char*)"%I64d",(long long int) tokenFlags); 
-#else
 	sprintf(systemValue,(char*)"%lld",(long long int) tokenFlags); 
-#endif	
 
 	return systemValue;
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/10/2022 cs13.1</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -132,11 +132,7 @@ It's the same if the current rule was a top level rule, but if the current rule 
 <pre><code>t: what is your name
     a: ATX(_~propernoun) Hi, &#39;_0</code></pre>
 <p>the outputrejoinder is set to <code>ATX</code>. You can change that if you want. When the next volley comes in, the outputrejoinder is now the inputrejoinder and used for <code>^rejoinder</code>. You can modify that as well. Both can exist simultaneously, you have the input context and you set an output context before having used up the inputrejoinder.</p>
-<p>Setting a rejoinder on a rule means starting with the rejoinder immediately after it. If you were trying to copy a rejoinder that had already been established and redo it later, eg.</p>
-<pre><code>^setrejoinder(output %inputrejoinder)</code></pre>
-<p>this would be problematic, because it would set it to the rule after, which would be wrong. For this use the kind of &quot;copy&quot; which does not have issues with this.</p>
-<pre><code>^setrejoinder(copy %inputrejoinder)</code></pre>
-<p>If <em>kind</em> is output or copy and the <em>tag</em> is <code>null</code>, the output rejoinder is cleared (analogous to ^disable).</p>
+<p>Setting a rejoinder on a rule means starting with the rejoinder immediately after it. If <em>kind</em> is output and the <em>tag</em> is <code>null</code>, the output rejoinder is cleared (analogous to ^disable).</p>
 <p>If the <em>kind</em> is input and the <em>tag</em> is <code>null</code>, the input rejoinder is cleared.</p>
 <p>To kill a set outputrejoinder, use ^disable(OUTPUTREJOINDER).</p>
 <h3 id="topicflags-topic"><code>^topicflags ( topic )</code></h3>
@@ -163,7 +159,9 @@ Mark takes a possible 3rd argument ONE or ALL (defaulted) which makes it mark ei
 <h3 id="mark-meat"><code>^mark ( ~meat )</code></h3>
 <p>With location omitted, this marks <code>~meat</code> as though it has been seen at sentence start (location 1).</p>
 <h3 id="mark"><code>^mark()</code></h3>
-<p>Clears all global unmarks. restore a global ^unmark(0) exactly as it was before the global unmark.</p>
+<p>Memorizes the set of all * unmarks (generic unmarks) and then turns them off so normal matching will occur.</p>
+<h3 id="unmark"><code>^unmark()</code></h3>
+<p>Restores the set of generic unmarks that were flipped off using <code>^mark()</code>.</p>
 <h3 id="unmark-word-_0"><code>^unmark ( word _0 )</code></h3>
 <p>The inverse of specific <code>^mark</code>, this takes a matchvariable that was filled at the position in the sentence you want erased and removes the mark on the word or concept set or topic name given. Pattern matching for it in that position will now fail. If the word was a phrase, then all words in that phrase have the mark removed. Thus <code>South Georgia</code> which has <code>Georgia</code> embedded within it, and both might be ~geographic_area, will have both words unmarked if you unmark ~geographic_area. But it is not symmetric to <code>^mark</code> because it does not remove all implied marks that mark may have set.</p>
 <p>If you end up calling ^unmark with a 2nd argument of null, it will just return without failure. This can happen if you pass null to an outputmacro: <sup>myfn(</sup>var) and then ^unmark(xxx ^var).</p>
@@ -183,13 +181,11 @@ If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~no
 <p>Turns off matching on all words of the sentence.</p>
 <h3 id="mark-_0"><code>^mark ( * _0 )</code></h3>
 <p>To restore all marks to some location after having used ^unmark(* _0)</p>
-<h3 id="unmark"><code>^unmark ( * )</code></h3>
+<h3 id="unmark-1"><code>^unmark ( * )</code></h3>
 <p>Turn off all words of the sentence. Probably not that useful.</p>
 <h3 id="mark-1"><code>^mark ( * )</code></h3>
 <p>Restores all marks of the sentence, for words that had ^unmark(* _0) performed.</p>
 <p>Reminder: If you do a generic unmark from within a pattern, it is transient and will be turned off when the pattern match finishes (so you don't ruin later rules), whereas when you do it from output, then the change persists for the rest of the volley. Furthermore it is handy to flip specific collections of generic unmarks on an off.</p>
-<p><code>^mark()</code> memorizes the set of all * unmarks (generic unmarks) and then turns them off so normal matching will occur.</p>
-<p><code>^unmark()</code> will restore the set of generic unmarks that were flipped off using <code>^mark()</code>.</p>
 <h3 id="replacewordword-_0"><code>^replaceword(word _0)</code></h3>
 <p>You can change the word itself at the location just by providing the word you want used and the location in the sentence (as a match variable or position index). Replacing a word does not make it visible to pattern matching. It is merely what will be retrieved (for both original and canonical).</p>
 <h3 id="addwordatword-canonical-_0"><code>^addwordAt(word canonical _0)</code></h3>
@@ -716,8 +712,8 @@ if ($$newtype == $$type AND match($$newrule)) # we would match this rule</code><
 <p>You can give an optional 2nd argument number, which is how many volleys later are acceptable. If the volley count is higher, you fail even within the 5 prior volleys.</p>
 <pre><code>u: (^incontext(PLAYTENNIS) why) because it was fun.</code></pre>
 <h3 id="stats-facts-dict-text-hashbuckets-unusedhashbuckets"><code>^stats ( FACTS / DICT / TEXT / HASHBUCKETS / UNUSEDHASHBUCKETS )</code></h3>
-<p><code>^stats ( WORDACCESS  / AVERAGEHASHDEPTH / PATTERNEVALUATION )</code> <code>^stats ( TIMESUMMARY  )</code> All ^stats calls can take an optional 2nd argument &quot;ECHO&quot; which sends the answers to the user log and echo on terminal.</p>
-<p>FACTS: Returns how many free facts remain. DICT: Returns how many empty dictionary entries remain. TEXT: Returns how much space for both stack and heap remain. HASHBUCKETS: shows how many words are in each bucket size UNUSEDHASHBUCKETS: how many buckets are wasted (empty) WORDACCESS: How many calls to look up a word in the dictionary happened AVERAGEHASHDEPTH: how long is the average word lookup (words scanned) PATTERNEVALUATION: how many calls to pattern matcher happened TIMESUMMARY: create facts of how many ms cpu spend in functions called</p>
+<p><code>^stats ( PATTERNEVALUATION )</code> <code>^stats ( TIMESUMMARY  )</code> All ^stats calls can take an optional 2nd argument &quot;ECHO&quot; which sends the answers to the user log and echo on terminal.</p>
+<p>FACTS: Returns how many free facts remain. DICT: Returns how many empty dictionary entries remain. TEXT: Returns how much space for both stack and heap remain. HASHBUCKETS: shows how many words are in each bucket size UNUSEDHASHBUCKETS: how many buckets are wasted (empty) PATTERNEVALUATION: how many calls to pattern matcher happened TIMESUMMARY: create facts of how many ms cpu spend in functions called</p>
 <h1 id="external-access-functions">External Access Functions</h1>
 <h3 id="environment-variablename"><code>^environment ( variablename )</code></h3>
 <p>Access environment variables of the operating system. E.g.</p>
@@ -828,7 +824,7 @@ else { $$tcpopen_error }</code></pre>
 <p>If the name includes the substring &quot;ltm&quot;, then the file will not be appendable, but will be encryptable and routes to databases if the filesystem has been overridden by Mongo, Postgres, or MySQL.</p>
 <h3 id="import-name-set-erase-transient"><code>^import ( name set erase transient )</code></h3>
 <p><em>name</em> is the file to read from. Set is where to put the read facts.</p>
-<p><em>erase</em> can be <code>erase</code> meaning delete the file after use or <code>keep</code> meaning leave the file alone.</p>
+<p><em>erase</em> can be <code>erase</code> meaning delete the file after use, or <code>keep</code> meaning leave the file alone, or <code>cache</code> to mean that the file can be read and stored in the file cache.</p>
 <p><em>transient</em> can be <code>transient</code> meaning mark facts as temporary (to self erase at end of volley) or <code>permanent</code> meaning keep the facts as part of user data. Eg</p>
 <pre><code>^import(myfacts.txt @3).</code></pre>
 <p>If <em>set</em> is null, then facts are created but not stored into any fact-set and the subject of the first fact is returned as the answer (presumed to be a json structure).</p>
@@ -882,11 +878,10 @@ else { $$tcpopen_error }</code></pre>
 <p>If the user input you pass in is &quot;null&quot;, then the current input is not altered and will be used. This is only useful if you are calling this function from a normal bot and not an external one.</p>
 <p><code>$$cs_sentencecount</code> will be set as the number of the current sentence being used and can be used with ^restoresentence. <code>%originalinput</code> is the input field. <code>%testpattern</code> will be the index number in the array of patterns of current pattern being matched in ^testpattern</p>
 <p>Normally all patterns are executed in sequence against a sentence, then all again against the next sentence, and so on. If the initial patterns have %testpattern-prescan in them (usually at the start), then those will all be executed in sequence against all sentences in sequence. Then the remaining patterns will revert to the usual all patterns against each sentence in succession.</p>
-<p>Normally every ^testpatterncall to CS will have to have NL done on its input. Patterns that imply no need for NL will not trigger it. But if only one needs it, CS will have to do it. But with command line paramter <code>nlsave=1</code> the results of NL analysis can be written out in newglobals and passed along to the next ^testpattern call to CS, saving time. On the other hand, if you know there will be no next call, you can add to your pattern <code>%testpattern-nosave</code> to present saving the nl data to newglobals. You can manually force saving from user input by saying <code>nl-save</code> or passing in a variable of <code>$bwnlsave</code>.</p>
 <h3 id="replace_spelling">~replace_spelling</h3>
 <p>The variables and concepts fields are optional and provide context. A concept named &quot;~replace_spelling&quot; is treated not as a concept but as a list of paired words analogous to &quot;replace:&quot;, but is only a transient replace series for this call. A concept can contain values that look like: <code>&quot;(...)&quot;</code> or <code>(xxx)</code> which are CS patterns. These patterns can match user input just like an ordinary concept word can.<br />
 A concept can contain entries that are pairs, separated by |. This is preferred over supplying separate pairs of words. The left side is stored as the concept member and a fact is created ( left-side api-remap right-side) which allows you to write scripts that remap found entries on output to the right side value. ^testoutput accepts concepts so that the remap ability can be instantiated by script.</p>
-<p>Style is also optional and defaults to <code>earliest</code>. Other choices are all, best, latest and tfidf. Earliest means stop running patterns and sentences as soon as you get a match. This makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
+<p>Style is also optional and defaults to <code>earliest</code>. Other choices are all, best, latest and tfidf. Earliest means stop running patterns and sentences as soon as you get a match. This makes the call faster and if your patterns are ordered best first, there is no incentive to try lower priority patterns or more sentences (except against multiple sentence inputs). Latest is the opposite, presumes that the patterns are ordered worst first. In addition, last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result). All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns are ordered best first, but once a match has been found it will move on to additional sentences to see if a better match can be found.</p>
 <p>Result of ^testpattern is ordinary user output JSON object:</p>
 <pre><code>{ 
     &quot;match&quot;: 1,  -- index of matching pattern
@@ -1130,6 +1125,8 @@ u: (%document)
 <h3 id="readfile-tab-filepath"><code>^readfile ( TAB filepath )</code></h3>
 <p><code>^readfile ( TAB filepath )</code> reads a tsv (tab delimited spreadsheet file) and returns a JSON array representing it. The lines are all objects in an array. The line is an object where non-empty fields are given as field indexes. The first field is 0. Empty fields are skipped over and their number omitted. <code>^readfile ( TAB filepath 'function)</code> reads tsv and spreads fields onto arguments of 'function, which it calls once per line <code>^readfile ( LINE filepath 'function)</code> reads any file and passes each line untouched as the sole argument to the function.</p>
 <p>Fomerly called ^jsonreadcsv.</p>
+<p>Input lines can include:<br />
+:trace all or :trace none - manages tracing :quit or :exit - acts like end of file :pause or :resume - ignores lines while paused</p>
 <h1 id="word-manipulation-functions">Word Manipulation Functions</h1>
 <h3 id="burst-count-once-data-source-burst-character-string"><code>^burst ( {count once} data-source burst-character-string )</code></h3>
 <p>Takes the data source text and hunts within it for instances of the burst-character-string. If it is being dumped to the output stream then only the first piece is dumped.</p>
@@ -1167,6 +1164,7 @@ u: (%document)
 <p>An optional fourth argument <code>insensitive</code> will match insensitively.</p>
 <p>Failing to match will generate a rule failure. If the source or substring contains an <code>_</code>, these will be converted to blanks before execution, to allow that or the space notation to be considered equivalent (unless your source or substring is literally an underscore only).</p>
 <p>If you want to find a newline or tab character, then pass in the string <code>\n</code> or <code>\t</code>. That will find an actual ascii character of such. If you want to find the ascii string <code>\n</code>, then use \n and \t to find them. Normal scripts don't have ascii newline or tab in them. You wrote the backslashed characters and they are converted to the appropriate ascii characters on output to the user. But if you have read data from an external source, it will likely be the actual ascii characters.</p>
+<p>You can use this with ^extract to retrieve text before or after the found data.</p>
 <h3 id="flags-word"><code>^flags ( word )</code></h3>
 <p>get the 64bit systemflags of a word.</p>
 <h3 id="intersectwords-arg1-arg2-optional"><code>^intersectwords ( arg1 arg2 optional )</code></h3>
@@ -1180,7 +1178,8 @@ u: (%document)
 <h3 id="properties-word-not_new"><code>^properties ( word {NOT_NEW})</code></h3>
 <p>Returns the 64bit properties of a word. An optional NOT_NEW 2nd argument will fail-rule if the word is not already in the dictionary.</p>
 <h3 id="pos-part-of-speech-word-supplemental-data"><code>^pos( part-of-speech word supplemental-data )</code></h3>
-<p>Generates a particular form of a word in any form and puts it in the output stream. If it cannot generate the request, it issues a RULE failure. Most combinations of arguments are obvious. Here are the 1st &amp; 3rd choices. For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to use.</p>
+<p>Generates a particular form of a word in any form and puts it in the output stream.<br />
+Or tests a word to see if it is of a particular form. If it cannot generate the request, it issues a RULE failure. Most combinations of arguments are obvious. Here are the 1st &amp; 3rd choices. For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to use.</p>
 <table>
 <colgroup>
 <col width="27%" />
@@ -1372,57 +1371,67 @@ u: (%document)
 </tr>
 <tr class="even">
 <td><code>capitalize</code></td>
-<td>word</td>
+<td>word - same as uppercase- converts phrase to uppercase following rules for titles</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code>uppercase</code></td>
-<td>word</td>
+<td>word - same as capitalize- converts phrase to uppercase following rules for titles</td>
 <td></td>
 </tr>
 <tr class="even">
+<td><code>mixcase</code></td>
+<td>word - lowercase all letters except first one and first ones after space, underscore, hyphen</td>
+</tr>
+<tr class="odd">
 <td><code>lowercase</code></td>
-<td>word</td>
+<td>word - convert all letters to lowercase</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>allupper</code></td>
+<td>word - convert all letters to uppercase</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code>allupper</code></td>
-<td>word</td>
-<td></td>
-</tr>
-<tr class="even">
 <td><code>canonical</code></td>
 <td>word</td>
 <td>see notes</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>integer</code></td>
 <td>floatnumber</td>
 <td>generate integer if float is exact integer</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>preexists</code></td>
 <td>word</td>
 <td>return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>xref</code></td>
 <td>wordindex</td>
 <td>Kind</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>isfunction</code></td>
 <td>word</td>
 <td>returns 1 is word is a defined function, or fails</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>layer</code></td>
 <td>word</td>
 <td>When was this word entered into the dictionary. Answers are: <code>wordnet</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>user</code>.</td>
 </tr>
+<tr class="odd">
+<td><code>substitute</code></td>
+<td>word</td>
+<td>returns the word this word gets substituted into.</td>
+</tr>
 </tbody>
 </table>
-<p>Example:</p>
+<p>Rules for title capitalization are no longer capitalizingall in a phrase. Follows title capitalization rules regarding short conjunctions, prepositions, determiners.</p>
+<p>Ordinary non-title Example:</p>
 <pre><code># get first name (in a not English language), and capitalize
 u: what&#39;s your first name?
     #! giuditta

@@ -224,13 +224,13 @@ QUERY: direct_so	"1sq 2oT: queue s: match o2"			# (dog ? cat)
 # 3. walk thru q, looking at facts where q item is subject
 # 4. accept facts where object is marked with 2
 
-# find facts given subject verb and object
-QUERY: direct_svo	"1oq 2vT 3sT: queue o: match v2 s3"	# (dog love cat)
-# 1. tag object with 1 and queue it
+# find facts given subject verb and object - gather subject because this is often used to confirm set membership and object will have more
+QUERY: direct_svo	"1sq 2vT 3oT: queue s: match v2 o3"	# (dog love cat)
+# 1. tag subject with 1 and queue it
 # 2. mark verb with 2 (no queuing)
-# 3. mark subject with 3 (no queuing)
-# 4. walk thru q, looking at facts where q item is object
-# 5. accept facts where verb is marked with 2 and subject is marked with 3
+# 3. mark object with 3 (no queuing)
+# 4. walk thru q, looking at facts where q item is subject
+# 5. accept facts where verb is marked with 2 and object is marked with 3
 
 # find facts given subject verb and object and flag
 QUERY: directflag_svo	"1oq 2vT 3sT: queue o: match v2 s3  f"	# (dog love cat)

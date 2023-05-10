@@ -83,9 +83,12 @@ allocate less than a 20K buffer size.
 | `fact=n`     | limit fact pool to this number of facts
 | `hash=n`     | use this hash size for finding dictionary words (bigger = faster access)
 | `cache=50x1` | allocate a 50K buffer for handling 1 user file at a time. A server might want to cache multiple users at a time.
+| `filecache=5000x100` | allocate a 5M buffer for caching 100 files (enables caching). 
 
 A default version of ChatScript will allocate much more than it needs, because it doesn't
 know what you might need. 
+
+A server might want to cache common files across volleys and users, using filecache.
 
 If you want to use the least amount of memory (multiple servers on a machine or running on a mobile device), 
 you should look at the USED line on startup and add small amounts to the entries 
@@ -172,9 +175,25 @@ so that the system can do complete logs. You are welcome to set log size lots sm
 |`blockapitrace`	| disables any %trace_on in ^testpattern and ^testoutput. Used for production servers.
 |`traceboot`	| turns on tracing while cs_boot is running at startup
 |`parselimit=n`	| if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed
-|`nl_save=1`	| for ^testpattern, enables results of nl analysis to be saved onto the $cs_nlinfo variable so that outside can pass it back in on future calls
 |`parselimit=1`	| inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up
 |`random=n`	| will force a specific value to be returned from %random
+|`legacymatch=n`| alters match variable content when matching concepts   
+|`nophrases`|   suppresses marking ~prep_phrase, ~verb_phrase, ~noun_phrase (minor speedup)
+|`nopatterndata`|   disables pattern data gathering that supports ^MatchesCode (minor speedup)
+
+Legacymatch default if not given is legacymatch=1. It redefines match variable contents when matching a concept. 
+Canonical (eg _0)  is the concept member NOT the canonical form of the words.
+Original (eg '_0) 'is what user typed (after corrections)
+```
+	concept: ~food ("baked potato") with input "baked potatoes"
+				legacy=1 : (_~food) =>  '_0 - baked_potatoes  _0 - bake_potato
+				legacy=0 : (_~food) => '_0 - baked_potatoes  _0 - baked_potato
+```
+If you don't have code that depends on legacy, you are better off adding legacy=0 to your init file.
+Then you don't need code like this for concept matches of unknown-words.
+```
+if (_0 == unknown-word){_0 = '_0'} 
+```'
 
 Trustpos is normally off by default because CS is only about 94% accurate in its
 built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of

@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/24/2022 cs12.31
+<br>Revision 5/10/2022 cs13.1
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
@@ -201,9 +201,13 @@ Additionally, there is
 | `~negativeinteger`     |
 | `~modelnumber`         | not a true number, but a word with both alpha and numeric
 | `~filename`         | looks like a filename with extension
+| `~modelnumber`         | not a true number, but a word with both alpha and numeric
+| `~prep_phrase`         | chunk of text forming a prepositional phrase
+| `~verb_phrase`         | chunk of text forming a verb phrase
+| `~noun_phrase`         | chunk of text forming a noun phrase
 
 
-To can be a preposition or it can be special. When used in the infinitive phrase To go, it is
+"To" can be a preposition or it can be special. When used in the infinitive phrase To go, it is
 marked `~to_infinitive` and is followed by `~noun_infinitive`.
 
 |                        | description  
@@ -391,16 +395,16 @@ to do that yourself with the answer).
 %httpresponse returns the official http response codes when it succeeds in connecting to a server.
 When it fails, it returns various negative codes that are specific to curl.
 ```
--1 timeout - connection attempt was canceled
+-1 timeout - connection attempt was canceled or no time was allowed (instant fail)
 -2 couldn't connect or not resolve host or proxy
 -3 unsupported protocol
 -4 curl got nothing (typically sent http to https site)
 -5 malformed url
 -6 other
+-7 curl operation timeout
 ```
 
 ## ^testpattern control variables
-| `%testpattern-nosave` | blocks saving NL from ^testpattern if nlsave=1 was set in command line params
 | `%testpattern-prescan` | execute this pattern on all sentences before doing other patterns one-by-one
 | `%trace_on`      |  starting here, do :trace pattern  in ^testpattern 
 | `%trace_on all`      |  starting here, do :trace all  in ^testpattern 
@@ -716,6 +720,8 @@ contents.
 | `$cs_summary`  | After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing |
 | `$cs_showtime`  | After volley prints to terminal milliseconds of time used |
 | `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
+| `$cs_jid` | number to start with  when starting indexing of new json structure ids  |
+| `$cs_directfromoob` |  when set to true tells cs to convert any incoming oob directly into a json structure  |
 
 # hook functions
 | `$cs_beforereset` | if set to a topic, will be executed before :reset is executed |

@@ -58,10 +58,8 @@ extern bool reverseWords;
 extern  WORDP wordTag[MAX_SENTENCE_LENGTH]; 
 extern  WORDP wordRole[MAX_SENTENCE_LENGTH]; 
 extern  char* wordCanonical[MAX_SENTENCE_LENGTH]; //   current sentence tokenization
-extern  WORDP originalLower[MAX_SENTENCE_LENGTH];
-extern  WORDP originalUpper[MAX_SENTENCE_LENGTH];
-extern  WORDP canonicalLower[MAX_SENTENCE_LENGTH];
-extern  WORDP canonicalUpper[MAX_SENTENCE_LENGTH];
+extern  WORDP originalWordp[MAX_SENTENCE_LENGTH];
+extern  WORDP canonicalWordp[MAX_SENTENCE_LENGTH];
 extern  uint64 finalPosValues[MAX_SENTENCE_LENGTH];
 extern  uint64 allOriginalWordBits[MAX_SENTENCE_LENGTH];	// starting full bits about this word (all dict properties) in this word position
 extern  uint64 lcSysFlags[MAX_SENTENCE_LENGTH];      // current system tags lowercase in this word position (there are no interesting uppercase flags)
@@ -73,21 +71,19 @@ extern uint64* dataBuf;
 extern char** commentsData;
 
 extern  char** comments;
-extern WORDP originalLower[MAX_SENTENCE_LENGTH];
-extern WORDP originalUpper[MAX_SENTENCE_LENGTH];
-extern  WORDP canonicalLower[MAX_SENTENCE_LENGTH];
-extern WORDP canonicalUpper[MAX_SENTENCE_LENGTH];
+extern WORDP originalWordp[MAX_SENTENCE_LENGTH];
+extern  WORDP canonicalWordp[MAX_SENTENCE_LENGTH];
 extern char* wordCanonical[MAX_SENTENCE_LENGTH];	//   canonical form of word 
 
 void TagTest(char* file);
 extern unsigned int tagRuleCount;
 extern unsigned char bitCounts[MAX_SENTENCE_LENGTH]; 
-#define MAX_POS_RULES 1500
+#define MAX_POS_RULES 2000
 void MarkTags(unsigned int i);
 char* GetNounPhrase(int i,const char* avoid);
-extern int clauses[MAX_SENTENCE_LENGTH];
-extern int phrases[MAX_SENTENCE_LENGTH];
-extern int verbals[MAX_SENTENCE_LENGTH];
+extern unsigned int clauses[MAX_SENTENCE_LENGTH];
+extern unsigned  int phrases[MAX_SENTENCE_LENGTH];
+extern unsigned int verbals[MAX_SENTENCE_LENGTH];
 extern unsigned char ignoreWord[MAX_SENTENCE_LENGTH];
 extern unsigned char coordinates[MAX_SENTENCE_LENGTH];
 extern unsigned char crossReference[MAX_SENTENCE_LENGTH];
@@ -101,12 +97,12 @@ extern unsigned char complementRef[MAX_SENTENCE_LENGTH];  // link from verb to a
 
 #ifndef DISCARDPARSER
 
-void MarkRoles(int i);
+void MarkRoles(unsigned int i);
 #endif
 void TagInit();
 void TagIt(bool timeout);
 void ParseSentence(bool &resolved,bool &changed);
-void DumpSentence(int start, int end);
+void DumpSentence(unsigned int start, unsigned int end);
 char* GetRole(uint64 role);
 
 #endif

@@ -1,15 +1,20 @@
 ﻿#include "common.h"
 #include <unordered_map>
 #include <string>
-
-// NOTE: the ComputeSpanish... code tests using correctly accented forms of Spanish words.
+//
+//  All pos data comes from original spanish dictionary. If not there, we dont know about it
+// 
+// NOTE: the ComputeSpanish1... code tests using correctly accented forms of Spanish words.
 // It is assumed that if the user accents a character, it is correct. If this becomes a problem, we will use
 // spellcheck to permute that as well as incorrectly unaccented characters.
+
+// computespanish uses all of the original dictionary (not seeing UNIVERSAL merged words) and it not
+// allowed to change properties or systemflags of words, except at at the computespanish outer layer.
 
 // For this (and other treetagger-based dictionaries), the only reliable data is that lemmas are there, marked
 // by their part of speech. While it contains common conjugations, we cannot assume all are there. Nor
 // is there data on additional attributes like gender and plurality (in fact often it marks a singular noun as both
-// singular and plural). So the task of ComputeSpanish is two-fold. First, to determine for spellcheck
+// singular and plural). So the task of ComputeSpanish1 is two-fold. First, to determine for spellcheck
 //  if a word in user input  that is NOT recognized, can be determined to be a conjugation of a known lemma. 
 // Second, for GetPosData, to return the set of all possible parts of speech and ancillary data like lemma, gender,
 // plurality, and embedded object referencing for PosTagging.
@@ -17,9 +22,9 @@
 // to write the revised dictionary. And if this code is wrong and we already used it to rewrite the dictionary flags 
 // of the source,  then recovering from faulty markings may be difficult. 
 
-
 // primary entry point for conjugation processing
 uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags);
+uint64 ComputeSpanish1(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags);
 
 typedef struct IrregularSpanishInfo
 {
@@ -159,40 +164,40 @@ static IrregularSpanishInfo irregularSpanishVerbs[] =
 	{"ser","son"," ", VERB | VERB_PRESENT, PRONOUN_PLURAL, ""},
 	{"ser","soy"," ", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_I, ""},
 	// irregular simple future
-	{"decir",u8"diré","dec", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{"decir",u8"dirás","dec", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{"decir",u8"dirá","dec", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR, ""},
-	{"decir",u8"diremos","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{"decir",u8"diréis","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{"decir",u8"dirán","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
-	{"estar",u8"estaré","est", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{"estar",u8"estarás","est", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{"estar",u8"estará","est", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR, ""},
-	{"estar","estaremos","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{"estar",u8"estaréis","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{"estar",u8"estarán","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
-	{"hacer",u8"haré","hac", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{"hacer",u8"harás","hac", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{"hacer",u8"hará","hac", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR, ""},
-	{"hacer","haremos","hac", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{"hacer",u8"haréis","hac", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{"hacer",u8"harán","eshact", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
+	{"decir",u8"diré","dec", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{"decir",u8"dirás","dec", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{"decir",u8"dirá","dec", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR, ""},
+	{"decir",u8"diremos","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{"decir",u8"diréis","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{"decir",u8"dirán","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
+	{"estar",u8"estaré","est", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{"estar",u8"estarás","est", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{"estar",u8"estará","est", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR, ""},
+	{"estar","estaremos","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{"estar",u8"estaréis","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{"estar",u8"estarán","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
+	{"hacer",u8"haré","hac", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{"hacer",u8"harás","hac", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{"hacer",u8"hará","hac", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR, ""},
+	{"hacer","haremos","hac", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{"hacer",u8"haréis","hac", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{"hacer",u8"harán","eshact", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
 	// irregular conditional future
-	{"decir",u8"diría","dec", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{"decir",u8"dirías","dec", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{"decir",u8"diríamos","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{"decir",u8"diríais","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{"decir",u8"dirían","dec", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
-	{"estar",u8"estaría","est", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{"estar",u8"estarías","est", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{"estar",u8"estaríamos","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{"estar",u8"estaríais","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{"estar",u8"estarían","est", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
-	{ "hacer",u8"haría","hac", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
-	{ "hacer",u8"harías","hac", VERB | SPANISH_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
-	{ "hacer","hacíamos","hac", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
-	{ "hacer",u8"haríais","hac", VERB | SPANISH_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
-	{ "hacer",u8"harían","eshact", VERB | SPANISH_FUTURE, PRONOUN_PLURAL, ""},
+	{"decir",u8"diría","dec", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{"decir",u8"dirías","dec", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{"decir",u8"diríamos","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{"decir",u8"diríais","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{"decir",u8"dirían","dec", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
+	{"estar",u8"estaría","est", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{"estar",u8"estarías","est", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{"estar",u8"estaríamos","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{"estar",u8"estaríais","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{"estar",u8"estarían","est", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
+	{ "hacer",u8"haría","hac", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_I, ""},
+	{ "hacer",u8"harías","hac", VERB | AUX_VERB_FUTURE, PRONOUN_SINGULAR | PRONOUN_YOU, ""},
+	{ "hacer","hacíamos","hac", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_I, ""},
+	{ "hacer",u8"haríais","hac", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL | PRONOUN_YOU, ""},
+	{ "hacer",u8"harían","eshact", VERB | AUX_VERB_FUTURE, PRONOUN_PLURAL, ""},
 	// irregular past participle
 	{ "abrir",u8"abierto","abr", VERB | VERB_PAST_PARTICIPLE | ADJECTIVE, 0, ""},
 	{ "escribir","escrito","escrib", VERB | VERB_PAST_PARTICIPLE | ADJECTIVE, 0, ""},
@@ -253,42 +258,50 @@ static IrregularSpanishInfo irregularSpanishVerbs[] =
 	{ "", NULL, NULL, 0, 0, ""},
 };
 
-
-
 void MarkSpanishTags(WORDP OL, int i)
 { // we have to manual name concept because primary naming is from the english corresponding bit
+	uint64 systemFlags = GetSystemFlags(OL);
 	if (finalPosValues[i] & PRONOUN_OBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_singular")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_plural")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_i")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_you")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_he_she_it")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_OBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_singular")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_OBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_plural")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_OBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_i")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_OBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_you")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_OBJECT_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_he_she_it")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_singular")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_plural")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_i")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_you")), i, i, CANONICAL);
-	if (OL->systemFlags & PRONOUN_INDIRECTOBJECT_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_he_she_it")), i, i, CANONICAL);
-	if (finalPosValues[i] & SPANISH_FUTURE || finalPosValues[i] & AUX_VERB_FUTURE)
+	if (systemFlags & PRONOUN_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_singular")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_plural")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_i")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_you")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_he_she_it")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_OBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_singular")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_OBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_plural")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_OBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_i")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_OBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_you")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_OBJECT_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_object_he_she_it")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_singular")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_plural")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT_I) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_i")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT_YOU) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_you")), i, i, CANONICAL);
+	if (systemFlags & PRONOUN_INDIRECTOBJECT_HE_SHE_IT) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~pronoun_indirectobject_he_she_it")), i, i, CANONICAL);
+	if (finalPosValues[i] & AUX_VERB_FUTURE)
 	{
-		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_future")), i, i, CANONICAL);
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~AUX_VERB_FUTURE")), i, i, CANONICAL);
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~SPANISH_FUTURE")), i, i, CANONICAL);
 		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~verb_future")), i, i, CANONICAL);
 	}
-	if (allOriginalWordBits[i] & SPANISH_HE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_he")), i, i, CANONICAL);
-	if (allOriginalWordBits[i] & SPANISH_SHE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_she")), i, i, CANONICAL);
-	if (allOriginalWordBits[i] & SPANISH_SINGULAR) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_singular")), i, i, CANONICAL);
-	if (allOriginalWordBits[i] & SPANISH_PLURAL) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~spanish_plural")), i, i, CANONICAL);
-	if (OL->systemFlags & VERB_IMPERATIVE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~verb_imperative")), i, i, CANONICAL);
+	if (allOriginalWordBits[i] & NOUN_HE)
+	{
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~NOUN_HE")), i, i, CANONICAL);
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~SPANISH_HE")), i, i, CANONICAL);
+	}
+	if (allOriginalWordBits[i] & NOUN_SHE)
+	{
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~NOUN_SHE")), i, i, CANONICAL);
+		MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~SPANISH_SHE")), i, i, CANONICAL);
+	}
+	if (allOriginalWordBits[i] & SINGULAR_PERSON) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~SINGULAR_PERSON")), i, i, CANONICAL);
+	if (allOriginalWordBits[i] & PLACE_NUMBER) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~PLACE_NUMBER")), i, i, CANONICAL);
+	if (systemFlags & VERB_IMPERATIVE) MarkMeaningAndImplications(0, 0, MakeMeaning(StoreWord("~verb_imperative")), i, i, CANONICAL);
 }
 
 uint64 GetSpanishLemmaBits(char* wordx)
 {
-	WORDP D = FindWord(wordx, 0, PRIMARY_CASE_ALLOWED);
+	WORDP D = FindWord(wordx, 0, PRIMARY_CASE_ALLOWED,true);
 	if (!D) return 0;
 
 	WORDP E = RawCanonical(D);
@@ -306,7 +319,7 @@ uint64 GetSpanishLemmaBits(char* wordx)
 	{
 		char ptag[MAX_WORD_SIZE];
 		sprintf(ptag, "_%s", type);
-		WORDP X = FindWord(ptag);
+		WORDP X = FindWord(ptag,0,PRIMARY_CASE_ALLOWED,true);
 		if (X) properties |= X->properties;
 		tags = SkipWhitespace(tags);
 	}
@@ -315,15 +328,15 @@ uint64 GetSpanishLemmaBits(char* wordx)
 
 uint64 FindSpanishSingular(char* original, char* word, WORDP& entry, WORDP& canonical, uint64& sysflags)
 {
-	WORDP E = FindWord(word);
+	WORDP E = FindWord(word,0,PRIMARY_CASE_ALLOWED,true);
 	if (E && E->properties & NOUN)
 	{
 		canonical = E;
 		if (!exportdictionary)
 		{
-			entry = StoreWord(original, AS_IS);
+			entry = FindWord(original, 0, PRIMARY_CASE_ALLOWED, true);
+			if (!entry) entry = MakeLanguageWord(original);
 		}
-
 		else entry = canonical;
 		sysflags = E->systemFlags;
 		return NOUN | NOUN_PLURAL;
@@ -355,7 +368,7 @@ uint64 KnownSpanishUnaccented(char* original, WORDP& entry, uint64& sysflags)
 
 			WORDP canonical = NULL;
 			uint64 newSysflags = 0;
-			uint64 properties = ComputeSpanish(2, copy, entry, canonical, newSysflags);
+			uint64 properties = ComputeSpanish1(2, copy, entry, canonical, newSysflags);
 			if (properties)
 			{
 				sysflags |= newSysflags;
@@ -379,7 +392,7 @@ static WORDP ConfirmSpanishInfinitive(char* stem, char* verbType, int stemLen, c
 	if (*verbType) // we know the kind of verb
 	{
 		strcpy(word + stemLen, verbType); // make lemma from stem and type
-		Lemma = FindWord(word);
+		Lemma = FindWord(word,0,PRIMARY_CASE_ALLOWED,true);
 		if (Lemma && Lemma->properties & VERB) // this is a lemma
 		{
 			strcpy(rawword + stemLen, suffix); // the actual word we would generate 
@@ -389,8 +402,8 @@ static WORDP ConfirmSpanishInfinitive(char* stem, char* verbType, int stemLen, c
 	}
 	else // try all 3 verb types
 	{
-		strcpy(word + stemLen, "er");
-		Lemma = FindWord(word);
+		strcpy(word + stemLen, "er"); // papxxx becomes paper
+		Lemma = FindWord(word,0, PRIMARY_CASE_ALLOWED,true);
 		if (Lemma && Lemma->properties & VERB)
 		{
 			strcpy(rawword + stemLen, suffix); // the actual
@@ -398,7 +411,7 @@ static WORDP ConfirmSpanishInfinitive(char* stem, char* verbType, int stemLen, c
 				return Lemma; // we would get this
 		}
 		strcpy(word + stemLen, "ar");
-		Lemma = FindWord(word);
+		Lemma = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
 		if (Lemma && Lemma->properties & VERB)
 		{
 			strcpy(rawword + stemLen, suffix); // the actual
@@ -406,7 +419,7 @@ static WORDP ConfirmSpanishInfinitive(char* stem, char* verbType, int stemLen, c
 				return Lemma; // we would get this
 		}
 		strcpy(word + stemLen, "ir");
-		Lemma = FindWord(word);
+		Lemma = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
 		if (Lemma && Lemma->properties & VERB)
 		{
 			strcpy(rawword + stemLen, suffix); // the actual
@@ -429,8 +442,9 @@ static uint64 FindSpanishInfinitive(char* original, const char* suffix, char* ve
 	size_t suffixLen = strlen(suffix);
 	size_t stemLen = originalLen - suffixLen;
 	if (strcmp(original + stemLen, suffix)) 	return 0; // this conjugation doesnt end with suffix named
-	WORDP D = StoreWord(original, AS_IS);
-
+	WORDP D = FindWord(original,  0, PRIMARY_CASE_ALLOWED, true);
+	if (!D) MakeLanguageWord(original);
+	
 	// original ended in designated suffix. See if we can get its infinitive form with no changes of spelling
 	char stem[MAX_WORD_SIZE];
 	strncpy(stem, original, stemLen);
@@ -471,9 +485,9 @@ static uint64 FindSpanishInfinitive(char* original, const char* suffix, char* ve
 
 	strcpy(lemma1, stem);
 	strcat(lemma1, suffix);
-	if (properties & SPANISH_FUTURE)
+	if (properties & AUX_VERB_FUTURE)
 	{
-		canonical = FindWord(stem);
+		canonical = FindWord(stem,0,PRIMARY_CASE_ALLOWED,true);
 		if (canonical && canonical->properties & VERB && !stricmp(lemma1, original)) { ; }
 		else canonical = NULL;
 	}
@@ -550,7 +564,7 @@ static uint64 FindSpanishInfinitive(char* original, const char* suffix, char* ve
 	// stem changed from c to r (hacer future)
 	strcpy(lemma1, stem);
 	change = strstr(lemma1, "r");
-	if (!canonical && change && properties & SPANISH_FUTURE) // r from c
+	if (!canonical && change && properties & AUX_VERB_FUTURE) // r from c
 	{
 		memmove(change, change + 1, strlen(change));
 		*change = 'c';
@@ -571,6 +585,7 @@ static uint64 FindSpanishInfinitive(char* original, const char* suffix, char* ve
 
 static uint64 ReflexiveVerbSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sysflags)
 {
+	uint64 properties = 0;
 	size_t len = strlen(word);
 	// try reflexive forms of any regular verb
 	if (len > 2 && word[len - 2] == 's' && word[len - 1] == 'e')
@@ -578,21 +593,25 @@ static uint64 ReflexiveVerbSpanish(char* word, WORDP& entry, WORDP& canonical, u
 		char base[MAX_WORD_SIZE];
 		strcpy(base, word);
 		base[len - 2] = 0;
-		WORDP E = FindWord(base);
+		WORDP E = FindWord(base,0,PRIMARY_CASE_ALLOWED,true);
 		if (E && E->properties & VERB)
 		{
 			canonical = E;
-			if (!exportdictionary) entry = StoreWord(word, AS_IS | VERB_PRESENT);
+			if (!exportdictionary)
+			{
+				entry = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
+				if (!entry) entry = MakeLanguageWord(word);
+				properties |= VERB_PRESENT;
+			}
 			else entry = canonical;
 			sysflags |= PRONOUN_REFLEXIVE;
-			AddSystemFlag(entry, PRONOUN_REFLEXIVE);
-			if (E->properties & VERB_INFINITIVE) RemoveProperty(E, VERB_INFINITIVE); // treetagger lied - direct change, not restorable
-			AddProperty(E, VERB_PRESENT); // treetagger lied - direct change, not restorable
-			if (entry->properties & VERB_INFINITIVE)  RemoveProperty(entry, VERB_INFINITIVE); // treetagger lied - direct change, not restorable
-			return E->properties;
+		// if (E->properties & VERB_INFINITIVE) RemoveProperty(E, VERB_INFINITIVE); // treetagger lied - direct change, not restorable
+			properties |= VERB_PRESENT; // treetagger lied - direct change, not restorable
+		//	if (entry->properties & VERB_INFINITIVE)  RemoveProperty(entry, VERB_INFINITIVE); // treetagger lied - direct change, not restorable
+			properties |= E->properties;
 		}
 	}
-	return 0;
+	return properties;
 }
 
 static void MakeUnaccentedCopy(const char* word, char* copy)
@@ -633,6 +652,7 @@ static void MakeUnaccentedCopy(const char* word, char* copy)
 
 static uint64 IrregularSpanishVerb(char* wordToFind, WORDP& entry, WORDP& canonical, uint64& sysflags)
 {
+	uint64 properties = 0;
 	// All searches done on unaccented version
 	char unaccentedWord[MAX_WORD_SIZE];
 	static unordered_map<std::string, IrregularSpanishInfo*> verb_map;
@@ -654,19 +674,17 @@ static uint64 IrregularSpanishVerb(char* wordToFind, WORDP& entry, WORDP& canoni
 	if (verb_map.find(unaccentedWord) != verb_map.end())
 	{
 		IrregularSpanishInfo* fn = verb_map[unaccentedWord];
-		canonical = StoreWord(fn->lemma, AS_IS);
-		// entry = StoreWord(wordToFind, AS_IS);
+		canonical = MakeLanguageWord(fn->lemma);
 		sysflags |= fn->sysFlags;
-		uint64 properties = fn->properties;
-		return properties;
+		properties = fn->properties;
 	}
 
-	return 0;
+	return properties;
 }
 
 static WORDP FindSpanishWordRemoveAccent(char* base)
 {
-	WORDP D = FindWord(base);
+	WORDP D = FindWord(base,0,PRIMARY_CASE_ALLOWED,true);
 	if (D) return D;
 	char copy[MAX_WORD_SIZE];
 	strcpy(copy, base);
@@ -683,7 +701,7 @@ static WORDP FindSpanishWordRemoveAccent(char* base)
 		{
 			*ptr = c;
 			memmove(ptr + 1, ptr + 2, strlen(ptr + 1));
-			D = FindWord(copy);
+			D = FindWord(copy,0,PRIMARY_CASE_ALLOWED,true);
 			if (D) strcpy(base, copy);
 			return D;
 		}
@@ -693,15 +711,14 @@ static WORDP FindSpanishWordRemoveAccent(char* base)
 
 WORDP FindSpanishWord(char* base, char* full)
 { // presume it had accent added, try to remove it
-	WORDP D = FindWord(full); // dictionary knows it?
+	WORDP D = FindWord(full, 0, PRIMARY_CASE_ALLOWED, true); // dictionary knows it?
 	if (D)
 	{
 		D = GetCanonical(D, VERB_INFINITIVE);
 		if (D && D->properties & VERB_INFINITIVE) return D;
 	}
 
-	D = FindSpanishWordRemoveAccent(base);
-	return D;
+	return FindSpanishWordRemoveAccent(base);
 }
 
 uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sysflags)
@@ -723,8 +740,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 	{
 		canonical = Dcanon;
 		sysflags |= PRONOUN_YOU | PRONOUN_SINGULAR | VERB_IMPERATIVE;
-		properties |= VERB;
-		return properties;
+		return properties | VERB;
 	}
 	base[len] = '\0';
 	// vosotros/vosotras form, remove 'd' and add 'r' to form infinitive
@@ -736,8 +752,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties  | VERB;
 		}
 		base[len - 1] = 'd';
 	}
@@ -748,8 +763,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_SINGULAR | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 4], u8"éis");
 	}
@@ -761,8 +775,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_SINGULAR | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 1], "e");
 	}
@@ -773,8 +786,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_SINGULAR | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 1], "ir");
 		Dcanon = FindSpanishWord(base, base);
@@ -782,8 +794,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_SINGULAR | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 1], "a");
 	}
@@ -795,8 +806,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 2], "en");
 	}
@@ -807,8 +817,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 2], "ir");
 		Dcanon = FindSpanishWord(base, base);
@@ -816,8 +825,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_YOU | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 2], "an");
 	}
@@ -829,8 +837,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_I | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 4], "emos");
 	}
@@ -841,8 +848,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_I | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 4], "ir");
 		Dcanon = FindSpanishWord(base, base);
@@ -850,8 +856,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		{
 			canonical = Dcanon;
 			sysflags |= PRONOUN_I | PRONOUN_PLURAL | VERB_IMPERATIVE;
-			properties |= VERB;
-			return properties;
+			return properties | VERB;
 		}
 		strcpy(&base[len - 4], "amos");
 	}
@@ -859,11 +864,7 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 	// irregular form
 	base[len] = '\0';
 	uint64 transient = IrregularSpanishVerb(base, entry, canonical, sysflags);
-	if (sysflags & VERB_IMPERATIVE)
-	{
-		properties |= transient;
-		return properties;
-	}
+	if (sysflags & VERB_IMPERATIVE) return properties | transient;
 
 	return false;
 }
@@ -878,8 +879,7 @@ uint64  PresentSpanish(char* original, WORDP& entry, WORDP& canonical, uint64& s
 	if (ans)
 	{
 		sysflags |= transient;
-		properties |= ans;
-		return properties;
+		return properties | ans;
 	}
 
 	// we have the original. We know verb infinitive comes in 3 flavors. We try those flavors with the
@@ -1203,10 +1203,10 @@ uint64 PastSpanish(char* original, WORDP& entry, WORDP& canonical, uint64& sysfl
 	return 0;
 }
 
-bool FutureSpanish(char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+uint64 FutureSpanish(char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
 {
 	// FindSpanishInfinitive(original, suffix, verb type, etnry, canonical, properties so far, new properties if match ) // yo
-	uint64 properties = PRONOUN_SUBJECT | AUX_VERB_FUTURE | SPANISH_FUTURE | VERB;
+	uint64 properties = PRONOUN_SUBJECT | AUX_VERB_FUTURE | AUX_VERB_FUTURE | VERB;
 	uint64 transient = PRONOUN_SINGULAR | PRONOUN_I;
 	// 1st person //yo(hablar)é   all 3 verb types
 	// simple future
@@ -1308,9 +1308,9 @@ static uint64  InfinitiveSpanish(char* word, char* original, WORDP& entry, WORDP
 		char base[MAX_WORD_SIZE];
 		strcpy(base, word);
 		base[strlen(base) - 2] = 0;
-		D = FindWord(base, 0, LOWERCASE_LOOKUP);
+		D = FindWord(base, 0, LOWERCASE_LOOKUP,true);
 	}
-	else D = FindWord(word, 0, LOWERCASE_LOOKUP);
+	else D = FindWord(word, 0, LOWERCASE_LOOKUP, true);
 
 	if (D && D->properties & VERB)
 	{
@@ -1386,11 +1386,11 @@ uint64 ComputeSpanishLemmaNounGender(char* word, WORDP canonical)
 	if (ending == 'o')
 	{
 		adjust = 1;
-		properties = SPANISH_HE;
+		properties = NOUN_HE;
 	}
 	else if (!strcmp(word + len - 5, u8"ción"))
 	{
-		properties = SPANISH_SHE;
+		properties = NOUN_SHE;
 		adjust = 5;
 	}
 	else if (!strcmp(word + len - 2, u8"á") || !strcmp(word + len - 2, u8"é") ||
@@ -1398,32 +1398,31 @@ uint64 ComputeSpanishLemmaNounGender(char* word, WORDP canonical)
 		!strcmp(word + len - 2, u8"ú") || !strcmp(word + len - 2, "or"))
 	{
 		adjust = 2;
-		properties = SPANISH_HE;
+		properties = NOUN_HE;
 	}
 	else if (!strcmp(word + len - 3, "aje"))
 	{
 		adjust = 3;
-		properties = SPANISH_HE;
+		properties = NOUN_HE;
 	}
 	else if (ending == 'a')
 	{
-		properties = SPANISH_SHE;
+		properties = NOUN_SHE;
 		adjust = 1;
 	}
 	else if (ending == 'z')
 	{
-		properties = SPANISH_SHE;
+		properties = NOUN_SHE;
 		adjust = 1;
 	}
 	else if (!strcmp(word + len - 3, u8"ía") || !strcmp(word + len - 3, "dad"))
 	{
-		properties = SPANISH_SHE;
+		properties = NOUN_SHE;
 		adjust = 3;
 	}
-	else properties |= SPANISH_SHE | SPANISH_HE; // default is ambi
-	WORDP X = FindWord(word, len - adjust, LOWERCASE_LOOKUP);
-	if (X && X->properties & NOUN)
-		return properties;
+	else properties |= NOUN_SHE | NOUN_HE; // default is ambi
+	WORDP X = FindWord(word, len - adjust, LOWERCASE_LOOKUP,true);
+	if (X && X->properties & NOUN) return properties;
 	return 0;
 }
 
@@ -1452,8 +1451,8 @@ uint64 ComputeSpanishNounGender(WORDP D, WORDP canonical)
 	size_t len = strlen(word);
 	char ending = word[len - 1];
 	char end2 = word[len - 2];
-	uint64 properties = D->properties & (SPANISH_HE | SPANISH_SHE);
-	if (properties & (SPANISH_HE | SPANISH_SHE)) {}
+	uint64 properties = D->properties & (NOUN_HE | NOUN_SHE);
+	if (properties & (NOUN_HE | NOUN_SHE)) {}
 	else if (!stricmp(word, u8"sofá") || !stricmp(word, "sofa") ||
 		!stricmp(word, "dia") || !stricmp(word, u8"día") ||
 		!stricmp(word, "cura") || !stricmp(word, "planeta") ||
@@ -1461,56 +1460,56 @@ uint64 ComputeSpanishNounGender(WORDP D, WORDP canonical)
 		!stricmp(word, "agua") || !stricmp(word, "mapa") ||
 		!stricmp(word, "problema")
 		)
-		properties |= SPANISH_HE; // exception to next rule
+		properties |= NOUN_HE; // exception to next rule
 	else if (!stricmp(word, "mano") || !stricmp(word, "radio") ||
 		!stricmp(word, "foto") || !stricmp(word, "moto") ||
 		!stricmp(word, "flor") || !stricmp(word, "leche") ||
 		!stricmp(word, "carne") || !stricmp(word, "disco") ||
 		!stricmp(word, "radio")
 		)
-		properties |= SPANISH_SHE; // exception to next rule
+		properties |= NOUN_SHE; // exception to next rule
 	else if (len > 2 &&
 		(!stricmp(word + len - 3, u8"ía") || !stricmp(word + len - 3, "ia") ||
 			!stricmp(word + len - 2, "ua") || !stricmp(word + len - 3, u8"úa") ||
 			!stricmp(word + len - 2, "ez")))
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	else if (len > 2 &&
 		(!stricmp(word + len - 2, "or") || !stricmp(word + len - 3, u8"ío") ||
 			!stricmp(word + len - 3, u8"io") || !stricmp(word + len - 2, "ma") ||
 			!stricmp(word + len - 2, "an")))
-		properties |= SPANISH_HE;
+		properties |= NOUN_HE;
 	else if (len > 3 &&
 		(!stricmp(word + len - 3, "cha") || !stricmp(word + len - 3, "bra") ||
 			!stricmp(word + len - 3, "ara") || !stricmp(word + len - 3, "dad") ||
 			!stricmp(word + len - 3, "tad") || !stricmp(word + len - 3, "tud")))
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	else if (len > 3 &&
 		(!stricmp(word + len - 3, "aje") || !stricmp(word + len - 4, "zón") ||
 			!stricmp(word + len - 3, "aro") || !stricmp(word + len - 3, "emo")))
-		properties |= SPANISH_HE;
+		properties |= NOUN_HE;
 	else if (len > 3 &&
 		!stricmp(word + len - 3, "nte"))
-		properties |= SPANISH_HE | SPANISH_SHE;
+		properties |= NOUN_HE | NOUN_SHE;
 	else if (len > 4 &&
 		(!stricmp(word + len - 4, "ecto") || !stricmp(word + len - 4, "ismo")))
-		properties |= SPANISH_HE;
+		properties |= NOUN_HE;
 	else if (len > 4 && !stricmp(word + len - 4, "ista"))
-		properties |= SPANISH_HE | SPANISH_SHE;
+		properties |= NOUN_HE | NOUN_SHE;
 	else if (len > 4 &&
 		(!stricmp(word + len - 5, u8"ción") || !stricmp(word + len - 5, u8"sión") ||
 			!stricmp(word + len - 4, "triz")))
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	else if (len > 5 && (!stricmp(word + len - 5, "umbre")))
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	else if (ending == 'r' || ending == 'o')
-		properties |= SPANISH_HE;
+		properties |= NOUN_HE;
 	else if (ending == 'a')
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	// plural of o word
 	else if (ending == 's' && end2 == 'o')
-		properties |= SPANISH_HE;
+		properties |= NOUN_HE;
 	else if (ending == 's' && end2 == 'a')
-		properties |= SPANISH_SHE;
+		properties |= NOUN_SHE;
 	else properties |= ComputeSpanishLemmaNounGender(word, canonical);
 	return properties;
 }
@@ -1534,20 +1533,20 @@ uint64 ComputeSpanishPluralNoun(char* word, WORDP D, WORDP& entry, WORDP& canoni
 		// exception, no and yo plural add es even though vowel
 		if (!stricmp(word, "noes") || !stricmp(word, "yoes"))
 		{
-			canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP); // but may not be in dict
+			canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP,true); // but may not be in dict
 			if (canonical && canonical->properties & NOUN)
 			{
-				properties = (NOUN_PLURAL | SPANISH_PLURAL);
+				properties = (NOUN_PLURAL | PLACE_NUMBER);
 				return properties;
 			}
 		}
 
 		else if (end2 == 'e' && end1 == 's' && !IsVowel(end3)) 	// add an -es to the end of words that end in consonant.
 		{
-			canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP);
+			canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP,true);
 			if (canonical && canonical->properties & NOUN)
 			{
-				properties = (NOUN_PLURAL | SPANISH_PLURAL);
+				properties = (NOUN_PLURAL | PLACE_NUMBER);
 				return properties;
 			}
 			// If a noun ends in - z, add - es and change the z to c.
@@ -1556,16 +1555,16 @@ uint64 ComputeSpanishPluralNoun(char* word, WORDP D, WORDP& entry, WORDP& canoni
 			if (end3 == 'c')
 			{
 				word[len - 3] = 'z';
-				canonical = FindWord(word, len - 3, LOWERCASE_LOOKUP);
+				canonical = FindWord(word, len - 3, LOWERCASE_LOOKUP,true);
 				if (canonical && canonical->properties & NOUN)
 				{
-					properties = (NOUN_PLURAL | SPANISH_PLURAL);
+					properties = (NOUN_PLURAL | PLACE_NUMBER);
 					return properties;
 				}
 			}
 		}
 	}
-
+	
 	sysflags = 0; // because we transiently overwrite it
 
 	// see if plural of a noun
@@ -1575,7 +1574,7 @@ uint64 ComputeSpanishPluralNoun(char* word, WORDP D, WORDP& entry, WORDP& canoni
 		strcpy(base, word);
 		base[len - 1] = 0; // drop the s
 		properties = FindSpanishSingular(word, base, entry, canonical, sysflags);
-		if (properties) properties |= (NOUN_PLURAL | SPANISH_PLURAL);
+		if (properties) properties |= (NOUN_PLURAL | PLACE_NUMBER);
 	}
 	// siple ends in e s 
 	if (word[len - 1] == 's' && word[len - 2] == 'e')  // s after normal vowel ending or after foreign imported word
@@ -1583,7 +1582,7 @@ uint64 ComputeSpanishPluralNoun(char* word, WORDP D, WORDP& entry, WORDP& canoni
 		strcpy(base, word);
 		base[len - 2] = 0; // drop the s
 		properties = FindSpanishSingular(word, base, entry, canonical, sysflags);
-		if (properties) properties |= (NOUN_PLURAL | SPANISH_PLURAL);
+		if (properties) properties |= (NOUN_PLURAL | PLACE_NUMBER);
 	}
 
 	// Singular nouns of more than one syllable which end in -en and don’t already have an accent, add one in the plural. los exámenes
@@ -1616,7 +1615,7 @@ uint64 ComputeSpanishPluralNoun(char* word, WORDP D, WORDP& entry, WORDP& canoni
 		}
 
 		properties = FindSpanishSingular(word, base, entry, canonical, sysflags);
-		if (properties)	 properties = (NOUN_PLURAL | SPANISH_PLURAL);
+		if (properties)	 properties = (NOUN_PLURAL | PLACE_NUMBER);
 	}
 
 	return properties; // SHOULD BE DETECTED
@@ -1629,7 +1628,7 @@ uint64 ComputeSpanishNoun(char* word, WORDP D, WORDP& entry, WORDP& canonical, u
 
 	uint64 pluralProperties = ComputeSpanishPluralNoun(word, D, entry, canonical, sysflags);
 	if (pluralProperties) properties |= pluralProperties;
-	else if (properties) properties |= (NOUN_SINGULAR | SPANISH_SINGULAR);
+	else if (properties) properties |= (NOUN_SINGULAR | SINGULAR_PERSON);
 
 	if (!canonical) canonical = D;
 
@@ -1643,10 +1642,7 @@ uint64 ComputeSpanishNoun(char* word, WORDP D, WORDP& entry, WORDP& canonical, u
 	// gender
 	properties |= ComputeSpanishNounGender(D, canonical); // get gender from canonical form of noun
 
-	if (properties)
-	{
-		properties |= NOUN;
-	}
+	if (properties) properties |= NOUN;
 	return properties;
 }
 
@@ -1676,18 +1672,18 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 
 	if (!stricmp(word, "gran") || !stricmp(word, "grandes"))
 	{
-		properties = SPANISH_SHE | SPANISH_HE;
+		properties = NOUN_SHE | NOUN_HE;
 		return properties;
 	}
 	if (end1 == 'a') // singular  female
 	{
 		//For adjectives that end in o, the feminine is created by changing to - a,
 		copy[len - 1] = 'o';
-		canonical = FindWord(copy, len, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len, LOWERCASE_LOOKUP,true);
 		copy[len - 1] = 'a'; // revert
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_SHE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+			properties = NOUN_SHE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 			return properties;
 		}
 	}
@@ -1695,10 +1691,10 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	{
 		//For adjectives that end in - n or -r, * the feminine is created by adding - a,
 			// habladora
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_SHE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+			properties = NOUN_SHE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 			return properties;
 		}
 	}
@@ -1709,7 +1705,7 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 		canonical = D;
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_SINGULAR | SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+			properties = SINGULAR_PERSON | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 			return properties;
 		}
 	}
@@ -1731,55 +1727,50 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 		canonical = D;
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_SHE | SPANISH_SINGULAR | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
+			properties = NOUN_HE | NOUN_SHE | SINGULAR_PERSON | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 			return properties;
 		}
 	}
 	// RULE 1 but legal plurals for above are also both genders
 	if (!stricmp(word, "rosas") || !stricmp(word, "naranjas") || !stricmp(word, "cadas") || !stricmp(word, "violetas"))
 	{
-		properties = SPANISH_HE | SPANISH_SHE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_HE | NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		copy[len - 1] = 0;
-		canonical = StoreWord(copy, AS_IS | properties);
+		canonical = MakeLanguageWord(copy);
 		return properties;
 	}
 	// RULE 3	Adjectives that end in e or -ista do not change according to gender.  do change for number.
 	if (!stricmp(word + len - 4, "ista")) // RULE 3 FORM 1 ista singular
 	{
 		// Mi profesora es muy idealista.
-		properties = SPANISH_SHE | SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_SHE | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		canonical = D;
-		if (canonical && canonical->properties & ADJECTIVE)
-		{
-			return properties;
-		}
+		if (canonical && canonical->properties & ADJECTIVE) return properties;
 	}
 	else if (!stricmp(word + len - 5, "istas")) // RULE 3 FORM 1 ista plural
 	{
 		// Mi profesora es muy idealistas.
-		properties = SPANISH_SHE | SPANISH_HE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_SHE | NOUN_HE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		copy[len - 1] = 0;
-		canonical = StoreWord(copy, AS_IS | SPANISH_SHE | SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL);
+		canonical = FindWord(copy, 0, PRIMARY_CASE_ALLOWED, true);
+		if (!canonical) canonical = MakeLanguageWord(copy);
+		properties |= NOUN_SHE | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		return properties;
 	}
 	else if (end1 == 'e' && stricmp("me", word))  // RULE 3 FORM 2 e singular and not "me"
 	{
 		// Mi abuela es interesante
-		properties = SPANISH_SHE | SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_SHE | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		canonical = D;
-		if (canonical && canonical->properties & ADJECTIVE)
-		{
-			return properties;
-		}
+		if (canonical && canonical->properties & ADJECTIVE) return properties;
 	}
 	else if (end2 == 'e' && end1 == 's')  // RULE 3 FORM 2 e plural
 	{
 		// Los árboles son verdes
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return  NOUN_HE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 
@@ -1791,96 +1782,81 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	if (!stricmp(copy + len - 6, "eriors")) // rule 4 exception 3 erior masculine plural
 	{
 		// Está en el patio exterior del edificio.
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_SHE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return NOUN_HE | NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (!stricmp(copy + len - 5, "erior")) // rule 4 exception 3 erior masculine singular
 	{
 		// Está en el patio exterior del edificio.
-		properties = SPANISH_HE | SPANISH_SHE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_HE | NOUN_SHE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		canonical = D;
-		if (canonical && canonical->properties & ADJECTIVE)
-		{
-			return properties;
-		}
+		if (canonical && canonical->properties & ADJECTIVE) return properties;
 	}
 	if (end1 != 's' && !IsVowel(end1) && (end1 != 'n' && end1 != 'r' && end1 != 'z')) // RULE 4 singular
 	{
 		// El coche es azul.
-		properties = SPANISH_SHE | SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_SHE | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		canonical = D;
-		if (canonical && canonical->properties & ADJECTIVE)
-		{
-			return properties;
-		}
+		if (canonical && canonical->properties & ADJECTIVE) return properties;
 	}
 	if (D->properties & ADJECTIVE && (end1 == 'n' || end1 == 'r')) // singular exception male
 	{
 		// hablador
-		properties = SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
+		properties = NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		canonical = D;
-		if (canonical && canonical->properties & ADJECTIVE)
-		{
-			return properties;
-		}
+		if (canonical && canonical->properties & ADJECTIVE) return properties;
 	}
-
 
 	if (!stricmp(copy + len - 3, "ora")) // rule 4 exception 1 female singular
 	{
 		// Mi hermana es trabajadora.
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties |= SPANISH_SINGULAR | SPANISH_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return properties | SINGULAR_PERSON | NOUN_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (!stricmp(copy + len - 4, "oras")) // rule 4 exception 1 female plural
 	{
 		// Mis hermanas son trabajadoras.
-		canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties |= SPANISH_PLURAL | SPANISH_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
-			AddProperty(D, properties);
-			return properties;
+			return properties |PLACE_NUMBER | NOUN_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (!strcmp(copy + len - 4, u8"óna") || !strcmp(copy + len - 4, u8"ína")) // rule 4 exception 1 female singular
 	{
 		// Paula es cabezona.
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (!canonical) // try without the accent
 		{
 			if (!strcmp(copy + len - 4, u8"óna")) strcpy(copy + len - 4, "on");
 			else strcpy(copy + len - 4, "ina");
-			canonical = FindWord(copy, 0, LOWERCASE_LOOKUP);
+			canonical = FindWord(copy, 0, LOWERCASE_LOOKUP,true);
 			strcpy(copy, word); // restore
 		}
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties |= SPANISH_SINGULAR | SPANISH_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return properties | SINGULAR_PERSON | NOUN_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (!stricmp(copy + len - 1 - 5, u8"ónas") || !stricmp(copy + len - 5, u8"ínas")) // rule 4 exception 1 female plural
 	{
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 		if (!canonical)
 		{
 			if (!strcmp(copy + len - 5, u8"ónas")) strcpy(copy + len - 5, "on");
 			else strcpy(copy + len - 5, "ina");
-			canonical = FindWord(copy, 0, LOWERCASE_LOOKUP);
+			canonical = FindWord(copy, 0, LOWERCASE_LOOKUP,true);
 			strcpy(copy, word); // restore
 		}
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties |= SPANISH_SINGULAR | SPANISH_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
+			properties |= SINGULAR_PERSON | NOUN_SHE | ADJECTIVE | ADJECTIVE_NORMAL;
 			return properties;
 		}
 	}
@@ -1888,21 +1864,19 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	{
 		// Los gatos son felices.
 		copy[len - 3] = 'z';
-		canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_SHE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return  NOUN_HE | NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (end2 == 'e' && end1 == 's' && !IsVowel(end3) && (end3 != 'n' && end3 != 'r' && end3 != 'z')) // RULE 4 exception 2 plural
 	{
 		// Los enigmas son fáciles.
-		canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP);
+		canonical = FindWord(word, len - 2, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_SHE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return NOUN_HE | NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	// RULE 2: Adjectives that end in o in the masculine singular form have four possible endings, one each for masculine, feminine, singular, and plural. 
@@ -1910,12 +1884,11 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	if (!strcmp(copy + len - 2, "os")) // RULE2 ENDING 1 male plural ending?
 	{
 		// El hombre es alto. (The man is tall.)	Los hombres son altos. (The men are tall.)
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);  // see if male singular canonical there
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);  // see if male singular canonical there
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
 			canonical = D;
-			return properties;
+			return NOUN_HE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 
@@ -1923,60 +1896,56 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	{
 		if (end3 == 'n' || end3 == 'r') // canonical ends in n or r
 		//When the masculine adjective ends in - a, there is no difference between the masculineand feminine forms.
-			canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP); // canoncal ends in n or r
+			canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP,true); // canoncal ends in n or r
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return NOUN_HE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (!strcmp(copy + len - 2, "as")) // RULE2 ENDING 2  female plural ending?
 	{
 		//When the masculine adjective ends in - a, there is no difference between the masculineand feminine forms.
-		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP); // canoncal ends in a?
+		canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true); // canoncal ends in a?
 		if (!canonical && (end3 == 'n' || end3 == 'r')) // canonical ends in n or r
 		{
-			canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP);  // see if male singular canonical there
+			canonical = FindWord(copy, len - 2, LOWERCASE_LOOKUP,true);  // see if male singular canonical there
 		}
 		if (!canonical) // otherwise ending in o?
 		{
 			// Soy delgada. (I'm thin.)  	Somos delgadas. (We're thin )  		realista	 	realistas
 			copy[len - 2] = 'o'; // change to male singular ending and look
-			canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP);
+			canonical = FindWord(copy, len - 1, LOWERCASE_LOOKUP,true);
 			copy[len - 2] = 'a'; // change back
 		}
 
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_SHE | SPANISH_PLURAL | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (end1 == 'o') // RULE2 ENDING 4 default male singular ending? already the lemma
 	{
-		canonical = FindWord(copy, len, LOWERCASE_LOOKUP);
+		canonical = FindWord(copy, len, LOWERCASE_LOOKUP,true);
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties = SPANISH_HE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL;
-			return properties;
+			return NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		}
 	}
 	if (end1 == 'a') // RULE2 ENDING 3 default female singular ending?
 	{
 		//When the masculine adjective ends in - a, there is no difference between the masculineand feminine forms.
-		canonical = FindWord(copy, len, LOWERCASE_LOOKUP); // canoncal ends in a?
+		canonical = FindWord(copy, len, LOWERCASE_LOOKUP,true); // canoncal ends in a?
 		if (!canonical)
 		{
 			//	Es un perro negro. (	It's a black dog-m.) 		Es una camisa negra. (It's a black shirt-f.)
 			copy[len - 1] = 'o'; // change to male singular ending and look
-			canonical = FindWord(copy, len, LOWERCASE_LOOKUP);
+			canonical = FindWord(copy, len, LOWERCASE_LOOKUP,true);
 			copy[len - 1] = 'a'; // change back
 		}
-		else properties = SPANISH_HE; // observe this
+		else properties = NOUN_HE; // observe this
 		if (canonical && canonical->properties & ADJECTIVE)
 		{
-			properties |= SPANISH_SHE | SPANISH_SINGULAR | ADJECTIVE | ADJECTIVE_NORMAL; // using OR intentionally
-			return properties;
+			return properties | NOUN_SHE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL; // using OR intentionally
 		}
 	}
 
@@ -2097,14 +2066,8 @@ static WORDP checkLegitimate(char* base, SpanishVerbParams params)
 	WORDP tmp_canonical{ nullptr };
 	uint64 tmp_flags{ 0 };
 
-	if (D && (D->properties & params.baseflags))
-	{
-		return D;
-	}
-	if (ImperativeSpanish(base, tmp_entry, tmp_canonical, tmp_flags))
-	{
-		return tmp_canonical;
-	}
+	if (D && (D->properties & params.baseflags)) return D;
+	if (ImperativeSpanish(base, tmp_entry, tmp_canonical, tmp_flags)) return tmp_canonical;
 	return nullptr;
 }
 
@@ -2182,14 +2145,10 @@ uint64 ComputeSpanishAdverb(int at, const char* original, WORDP& entry, WORDP& c
 	const char* mente = strstr(original, "mente");
 	if (mente && !mente[5]) // see if root is adjective
 	{
-		WORDP Q = FindWord(original, strlen(original) - 5);
+		WORDP Q = FindWord(original, strlen(original) - 5,PRIMARY_CASE_ALLOWED,true);
 		if (Q && Q->properties & ADJECTIVE)
 		{
-			if (!exportdictionary)
-			{
-				entry = StoreWord(original, AS_IS);
-				AddProperty(entry, ADVERB);
-			}
+			if (!exportdictionary) entry = FindOrMakeWord(original);
 			else entry = canonical = dictionaryBase + 1;
 			sysflags = 0;
 			properties |= ADVERB;
@@ -2337,7 +2296,8 @@ uint64 ComputeSpanishVerb(int at, const char* original, WORDP& entry, WORDP& can
 	}
 
 	tense = OtherVerbSpanish(word, entry, canonical, sysflags);
-	if (tense) {
+	if (tense) 
+	{
 		return properties | tense;
 	}
 
@@ -2353,16 +2313,16 @@ uint64 ComputeSpanishVerb(int at, const char* original, WORDP& entry, WORDP& can
 			uint64 flags = PRONOUN_OBJECT_SINGULAR;
 			if (word[len - 2] == 'm') flags |= PRONOUN_OBJECT_I;
 			else if (word[len - 2] == 't') flags |= PRONOUN_OBJECT_YOU;
-			entry = StoreWord(word, AS_IS);
-			AddSystemFlag(entry, flags);
-			return entry->properties | PRONOUN_OBJECT;
+			entry = FindWord(word, 0,PRIMARY_CASE_ALLOWED,true);
+			if (!entry) entry = MakeLanguageWord(word);
+			return properties | PRONOUN_OBJECT;
 		}
 	}
 	return properties;
 }
 
 // primary entry point from spellcheck or GetPosData
-uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+uint64 ComputeSpanish1(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
 {
 	// tt dictionary may have excess data (noun singular and plural, which is bogus)
 	// 
@@ -2371,7 +2331,8 @@ uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonic
 	sysflags = 0;
 	strcpy(word, original);
 	MakeLowerCase(word); // only nouns MIGHT really be uppercase and we dont worry about their listings in the dictionary
-	WORDP D = StoreWord(word,AS_IS); // ensure in dictionary
+	WORDP D = FindWord(word, 0,PRIMARY_CASE_ALLOWED, true);
+	if (!D) D = MakeLanguageWord(word); // ensure in dictionary
 	canonical = GetCanonical(D, D->properties);
 
 	// we need to check for pronouns because dict doesnt have them
@@ -2387,11 +2348,11 @@ uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonic
 		return D->properties;
 	}
 
-	uint64 properties = 0;
+	uint64 properties = D->properties & ADVERB; // adverb code sucks (like adverb for ahí)
 	uint64 old_sysflags;
 
 	// Note for a sentence of  a single word, there is no way to disambituate
-	old_sysflags = sysflags;
+	old_sysflags = sysflags; // inherit old sysflags
 	uint64 ans = ComputeSpanishAdjective(word, D, entry, canonical, sysflags);
 	if (!ans) sysflags = old_sysflags;
 	properties |= ans;
@@ -2428,11 +2389,34 @@ uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonic
 	if (properties)
 	{
 		entry = D;
-		AddProperty(entry, properties);
-		AddSystemFlag(entry, sysflags);
 		properties = entry->properties; // The merge of entry and our new properties
 	}
 
+	return properties;
+}
+
+uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+{ // this interface actually changes a dict entry
+
+	WORDP old = FindWord(original, 0, PRIMARY_CASE_ALLOWED, true);
+	uint64 properties = ComputeSpanish1(at, original,  entry, canonical, sysflags);
+
+	WORDP D = FindOrMakeWord(original); // find actual entry for spanish itself
+	D->properties |= properties;
+	D->systemFlags |= sysflags;
+
+	WORDP E = FindWord(original); // find appropriate entry which may be universal
+	if (E != D && E->internalBits & UNIVERSAL_WORD && old != D) // update universal (transient)
+	{
+		if (E->internalBits & UNIVERSAL_WORD)
+		{// BUG could become freed
+			WORDP* foreign = E->foreignFlags;
+			ongoingUniversalDictChanges = AllocateHeapval(HV1_WORDP | HV2_INT | HV3_INT, ongoingUniversalDictChanges, (uint64)D, (uint64)D->foreignFlags, true);
+			E->foreignFlags = (WORDP*)AllocateHeap(NULL, languageCount, sizeof(WORDP), true);
+			if (foreign) memcpy(ongoingUniversalDictChanges, E->foreignFlags, sizeof(WORDP*) * languageCount);
+			E->foreignFlags[GET_FOREIGN_INDEX(E)] = D;
+		}
+	}
 	return properties;
 }
 
@@ -2442,9 +2426,9 @@ static void ShowSpanishProperties(uint64 properties, uint64 systemFlags)
 	if (properties & VERB_INFINITIVE) printf("~verb_infinitive ");
 	if (properties & VERB_PRESENT) printf("~verb_present ");
 	if (properties & VERB_PAST) printf("~verb_past ");
-	if (properties & SPANISH_FUTURE)
+	if (properties & AUX_VERB_FUTURE)
 	{
-		printf("~spanish_future ");
+		printf("~AUX_VERB_FUTURE ");
 		printf("~verb_future ");
 	}
 	if (systemFlags & VERB_IMPERATIVE) printf("~verb_imperative ");
@@ -2476,10 +2460,10 @@ static void ShowSpanishProperties(uint64 properties, uint64 systemFlags)
 	if (properties & CONJUNCTION) printf("~conjunction ");
 	if (properties & DETERMINER) printf("~determiner ");
 
-	if (properties & SPANISH_HE) printf("~spanish_he ");
-	if (properties & SPANISH_SHE) printf("~spanish_she ");
-	if (properties & SPANISH_SINGULAR) printf("~spanish_singular ");
-	if (properties & SPANISH_PLURAL) printf("~spanish_plural ");
+	if (properties & NOUN_HE) printf("~NOUN_HE ");
+	if (properties & NOUN_SHE) printf("~NOUN_SHE ");
+	if (properties & SINGULAR_PERSON) printf("~SINGULAR_PERSON ");
+	if (properties & PLACE_NUMBER) printf("~PLACE_NUMBER ");
 	printf("\r\n");
 }
 
@@ -2489,16 +2473,14 @@ void C_ComputeSpanish(char* word)
 	uint64 sysflags = 0;
 	SetLanguage("spanish");
 	wordCount = 2; // avoid the 1 ignore restriction
-	WORDP D = StoreWord(word, AS_IS);
+	WORDP D = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
+	if (!D) D = MakeLanguageWord(word);
 	uint64 origprop = D->properties;
 	uint64 origsys = D->systemFlags;
-	uint64 properties = ComputeSpanish(1, word, entry, canonical, sysflags);
+	uint64 properties = ComputeSpanish1(1, word, entry, canonical, sysflags);
 
 	// unknown, try for shift to accented forms
-	if (!properties)
-	{
-		properties = KnownSpanishUnaccented(word, entry, sysflags);
-	}
+	if (!properties) properties = KnownSpanishUnaccented(word, entry, sysflags);
 
 	WORDP X = GetCanonical(entry, (uint64)-1);
 	if (X) canonical = X;
@@ -2522,7 +2504,7 @@ static int test_word(
 	WORDP canonical = NULL;
 	uint64 sysflags = 0;
 	SetLanguage("spanish");
-	uint64 properties = ComputeSpanish(1, word, entry, canonical, sysflags);
+	uint64 properties = ComputeSpanish1(1, word, entry, canonical, sysflags);
 	int got_difference = 0;
 	if (!canonical) {
 		printf("Error: could not find canonical\n");

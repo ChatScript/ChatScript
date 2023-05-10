@@ -13,9 +13,9 @@ static char* Describe(int i,char* buffer);
 WORDP wordTag[MAX_SENTENCE_LENGTH]; 
 char* wordCanonical[MAX_SENTENCE_LENGTH]; //   chosen canonical form
 uint64 finalPosValues[MAX_SENTENCE_LENGTH]; // needed during execution
-int phrases[MAX_SENTENCE_LENGTH]; // limit of 16 phrases in sentence
-int clauses[MAX_SENTENCE_LENGTH]; // limit of 16 clauses in sentence
-int verbals[MAX_SENTENCE_LENGTH]; // limit of 16 verbals in sentence
+unsigned int phrases[MAX_SENTENCE_LENGTH]; // limit of 16 phrases in sentence
+unsigned int clauses[MAX_SENTENCE_LENGTH]; // limit of 16 clauses in sentence
+unsigned int verbals[MAX_SENTENCE_LENGTH]; // limit of 16 verbals in sentence
 uint64 allOriginalWordBits[MAX_SENTENCE_LENGTH];	// starting pos tags in this word position -- should merge some to finalpos
 unsigned char crossReference[MAX_SENTENCE_LENGTH]; // object back to spawner,  particle back to verb
 uint64 roles[MAX_SENTENCE_LENGTH];
@@ -25,10 +25,8 @@ unsigned char complementRef[MAX_SENTENCE_LENGTH];  // link from verb to any 2nda
 
 // transient use during marking
 WORDP wordRole[MAX_SENTENCE_LENGTH];
-WORDP originalLower[MAX_SENTENCE_LENGTH]; // transient during marking
-WORDP originalUpper[MAX_SENTENCE_LENGTH]; // transient during marking
-WORDP canonicalLower[MAX_SENTENCE_LENGTH]; // transient during marking
-WORDP canonicalUpper[MAX_SENTENCE_LENGTH]; // transient during marking
+WORDP originalWordp[MAX_SENTENCE_LENGTH]; // transient during marking
+WORDP canonicalWordp[MAX_SENTENCE_LENGTH]; // transient during marking
 uint64 lcSysFlags[MAX_SENTENCE_LENGTH];      // transient current system tags lowercase in this word position (there are no interesting uppercase flags)
 uint64 posValues[MAX_SENTENCE_LENGTH];			// current pos tags in this word position
 uint64 canSysFlags[MAX_SENTENCE_LENGTH];		// canonical sys flags lowercase in this word position 
@@ -37,9 +35,9 @@ static unsigned char wasDescribed[256];
 static unsigned char describeVerbal[100];
 static unsigned char describePhrase[100];
 static unsigned char describeClause[100];
-static int describedVerbals;
-static int describedPhrases;
-static int describedClauses;
+static unsigned int describedVerbals;
+static unsigned int describedPhrases;
+static unsigned int describedClauses;
 
 // dynamic cumulative data across assignroles calls
 unsigned char ignoreWord[MAX_SENTENCE_LENGTH];
@@ -103,15 +101,15 @@ char* GetNounPhrase(int i,const char* avoid)
 		if (posValues[start] & COMMA && !(posValues[start-1] & ADJECTIVE_BITS)) break; // NOT like:  the big, red, tall human
 		if (posValues[start] & CONJUNCTION_COORDINATE)
 		{
-			if ( canonicalLower[start] && strcmp(canonicalLower[start]->word,(char*)"and") && strcmp(canonicalLower[start]->word, (char*)"&")) break;	// not "and"
+			if ( canonicalWordp[start] && strcmp(canonicalWordp[start]->word,(char*)"and") && strcmp(canonicalWordp[start]->word, (char*)"&")) break;	// not "and"
 			if (!(posValues[start-1] & (ADJECTIVE_BITS|COMMA))) break;	// NOT like:  the big, red, and very tall human
 			if (posValues[start-1] & COMMA && !(posValues[start-2] & ADJECTIVE_BITS)) break;	// NOT like:  the big, red, and very tall human
 		}
 		if (posValues[start] & NOUN_GERUND) break; 
 		if (posValues[start] & ADVERB && !(posValues[start+1] & ADJECTIVE_BITS)) break;
 
-		WORDP canon = canonicalLower[start];
-		WORDP orig = originalLower[start];
+		WORDP canon = canonicalWordp[start];
+		WORDP orig = originalWordp[start];
 		if (orig && (!strcmp((char*)"here",orig->word) || !strcmp((char*)"there",orig->word))) break;
 		//if (orig && (!strcmp((char*)"this",orig->word) || !strcmp((char*)"that",orig->word) || !strcmp((char*)"these",orig->word) || !strcmp((char*)"those",orig->word))) break;
 		if (canon && canon->properties & PRONOUN_BITS && !strcmp(canon->word,avoid)) break; // avoid recursive pronoun expansions... like "their teeth"
@@ -146,11 +144,11 @@ static char* Describe(int i,char* buffer)
 		return buffer; // protect against infinite xref loops
 	wasDescribed[i] = 1;
 	// before
-	int currentPhrase = phrases[i] & (-1 ^ phrases[i-1]); // only the new bit
+	unsigned int currentPhrase = phrases[i] & (-1 ^ phrases[i-1]); // only the new bit
 	if (!currentPhrase) currentPhrase = phrases[i];
-	int currentVerbal = verbals[i] & (-1 ^ verbals[i-1]); // only the new bit
+	unsigned int currentVerbal = verbals[i] & (-1 ^ verbals[i-1]); // only the new bit
 	if (!currentVerbal) currentVerbal = verbals[i];
-	int currentClause = clauses[i] & (-1 ^ clauses[i-1]); // only the new bit
+	unsigned int currentClause = clauses[i] & (-1 ^ clauses[i-1]); // only the new bit
 	if (!currentClause) currentClause = clauses[i];
 	bool found = false;
 	char word[MAX_WORD_SIZE];
@@ -169,7 +167,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedPhrases;
 			describePhrase[describedPhrases] = (unsigned char)j;
-			sprintf(word,(char*)"p%d",describedPhrases);
+			sprintf(word,(char*)"p%u",describedPhrases);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -180,7 +178,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedVerbals;
 			describeVerbal[describedVerbals] =  (unsigned char)j;
-			sprintf(word,(char*)"v%d",describedVerbals);
+			sprintf(word,(char*)"v%u",describedVerbals);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -191,7 +189,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedClauses;
 			describeClause[describedClauses] =  (unsigned char)j;
-			sprintf(word,(char*)"c%d",describedClauses);
+			sprintf(word,(char*)"c%u",describedClauses);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -219,7 +217,7 @@ static char* Describe(int i,char* buffer)
 	if (*wordStarts[i] == '"') strcat(buffer,(char*)"...\""); // show omitted quotation
 
 	// after
-	for (int j = i+1; j <= wordCount; ++j) // find things after
+	for (unsigned int j = i+1; j <= wordCount; ++j) // find things after
 	{
 		if (ignoreWord[j]) continue;
 		if (crossReference[j] == i && posValues[j] & PARTICLE)
@@ -234,7 +232,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedPhrases;
 			describePhrase[describedPhrases] =  (unsigned char)j;
-			sprintf(word,(char*)"p%d",describedPhrases);
+			sprintf(word,(char*)"p%u",describedPhrases);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -245,7 +243,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedVerbals;
 			describeVerbal[describedVerbals] =  (unsigned char)j;
-			sprintf(word,(char*)"v%d",describedVerbals);
+			sprintf(word,(char*)"v%u",describedVerbals);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -256,7 +254,7 @@ static char* Describe(int i,char* buffer)
 			found = true;
 			++describedClauses;
 			describeClause[describedClauses] =  (unsigned char)j;
-			sprintf(word,(char*)"c%d",describedClauses);
+			sprintf(word,(char*)"c%u",describedClauses);
 			strcat(buffer,word);
 			strcat(buffer,(char*)" ");
 		}
@@ -295,7 +293,7 @@ static char* Describe(int i,char* buffer)
 	return buffer;
 }
 
-static void DescribeUnit( int i, char* buffer, char* msg,int verbal, int clause)
+static void DescribeUnit( int i, char* buffer, char* msg,unsigned int verbal, unsigned int clause)
 {
 	char word[MAX_WORD_SIZE];
 	if (i) // adjective object or causal infinitive
@@ -305,14 +303,14 @@ static void DescribeUnit( int i, char* buffer, char* msg,int verbal, int clause)
 		{
 			++describedVerbals;
 			describeVerbal[describedVerbals] =  (unsigned char)i;
-			sprintf(word,(char*)"v%d",describedVerbals);
+			sprintf(word,(char*)"v%u",describedVerbals);
 			strcat(buffer,word);
 		}
 		else if (clauses[i] != clause)
 		{
 			++describedClauses;
 			describeClause[describedClauses] =  (unsigned char)i;
-			sprintf(word,(char*)"c%d",describedClauses);
+			sprintf(word,(char*)"c%u",describedClauses);
 			strcat(buffer,word);
 		}
 		else Describe(i,buffer);
@@ -320,12 +318,12 @@ static void DescribeUnit( int i, char* buffer, char* msg,int verbal, int clause)
 	}
 }
 
-void DumpSentence(int start,int end)
+void DumpSentence(unsigned int start, unsigned int end)
 {
 #ifndef DISCARDPARSER
-	int to = end;
+	unsigned int to = end;
 	int subject = 0, verb = 0, indirectobject = 0, object = 0,complement = 0;
-	int i;
+	unsigned int i;
 	bool notFound = false;
 	char word[MAX_WORD_SIZE];
 	describedVerbals = 0;
@@ -410,19 +408,19 @@ void DumpSentence(int start,int end)
 	strcat(buffer,(char*)"\n");
 	for (i = 1; i <= describedPhrases; ++i)
 	{
-		sprintf(word,(char*)"Phrase %d :",i);
+		sprintf(word,(char*)"Phrase %u :",i);
 		strcat(buffer,word);
 		Describe(describePhrase[i],buffer);
 		strcat(buffer,(char*)"\n");
 	}
 	for (i = 1; i <= describedVerbals; ++i)
 	{
-		sprintf(word,(char*)"Verbal %d: (",i);
+		sprintf(word,(char*)"Verbal %u: (",i);
 		strcat(buffer,word);
 		int verbal = describeVerbal[i]; 
 		int verbalid = verbals[verbal] & (-1 ^ verbals[verbal-1]);
 		if (!verbalid) verbalid = verbals[verbal];
-		for (int j = i; j <= endSentence; ++j)
+		for (unsigned int j = i; j <= endSentence; ++j)
 		{
 			if (!(verbals[j] & verbalid)) continue;
 			if (roles[j] & VERB2) 
@@ -443,12 +441,12 @@ void DumpSentence(int start,int end)
 	}
 	for (i = 1; i <= describedClauses; ++i)
 	{
-		sprintf(word,(char*)"Clause %d %s : ",i,wordStarts[describeClause[i]]);
+		sprintf(word,(char*)"Clause %u %s : ",i,wordStarts[describeClause[i]]);
 		strcat(buffer,word);
 		int clause = describeClause[i];
 		int clauseid = clauses[clause] & (-1 ^ clauses[clause-1]);
 		if (!clauseid) clauseid = clauses[clause];
-		for (int j = i; j <= endSentence; ++j)
+		for (unsigned int j = i; j <= endSentence; ++j)
 		{
 			if (!(clauses[j] & clauseid)) continue;
 			if (roles[j] & SUBJECT2)  

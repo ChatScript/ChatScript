@@ -159,7 +159,7 @@ concept: ~coronavirus (コロナウイルス  covid-19 )
 # -- concept: ~age_words (age day millennium month old week year young ) 
 	concept: ~age_words (年齢  日  千年紀  月  古い  週  年  若い  )
 # -- concept: ~aged_adults (~adult adult centenarian eightysomething fiftysomething fortysomething grandmother grandparent grownup legal mature ninetysomething old_enough quadragenarian 
-	concept: ~aged_adults (~adult 大人  百寿者  80代  50代  40代  お婆さん  祖父母  大人  合法  熟れる  九十代  十分に古い  四元論  
+	concept: ~aged_adults (  百寿者  80代  50代  40代  お婆さん  祖父母  大人  合法  熟れる  九十代  十分に古い  四元論  
 # --           senior senior_citizen septuagenarian seventysomething sexagenarian sixtysomething thirtysomething twentysomething ) 
           年上  高齢者  セプトゥアゲナリアン  七十代  セクサゲナリアン  60代  30代  20代  )
 # -- concept: ~aged_children (baby boy child girl infant kid teen teen-ager teenager toddler young ) 

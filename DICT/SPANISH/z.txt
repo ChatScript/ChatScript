@@ -1,246 +1,127 @@
-﻿ zzzzzzDzKzz, ( ) 
-
- zambullirse ( ) 
-
- ztil ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- ZSO ( ) lemma=ZS0 
-
+﻿﻿
  ZS0 ( ) 
-
- Zacatecas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zaire ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zambia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zambrano ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zamcheck ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zamora ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zanzíbar ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zapata ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zaragoza ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zea ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zedillo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zelanda ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Ziehl-Neelsen ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zihuatanejo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zimbabwe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zollverein ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zondek ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zorita ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zorrilla ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zterm ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zuidema ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zulema ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Zulia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- zacatecana ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zacatecano 
-
- zacatecano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zacatecano 
-
+ ZSO ( ) lemma=`ZS0` ACRNM  
+ Zacatecas ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zaire ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zambrano ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zamcheck ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zamora ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zanzíbar ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zapata ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zaragoza ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zea ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zedillo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zelanda ( NOUN NOUN_PROPER_SINGULAR ) 
+ Ziehl-Neelsen ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zihuatanejo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zimbabwe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zollverein ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zondek ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zorita ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zorrilla ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zterm ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zuidema ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zulema ( NOUN NOUN_PROPER_SINGULAR ) 
+ Zulia ( NOUN NOUN_PROPER_SINGULAR ) 
+ z ( ) 
+ zacatecana ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zacatecano`zacatecano` ADJ  NC  
+ zacatecano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zacatecano`zacatecano` ADJ  NC  
  zafiro-titanio ( NOUN NOUN_SINGULAR ) 
-
  zaga ( NOUN NOUN_SINGULAR ) 
-
- zaguero ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zaguero 
-
+ zaguero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zaguero`zaguero` ADJ  NC  
  zaguán ( NOUN NOUN_SINGULAR ) 
-
  zaino ( NOUN NOUN_SINGULAR ) 
-
- zambos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=zambo 
-
- zambo ( ) 
-
- zamorano ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zamorano 
-
- zampando ( NOUN NOUN_GERUND ) lemma=zampar 
-
- zampar ( VERB_INFINITIVE VERB ) 
-
+ zambos ( ADJECTIVE ) lemma=`zambo` ADJ  
+ zamorano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zamorano`zamorano` ADJ  NC  
+ zampando ( NOUN NOUN_GERUND ) lemma=`zampar` VLger  
+ zampar ( VERB ) 
  zanahoria ( NOUN NOUN_SINGULAR ) 
-
+ zanahorias ( NOUN NOUN_PLURAL ) lemma=`zanahoria` NC  
  zancada ( NOUN NOUN_SINGULAR ) 
-
  zancadilla ( NOUN NOUN_SINGULAR ) 
-
+ zancadillas ( NOUN NOUN_PLURAL ) lemma=`zancadilla` NC  
  zanco ( NOUN NOUN_SINGULAR ) 
-
- zanjar ( VERB_INFINITIVE VERB ) 
-
- zanjada ( VERB_PAST_PARTICIPLE VERB ) lemma=zanjar 
-
- zanjadas ( VERB_PAST_PARTICIPLE VERB ) lemma=zanjar 
-
- zanjas ( NOUN VERB NOUN_SINGULAR ) lemma=`zanja`zanjar` NC  VLfin 
-
- zanjen ( VERB ) lemma=zanjar 
-
+ zanja ( VERB ) lemma=`zanjar` VLfin  
+ zanjaba ( VERB ) lemma=`zanjar` VLfin  
+ zanjada ( VERB_PAST_PARTICIPLE VERB ) lemma=`zanjar` VLadj  
+ zanjadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`zanjar` VLadj  
+ zanjado ( VERB_PAST_PARTICIPLE VERB ) lemma=`zanjar` VLadj  
+ zanjan ( VERB ) lemma=`zanjar` VLfin  
+ zanjar ( VERB ) 
+ zanjas ( NOUN VERB NOUN_PLURAL ) lemma=`zanja`zanjar` NC  VLfin  
+ zanje ( VERB ) lemma=`zanjar` VLfin  
+ zanjen ( VERB ) lemma=`zanjar` VLfin  
+ zanjó ( VERB ) lemma=`zanjar` VLfin  
  zapata ( NOUN NOUN_SINGULAR ) 
-
- zapateaba ( VERB ) lemma=zapatear 
-
- zapatear ( ) 
-
+ zapateaba ( VERB ) lemma=`zapatear` VLfin  
  zapatero ( NOUN NOUN_SINGULAR ) 
-
  zapatería ( NOUN NOUN_SINGULAR ) 
-
  zapatilla ( NOUN NOUN_SINGULAR ) 
-
- zapatista ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- zapatistas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=zapatista 
-
+ zapatillas ( NOUN NOUN_PLURAL ) lemma=`zapatilla` NC  
+ zapatista ( ADJECTIVE ) 
+ zapatistas ( ADJECTIVE ) lemma=`zapatista` ADJ  
  zapato ( NOUN NOUN_SINGULAR ) 
-
+ zapatos ( NOUN NOUN_PLURAL ) lemma=`zapato` NC  
  zar ( NOUN NOUN_SINGULAR ) 
-
  zarcero ( NOUN NOUN_SINGULAR ) 
-
- zarpar ( VERB_INFINITIVE VERB ) 
-
- zarpen ( VERB ) lemma=zarpar 
-
+ zares ( NOUN NOUN_PLURAL ) lemma=`zar` NC  
+ zarpado ( VERB_PAST_PARTICIPLE VERB ) lemma=`zarpar` VLadj  
+ zarpan ( VERB ) lemma=`zarpar` VLfin  
+ zarpar ( VERB ) 
+ zarparán ( VERB ) lemma=`zarpar` VLfin  
+ zarpen ( VERB ) lemma=`zarpar` VLfin  
+ zarpó ( VERB ) lemma=`zarpar` VLfin  
  zarza ( NOUN NOUN_SINGULAR ) 
-
  zarzamora ( NOUN NOUN_SINGULAR ) 
-
  zarzuela ( NOUN NOUN_SINGULAR ) 
-
- zas ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- zeolitas ( NOUN  NOUN_PLURAL  ) lemma=zeolita 
-
- zeolita ( ) 
-
- zig-zag ( NOUN  NOUN_PLURAL  ) lemma=zig 
-
- zig ( ) 
-
+ zarzuelas ( NOUN NOUN_PLURAL ) lemma=`zarzuela` NC  
+ zas ( NOUN NOUN_PROPER_SINGULAR ) 
+ zeolitas ( NOUN NOUN_PLURAL ) lemma=`zeolita` NC  
+ zero ( ) 
+ zig-zag ( NOUN NOUN_PLURAL ) lemma=`zig` NC  
  zigomicosis ( NOUN NOUN_SINGULAR ) 
-
  zinc ( NOUN NOUN_SINGULAR ) 
-
  zodiaco ( NOUN NOUN_SINGULAR ) 
-
  zodíaco ( NOUN NOUN_SINGULAR ) 
-
  zona ( NOUN NOUN_SINGULAR ) 
-
- zonal ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ zonal ( ADJECTIVE ) 
+ zonas ( NOUN NOUN_PLURAL ) lemma=`zona` NC  
+ zone ( ) 
  zoo ( NOUN NOUN_SINGULAR ) 
-
- zooide ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ zooide ( ADJECTIVE ) 
  zoología ( NOUN NOUN_SINGULAR ) 
-
- zoológico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zoológico 
-
- zoológicos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zoológico 
-
+ zoológico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zoológico`zoológico` ADJ  NC  
+ zoológicos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zoológico`zoológico` ADJ  NC  
  zoonosis ( NOUN NOUN_SINGULAR ) 
-
  zooplancton ( NOUN NOUN_SINGULAR ) 
-
- zooplanctónico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- zoosanitario ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- zootécnico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- zorra ( NOUN  NOUN_PLURAL  ) lemma=zorro 
-
+ zooplanctónico ( ADJECTIVE ) 
+ zoos ( NOUN NOUN_PLURAL ) lemma=`zoo` NC  
+ zoosanitario ( ADJECTIVE ) 
+ zootécnico ( ADJECTIVE ) 
+ zorra ( NOUN NOUN_PLURAL ) lemma=`zorro` NC  
+ zorras ( NOUN NOUN_PLURAL ) lemma=`zorro` NC  
  zorro ( NOUN NOUN_SINGULAR ) 
-
- zorras ( NOUN  NOUN_PLURAL  ) lemma=zorro 
-
+ zorros ( NOUN NOUN_PLURAL ) lemma=`zorro` NC  
  zoster ( NOUN NOUN_SINGULAR ) 
-
- zozobrar ( VERB_INFINITIVE VERB ) 
-
- zulú ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zulú 
-
- zulúes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zulú 
-
- zumaque ( VERB ) lemma=zumacar 
-
- zumacar ( ) 
-
- zumaques ( VERB ) lemma=zumacar 
-
+ zozobra ( VERB ) lemma=`zozobrar` VLfin  
+ zozobrar ( VERB ) 
+ zozobras ( VERB ) lemma=`zozobrar` VLfin  
+ zozobró ( VERB ) lemma=`zozobrar` VLfin  
+ zulú ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zulú`zulú` ADJ  NC  
+ zulúes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zulú`zulú` ADJ  NC  
+ zumaque ( VERB ) lemma=`zumacar` VLfin  
+ zumaques ( VERB ) lemma=`zumacar` VLfin  
  zumbido ( NOUN NOUN_SINGULAR ) 
-
  zumo ( NOUN NOUN_SINGULAR ) 
-
- zurcir ( VERB_INFINITIVE VERB ) 
-
- zurda ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zurdo 
-
- zurdo ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zurdo 
-
+ zumos ( NOUN NOUN_PLURAL ) lemma=`zumo` NC  
+ zurcir ( VERB ) 
+ zurda ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zurdo`zurdo` ADJ  NC  
  zurdería ( NOUN NOUN_SINGULAR ) 
-
- zurdos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=zurdo 
-
- zurra ( VERB ) lemma=zurrar 
-
- zurrar ( ) 
-
- zurró ( VERB ) lemma=zurrar 
-
- zurzan ( VERB ) lemma=zurcir 
-
+ zurdo ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zurdo`zurdo` ADJ  NC  
+ zurdos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`zurdo`zurdo` ADJ  NC  
+ zurra ( VERB ) lemma=`zurrar` VLfin  
+ zurró ( VERB ) lemma=`zurrar` VLfin  
+ zurzan ( VERB ) lemma=`zurcir` VLfin  
  zócalo ( NOUN NOUN_SINGULAR ) 
-
- zngel ( ) 
-
- zrbol ( ) 
-
- zspero ( ) 
-
- zulico ( ) 
-
- zl ( PRONOUN_SUBJECT ) 
-
- zpoca ( ) 
-
- zdolo ( ) 
-
- zntimo ( ) 
-
- zrgano ( ) 
-
- zzzzzDzKzz, ( ) 
-
- zambulléndose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=zambullirse 
-
- zambullido ( NOUN VERB NOUN_GERUND ) lemma=zambullirse 
-
- zambúllete ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=zambullirse 
-
- zambúllase ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=zambullirse 
-
- zambúllanse ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=zambullirse 
-
+ zócalos ( NOUN NOUN_PLURAL ) lemma=`zócalo` NC  

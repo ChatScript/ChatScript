@@ -420,7 +420,10 @@ must occur last, after all topic and function traces.
 ### `:trace factcreate subject verb object`
 subject, verb, and object name values of those fields. You can use null when you don't want to name a value. 
 This trace will show whenever facts matching this template are created.
-You can insert a trace command in the data of a table declaration, to trace a table being
+
+### `Tracing tables`
+
+You can insert a trace command (eg :trace all or :trace none) in the data of a table declaration, to trace a table being
 built (the log file will be from the build in progress). E.g.,
 
 ```
@@ -433,6 +436,7 @@ DATA:
 Utah Salt_lake_city
 :trace none
 ```
+### `Tracing compiling of files`
 
 You can insert a trace in the list of files to process for a build. From files1.txt
 
@@ -440,6 +444,8 @@ You can insert a trace in the list of files to process for a build. From files1.
     :trace all
     RAWDATA/simpletopic.top # things we can chat about
     :trace none
+
+### `Tracing compiling of a topic`
 
 And you can insert a trace in the list of commands of a topic file:
 
@@ -465,6 +471,11 @@ E.g, at the login type:
     john:trace
 
 This will turn on all tracing.
+
+### `Tracing ^readfile`
+You can do :trace all and :trace none as lines of a file being read in via ^readfile.
+
+### `Tracing specific things`
 
 `:trace` also has individual collections and items it can trace. If you just say :trace you get a listing of things.
 
@@ -909,9 +920,19 @@ chief_executive_officer
 Dancing_and_singing_are_my_idea_of_exercise.
 ```
 
+### `:respondonly filename`
+Take serverlog named and replicate in tmp but without serverpre or separator lines.
+
+### `:splitfile filename`
+Reads a really large file, line by line. The filename omits the .txt which is assumed.
+Writes new files limited to 20MB in tmp of the same name,
+with a number index before the suffix .txt.
+
 ### `:overlap set1 set2`
 This tests atomic members of set1 to see if they are also in set2, printing out the ones that are in both.
 
+### `:dumpcache`
+This dumps data about files currently cached by server.
 
 ## System Control Commands
 

@@ -1,0 +1,124 @@
+﻿USERS/topic_d_rose.txt
+jul2116 Mar11'23-14:02:40-1678543360428 Mar11'23-14:04:46-1678543486104 0 |
+1 9 0 DY 0 408 408 0 # start, input#, no rejoinder, #0topics, #1topics, layer2
+~aerial_sport ~honest1 #pending
+~aerial_sport + 1 @9xS2 ma 7 0 0 
+~hello + 2 dGJ^7 caaa 0 0 0 
+~honest1 + 3 %$Gl2 aaaaca 8 0 0 
+#`end topics
+$cs_language=ENGLISH
+$cs_jid=0
+$lasttransition=15
+$lastquibble=8
+$lastquestion=what_is_appropriate
+$lastuserinput=what_is_appropriate
+$inittimers=1
+$prior1said=You won't catch me skydiving.Jumping from a plane and hoping your chute opens doesn't appeal to me.
+$time=1678543486
+$priorutter=The adjective appropriate means suitable for a particular person or place or condition etc. The verb appropriate means give or assign a resource to a particular person or cause.
+$whatsaid=The adjective appropriate means suitable for a particular person or place or condition etc. The verb appropriate means give or assign a resource to a particular person or cause.
+$begintime=1678543440
+$olduser=1
+$repeatstart=11
+$cs_botid=1
+$here=\"San Francisco\"
+$youlastname=Flynn-Bell
+$cs_userfactlimit=3000
+$cs_wildcardseparator=_
+$lastyes=0
+$cs_utcoffset=-8
+$lastno=0
+$avoidchat=500
+$cs_prepass=~xfixsentence
+$stdtoken=31743
+$cs_token=31743
+$cs_control_post=~xpostprocess
+$cs_control_main=~main_control
+$cs_control_pre=~pre_control
+$cs_login=d
+$cs_bot=Rose
+$cs_randindex=1545
+$cs_trace=0
+$cs_time=0
+$priorsaid=I'd love to really dig down deep into all my thoughts about that, but it's really not appropriate right now.
+$priorwhen=9
+$askedus=2
+#`end variables
+800 #set flags
+#set 11
+( ~xpraise ^keywordtopics 21 x01000010 1 )
+( ~shopping ^keywordtopics 21 x01000010 1 )
+#end set
+#`end fact sets
+( 393731 theycommon means x00000000 1 )
+( ( 393731 theycommon means x00000000 1 ) pronounreference 0 x00000080 1 )
+( 459524 itcommon plane x00000000 1 )
+( ( 459524 itcommon plane x00000000 1 ) pronounreference 0 x00000080 1 )
+( 459528 itcommon `your chute` x00000000 1 )
+( ( 459528 itcommon `your chute` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 459524 itvehicle plane x00000000 1 )
+( ( 459524 itvehicle plane x00000000 1 ) pronounreference 0 x00000080 1 )
+( 524822 itcommon right x00000000 1 )
+( ( 524822 itcommon right x00000000 1 ) pronounreference 0 x00000080 1 )
+( 524812 theycommon `your thoughts` x00000000 1 )
+( ( 524812 theycommon `your thoughts` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 524801 theycommon `I and it` x00000000 1 )
+( ( 524801 theycommon `I and it` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 524806 theycommon `dig and right` x00000000 1 )
+( ( 524806 theycommon `dig and right` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590345 itcommon person x00000000 1 )
+( ( 590345 itcommon person x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590347 itcommon place x00000000 1 )
+( ( 590347 itcommon place x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590349 itcommon condition x00000000 1 )
+( ( 590349 itcommon condition x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590352 itcommon verb x00000000 1 )
+( ( 590352 itcommon verb x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590359 itcommon resource x00000000 1 )
+( ( 590359 itcommon resource x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590363 itcommon person x00000000 1 )
+( ( 590363 itcommon person x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590365 itcommon cause x00000000 1 )
+( ( 590365 itcommon cause x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590354 theycommon means x00000000 1 )
+( ( 590354 theycommon means x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590345 theycommon `person and place` x00000000 1 )
+( ( 590345 theycommon `person and place` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590347 theycommon `place and condition` x00000000 1 )
+( ( 590347 theycommon `place and condition` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590349 theycommon `condition and verb` x00000000 1 )
+( ( 590349 theycommon `condition and verb` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590354 theycommon `means and resource` x00000000 1 )
+( ( 590354 theycommon `means and resource` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590347 itbuilding place x00000000 1 )
+( ( 590347 itbuilding place x00000000 1 ) pronounreference 0 x00000080 1 )
+( 590347 therecommon place x00000000 1 )
+( ( 590347 therecommon place x00000000 1 ) pronounreference 0 x00000080 1 )
+#`end user facts 44
+#context ~xdefinition 9 DEFINEIT ~aerial_sport 7 PARACHUTE ~xquibble_not 6 NOTBAD 
+ what is your name
+ where do you live
+ where is that
+ cool
+ 
+ not bad
+ yes
+ why not
+ what is appropriate
+#`end user
+ Good morning.
+ That was quick. Just a bathroom break?
+ My name is Rose.
+ In a house in San Francisco.
+ 
+ Nearby.
+ 
+ Great.
+ So...
+ I tried hang gliding once. Never went more than 10 feet off the ground down a slope. That's the closest I've come to piloting.
+ 
+ Not bad means it's good, right?
+ You won't catch me skydiving. Jumping from a plane and hoping your chute opens doesn't appeal to me.
+ I'd love to really dig down deep into all my thoughts about that, but it's really not appropriate right now.
+ The adjective appropriate means suitable for a particular person or place or condition etc. The verb appropriate means give or assign a resource to a particular person or cause.
+#`end chatbot

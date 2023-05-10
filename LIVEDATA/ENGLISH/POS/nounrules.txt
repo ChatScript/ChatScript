@@ -35,6 +35,15 @@
 #	STAY START
 # KEEP
 
+# dual noun dual verb after noun, with particle  - psych (Noun_singular)  ward (+Noun_singular Verb_infinitive)  show (Noun_singular +Verb_infinitive +Verb_present)  up (Verb_infinitive Verb_present Particle Adverb)
+ -1 IS NOUN_SINGULAR
+	INCLUDE *  NOUN_BITS 
+	STAY HAS VERB_BITS
+	HAS NOUN_BITS
+	STAY HAS VERB_BITS
+	HAS PARTICLE
+KEEP
+
 # possession after noun is adjective-noun  "day's work" unless proper name
 0 INCLUDE * ADJECTIVE_NOUN
 	STAY !IS NOUN_PROPER_SINGULAR
@@ -133,9 +142,10 @@ DISCARD
 DISCARD  
 
 # in conflict between noun/adverb starting sentence, if noun requires determiner wont be noun "*meanwhile, I went home"
- 0	INCLUDE * NOUN_SINGULAR
+0	INCLUDE * NOUN_SINGULAR
 	STAY START
 	STAY HAS ADVERB
+	STAY !HASPROPERTY NOUN_NODETERMINER 
 	STAY !ISABSTRACT
 DISCARD
 
@@ -175,6 +185,7 @@ DISCARD
 0	INCLUDE * NOUN_GERUND
 	STAY HAS ADJECTIVE_PARTICIPLE
 	IS NOUN_BITS
+	STAY !HASPROPERTY NOUN_NODETERMINER 
 	STAY !ISABSTRACT # nouns not needing determiners might be following a gerund
  DISCARD
 
@@ -214,10 +225,11 @@ KEEP # but wrong for "they speak of many things"  see above
 DISCARD
 
 # at start wont be noun singular if needs determination and could be infinitive verb - "look at me" unless possible noun follows "garden rakes are good" - assuming no other verbs lie about "Bear had to eat a lot"
-0	INCLUDE * NOUN_SINGULAR
+ 0	INCLUDE * NOUN_SINGULAR
 	STAY START
 	STAY POSSIBLEINFINITIVE
-	STAY !HASPROPERTY NOUN_NODETERMINER
+	STAY !HASPROPERTY NOUN_NODETERMINER 
+	STAY !ISABSTRACT
 	STAY !POSTPOS AUX_VERB VERB_BITS - VERB_INFINITIVE
 	!HAS NORMAL_NOUN_BITS
 DISCARD
@@ -336,6 +348,7 @@ DISCARD
 0	INCLUDE * NOUN_SINGULAR
 	STAY START
 	STAY !HASPROPERTY NOUN_NODETERMINER
+	STAY !ISABSTRACT
 	STAY HAS ADVERB ADJECTIVE_BITS
 DISCARD
 
@@ -846,7 +859,8 @@ KEEP
 
 # a gerund potential after abstract-noun be   will be the gerund rather than the action participle "my love is *swimming" - but not "I am being taken"
 -2	IS NOUN_BITS
-	STAY ISABSTRACT
+	STAY !HASPROPERTY NOUN_NODETERMINER 
+	STAY !ISABSTRACT
 	ISCANONICAL be
 	STAY !ISORIGINAL been
 	STAY !ISORIGINAL being

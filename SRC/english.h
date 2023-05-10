@@ -1,7 +1,7 @@
 #ifndef ENGLISH_H
 #define ENGLISH_H
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -19,8 +19,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 void InitTreeTagger(char* params);
 void MarkChunk();
 void TreeTagger();
-bool MatchTag(char* tag,int i);
-char* GetTag(int i);
+bool MatchTag(char* tag,unsigned int i);
+char* GetTag(unsigned int i);
 extern bool treetaggerfail;
 #endif
 
@@ -40,12 +40,12 @@ extern int nWordForms;
 extern WORDP wordForms[50];
 extern WORDP negateWordForms[50];
 extern int nNegateWordForms;
-extern int usedWordIndex;
+extern unsigned int usedWordIndex;
 extern uint64 usedType;
 void ShowForm(char* word);
 void DecodeTag(char* buffer, uint64 type, uint64 tie,uint64 originalbits);
 bool IsDate(char* original);
-uint64 GetPosData( int at, char* original,WORDP &revise,WORDP &entry,WORDP &canonical,uint64 &sysflags,uint64 &cansysflags, bool firstTry = true,bool nogenerate = false,int start = 0);
+uint64 GetPosData(unsigned  int at, char* original,WORDP &revise,WORDP &entry,WORDP &canonical,uint64 &sysflags,uint64 &cansysflags, bool firstTry = true,bool nogenerate = false, unsigned int start = 0);
 char* GetAdjectiveBase(char* word,bool nonew);
 char* GetAdverbBase(char* word,bool nonew);
 char* GetPastTense(char* word);
@@ -61,12 +61,12 @@ char* GetAdjectiveMore(char* word);
 char* GetAdjectiveMost(char* word);
 char* GetAdverbMore(char* word);
 char* GetAdverbMost(char* word);
-void SetSentenceTense(int start, int end);
+void SetSentenceTense(unsigned int start,unsigned  int end);
 WORDP SuffixAdjust(char* word, int lenword, char* suffix, int lensuffix,uint64 bits = 0);
 uint64 ProbableAdjective(char* original, unsigned int len,uint64& expectedBase);
 uint64 ProbableAdverb(char* original, unsigned int len,uint64& expectedBase);
 uint64 ProbableNoun(char* original,unsigned int len);
 uint64 ProbableVerb(char* original,unsigned int len);
-bool IsDeterminedNoun(int i,int& det);
+bool IsDeterminedNoun(unsigned int i,unsigned int& det);
 
 #endif

@@ -61,7 +61,7 @@ debugserver: INCLUDEDIRS=-Ievserver
 debugserver: binary
 debugserver: EXECUTABLE=$(executable.debugserver)
 debugserver: CFLAGS=-c -std=c++11 -Wall -funsigned-char  $(QUIET_WARNINGS) -g $(RDYNAMIC)
-debugserver: LDFLAGS+=$(ODBCLIB) $(LIBMECAB) $(LIBTREETAGGER)
+debugserver: LDFLAGS+=$(LIBMECAB) $(LIBTREETAGGER)
 
 executable.standalone=../BINARIES/ChatScript
 standalone: DEFINES+=  -DDISCARDSERVER=1 -DDISCARDPOSTGRES=1 -DDISCARDMONGO=1 -DDISCARDMYSQL=1 -DDISCARDMICROSOFTSQL=1  -DDISCARD_TEXT_COMPRESSION=1

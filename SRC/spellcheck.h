@@ -2,7 +2,7 @@
 #define SPELLCHECK_H
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -29,7 +29,7 @@ extern MEANING lengthLists[100];
 int SplitWord(char* word,int i);
 bool SpellCheckSentence();
 int EditDistance(WORDINFO& dictWordData, WORDINFO& realWordData,int min);
-char* SpellFix(char* word,int position,uint64 posflags);
+char* SpellFix(char* word, unsigned int position,uint64 posflags);
 void InitSpellCheck();
 void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choices, unsigned int& index, int& min);
 #endif

@@ -188,7 +188,7 @@ int SplitWord(char* word,int i)
 	return breakAt;
 }
 
-static char* SpellCheck( int i)
+static char* SpellCheck(unsigned int i)
 {
     char* tokens[6];
     //   on entry we will have passed over words which are KnownWord (including bases) or isInitialWord (all initials)
@@ -377,9 +377,11 @@ char* ProbableKnownWord(char* word)
 static bool UsefulKnownWord(WORDP D)
 {
 	if (!D) return false;
-	if (IS_NEW_WORD(D)) return false;
 	if (D->properties & TAG_TEST) return true;
-	if (D->systemFlags & PATTERN_WORD) return true;
+	if (D->systemFlags & (PATTERN_WORD || HAS_SUBSTITUTE)) return true;
+	FACT* F = GetSubjectNondeadHead(D);
+	// concept members are useful. If from api call, it would be the only fact on a new word
+	if (F && (F->verb == Mmember || F->verb == Mexclude ||  F->verb == Mremapfact)) return true;
 	return false;
 }
 
@@ -409,6 +411,45 @@ WORDP GetGermanPrimaryTail(char* word,size_t length)
 	return D;
 }
 
+static bool ValidComposite(unsigned int start, unsigned int end)
+{
+	if (start < 1 || end > wordCount || start > wordCount) return false; // not legal - negative start will appear big
+
+	char word[MAX_WORD_SIZE * 5 + 10]; // composite up to 5 words safely
+	char* ptr = word;
+	for (unsigned int i = start; i <= end; ++i)
+	{
+		strcpy(ptr, wordStarts[i]);
+		ptr += strlen(wordStarts[i]);
+		*ptr++ = '_';
+	}
+	*--ptr = 0;
+	return FindWord(word) ? true : false;
+}
+
+static bool ValidSequence(unsigned int posn)
+{
+	// check sequences of up to 5 in each position
+	for (unsigned int n = 1; n <= 4; ++n) // in 1st position  ?xxxx
+	{
+		unsigned int i = posn + n;
+		if (ValidComposite(posn, i)) return true; 
+	}
+	for (unsigned int n = 2; n <= 4; ++n) // in 2nd position x?xxx
+	{
+		unsigned int i = posn + n - 1;
+		if (ValidComposite(posn-1, i)) return true; 
+	}
+	// in 3rd position xx?xx
+	if (ValidComposite(posn - 2, posn) || ValidComposite(posn - 2, posn + 1) || ValidComposite(posn - 2, posn + 2)) return true;
+	// in 4th position xxx?x
+	if (ValidComposite(posn - 3, posn) || ValidComposite(posn - 3, posn + 1)) return true;
+	// in 5th position xxxx?
+	if (ValidComposite(posn - 4, posn)) return true;
+	
+	return false;
+}
+
 bool SpellCheckSentence()
 {
 	if (!stricmp(current_language, "ideographic") || !stricmp(current_language, "japanese") || !stricmp(current_language, "chinese")) return false; // no spell check on them
@@ -420,8 +461,8 @@ bool SpellCheckSentence()
     bool isGerman = (!stricmp(current_language, "german") ? true : false);
 	bool isSpanish = (!stricmp(current_language, "spanish") ? true : false);
 
-	int startWord = FindOOBEnd(1);
-	int i;
+	unsigned int startWord = FindOOBEnd(1);
+	unsigned int i;
 	int badspelllimit = 0;
 	int badspellsize = 0;
 	float badspellratio = 1.0;
@@ -488,72 +529,6 @@ bool SpellCheckSentence()
 			}
 		}
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
-		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
-		{
-            // for German be cognizant that nouns are uppercase and hence more useful, 3 Tage is preferred to 3-Tage
-            uint64 primaryCaseX = (isGerman && IsUpperCase(*word)) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
-            uint64 secondaryCaseX = (primaryCaseX == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
-            uint64 primaryCaseY = (isGerman && IsUpperCase(*wordStarts[i+1])) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
-            uint64 secondaryCaseY = (primaryCaseY == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
-
-			WORDP X = FindWord(word, 0, primaryCaseX);
-			if (IS_NEW_WORD(X)) X = FindWord(word, 0, secondaryCaseX);
-			WORDP Y = FindWord(wordStarts[i + 1], 0, primaryCaseY);
-			if (!Y || IS_NEW_WORD(X)) Y = FindWord(wordStarts[i + 1], 0, secondaryCaseY);
-			bool useful1 = UsefulKnownWord(X);
-			bool useful2= UsefulKnownWord(Y);
-			if (!(X && Y && useful1 && useful2)) // has-been is a word we dont want merge,but model numbers we do.
-			{
-				if (X) strcpy(bigword, X->word);
-				else strcpy(bigword, word);
-				size_t len = strlen(bigword);
-				strcpy(bigword + len++, "-");
-				if (Y) strcpy(bigword + len, Y->word);
-				else strcpy(bigword + len, wordStarts[i + 1]);
-				WORDP XX = FindWord(bigword);
-				if (XX && UsefulKnownWord(XX))
-				{
-					tokens[1] = XX->word;
-					fixedSpell = ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
-					continue;
-				}
-
-				// try underscore word
-				bigword[--len] = 0;
-				strcpy(bigword + len++, "_");
-				strcpy(bigword + len, wordStarts[i + 1]);
-				XX = FindWord(bigword);
-				if (XX && UsefulKnownWord(XX))
-				{
-					strcpy(bigword,XX->word); // keep case of found word pieces
-					WORDP word2 = StoreWord(XX->word+len,AS_IS);
-					bigword[len - 1] = 0;
-					WORDP word1=  StoreWord(bigword);
-					if (strcmp(wordStarts[i], word1->word) && strcmp(wordStarts[i+1], word2->word))
-					{ 
-						tokens[1] = word1->word;
-						tokens[2] = word2->word;
-						fixedSpell = ReplaceWords("merge to underscore word", i, 2, 2, tokens);
-					}
-					else if (strcmp(wordStarts[i], word1->word) )
-					{
-						tokens[1] = word1->word;
-						fixedSpell = ReplaceWords("merge to underscore word1", i, 1,1, tokens);
-						++i;
-					}
-					else if (strcmp(wordStarts[i + 1], word2->word))
-					{
-						tokens[1] = word2->word;
-						++i;
-						fixedSpell = ReplaceWords("merge to underscore word2", i, 1, 1, tokens);
-					}
-					else ++i; // accept both as given, we will detect them later
-					continue;
-				}
-
-
-			}
-		}
 		if (spellTrace)
 		{
 			strcpy(spellCheckWord, word);
@@ -578,7 +553,8 @@ bool SpellCheckSentence()
 		if (altered) word = wordStarts[i] = StoreWord(newword, AS_IS)->word;
 
 		// do we know the word meaningfully as is?
-		WORDP D = FindWord(word, 0, PRIMARY_CASE_ALLOWED);
+		WORDP D = FindWord(word, 0, PRIMARY_CASE_ALLOWED,true); // must match case perfectly if can  (iPhone vs IPhone)
+		if (!D)  D = FindWord(word, 0, PRIMARY_CASE_ALLOWED); // take any casing
 		if ( D && (!IS_NEW_WORD(D) || D->systemFlags & PATTERN_WORD))
 		{
 			bool good = false;
@@ -596,6 +572,7 @@ bool SpellCheckSentence()
 				continue;
 			}
 		}
+
 		// handle lower case forms of upper case nouns
 		if (isGerman && !D)
 		{
@@ -625,6 +602,7 @@ bool SpellCheckSentence()
 		}
 
 		if (IsDate(word)) continue; // allow 1970/10/5 or similar
+		if (IsEmojiShortname(word)) continue; // allow emojis
 
 		// o for 0 in number
 		char xtra[MAX_WORD_SIZE];
@@ -811,6 +789,44 @@ bool SpellCheckSentence()
         // don't spellcheck initials
         if (IsMadeOfInitials(word, end) == ABBREVIATION) continue;
 
+		if (ValidSequence(i)) continue; // leave alone if part of phrase
+		if (i != wordCount) // merge 2 adj words w hyphen if can, even though one but not  both are legal words
+		{
+			// for German be cognizant that nouns are uppercase and hence more useful, 3 Tage is preferred to 3-Tage
+			uint64 primaryCaseX = (isGerman && IsUpperCase(*word)) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
+			uint64 secondaryCaseX = (primaryCaseX == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;
+			uint64 primaryCaseY = (isGerman && IsUpperCase(*wordStarts[i + 1])) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
+			uint64 secondaryCaseY = (primaryCaseY == LOWERCASE_LOOKUP) ? UPPERCASE_LOOKUP : LOWERCASE_LOOKUP;;
+			
+			size_t len = strlen(word);
+			WORDP X = FindWord(word,len);
+			WORDP Y = FindWord(wordStarts[i + 1]);
+			bool useful1 = UsefulKnownWord(X);
+			bool useful2 = UsefulKnownWord(Y);
+			if (!(X && Y && useful1 && useful2)) // has-been is a word we dont want merge,but model numbers we do.
+			{
+				// first check merge 2 using _ 
+				strcpy(bigword, word);
+				bigword[len] = '_';
+				strcpy(bigword + len + 1, wordStarts[i + 1]);
+				WORDP XX = FindWord(bigword);
+				if (XX && UsefulKnownWord(XX))
+				{
+					++i;
+					continue; // its fine joined, will detect as sequence later
+				}
+				// try merge with -
+				bigword[len] = '-';
+				XX = FindWord(bigword);
+				if (XX && UsefulKnownWord(XX))
+				{
+					tokens[1] = XX->word;
+					fixedSpell = ReplaceWords("merge to hyphenword", i, 2, 1, tokens);
+					continue;
+				}
+			}
+		}
+
 		// split conjoined sentetence Missouri.Fix  or Missouri..Fix
 		// but dont split float values like 0.5%
 		if (dot && dot != word && dot[1] && !IsDigit(dot[1]))
@@ -859,26 +875,21 @@ bool SpellCheckSentence()
 			size_t len = size;
 			strcpy(excess, word);
 			bool change = false;
-			// refuse to believe any 3 or more repeats
-			for (size_t j = 0; j < len; ++j)
+			for (int j = 0; j < size; ++j)
 			{
-				if (excess[j] == excess[j + 1] && excess[j + 2] == excess[j])
+				if (excess[j] == excess[j + 1])
 				{
 					memmove(excess + j + 1, excess + j + 2, strlen(excess + j + 1));
-					j -= 1;
-					--len;
-					change = true;
-					continue;
+					if (FindWord(excess))
+					{
+						tokens[1] = excess;
+						fixedSpell = ReplaceWords("2 repeat letters", i, 1, 1, tokens);
+						break;
+					}
+					else strcpy(excess, word);
 				}
 			}
-			if (change)
-			{
-				tokens[1] = excess;
-				fixedSpell = ReplaceWords("multiple repeat letters", i, 1, 1, tokens);
-				word = wordStarts[i];
-				D = FindWord(excess);
-				if (D && !IS_NEW_WORD(D)) continue;
-			}
+			if (change) continue;
 		}
 
 		// words with excess repeated characters 2=>1 unless root noun or verb
@@ -887,9 +898,9 @@ bool SpellCheckSentence()
 			if (!stricmp(current_language, "english"))
 			{
 				char* noun = GetSingularNoun(word, false, true);
-				if (noun) continue;
+				if (noun && strcmp(word, noun)) continue;
 				char* verb = GetInfinitive(word, true);
-				if (verb) continue;
+				if (verb && strcmp(word, verb)) continue;
 			}
 			strcpy(excess, word);
 			bool change = false;
@@ -1027,8 +1038,8 @@ bool SpellCheckSentence()
 			WORDP E = FindWord(word, size - 1, LOWERCASE_LOOKUP);
 			if (E && E->properties & NOUN)
 			{
-				tokens[1] = E->word;
-				fixedSpell = ReplaceWords("lowerpluralnoun", i, 1, 1, tokens);
+				//tokens[1] = E->word;  // acceptable as is
+				//fixedSpell = ReplaceWords("lowerpluralnoun", i, 1, 1, tokens);
 				continue;
 			}
 		}
@@ -1088,6 +1099,9 @@ bool SpellCheckSentence()
 					break;
 				}
 			}
+			// avoid contractions from titles of songs "What's love got to do with it"
+			if (useAlternateCase && strchr(word, '\'') && IsUpperCase(*E->word)) useAlternateCase = false;
+			
 			if (useAlternateCase)
 			{
 				tokens[1] = E->word;
@@ -1242,7 +1256,7 @@ bool SpellCheckSentence()
         WORDP entry, canonical;
 		uint64 xflags = 0;
 		uint64 cansysflags = 0;
-		uint64 inferredProperties = GetPosData(-1, word, revise, entry, canonical, xflags, cansysflags, false, true);
+		uint64 inferredProperties = GetPosData((unsigned int)-1, word, revise, entry, canonical, xflags, cansysflags, false, true);
 		if (entry && entry->systemFlags & HAS_SUBSTITUTE) entry = canonical = NULL;
 		if (canonical && canonical == DunknownWord) canonical = NULL;
 		if (canonical && ((!(canonical->internalBits & UPPERCASE_HASH) && canonical != entry) || (inferredProperties & (NOUN_NUMBER | ADJECTIVE_NUMBER))))
@@ -1285,7 +1299,7 @@ bool SpellCheckSentence()
 		if (!retry[i]) continue; // no problem here
 		char* word = wordStarts[i];
         char oldWord[MAX_WORD_SIZE];
-        int oldWordCount = wordCount;
+		unsigned int oldWordCount = wordCount;
         strcpy(oldWord, word);
 
 		// see if smooshed word pair
@@ -1297,18 +1311,18 @@ bool SpellCheckSentence()
             if (wordCount > oldWordCount)
             {
                 int diff = wordCount - oldWordCount;
-                for (int j = wordCount; j > i; --j) retry[j] = retry[j-diff];
+                for (unsigned int j = wordCount; j > i; --j) retry[j] = retry[j-diff];
                 for (int j = 1; j <= diff; ++j) retry[i+diff] = 0;
             }
 
 			// dont spell check proper names to improper, if word before or after is lower case originally
 			// unless a substitute like g-mail-> Gmail
-			if (word1 && i != 1 && originalCapState[i] && !IsUpperCase(*word1))
+			if (word1 && i != 1 && IsUpperCase(*wordStarts[i]) && !IsUpperCase(*word1))
 			{
 				WORDP X = FindWord(word1);
 				if (X && X->systemFlags & HAS_SUBSTITUTE) {}
-				else if (!originalCapState[i - 1]) continue;
-				else if (i != wordCount && !originalCapState[i + 1]) continue;
+				else if (!IsUpperCase(*wordStarts[i - 1])) continue;
+				else if (i != wordCount && !IsUpperCase(*wordStarts [i + 1])) continue;
 			}
 
 			if (word1 && !*word1) // performed substitution on prior word, restart this one
@@ -1884,7 +1898,7 @@ void CheckWord(char* originalWord, WORDINFO& realWordData, WORDP D, WORDP* choic
     }
 }
 
-char* SpellFix(char* originalWord,int start,uint64 posflags)
+char* SpellFix(char* originalWord, unsigned int start,uint64 posflags)
 {
     bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	if (spellTrace) Log(USERLOG,"Correcting: %s:\r\n", originalWord);

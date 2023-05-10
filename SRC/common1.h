@@ -5,13 +5,9 @@ typedef unsigned long long int  uint64;
 typedef signed long long  int64;
 #define ALWAYS (1 == always)
 
-#define MAX_ARGUMENT_COUNT 400 //  assume 10 args 40 nested calls max. 
-extern char* callArgumentList[MAX_ARGUMENT_COUNT+1];    //   function callArgumentList
-extern int callArgumentBase;
-extern int fnVarbase;
-
-#define ARGUMENT(n) callArgumentList[callArgumentBase+n]
-#define FNVAR(n) callArgumentList[fnVarbase+atoi(n)+1] // ^0 is index 1
+#define ARGUMENT(n)  currentCallFrame->arguments[n] 
+#define FNVAR(n) currentFNVarFrame->arguments[atoi(n+1)] // ^1 is index 1
+#define QUOTEDFNVAR(n) currentFNVarFrame->arguments[atoi(n+2)] // ^1 is index 1
 char* ReadCompiledWord(const char* ptr, char* word,bool noquote = false,bool var = false,bool nolimit = false);
 char* ReadCompiledWordOrCall(char* ptr, char* word,bool noquote = false,bool var = false);
 char* ReadCodeWord(const char* ptr, char* word, bool noquote = false, bool var = false, bool nolimit = false);
@@ -28,11 +24,11 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 // A meaning = TYPE_RESTRICTION(4 bit) + INDEX_BITS (5 bits) + SYNSET_MARKER(1 bit) + MEANING_BASE(22 bits) 
 #define MEANING_BASE		MAX_DICTIONARY 	//   the index of the dictionary item 
 #define MAX_MEANING			31  // limit on index_bits break has around 64.
-#define SYNSET_MARKER		0x00400000  // this meaning is a synset head - on keyword import, its quote flag for binary read
-#define INDEX_BITS          0x0f800000  //   5 bits of ontology meaning indexing ability  63 possible meanings allowed, generic uses value 0
-#define INDEX_MINUS			0x00800000  // what to decrement to decrement the meaning index
-#define INDEX_OFFSET        23          //   shift for ontoindex  (rang 0..31)  
+#define INDEX_OFFSET          22          //   shift for ontoindex  (range 0..31)  
 #define TYPE_RESTRICTION	0xf0000000  // corresponds to noun,verb,adj,adv  (cannot merge adj/adv or breaks wordnet dictionary data) 
+#define SYNSET_MARKER		0x08000000  // this meaning is a synset head - on keyword import, its quote flag for binary read
+#define INDEX_BITS				0x07c00000  //   5 bits of ontology meaning indexing ability  31 possible meanings allowed, generic uses value 0
+#define INDEX_MINUS			0x00400000  // what to decrement to decrement the meaning index
 #define TYPE_RESTRICTION_SHIFT 0
 
 // dictionary bucket next node pointers:

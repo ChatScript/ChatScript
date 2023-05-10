@@ -253,7 +253,7 @@ Generally done with an underscore in front to memorize the sequence.
 `*-2` is like `*2`, only it matchs backwards instead of forwards. Valid thru `*-9`.
 
 
-### Negation `!` and `!!`
+### Negation `!` and `!!` and '!-'
 
 `!x` means match only if x is not found anywhere in the sentence later than where we are:
 
@@ -262,6 +262,10 @@ Generally done with an underscore in front to memorize the sequence.
 This pattern says the word not cannot occur anywhere in the sentence.
 
 `!!x` means match only if x is not the next word.
+
+This pattern says the word not cannot occur anywhere before us in  the sentence.
+
+`!-x` means match only if x is not any prior word.
 
 
 ### Original Form `'`

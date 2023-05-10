@@ -2,7 +2,7 @@
 #define _OSH_
 
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -30,17 +30,13 @@ struct WORDENTRY;
 typedef WORDENTRY* WORDP;
 
 typedef struct WORDENTRY //   a dictionary entry  - starred items are written to the dictionary
+  // if you edit this, you may need to change ReadBinaryEntry and WriteBinaryEntry
 {
     uint64  properties;				//   main language description of this node OR numeric value of DEFINE
-    uint64	hash;
     uint64  systemFlags;			//   additional dictionary and non-dictionary properties 
+    WORDP* foreignFlags;     // system flags  on non-engish words - currently not changeable in script
+    uint64	hash;
     char*     word;					//   entry name
-    unsigned int internalBits;
-    unsigned int parseBits;			// only for words, not for function names or concept names
-                                    // functions/topics use this for offset into the map file where it is defined (debugger)
-									// OR offset of primary entry for which this is number value
-
-                                    // if you edit this, you may need to change ReadBinaryEntry and WriteBinaryEntry
     union {
         char* topicBots;			//  for topic name (start with ~) or planname (start with ^) - bot topic applies to  - only used by script compiler
         unsigned int planArgCount;	//  number of arguments in a plan
@@ -51,66 +47,53 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
         WORDP conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
     }w;
 
+    unsigned int internalBits;
+    unsigned int parseBits;			// only for words, not for function names or concept names
+     
     FACTOID subjectHead;		//  start threads for facts run thru here 
     FACTOID verbHead;			//  start threads for facts run thru here 
+    
     FACTOID objectHead;			//  start threads for facts run thru here 
-
-    MEANING  meanings;			//  list of meanings (synsets) of this word - Will be wordnet synset id OR self ptr -- 1-based since 0th meaning means all meanings
+    MEANING  meanings;			//  list of meanings (synsets) of this english word - Will be wordnet synset id OR self ptr -- 1-based since 0th meaning means all meanings
     unsigned int length;		//  length of the word (top bit is SUPERCEDED) - used only to improve lookup speed
     unsigned int inferMark;		// (functions use as trace control bits) no need to erase been here marker during marking facts, inferencing (for propogation) and during scriptcompile 
     MEANING spellNode;			// next word of same length as this - not used for function names (time tracing bits go here) and concept names
     unsigned int nextNode;		// bucket-link for dictionary hash + top bye GETMULTIWORDHEADER // can this word lead a phrase to be joined - can vary based on :build state -- really only needs 4 bits
 
     union {
-        unsigned int topicIndex;	//   for a ~topic or %systemVariable or plan, this is its id
+        unsigned int topicIndex;    //   for a ~topic or %systemVariable or plan, this is its id
         unsigned int codeIndex;		//   for a system function, its the table index for it
-        unsigned int debugIndex;	//   for a :test function, its the table index for it 
-                                                    // for an ordinary word in boot layer or later, this is its assigned savesentence index (0 otherwise)
+                                                    //   for a :test function, its the table index for it 
+        unsigned int saveIndex;	     // for an ordinary word in boot layer or later, this is its assigned savesentence index (0 otherwise)
     }x;
-#ifndef DISCARDCOUNTER
     unsigned int counter;			// general storage slot
-//    unsigned int counter1;			// general storage slot
-#endif
 } WORDENTRY;
 
-typedef struct CALLFRAME
-{
-    char* label;
-    char* rule;
-    char** display; // where display archive is saved
-    char* definition; // actual definition chosen to execute: (locals) + code
-    WORDP name; // basic name
-    char* code; // code after locals
-    char* oldRule;
-    char* heapstart;
-    int varBaseIndex; // where fnvar base is
-    unsigned int arguments; // how many arguments function has
-    int oldbase;
-    unsigned int outputlevel;
-    int argumentStartIndex;
-    unsigned int oldRuleID;
-    unsigned int oldTopic;
-    unsigned int oldRuleTopic;
-	unsigned int depth;
-    unsigned int memindex;
-    unsigned int heapDepth;
-    union  {
-        FunctionResult result;
-        int ownvalue;
-    }x;
-
-}CALLFRAME;
-
-enum APICall {
-	NO_API_CALL = 0,
-	COMPILE_PATTERN = 1,
-	COMPILE_OUTPUT = 2,
-	TEST_PATTERN = 3,
-	TEST_OUTPUT = 4
-};
 
 #define SAVESYSTEMSTATE()     int oldDepth = globalDepth; int oldScriptBufferIndex = bufferIndex; char* oldStack = stackFree;
 #define RESTORESYSTEMSTATE()  infiniteStack = false; globalDepth = oldDepth; bufferIndex = oldScriptBufferIndex; stackFree = oldStack;
+
+#define HV_WORDP 1 // wordp ptr
+#define HV_INT     2
+#define HV_FACTI  4 // fact index
+#define HV_MEAN  8 // meaning
+#define HV_STRING 16    // heap ptr
+#define HV1_SHIFT 0
+#define HV2_SHIFT  8
+#define HV3_SHIFT  16
+#define HV1_WORDP  (HV_WORDP << HV1_SHIFT)
+#define HV2_WORDP  (HV_WORDP << HV2_SHIFT)
+#define HV3_WORDP  (HV_WORDP << HV3_SHIFT)
+#define HV1_INT  (HV_INT << HV1_SHIFT)
+#define HV2_INT  (HV_INT << HV2_SHIFT)
+#define HV3_INT  (HV_INT << HV3_SHIFT)
+#define HV1_FACTI  (HV_FACTI << HV1_SHIFT)
+#define HV2_FACTI  (HV_FACTI << HV2_SHIFT)
+#define HV3_FACTI  (HV_FACTI << HV3_SHIFT)
+#define HV3_MEAN  (HV_MEAN << HV3_SHIFT)
+#define HV1_STRING (HV_STRING << HV1_SHIFT)
+#define HV2_STRING (HV_STRING << HV2_SHIFT)
+#define HV3_STRING (HV_STRING << HV3_SHIFT)
 
 // EXCEPTION/ERROR
 // error recovery
@@ -152,7 +135,6 @@ extern bool inputLimitHit;
 extern bool convertTabs;
 extern bool infiniteStack;
 extern bool infiniteHeap;
-extern CALLFRAME* releaseStackDepth[MAX_GLOBAL];
 extern unsigned int maxBufferLimit;
 extern unsigned int maxReleaseStackGap;
 extern unsigned int maxBufferSize;
@@ -176,13 +158,16 @@ inline HEAPINDEX Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapB
 
 // MEMORY SYSTEM
 void ResetBuffers();
-char* AllocateBuffer(char*name = (char*) "");
+char* AllocateBuffer(char*name = (char*) "",char* content = NULL);
 void FreeBuffer(char*name = (char*) "");
 void CloseBuffers();
 char* AllocateStack(const char* word, size_t len = 0, bool localvar = false, int align = 0);
 void ReleaseInfiniteStack();
 void CompleteInfiniteHeap(char* base);
 void ReleaseStack(char* word);
+char* Print64(long long int);
+char* PrintU64(uint64 val);
+char* PrintX64(uint64 val);
 char* InfiniteHeap(const char* caller);
 char* InfiniteStack(char*& limit, const char* caller);
 void CompleteBindStack64(int n,char* base);
@@ -196,11 +181,12 @@ void LoggingCheats(char* incoming);
 void ResetHeapFree(char* buffer);
 void ProtectNL(char* buffer);
 void PrepIndent();
-HEAPREF AllocateHeapval(HEAPREF linkval, uint64 val1, uint64 val2, uint64 val3 = 0);
+HEAPREF AllocateHeapval(unsigned int descriptor,HEAPREF linkval, uint64 val1, uint64 val2 = 0, uint64 val3 = 0);
 HEAPREF UnpackHeapval(HEAPREF linkval, uint64 & val1, uint64 & val2, uint64& val3 = discard);
 STACKREF AllocateStackval(STACKREF linkval, uint64 val1, uint64 val2 = 0, uint64 val3 = 0);
 STACKREF UnpackStackval(STACKREF linkval, uint64& val1, uint64& val2 = discard, uint64& val3 = discard);
 void InitStackHeap();
+void MakeDirectoryPath(const char* path);
 void FreeStackHeap();
 bool KeyReady();
 bool InHeap(char* ptr);
@@ -213,6 +199,7 @@ FunctionResult AuthorizedCode(char* buffer);
 // FILE SYSTEM
 int SetDirectory(const char* directory);
 int MakeDirectory(const char* directory);
+int MakePath(const char* directory);
 void EncryptInit(char* params);
 void DecryptInit(char* params);
 void EncryptRestart();
@@ -229,6 +216,7 @@ void ResetEncryptTags();
 void StartFile(const char* name);
 int FileSize(FILE* in,char* buffer,size_t allowedSize);
 void FileDelete(const char* filename);
+bool HasUTF8BOM(char* buffer);
 FILE* FopenStaticReadOnly(const char* name);
 FILE* FopenReadOnly(const char* name);
 FILE* FopenReadNormal(const char* name);
@@ -366,7 +354,6 @@ extern bool serverctrlz;
 extern char syslogstr[];
 
 unsigned int Log(unsigned int spot,const char * fmt, ...);
-CALLFRAME* ChangeDepth(int value,const char* where,bool nostackCutboack = false,char* code = NULL);
 void BugBacktrace(FILE* out);
 void Bug();
 
@@ -385,15 +372,28 @@ char* mymalloc_imp(size_t len, const char* file,  int line);
 void FreeServerLog();
 
 typedef void (*PerformChatArgumentsHOOKFN)(char*& user, char*& usee, char*& incoming);
+typedef void (*EndChatHOOKFN)();
 typedef void (*SignalHandlerHOOKFN)(int signalcode, char*& msg);
 typedef char* (*TokenizeWordHOOKFN)(char* ptr, char** words, int count);
 typedef bool (*IsValidTokenWordHOOKFN)(char* token);
 typedef char* (*SpellCheckWordHOOKFN)(char* word, int i);
+typedef char* (*PosTagHOOKFN)(int start, int end);
+typedef char* (*CheckRolesHOOKFN)(int start, int end);
+typedef char* (*MarkWordHOOKFN)(int i);
+typedef char* (*SequenceMarkHOOKFN)(int i);
+typedef char* (*AdditionalMarksHOOKFN)();
+typedef char* (*BugLogHOOKFN)(char* msg);
+#ifndef DISCARDJSONOPEN
+typedef char* (*JsonOpenStartHOOKFN)(CURL* curl, curl_slist* headers);
+typedef char* (*JsonOpenEndHOOKFN)();
+#endif
 #ifndef DISCARDMONGO
 typedef void (*MongoQueryParamsHOOKFN)(bson_t *query);
 typedef void (*MongoUpsertKeyValuesHOOKFN)(bson_t *doc);
 typedef void (*MongoGotDocumentHOOKFN)(bson_t *doc);
 #endif
+typedef void (*DatabaseOperationStartHOOKFN)(char* dbType, const char* databaseName, const char* collectionName, char* operation, char* query);
+typedef void (*DatabaseOperationEndHOOKFN)();
 
 typedef struct HookInfo
 {
@@ -414,7 +414,7 @@ void RegisterHookFunction(char* hookName, HOOKPTR fn);
 extern unsigned int randIndex,oldRandIndex;
 
 unsigned int random(unsigned int range);
-uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters);
+unsigned int  Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & hasUTF8Characters,bool & hasSeparatorCharacters);
 
 #endif
 
@@ -430,7 +430,7 @@ uint64 Hashit(unsigned char * data, int len,bool & hasUpperCharacters, bool & ha
 #endif
 
 
-#ifdef LINUX
+#ifdef USESIGNALHANDLER
 	void setSignalHandlers ();
 	void signalHandler( int signalcode );
 #endif

@@ -1,0 +1,62 @@
+﻿USERS/topic_f_rose.txt
+jul2116 Mar12'23-08:07:38-1678608458855 Mar12'23-08:07:42-1678608462706 0 |
+1 1 ~myself -v1 ch+*1  DY 0 408 408 0 # start, input#, rejoindertopic,rejoinderid (a: FULL ( !~qwords ? nickname ) My full first name is actually Rose. ),checksum
+~hello ~myself #pending
+~hello + 2 dGJ^7 caaa 0 0 0 
+#`end topics
+$cs_language=ENGLISH
+$cs_jid=0
+$askedus=1
+$lastquestion=what_is_your_name
+$lastuserinput=what_is_your_name
+$inittimers=1
+$priorsaid=Good morning.
+$cs_time=0
+$cs_trace=0
+$cs_randindex=1547
+$cs_bot=Rose
+$cs_login=f
+$cs_control_pre=~pre_control
+$cs_control_main=~main_control
+$cs_control_post=~xpostprocess
+$cs_token=31743
+$stdtoken=31743
+$cs_prepass=~xfixsentence
+$avoidchat=500
+$lastno=0
+$cs_utcoffset=-8
+$lastyes=0
+$cs_wildcardseparator=_
+$cs_userfactlimit=3000
+$youlastname=Flynn-Bell
+$here=\"San Francisco\"
+$cs_botid=1
+$repeatstart=11
+$olduser=1
+$begintime=1678608458
+$whatsaid=My name is Rose.
+$priorutter=My name is Rose.
+$time=1678608462
+#`end variables
+800 #set flags
+#set 11
+( ~xname ^keywordtopics 42 x01000010 1 )
+( ~name_some_things ^keywordtopics 15 x01000010 1 )
+( ~myself ^keywordtopics 15 x01000010 1 )
+#end set
+#`end fact sets
+( 65796 itcommon `your name` x00000000 1 )
+( ( 65796 itcommon `your name` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 66052 sheproper Rose x00000000 1 )
+( ( 66052 sheproper Rose x00000000 1 ) pronounreference 0 x00000080 1 )
+( 66050 itcommon `my name` x00000000 1 )
+( ( 66050 itcommon `my name` x00000000 1 ) pronounreference 0 x00000080 1 )
+( 66052 itcolor Rose x00000000 1 )
+( ( 66052 itcolor Rose x00000000 1 ) pronounreference 0 x00000080 1 )
+#`end user facts 8
+#context ~myself 1 TELLNAME 
+ what is your name
+#`end user
+ Good morning.
+ My name is Rose.
+#`end chatbot

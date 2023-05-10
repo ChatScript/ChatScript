@@ -3,14 +3,25 @@
 
 
 # indefinite articles  
-a	DETERMINER_SINGULAR
-an	DETERMINER_SINGULAR
+a	DETERMINER_SINGULAR 
+an 	DETERMINER_SINGULAR
+
+# french
+le
+la
+de
+# spanish
+el
+# german
+der 
+die 
+das
 
 # definite articles
 the
 da
 ye
-another	DETERMINER_SINGULAR
+another	 DETERMINER_SINGULAR
 other
 different
 no

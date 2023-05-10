@@ -1,248 +1,178 @@
-﻿﻿ W. ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wagner ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Waigel ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Waldheim ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Walesa ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wall ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Walt ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Walter ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Warner ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Warren ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Washington ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wayne ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Weah ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Weber ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Welfare ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Welles ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wembley ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wenders ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Werner ( NOUN NOUN_PROPER_SINGULAR ) 
-
- West ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Westminster ( NOUN NOUN_PROPER_SINGULAR ) 
-
- White ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wilde ( NOUN NOUN_PROPER_SINGULAR ) 
-
- William ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Williams ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Willy ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wilson ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wim ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wimbledon ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wind ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Winter ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wojtyla ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wolf ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wolfgang ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Woody ( NOUN NOUN_PROPER_SINGULAR ) 
-
- World ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wright ( NOUN NOUN_PROPER_SINGULAR ) 
-
- Wwf ( NOUN NOUN_PROPER_SINGULAR ) 
-
- wagon ( NOUN NOUN_SINGULAR ) 
-
- walkie-talkie ( NOUN NOUN_SINGULAR ) 
-
- walkman ( NOUN NOUN_SINGULAR ) 
-
- walseriana ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walseriane ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walseriani ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walserianissima ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walserianissime ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walserianissimi ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walserianissimo ( ADJECTIVE ) lemma=`walseriano` ADJ  
-
- walseriano ( ADJECTIVE ) 
-
- washingtoniana ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtoniane ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtoniani ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtonianissima ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtonianissime ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtonianissimi ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
- washingtonianissimo ( ADJECTIVE ) lemma=`washingtoniano` ADJ  
-
+﻿﻿
+ w ( NOUN_PROPER_SINGULAR ) 
+ wad ( NOUN_PROPER_SINGULAR ) 
+ wades ( NOUN_PROPER_PLURAL ) lemma=`wad` NCMP  
+ wagneriana ( ADJECTIVE ) lemma=`wagneriano` AQ0  
+ wagnerianas ( ADJECTIVE ) lemma=`wagneriano` AQ0  
+ wagneriano ( ADJECTIVE ) 
+ wagnerianos ( ADJECTIVE ) lemma=`wagneriano` AQ0  
+ wagnerismo ( NOUN_PROPER_SINGULAR ) 
+ wagnerismos ( NOUN_PROPER_PLURAL ) lemma=`wagnerismo` NCMP  
+ wagnerite ( NOUN_PROPER_SINGULAR ) 
+ wagnerites ( NOUN_PROPER_PLURAL ) lemma=`wagnerite` NCFP  
+ walchia ( NOUN_PROPER_SINGULAR ) 
+ walchias ( NOUN_PROPER_PLURAL ) lemma=`walchia` NCFP  
+ walkie-over ( NOUN_PROPER_SINGULAR ) 
+ walkie-talkie ( NOUN_PROPER_SINGULAR ) 
+ walkie-talkies ( NOUN_PROPER_PLURAL ) lemma=`walkie-talkie` NCMP  
+ warm-up ( NOUN_PROPER_SINGULAR ) 
+ warm-ups ( NOUN_PROPER_PLURAL ) lemma=`warm-up` NCMP  
+ warrant ( NOUN_PROPER_SINGULAR ) 
+ warranta ( VERB ) lemma=`warrantar`warrantar` VMI  VMM  
+ warrantada ( VERB ) lemma=`warrantar` VMP  
+ warrantadas ( VERB ) lemma=`warrantar` VMP  
+ warrantado ( VERB ) lemma=`warrantar` VMP  
+ warrantados ( VERB ) lemma=`warrantar` VMP  
+ warrantagem ( NOUN_PROPER_SINGULAR ) 
+ warrantagens ( NOUN_PROPER_PLURAL ) lemma=`warrantagem` NCFP  
+ warrantai ( VERB ) lemma=`warrantar` VMM  
+ warrantais ( VERB ) lemma=`warrantar` VMI  
+ warrantam ( VERB ) lemma=`warrantar` VMI  
+ warrantamos ( VERB ) lemma=`warrantar` VMI  
+ warrantando ( NOUN NOUN_GERUND ) lemma=`warrantar` VMG  
+ warrantar ( VERB_INFINITIVE VERB ) lemma=`warrantar`warrantar` VMN  VMS  
+ warrantara ( VERB ) lemma=`warrantar` VMI  
+ warrantaram ( VERB ) lemma=`warrantar` VMI  
+ warrantaras ( VERB ) lemma=`warrantar` VMI  
+ warrantardes ( VERB_INFINITIVE VERB ) lemma=`warrantar`warrantar` VMN  VMS  
+ warrantarei ( VERB ) lemma=`warrantar` VMI  
+ warrantareis ( VERB ) lemma=`warrantar` VMI  
+ warrantarem ( VERB_INFINITIVE VERB ) lemma=`warrantar`warrantar` VMN  VMS  
+ warrantaremos ( VERB ) lemma=`warrantar` VMI  
+ warrantares ( VERB_INFINITIVE VERB ) lemma=`warrantar`warrantar` VMN  VMS  
+ warrantaria ( VERB ) lemma=`warrantar` VMI  
+ warrantariam ( VERB ) lemma=`warrantar` VMI  
+ warrantarias ( VERB ) lemma=`warrantar` VMI  
+ warrantarmos ( VERB_INFINITIVE VERB ) lemma=`warrantar`warrantar` VMN  VMS  
+ warrantará ( VERB ) lemma=`warrantar` VMI  
+ warrantarás ( VERB ) lemma=`warrantar` VMI  
+ warrantarão ( VERB ) lemma=`warrantar` VMI  
+ warrantaríamos ( VERB ) lemma=`warrantar` VMI  
+ warrantaríeis ( VERB ) lemma=`warrantar` VMI  
+ warrantas ( VERB ) lemma=`warrantar` VMI  
+ warrantasse ( VERB ) lemma=`warrantar` VMS  
+ warrantassem ( VERB ) lemma=`warrantar` VMS  
+ warrantasses ( VERB ) lemma=`warrantar` VMS  
+ warrantaste ( VERB ) lemma=`warrantar` VMI  
+ warrantastes ( VERB ) lemma=`warrantar` VMI  
+ warrantava ( VERB ) lemma=`warrantar` VMI  
+ warrantavam ( VERB ) lemma=`warrantar` VMI  
+ warrantavas ( VERB ) lemma=`warrantar` VMI  
+ warrante ( VERB ) lemma=`warrantar`warrantar` VMM  VMS  
+ warrantei ( VERB ) lemma=`warrantar` VMI  
+ warranteis ( VERB ) lemma=`warrantar` VMS  
+ warrantem ( VERB ) lemma=`warrantar`warrantar` VMM  VMS  
+ warrantemos ( VERB ) lemma=`warrantar`warrantar` VMM  VMS  
+ warrantes ( VERB ) lemma=`warrantar` VMS  
+ warranto ( VERB ) lemma=`warrantar` VMI  
+ warrantou ( VERB ) lemma=`warrantar` VMI  
+ warrantáramos ( VERB ) lemma=`warrantar` VMI  
+ warrantáreis ( VERB ) lemma=`warrantar` VMI  
+ warrantásseis ( VERB ) lemma=`warrantar` VMS  
+ warrantássemos ( VERB ) lemma=`warrantar` VMS  
+ warrantávamos ( VERB ) lemma=`warrantar` VMI  
+ warrantáveis ( VERB ) lemma=`warrantar` VMI  
+ washingtoniana ( ADJECTIVE ) lemma=`washingtoniano` AQ0  
+ washingtonianas ( ADJECTIVE ) lemma=`washingtoniano` AQ0  
  washingtoniano ( ADJECTIVE ) 
-
- water ( NOUN NOUN_SINGULAR ) 
-
- watussi ( NOUN  NOUN_PLURAL  ) lemma=`watusso` NOUN  
-
- watusso ( NOUN NOUN_SINGULAR ) 
-
- wc ( NOUN NOUN_SINGULAR ) 
-
- web ( NOUN NOUN_SINGULAR ) 
-
- weberiana ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberiane ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberiani ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberianissima ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberianissime ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberianissimi ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
- weberianissimo ( ADJECTIVE ) lemma=`weberiano` ADJ  
-
+ washingtonianos ( ADJECTIVE ) lemma=`washingtoniano` AQ0  
+ watt ( NOUN_PROPER_SINGULAR ) 
+ watt-hora ( NOUN_PROPER_SINGULAR ) 
+ watt-horímetro ( NOUN_PROPER_SINGULAR ) 
+ watt-segundo ( NOUN_PROPER_SINGULAR ) 
+ wattada ( ADJECTIVE ) lemma=`wattado` AQ0  
+ wattadas ( ADJECTIVE ) lemma=`wattado` AQ0  
+ wattado ( ADJECTIVE ) 
+ wattados ( ADJECTIVE ) lemma=`wattado` AQ0  
+ watts ( NOUN_PROPER_PLURAL ) lemma=`watt` NCMP  
+ watts-horas ( NOUN_PROPER_PLURAL ) lemma=`watt-hora` NCMP  
+ watts-horímetros ( NOUN_PROPER_PLURAL ) lemma=`watt-horímetro` NCMP  
+ watts-segundos ( NOUN_PROPER_PLURAL ) lemma=`watt-segundo` NCMP  
+ wattímetro ( NOUN_PROPER_SINGULAR ) 
+ wattímetros ( NOUN_PROPER_PLURAL ) lemma=`wattímetro` NCMP  
+ wealdiano ( NOUN_PROPER_SINGULAR ) 
+ wealdianos ( NOUN_PROPER_PLURAL ) lemma=`wealdiano` NCMP  
+ weber ( NOUN_PROPER_SINGULAR ) 
+ weberes ( NOUN_PROPER_PLURAL ) lemma=`weber` NCMP  
+ weberiana ( ADJECTIVE ) lemma=`weberiano` AQ0  
+ weberianas ( ADJECTIVE ) lemma=`weberiano` AQ0  
  weberiano ( ADJECTIVE ) 
-
- week-end ( NOUN NOUN_SINGULAR ) 
-
- weekend ( NOUN NOUN_SINGULAR ) 
-
- welfare ( NOUN NOUN_SINGULAR ) 
-
- wellesiana ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesiane ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesiani ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesianissima ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesianissime ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesianissimi ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesianissimo ( ADJECTIVE ) lemma=`wellesiano` ADJ  
-
- wellesiano ( ADJECTIVE ) 
-
- welter ( NOUN NOUN_SINGULAR ) 
-
- wendersiana ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersiane ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersiani ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersianissima ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersianissime ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersianissimi ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersianissimo ( ADJECTIVE ) lemma=`wendersiano` ADJ  
-
- wendersiano ( ADJECTIVE ) 
-
- wertheriana ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertheriane ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertheriani ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertherianissima ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertherianissime ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertherianissimi ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertherianissimo ( ADJECTIVE ) lemma=`wertheriano` ADJ  
-
- wertheriano ( ADJECTIVE ) 
-
- west ( NOUN NOUN_SINGULAR ) 
-
- western ( NOUN ADJECTIVE NOUN_SINGULAR ) lemma=`western`western` ADJ  NOUN  
-
- westinghouse ( NOUN NOUN_SINGULAR ) 
-
- westinghouses ( NOUN  NOUN_PLURAL  ) lemma=`westinghouse` NOUN  
-
- whisky ( NOUN NOUN_SINGULAR ) 
-
- whitmaniana ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmaniane ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmaniani ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmanianissima ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmanianissime ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmanianissimi ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmanianissimo ( ADJECTIVE ) lemma=`whitmaniano` ADJ  
-
- whitmaniano ( ADJECTIVE ) 
-
- windsurf ( NOUN NOUN_SINGULAR ) 
-
- wojtyliana ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtyliane ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtyliani ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtylianissima ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtylianissime ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtylianissimi ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtylianissimo ( ADJECTIVE ) lemma=`wojtyliano` ADJ  
-
- wojtyliano ( ADJECTIVE ) 
-
- won ( NOUN NOUN_SINGULAR ) 
-
- workshop ( NOUN NOUN_SINGULAR ) 
-
- workstation ( NOUN NOUN_SINGULAR ) 
-
- wurstel ( NOUN NOUN_SINGULAR ) 
-
+ weberianos ( ADJECTIVE ) lemma=`weberiano` AQ0  
+ webers ( NOUN_PROPER_PLURAL ) lemma=`weber` NCMP  
+ week-end ( NOUN_PROPER_SINGULAR ) 
+ weekend ( NOUN_PROPER_SINGULAR ) 
+ wellingtoniana ( ADJECTIVE ) lemma=`wellingtoniano` AQ0  
+ wellingtonianas ( ADJECTIVE ) lemma=`wellingtoniano` AQ0  
+ wellingtoniano ( ADJECTIVE ) 
+ wellingtonianos ( ADJECTIVE ) lemma=`wellingtoniano` AQ0  
+ wellingtoniáceas ( NOUN_PROPER_SINGULAR ) 
+ wellingtónia ( NOUN_PROPER_SINGULAR ) 
+ wellingtónias ( NOUN_PROPER_PLURAL ) lemma=`wellingtónia` NCFP  
+ welwitschiácea ( ADJECTIVE NOUN_PROPER_PLURAL ) lemma=`welwitschiáceo`welwitschiáceo` AQ0  NCFS  
+ welwitschiáceas ( NOUN_PROPER_SINGULAR ) 
+ welwitschiáceo ( ADJECTIVE NOUN_PROPER_PLURAL ) lemma=`welwitschiáceo`welwitschiáceo` AQ0  NCMS  
+ welwitschiáceos ( ADJECTIVE NOUN_PROPER_PLURAL ) lemma=`welwitschiáceo`welwitschiáceo` AQ0  NCMP  
+ wenlockiano ( NOUN_PROPER_SINGULAR ) 
+ wenlockianos ( NOUN_PROPER_PLURAL ) lemma=`wenlockiano` NCMP  
+ werfeniano ( NOUN_PROPER_SINGULAR ) 
+ werfenianos ( NOUN_PROPER_PLURAL ) lemma=`werfeniano` NCMP  
+ werneckense ( ADJECTIVE ) 
+ werneckenses ( ADJECTIVE ) lemma=`werneckense` AQ0  
+ western ( NOUN_PROPER_SINGULAR ) 
+ westerns ( NOUN_PROPER_PLURAL ) lemma=`western` NCMP  
+ westminsteriana ( ADJECTIVE ) lemma=`westminsteriano` AQ0  
+ westminsterianas ( ADJECTIVE ) lemma=`westminsteriano` AQ0  
+ westminsteriano ( ADJECTIVE ) 
+ westminsterianos ( ADJECTIVE ) lemma=`westminsteriano` AQ0  
+ westphalense ( ADJECTIVE ) 
+ westphalenses ( ADJECTIVE ) lemma=`westphalense` AQ0  
+ whig ( NOUN_PROPER_SINGULAR ) 
+ whiskies ( NOUN_PROPER_PLURAL ) lemma=`whisky` NCMP  
+ whisky ( NOUN_PROPER_SINGULAR ) 
+ whiskys ( NOUN_PROPER_PLURAL ) lemma=`whisky` NCMP  
+ whist ( NOUN_PROPER_SINGULAR ) 
+ whists ( NOUN_PROPER_PLURAL ) lemma=`whist` NCMP  
+ white-collar ( ADJECTIVE ) 
+ wiclefismo ( NOUN_PROPER_SINGULAR ) 
+ wiclefismos ( NOUN_PROPER_PLURAL ) lemma=`wiclefismo` NCMP  
+ wiclefista ( NOUN_PROPER_SINGULAR ) 
+ wiclefistas ( NOUN_PROPER_PLURAL ) lemma=`wiclefista` NCCP  
+ wild-card ( NOUN_PROPER_SINGULAR ) 
+ wild-cards ( NOUN_PROPER_PLURAL ) lemma=`wild-card` NCMP  
+ wildiana ( ADJECTIVE ) lemma=`wildiano` AQ0  
+ wildianas ( ADJECTIVE ) lemma=`wildiano` AQ0  
+ wildiano ( ADJECTIVE ) 
+ wildianos ( ADJECTIVE ) lemma=`wildiano` AQ0  
+ wilsoniana ( ADJECTIVE ) lemma=`wilsoniano` AQ0  
+ wilsonianas ( ADJECTIVE ) lemma=`wilsoniano` AQ0  
+ wilsoniano ( ADJECTIVE ) 
+ wilsonianos ( ADJECTIVE ) lemma=`wilsoniano` AQ0  
+ winchester ( NOUN_PROPER_SINGULAR ) 
+ winchesteres ( NOUN_PROPER_PLURAL ) lemma=`winchester` NCMP  
+ windsoriana ( ADJECTIVE ) lemma=`windsoriano` AQ0  
+ windsorianas ( ADJECTIVE ) lemma=`windsoriano` AQ0  
+ windsoriano ( ADJECTIVE ) 
+ windsorianos ( ADJECTIVE ) lemma=`windsoriano` AQ0  
+ windsurfe ( NOUN_PROPER_SINGULAR ) 
+ windsurfes ( NOUN_PROPER_PLURAL ) lemma=`windsurfe` NCMP  
+ windsurfista ( NOUN_PROPER_SINGULAR ) 
+ windsurfistas ( NOUN_PROPER_PLURAL ) lemma=`windsurfista` NCCP  
+ winteranáceas ( NOUN_PROPER_SINGULAR ) 
+ witherita ( NOUN_PROPER_SINGULAR ) 
+ witheritas ( NOUN_PROPER_PLURAL ) lemma=`witherita` NCFP  
+ wollastonita ( NOUN_PROPER_SINGULAR ) 
+ wollastonitas ( NOUN_PROPER_PLURAL ) lemma=`wollastonita` NCFP  
+ workshop ( NOUN_PROPER_SINGULAR ) 
+ workshops ( NOUN_PROPER_PLURAL ) lemma=`workshop` NCFP  
+ writ ( NOUN_PROPER_SINGULAR ) 
+ wronskiana ( ADJECTIVE ) lemma=`wronskiano` AQ0  
+ wronskianas ( ADJECTIVE ) lemma=`wronskiano` AQ0  
+ wronskiano ( ADJECTIVE ) 
+ wronskianos ( ADJECTIVE ) lemma=`wronskiano` AQ0  
+ wulfenita ( NOUN_PROPER_SINGULAR ) 
+ wulfenitas ( NOUN_PROPER_PLURAL ) lemma=`wulfenita` NCFP  
+ wurtzita ( NOUN_PROPER_SINGULAR ) 
+ wurtzitas ( NOUN_PROPER_PLURAL ) lemma=`wurtzita` NCFP  
+ wurtzite ( NOUN_PROPER_SINGULAR ) 
+ wurtzites ( NOUN_PROPER_PLURAL ) lemma=`wurtzite` NCFP  
+ ww ( NOUN_PROPER_PLURAL ) lemma=`w` NCMP  

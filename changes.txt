@@ -1,3 +1,76 @@
+Version 13.1 May 9, 2023
+
+0: new rule type - v: ()   a rule that never responds to anything but can be the target for ^reuse and ^setrejoinder - v means void
+
+1. New command line parameers
+		a. legacymatch=0/1   (default if not given is legacymatch=1) 
+			redefinition of match variable contents when matching a concept. 
+			canonical is the concept member NOT the canonical form of the words
+			and original is what user typed (after corrections)
+				eg: concept: ~food ("baked potato") with input "baked potatoes"
+				legacy=1 : (_~food) =>  '_0 - baked_potatoes  _0 - bake_potato
+				legacy=0 : (_~food) => '_0 - baked_potatoes  _0 - baked_potato
+			If you don't have code that depends on legacy, you are better off adding legacy=0 to your init file
+		b. filecache=  allocates a buffer to cache max n files. 	
+			A server might want to cache common files across volleys and users.
+			eg. filecache=5000x100 means allocate a 5M buffer for caching 100 files.
+		c. nophrases  - suppresses marking ~prep_phrase, ~verb_phrase, ~noun_phrase
+			this is a minor speedup if you don't have a use for them.
+		d. nopatterndata - disables pattern data gathering that supports ^MatchesCode
+			this is a minor speedup if you don't use ^MatchesCode
+		e. websocketbot=xxx  - names bot to be used for websocket communcation
+2. New functions
+	a.  ^jsonreusekill($jsonstruct)  
+		Kills the facts of this struct and makes them immediately available for reuse as free facts
+
+3. Function changes
+	^pos(uppercase/capitalize xxx) no longer capitalizes all in a phrase now follows title de capitalization rules regarding short conjunctions, prepositions, determiners
+	^pos(mixcase ... )  lowercase all letters except first one and first ones after space, underscore, hyphen
+	^setrejoinderO - simplied use, no longer need to use "copy" in some circumstances
+	^pos (substitute xxx)
+	^stats - removed wordaccess and averagehashdepth
+	 ^readfile (aka ^jsonreadcsv) now supports using :trace all and :trace none as input lines so
+			you can observe the behavior of specific lines of the file. also :quit, :exit, :pause, :resume
+
+		Note that the use of :trace and :quit are generally supported on any function which is reading data,
+		including :source, table compilation, ^readfile.
+
+3. New debug functions
+	:respondonly - Take serverlog named and replicate in tmp but without serverpre or separator lines
+	:dumpcache - dumps data about files currently cached by server
+	:splitfile - reads huge file line by line, writing 20mb pieces into TMP 
+	:mergelines file {all} - now documented in Finalizing a bot
+		It reads in lines and for adjacent exact matches, it outputs the line just once, with a count in front.
+		Useful for finding how often a rule triggers in server log or finding unique user inputs to go
+		add to your bot.
+
+4. New marks
+	 ~verb_phrase, ~noun_phrase, ~prep_phrase  enable easy grabs of sentence fragments
+
+5. Command line parameter removed:
+	 nl_save - no longer cache nl analysis in testpattern
+
+6. new cs interchange variables 
+	$cs_jid - number to start with  when starting indexing of new json structure ids
+	$cs_directfromoob, if set to true, tells cs to convert any incoming oob directly into a json structure
+
+7. additional engine hook funcions
+	 EndChat, PosTag, CheckRoles
+	MarkWord, SequenceMark, AdditionalMarks, BugLog,
+	DatabaseOperationStart (mongo), DatabaseOperationStop (mongo)
+
+8. Additional %httpresponse codes from jsonopen (see system variables manual for %httpresponse)
+
+9. Modified JSON behavior:
+	JSON is case sensitive in field names.  CS is not. If you offer a new case field name and it already has a field
+	with a different case, it will use the preexisting one.
+	You can name fields to ignore returning from ^parsejson and  ^jsonopen by passing in a concept set
+	of names.  If you have given an ignoreconcept, then whenver a field name is encountered in the incoming data
+	matches the name of a member of that concept set, that field and all data below it are discarded.
+	 If you have given an underscore concept, then any field name encountered in the incoming data
+	 that matches a member of that concept, that field's string value will have any spaces in it
+	 replaced with underscores.
+
 Version 12.31 October 23, 2022
 1. Any nonjson loop limit given as a positive number will locally override whatever limits normally would
 	exist for a std non-json loop.  eg  Loop (20000) will make the limit be 20000 whereas Loop(^length(...))

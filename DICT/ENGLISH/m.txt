@@ -3432,6 +3432,7 @@
  mechanical_drawing ( meanings=2 glosses=2 NOUN_ABSTRACT NOUN NOUN_SINGULAR ) 
     drafting~1nz (^trade~1) the craft of drawing blueprints
     mechanical_drawing~2nz (^drawing~5) scale drawing of a machine or architectural plan etc,
+ mechanician ( NOUN NOUN_SINGULAR )
  mechanical ( meanings=4 glosses=2 ADJECTIVE ADJECTIVE_NORMAL COMMON4 posdefault:ADJECTIVE ) 
     mechanical~1az using mechanisms or tools or devices
     mechanical~2az relating to or governed by or in accordance with mechanics

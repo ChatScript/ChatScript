@@ -1,6 +1,6 @@
 # ChatScript Guide To Documentation (user guides, tutorials, papers)
 <br>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision CS7.6
+<br>Revision CS13.1
 
 ChatScript has a lot of documentation in various manuals, so knowing what to read may seem daunting.
 Here is an overview.
@@ -130,11 +130,8 @@ never be complete because you will want to keep improving it.
  * [ChatScript PosParser](ESOTERIC-CHATSCRIPT/ChatScript-PosParser.md)
 <br>How to use grammar/parsing in CS patterns.
 
- * [ChatScript PostgreSQL](ESOTERIC-CHATSCRIPT/ChatScript-PostgreSQL.md)
-<br>How to use the Postgres database directly from CS.
-
- * [ChatScript MySQL](ESOTERIC-CHATSCRIPT/ChatScript-MySQL.md)
-<br>How to use the MySQL database directly from CS.
+ * [ChatScript Database Access](ESOTERIC-CHATSCRIPT/ChatScript-Database_Access.md)
+<br>How to use the MySQL and other databases directly from CS.
 
  * [ChatScript Exotica](ESOTERIC-CHATSCRIPT/ChatScript-Exotica-Examples.md)
 <br>Brief old interesting scripting tips

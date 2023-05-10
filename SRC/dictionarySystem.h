@@ -54,7 +54,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define POSSESSIVE_BITS			( PRONOUN_POSSESSIVE | POSSESSIVE )
 #define DETERMINER_BITS		   ( DETERMINER | PREDETERMINER | POSSESSIVE_BITS ) // come before adjectives/nouns/ adverbs leading to those
 
-//      0x0000000000100000ULL 	// for spanish
+//      0x0000000000100000ULL 	
 
 // punctuation
 #define COMMA 					0x0000000000080000ULL	
@@ -73,7 +73,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 // unusual words
 #define INTERJECTION			0x0000000000000400ULL	 // includes emoji
-#define EMOJI	INTERJECTION	 
+#define EMOJI							INTERJECTION	 
 #define THERE_EXISTENTIAL		0x0000000000000200ULL	// "There" is no future in it. There is actually a unique kind of pronoun.  Pennbank: EX
 #define FOREIGN_WORD			0x0000000000000100ULL 	// pennbank: FW
 #define TO_INFINITIVE	 		0x0000000000000080ULL 	// attaches to NOUN_INFINITIVE
@@ -108,14 +108,11 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define PRONOUN_BITS	( PRONOUN_OBJECT | PRONOUN_SUBJECT ) // there is no pronoun flag, just the bits
 
 // aux verbs
-#define	AUX_DO 					0x0000002000000000ULL	
+#define	 AUX_DO 					0x0000002000000000ULL	
 #define AUX_HAVE				0x0000001000000000ULL 
-#define	AUX_BE					0x0000000800000000ULL	
+#define	 AUX_BE					0x0000000800000000ULL	
 #define AUX_VERB_PRESENT		0x0000000400000000ULL
-
-#define AUX_VERB_FUTURE			0x0000000200000000ULL
-#define SPANISH_FUTURE AUX_VERB_FUTURE // for spanish labelling
-
+#define AUX_VERB_FUTURE			0x0000000200000000ULL // aka SPANISH_FUTURE
 #define AUX_VERB_PAST			0x0000000100000000ULL
 #define AUX_VERB_TENSES ( AUX_VERB_PRESENT | AUX_VERB_FUTURE | AUX_VERB_PAST ) // modal verbs
 #define AUX_VERB ( AUX_VERB_TENSES | AUX_BE | AUX_HAVE | AUX_DO )
@@ -124,39 +121,32 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 
 #define STARTTAGS				0x0000800000000000ULL	// the top bit of the 48 bits visible to tagger
 
-//////////////////////////////16 bits below here can not be used in posValues[] of tagger  
+//////////////////////////////16 bits below here can not be used in posValues[] of tagger  (in pos rules)
 #define AS_IS					0x8000000000000000ULL   //  TRANSIENT INTERNAL dont try to reformat the word (transient flag passed to StoreWord)
 
 #define NOUN_HUMAN				0x4000000000000000ULL  //   person or group of people that uses WHO, he, she, anyone
 #define NOUN_FIRSTNAME			0x2000000000000000ULL  //   a known first name -- wiULL also be a sexed name probably
 
 // genders
-#define NOUN_SHE					0x1000000000000000ULL	//   female sexed word (used in sexed person title detection for example)
-#define SPANISH_SHE				NOUN_SHE	
-#define GERMAN_SHE				NOUN_SHE	
-#define NOUN_HE						0x0800000000000000ULL	//   male sexed word (used in sexed person title detection for example)
-#define SPANISH_HE				NOUN_HE
-#define GERMAN_HE				NOUN_HE	
+#define NOUN_SHE					0x1000000000000000ULL // aka SPANISH_SHE
+#define NOUN_HE						0x0800000000000000ULL  // aka SPANISH_HE
 #define NOUN_THEY				0x0400000000000000ULL   
-#define GERMAN_NEUTER	NOUN_THEY	
 
 #define NOUN_TITLE_OF_ADDRESS	0x0200000000000000LL	//   eg. mr, miss
 #define NOUN_TITLE_OF_WORK		0x0100000000000000ULL
 #define LOWERCASE_TITLE			0X0080000000000000ULL	//   lower case word may be in a title (but not a noun)
-#define NOUN_ABSTRACT			0x0040000000000000ULL	// can be an abstract noun (maybe also concrete)
+#define PLACE_NUMBER			0x0040000000000000ULL	// can be an abstract noun (maybe also concrete)
 #define MORE_FORM				0x0020000000000000ULL  
 #define MOST_FORM				0x0010000000000000ULL  
 
 #define QWORD 	 				0x0008000000000000ULL 	// who what where why when how whose -- things that can start a question
 
-#define PLACE_NUMBER			0x0004000000000000ULL	// hidden refinement of ADJECTIVE_NUMBER
-#define SPANISH_PLURAL			PLACE_NUMBER	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
+#define NOUN_ABSTRACT 			0x0004000000000000ULL	// hidden refinement of ADJECTIVE_NUMBER
 #define SINGULAR_PERSON			0x0002000000000000ULL	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
-#define SPANISH_SINGULAR			SINGULAR_PERSON	// for conjugation of "to be" (am/was)- present3ps is a marked tense, 2nd person and plural is default of "verb_present"
 
 #define IDIOM 					0x0001000000000000ULL	// multi word expression of which end is at TAIL (like multiword prep)
 
-//////////////////////////////bits above cannot used in posValues[] of tagger  
+//////////////////////////////bits above cannot used in posValues[] of tagger  (pos rules)
 
 #define NOUN_TITLE		 (  NOUN | NOUN_TITLE_OF_WORK | NOUN_PROPER_SINGULAR )
 #define NOUN_HUMANGROUP		( NOUN | NOUN_HUMAN | NOUN_TITLE_OF_WORK | NOUN_THEY )
@@ -347,7 +337,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define FACTAUTODELETE      0x00800000 // delete when json deletes
 #define OVERRIDE_MEMBER_FACT FACTAUTODELETE // used in ^testpattern matching
 #define ORIGINAL_ONLY   0x00400000  //  dont match on canonicals
-#define FACTBUILD2			0x00200000 
+//		0x00200000 
 #define FACTBUILD1	        0x00100000  // fact created during build 1 (for concepts)
 
 // user flags
@@ -583,7 +573,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define HAS2VERBS 22	
 #define ISQWORD 23
 #define ISQUESTION 24
-#define ISABSTRACT 25
+#define ISABSTRACT 25  // can this be merged with has_property noun_nodeterminer
 #define POSSIBLEINFINITIVE 26
 #define POSSIBLEADJECTIVE 27
 #define POSSIBLETOLESSVERB 28
@@ -599,7 +589,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define ISPROBABLE 38
 #define PLURAL 39
 #define DUALNOUN 40
-#define LASTCONTROL DUALNOUN  // add new ops to optable as well
+#define LASTCONTROL DUALNOUN  // add new ops to optable as well  (6 bits)
 
 #define SKIP 1 // if it matches, move ptr along, if it doesnt DONT
 #define STAY 2

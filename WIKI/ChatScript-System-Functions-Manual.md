@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/16/2022 cs12.3
+<br>Revision 5/10/2022 cs13.1
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -203,7 +203,6 @@ It is also canceled if output matching the first sentence sets a rejoinder.
 You can give an optional tag or label to pretend the named rule
 had been the one to set a rejoinder and so therefore execute its rejoinders explicitly.
 
-
 ### `^respond ( value value ... )`
 
 Tests the sentence against the named value topic in responder mode to see if any rule matches 
@@ -324,17 +323,8 @@ comes in, the outputrejoinder is now the inputrejoinder and used for `^rejoinder
 modify that as well. Both can exist simultaneously, you have the input context and you
 set an output context before having used up the inputrejoinder.
 
-Setting a rejoinder on a rule means starting with the rejoinder immediately after it. If you
-were trying to copy a rejoinder that had already been established and redo it later, eg.
-
-    ^setrejoinder(output %inputrejoinder)
-
-this would be problematic, because it would set it to the rule after, which would be
-wrong. For this use the kind of "copy" which does not have issues with this.
-
-    ^setrejoinder(copy %inputrejoinder)
-
-If _kind_ is output or copy and the _tag_ is `null`, the output rejoinder is
+Setting a rejoinder on a rule means starting with the rejoinder immediately after it. 
+If _kind_ is output and the _tag_ is `null`, the output rejoinder is
 cleared (analogous to ^disable). 
 
 If the _kind_ is input and the _tag_ is `null`, the input rejoinder is cleared.
@@ -414,8 +404,13 @@ With location omitted, this marks `~meat` as though it has been seen at sentence
 
 ### `^mark()`
 
-Clears all global unmarks. restore a global ^unmark(0) exactly as it was before
-the global unmark.
+Memorizes the set of all * unmarks (generic unmarks) and then turns them off
+so normal matching will occur.
+
+
+### `^unmark()` 
+
+Restores the set of generic unmarks that were flipped off using `^mark()`.
 
 
 ### `^unmark ( word _0 )`
@@ -435,7 +430,7 @@ This can happen if you pass null to an outputmacro: ^myfn(^var) and then ^unmark
 ^Unmark can remove either the single thing, or ^unmark(* \_0) removes ALL marks and makes the word completely invisible (not seen in a wildcard match), whereas ^unmark(@ \_0) removes all marks but leaves the word occupying space in the sentence and will be seen in a wildcard match.
 
 When you call unmark, the analysis of the sentence HAS ALREADY HAPPENED.  
-If a ~noun was detected, so has ~noun_and_some_concept. So if you then erase ~noun mark, it has NO impact on other marks made.
+If a \~noun was detected, so has \~noun_and_some_concept. So if you then erase \~noun mark, it has NO impact on other marks made.
 
 
 
@@ -494,10 +489,6 @@ turned off when the pattern match finishes (so you don't ruin later rules), wher
 you do it from output, then the change persists for the rest of the volley.
 Furthermore it is handy to flip specific collections of generic unmarks on an off.
 
-`^mark()` memorizes the set of all * unmarks (generic unmarks) and then turns them off
-so normal matching will occur.
-
-`^unmark()` will restore the set of generic unmarks that were flipped off using `^mark()`.
 
 ### `^replaceword(word _0)`
 
@@ -1199,7 +1190,7 @@ count is higher, you fail even within the 5 prior volleys.
     u: (^incontext(PLAYTENNIS) why) because it was fun.
 
 ### `^stats ( FACTS / DICT / TEXT / HASHBUCKETS / UNUSEDHASHBUCKETS )`
-`^stats ( WORDACCESS  / AVERAGEHASHDEPTH / PATTERNEVALUATION )`
+`^stats ( PATTERNEVALUATION )`
 `^stats ( TIMESUMMARY  )`
 All ^stats calls can take an optional 2nd argument "ECHO" which sends the answers
 to the user log and echo on terminal.
@@ -1209,8 +1200,6 @@ DICT: Returns how many empty dictionary entries remain.
 TEXT: Returns how much space for both stack and heap remain.
 HASHBUCKETS: shows how many words are in each bucket size
 UNUSEDHASHBUCKETS: how many buckets are wasted (empty)
-WORDACCESS: How many calls to look up a word in the dictionary happened
-AVERAGEHASHDEPTH: how long is the average word lookup (words scanned)
 PATTERNEVALUATION: how many calls to pattern matcher happened
 TIMESUMMARY: create facts of how many ms cpu spend in functions called
 
@@ -1414,7 +1403,7 @@ or MySQL.
 
 _name_ is the file to read from. Set is where to put the read facts. 
 
-_erase_ can be `erase` meaning delete the file after use or `keep` meaning leave the file alone.
+_erase_ can be `erase` meaning delete the file after use, or `keep` meaning leave the file alone, or `cache` to mean that the file can be read and stored in the file cache.
 
 _transient_ can be `transient` meaning mark facts as temporary (to self
 erase at end of volley) or `permanent` meaning keep the facts as part of user data. Eg
@@ -1537,14 +1526,6 @@ If the initial patterns have %testpattern-prescan in them (usually at the start)
 against all sentences in sequence. Then the remaining patterns will revert to the usual all patterns against each 
 sentence in succession.
 
-Normally every ^testpatterncall to CS will have to have NL done on its input. Patterns that imply no need for NL will
-not trigger it. But if only one needs it, CS will have to do it.  But with command line paramter `nlsave=1` the results
-of NL analysis can be written out in newglobals and passed along to the next ^testpattern call to CS, saving time.
-On the other hand, if you know there will be no next call, you can add to your pattern `%testpattern-nosave` to present
-saving the nl data to newglobals. You can manually force saving from user input by saying `nl-save` or passing in a variable 
-of `$bwnlsave`.
-
-
 ### ~replace_spelling
 The variables and concepts fields are optional and provide context. A concept named "~replace_spelling" is treated not as a concept
 but as a list of paired words analogous to "replace:", but is only a transient replace series for this call.  A concept can contain values that look like:
@@ -1557,7 +1538,7 @@ Style is also optional
 and defaults to `earliest`. Other choices are all, best, latest and tfidf. Earliest means stop running
 patterns and sentences as soon as you get a match. This makes the call faster and if your 
 patterns are ordered best first, there is no incentive to try lower priority patterns or more
-sentences. Latest is the opposite, presumes that the patterns are ordered worst first. In addition,
+sentences (except against multiple sentence inputs). Latest is the opposite, presumes that the patterns are ordered worst first. In addition,
 last will not execute any patterns earlier than the already matching one once one has been found (since it cannot improve the result).
 All runs all patterns on all sentences. It is good for gleaning data. Best presumes patterns
 are ordered best first, but once a match has been found it will move on to additional sentences
@@ -1930,6 +1911,12 @@ The line is an object where non-empty fields are given as field indexes. The fir
 
 Fomerly called ^jsonreadcsv.
 
+Input lines can include:  
+:trace all   or :trace none - manages tracing
+:quit  or :exit - acts like end of file
+:pause  or :resume  - ignores lines while paused
+
+
 # Word Manipulation Functions
 
 ### `^burst ( {count once} data-source burst-character-string )`
@@ -2036,6 +2023,8 @@ characters and they are converted to the appropriate ascii characters on output 
 But if you have read data from an external source, it will likely be the
 actual ascii characters.
 
+You can use this with ^extract to retrieve text before or after the found data.
+
 ### `^flags ( word )`
 
 get the 64bit systemflags of a word.
@@ -2077,7 +2066,8 @@ already in the dictionary.
 
 ### `^pos( part-of-speech word supplemental-data )`
 
-Generates a particular form of a word in any form and puts it in the output stream. 
+Generates a particular form of a word in any form and puts it in the output stream.  
+Or tests a word to see if it is of a particular form.
 If it cannot generate the request, it issues a RULE failure. 
 Most combinations of arguments are obvious. Here are the 1st & 3rd choices.
 For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to use.
@@ -2119,18 +2109,23 @@ For verbs with irregular pronoun conjugation, supply 4th argument of pronoun to 
 | `irregular`          | word         | return value only for irregular nouns
 | `determiner`         | word `noun`  | add a determiner "a/an" if it needs one
 | `place`              | integer      | return place number of integer
-| `capitalize`         | word         |
-| `uppercase`          | word         |
-| `lowercase`          | word         |
-| `allupper`           | word         |
+| `capitalize`         | word   -  same as uppercase- converts phrase to uppercase following rules for titles      |
+| `uppercase`          | word      - same as capitalize- converts phrase to uppercase following rules for titles   |
+| `mixcase`          | word      -  lowercase all letters except first one and first ones after space, underscore, hyphen
+| `lowercase`          | word   - convert all letters to lowercase     |
+| `allupper`           | word     - convert all letters to uppercase    |
 | `canonical`          | word         | see notes
 | `integer`            | floatnumber  | generate integer if float is exact integer
 | `preexists`            | word  | return 1 if word in any casing was already in the dictionary before this volley, fail otherwise.
 | `xref`            | wordindex  | Kind | See below.
 | `isfunction`            | word  | returns 1 is word is a defined function, or fails
 | `layer`            | word  | When was this word entered into the dictionary. Answers are: `wordnet`, `0`, `1`, `2`, `user`.
+| `substitute`            | word  | returns the word this word gets substituted into.
 
-Example:
+Rules for title capitalization are no longer capitalizingall in a phrase.
+Follows title  capitalization rules regarding short conjunctions, prepositions, determiners.
+
+Ordinary non-title Example:
 
     # get first name (in a not English language), and capitalize
     u: what's your first name?

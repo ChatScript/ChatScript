@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/24/2022 cs12.31
+<br>Revision 5/10/2022 cs13.1
 
 # Real World JSON
 
@@ -35,8 +35,6 @@ will find what array index the value `space` is at;
 
 
 A JSON object is a list of key-value pairs separated by commas and placed within curly braces `{}`, e.g.,
-
-
 
 ```json
 { 
@@ -196,6 +194,13 @@ $_y = 5
 $_y = $_x.value         # clears $_y (acts like null)
 $_x.value = $_y		# assigns JSON null
 ```
+
+Note, also, that while JSON is case sensitive in its field names, CS will lookup insensitive.
+It doesn't matter if you mis-capitalize the name of a field. CS doesn't believe you should have
+two fields with the same name but different capitalization and will treat them as the same.
+
+JSON is case sensitive in field names.  CS is not. If you offer a new case field name 
+and it already has a field 	with a different case, it will use the preexisting one.
 
 ### JSON FACTS
 
@@ -690,6 +695,10 @@ Type is either `array` or `object` and a json composite with no content is creat
 See `^jsonarrayinsert`, `^jsonobjectinsert`, and `^jsondelete` for how to manipulate it. 
 See writeup earlier about optional json flags.
 
+The system makes ids with different names for build0, build1, and user. And increments
+ids as it creates new ones. If the id created already exists, the system increments and tries again.
+If there are lots of collisions you can speed things up by setting $cs_jid. This changes 
+the number to start with.
 
 ### `^jsonarrayinsert`( {JSONFLAGS} arrayname value ) 
 
@@ -713,6 +722,10 @@ so that the array indexing range is contiguous.
 If the key has an existing value then if the value is a json object it will be
 recursively deleted provided its data is not referenced by some other fact (not by any variables). You can
 suppress this with the `SAFE` flag. `^jsonarraydelete(SAFE $obj $key)`.
+
+### `^jsonreusekill`( $jsonstruct ) 
+		
+Kills the facts of this struct and makes them immediately available for reuse as free facts.
 
 
 ### `^jsonarraysize`( name ) 
@@ -793,6 +806,8 @@ in that you can potentially read large amounts of data in a single volley and ma
 `^readfile ( LINE filepath 'function)` reads a file and passes each line untouched as the sole argument to the function.
 
 Formerly called ^jsonreadfile (still accepted).
+
+An input line can be :trace all or :trace none to observe behavior of the data between them.
 
 ### `^jsonundecodestring`( string ) 
 

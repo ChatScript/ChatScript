@@ -393,6 +393,18 @@ It would not go the other way, however, so if the argument were
 You should store your facts on the full name. 
 The mechanism allows user input to use the short name.
 
+NOTE:  whenever you have double-quoted entries in your data, by default they are stored
+as single words without the double-quotes and with spaces replaced with underscores.
+If you are trying to pattern match these entries, you need to be aware that when CS sees
+```
+   u: ( test _*2)
+```
+it will store the paired words using _ or space, depending on the setting of $cs_wildcardseparator,
+which defaults to space. So queries would fail and in your botmacro you would need to 
+```
+$cs_wildcardseparator= _
+```
+
 NOTE:  Tables are executed (built) at compile time. And their
 resulting data and variables are saved in the TOPIC folder along with your
 compiled scripts and loaded when the server starts up. The data is "owned"
@@ -400,6 +412,9 @@ by the server and not written out to user files. Also, normally you cannot
 alter table data on the fly from a user script interaction (true of all facts, not just
 table facts). In the event you are compiling multiple bots at once, the facts of the table are owned
 by whatever bot is considered to be compiling that chunk of code.
+
+NOTE: Tables are the only thing executed at compile time, so if there is some arbitrary data
+manipulation you need doing, you can do it in a dummy table (whose data you just ignore).
 
 ## Variable Argument Tables
 

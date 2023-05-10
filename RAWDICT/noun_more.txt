@@ -1,6 +1,8 @@
 # see also nounmass.txt
 Facebook NOUN_PROPER_SINGULAR 
 uninstaller
+mechanician 
+orthotist
 coronavirus 
 coffeemaker
 crockpot

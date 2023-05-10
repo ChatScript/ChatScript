@@ -449,7 +449,10 @@ Note when using backwards matching, `<` and `>` flip meanings. `>` means start a
 (since you are moving backwards) and `<` means confirm we are at start.
 
 `@_3` is a special positional matching called an anchor. It not only makes the position that given and matching forward
-thereafter, but it also acts as an item that must itself be matched. 
+thereafter, but it also acts as an item that must itself be matched. This is different from
+@_3+ which only jumps to the location and moves forward thereafter but does not have to have
+been a preexisting match location that must match now. There is no difference in result
+between the two if the item is the first thing in the pattern.
 
 E.g., for this pattern `( @_3 is my @_4 life)`
 

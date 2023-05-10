@@ -1,5 +1,5 @@
 ﻿#SPANISH concept: ~DETERMINERLIST (      un un el  )
-#SPANISH concept: ~QWORDS (      dónde cuando "por qué" cómo quién quien cuyo "Quien sea" quien qué cual cualquiera "lo que sea"  )
+#SPANISH concept: ~QWORDS (puedes "hay alguien" "de dónde" "de qué"  "por qué" "por que"   porqué que  donde  dónde     "en que" cuando cómo como quién quien cuyo "quien sea" quien qué cual cualquiera "lo que sea" "lo que" )
 #SPANISH concept: ~STATIC_VERBS ( ~states_of_being ~sensory_states ~mental_states ~own ~measurement_states ~eternal_truths       )
 #SPANISH concept: ~STATES_OF_BEING (      ser parecer Aparecer Mira "parecerse a" parece "Se convierte" obtener  )
 #SPANISH concept: ~SENSORY_STATES (      Aparecer sensación oír Mira ver oler sonar gusto  )

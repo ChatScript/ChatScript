@@ -1,7 +1,7 @@
 #ifndef _VARIABLESYSTEMH_
 #define _VARIABLESYSTEMH_
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -31,6 +31,7 @@ extern bool modifiedTiming;
 extern HEAPREF variableChangedThreadlist;
 extern char* nullLocal;
 extern char* nullGlobal;
+extern bool legacyMatch;
 
 extern  int wildcardIndex;
 extern char wildcardOriginalText[MAX_WILDCARDS+1][MAX_MATCHVAR_SIZE+1];  //   spot wild cards can be stored
@@ -49,17 +50,16 @@ extern HEAPREF kernelVariableThreadList;
 // wildcard accessors
 char* GetwildcardText(unsigned int i, bool canon);
 void SetWildCard(char* value,char* canonicalVale,const char* index,unsigned int position);
-void SetWildCard(int start, int end, bool inpattern = false);
-void SetWildCardGiven(int start, int end, bool inpattern, int index);
+void SetWildCardGiven(unsigned int start, unsigned int end, bool inpattern, int index,MARKDATA* hitdata = NULL);
 void SetWildCardIndexStart(int);
 int GetWildcardID(char* x);
-void SetVariable(WORDP D, char* value);
+void SetAPIVariable(WORDP D, char* value);
 
 // Variables loaded from bot (topic system)
 void ReestablishBotVariables();
 void NoteBotVariables();
 void InitVariableSystem();
-void SetWildCardGivenValue(char* original, char* canonical,int start, int end, int index);
+void SetWildCardGivenValue(char* original, char* canonical,unsigned int start, unsigned int end, int index,MARKDATA* hitdata = NULL);
 
 // debug data
 void ShowChangedVariables();

@@ -1,908 +1,557 @@
-﻿ judicializar ( VERB_INFINITIVE VERB ) 
-
- jactarse ( VERB_INFINITIVE VERB ) 
-
- JCDR ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=JCDR 
-
- JTC ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaca ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jacinto ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jack ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jackson ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jacob ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jacobo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jacqueline ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jacques ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaffe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaguar-GM ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaime ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaimito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Jaime 
-
- Jalapa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jalisco ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jamahiriya ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jamaica ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- James ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Janecita ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Janice 
-
- Janice ( ) 
-
- Janet ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Janeway ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Japón ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaro ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Java ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Javi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Javier 
-
- Javier ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jaén ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jean ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jedy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jeff ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jegan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jenny ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jenrruchito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jeremy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jericó ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jerome ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jerry ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jersey ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jerusalén ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jerónimo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jerónimos ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Jerónimo 
-
- Jessica ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jessie ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jesu ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jesucristo ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jesús ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jim ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jimmy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jiménez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joao ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joaquín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joe ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Johan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- John ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Johnny ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Johnson ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joie ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Join ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jonatan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jonathan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jones ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jordan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jordania ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jordi ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jorge ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jorgito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Jorge 
-
- Jose ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=José 
-
- José ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Josefa ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joseph ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jovani ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joy ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Joystick ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juan ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juana ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Juan 
-
- Juancito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Juan 
-
- Juanita ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Juana 
-
- Juanito ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Juan 
-
- Juez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juglar ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Julia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=Julio 
-
- Julio ( ) 
-
- Julián ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jung ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
+﻿﻿
+﻿
+ J ( ) 
+ JCDR ( NOUN NOUN_PROPER_PLURAL ) lemma=`JCDR`JCDR` ACRNM  NP  
+ JTC ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaca ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacinto ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jack ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jackson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacob ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacobo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacqueline ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jacques ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaffe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaguar-GM ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaime ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaimito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Jaime` NP  
+ Jalapa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jalisco ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jamahiriya ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jamaica ( NOUN NOUN_PROPER_SINGULAR ) 
+ James ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Janecita ( NOUN NOUN_PROPER_PLURAL ) lemma=`Janice` NP  
+ Janet ( NOUN NOUN_PROPER_SINGULAR ) 
+ Janeway ( NOUN NOUN_PROPER_SINGULAR ) 
+ Japón ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaro ( NOUN NOUN_PROPER_SINGULAR ) 
+ Java ( NOUN NOUN_PROPER_SINGULAR ) 
+ Javi ( NOUN NOUN_PROPER_PLURAL ) lemma=`Javier` NP  
+ Javier ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jaén ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jean ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jedy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jeff ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jegan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jenny ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jenrruchito ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jeremy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jericó ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerome ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerry ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jersey ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerusalén ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerónimo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jerónimos ( NOUN NOUN_PROPER_PLURAL ) lemma=`Jerónimo` NP  
+ Jessica ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jessie ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jesu ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jesucristo ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jesús ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jim ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jimmy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jiménez ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joana ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joao ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joaquín ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joe ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johan ( NOUN NOUN_PROPER_SINGULAR ) 
+ John ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johnny ( NOUN NOUN_PROPER_SINGULAR ) 
+ Johnson ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joie ( NOUN NOUN_PROPER_SINGULAR ) 
+ Join ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joint ( ) 
+ Jonatan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jonathan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jones ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordania ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jordi ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jorge ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jorgito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Jorge` NP  
+ Jose ( NOUN NOUN_PROPER_PLURAL ) lemma=`José` NP  
+ Josefa ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joseph ( NOUN NOUN_PROPER_SINGULAR ) 
+ José ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jovani ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joy ( NOUN NOUN_PROPER_SINGULAR ) 
+ Joystick ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juan ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juana ( NOUN NOUN_PROPER_PLURAL ) lemma=`Juan` NP  
+ Juancito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Juan` NP  
+ Juanita ( NOUN NOUN_PROPER_PLURAL ) lemma=`Juana` NP  
+ Juanito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Juan` NP  
+ Juez ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juglar ( NOUN NOUN_PROPER_SINGULAR ) 
+ Julia ( NOUN NOUN_PROPER_PLURAL ) lemma=`Julio` NP  
+ Julián ( NOUN NOUN_PROPER_SINGULAR ) 
+ JumpS ( ) 
+ Jung ( NOUN NOUN_PROPER_SINGULAR ) 
  Junto ( PREPOSITION ) 
-
- Jurado ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jurados ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Justicia ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Justiniano ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juvenal ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juzgado ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juzgados ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Juárez ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Jáguer ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- Júpiter ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- j ( ) lemma=j 
-
- ja ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
+ Jurado ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jurados ( NOUN NOUN_PROPER_SINGULAR ) 
+ Justicia ( NOUN NOUN_PROPER_SINGULAR ) 
+ Justiniano ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juvenal ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juzgado ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juzgados ( NOUN NOUN_PROPER_SINGULAR ) 
+ Juárez ( NOUN NOUN_PROPER_SINGULAR ) 
+ Jáguer ( NOUN NOUN_PROPER_SINGULAR ) 
+ Júpiter ( NOUN NOUN_PROPER_SINGULAR ) 
+ j ( ) lemma=`j`j` ALFS  PE  
+ ja ( NOUN NOUN_PROPER_SINGULAR ) 
  jabalina ( NOUN NOUN_SINGULAR ) 
-
  jabalí ( NOUN NOUN_SINGULAR ) 
-
- jabones ( NOUN VERB NOUN_SINGULAR ) lemma=`jabón`jabonar` NC  VLfin 
-
+ jabalíes ( NOUN NOUN_PLURAL ) lemma=`jabalí` NC  
+ jabones ( NOUN VERB NOUN_PLURAL ) lemma=`jabón`jabonar` NC  VLfin  
  jabón ( NOUN NOUN_SINGULAR ) 
-
  jacinto ( NOUN NOUN_SINGULAR ) 
-
  jack ( NOUN NOUN_SINGULAR ) 
-
- jactar ( VERB_INFINITIVE VERB ) 
-
- jactado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=jactarse 
-
+ jacta ( VERB ) lemma=`jactar` VLfin  
+ jactaba ( VERB ) lemma=`jactar` VLfin  
+ jactado ( VERB_PAST_PARTICIPLE VERB ) lemma=`jactar` VLadj  
+ jactamos ( VERB ) lemma=`jactar` VLfin  
+ jactan ( VERB ) lemma=`jactar` VLfin  
  jactancia ( NOUN NOUN_SINGULAR ) 
-
- jactarme (                 VERB ) lemma=jactar 
-
- jacé ( VERB ) lemma=hacer 
-
+ jactancias ( NOUN NOUN_PLURAL ) lemma=`jactancia` NC  
+ jactar ( VERB ) 
+ jactarme ( VERB_INFINITIVE VERB ) lemma=`jactar` VCLIinf  
+ jactarse ( VERB_INFINITIVE VERB ) 
+ jacto ( VERB ) lemma=`jactar` VLfin  
+ jactó ( VERB ) lemma=`jactar` VLfin  
+ jacé ( VERB ) lemma=`hacer` VLinf  
  jadeo ( NOUN NOUN_SINGULAR ) 
-
- jala ( VERB ) lemma=`jar`jalar` VCLIfin  VLfin 
-
- jalar ( VERB_INFINITIVE VERB ) 
-
- jalapeño ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=jalapeño 
-
- jalapeños ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=jalapeño 
-
- jalear ( VERB_INFINITIVE VERB ) 
-
- jaleadas ( VERB_PAST_PARTICIPLE VERB ) lemma=jalear 
-
- jaleados ( VERB_PAST_PARTICIPLE VERB ) lemma=jalear 
-
- jaleo ( NOUN VERB NOUN_SINGULAR ) lemma=`jaleo`jalear` NC  VLfin 
-
- jalisciense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=jalisciense 
-
- jaliscienses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=jalisciense 
-
- jalones ( NOUN  NOUN_PLURAL  ) lemma=jalón 
-
+ jala ( VERB ) lemma=`jar`jalar` VCLIfin  VLfin  
+ jalado ( VERB_PAST_PARTICIPLE VERB ) lemma=`jalar` VLadj  
+ jalapeño ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jalapeño`jalapeño` ADJ  NC  
+ jalapeños ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jalapeño`jalapeño` ADJ  NC  
+ jalar ( VERB ) 
+ jaleaba ( VERB ) lemma=`jalear` VLfin  
+ jaleadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`jalear` VLadj  
+ jaleados ( VERB_PAST_PARTICIPLE VERB ) lemma=`jalear` VLadj  
+ jalean ( VERB ) lemma=`jalear` VLfin  
+ jalear ( VERB ) 
+ jaleo ( NOUN VERB NOUN_PLURAL ) lemma=`jaleo`jalear` NC  VLfin  
+ jaleos ( NOUN NOUN_PLURAL ) lemma=`jaleo` NC  
+ jalisciense ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jalisciense`jalisciense` ADJ  NC  
+ jaliscienses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jalisciense`jalisciense` ADJ  NC  
+ jalones ( NOUN NOUN_PLURAL ) lemma=`jalón` NC  
+ jaló ( VERB ) lemma=`jalar` VLfin  
  jalón ( NOUN NOUN_SINGULAR ) 
-
- jamamos ( VERB ) lemma=jamar 
-
- jamar ( ) 
-
- jamas ( ADVERB ) lemma=jamás 
-
+ jamamos ( VERB ) lemma=`jamar` VLfin  
+ jamas ( ADVERB ) lemma=`jamás` ADV  
+ jamases ( VERB ) lemma=`jamar` VLfin  
+ jambas ( VERB ) lemma=`jambar` VLfin  
  jamás ( ADVERB ) 
-
- jamases ( VERB ) lemma=jamar 
-
- jambas ( VERB ) lemma=jambar 
-
- jambar ( ) 
-
  jamón ( NOUN NOUN_SINGULAR ) 
-
- japonesa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=japonés 
-
- japonés ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=japonés 
-
- japonesas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=japonés 
-
- japoneses ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=japonés 
-
+ japonesa ( ADJECTIVE ) lemma=`japonés` ADJ  
+ japonesas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`japonés`japonés` ADJ  NC  
+ japoneses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`japonés`japonés` ADJ  NC  
  japoneses-americano ( NOUN NOUN_SINGULAR ) 
-
+ japonés ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`japonés`japonés` ADJ  NC  
  jaque ( NOUN NOUN_SINGULAR ) 
-
  jaqueca ( NOUN NOUN_SINGULAR ) 
-
- jara ( NOUN VERB NOUN_SINGULAR ) lemma=`jara`jar` NC  VLfin 
-
+ jaquecas ( NOUN NOUN_PLURAL ) lemma=`jaqueca` NC  
+ jara ( NOUN VERB NOUN_PLURAL ) lemma=`jara`jar` NC  VLfin  
  jarabe ( NOUN NOUN_SINGULAR ) 
-
- jaras ( NOUN VERB NOUN_SINGULAR ) lemma=`jara`jar` NC  VLfin 
-
+ jarabes ( NOUN NOUN_PLURAL ) lemma=`jarabe` NC  
+ jaras ( NOUN VERB NOUN_PLURAL ) lemma=`jara`jar` NC  VLfin  
  jardinera ( NOUN NOUN_SINGULAR ) 
-
+ jardineras ( NOUN NOUN_PLURAL ) lemma=`jardinera` NC  
  jardinero ( NOUN NOUN_SINGULAR ) 
-
+ jardineros ( NOUN NOUN_PLURAL ) lemma=`jardinero` NC  
  jardinería ( NOUN NOUN_SINGULAR ) 
-
- jardines ( NOUN  NOUN_PLURAL  ) lemma=jardín 
-
+ jardines ( NOUN NOUN_PLURAL ) lemma=`jardín` NC  
  jardín ( NOUN NOUN_SINGULAR ) 
-
  jaromas ( NOUN NOUN_SINGULAR ) 
-
- jarra ( NOUN VERB NOUN_SINGULAR ) lemma=`jarra`jarrar` NC  VLfin 
-
- jarras ( NOUN VERB NOUN_SINGULAR ) lemma=`jarra`jarrar` NC  VLfin 
-
- jarro ( NOUN VERB NOUN_SINGULAR ) lemma=`jarro`jarrar` NC  VLfin 
-
- jarroncito ( NOUN  NOUN_PLURAL  ) lemma=jarrón 
-
+ jarra ( NOUN VERB NOUN_PLURAL ) lemma=`jarra`jarrar` NC  VLfin  
+ jarras ( NOUN VERB NOUN_PLURAL ) lemma=`jarra`jarrar` NC  VLfin  
+ jarro ( NOUN VERB NOUN_PLURAL ) lemma=`jarro`jarrar` NC  VLfin  
+ jarroncito ( NOUN NOUN_PLURAL ) lemma=`jarrón` NC  
+ jarrones ( NOUN NOUN_PLURAL ) lemma=`jarrón` NC  
  jarrón ( NOUN NOUN_SINGULAR ) 
-
- jarrones ( NOUN  NOUN_PLURAL  ) lemma=jarrón 
-
- jaspeada ( VERB_PAST_PARTICIPLE VERB ) lemma=jaspear 
-
- jaspear ( ) 
-
+ jaspeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`jaspear` VLadj  
  jato ( NOUN NOUN_SINGULAR ) 
-
+ jauge ( ) 
  jaula ( NOUN NOUN_SINGULAR ) 
-
- jaulita ( NOUN  NOUN_PLURAL  ) lemma=jaula 
-
+ jaulas ( NOUN NOUN_PLURAL ) lemma=`jaula` NC  
+ jaulita ( NOUN NOUN_PLURAL ) lemma=`jaula` NC  
  jauría ( NOUN NOUN_SINGULAR ) 
-
  jazmín ( NOUN NOUN_SINGULAR ) 
-
  jazz ( NOUN NOUN_SINGULAR ) 
-
- je ( VERB ) lemma=jar 
-
- jar ( ) 
-
+ je ( VERB ) lemma=`jar` VLfin  
  jeep ( NOUN NOUN_SINGULAR ) 
-
- jefa ( NOUN  NOUN_PLURAL  ) lemma=jefe 
-
- jefe ( NOUN NOUN_SINGULAR NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) lemma=`jefe`Jefe` NC  NP 
-
+ jefa ( NOUN NOUN_PLURAL ) lemma=`jefe` NC  
  jefatura ( NOUN NOUN_SINGULAR ) 
-
+ jefaturas ( NOUN NOUN_PLURAL ) lemma=`jefatura` NC  
+ jefe ( NOUN NOUN_PLURAL NOUN_PROPER_PLURAL ) lemma=`jefe`Jefe` NC  NP  
+ jefes ( NOUN NOUN_PLURAL ) lemma=`jefe` NC  
  jeque ( NOUN NOUN_SINGULAR ) 
-
+ jeques ( NOUN NOUN_PLURAL ) lemma=`jeque` NC  
  jerarca ( NOUN NOUN_SINGULAR ) 
-
- jerarquizar ( VERB_INFINITIVE VERB ) 
-
- jerarquizada ( VERB_PAST_PARTICIPLE VERB ) lemma=jerarquizar 
-
- jerarquizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=jerarquizar 
-
+ jerarcas ( NOUN NOUN_PLURAL ) lemma=`jerarca` NC  
+ jerarquiza ( VERB ) lemma=`jerarquizar` VLfin  
+ jerarquizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`jerarquizar` VLadj  
+ jerarquizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`jerarquizar` VLadj  
+ jerarquizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`jerarquizar` VLadj  
+ jerarquizar ( VERB ) 
  jerarquía ( NOUN NOUN_SINGULAR ) 
-
+ jerarquías ( NOUN NOUN_PLURAL ) lemma=`jerarquía` NC  
  jerez ( NOUN NOUN_SINGULAR ) 
-
  jerga ( NOUN NOUN_SINGULAR ) 
-
- jergones ( NOUN  NOUN_PLURAL  ) lemma=jergón 
-
+ jergones ( NOUN NOUN_PLURAL ) lemma=`jergón` NC  
  jergón ( NOUN NOUN_SINGULAR ) 
-
- jeringa ( NOUN VERB NOUN_SINGULAR ) lemma=`jeringa`jeringar` NC  VLfin 
-
- jeringas ( NOUN VERB NOUN_SINGULAR ) lemma=`jeringa`jeringar` NC  VLfin 
-
- jeringuillas ( NOUN  NOUN_PLURAL  ) lemma=jeringuilla 
-
- jeringuilla ( ) 
-
+ jeringa ( NOUN VERB NOUN_PLURAL ) lemma=`jeringa`jeringar` NC  VLfin  
+ jeringas ( NOUN VERB NOUN_PLURAL ) lemma=`jeringa`jeringar` NC  VLfin  
+ jeringuillas ( NOUN NOUN_PLURAL ) lemma=`jeringuilla` NC  
  jermu ( NOUN NOUN_SINGULAR ) 
-
  jersey ( NOUN NOUN_SINGULAR ) 
-
- jerárquica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jerárquico 
-
- jerárquico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jerárquicamente ( ADVERB ) lemma=jerárquico 
-
- jerárquicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jerárquico 
-
- jes ( VERB ) lemma=jar 
-
+ jerseys ( NOUN NOUN_PLURAL ) lemma=`jersey` NC  
+ jerárquica ( ADJECTIVE ) lemma=`jerárquico` ADJ  
+ jerárquicamente ( ADVERB ) lemma=`jerárquico` ADV  
+ jerárquico ( ADJECTIVE ) 
+ jerárquicos ( ADJECTIVE ) lemma=`jerárquico` ADJ  
+ jes ( VERB ) lemma=`jar` VLfin  
  jesuita ( NOUN NOUN_SINGULAR ) 
-
+ jesuitas ( NOUN NOUN_PLURAL ) lemma=`jesuita` NC  
  jet ( NOUN NOUN_SINGULAR ) 
-
  jeta ( NOUN NOUN_SINGULAR ) 
-
+ jets ( NOUN NOUN_PLURAL ) lemma=`jet` NC  
+ jeu ( ) 
  ji ( NOUN NOUN_SINGULAR ) 
-
- ji-cuadrar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
-
- jilguerillo ( NOUN  NOUN_PLURAL  ) lemma=jilguero 
-
+ ji-cuadrar ( VERB_PAST_PARTICIPLE VERB ) 
+ jilguerillo ( NOUN NOUN_PLURAL ) lemma=`jilguero` NC  
  jilguero ( NOUN NOUN_SINGULAR ) 
-
  jinete ( NOUN NOUN_SINGULAR ) 
-
+ jinetes ( NOUN NOUN_PLURAL ) lemma=`jinete` NC  
  jitter ( NOUN NOUN_SINGULAR ) 
-
- jo ( VERB ) lemma=jar 
-
- jocosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jocoso 
-
- jocoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jocosamente ( ADVERB ) lemma=jocoso 
-
+ jo ( VERB ) lemma=`jar` VLfin  
+ jocosa ( ADJECTIVE ) lemma=`jocoso` ADJ  
+ jocosamente ( ADVERB ) lemma=`jocoso` ADV  
+ jocoso ( ADJECTIVE ) 
  joda ( NOUN NOUN_SINGULAR ) 
-
- jodan ( VERB ) lemma=joder 
-
- joder ( VERB_INFINITIVE VERB ) 
-
- jodas ( VERB ) lemma=joder 
-
- jodete ( ) lemma=joder 
-
- jodida ( VERB_PAST_PARTICIPLE VERB ) lemma=joder 
-
- jodido ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`jodido`joder` ADJ  VLadj 
-
- jodidos ( VERB_PAST_PARTICIPLE VERB ) lemma=joder 
-
- jodí ( VERB ) lemma=joder 
-
- jolín ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
+ jodan ( VERB ) lemma=`joder` VLfin  
+ jodas ( VERB ) lemma=`joder` VLfin  
+ jode ( VERB ) lemma=`joder` VLfin  
+ joden ( VERB ) lemma=`joder` VLfin  
+ joder ( VERB ) 
+ jodes ( VERB ) lemma=`joder` VLfin  
+ jodete ( ) lemma=`joder` VCLIfin  
+ jodida ( VERB_PAST_PARTICIPLE VERB ) lemma=`joder` VLadj  
+ jodido ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`jodido`joder` ADJ  VLadj  
+ jodidos ( VERB_PAST_PARTICIPLE VERB ) lemma=`joder` VLadj  
+ jodió ( VERB ) lemma=`joder` VLfin  
+ jodo ( VERB ) lemma=`joder` VLfin  
+ jodí ( VERB ) lemma=`joder` VLfin  
+ jodía ( VERB ) lemma=`joder` VLfin  
+ jolín ( NOUN NOUN_PROPER_SINGULAR ) 
+ joncteur ( ) 
+ jonction ( ) 
  jonrón ( NOUN NOUN_SINGULAR ) 
-
  jornada ( NOUN NOUN_SINGULAR ) 
-
+ jornadas ( NOUN NOUN_PLURAL ) lemma=`jornada` NC  
  jornal ( NOUN NOUN_SINGULAR ) 
-
  jornalero ( NOUN NOUN_SINGULAR ) 
-
- jornales ( NOUN VERB NOUN_SINGULAR ) lemma=`jornal`jornalar` NC  VLfin 
-
- joroba ( NOUN VERB NOUN_SINGULAR ) lemma=`joroba`jorobar` NC  VLfin 
-
- jorobado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`jorobado`jorobado`jorobar` ADJ  NC  VLadj 
-
- jorobar ( VERB_INFINITIVE VERB ) 
-
- josefina ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=josefino 
-
- josefino ( ) 
-
- joules ( NOUN  NOUN_PLURAL  ) lemma=joule 
-
- joule ( ) 
-
- joven ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
- jovencita ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
- jovencitas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
- jovencito ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
- jovencitos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
- jovencísimo ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jovial ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ jornaleros ( NOUN NOUN_PLURAL ) lemma=`jornalero` NC  
+ jornales ( NOUN VERB NOUN_PLURAL ) lemma=`jornal`jornalar` NC  VLfin  
+ joroba ( NOUN VERB NOUN_PLURAL ) lemma=`joroba`jorobar` NC  VLfin  
+ jorobado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`jorobado`jorobado`jorobar` ADJ  NC  VLadj  
+ joroban ( VERB ) lemma=`jorobar` VLfin  
+ jorobar ( VERB ) 
+ josefina ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`josefino`josefino` ADJ  NC  
+ joules ( NOUN NOUN_PLURAL ) lemma=`joule` NC  
+ joven ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
+ jovencita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
+ jovencitas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
+ jovencito ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
+ jovencitos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
+ jovencísimo ( ADJECTIVE ) 
+ jovial ( ADJECTIVE ) 
  joya ( NOUN NOUN_SINGULAR ) 
-
+ joyas ( NOUN NOUN_PLURAL ) lemma=`joya` NC  
  joyero ( NOUN NOUN_SINGULAR ) 
-
+ joyeros ( NOUN NOUN_PLURAL ) lemma=`joyero` NC  
  joyería ( NOUN NOUN_SINGULAR ) 
-
- juarense ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=juarense 
-
- jubilar ( VERB_INFINITIVE VERB ) 
-
- jubilaciones ( NOUN  NOUN_PLURAL  ) lemma=jubilación 
-
+ juarense ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`juarense`juarense` ADJ  NC  
+ jubila ( VERB ) lemma=`jubilar` VLfin  
+ jubilaban ( VERB ) lemma=`jubilar` VLfin  
+ jubilaciones ( NOUN NOUN_PLURAL ) lemma=`jubilación` NC  
  jubilación ( NOUN NOUN_SINGULAR ) 
-
- jubilada ( VERB_PAST_PARTICIPLE VERB ) lemma=jubilar 
-
- jubiladas ( VERB_PAST_PARTICIPLE VERB ) lemma=jubilar 
-
- jubilados ( VERB_PAST_PARTICIPLE VERB ) lemma=jubilar 
-
+ jubilada ( VERB_PAST_PARTICIPLE VERB ) lemma=`jubilar` VLadj  
+ jubiladas ( VERB_PAST_PARTICIPLE VERB ) lemma=`jubilar` VLadj  
+ jubilado ( VERB_PAST_PARTICIPLE VERB ) lemma=`jubilar` VLadj  
+ jubilados ( VERB_PAST_PARTICIPLE VERB ) lemma=`jubilar` VLadj  
+ jubilamos ( VERB ) lemma=`jubilar` VLfin  
+ jubilan ( VERB ) lemma=`jubilar` VLfin  
+ jubilar ( VERB ) 
  jubilarse ( VERB_INFINITIVE VERB ) 
-
+ jubilaría ( VERB ) lemma=`jubilar` VLfin  
  jubileo ( NOUN NOUN_SINGULAR ) 
-
- jubilosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jubiloso 
-
- jubiloso ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jubilosamente ( ADVERB ) lemma=jubiloso 
-
- jubilosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jubiloso 
-
- jubilosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jubiloso 
-
- judaica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=judaico 
-
- judaico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- judicial ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- judiciales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=judicial 
-
- judicialmente ( ADVERB ) lemma=judicial 
-
- judiciaria ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=judiciario 
-
- judiciario ( ) 
-
- judio ( VERB ) lemma=judiar 
-
- judiar ( ) 
-
- judía ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`judío`judía` ADJ  NC 
-
- judías ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`judío`judía` ADJ  NC 
-
- judío ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=judío 
-
- judíos ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=judío 
-
- juez ( NOUN NOUN_SINGULAR ) 
-
- juega ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=jugar 
-
- jugar ( VERB_INFINITIVE VERB ) 
-
- juegan ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=jugar 
-
- juegas ( VERB ) lemma=jugar 
-
- juege ( VERB ) lemma=jugar 
-
- juego ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_SINGULAR PRONOUN_I PRONOUN_SINGULAR ) lemma=jugar 
-
- juegue ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=jugar 
-
- jueguen ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jugar 
-
- juegues ( VERB ) lemma=jugar 
-
- jueguito ( NOUN  NOUN_PLURAL  ) lemma=juego 
-
- jueguitos ( NOUN  NOUN_PLURAL  ) lemma=juego 
-
+ jubileos ( NOUN NOUN_PLURAL ) lemma=`jubileo` NC  
+ jubilo ( VERB ) lemma=`jubilar` VLfin  
+ jubilosa ( ADJECTIVE ) lemma=`jubiloso` ADJ  
+ jubilosamente ( ADVERB ) lemma=`jubiloso` ADV  
+ jubilosas ( ADJECTIVE ) lemma=`jubiloso` ADJ  
+ jubiloso ( ADJECTIVE ) 
+ jubilosos ( ADJECTIVE ) lemma=`jubiloso` ADJ  
+ jubiló ( VERB ) lemma=`jubilar` VLfin  
+ judaica ( ADJECTIVE ) lemma=`judaico` ADJ  
+ judaico ( ADJECTIVE ) 
+ judicial ( ADJECTIVE ) 
+ judiciales ( ADJECTIVE ) lemma=`judicial` ADJ  
+ judicialmente ( ADVERB ) lemma=`judicial` ADV  
+ judiciaria ( ADJECTIVE ) lemma=`judiciario` ADJ  
+ judio ( VERB ) lemma=`judiar` VLfin  
+ judía ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`judío`judía` ADJ  NC  
+ judías ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`judío`judía` ADJ  NC  
+ judío ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`judío`judío` ADJ  NC  
+ judíos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`judío`judío` ADJ  NC  
+ jueces ( NOUN NOUN_PLURAL ) lemma=`juez` NC  
+ juega ( VERB ) lemma=`jugar` VLfin  
+ juegan ( VERB ) lemma=`jugar` VLfin  
+ juegas ( VERB ) lemma=`jugar` VLfin  
+ juege ( VERB ) lemma=`jugar` VLfin  
+ juego ( NOUN NOUN_SINGULAR ) 
+ juegos ( NOUN NOUN_PLURAL ) lemma=`juego` NC  
+ juegue ( VERB ) lemma=`jugar` VLfin  
+ jueguen ( VERB ) lemma=`jugar` VLfin  
+ juegues ( VERB ) lemma=`jugar` VLfin  
+ jueguito ( NOUN NOUN_PLURAL ) lemma=`juego` NC  
+ jueguitos ( NOUN NOUN_PLURAL ) lemma=`juego` NC  
  juerga ( NOUN NOUN_SINGULAR ) 
-
+ juergas ( NOUN NOUN_PLURAL ) lemma=`juerga` NC  
  jueves ( NOUN NOUN_SINGULAR ) 
-
- jueza ( NOUN  NOUN_PLURAL  ) lemma=juez 
-
- juezas ( NOUN  NOUN_PLURAL  ) lemma=juez 
-
- jugada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`jugada`jugar` NC  VLadj 
-
- jugadas ( VERB_PAST_PARTICIPLE VERB ) lemma=jugar 
-
- jugado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`jugado`jugar` ADJ  VLadj 
-
+ juez ( NOUN NOUN_SINGULAR ) 
+ jueza ( NOUN NOUN_PLURAL ) lemma=`juez` NC  
+ juezas ( NOUN NOUN_PLURAL ) lemma=`juez` NC  
+ jugaba ( VERB ) lemma=`jugar` VLfin  
+ jugaban ( VERB ) lemma=`jugar` VLfin  
+ jugabas ( VERB ) lemma=`jugar` VLfin  
+ jugada ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`jugada`jugar` NC  VLadj  
+ jugadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`jugar` VLadj  
+ jugado ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`jugado`jugar` ADJ  VLadj  
  jugador ( NOUN NOUN_SINGULAR ) 
-
- jugadora ( NOUN  NOUN_PLURAL  ) lemma=jugador 
-
- jugadoras ( NOUN  NOUN_PLURAL  ) lemma=jugador 
-
- jugados ( VERB_PAST_PARTICIPLE VERB ) lemma=jugar 
-
- jugando ( NOUN NOUN_GERUND ) lemma=jugar 
-
- jugarla (                 VERB ) lemma=jugar 
-
- jugarlo (                 VERB ) lemma=jugar 
-
- jugarnos (                 VERB ) lemma=jugar 
-
+ jugadora ( NOUN NOUN_PLURAL ) lemma=`jugador` NC  
+ jugadoras ( NOUN NOUN_PLURAL ) lemma=`jugador` NC  
+ jugadores ( NOUN NOUN_PLURAL ) lemma=`jugador` NC  
+ jugados ( VERB_PAST_PARTICIPLE VERB ) lemma=`jugar` VLadj  
+ jugamos ( VERB ) lemma=`jugar` VLfin  
+ jugando ( NOUN NOUN_GERUND ) lemma=`jugar` VLger  
+ jugar ( VERB ) 
+ jugara ( VERB ) lemma=`jugar` VLfin  
+ jugaran ( VERB ) lemma=`jugar` VLfin  
+ jugaras ( VERB ) lemma=`jugar` VLfin  
+ jugaremos ( VERB ) lemma=`jugar` VLfin  
+ jugarla ( VERB_INFINITIVE VERB ) lemma=`jugar` VCLIinf  
+ jugarlo ( VERB_INFINITIVE VERB ) lemma=`jugar` VCLIinf  
+ jugarnos ( VERB_INFINITIVE VERB ) lemma=`jugar` VCLIinf  
+ jugaron ( VERB ) lemma=`jugar` VLfin  
  jugarse ( VERB_INFINITIVE VERB ) 
-
- jugarte (                 VERB ) lemma=jugar 
-
- jugase ( VERB ) lemma=jugar 
-
+ jugarte ( VERB_INFINITIVE VERB ) lemma=`jugar` VCLIinf  
+ jugará ( VERB ) lemma=`jugar` VLfin  
+ jugarán ( VERB ) lemma=`jugar` VLfin  
+ jugaré ( VERB ) lemma=`jugar` VLfin  
+ jugaría ( VERB ) lemma=`jugar` VLfin  
+ jugarían ( VERB ) lemma=`jugar` VLfin  
+ jugase ( VERB ) lemma=`jugar` VLfin  
+ jugaste ( VERB ) lemma=`jugar` VLfin  
+ jugasteis ( VERB ) lemma=`jugar` VLfin  
  jugo ( NOUN NOUN_SINGULAR ) 
-
- jugosa ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jugoso 
-
- jugoso ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jugosas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jugoso 
-
- jugosos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jugoso 
-
- juguemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jugar 
-
+ jugos ( NOUN NOUN_PLURAL ) lemma=`jugo` NC  
+ jugosa ( ADJECTIVE ) lemma=`jugoso` ADJ  
+ jugosas ( ADJECTIVE ) lemma=`jugoso` ADJ  
+ jugoso ( ADJECTIVE ) 
+ jugosos ( ADJECTIVE ) lemma=`jugoso` ADJ  
+ juguemos ( VERB ) lemma=`jugar` VLfin  
  juguete ( NOUN NOUN_SINGULAR ) 
-
- jugueteó ( VERB ) lemma=juguetear 
-
- juguetear ( ) 
-
- juguetito ( NOUN  NOUN_PLURAL  ) lemma=juguete 
-
- jugué ( VERB_PAST PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=jugar 
-
- jugándoles ( NOUN NOUN_GERUND ) lemma=jugar 
-
- jugándonos ( VERB_PAST_PARTICIPLE VERB ) lemma=jugar 
-
- jugándose ( NOUN NOUN_GERUND ) lemma=jugarse 
-
- jugáramos ( VERB ) lemma=jugar 
-
- jugársela ( VERB ) lemma=jugar 
-
+ juguetes ( NOUN NOUN_PLURAL ) lemma=`juguete` NC  
+ jugueteó ( VERB ) lemma=`juguetear` VLfin  
+ juguetito ( NOUN NOUN_PLURAL ) lemma=`juguete` NC  
+ jugué ( VERB ) lemma=`jugar` VLfin  
+ jugábamos ( VERB ) lemma=`jugar` VLfin  
+ jugáis ( VERB ) lemma=`jugar` VLfin  
+ jugándoles ( NOUN NOUN_GERUND ) lemma=`jugar` VCLIger  
+ jugándonos ( VERB_PAST_PARTICIPLE VERB ) lemma=`jugar` VLadj  
+ jugándose ( NOUN NOUN_GERUND ) lemma=`jugarse` VCLIger  
+ jugáramos ( VERB ) lemma=`jugar` VLfin  
+ jugársela ( VERB ) lemma=`jugar` VLinf  
+ jugó ( VERB ) lemma=`jugar` VLfin  
  juicio ( NOUN NOUN_SINGULAR ) 
-
- jujará ( VERB ) lemma=juzgar 
-
- juzgar ( VERB_INFINITIVE VERB ) 
-
+ juicios ( NOUN NOUN_PLURAL ) lemma=`juicio` NC  
+ jujará ( VERB ) lemma=`juzgar` VLfin  
  julio ( NOUN NOUN_SINGULAR ) 
-
- jumo ( VERB ) lemma=jumar 
-
- jumar ( ) 
-
- junamos ( VERB ) lemma=junar 
-
- junar ( ) 
-
- juncale ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
+ julios ( NOUN NOUN_PLURAL ) lemma=`julio` NC  
+ jumo ( VERB ) lemma=`jumar` VLfin  
+ jumps ( ) 
+ junamos ( VERB ) lemma=`junar` VLfin  
+ juncale ( ADJECTIVE ) 
  junco ( NOUN NOUN_SINGULAR ) 
-
+ juncos ( NOUN NOUN_PLURAL ) lemma=`junco` NC  
+ junction ( ) 
+ junctor ( ) 
  jungla ( NOUN NOUN_SINGULAR ) 
-
  junio ( NOUN NOUN_SINGULAR ) 
-
  junior ( NOUN NOUN_SINGULAR ) 
-
- junta ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`junto`junta`juntar` ADJ  NC  VLfin 
-
- juntar ( VERB_INFINITIVE VERB ) 
-
- juntado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_GERUND ) lemma=juntarse 
-
+ juniors ( NOUN NOUN_PLURAL ) lemma=`junior` NC  
+ junta ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`junto`junta`juntar` ADJ  NC  VLfin  
+ juntaba ( VERB ) lemma=`juntar` VLfin  
+ juntaban ( VERB ) lemma=`juntar` VLfin  
+ juntado ( VERB_PAST_PARTICIPLE VERB ) lemma=`juntar` VLadj  
+ juntamente ( ADVERB ) lemma=`junto` ADV  
+ juntamos ( VERB ) lemma=`juntar` VLfin  
+ juntan ( VERB ) lemma=`juntar` VLfin  
+ juntando ( NOUN NOUN_GERUND ) lemma=`juntar` VLger  
+ juntar ( VERB ) 
+ juntara ( VERB ) lemma=`juntar` VLfin  
+ juntarnos ( VERB_INFINITIVE VERB ) lemma=`juntar` VCLIinf  
+ juntaron ( VERB ) lemma=`juntar` VLfin  
  juntarse ( VERB_INFINITIVE VERB ) 
-
- juntamente ( ADVERB ) lemma=junto 
-
- junto ( ADJECTIVE ADJECTIVE_NORMAL PREPOSITION ) 
-
- juntando ( NOUN NOUN_GERUND ) lemma=juntar 
-
- juntarnos (                 VERB ) lemma=juntar 
-
- juntas ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`junto`junta`juntar` ADJ  NC  VLfin 
-
- juntasen ( VERB ) lemma=juntar 
-
- juntemos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=juntar 
-
- junten ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=juntar 
-
- juntillas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`junto`junta` ADJ  NC 
-
- juntitas ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`junto`junta` ADJ  NC 
-
- juntitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=junto 
-
- juntos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=junto 
-
- junturas ( NOUN  NOUN_PLURAL  ) lemma=juntura 
-
- juntura ( ) 
-
- jurar ( VERB_INFINITIVE VERB ) 
-
- jurada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`jurado`jurar` ADJ  VLadj 
-
- juradas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`jurado`jurar` ADJ  VLadj 
-
- jurado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`jurado`jurado`jurar` ADJ  NC  VLadj 
-
- jurados ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`jurado`jurado`jurar` ADJ  NC  VLadj 
-
- juramentar ( VERB_INFINITIVE VERB ) 
-
- juramentados ( VERB_PAST_PARTICIPLE VERB ) lemma=juramentar 
-
- juramento ( NOUN VERB NOUN_SINGULAR ) lemma=`juramento`juramentar` NC  VLfin 
-
- jurando ( NOUN NOUN_GERUND ) lemma=jurar 
-
- jurase ( VERB ) lemma=jurar 
-
- jurisdiccional ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jurisdiccionales ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jurisdiccional 
-
- jurisdicciones ( NOUN  NOUN_PLURAL  ) lemma=jurisdicción 
-
+ juntarán ( VERB ) lemma=`juntar` VLfin  
+ juntarían ( VERB ) lemma=`juntar` VLfin  
+ juntas ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`junto`junta`juntar` ADJ  NC  VLfin  
+ juntasen ( VERB ) lemma=`juntar` VLfin  
+ juntaste ( VERB ) lemma=`juntar` VLfin  
+ junte ( VERB ) lemma=`juntar` VLfin  
+ juntemos ( VERB ) lemma=`juntar` VLfin  
+ junten ( VERB ) lemma=`juntar` VLfin  
+ juntillas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`junto`junta` ADJ  NC  
+ juntitas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`junto`junta` ADJ  NC  
+ juntitos ( ADJECTIVE ) lemma=`junto` ADJ  
+ junto ( ADJECTIVE PREPOSITION ) 
+ juntos ( ADJECTIVE ) lemma=`junto` ADJ  
+ junturas ( NOUN NOUN_PLURAL ) lemma=`juntura` NC  
+ junté ( VERB ) lemma=`juntar` VLfin  
+ juntó ( VERB ) lemma=`juntar` VLfin  
+ jura ( VERB ) lemma=`jurar` VLfin  
+ juraba ( VERB ) lemma=`jurar` VLfin  
+ jurada ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`jurado`jurar` ADJ  VLadj  
+ juradas ( VERB_PAST_PARTICIPLE VERB ADJECTIVE ) lemma=`jurado`jurar` ADJ  VLadj  
+ jurado ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`jurado`jurado`jurar` ADJ  NC  VLadj  
+ jurados ( VERB_PAST_PARTICIPLE NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`jurado`jurado`jurar` ADJ  NC  VLadj  
+ juramentado ( VERB_PAST_PARTICIPLE VERB ) lemma=`juramentar` VLadj  
+ juramentados ( VERB_PAST_PARTICIPLE VERB ) lemma=`juramentar` VLadj  
+ juramentar ( VERB ) 
+ juramento ( NOUN VERB NOUN_PLURAL ) lemma=`juramento`juramentar` NC  VLfin  
+ juramentos ( NOUN NOUN_PLURAL ) lemma=`juramento` NC  
+ juramentó ( VERB ) lemma=`juramentar` VLfin  
+ juramos ( VERB ) lemma=`jurar` VLfin  
+ juran ( VERB ) lemma=`jurar` VLfin  
+ jurando ( NOUN NOUN_GERUND ) lemma=`jurar` VLger  
+ jurar ( VERB ) 
+ juraron ( VERB ) lemma=`jurar` VLfin  
+ juraría ( VERB ) lemma=`jurar` VLfin  
+ jurase ( VERB ) lemma=`jurar` VLfin  
+ jure ( VERB ) lemma=`jurar` VLfin  
+ jurisdiccional ( ADJECTIVE ) 
+ jurisdiccionales ( ADJECTIVE ) lemma=`jurisdiccional` ADJ  
+ jurisdicciones ( NOUN NOUN_PLURAL ) lemma=`jurisdicción` NC  
  jurisdicción ( NOUN NOUN_SINGULAR ) 
-
  jurisprudencia ( NOUN NOUN_SINGULAR ) 
-
+ jurisprudencias ( NOUN NOUN_PLURAL ) lemma=`jurisprudencia` NC  
  jurista ( NOUN NOUN_SINGULAR ) 
-
- jurásica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jurásico 
-
- jurásico ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=jurásico 
-
- jurídica ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jurídico 
-
- jurídico ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- jurídicamente ( ADVERB ) lemma=jurídico 
-
- jurídicas ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jurídico 
-
- jurídico-privar ( VERB_PAST_PARTICIPLE VERB_INFINITIVE VERB ) 
-
- jurídicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jurídico 
-
- justa ( NOUN VERB ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=`justo`justa`justar` ADJ  NC  VLfin 
-
- justamente ( ADVERB ) lemma=justo 
-
- justo ( VERB ADJECTIVE ADJECTIVE_NORMAL ADVERB ) lemma=`justo`justo`justar` ADJ  ADV  VLfin 
-
- justas ( VERB ADJECTIVE ADJECTIVE_NORMAL ) lemma=`justo`justar` ADJ  VLfin 
-
- juste ( VERB ) lemma=justar 
-
- justar ( ) 
-
- justicia ( NOUN VERB NOUN_SINGULAR ) lemma=`justicia`justiciar` NC  VLfin 
-
- justicias ( NOUN VERB NOUN_SINGULAR ) lemma=`justicia`justiciar` NC  VLfin 
-
- justiciera ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=justiciero 
-
- justiciero ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=justiciero 
-
- justificar ( VERB_INFINITIVE VERB ) 
-
- justificaciones ( NOUN  NOUN_PLURAL  ) lemma=justificación 
-
+ juristas ( NOUN NOUN_PLURAL ) lemma=`jurista` NC  
+ juro ( VERB ) lemma=`jurar` VLfin  
+ jurásica ( ADJECTIVE ) lemma=`jurásico` ADJ  
+ jurásico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`jurásico`jurásico` ADJ  NC  
+ jurídica ( ADJECTIVE ) lemma=`jurídico` ADJ  
+ jurídicamente ( ADVERB ) lemma=`jurídico` ADV  
+ jurídicas ( ADJECTIVE ) lemma=`jurídico` ADJ  
+ jurídico ( ADJECTIVE ) 
+ jurídico-privar ( VERB_PAST_PARTICIPLE VERB ) 
+ jurídicos ( ADJECTIVE ) lemma=`jurídico` ADJ  
+ juró ( VERB ) lemma=`jurar` VLfin  
+ justa ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`justo`justa`justar` ADJ  NC  VLfin  
+ justamente ( ADVERB ) lemma=`justo` ADV  
+ justas ( VERB ADJECTIVE ) lemma=`justo`justar` ADJ  VLfin  
+ juste ( VERB ) lemma=`justar` VLfin  
+ justicia ( NOUN VERB NOUN_PLURAL ) lemma=`justicia`justiciar` NC  VLfin  
+ justicias ( NOUN VERB NOUN_PLURAL ) lemma=`justicia`justiciar` NC  VLfin  
+ justiciera ( ADJECTIVE ) lemma=`justiciero` ADJ  
+ justiciero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`justiciero`justiciero` ADJ  NC  
+ justifica ( VERB ) lemma=`justificar` VLfin  
+ justificaba ( VERB ) lemma=`justificar` VLfin  
+ justificaban ( VERB ) lemma=`justificar` VLfin  
+ justificaciones ( NOUN NOUN_PLURAL ) lemma=`justificación` NC  
  justificación ( NOUN NOUN_SINGULAR ) 
-
- justificada ( VERB_PAST_PARTICIPLE VERB ) lemma=justificar 
-
- justificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=justificar 
-
- justificados ( VERB_PAST_PARTICIPLE VERB ) lemma=justificar 
-
- justificando ( NOUN NOUN_GERUND ) lemma=justificar 
-
+ justificada ( VERB_PAST_PARTICIPLE VERB ) lemma=`justificar` VLadj  
+ justificadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`justificar` VLadj  
+ justificado ( VERB_PAST_PARTICIPLE VERB ) lemma=`justificar` VLadj  
+ justificados ( VERB_PAST_PARTICIPLE VERB ) lemma=`justificar` VLadj  
+ justificamos ( VERB ) lemma=`justificar` VLfin  
+ justifican ( VERB ) lemma=`justificar` VLfin  
+ justificando ( NOUN NOUN_GERUND ) lemma=`justificar` VLger  
  justificante ( NOUN NOUN_SINGULAR ) 
-
- justificaren ( VERB ) lemma=justificar 
-
+ justificantes ( NOUN NOUN_PLURAL ) lemma=`justificante` NC  
+ justificar ( VERB ) 
+ justificara ( VERB ) lemma=`justificar` VLfin  
+ justificaran ( VERB ) lemma=`justificar` VLfin  
+ justificaren ( VERB ) lemma=`justificar` VLfin  
+ justificaron ( VERB ) lemma=`justificar` VLfin  
  justificarse ( VERB_INFINITIVE VERB ) 
-
- justificase ( VERB ) lemma=justificar 
-
- justificasen ( VERB ) lemma=justificar 
-
- justificativo ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- justificándose ( NOUN NOUN_GERUND ) lemma=justificarse 
-
- justifique ( VERB ) lemma=justificar 
-
- justifiquemos ( VERB ) lemma=justificar 
-
- justifiquen ( VERB ) lemma=justificar 
-
- justito ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=justo 
-
- justitos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=justo 
-
- justos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=justo 
-
- juvenil ( ADJECTIVE ADJECTIVE_NORMAL ) 
-
- juveniles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=juvenil 
-
+ justificará ( VERB ) lemma=`justificar` VLfin  
+ justificarán ( VERB ) lemma=`justificar` VLfin  
+ justificaría ( VERB ) lemma=`justificar` VLfin  
+ justificarían ( VERB ) lemma=`justificar` VLfin  
+ justificas ( VERB ) lemma=`justificar` VLfin  
+ justificase ( VERB ) lemma=`justificar` VLfin  
+ justificasen ( VERB ) lemma=`justificar` VLfin  
+ justificativo ( ADJECTIVE ) 
+ justifico ( VERB ) lemma=`justificar` VLfin  
+ justificándose ( NOUN NOUN_GERUND ) lemma=`justificarse` VCLIger  
+ justificó ( VERB ) lemma=`justificar` VLfin  
+ justifique ( VERB ) lemma=`justificar` VLfin  
+ justifiquemos ( VERB ) lemma=`justificar` VLfin  
+ justifiquen ( VERB ) lemma=`justificar` VLfin  
+ justito ( ADJECTIVE ) lemma=`justo` ADJ  
+ justitos ( ADJECTIVE ) lemma=`justo` ADJ  
+ justo ( VERB ADJECTIVE ADVERB ) lemma=`justo`justo`justar` ADJ  ADV  VLfin  
+ justos ( ADJECTIVE ) lemma=`justo` ADJ  
+ juvenil ( ADJECTIVE ) 
+ juveniles ( ADJECTIVE ) lemma=`juvenil` ADJ  
  juventud ( NOUN NOUN_SINGULAR ) 
-
- juzgad ( VERB ) lemma=juzgar 
-
- juzgadá ( VERB_PAST_PARTICIPLE VERB ) lemma=juzgar 
-
- juzgadás ( VERB_PAST_PARTICIPLE VERB ) lemma=juzgar 
-
- juzgados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR ) lemma=`juzgado`juzgar` NC  VLadj 
-
- juzgando ( NOUN NOUN_GERUND ) lemma=juzgar 
-
- juzgarla ( VERB ) lemma=juzgar 
-
- juzgarlas (                 VERB ) lemma=juzgar 
-
- juzgarle (                 VERB ) lemma=juzgar 
-
- juzgarlo (                 VERB ) lemma=juzgar 
-
- juzgarlos (                 VERB ) lemma=juzgar 
-
- juzgase ( VERB ) lemma=juzgar 
-
- juzgue ( VERB ) lemma=juzgar 
-
- juzguemos ( VERB ) lemma=juzgar 
-
- juzguen ( VERB ) lemma=juzgar 
-
- juzguéis ( VERB ) lemma=juzgar 
-
- juzgándolos ( NOUN NOUN_GERUND ) lemma=juzgar 
-
- já ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- jó ( NOUN NOUN_PROPER_SINGULAR NOUN_PROPER_PLURAL ) 
-
- jódalos ( ) lemma=joder 
-
- jónicos ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=jónico 
-
- jónico ( ) 
-
- jóvenes ( NOUN ADJECTIVE ADJECTIVE_NORMAL NOUN_SINGULAR ) lemma=joven 
-
+ juventudes ( NOUN NOUN_PLURAL ) lemma=`juventud` NC  
+ juzga ( VERB ) lemma=`juzgar` VLfin  
+ juzgaba ( VERB ) lemma=`juzgar` VLfin  
+ juzgaban ( VERB ) lemma=`juzgar` VLfin  
+ juzgad ( VERB ) lemma=`juzgar` VLfin  
+ juzgada ( VERB_PAST_PARTICIPLE VERB ) lemma=`juzgar` VLadj  
+ juzgadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`juzgar` VLadj  
+ juzgado ( VERB_PAST_PARTICIPLE VERB ) lemma=`juzgar` VLadj  
+ juzgados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`juzgado`juzgar` NC  VLadj  
+ juzgamos ( VERB ) lemma=`juzgar` VLfin  
+ juzgan ( VERB ) lemma=`juzgar` VLfin  
+ juzgando ( NOUN NOUN_GERUND ) lemma=`juzgar` VLger  
+ juzgar ( VERB ) 
+ juzgara ( VERB ) lemma=`juzgar` VLfin  
+ juzgaran ( VERB ) lemma=`juzgar` VLfin  
+ juzgaremos ( VERB ) lemma=`juzgar` VLfin  
+ juzgarla ( VERB ) lemma=`juzgar` VLinf  
+ juzgarlas ( VERB_INFINITIVE VERB ) lemma=`juzgar` VCLIinf  
+ juzgarle ( VERB_INFINITIVE VERB ) lemma=`juzgar` VCLIinf  
+ juzgarlo ( VERB_INFINITIVE VERB ) lemma=`juzgar` VCLIinf  
+ juzgarlos ( VERB_INFINITIVE VERB ) lemma=`juzgar` VCLIinf  
+ juzgaron ( VERB ) lemma=`juzgar` VLfin  
+ juzgará ( VERB ) lemma=`juzgar` VLfin  
+ juzgarán ( VERB ) lemma=`juzgar` VLfin  
+ juzgarían ( VERB ) lemma=`juzgar` VLfin  
+ juzgase ( VERB ) lemma=`juzgar` VLfin  
+ juzgo ( VERB ) lemma=`juzgar` VLfin  
+ juzgue ( VERB ) lemma=`juzgar` VLfin  
+ juzguemos ( VERB ) lemma=`juzgar` VLfin  
+ juzguen ( VERB ) lemma=`juzgar` VLfin  
+ juzguéis ( VERB ) lemma=`juzgar` VLfin  
+ juzgábamos ( VERB ) lemma=`juzgar` VLfin  
+ juzgándolos ( NOUN NOUN_GERUND ) lemma=`juzgar` VCLIger  
+ juzgó ( VERB ) lemma=`juzgar` VLfin  
+ já ( NOUN NOUN_PROPER_SINGULAR ) 
+ jó ( NOUN NOUN_PROPER_SINGULAR ) 
+ jódalos ( ) lemma=`joder` VCLIfin  
+ jónicos ( ADJECTIVE ) lemma=`jónico` ADJ  
+ jóvenes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`joven`joven` ADJ  NC  
  júbilo ( NOUN NOUN_SINGULAR ) 
-
- júramelo ( ) lemma=jurar 
-
- Joint_Committee_Technical ( ) lemma=Joint~Committee~Technical 
-
- Joint~Committee~Technical ( ) 
-
- Junto_con ( PREPOSITION ) lemma=junto~con 
-
- junto~con ( ) 
-
- junto_con ( PREPOSITION ) lemma=junto~con 
-
- jactándose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=jactarse 
-
- jáctate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=jactarse 
-
- jáctese ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=jactarse 
-
- jáctense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jactarse 
-
- jugaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jugar 
-
- juguéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jugar 
-
- jugáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jugar 
-
- jugareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jugar 
-
- jugaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=jugar 
-
- juntaréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=juntar 
-
- juntéis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=juntar 
-
- juntáremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=juntar 
-
- juntareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=juntar 
-
- juntaren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=juntar 
-
- joining ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=juntarse 
-
- juntándose ( VERB_PRESENT PRONOUN_SUBJECT NOUN VERB NOUN_GERUND PRONOUN_YOU PRONOUN_PLURAL ) lemma=juntarse 
-
- júntate ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_SINGULAR ) lemma=juntarse 
-
- júntese ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_SINGULAR ) lemma=juntarse 
-
- júntense ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=juntarse 
-
- juraréis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jurar 
-
- juremos ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jurar 
-
- juréis ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jurar 
-
- juren ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jurar 
-
- juráremos ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_I PRONOUN_PLURAL ) lemma=jurar 
-
- jurareis ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_YOU PRONOUN_PLURAL ) lemma=jurar 
-
- juraren ( PRONOUN_SUBJECT AUX_VERB_FUTURE VERB PRONOUN_PLURAL ) lemma=jurar 
-
- jumping ( VERB_PRESENT PRONOUN_SUBJECT VERB PRONOUN_PLURAL ) lemma=saltar 
-
+ júramelo ( ) lemma=`jurar` VCLIfin  
+ Joint_Committee_Technical ( ) lemma=`Joint~Committee~Technical` PE  
+ Junto_con ( PREPOSITION ) lemma=`junto~con` PREP  
+ junto_con ( PREPOSITION ) lemma=`junto~con` PREP  

@@ -1,7 +1,7 @@
 #ifndef _JSONH_
 #define _JSONH_
 #ifdef INFORMATION
-Copyright (C)2011-2022 by Bruce Wilcox
+Copyright (C)2011-2023 by Bruce Wilcox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
@@ -13,7 +13,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
-extern int jsonOpenSize; 
+extern unsigned int build0jid;
+extern unsigned int build1jid;
+extern unsigned int buildbootjid;
+extern unsigned int builduserjid;
+extern unsigned int buildtransientjid;
+
+extern int jsonOpenSize;
 extern int json_open_counter;
 extern uint64 json_open_time ;
 extern bool curlFail;
@@ -25,6 +31,7 @@ FunctionResult JSONStorageCode(char* buffer);
 FunctionResult JSONPathCode(char* buffer);
 FunctionResult JSONFormatCode(char* buffer);
 FunctionResult JSONParseFileCode(char* buffer);
+char* jwritehierarchy(bool log, bool defaultZero, int depth, char* buffer, WORDP D, int subject, int nest);
 FunctionResult JSONObjectInsertCode(char* buffer) ;
 FunctionResult JSONVariableAssign(char* word,char* value, bool stripQuotes = true);
 FunctionResult JSONArrayInsertCode(char* buffer) ;
@@ -39,6 +46,7 @@ FunctionResult JSONGatherCode(char* buffer);
 FunctionResult DoJSONArrayInsert(bool nodup, WORDP array, MEANING value, int flags, char* buffer); //  objectfact objectvalue  BEFORE/AFTER 
 FunctionResult ParseJson(char* buffer, char* message, size_t size,bool nofail,char* ignore,bool purify = false, char* underscore = NULL);
 FunctionResult JSONDeleteCode(char* buffer); 
+FunctionResult JsonReuseKillCode(char* buffer);
 FunctionResult JSONMergeCode(char* buffer);
 FunctionResult JSONCopyCode(char* buffer);
 FunctionResult JSONCreateCode(char* buffer);
