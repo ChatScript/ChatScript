@@ -71,17 +71,13 @@ static int testoutputbacktracecount = 0;
 static char* nullArguments[MAX_ARG_LIMIT + 1] =
 { "","","","","","","","",   "","","","","","","","",  "","","","","","","","",  "","","","","","","","" };
 
-#define MAX_LOG_NAMES 16
 APICall csapicall = NO_API_CALL;
 HEAPREF patternwordthread = NULL;
 char* fnOutput = NULL;
-unsigned int wordIndex;
-WORDP* wordStack;
 static bool changedNL = false;
 char* rawtestpatterninput = NULL;
 bool directAnalyze = false;
 static char lognames[MAX_LOG_NAMES][200];
-static FILE* logfiles[MAX_LOG_NAMES];
 static char* codeStart = NULL;
 char* realCode = NULL;
 static char testoutputFail[200];
@@ -344,7 +340,7 @@ FunctionResult JavascriptArgEval(unsigned int index, char* buffer)
 {
 	FunctionResult result;
 	char argNum[10];
-	sprintf(argNum, "^%u", index);
+	sprintf(argNum, "^%u", index+1);
 	char* arg = FNVAR(argNum);
 	GetCommandArg(arg, buffer, result, OUTPUT_UNTOUCHEDSTRING);
 	return result;
@@ -5282,28 +5278,12 @@ static FunctionResult NoTraceCode(char* buffer)
 
 static WORDP RestoreWord(unsigned int index)
 {
-	if (!index)
-		return NULL;
-	if (!(index & 0x80000000)) return 	Index2Word(index);
-	index &= 0x7fffffff;
-	return wordStack[index];
+	return 	Index2Word(index);
 }
 
-static unsigned int SaveWord(WORDP D, char*& data)
+static unsigned int SaveWord(WORDP D)
 {
-	if (!D) return 0;
-	if (D < dictionaryPreBuild[LAYER_BOOT]) return Word2Index(D); // wont change across different boot ups, built into topic data
-
-	// save the word because its index is not reliable if cached outside
-	if (D->x.saveIndex)
-		return D->x.saveIndex; // already saved
-
-	D->x.saveIndex = ++wordIndex | 0x80000000; // flagged
-	strcpy(data, D->word);
-	data += strlen(data);
-	*data++ = END_TEXT_CHUNK;
-	*++wordStack = D; // indexed starting 1 
-	return D->x.saveIndex;
+	return Word2Index(D); 
 }
 
 static bool HasTriedData(HEAPINDEX index)
@@ -5337,22 +5317,6 @@ static unsigned int* RestoreTriedData(WORDP key, unsigned int*& memory)
 	return data;
 }
 
-static char* RestoreWordStack(char* start)
-{
-	WORDP* stack = wordStack;
-	unsigned int index = 0;
-	while (*start != END_TEXT_CHUNK) // read and store each word
-	{
-		char* end = strchr(start, END_TEXT_CHUNK);
-		*end = 0;
-		stack[++index] = StoreWord(start, AS_IS);
-		*end = END_TEXT_CHUNK;
-		start += end - start + 1;
-	}
-	while (*++start == '@'); // skip word align markers
-	return start; // return after txt marker
-}
-
 HEAPREF RestoreList(unsigned int*& memory)
 {
 	HEAPREF list = NULL;
@@ -5377,10 +5341,6 @@ static FunctionResult InternalRestoreSentence(unsigned int* start, unsigned int*
 		return FAILRULE_BIT;
 	}
 
-	// restore words in later levels
-	wordStack = (WORDP*)AllocateBuffer();
-
-	RestoreWordStack((char*)start); // returns base of binary but we go down, not up
 	--memory; // not used
 
 	uint64 x = *--memory;
@@ -5484,8 +5444,6 @@ static FunctionResult InternalRestoreSentence(unsigned int* start, unsigned int*
 		concepts[i] = Index2Heap(*--memory);
 		topics[i] = Index2Heap(*--memory);
 	}
-
-	FreeBuffer(); // release word stack
 
 	unsigned int check = *--memory;
 	if (check != ENCODE_MARKER)
@@ -5679,43 +5637,13 @@ static FunctionResult RestoreSentenceCode(char* buffer)
 unsigned int GetWordIndex(char* word, char* savewordbuffer)
 {
 	WORDP D = StoreWord(word, AS_IS);
-	return  SaveWord(D, savewordbuffer);
-}
-
-static void ReleaseWordStack(WORDP * stack)
-{ // stack is start of wordStack ptr
-	*++wordStack = 0;  // end marker  1-based
-
-	while (*++stack) // 1 based
-	{
-		WORDP D = *stack;
-		D->x.saveIndex = 0;
-	}
-	FreeBuffer(); // the wordlist
-}
-
-unsigned int* SaveList(HEAPREF list, unsigned int* memory, char*& savewordbuffer)
-{
-	while (list)
-	{
-		uint64 word;
-		uint64 discard;
-		list = UnpackHeapval(list, word, discard, discard);
-		*--memory = SaveWord((WORDP)word, savewordbuffer);
-	}
-	*--memory = 0; // end list
-	return memory;
+	return  SaveWord(D);
 }
 
 static FunctionResult InternalSaveSentence(char* name)
 {
 	if (!wordCount) return NOPROBLEM_BIT;
 
-	wordIndex = 0;
-	wordStack = (WORDP*)AllocateBuffer(); // this holds all words we had to save in savewordbuffer
-	WORDP* wordStackStart = wordStack;
-	char* savewordbuffer = AllocateBuffer(); // names of words that are from boot and user layers
-	char* wordbufferstart = savewordbuffer;
 	WORDP D;
 
 	unsigned int* startmem = (unsigned int*)AllocateStack(NULL, 400000, false, 64);  // bottom of NL space
@@ -5733,8 +5661,8 @@ static FunctionResult InternalSaveSentence(char* name)
 	if (moreToComeQuestion) *memory |= 2;
 	for (unsigned int i = 1; i <= wordCount; ++i)
 	{
-		*--memory = SaveWord(StoreWord(wordStarts[i], AS_IS), savewordbuffer);
-		*--memory = SaveWord(StoreWord(wordCanonical[i], AS_IS), savewordbuffer);
+		*--memory = SaveWord(StoreWord(wordStarts[i], AS_IS));
+		*--memory = SaveWord(StoreWord(wordCanonical[i], AS_IS));
 		// note we have not saved any properties or systemflags set by script
 		*--memory = finalPosValues[i] >> 32;
 		*--memory = finalPosValues[i] & 0x00000000ffffffff;
@@ -5745,13 +5673,13 @@ static FunctionResult InternalSaveSentence(char* name)
 		// BUG WARNING concepts and topics are not safe in GC if sentence saved
 		// after mark
 
-		*--memory = SaveWord(wordTag[i], savewordbuffer);
+		*--memory = SaveWord(wordTag[i]);
 	}
 	*--memory = ENCODE_MARKER;
 
 	// store derivation data
 	*--memory = derivationLength; // int
-	for (unsigned int i = 1; i <= derivationLength; ++i) *--memory = SaveWord(StoreWord(derivationSentence[i], AS_IS), savewordbuffer);
+	for (unsigned int i = 1; i <= derivationLength; ++i) *--memory = SaveWord(StoreWord(derivationSentence[i], AS_IS));
 	*--memory = ENCODE_MARKER;
 	memory -= MAX_SENTENCE_LENGTH / sizeof(int); // as bytes
 	memmove(memory, derivationSeparator, MAX_SENTENCE_LENGTH * sizeof(char));
@@ -5782,7 +5710,6 @@ static FunctionResult InternalSaveSentence(char* name)
 	// save tried data
 	unsigned int* counterLocation = --memory; // reserve counter
 	int counter = 0;
-	char* base = savewordbuffer;
 	for (std::map<WORDP, HEAPINDEX>::iterator it = triedData.begin(); it != triedData.end(); ++it)
 	{
 		HEAPINDEX ref = it->second;
@@ -5790,7 +5717,7 @@ static FunctionResult InternalSaveSentence(char* name)
 		if (HasTriedData(ref))
 		{
 			++counter;
-			*--memory = SaveWord(it->first, savewordbuffer); // key
+			*--memory = SaveWord(it->first); // key
 			*--memory = ref; // heap data index
 		}
 	}
@@ -5806,16 +5733,6 @@ static FunctionResult InternalSaveSentence(char* name)
 	}
 	*--memory = ENCODE_MARKER;
 
-	// each word is null terminated in this
-	*savewordbuffer++ = END_TEXT_CHUNK; // final end marker
-	*savewordbuffer = 0;
-	char* checkx = savewordbuffer;
-	savewordbuffer += 3;  // 4 byte align the data
-	savewordbuffer = (char*)(((uint64)savewordbuffer) & 0xFFFFFFFFFFFFFFFCULL);
-	while (checkx != savewordbuffer) *checkx++ = '@'; // safe align text
-	*savewordbuffer = 0;
-	int size1 = savewordbuffer - wordbufferstart;  // word aligned text data
-
 	// merge to a heap blob
 	int size = ((char*)endit - (char*)memory);
 	if (memory < startmem)
@@ -5823,14 +5740,10 @@ static FunctionResult InternalSaveSentence(char* name)
 		ReportBug("SaveSentence overrun");
 		return FAILRULE_BIT;
 	}
-	char* heap = AllocateHeap(NULL, size + size1);
-	memcpy(heap, wordbufferstart, size1); // copy in text data
-	memcpy(heap + size1, (char*)memory, size); // copy in binary data
-	unsigned int* endval = (unsigned int*)(heap + size1 + size); //corresponds to endit
+	char* heap = AllocateHeap(NULL, size );
+	memcpy(heap , (char*)memory, size); // copy in binary data
+	unsigned int* endval = (unsigned int*)(heap + size); //corresponds to endit
 	ReleaseStack((char*)startmem);
-
-	FreeBuffer();  // savewordbuffer
-	ReleaseWordStack(wordStackStart); // the protected list of words
 
 	// save on named list of sentences for local use
 	D = StoreWord(name, AS_IS);
@@ -6204,20 +6117,6 @@ FunctionResult InContextCode(char* buffer)
 	if (when && turn > when) return FAILRULE_BIT;
 
 	sprintf(buffer, (char*)"%d", turn);
-	return NOPROBLEM_BIT;
-}
-
-FunctionResult LoadCode(char* buffer)
-{
-	char* arg1 = ARGUMENT(1);
-	if (!stricmp(arg1, (char*)"null")) // unload
-	{
-		if (!topicBlockPtrs[2]) return FAILRULE_BIT;	// nothing is loaded
-		ReturnToAfterLayer(LAYER_1, false);	// drop 2 info.. but dictionary is now unlocked. Need to relock it.
-	}
-	dictionaryLocked = dictionaryPreBuild[LAYER_BOOT];
-	stringLocked = heapPreBuild[LAYER_BOOT];
-	factLocked = factsPreBuild[LAYER_BOOT]; // unlock
 	return NOPROBLEM_BIT;
 }
 
@@ -13183,7 +13082,6 @@ SystemFunctionInfo systemFunctionSet[] =
 		{ (char*)"^evaltwice",EvalCode,1,0,(char*)"evaluate stream after evaluation" },
 		{ (char*)"^fail",FailCode,1,SAMELINE,(char*)"return a return code of some kind - allowed to erase facts on sentence fail"},
 		{ (char*)"^incontext",InContextCode,VARIABLE_ARG_COUNT,SAMELINE,(char*)"returns normally if given label or topic.label have output recently else fails"},
-		{ (char*)"^load",LoadCode,1,SAMELINE,(char*)"Dynamic load of a layer as layer 2"},
 		{ (char*)"^match",MatchCode,STREAM_ARG,0,(char*)"Perform given pattern match"},
 		{ (char*)"^matches",MatchesCode,0,SAMELINE,(char*)"note the indexes of the words matched by the most recent pattern"},
 		{ (char*)"^memorygc",MemoryGCCode,0,SAMELINE,(char*)"try to free up data spaces"},

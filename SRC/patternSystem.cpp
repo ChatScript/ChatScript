@@ -1555,7 +1555,7 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
         MATCHIT:
             int teststart = (positionEnd < basicStart && firstMatched < 0) ? basicStart : (reverse ? positionStart : positionEnd);
             foundaword = FindWord(word);
-            if (!foundaword && strchr(word + 1, '~')) foundaword = StoreWord(word,AS_IS); // may be composite concept requiring on fly merger
+            if (!foundaword ) foundaword = StoreWord(word,AS_IS); // may be composite concept requiring on fly merger, or replaceword pattern word
             matched = MatchTest(reverse, foundaword, teststart, NULL, NULL,
                 statusBits & QUOTE_BIT,  false, wildgap,&hitdata);
             if (!matched) foundaword = NULL;

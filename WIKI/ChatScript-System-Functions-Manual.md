@@ -1,6 +1,6 @@
 # ChatScript System Functions Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/10/2022 cs13.1
+<br>Revision 6/13/2022 cs13.2
 
 * [Topic Functions](ChatScript-System-Functions-Manual.md#topic-functions)
 * [Marking Functions](ChatScript-System-Functions-Manual.md#marking-functions)
@@ -1003,24 +1003,6 @@ The failure codes are:
 
 Output that has been recorded via `^print`, `^preprint`, etc is never canceled. Only pending
 output.
-
-
-### `^load ( name )`
-
-Normally CS takes all the data you have compiled as `:build 0` and `:build` whatever as layers 0 and 1, 
-and loads them when CS starts up. They are then permanently resident. 
-However, you can also compile files named `filesxxx2.txt` which will NOT be loaded automatically. 
-
-You can write a script that calls `^load`, naming the `xxx` part and they
-will be dynamically loaded, for that user only, and stay loaded for that user across all
-volleys until you call `^load` again. 
-Calling load again with a different name will load that new name. 
-Calling `^load(null)` will merely unload the dynamic layer previously loaded.
-
-**WARNING** 
-
-It's erroneous (you get whatever happens to you), if you call `^load` from within
-topics you have loaded via `^load`.
 
 ### `^clearmatch()`
 

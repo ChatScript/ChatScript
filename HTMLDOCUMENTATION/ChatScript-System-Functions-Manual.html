@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-functions-manual">ChatScript System Functions Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/10/2022 cs13.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
 <li><a href="ChatScript-System-Functions-Manual.html#topic-functions">Topic Functions</a></li>
 <li><a href="ChatScript-System-Functions-Manual.html#marking-functions">Marking Functions</a></li>
@@ -606,11 +606,6 @@ $$val = eval($$tmp) # $$val = 1</code></pre>
 </tbody>
 </table>
 <p>Output that has been recorded via <code>^print</code>, <code>^preprint</code>, etc is never canceled. Only pending output.</p>
-<h3 id="load-name"><code>^load ( name )</code></h3>
-<p>Normally CS takes all the data you have compiled as <code>:build 0</code> and <code>:build</code> whatever as layers 0 and 1, and loads them when CS starts up. They are then permanently resident. However, you can also compile files named <code>filesxxx2.txt</code> which will NOT be loaded automatically.</p>
-<p>You can write a script that calls <code>^load</code>, naming the <code>xxx</code> part and they will be dynamically loaded, for that user only, and stay loaded for that user across all volleys until you call <code>^load</code> again. Calling load again with a different name will load that new name. Calling <code>^load(null)</code> will merely unload the dynamic layer previously loaded.</p>
-<p><strong>WARNING</strong></p>
-<p>It's erroneous (you get whatever happens to you), if you call <code>^load</code> from within topics you have loaded via <code>^load</code>.</p>
 <h3 id="clearmatch"><code>^clearmatch()</code></h3>
 <p>This clears all match variables to empty.</p>
 <h3 id="match-what"><code>^match ( what )</code></h3>

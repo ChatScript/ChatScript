@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-fact-manual">ChatScript Fact Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/18/2021 cs11.3</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
 <li><a href="ChatScript-Fact-Manual.html#simple-facts">Simple Facts</a></li>
 <li><a href="ChatScript-Fact-Manual.html#advanced-facts">Advanced Facts</a></li>
@@ -262,7 +262,7 @@ $fact = ^createfact( Bob own dog)
 <p>The data is line oriented.</p>
 <p>Within a line there are no rules about whitespace; you can indent, tab, use lots of spaces, etc. Each line should have as many elements as the table has arguments.</p>
 <p>The table ends with the end of file or a new top-level declaration. E.g.,</p>
-<pre><code>Table: authors (^author ^work ^copyright)
+<pre><code>Table: ^authors (^author ^work ^copyright)
 
 ^createfact(^author member ~author) # add to concept ~author
 ^createfact(^work member ~book) # add to concept ~book
@@ -277,7 +277,7 @@ Data:
 a 1 \n b 2 \n c 3 \n d 4 \n e 5 # values assigned to letters.
 f 6 g 7</code></pre>
 <p>Tables of only single values do not need a line separator. E.g,</p>
-<pre><code>table: mine(^arg)
+<pre><code>^table: ^mine(^arg)
 DATA:
 value1 value2 value3
 value4 value5 value6</code></pre>
@@ -294,7 +294,7 @@ value4 value5 value6</code></pre>
 <p>NOTE: Tables are the only thing executed at compile time, so if there is some arbitrary data manipulation you need doing, you can do it in a dummy table (whose data you just ignore).</p>
 <h2 id="variable-argument-tables">Variable Argument Tables</h2>
 <p>While a line of table data must fill all fields of the table exactly (no more or less), you can tell the system to fill in the remaining arguments with <code>*</code> by putting <code>…</code> as your last value. Eg.</p>
-<pre><code>table: test(^item1 ^item2 ^item3 ^item4)
+<pre><code>table: ^test(^item1 ^item2 ^item3 ^item4)
 # ...
 Data:
 lion 50 …</code></pre>
@@ -305,7 +305,7 @@ lion 50 …</code></pre>
 <p>Note:<br>If you create member facts to add something to a concept, the concept must have been predeclared. You can declare an empty concept just before the table like this:</p>
 <pre><code>concept: ~newconcept()
 
-table: mytable( ^x )
+table: ^mytable( ^x )
 createfact(^x member ~newconcept)
 DATA:
 # data here</code></pre>

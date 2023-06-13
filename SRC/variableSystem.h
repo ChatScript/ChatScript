@@ -54,12 +54,17 @@ void SetWildCardGiven(unsigned int start, unsigned int end, bool inpattern, int 
 void SetWildCardIndexStart(int);
 int GetWildcardID(char* x);
 void SetAPIVariable(WORDP D, char* value);
+void ReadVariables(const char* name);
+void InitBotVariables(int argc, char** argv);
 
 // Variables loaded from bot (topic system)
 void ReestablishBotVariables();
 void NoteBotVariables();
 void InitVariableSystem();
 void SetWildCardGivenValue(char* original, char* canonical,unsigned int start, unsigned int end, int index,MARKDATA* hitdata = NULL);
+void OpenBotVariables();
+void CloseBotVariables();
+void SetBotVariable(char* word);
 
 // debug data
 void ShowChangedVariables();

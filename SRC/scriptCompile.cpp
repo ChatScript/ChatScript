@@ -72,6 +72,7 @@ unsigned int buildID = 0;
 static char* topicFiles[] = //   files created by a topic refresh from scratch 
 {
 	(char*)"describe",		//   document variables functions concepts topics etc
+	(char*)"variables",		//   hold variables	
 	(char*)"facts",			//   hold facts	
 	(char*)"allfacts",		//   hold all binary fast facts	
 	(char*)"allwords",		//   hold all binary fast words	
@@ -96,12 +97,16 @@ void EraseTopicBin(unsigned int build, char* name)
 {
 	int i = -1;
 	int result;
+	char file[SMALL_WORD_SIZE];
 	while (topicFiles[++i])
 	{
-		char file[SMALL_WORD_SIZE];
 		sprintf(file, (char*)"%s/BUILD%s/%s%s.bin", topicfolder, name, topicFiles[i], name); // new style
 		result = remove(file);
 	}
+	sprintf(file, (char*)"%s/BUILD%s/%sallfacts.bin", topicfolder, name, name); // new style
+	result = remove(file);
+	sprintf(file, (char*)"%s/BUILD%s/%sallwords.bin", topicfolder, name, name); // new style
+	result = remove(file);
 }
 
 void InitScriptSystem()
@@ -1421,11 +1426,7 @@ static void AddMap(char* kind,char* msg,unsigned int *itemCount)
 		fprintf(mapFile,(char*)"%s %s",value, (msg) ? msg : ((char*)""));
         if (myBot  && !strstr(value,"rule:") && !strstr(value, "complexity of"))
         {
-#ifdef WIN32
-            fprintf(mapFile, (char*)" %I64u", myBot);
-#else
-            fprintf(mapFile, (char*)" %llu", myBot);
-#endif
+            fprintf(mapFile, (char*)" %s", PrintU64(myBot));
         }
         fprintf(mapFile, (char*)"\r\n");
         if (mapFileJson)
@@ -2439,7 +2440,7 @@ static void TestSubstitute(char* word,char* message)
 		if (D->internalBits & DO_PRIVATE) which = "user private substitution";
 		size_t len = strlen(D->word);
 		currentLineColumn -= len;
-		if (E->word[1] && E->word[0] != '~')	// concept changes of words will be considered interjections
+		if (E->word[1] && E->word[0] != '~' && E->word[0] != '(')	// concept changes of words will be considered interjections and pattern match form is accepted
 		{
 			WARNSCRIPT((char*)"%s changes %s to %s %s ", which, word, E->word, message)
 		}
@@ -3411,11 +3412,7 @@ $^x:=.... define function
                         else if (buildId == BUILD1) layer = 1;
 						if (myBot && !livecall)
 						{
-#ifdef WIN32
-							sprintf(name, (char*)"~%u%05u`%I64u", layer, ++conceptID, myBot);
-#else
-							sprintf(name, (char*)"~%u%05u`%llu", layer, ++conceptID, myBot);
-#endif
+							sprintf(name, (char*)"~%u%05u`%s", layer, ++conceptID, PrintU64(myBot));
 						}
                         else sprintf(name, "~%u%05u", layer,++conceptID);
 						conceptStarted[conceptIndex ] = 1;
@@ -5213,11 +5210,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build,char* da
 	//   record that it is a macro, with appropriate validation information
 	char botid[MAX_WORD_SIZE];
 	strcpy(botid, "0"); // default universal for api compilations
-#ifdef WIN32
-	if (!apimacro) sprintf(botid, (char*)"%I64u", myBot);
-#else
-	if (!apimacro)  sprintf(botid, (char*)"%llu", myBot);
-#endif
+	if (!apimacro) sprintf(botid, (char*)"%s", PrintU64(myBot));
 	revised[0] = revised[1] = revised[2] = revised[3] = 0;
 	revised += 4; // empty link
 	sprintf(revised, (char*)"%s %lld ", botid, macroFlags);
@@ -5270,11 +5263,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build,char* da
         if (macroid != 0)
         {
             char name[MAX_WORD_SIZE];
-#ifdef WIN32
-            sprintf(name, (char*)"          bot: 0 %s %I64u ", macroName,macroid);
-#else
-            sprintf(name, (char*)"          bot: 0 %s %llu ", macroName,macroid);
-#endif
+            sprintf(name, (char*)"          bot: 0 %s %s ", macroName,PrintU64(macroid));
             AddMap(NULL, name, NULL); // bot macro
         }
 	}
@@ -5298,7 +5287,7 @@ static char* ReadTable(char* ptr, FILE* in,unsigned int build,bool fromtopic)
 	char* pre = NULL;
 	ptr = SkipWhitespace(ptr);
 	ReadNextSystemToken(in,ptr,name,false,true); 
-	if (*name == '~')
+	if (*name == '~') // table: ~x =>  table: ^x
 	{
 		*name = '^';
 		char* at = strchr(ptr, '~');
@@ -6356,8 +6345,26 @@ static char* ReadReplace(char* ptr, FILE* in, unsigned int build)
 			break; 
 		}
 		ptr = ReadNextSystemToken(in,ptr,replace,false);
-		if (!stricmp(replace, "![")) // reacquire ![xxx xxx]value
+		if (*replace == '(')
 		{
+				char data[MAX_WORD_SIZE];
+				char* pack = data;
+				while (*--ptr != '('); // back up to the (
+				ptr = ReadPattern(ptr, in, pack, false, false);
+				char* pat = data-1;
+				while ((pat = strchr(++pat, '~')) )
+				{
+					if (*(pat - 1) == ' ')
+					{
+						BADSCRIPT((char*)"CONCEPT-1 Concept name not allowed in replace: pattern %s\r\n", pat - 1)
+					}
+				}
+				strcpy(replace, data);
+		}
+		else if (!stricmp(replace, "![")) // reacquire ![xxx xxx]value
+		{
+		    // replace: jack_rusell ![terrier]Jack + Russell + terrier
+			// This says to replace jack_russell with Jack + Russel + terrior ONLY if the word immediately following the match
 			char* end = strchr(ptr, ']');
 			*end = 0;
 			strcat(replace, ptr);
@@ -7190,7 +7197,8 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		return;
 	}
 	unsigned int check = Read32(in); // version stamp
-	if (check != CHECKSTAMP) ReportBug("Fatal: checkstamp writedictchanged");
+	if (check != CHECKSTAMP) 
+		ReportBug("Fatal: checkstamp writedictchanged");
 	seeAllFacts = true;
 	for (WORDP D = dictionaryBase + 1; D < dictionaryFree; ++D)
 	{
@@ -7293,7 +7301,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 		{
 			char word[MAX_WORD_SIZE];
 			char change = (SUPERCEDED(D)) ? '-' : '^';
-			if (multidict && GET_LANGUAGE_INDEX(D))  sprintf(word, (char*)"%c `%s~l%d` ", change, D->word, GET_LANGUAGE_INDEX(D));
+			if (multidict && GET_LANGUAGE_INDEX(D))  sprintf(word, (char*)"%c `%s~l%u` ", change, D->word, GET_LANGUAGE_INDEX(D));
 			else sprintf(word, (char*)"%c `%s` ", change, D->word);
 			if (SUPERCEDED(D)) fprintf(dictout, "`%s`\r\n", word);
 			else
@@ -7353,12 +7361,14 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 				char actualsub[MAX_WORD_SIZE];
 				strcpy(actualsub, "``");
 				if (newsubstituteindex)
+				{
 					sprintf(actualsub, "`%s`", Index2Word(newsubstituteindex)->word);
+				}
 
 				char header[20];
 				*header = 0;
 				if (newheader)
-					sprintf(header, "%d", newheader);
+					sprintf(header, "%u", newheader);
 
 				char bigheader[MAX_WORD_SIZE];
 				*bigheader = 0;
@@ -7369,7 +7379,7 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 					ptr += 3;
 					for (unsigned int i = 0; i < languageCount; ++i)
 					{
-						sprintf(ptr, "%d ",Word2Index(D->foreignFlags[i]));
+						sprintf(ptr, "%u ",Word2Index(D->foreignFlags[i]));
 						ptr += strlen(ptr);
 					}
 				}
@@ -7382,20 +7392,24 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
     seeAllFacts = false;
 }
 
-static void WriteExtendedFacts(FILE* factout,FILE* dictout,unsigned int build)
+static void WriteExtendedFacts(FILE* factout,FILE* dictout,FILE* varout, unsigned int build)
 {
-	if (!factout || !dictout) return;
+	if (!factout || !dictout || !varout) return;
 	fprintf(dictout, "%d\r\n", CHECKSTAMPRAW); 
 	fprintf(factout, "%d\r\n", CHECKSTAMPRAW);
+	fprintf(varout, "%d\r\n", CHECKSTAMPRAW);
 	seeAllFacts = true;
+	
+	// save global bot vars to file
 	char* buffer = AllocateBuffer();
 	bool oldshared = shared;
 	shared = false;
 	char* ptr = WriteUserVariables(buffer,false,true,NULL);
 	shared = oldshared;
-	fwrite(buffer,ptr-buffer,1,factout);
+	fwrite(buffer,ptr-buffer,1,varout);
 	FreeBuffer();
-	fwrite("--dict\r\n", 8, 1, factout);
+
+	char buildchar = (build == BUILD0) ? '0' : '1';
 	WriteDictionaryChange(dictout,build);
 	seeAllFacts = true;
 	// we only write out new facts created this level. One cannot change old facts
@@ -7411,12 +7425,6 @@ static void WriteExtendedFacts(FILE* factout,FILE* dictout,unsigned int build)
 	if (factout) fclose(factout);
     
 	seeAllFacts = false;
-}
-
-static void ClearTopicConcept(WORDP D, uint64 build)
-{
-	unsigned int k = (ulong_t) build;
-	if ((D->internalBits & TOPIC ) & k)   RemoveInternalFlag(D,BUILD0|BUILD1|TOPIC);
 }
 
 static void DumpErrors()
@@ -7452,7 +7460,7 @@ static void EmptyVerify(char* name, uint64 junk)
 static int CompileCleanup(char* output,uint64 oldtokenControl, unsigned int  build)
 {
 	EndScriptCompiler();
-
+	build0Requested = build0Requested = false;
 	buildID = 0;
 	int resultcode = 0;
 	numberOfTopics = 0;
@@ -7481,14 +7489,16 @@ static int CompileCleanup(char* output,uint64 oldtokenControl, unsigned int  bui
 		if (missingFiles) Log(ECHOUSERLOG, (char*)"%d topic files were missing.\r\n", missingFiles);
 		Log(ECHOUSERLOG, (char*)"No errors or warnings\r\n\r\n");
 	}
-	ReturnDictionaryToWordNet();
+	Log(ECHOUSERLOG, (char*)"\r\n\r\nFinished compile\r\n\r\n");
+
+	Rebegin(0, argc, argv); // reload dict and layers as needed
+
 	echo = true;
 	if (userlogFile)
 	{
 		fclose(userlogFile);
 		userlogFile = NULL;
 	}
-	Log(ECHOUSERLOG, (char*)"\r\n\r\nFinished compile\r\n\r\n");
 	return resultcode;
 }
 
@@ -7519,11 +7529,11 @@ void InitBuild(unsigned int build)
 
 }
 
-
-
 int ReadTopicFiles(char* name,unsigned int build,int spell)
 {
 	currentBuild = build;
+	propertyRedefines = NULL;
+	flagsRedefines = NULL;
     char filename[SMALL_WORD_SIZE];
     nospellcheck = false;
 	undefinedCallThreadList = 0;
@@ -7587,12 +7597,6 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	missingFiles = 0;
 	spellCheck = spell;			// what spell checking to perform
 
-	//   erase facts and dictionary to appropriate level
-	ClearUserVariables();
-	if (build == BUILD1) ReturnToAfterLayer(LAYER_0,true); // rip dictionary back to start of build (but props and systemflags can be wrong)
-	else  ReturnDictionaryToWordNet();
-	
-    WalkDictionary(ClearTopicConcept,build);				// remove concept/topic flags from prior defined by this build
 	EraseTopicFiles(build,baseName);
 	char file[SMALL_WORD_SIZE];
 	sprintf(file,(char*)"%s/missingLabel.txt", topicfolder);
@@ -7741,10 +7745,14 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	sprintf(filename,(char*)"%s/BUILD%s/facts%s.txt", topicfolder,baseName,baseName);
 	char filename1[MAX_WORD_SIZE];
 	sprintf(filename1,(char*)"%s/BUILD%s/dict%s.txt", topicfolder,baseName,baseName);
+	char filename2[MAX_WORD_SIZE];
+	sprintf(filename2, (char*)"%s/BUILD%s/variables%s.txt", topicfolder, baseName, baseName);
 	FILE* dictout = FopenUTF8Write(filename1);
 	FILE* factout = FopenUTF8Write(filename);
-	WriteExtendedFacts(factout,dictout,  build); 
+	FILE* varout = FopenUTF8Write(filename2);
+	WriteExtendedFacts(factout,dictout, varout, build);
     fclose(dictout); // dont use FClose
+	fclose(varout); // dont use FClose
 	// FClose(factout); closed from within writeextendedfacts
 	FreeOutputBuffer();
 

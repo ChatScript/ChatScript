@@ -559,6 +559,7 @@ bool SpellCheckSentence()
 		{
 			bool good = false;
 			if (D->properties & TAG_TEST || *D->word == '~' || D->systemFlags & PATTERN_WORD) good = true;	// we know this word clearly or its a concept set ref emotion
+			else if (D->internalBits & HAS_SUBSTITUTE) good = true;
 			else if (D <= dictionaryPreBuild[LAYER_0]) good = true; // in dictionary - if a substitute would have happend by now
 			else if (!isEnglish) good = true; // foreign word we know
 			else if (IsConceptMember(D)) good = true;

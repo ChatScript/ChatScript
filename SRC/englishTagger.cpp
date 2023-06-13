@@ -931,6 +931,7 @@ static void SetCanonicalValue(unsigned int start, unsigned int end)
 				canonicalWordp[i] = originalWordp[i]; 
 				wordCanonical[i] = originalWordp[i]->word; 
 			}
+			else if (!canonicalWordp[i]) wordCanonical[i] = originalWordp[i]->word; 
 			else wordCanonical[i] = canonicalWordp[i]->word;
 		}
 		else if (!wordCanonical[i]) wordCanonical[i] = wordStarts[i];
@@ -3245,7 +3246,7 @@ char* DumpAnalysis(unsigned int start, unsigned int end,uint64 flags[MAX_SENTENC
 		if (!stricmp(current_language, "ENGLISH")) 	faultyparse = "badparse "; // only one of ambiguous (worse) and faultyparse will be true
 		else faultyparse = "not-parsed ";
 	}
-	sprintf(buffer,(char*)"%s%s%s %d words: ",ambiguousx,faultyparse,label,end-start+1);
+	sprintf(buffer,(char*)"%s%s%s %u words: ",ambiguousx,faultyparse,label,end-start+1);
 	unsigned int lenpre;
 	firstAux = NULL;
 

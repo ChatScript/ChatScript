@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/10/2022 cs13.1</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
 <li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
@@ -1454,6 +1454,17 @@ canon: faster fast</code></pre>
 <h2 id="replacing-to-a-word-with-in-it">Replacing to a word with + in it</h2>
 <p>Normally <code>replace:  x  y+z</code> will generate 2 words, y and z. If you need a plus in your word, you can escape your 2nd word:</p>
 <pre><code>    replace: &quot;black and decker&quot; \BLACK+DECKER</code></pre>
+<h2 id="advanced-replace-substitution">Advanced replace substitution</h2>
+<p>You can name a pattern (which can extend over multiple lines) that can conditionally change the matched word into any other word or remove it or do nothing. Matching starts with _0 having been assigned to the location of the word/phrase to replace.</p>
+<pre><code>    replace: bubble_tea  ([
+        (is $$cs_replace:=2)
+        (has $$cs_replace:=null)
+        (@_0- *~2 my  $$cs_replace:=1)
+    ])
+    &quot;bubble tea is&quot; -&gt; 2 is
+    &quot;bubble tea has&quot; -&gt; has
+    &quot;my green bubble tea loves&quot; -&gt; my green 1 loves</code></pre>
+<p>You cannot use concepts in these patterns, nor the canonical forms of words. Your replacement data must be only tokens potentially separated by +, and potentially having _ in them. Do not use double quotes.</p>
 <h1 id="interchange-variables">Interchange Variables</h1>
 <p>The following variables can be defined in a script and the engine will react to their contents.</p>
 <table style="width:39%;">

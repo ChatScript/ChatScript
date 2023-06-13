@@ -137,13 +137,17 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 	#include <dirent.h>
 	#include <mach/clock.h>
 	#include <mach/mach.h>
-    #define USESIGNALHANDLER 1
+#ifndef  HARDCRASH
+#define USESIGNALHANDLER 1
+#endif
 #else  // LINUX
 	#include <dirent.h>
 	#ifndef LINUX
 		#define LINUX 1
 	#endif
+#ifndef  HARDCRASH
     #define USESIGNALHANDLER 1
+#endif
 #endif
 
 #ifdef IOS

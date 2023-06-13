@@ -1,7 +1,6 @@
 ﻿# ChatScript Spelling Marking Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 3/21/2021 cs11.2
-0
+<br>Revision 6/13/2022 cs13.2
 
 
 # Spelling
@@ -105,6 +104,28 @@ replace: jack_rusell ![terrier]Jack+Russell+terrier
 ```
 This says to replace jack_russell with Jack+Russel+terrior ONLY if the word immediately following the match
 is not terrier (case insensitive).
+
+A more general conditional replacement is that you can name a pattern (which can extend over multiple lines) 
+	that can conditionally change the 	matched word into any other word or remove it or do nothing. 
+	Matching starts with _0 having been assigned to the location of the word/phrase to replace.
+```
+	replace: bubble_tea  ([
+		(is $$cs_replace:=2)
+		(has $$cs_replace:=null)
+		(@_0- *~2 my  $$cs_replace:=1)
+	])
+	"bubble tea is" -> 2 is
+	"bubble tea has" -> has
+	"my green bubble tea loves" -> my green 1 loves
+
+The equivalent of replace: jack_rusell ![terrier]Jack+Russell+terrier is
+replace: jack_russel (!!terrier) Jack+Russell+terrier 
+or
+replace: jack_russel (!![terrier]) Jack+Russell+terrier 
+```
+You cannot use concepts in these patterns, nor the canonical forms of words.
+Your replacement data must be only tokens potentially separated by +, and potentially having _ in them.
+Do not use double quotes.
 
 ### Numeric Substitutions   replace:  ?_xxx xxxx
 

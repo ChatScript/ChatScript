@@ -4,16 +4,16 @@
 #define MAX_HASH_BUCKETS 215127 
 #define UNIQUEENTRY '`'				// leads words that wont clash with other dictionary entries
 #define MAX_HASH_DEPTH  80
-#define GETNEXTNODE(D) (D->nextNode & NODEBITS)		// top byte is the length of joined phrases of which this is header
-#define GETMULTIWORDHEADER(D)  (D->nextNode >> MULTIWORDHEADER_SHIFT)
-#define SETMULTIWORDHEADER(D,n) (  D->nextNode &= NODEBITS, D->nextNode |= n << MULTIWORDHEADER_SHIFT )
+#define GETNEXTNODE(D) (D->nextNode)		// top byte is the length of joined phrases of which this is header
+#define GETMULTIWORDHEADER(D)  (D->headercount)
+#define SETMULTIWORDHEADER(D,n) (  D->headercount = n )
 #define WORDLENGTH(D) (D->length)
 #define IS_NEW_WORD(x) (!x || (x >= dictionaryPreBuild[2] &&  !xbuildDictionary)) // created by user volley
 bool SUPERCEDED(WORDP D);
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
 #define SUBSTITUTE_SEPARATOR '|'
-#define CHECKSTAMP 15  // binary version id  - affects dict*.bin, TOPIC (bin)
-#define CHECKSTAMPRAW 1  // if compile output format changes source version id  - affects  TOPIC (*.txt)
+#define CHECKSTAMP 17  // binary version id  - affects dict*.bin, TOPIC (bin)
+#define CHECKSTAMPRAW 2  // if compile output format changes source version id  - affects  TOPIC (*.txt)
 #define GET_LANGUAGE_INDEX(D)  ((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT)
 #define GET_FOREIGN_INDEX(D)  (((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT) - 1)
 #define GET_LANGUAGE_INDEX_OR_UNIVERSAL(D)  ((D->internalBits & UNIVERSAL_WORD) ? 0 : ((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT))
@@ -171,8 +171,8 @@ unsigned int GETTYPERESTRICTION(MEANING x);
 #define TENSEFIELD 2
 #define PLURALFIELD 3
 
-#define Index2Word(n) (dictionaryBase + (size_t)n)
-#define Word2Index(D) ((unsigned int) (D-dictionaryBase))
+#define Index2Word(n) (n ? ( dictionaryBase + (size_t)n) : NULL)
+#define Word2Index(D) ((unsigned int) ((D) ? ((D)-dictionaryBase) : 0))
 MEANING GetMeaning(WORDP D, int index);
 #define GetMeaningsFromMeaning(T) (GetMeanings(Meaning2Word(T)))
 #define Meaning2Index(x) ( (((unsigned int)x) & INDEX_BITS)  >> INDEX_OFFSET) //   which dict entry meaning
@@ -192,6 +192,7 @@ void LockLevel();
 void WriteDictionary(WORDP D, uint64 junk);
 void WriteTextEntry(WORDP D, bool tmp=false);
 void UnlockLayer(int layer);
+void WriteDictDetailsBeforeLayer(int layer);
 WORDP GetLanguageWord(WORDP word);
 char* GetWord(char* word);
 WORDP GetPlural(WORDP D);
@@ -286,7 +287,6 @@ WORDP StoreIntWord(int);
 void ClearHeapThreads();
 void ClearWordMaps();
 bool TraceHierarchyTest(int x);
-void WriteDictDetailsBeforeLayer(int layer);
 WORDP MakeLanguageWord(const char* word);
 WORDP FindOrMakeWord(const char* word);
 WORDP StoreWord(const char* word, uint64 properties = 0);
@@ -359,10 +359,9 @@ void InitDictionary();
 void CloseDictionary();
 void ExtendDictionary();
 void WordnetLockDictionary();
-void ReturnDictionaryToWordNet();
 void LockLayer(bool boot);
 void ReturnToAfterLayer(int layer,bool unlocked);
-void ReturnBeforeLayer(int layer, bool unlocked);
+void ReturnBeforeBootLayer();
 void DeleteDictionaryEntry(WORDP D);
 void BuildDictionary(char* junk);
 HEAPINDEX GetAccess(WORDP D);

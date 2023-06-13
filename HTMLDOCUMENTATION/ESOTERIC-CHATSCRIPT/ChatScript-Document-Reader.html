@@ -36,7 +36,7 @@
 <p>If you want stuff displayed to the user at the moment something is happening, use <code>^log(OUTPUT_ECHO xxxx)</code>. Normal output will be displayed all at once when the document is finished being read. Should you generate more than 20 replies during a document, all later replies will be discarded.</p>
 <p>But typically you'd do something after the document was finished, which means doing it from a post-process topic and perhaps using ^postprintafter to issue your message. An example of a filter script for simple wikipedia data mining (using the output of <code>:wikitext</code>) is this:</p>
 <pre><code>#### establish the default bot
-table: defaultbot (^name)
+table: ^defaultbot (^name)
     ^createfact(^name defaultbot defaultbot)
 DATA:
 reader

@@ -2,16 +2,16 @@
 #include "cs_jp.h"
 
 #ifdef INFORMATION
-SPACES		 space \t \r \n 
-PUNCTUATIONS  , | -  (see also ENDERS)
-ENDERS		 . ; : ? ! -
-BRACKETS 	 () [ ] { } < >
-ARITHMETICS	  % * + - ^ = / .  
-SYMBOLS 	  $ # @ ~  
-CONVERTERS	  & `
+SPACES		 space \t \r \n
+PUNCTUATIONS, | -(see also ENDERS)
+ENDERS		 .; : ? !-
+BRACKETS() [] {} < >
+ARITHMETICS % *+-^ = / .
+SYMBOLS 	  $ # @ ~
+CONVERTERS & `
 //NORMALS 	  A-Z a-z 0-9 _  and sometimes / 
 #endif
-
+static WORDP subresult;
 int inputNest = 0;
 int actualTokenCount = 0;
 char burstWords[MAX_BURST][MAX_WORD_SIZE];	// each token burst from a text string
@@ -2954,14 +2954,40 @@ static WORDP Viability(WORDP word, unsigned  int i, unsigned int n)
 		if (X)
 		{
 			if (!strcmp(X->word, word->word)) return NULL; // avoid infinite substitute
-			char copy[MAX_WORD_SIZE];
-			strcpy(copy, X->word);
-			char* at = copy;
-			while ((at = strchr(at, '+'))) *at = '|';
-			if (!strcmp(copy, word->word)) return NULL; // + and ` are synonymous
+
+			if (*X->word == '(')
+			{
+				SetUserVariable("$$cs_replace","null");
+				int start = i;
+				int end = start + n;
+				*wildcardOriginalText[0];  
+				*wildcardCanonicalText[0];  // spot wild cards can be stored
+				wildcardPosition[0] = start | WILDENDSHIFT(end);
+
+				MARKDATA hitdata;
+				int matched = 0;
+				wildcardIndex = 0;  //   reset wildcard allocation on top-level pattern match
+				hitdata.start = end; // continue from completed match
+				bool match = Match(X->word +1, 0, hitdata, 1, 0, matched, '(') != 0;  //   skip paren and treat as NOT at start depth, dont reset wildcards- if it does match, wildcards are bound
+				if (match)
+				{
+					char* result = GetUserVariable("$$cs_replace");
+					if (!*result) word = X; // special command to delete the match
+					else word = StoreWord(result,AS_IS);
+				}
+				else return NULL; // no change
+			}
+			else
+			{
+				char copy[MAX_WORD_SIZE];
+				strcpy(copy, X->word);
+				char* at = copy;
+				while ((at = strchr(at, '+'))) *at = '|';
+				if (!strcmp(copy, word->word)) return NULL; // + and ` are synonymous
+			}
 		}
 		uint64 allowed = tokenControl & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE);
-        return (allowed & word->internalBits) ? word : NULL; // allowed transform
+        return (word && X && (allowed & word->internalBits || *X->word == '(')) ? word : NULL; // allowed transform
     }
     if (!(tokenControl & DO_SUBSTITUTES)) return NULL; // no dictionary word merge
 
@@ -3023,12 +3049,15 @@ static WORDP ViableIdiom(char* text, int i, unsigned int n)
 
 	WORDP set[GETWORDSLIMIT];
 	WORDP D = NULL;
+	subresult = NULL;
 	int nn = GetWords(text, set, false); // words in any case and with mixed underscore and spaces
 	while (nn)
 	{
-		D = Viability(set[--nn], i, n);
-		if (D) return D;
+		D = set[--nn];
+		subresult = Viability(D, i, n);
+		if (subresult) return D;
 	}
+	D = NULL;
 	if (text[2] && text[3]) //avoid is -> I  
 	{
 		size_t len = strlen(text);  // watch out for <his  
@@ -3046,6 +3075,7 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
     WORDP word;
     WORDP found = NULL;
     unsigned int idiomMatch = 0;
+	WORDP subr = NULL;
     bool isEnglish = (!stricmp(current_language, "english") ? true : false);
 	unsigned int n = 0;
     for (unsigned  int j = i; j <= wordCount; ++j)
@@ -3075,6 +3105,7 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
                 {
                     found = word;
                     idiomMatch = n;     //   n words ADDED to 1st word
+					subr = subresult;
                 }
                 *ptr = 0; //   remove tail end
             }
@@ -3089,6 +3120,7 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
 			{
 				found = word;  
 				idiomMatch = n;     //   n words ADDED to 1st word
+				subr = subresult;
 			}
 			*ptr = 0; //   remove tail end
 		}
@@ -3096,11 +3128,13 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
 		{
 			found = word;   
 			idiomMatch = n;   
+			subr = subresult;
 		}
         if (found == localfound && (word = ViableIdiom(buffer+1,i,n))) // match normal
         {
 			found = word; 
 			idiomMatch = n; 
+			subr = subresult;
 		}
 
 		if (!found && i == j && (IsDigit(buffer[1]) || (IsSign(buffer[1]) && IsDigit(buffer[2])))) 
@@ -3119,6 +3153,7 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
             {
 				found = word; 
 				idiomMatch = n; 
+				subr = subresult;
 			}
 			*ptr= 0; //   back to normal
         }
@@ -3150,13 +3185,16 @@ static WORDP ProcessMyIdiom(unsigned int i,unsigned int max,char* buffer,char* p
 
 	WORDP D = GetSubstitute(found);
     if (D == found)  return NULL;
+	if (D && *D->word == '(') D = subr; // from pattern match
 
 	WORDP result = NULL;
 	
 	//   dictionary match to multiple word entry
 	if (found->systemFlags & HAS_SUBSTITUTE) // a special substitution
 	{
-		if (Substitute(found, D ? D->word : NULL, i, idiomMatch))
+		char* change = D ? D->word : NULL;
+		if (change && subr && *change == '(') change = NULL;
+		if (Substitute(found, change, i, idiomMatch))
 		{
 			tokenFlags |= found->internalBits & (DO_SUBSTITUTE_SYSTEM | DO_PRIVATE); // we did this kind of substitution
 			result = found;

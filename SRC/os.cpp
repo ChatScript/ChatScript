@@ -7,6 +7,7 @@ static std::mutex mtx;
 bool authorize = false;
 bool pseudoServer = false;
 char debugdata[MAX_WORD_SIZE];
+FILE* logfiles[MAX_LOG_NAMES];
 
 uint64 callStartTime;
 int loglimit = 0;
@@ -177,6 +178,23 @@ void TrackTime(WORDP D, int elapsed)
     timeSummary[D] = summary;
 }
 
+void CloseLogs()
+{
+	for (unsigned int i = 0; i < MAX_LOG_NAMES; ++i)
+	{
+		if (logfiles[i]) // found already open
+		{
+			fclose(logfiles[i]);
+			logfiles[i] = NULL;
+			break;
+		}
+	}
+}
+
+	void InitLogs()
+	{
+		memset(logfiles, 0, sizeof(logfiles));
+	}
 
 /////////////////////////////////////////////////////////
 /// KEYBOARD
@@ -2216,11 +2234,8 @@ char* myprinter(const char* ptr, char* at, va_list ap)
 			else if (*ptr == 'd') sprintf(at, (char*)"%d", va_arg(ap, int)); // int %d
 			else if (*ptr == 'I') //   I64
 			{
-#ifdef WIN32
-				sprintf(at, (char*)"%I64u", va_arg(ap, uint64));
-#else
-				sprintf(at, (char*)"%llu", va_arg(ap, uint64));
-#endif
+				char* num = PrintU64(va_arg(ap, uint64));
+				sprintf(at, (char*)"%s",num );
 				ptr += 2;
 			}
 			else if (*ptr == 'l' && ptr[1] == 'd') // ld
@@ -2230,11 +2245,8 @@ char* myprinter(const char* ptr, char* at, va_list ap)
 			}
 			else if (*ptr == 'l' && ptr[1] == 'l') // lld
 			{
-#ifdef WIN32
-				sprintf(at, (char*)"%I64u", (uint64)va_arg(ap, long long int));
-#else
-				sprintf(at, (char*)"%llu", (uint64)va_arg(ap, long long int));
-#endif
+				char* num = PrintU64(va_arg(ap, long long int));
+				sprintf(at, (char*)"%s", num);
 				ptr += 2;
 			}
 			else if (*ptr == 'p') sprintf(at, (char*)"%p", va_arg(ap, char*)); // ptr
@@ -2681,7 +2693,7 @@ void LogChat(uint64 starttime, char* user, char* bot, char* IP, int turn, char* 
 #ifdef LINUX
 			pid = getpid();
 #endif
-			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d pid:%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, timeout,pid);
+			sprintf(buffer, "%s%s Respond: user:%s bot:%s len:%zu ip:%s (%s) %d `*` ==> %s  When:%s %dms %sq %d %s JOpen:%d/%d Timeout:%d pid:%d\r\n", nl, startdate, user, bot, len, IP, myactiveTopic, turn, tmpOutput, enddate, (int)(endtime - starttime), wait, (int)qtime, why, (int)json_open_time, (int)json_open_counter, (int)timeout,pid);
 			if (serverLog) Log(PASSTHRUSERVERLOG, buffer);
 			if (userLog) Log(PASSTHRUUSERLOG, buffer);
 			FreeBuffer();

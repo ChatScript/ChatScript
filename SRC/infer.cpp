@@ -587,6 +587,14 @@ unsigned int Query(char* kind, char* subjectword, char* verbword, char* objectwo
 		n = BurstWord(propogate);
 		if (n > 1) strcpy(propogate,JoinWords(n,false));
 	}
+	char* tilde;
+	tilde = (*subjectword == '~') ? strchr(subjectword + 2, '~') : NULL; // multibot topic name
+	if (tilde) *tilde = 0;
+	tilde = (*verbword == '~') ? strchr(verbword + 2, '~') : NULL; // multibot topic name
+	if (tilde) *tilde = 0;
+	tilde = (*objectword == '~') ? strchr(objectword + 2, '~') : NULL; // multibot topic name
+	if (tilde) *tilde = 0;
+
 	if (trace & TRACE_QUERY ) 
 	{
 		Log(USERLOG,"^QUERY: @%d %s %s  s/v/o:[%s %s %s] count:%d ", store, kind,control,subjectword,verbword,objectword,count);

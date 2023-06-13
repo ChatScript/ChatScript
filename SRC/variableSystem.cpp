@@ -45,6 +45,128 @@ void InitVariableSystem()
     tracedFunctionsIndex = 0;
 }
 
+ void OpenBotVariables()
+{
+}
+
+void CloseBotVariables()
+{
+    NoteBotVariables(); // these go into level 1
+    LockLayer(true); // dont write out details of layer
+}
+
+void SetBotVariable(char* word)
+{
+    char* eq = strchr(word, '=');
+    if (eq)
+    {
+        *eq = 0;
+        *word = USERVAR_PREFIX;
+        if (eq[1] == '"')
+        {
+            ++eq;
+            size_t len = strlen(eq);
+            if (eq[len - 1] == '"') eq[len - 1] = 0;
+        }
+        SetUserVariable(word, eq + 1);
+        // need to restore the initial markers so that a restart can process them
+        *eq = '=';
+        *word = 'V';
+    }
+}
+
+static void ReadBotVariable(char* file)
+{
+    char buffer[5000];
+    char word[MAX_WORD_SIZE];
+    FILE* in = FopenReadOnly(file);
+    if (in)
+    {
+        while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
+        {
+            char* x = strchr(buffer, '='); // var assign maybe
+            if (*buffer == 'V' && x && x[1] == '"')
+            {
+                strcpy(word, buffer);
+            }
+            else ReadCompiledWord(buffer, word);
+            if (*word == 'V')
+                SetBotVariable(word); // these are level 1 values
+        }
+        FClose(in);
+    }
+}
+
+void InitBotVariables(int argc, char** argv)
+{
+    OpenBotVariables();
+    
+    // the fixed cs init files
+    ReadBotVariable(configFile);
+    ReadBotVariable(configFile2);
+
+    char word[MAX_WORD_SIZE];
+    for (int i = 1; i < argc; ++i) // load individual variable declarations on command line
+    {
+        strcpy(word, argv[i]);
+        if (*word == '"' && word[1] == 'V')
+        {
+            memmove(word, word + 1, strlen(word));
+            size_t len = strlen(word);
+            if (word[len - 1] == '"') word[len - 1] = 0;
+        }
+        if (*word == 'V') SetBotVariable(word); // predefined bot variable in level 1
+    }
+    for (int i = 0; i < configLinesLength; i++) // load url-remote supplemental config lines
+    {
+        char* line = configLines[i];
+        if (*line == 'V') SetBotVariable(line); // these are level 1 values
+    }
+    CloseBotVariables();
+
+    kernelVariableThreadList = botVariableThreadList; // switch variables to kernel 
+    botVariableThreadList = NULL;
+}
+
+void ReadVariables(const char* name)
+{
+    FILE* in = FopenReadOnly(name);
+    if (!in) return;
+    ReadALine(readBuffer, in); // checkstamp
+     int stamp = atoi(readBuffer);
+      if (stamp != CHECKSTAMPRAW)
+      {
+            FClose(in);
+            EraseTopicFiles(0, "0");
+            EraseTopicFiles(1, "1");
+            printf("Erase your TOPIC folder, rerun CS and recompile your bot. Data formats have changed\r\n");
+            ReportBug("FATAL: Erase your TOPIC folder, rerun CS and recompile your bot. Data formats have changed\r\n");
+            return;
+      }
+
+    int oldlanguage = language_bits;
+    while (ReadALine(readBuffer, in) >= 0)
+    {
+        if (*readBuffer == '#') break; //  #`end variables
+        char word[MAX_WORD_SIZE];
+        language_bits = oldlanguage;
+        char* ptr = ReadToken(readBuffer, word);
+        char* eq = strchr(word, '=');
+        if (!eq) ReportBug((char*)"Bad fact file user var assignment %s", word);
+        else
+        {
+            *eq = 0;
+            SetUserVariable(word, eq + 1);
+            WORDP D = FindWord(word);
+            if (monitorChange)
+            {
+                AddWordItem(D, false);
+                D->internalBits |= BIT_CHANGED;
+            }
+        }
+    }
+}
+
 int GetWildcardID(char* x) // wildcard id is "_10" or "_3"
 {
     if (!IsDigit(x[1])) return ILLEGAL_MATCHVARIABLE;
@@ -313,6 +435,12 @@ char* GetUserVariable(const char* word, bool nojson)
         {
             if (trace & TRACE_VARIABLE) Log(USERLOG, "``%s",separator+1);
             goto NULLVALUE;
+        }
+
+        // auto indirect if variable has a variable value
+        if (separator && D->w.userValue && D->w.userValue[0] == '$')
+        {
+            D = FindWord(D->w.userValue);
         }
 
         if (*separator == '.' && !strnicmp(item, "ja-", 3)) // dot into array means find value as object

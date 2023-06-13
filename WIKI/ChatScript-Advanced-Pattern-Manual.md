@@ -1,6 +1,6 @@
 # ChatScript Advanced Pattern Manual
 copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br>
-<br>Revision 4/24/2022 cs12.1
+<br>Revision 6/13/2022 cs13.2
 
 
 
@@ -193,11 +193,11 @@ The definition ends with the start of a new top-level declaration or end of file
 
 ```
 patternmacro: ^ISHAIRCOLOR(^who)
-    ![not never]
+    ( ![not never]
     [
         ( << be ^who [blonde brunette redhead blond ] >> )
         ( << what ^who hair color >> )
-    ]
+    ] )
 
 ?: ( ^ISHAIRCOLOR(I) ) How would I know your hair color?
 ```

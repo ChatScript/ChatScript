@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-multiple-bots-manual">ChatScript Multiple Bots Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 5/27/2019 cs9.4</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <p>The system can support multiple bots cohabiting the same engine. You can restrict topics to be available only to certain bots. You can also restrict facts and functions, such that variants exist per bot.</p>
 <h1 id="restriction-by-rule">Restriction by Rule</h1>
 <p>The simplest thing is to restrict rules to being available only to certain bots by using something like</p>
@@ -20,7 +20,7 @@
 t: (%bot=harry) My name is harry.</code></pre>
 <p>You specify which bot you want when you login, by appending <code>:botname</code> to your login name, e.g., <code>bruce:harry</code>. The demo system has only one bot, Harry. If it had two bots in it,Harry and Georgia, you could get Georgia by logging in as <code>yourname:georgia</code>. And you can confirm who she is by asking <code>what is your name</code>.</p>
 <p>When you don't give a botname, you get the default bot. How does the system know what that is? It looks for a fact in the database whose subject will be the default bot name and whose verb is defaultbot. If none is found, the default bot is called anonymous, and probably nothing works at all. Defining the default bot is what a table does when you compile <code>simplecontrol.top</code>. It has:</p>
-<pre><code>table: defaultbot (^name)
+<pre><code>table: ^defaultbot (^name)
 ^createfact(^name defaultbot defaultbot)
 DATA:
 harry</code></pre>

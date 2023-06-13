@@ -1,6 +1,6 @@
 [
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/internalconcepts.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/internalconcepts.top",
 "items" : [
 {
 "concept" : "~internal_concepts",
@@ -9,7 +9,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adjectivehierarchy.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adjectivehierarchy.top",
 "items" : [
 {
 "concept" : "~timeadjmodifier"
@@ -357,7 +357,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adverbhierarchy.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/adverbhierarchy.top",
 "items" : [
 {
 "concept" : "~modifyabletimenoun"
@@ -501,7 +501,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/affect.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/affect.top",
 "items" : [
 {
 "concept" : "~badness",
@@ -958,7 +958,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/concepts.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/concepts.top",
 "items" : [
 {
 "concept" : "~coronavirus",
@@ -5063,7 +5063,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/opposite.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/opposite.tbl",
 "items" : [
 {
 "concept" : "~numberoperator",
@@ -5072,7 +5072,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/prepositionhierarchy.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/prepositionhierarchy.top",
 "items" : [
 {
 "concept" : "~directionplacepreposition",
@@ -5145,7 +5145,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/verbhierarchy.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/verbhierarchy.top",
 "items" : [
 {
 "concept" : "~determinerlist"
@@ -6625,7 +6625,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/parsedata.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/parsedata.top",
 "items" : [
 {
 "concept" : "~misc_parsedata",
@@ -6654,7 +6654,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/timewords.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/ONTOLOGY/ENGLISH/PARSER/timewords.top",
 "items" : [
 {
 "concept" : "~timewords",
@@ -6663,7 +6663,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/animals.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/animals.tbl",
 "items" : [
 {
 "concept" : "~animal_homes",
@@ -6672,13 +6672,13 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicbooks.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/basicbooks.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicgeography.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/basicgeography.tbl",
 "items" : [
 {
 "concept" : "~countryadjective",
@@ -6699,79 +6699,79 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/basicmovies_tv.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/basicmovies_tv.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/color.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/color.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/container.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/container.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/femalepeople.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/femalepeople.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/geography.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/geography.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/lifespan.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/lifespan.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/literature.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/literature.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/malepeople.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/malepeople.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/material.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/material.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/movies_tv.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/movies_tv.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/music.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/music.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/musicbasic.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/musicbasic.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/peoplegroups.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/peoplegroups.tbl",
 "items" : [
 {
 "concept" : "~nfc-west_football_team",
@@ -6812,13 +6812,13 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/speed.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/speed.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/things.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/things.tbl",
 "items" : [
 {
 "concept" : "~electronics_store",
@@ -6895,13 +6895,13 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/tools.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/tools.tbl",
 "items" : [
 
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/WORLDDATA/videogames.tbl",
+"file" : "C:/ddrive/ChatScript/RAWDATA/WORLDDATA/videogames.tbl",
 "items" : [
 
 ]

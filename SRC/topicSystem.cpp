@@ -1353,7 +1353,7 @@ FunctionResult TestRule(int ruleID, char* rule, char* buffer, bool refine)
 	++ruleCount;
 	FunctionResult result = NOPROBLEM_BIT;
 	unsigned int start = 0;
-	unsigned int oldstart = 0;
+	int oldstart = 0;
 	unsigned int end = 0;
 	int limit = MAX_SENTENCE_LENGTH + 2;
 	char label[MAX_LABEL_SIZE];
@@ -1438,7 +1438,7 @@ retry:
 			}
 			if (whenmatched == NORETRY)
 			{
-				if (end > 0 && end <= wordCount && end > oldstart) oldstart = start = end; // allow system to retry if marked an end before
+				if (end > 0 && end <= wordCount && (int)end > oldstart) oldstart = start = end; // allow system to retry if marked an end before
 			}
 			// else if (end > start) oldstart = start = end;	// continue from last match location
 			else if (start > MAX_SENTENCE_LENGTH || start < 0)
@@ -2370,6 +2370,7 @@ void AddWordItem(WORDP D, bool dictionaryBuild)
 
 static void CheckFundamentalMeaning(char* name)
 {
+	if (!name) return;
 	char* begin = strchr(name, '|');
 	if (!begin) return;
 	char* end = strchr(begin + 1, '|');
@@ -2503,8 +2504,13 @@ static void AddRecursiveInternal(WORDP D, unsigned int intbits, bool dictionaryB
 
 // these are values of the 0th 64bit word for binary dictionary entry
 unsigned int counter = 0;
+
 uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 {
+	if (!strcmp(D->word, "I"))
+	{
+		int xx = 0;
+	}
 	// remove any transient bits
 	D->systemFlags &= ((uint64)-1) ^ MARKED_WORD;
 	// unchanged old does not need writing out
@@ -2513,11 +2519,11 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 	{
 		return bindata; // just referred to but already exists
 	}
+	
 	D->internalBits &= -1 ^ (BIT_CHANGED | BEEN_HERE);
 	if (*D->word == '$') D->internalBits &= -1 ^ VAR_CHANGED;
 	++counter;
-	*++bindata = counter;
-	uint64* start = bindata;
+	*++bindata = counter; // nth word written
 	*++bindata = ((uint64)(D->length)) << 32;
 	*bindata |= Word2Index(D); // MEANING_BITS already in place 
 	if (isnew) *bindata |= 0x0000000080000000;
@@ -2527,6 +2533,7 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 	*++bindata = D->properties;
 
 	*++bindata = D->systemFlags;
+	*++bindata = D->headercount;
 
 	// CURRENTLY not allowed to change D->foreignFlags from script
 
@@ -2567,15 +2574,14 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 		// dont alter values from frozen before lest level rip out releases wrong memory
 		else // warn on attempt to change memory location
 		{ // BUG ? 
-			if (strcmp(D->w.userValue, val))printf("Not allowed to alter query or variable %s from earlier level %s to %s. Ignored\r\n", D->word, D->w.userValue, val);
-			//ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignored\r\n",D->word, val);
+			if (D->w.userValue && strcmp(D->w.userValue, val)) printf("Not allowed to alter query or variable %s from earlier level %s to %s. Ignored\r\n", D->word, D->w.userValue, val);
+			//ReportBug("Not allowed to alter query or variable %s from earlier level to %s Ignoredh\r\n",D->word, val);
 		}
 		// else maybe just changing flag bits
 	}
 	if (D->systemFlags & HAS_SUBSTITUTE)
 	{
-		unsigned int offset = 0;
-		if (D->w.substitutes) offset = Word2Index(D->w.substitutes);
+		unsigned int offset = Word2Index(D->w.substitutes);
 		*++bindata = offset;
 	}
 
@@ -2586,15 +2592,13 @@ uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 		unsigned int cond = Word2Index(D->w.conditionalIdiom);
 		*++bindata = cond;
 	}
-
 	return bindata;
 }
 
 static uint64* UnpackBinWord(uint64* bindata)
 {
-	uint64* start = bindata;
 	++counter;
-	uint64 c = *bindata;
+	uint64 c = *bindata; // nth word written index  (not same as Word2Index)
 	if (c != counter)
 	{
 		ReportBug("unpackbin sync error");
@@ -2624,6 +2628,7 @@ static uint64* UnpackBinWord(uint64* bindata)
 
 	D->properties = *++bindata;
 	D->systemFlags = *++bindata;
+	D->headercount = (unsigned int) *++bindata;
 
 	D->subjectHead = (unsigned int)(*++bindata >> 32);
 	D->verbHead = (unsigned int)(*bindata & 0x00000000ffffffff);
@@ -2664,16 +2669,15 @@ static uint64* UnpackBinWord(uint64* bindata)
 			}
 		}
 	}
-	else if (D->systemFlags & HAS_SUBSTITUTE)
+	if (D->systemFlags & HAS_SUBSTITUTE)
 	{
-		unsigned int offset = (unsigned int)*++bindata;
-		D->w.substitutes = (offset) ? Index2Word(offset) : 0;
+		uint64 index = *++bindata;
+		D->w.substitutes = Index2Word((unsigned int)index) ;
 	}
 
-	else if (D->internalBits & CONDITIONAL_IDIOM)
+	if (D->internalBits & CONDITIONAL_IDIOM)
 	{
-		unsigned int offset = (unsigned int)*++bindata;
-		D->w.conditionalIdiom = Index2Word(offset);
+		D->w.conditionalIdiom = Index2Word((unsigned int)*++bindata);
 	}
 	return bindata; // to end of our  entry
 }
@@ -2697,20 +2701,12 @@ static void WriteFastDictionary(uint64* bindata, const char* layer, const char* 
 	// pack the new words created this round
 	while (++D < dictionaryFree)
 	{
-		if (SUPERCEDED(D))
-		{
-			int xx = 0;
-		}
 		bindata = PackBinWord(bindata, D, true);
 	}
 	// pack the old changed words from before
 	while (changedwords < changedWordsDuringLoading)
 	{
 		D = *changedwords++;
-		if (SUPERCEDED(D))
-		{
-			int xx = 0; // shouldnt happen, prior layer wont have written out text
-		}
 		bindata = PackBinWord(bindata, D, false);
 	}
 	*++bindata = 0; // end of data marker 
@@ -3347,16 +3343,13 @@ static void ClearFastLoad(const char* topicfolder, const char* name)
 FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 {
 	UnlockLayer(layer);
+	dictionaryPreBuild[layer] = dictionaryFree; // know where we started
 	textBase = heapFree;
 	int originalTopicCount = numberOfTopics;
 	char filename[SMALL_WORD_SIZE];
 	InitLayerMemory(name, layer);
 	numberOfTopics = originalTopicCount;
 
-	//  read DICT additions and deletions, so we can standardize what we read into universal if appropriate
-	sprintf(filename, (char*)"dict%s.txt", name);
-	if (!ReadFacts(filename, name, build, false))
-		return FAILRULE_BIT;
 	sprintf(filename, (char*)"canon%s.txt", name);
 	ReadCanonicals(filename, name);
 		
@@ -3395,11 +3388,13 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		WORDP* basechangedwords = (WORDP*)InfiniteStack(limit, "loadlayer"); // for tracking changes to old words
 		changedWordsDuringLoading = basechangedwords;
 
+		sprintf(filename, (char*)"dict%s.txt", name);
+		if (!ReadFacts(filename, name, build, false)) return FAILRULE_BIT; 
 		sprintf(filename, (char*)"keywords%s.txt", name);
 		InitKeywords(filename, name, build); // alters words and facts
 		WalkDictionary(IndirectMembers, build); // having read in all concepts, handled delayed word marks
 		sprintf(filename, (char*)"facts%s.txt", name);
-		if (!ReadFacts(filename, name, build, false)) // alters facts (and dictionary)
+		if (!ReadFacts(filename, name, build, false)) // alters facts 
 		{
 			myexit("defunct  layer 0, delete TOPIC/BUILD0, rerun and recompile");
 		}
@@ -3418,6 +3413,8 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		sprintf(filename, (char*)"%s/BUILD%s/allfacts%s.bin", topicfolder, name, name);
 		WriteBinaryFacts(FopenBinaryWrite(filename), baseFacts, Word2Index(dictionaryFree));
 	}
+	sprintf(filename, "%s/BUILD%s/variables%s.txt", topicfolder, name,name);
+	ReadVariables(filename);
 
 	// now back to reading unusual form data as text
 	sprintf(filename, (char*)"script%s.txt", name);
@@ -3445,6 +3442,7 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 	}
 
 	LockLayer(false);
+
 	return NOPROBLEM_BIT;
 }
 
@@ -3454,7 +3452,7 @@ void ResetContext()
 	contextIndex = 0;
 }
 
-void InitTopicSystem() // reload all topic data
+void InitTopicSystem(unsigned int limit) // reload all topic data
 {
 	//   purge any prior topic system - except any patternword marks made on basic dictionary will remain (doesnt matter if we have too many marked)
 	*timeStamp[0] = *timeStamp[1] = *timeStamp[2] = 0;
@@ -3465,18 +3463,25 @@ void InitTopicSystem() // reload all topic data
 	ResetContext();
 	memset(numberOfTopicsInLayer, 0, sizeof(numberOfTopicsInLayer));
 	(*printer)((char*)"WordNet: dict=%ld  fact=%ld  heap=%ld %s\r\n", (long int)(dictionaryFree - dictionaryBase - 1), (long int)(lastFactUsed - factBase), (long int)(heapBase - heapFree), dictionaryTimeStamp);
+	
+	if ( build0Requested ) WriteDictDetailsBeforeLayer(0); // data immediately after dictionary loaded
+	if (limit == BUILD0) return; // going to recompile this layer
+	
 	if (!build0Requested) LoadLayer(LAYER_0, (char*)"0", BUILD0); // we will rebuild so dont bother loading
-
-	if (!build0Requested && !build1Requested) // no point in loading layer1 if we are autobuilding layer0 or layer1
+	
+	if (!build0Requested) // no point in loading layer1 if we are autobuilding layer0 or layer1
 	{
 		UnlockLayer(LAYER_0);
-		ReadLivePosData(); // any needed concepts must have been defined by now in level 0 (assumed). Not done in level1
-		LockLayer(false); // rewrite prebuild file because we augmented level 0
-
+		LockLayer(false); 
+		if (build1Requested) WriteDictDetailsBeforeLayer(1);
+		if (limit == BUILD1) return; // going to recompile this layer
 		LoadLayer(LAYER_1, (char*)"1", BUILD1);
+		UnlockLayer(LAYER_1);
+		ReadLivePosData(); // any needed concepts must have been defined by now in level 0 (assumed). Not done in level1
+		LockLayer(false);
 	}
-}
 
+}
 
 ///////////////////////////////////////////////////////////
 /// PENDING TOPICS

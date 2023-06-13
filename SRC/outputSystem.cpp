@@ -711,8 +711,8 @@ static char* Output_User_Match_and_Function_Vars(char* word, char* ptr, char* sp
         {
             strcpy(word, GetUserVariable(word + 1));
             *buffer = 0;
-            Output_Dollar(word, "", space, buffer, controls, result, false, false); // allow json processing
-        }
+             Output_Dollar(word, "", space, buffer, controls, result, false, false); // allow json processing
+          }
         else
         {
             Output(word + 1, buffer, result, controls); // no leading space  - we now have the variable value from the indirection

@@ -1,6 +1,6 @@
 # ChatScript Fact Manual
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/18/2021 cs11.3
+<br>Revision 6/13/2022 cs13.2
 
 
 * [Simple Facts](ChatScript-Fact-Manual.md#simple-facts)
@@ -347,7 +347,7 @@ of spaces, etc. Each line should have as many elements as the table has argument
 
 The table ends with the end of file or a new top-level declaration. E.g.,
 ```
-Table: authors (^author ^work ^copyright)
+Table: ^authors (^author ^work ^copyright)
 
 ^createfact(^author member ~author) # add to concept ~author
 ^createfact(^work member ~book) # add to concept ~book
@@ -369,7 +369,7 @@ f 6 g 7
 
 Tables of only single values do not need a line separator. E.g,
 ```
-table: mine(^arg)
+^table: ^mine(^arg)
 DATA:
 value1 value2 value3
 value4 value5 value6
@@ -421,7 +421,7 @@ manipulation you need doing, you can do it in a dummy table (whose data you just
 While a line of table data must fill all fields of the table exactly (no more or less), 
 you can tell the system to fill in the remaining arguments with `*` by putting `…` as your last value. Eg.
 ```
-table: test(^item1 ^item2 ^item3 ^item4)
+table: ^test(^item1 ^item2 ^item3 ^item4)
 # ...
 Data:
 lion 50 …
@@ -441,7 +441,7 @@ been predeclared. You can declare an empty concept just before the table like th
 ```
 concept: ~newconcept()
 
-table: mytable( ^x )
+table: ^mytable( ^x )
 createfact(^x member ~newconcept)
 DATA:
 # data here

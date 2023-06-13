@@ -31,11 +31,6 @@ typedef unsigned int MEANING;					//   a flagged indexed dict ptr
 #define INDEX_MINUS			0x00400000  // what to decrement to decrement the meaning index
 #define TYPE_RESTRICTION_SHIFT 0
 
-// dictionary bucket next node pointers:
-#define NODEBITS 0x00ffffff  // dict word link index
-#define MULTIWORDHEADER_SHIFT 24
-#define MULTIHEADERBITS 0xFF000000
-
 #define SYSVAR_PREFIX '%'
 #define MATCHVAR_PREFIX '_'
 #define USERVAR_PREFIX '$'

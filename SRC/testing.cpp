@@ -2963,12 +2963,12 @@ static void C_ValidateDict(char* input)
 			++bucket;
 
 		//   locate spot existing entry goes - we use different buckets for lower case and upper case forms (next bucket up)
-		WORDP D = dictionaryBase + hashbuckets[bucket];
-		while (D != dictionaryBase && D->inferMark == infer && D != at)
+		WORDP D = Index2Word( hashbuckets[bucket]);
+		while (D && D != dictionaryBase && D->inferMark == infer && D != at)
 		{
-			D = dictionaryBase + GETNEXTNODE(D);
+			D = Index2Word(GETNEXTNODE(D));
 		}
-		if (D == dictionaryBase)
+		if (D == dictionaryBase || !D)
 			printf("Failed to find %s in bucket\r\n", at->word);
 		else if (at != D)
 			printf("Failed to find %s at top of bucket\r\n", at->word);
@@ -5039,7 +5039,6 @@ static void C_Build(char* input)
 {
 #ifndef DISCARDSCRIPTCOMPILER
 	int64 oldbotid = myBot;
-
 	echo = true;
 	int olduserlog = userLog;
 	userLog = FILE_LOG;
@@ -5110,7 +5109,10 @@ static void C_Build(char* input)
 		char word[MAX_WORD_SIZE];
 		sprintf(word, (char*)"files%s.txt", file);
 		buildId = (file[len - 1] == '0') ? BUILD0 : BUILD1; // global so WriteCanon can work
-		
+		if (buildId == BUILD0) build0Requested = true;
+		else build1Requested = true;
+		Rebegin(buildId,argc,argv); // reload dict and layers as needed
+
 		InitBuild(buildId);
 
 		ReadTopicFiles(word, buildId, spell);
@@ -5958,7 +5960,7 @@ static void C_DualUpper(char* input)
 			index = 0;
 			unsigned int hash = (D->hash % maxHashBuckets) + 1; // mod by the size of the table
 			WORDP E = Index2Word(hashbuckets[hash]);
-			while (E != dictionaryBase)
+			while (E && E != dictionaryBase)
 			{
 				if (E->hash != D->hash || WORDLENGTH(D) != WORDLENGTH(E)) { ; }
 				if (!IsValidLanguage(E)) { ; }
@@ -5966,7 +5968,7 @@ static void C_DualUpper(char* input)
 				{
 					list[index++] = E;
 				}
-				E = dictionaryBase + GETNEXTNODE(E);
+				E = Index2Word(GETNEXTNODE(E));
 			}
 			if (index > 1)
 			{
@@ -9895,89 +9897,6 @@ static char* ReadQuoted(char* ptr, char* word)
 	return ptr;
 }
 #pragma GCC diagnostic pop
-
-static void ReadSpanishDictionary(char* file)
-{
-	// gananciales ( NOUN NOUN_SINGULAR NOUN_PLURAL ) lemma=`ganancial` NC  
-	FILE* in = FopenReadOnly(file);
-	if (!in)
-	{
-		printf("No such file %s\r\n", file);
-		return;
-	}
-	char outfile[MAX_WORD_SIZE];
-	char* last = strrchr(file, '/');
-	sprintf(outfile, "tmp/%s", last + 1);
-	FILE* out = FopenUTF8Write(outfile);
-
-	while (ReadALine(readBuffer, in) >= 0)
-	{
-		if (*readBuffer == '#') continue;
-		char word[MAX_WORD_SIZE];
-		char type[MAX_WORD_SIZE];
-		char* ptr = SkipWhitespace(readBuffer);
-		if (*ptr == '`')
-		{
-			char* wordptr = word;
-			while (*ptr == '`') *wordptr++ = *ptr++;
-			ptr = ReadCompiledWord(ptr, wordptr); // avoid fact read (there is no closing `)
-		}
-		else if (*ptr == '"' && ptr[1] == ' ') continue;
-		else ptr = ReadCompiledWord(ptr, word);
-		char* end = strchr(ptr, ')');
-		if (!end)
-		{
-			continue;
-		}
-		end[1] = 0;
-		char* more = end + 2; // past ) and space
-		if (!strcmp(ptr, "( )") && !*more) continue; // useless
-		char typing[MAX_WORD_SIZE];
-		strcpy(typing, ptr);
-
-		// decide on typing - we want to adjust verbs
-		bool verb = false;
-		bool infinitive = false;
-		while ((ptr = ReadCompiledWord(ptr, type)) && *ptr)
-		{
-			if (!stricmp(type, "VERB")) verb = true;
-			if (!stricmp(type, "VERB_INFINITIVE")) infinitive = true;
-		}
-		size_t x = strlen(word);
-		if (word[x - 2] == 's' && word[x - 1] == 'e' && VERB_INFINITIVE)
-		{ // reflexive is not infinitive
-			//char* p = strstr(type, "VERB_INFINITIVE");
-			//if (p) strncpy(p, "               ", 15);
-		}
-		if (!strstr(more, "lemma") && verb && !infinitive) // presume verb with no lemma must be infinitive?
-		{
-			//typing[strlen(typing) -1]  = 0; // remove ) 
-			//strcat(typing, " VERB_INFINITIVE )");
-		}
-		fprintf(out, " %s %s ", word, typing);
-		fprintf(out, "%s\r\n", TrimSpaces(more));
-	}
-	FClose(in);
-	FClose(out);
-	printf("done\r\n");
-}
-
-static void AdjustSpanish(char* junk)
-{
-	char buffer[50];
-	for (char i = '0'; i <= '9'; ++i)
-	{
-		sprintf(buffer, (char*)"%c.txt", i);
-		ReadSpanishDictionary(UseDictionaryFile(buffer));
-	}
-	for (char i = 'a'; i <= 'z'; ++i)
-	{
-		sprintf(buffer, (char*)"%c.txt", i);
-		ReadSpanishDictionary(UseDictionaryFile(buffer));
-	}
-	ReadSpanishDictionary(UseDictionaryFile((char*)"other.txt"));
-	ReadSpanishDictionary(UseDictionaryFile((char*)"extra.txt"));
-}
 
 static void C_ExportDictionary(char* junk)
 {
@@ -15065,7 +14984,6 @@ CommandInfo commandSet[] = // NEW
 
 	{ (char*)":pure",pure,(char*)"modify spanish dict" },
 	{ (char*)"\r\n---- internal support",0,(char*)""},
-	{ (char*)":adjustspanish",AdjustSpanish,(char*)"modify spanish dict" },
 	{ (char*)":memberpos",MemberPos,(char*)"members of concept with pos" },
 	{ (char*)":loadspanish",LoadSpanish,(char*)"convert spanish.csv to tmp/spanish.txt" },
 	{ (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },

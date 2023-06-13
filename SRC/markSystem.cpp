@@ -151,7 +151,7 @@ void ShowMarkData(char* word)
 	{
 		unsigned char begin = data[i];
 		unsigned char end = data[i + 1];
-		printf("%d-%d   ", begin, end);
+		printf("%u-%u   ", begin, end);
 	}
 	printf("\r\n");
 }
@@ -444,7 +444,7 @@ static unsigned char* DataIntersect(WORDP D)
 	return data;
 }
 
-unsigned int GetNextSpot(WORDP D, int start, bool reverse, int legalgap,MARKDATA* hitdata)
+unsigned int GetNextSpot(WORDP D, int start, bool reverse, unsigned int legalgap,MARKDATA* hitdata)
 {//   spot can be 1-31,  range can be 0-7 -- 7 means its a string, set last marker back before start so can rescan
     //   BUG - we should note if match is literal or canonical, so can handle that easily during match eg
     //   '~shapes matches square but not squares (whereas currently literal fails because it is not ~shapes)
@@ -454,10 +454,57 @@ unsigned int GetNextSpot(WORDP D, int start, bool reverse, int legalgap,MARKDATA
 	{
 		const char* at = strchr(D->word + 1, '~');
 		if (at && at[2]) data = DataIntersect(D); // word with ~casemarking data added, has no data on its own, not trial~n or trial~1 - or concept intersect: ~pet~tasty - but BUG for trial~12
+		if (!concepts[1]) // marking has not happened, we are in input substitution mode
+		{
+			char* find = D->word;
+			unsigned int separation = 0;
+			if (!reverse)
+			{
+				for (unsigned int at = start+1; at <= wordCount; ++at)
+				{
+					if (unmarked[at]) continue;
+					++separation;
+					if (legalgap && separation > legalgap) return 0;
+					if (!stricmp(wordStarts[at], find))
+					{
+						if (hitdata)
+						{
+							hitdata->start = at;
+							hitdata->end = at;
+							hitdata->word = (int)MakeMeaning(D);
+							hitdata->disjoint = 0;
+						}
+						return at;
+					}
+				}
+				return 0;
+			}
+			else // reverse
+			{
+				for (unsigned int at = start-1; at > 0; --at)
+				{
+					if (unmarked[at]) continue;
+					++separation;
+					if (legalgap && separation > legalgap) return 0;
+					if (!stricmp(wordStarts[at], find))
+					{
+						if (hitdata)
+						{
+							hitdata->start = at;
+							hitdata->end = at;
+							hitdata->word = (int)MakeMeaning(D);
+							hitdata->disjoint = 0;
+						}
+						return at;
+					}
+				}
+				return 0;
+			}
+		}
 	}
-    
 	if (!data) return 0;
-	// now perform the real analysis 
+
+	// now perform the real analysis from marked data
 	if (hitdata) hitdata->word = 0;
 	int i;
     int startPosition = 0;
@@ -849,8 +896,8 @@ static void MarkAllMeaningAndImplications(int depth, MEANING M, int start, int e
 	unsigned int len = WORDLENGTH(D);
 	unsigned int hash = (D->hash % maxHashBuckets); // mod by the size of the table
 	int uindex = 0;											 //   lowercase bucket
-	WORDP X = dictionaryBase + hashbuckets[hash + 1]; // look in uppercase bucket for this word
-	while (X != dictionaryBase) // all entries matching in upper case bucket
+	WORDP X = Index2Word(hashbuckets[hash + 1]); // look in uppercase bucket for this word
+	while (X && X  != dictionaryBase) // all entries matching in upper case bucket
 	{
 		if (WORDLENGTH(D) != len) { ; }
 		else if (!IsValidLanguage(X)) { ; }
@@ -864,7 +911,7 @@ static void MarkAllMeaningAndImplications(int depth, MEANING M, int start, int e
 			}
 			MarkMeaningAndImplications(depth, windex, M1, start, end, kind, sequence, once);
 		}
-		X = dictionaryBase + GETNEXTNODE(X);
+		X = Index2Word( GETNEXTNODE(X));
 	}
 }
 

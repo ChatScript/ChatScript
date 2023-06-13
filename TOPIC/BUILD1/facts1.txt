@@ -1,5 +1,2 @@
-﻿1
-$cs_language=UNIVERSAL
-#`end variables
---dict
+﻿2
 ( harry defaultbot defaultbot x00100000 )

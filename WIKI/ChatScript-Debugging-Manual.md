@@ -1,6 +1,6 @@
 # ChatScript Debugging Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br>
-<br>Revision 10/16/2022 cs12.3
+<br>Revision 6/13/2022 cs13.2
 
 
 You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and
@@ -427,7 +427,7 @@ You can insert a trace command (eg :trace all or :trace none) in the data of a t
 built (the log file will be from the build in progress). E.g.,
 
 ```
-table: ~capital (^base ^city)
+table: ^capital (^base ^city)
 _9 = join(^city , _ ^base)
 ^createfact(_9 member ~capital)
 DATA:

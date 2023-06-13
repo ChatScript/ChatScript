@@ -109,6 +109,10 @@ extern char* originalUserMessage; // user input component
 #define MAX_TRACED_FUNCTIONS 50
 #define TESTPATTERN_TRACE_SIZE 200000
  extern char* tracebuffer;
+ extern int  configLinesLength;
+ extern char* configFile;	// can set config params
+ extern  char* configFile2;	// can set config params
+ extern char* configLines[MAX_WORD_SIZE];
  extern char treetaggerParams[200];
 extern unsigned short int derivationIndex[MAX_SENTENCE_LENGTH];
 extern unsigned int derivationLength;
@@ -159,7 +163,7 @@ extern bool multiuser;
 extern bool oobExists;
 extern char hostname[100];
 extern unsigned int currentBuild;
-extern int argc;
+extern unsigned int argc;
 extern uint64 startNLTime;
 extern char** argv;
 extern  bool pendingRestart;
@@ -257,6 +261,7 @@ extern  char userPrefix[MAX_WORD_SIZE];			// label prefix for user input
 extern char botPrefix[MAX_WORD_SIZE];			// label prefix for bot output
 extern bool errorOnMissingElse;
 
+
 void Restart();
 void ProcessInputFile();
 bool ProcessInputDelays(char* buffer,bool hitkey);
@@ -276,7 +281,8 @@ unsigned int InitSystem(int argc, char* argv[], char* unchangedPath = NULL, char
 int FindOOBEnd(unsigned int start);
 void InitStandalone();
 void CreateSystem();
-void LoadSystem();
+void LoadSystem(unsigned int limit,unsigned int argc, char** argv);
+void Rebegin(unsigned int buildId,unsigned int argc, char** argv);
 
 #ifdef DLL
 #ifdef __linux__

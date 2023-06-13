@@ -467,16 +467,16 @@ void InitFacts()
 	*traceVerb = 0;
 	*traceObject = 0;
 
-	if ( factBase == 0) 
+	if ( factBase == NULL) 
 	{
 		factBase = (FACT*) mymalloc(maxFacts * sizeof(FACT)); // only on 1st startup, not on reload
-		if ( factBase == 0)
+		memset(factBase, 0, sizeof(FACT) * maxFacts); // not strictly necessary
+		if ( factBase == NULL)
 		{
 			(*printer)((char*)"%s",(char*)"failed to allocate fact space\r\n");
 			myexit((char*)"FATAL failed to get fact space");
 		}
 	}
-	memset(factBase,0,sizeof(FACT) *  maxFacts); // not strictly necessary
     lastFactUsed = factBase; // 1st fact is always meaningless
 	factEnd = factBase + maxFacts;
 }
@@ -1312,8 +1312,11 @@ bool ImportFacts(char* buffer, char* name, char* set, char* erase, char* transie
 
 	// check to see if we already have the document
 	filebuffer = FindFileCache(name, !exists);  // don't record hit of an existance check
-	if (filebuffer) readit = strlen(filebuffer);
-
+	if (filebuffer)
+	{
+		filebuffer += strlen(name) + 2; // skip over the filename
+		readit = strlen(filebuffer);
+	}
 	if (!filebuffer || !*filebuffer)
 	{
 		// not found in cache, so have to read the file
@@ -2171,13 +2174,13 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			unsigned int l = LanguageRestrict(wordx);
 			if (l) language_bits = l;
 			WORDP D = FindWord(wordx, 0, PRIMARY_CASE_ALLOWED,true);
-			
 			if (!D || strcmp(D->word,wordx)) // alternate capitalization?
 			{
 				D = StoreWord(wordx,AS_IS);
                 newWord = true;
 				AddInternalFlag(D,(unsigned int)build);
 			}
+			AddWordItem(D, false); 
 			bool sign = false;
 			if (*at == '-' && IsDigit(at[1])) 
 			{
@@ -2275,14 +2278,19 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			}
             if (monitorChange && D && (newWord || D->internalBits & BIT_CHANGED)) AddWordItem(D, false);
 		}
-		else if (*word == USERVAR_PREFIX) // variable
+		else if (*word == USERVAR_PREFIX) // old style compile puts variable init in fact file
 		{
-			char* eq = strchr(word,'=');
-			if (!eq) ReportBug((char*)"Bad fact file user var assignment %s",word);
-			else 
+			char* eq = strchr(word, '=');
+			if (!eq) ReportBug((char*)"Bad fact file user var assignment %s", word);
+			else
 			{
 				*eq = 0;
 				SetUserVariable(word, eq + 1);
+
+				// put into variables file for next round proper behavior
+				
+
+
 				WORDP D = FindWord(word);
 				if (monitorChange)
 				{

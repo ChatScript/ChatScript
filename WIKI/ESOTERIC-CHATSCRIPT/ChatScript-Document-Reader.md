@@ -79,7 +79,7 @@ example of a filter script for simple wikipedia data mining (using the output of
 is this:
 ```
 #### establish the default bot
-table: defaultbot (^name)
+table: ^defaultbot (^name)
     ^createfact(^name defaultbot defaultbot)
 DATA:
 reader

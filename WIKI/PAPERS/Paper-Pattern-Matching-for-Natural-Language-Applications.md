@@ -548,7 +548,7 @@ or user-defined graphs, storing information about each member. A table definitio
 columns of the table, then the code for processing each table line, and then you just fill in the
 table. For example:
 ```
-table: ~malebooks( ^author ^title ^copyright )
+table: ^malebooks( ^author ^title ^copyright )
     createfact( ^author member ~author )
     createfact( ^title member ~book )
     createfact( ^title exemplar ^author )
@@ -839,7 +839,7 @@ data. Cleverbot has a large database mined from human chat but which is unsuitab
 Therein lies a ChatScript advantage. It is easy to enter and retrieve data. I created topics for each
 of the areas of the test, including a table on objects and their functions:
 ```
-table: :tool (^what ^class ^used_to_verb ^used_to_object ^used_to_adverb ^use )
+table: ^tool (^what ^class ^used_to_verb ^used_to_object ^used_to_adverb ^use )
 -- table processing code not shown ---
 [table coffee_table folding_table end_table] furniture rest objects * "eat meals on"
 [ladder step_ladder] amplifer reach * higher "reach high areas"

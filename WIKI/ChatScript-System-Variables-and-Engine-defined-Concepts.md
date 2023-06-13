@@ -1,6 +1,6 @@
 # ChatScript System Variables and Engine-defined Concepts
 Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/10/2022 cs13.1
+<br>Revision 6/13/2022 cs13.2
 
 * [Engine-defined Concepts](ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts)
 * [System Variables](ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables)
@@ -667,6 +667,26 @@ in your word, you can escape your 2nd word:
 ```
     replace: "black and decker" \BLACK+DECKER
 ```
+
+## Advanced replace substitution
+You can name a pattern (which can extend over multiple lines) 
+	that can conditionally change the
+	matched word into any other word or remove it or do nothing. 
+	Matching starts with _0 having been assigned to the location of the word/phrase to replace.
+``` 
+	replace: bubble_tea  ([
+		(is $$cs_replace:=2)
+		(has $$cs_replace:=null)
+		(@_0- *~2 my  $$cs_replace:=1)
+	])
+	"bubble tea is" -> 2 is
+	"bubble tea has" -> has
+	"my green bubble tea loves" -> my green 1 loves
+```
+You cannot use concepts in these patterns, nor the canonical forms of words.
+Your replacement data must be only tokens potentially separated by +, and potentially having _ in them.
+Do not use double quotes.
+
 
 
 # Interchange Variables

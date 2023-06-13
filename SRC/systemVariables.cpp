@@ -129,11 +129,7 @@ char* SFullTime(char* value)
 	if (*hold != '.') return hold;
 	uint64 curr = (uint64) time(0);
     if (regression) curr = 44444444; 
-#ifdef WIN32
-   sprintf(systemValue,(char*)"%I64u",curr); 
-#else
-   sprintf(systemValue,(char*)"%llu",curr); 
-#endif
+   sprintf(systemValue,(char*)"%s",PrintU64(curr)); 
     return systemValue;
 }
 
@@ -357,7 +353,7 @@ static char* Srand(char* value) // 1 .. 100
 	if (*hold != '.') return hold;
 	if (forcedRandom>= 0)
 	{
-		sprintf(systemValue, (char*)"%u", forcedRandom);
+		sprintf(systemValue, (char*)"%i", forcedRandom);
 		return systemValue;
 	}
 	if (regression) return "0";
@@ -921,7 +917,7 @@ static char* Slength(char* value)
 	static char hold[50] = ".";
 	if (value)  return AssignValue(hold,value);
 	if (*hold != '.') return hold;
- 	sprintf(systemValue,(char*)"%d",wordCount); 
+ 	sprintf(systemValue,(char*)"%u",wordCount); 
 	return systemValue;
 }
 

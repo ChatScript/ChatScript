@@ -1,6 +1,7 @@
 #ifndef _OSH_
 #define _OSH_
 
+
 #ifdef INFORMATION
 Copyright (C)2011-2023 by Bruce Wilcox
 
@@ -34,7 +35,10 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
 {
     uint64  properties;				//   main language description of this node OR numeric value of DEFINE
     uint64  systemFlags;			//   additional dictionary and non-dictionary properties 
-    WORDP* foreignFlags;     // system flags  on non-engish words - currently not changeable in script
+    unsigned int internalBits;
+    unsigned int parseBits;			// only for words, not for function names or concept names
+    WORDP* foreignFlags;     // heap pointer to word pointers
+
     uint64	hash;
     char*     word;					//   entry name
     union {
@@ -47,9 +51,6 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
         WORDP conditionalIdiom;		//  test code headed by ` for accepting word as an idiom instead of its individual word components
     }w;
 
-    unsigned int internalBits;
-    unsigned int parseBits;			// only for words, not for function names or concept names
-     
     FACTOID subjectHead;		//  start threads for facts run thru here 
     FACTOID verbHead;			//  start threads for facts run thru here 
     
@@ -64,8 +65,8 @@ typedef struct WORDENTRY //   a dictionary entry  - starred items are written to
         unsigned int topicIndex;    //   for a ~topic or %systemVariable or plan, this is its id
         unsigned int codeIndex;		//   for a system function, its the table index for it
                                                     //   for a :test function, its the table index for it 
-        unsigned int saveIndex;	     // for an ordinary word in boot layer or later, this is its assigned savesentence index (0 otherwise)
     }x;
+    unsigned int headercount;   // may head a multi-word of this length
     unsigned int counter;			// general storage slot
 } WORDENTRY;
 
@@ -127,6 +128,9 @@ extern FILE* userlogFile;
 extern bool pseudoServer;
 extern bool authorize;
 extern bool timeout;
+#define MAX_LOG_NAMES 16
+extern  FILE* logfiles[MAX_LOG_NAMES];
+
 
 // MEMORY SYSTEM
 extern char logLastCharacter;
@@ -155,6 +159,8 @@ extern unsigned long minHeapAvailable;
 extern int loglimit;
 HEAPREF Index2Heap(HEAPINDEX offset);
 inline HEAPINDEX Heap2Index(char* str) {return (!str) ? 0 : (unsigned int)(heapBase - str);}
+void CloseLogs();
+void InitLogs();
 
 // MEMORY SYSTEM
 void ResetBuffers();

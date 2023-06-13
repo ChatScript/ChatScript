@@ -1,6 +1,30 @@
-Version 13.1 May 9, 2023
+Version 13.2 June  13, 2023
 
-0: new rule type - v: ()   a rule that never responds to anything but can be the target for ^reuse and ^setrejoinder - v means void
+Note- you will be forced to recompile your bot when you run this version initially.
+Formats for compiled data have changed.
+
+0. ^load() removed
+
+1. JSON autoindirects a get or assign expression of a variable whose value is itself a variable.
+	if $x =  '$y' and $y points to a json structure, then $x is auto and $x.val means $y.val .
+
+2. Advanced replace substitution-  you can name a pattern (which can extend over multiple lines) 
+	that can conditionally change the
+	matched word into any other word or remove it or do nothing. 
+	Matching starts with _0 having been assigned to the location of the word/phrase to replace.
+e.g.:  
+	replace: bubble_tea  ([
+		(is $$cs_replace:=2)
+		(has $$cs_replace:=null)
+		(@_0- *~2 my  $$cs_replace:=1)
+	])
+	"bubble tea is" -> 2 is
+	"bubble tea has" -> has
+	"my green bubble tea loves" -> my green 1 loves
+You cannot use concepts in these patterns, nor the canonical forms of words.
+
+
+Version 13.1 May 9, 2023
 
 1. New command line parameers
 		a. legacymatch=0/1   (default if not given is legacymatch=1) 

@@ -486,8 +486,11 @@ char* WriteUserVariables(char* ptr,bool sharefile, bool compiled,char* saveJSON)
 	if (!ptr) return NULL;
 	sprintf(ptr, "$cs_language=%s\r\n", current_language); // where we left off
 	ptr += strlen(ptr);
-	sprintf(ptr, "$cs_jid=%d\r\n", builduserjid); // where we left off
-	ptr += strlen(ptr);
+    if (!compiled)
+    {
+        sprintf(ptr, "$cs_jid=%u\r\n", builduserjid); // where we left off
+        ptr += strlen(ptr);
+    }
 
     HEAPREF varthread = userVariableThreadList;
 	bool traceseen = false;
@@ -1052,6 +1055,5 @@ void ReadNewUser()
 	sprintf(file,"%s-init.txt",loginName);
 	userInitFile = fopen(file,(char*)"rb"); 
 	trace = oldtrace;
-
 	if (traceUniversal) trace = traceUniversal;
 }

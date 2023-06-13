@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-advanced-pattern-manual">ChatScript Advanced Pattern Manual</h1>
-<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 4/24/2022 cs12.1</p>
+<p>copyright Bruce Wilcox, mailto:gowilcox@gmail.com <br> <br>Revision 6/13/2022 cs13.2</p>
 <h1 id="advanced-patterns">ADVANCED PATTERNS</h1>
 <h2 id="quoted-keywords-word-and-raw-case-keywords-co-aka-quote-quote-keywords">QUOTED Keywords 'word and RAW-CASE Keywords ''CO (aka quote quote keywords)</h2>
 <p>Words in a pattern or a concept are either their literal characters or, if they are the canonical form, allow a std transformation of the word. A singular noun will match singular or plural (because the singular is the canonical form). An infinitive verb will match any conjugation of the verb whereas all other verb forms only match the form given.</p>
@@ -76,11 +76,11 @@ u: (I love * ) matches all words after love and up to the implied &gt; (end of s
 <p>Macro names can be ordinary names or have a <code>^</code> in front of them. The arguments must always begin with <code>^</code>.</p>
 <p>The definition ends with the start of a new top-level declaration or end of file. E.g.</p>
 <pre><code>patternmacro: ^ISHAIRCOLOR(^who)
-    ![not never]
+    ( ![not never]
     [
         ( &lt;&lt; be ^who [blonde brunette redhead blond ] &gt;&gt; )
         ( &lt;&lt; what ^who hair color &gt;&gt; )
-    ]
+    ] )
 
 ?: ( ^ISHAIRCOLOR(I) ) How would I know your hair color?</code></pre>
 <p>The above patternmacro takes one argument (who we are talking about). After checking that the sentence is not in the negative, it uses a choice to consider alternative ways of asking what the hair color is.</p>

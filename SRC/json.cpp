@@ -3043,6 +3043,10 @@ FunctionResult JSONVariableAssign(char* word, char* value, bool stripQuotes)
 	// now find the root
 	WORDP base = FindWord(word);
 	char* val = GetUserVariable(word, false); // gets the initial variable value
+	if (*val == '$') // auto indirect
+	{
+		base = FindWord(val);
+	}
 
 	*separator = c;
 	WORDP leftside = FindWord(val); // actual JSON structure  name

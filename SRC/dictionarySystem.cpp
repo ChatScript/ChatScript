@@ -166,8 +166,8 @@ bool IsUniversal(char* word, uint64 properties)
 
 bool IsValidLanguage(WORDP D)
 {
-	if (!D || !multidict || !D->word ||  SUPERCEDED(D)) return false;
-	if (D->internalBits & UNIVERSAL_WORD) return true;
+	if (!D || !D->word || SUPERCEDED(D)) return false;
+	if (!multidict || D->internalBits & UNIVERSAL_WORD) return true;
 
 	// language independent ideas (numbers, concepts, variables, functions, systemvars )
 	// should do international currencies but not doing yet
@@ -607,20 +607,22 @@ static char* predefinedSets[] = //  some internally mapped concepts not includin
 
 void RestorePropAndSystem(char* stringUsed)
 {
-	uint64 D;
+	uint64 item;
 	while (propertyRedefines) // must release these
 	{
 		uint64 properties;
 		if (stringUsed && propertyRedefines >= stringUsed) break;	// not part of this freeing
-		propertyRedefines = UnpackHeapval(propertyRedefines, D, properties, discard);
-		((WORDP)D)->properties = properties;
+		propertyRedefines = UnpackHeapval(propertyRedefines, item, properties, discard);
+		WORDP D = (WORDP)item;
+		D->properties = properties;
 	}
 	while (flagsRedefines) // must release these
 	{
 		uint64 properties;
 		if (stringUsed && flagsRedefines >= stringUsed) break;	// not part of this freeing
-		flagsRedefines = UnpackHeapval(flagsRedefines, D, properties, discard);
-		((WORDP)D)->systemFlags = properties;
+		flagsRedefines = UnpackHeapval(flagsRedefines, item, properties, discard);
+		WORDP D = (WORDP)item;
+		D->systemFlags = properties;
 	}
 }
 
@@ -747,8 +749,11 @@ WORDP GetSubstitute(WORDP D)
 { // language index of this word may not match currently language ONLY if we are universal node
 	if (!D) return NULL;
 	int index = GET_FOREIGN_INDEX(D);
-	if (D->foreignFlags) D = D->foreignFlags[index];
-	return (D->systemFlags & HAS_SUBSTITUTE) ? D->w.substitutes : NULL;  
+	WORDP E = D;
+	if (E->foreignFlags) E = D->foreignFlags[index];
+	if (!E) 
+		return NULL;
+	return (E->systemFlags & HAS_SUBSTITUTE) ? E->w.substitutes : NULL;
 }
 
 void BuildShortDictionaryBase();
@@ -1141,7 +1146,7 @@ void AddInternalFlag(WORDP D, unsigned int flag)
 {
 	if (flag && (flag & D->internalBits) != flag) // prove there is a change - dont use & because if some bits are set is not enough
 	{
-		if (D < dictionaryLocked && !csapicall) // api can change substitutions
+		if (D < dictionaryLocked && !csapicall && compiling == NOT_COMPILING) // compiler and api can change substitutions
 			return;
 		D->internalBits |= (unsigned int)flag;
 		if (monitorChange) D->internalBits |= BIT_CHANGED;
@@ -1163,7 +1168,7 @@ static void ChangeFlags(WORDP D, uint64 oldflags, uint64 newflags)
 	if (oldflags != newflags)
 	{
 		D = GetLanguageWord(D);
-		if (D < dictionaryLocked) PreserveSystemFlags(D);
+		if (D < dictionaryLocked && compiling == NOT_COMPILING) PreserveSystemFlags(D);
 		if (monitorDictChanges)
 		{
 			ongoingDictChanges = AllocateHeapval(HV1_WORDP | HV2_INT | HV3_INT, ongoingDictChanges, (uint64)D, D->properties, oldflags);
@@ -1268,7 +1273,7 @@ static void ChangeProperty(WORDP D, uint64 oldprops,uint64 newprops)
 	D = GetLanguageWord(D);
 	if (oldprops != newprops)
 	{
-		if (D < dictionaryLocked) PreserveProperty(D);
+		if (D < dictionaryLocked && compiling == NOT_COMPILING) PreserveProperty(D);
 		if (monitorDictChanges)
 		{
 			ongoingDictChanges = AllocateHeapval(HV1_WORDP | HV2_INT | HV3_INT, ongoingDictChanges, (uint64)D, oldprops, D->systemFlags);
@@ -1377,7 +1382,7 @@ int GetWords(char* word, WORDP* set, bool strictcase, bool allvalid)
 	char word1[MAX_WORD_SIZE];
 	if (strictcase && hasUpperCharacters) D = dictionaryBase; // lower case not allowed to match uppercase input
 	int limit = GETWORDSLIMIT;
-	while (D != dictionaryBase )
+	while (D && D != dictionaryBase)
 	{
 		if (WORDLENGTH(D) != len) {;}
 		else if (!allvalid && !IsValidLanguage(D) && !seeAllFacts) { ; }
@@ -1401,13 +1406,13 @@ int GetWords(char* word, WORDP* set, bool strictcase, bool allvalid)
 				set[index++] = D;
 			}
 		}
-		D = dictionaryBase + GETNEXTNODE(D);
+		D = Index2Word( GETNEXTNODE(D));
 	}
 
 	// upper case bucket
 	D = Index2Word(hashbuckets[hash + 1]);
-	if (strictcase && !hasUpperCharacters) D = dictionaryBase; // upper case not allowed to match lowercase input
-	while (D != dictionaryBase)
+	if (strictcase && !hasUpperCharacters) D = NULL; // upper case not allowed to match lowercase input
+	while (D && D != dictionaryBase)
 	{
 		if (WORDLENGTH(D) != len ) { ; }
 		else  if (!IsValidLanguage(D) && !seeAllFacts) { ; }
@@ -1423,7 +1428,7 @@ int GetWords(char* word, WORDP* set, bool strictcase, bool allvalid)
 				set[index++] = D;
 			}
 		}
-		D = dictionaryBase + GETNEXTNODE(D);
+		D = Index2Word( GETNEXTNODE(D));
 	}
 	return index;
 }
@@ -1483,7 +1488,7 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 		WORDP preferred = NULL;
 		WORDP exact = NULL;
 		int limit = DICTSEARCHLIMIT;
-		while (D != dictionaryBase && --limit)
+		while (D && --limit)
 		{
 			// exactmatch requires we find the word in the current language (eg when loading a language)
 			// EXCEPT any entry whose base language is universal 
@@ -1528,7 +1533,7 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 					}
 				}
 			}
-			D = dictionaryBase + GETNEXTNODE(D);
+			D = Index2Word( GETNEXTNODE(D));
 		}
 
 		if (preferred) D = preferred;
@@ -1548,9 +1553,9 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 	{
 		WORDP almost = NULL;
 		WORDP preferred = NULL;
-		D = dictionaryBase + hashbuckets[hash + ((hasUpperCharacters) ? -1 : 1)];
+		D =Index2Word( hashbuckets[hash + ((hasUpperCharacters) ? -1 : 1)]);
 		int limit = DICTSEARCHLIMIT;
-		while (D != dictionaryBase && --limit)
+		while (D && D != dictionaryBase && --limit)
 		{
 			if (fullhash != D->hash || WORDLENGTH(D) != len) { ; }
 			else if (exactmatch && !strncmp(D->word, word, len) && // from inbuild foreign postaggers
@@ -1582,7 +1587,7 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 					else almost = D; // remember a match in upper case
 				}
 			}
-			D = dictionaryBase + GETNEXTNODE(D);
+			D = Index2Word( GETNEXTNODE(D));
 		}
 		if (common) FreeBuffer();
 		if (preferred) return preferred;
@@ -1671,9 +1676,9 @@ WORDP Convert2Universal(WORDP D,WORDP* oldwords,unsigned int oldwordcount)
 {
 	if (!D) D = oldwords[0]; // first seen if not exact match on primary language
 	D->internalBits |= UNIVERSAL_WORD;
+	
 	AdjustFactsLanguage(D); // our facts point to us already, we need to change the fact language 
 	if (oldwordcount <= 1) return D; // nobody to kill
-
 	if (!D->foreignFlags) D->foreignFlags = (WORDP*)AllocateHeap(NULL, languageCount, sizeof(WORDP),true );
 	
 	MEANING M = MakeMeaning(D);
@@ -1820,13 +1825,13 @@ WORDP StoreWord(const char* word, uint64 properties)
 
 	//   locate spot existing entry goes - we use different buckets for lower case and upper case forms (next bucket up)
 	unsigned int offset = hashbuckets[hash];
-	WORDP D = dictionaryBase + offset;
+	WORDP D = Index2Word(offset);
 	WORDP match = NULL;
 	int limit = DICTSEARCHLIMIT;
 	WORDP earlierWord = NULL;
 	oldwordcount = 0;
 
-	while (D != dictionaryBase && --limit)
+	while (D && D != dictionaryBase && --limit)
 	{
 		if (WORDLENGTH(D) != len) { ; }
 		else if (!strcmp(D->word, (char*)word)) // do we have a precise match
@@ -1852,7 +1857,7 @@ WORDP StoreWord(const char* word, uint64 properties)
 				else if (!earlierWord) earlierWord = D;
 			}
 		}
-		D = dictionaryBase + GETNEXTNODE(D);
+		D = Index2Word(GETNEXTNODE(D));
 	}
 	if (match)
 	{
@@ -1945,7 +1950,7 @@ static void ReadLanguage(char* language)
 	if (!stricmp(current_language, "japanese") || !stricmp(current_language, "chinese")) return; // no dicts for these
 
 	ReadAsciiDictionary();
-	ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL, -1);
+	ReadFacts(UseDictionaryFile((char*)"facts.txt"),NULL, -1);
 	*currentFilename = 0;
 }
 
@@ -2062,7 +2067,7 @@ void WriteDictDetailsBeforeLayer(int layer)
 			fwrite(&D->systemFlags, 1, 8, out);
 			D->internalBits &= -1 ^ (BEEN_HERE); // remove transient flag
 			fwrite(&D->internalBits, 1, 4, out);
-			unsigned char header = GETMULTIWORDHEADER(D);
+			unsigned char header = (unsigned char) GETMULTIWORDHEADER(D);
 			fwrite(&header, 1, 1, out);
 			fwrite(&D->length, 1, 4, out);
 			// substitutes only has value if substitue set, so we lose glosses
@@ -2095,79 +2100,11 @@ void WriteDictDetailsBeforeLayer(int layer)
 	}
 }
 
-static void ReadDictDetailsBeforeLayer(int layer)
-{
-	char word[MAX_WORD_SIZE];
-	sprintf(word, (char*)"%s/prebuild%d.bin", tmpfolder, layer);
-	int oldBOM = BOM;
-	FILE* in = FopenReadWritten(word); // binary file, no BOM
-	if (in)
-	{ 
-		unsigned int check = Read32(in);
-		if (check != CHECKSTAMP) ReportBug("Fatal: ReadDictDetailsBeforeLayer checkstamp");
-		BOM = NOBOM;
-		unsigned int xoffset;
-		for (WORDP D = dictionaryBase + 1; D < dictionaryPreBuild[layer]; ++D)
-		{
-			if (!D->word) continue; // not actually here
-            unsigned int oldBits = (bootFacts ? D->internalBits & DELETED_MARK : 0);
-			int n = fread(&xoffset, 1, 4, in);
-			if (n != 4) break; // ran dry
-
-			if (xoffset != Word2Index(D)) // bad entry, ignore resets of data
-			{
-				ReportBug((char*)"Bad return to buildx\r\n");
-				break;
-			}
-			fread(&D->properties, 1, 8, in);
-			fread(&D->systemFlags, 1, 8, in);
-			fread(&D->internalBits, 1, 4, in);
-            D->internalBits |= oldBits;
-			unsigned char header;
-			fread(&header, 1, 1, in);
-			SETMULTIWORDHEADER(D, header);
-
-			unsigned int length;
-			fread(&length, 1, 4, in); // might include deleted bits
-			D->length = length;
-			unsigned int subindex = 0;
-			if (D->systemFlags & HAS_SUBSTITUTE || D->internalBits & CONDITIONAL_IDIOM)
-				D->w.substitutes = 0;
-			fread(&subindex, 1, 4, in); // will be 0 unless HAS_SUBSTITUTE or Conditional_idiom on
-			if (subindex) D->w.substitutes = Index2Word(subindex);
-
-			unsigned int index = 0;
-			fread(&index, 1, 4, in); // usually 0
-			if (IsQuery(D) && index)
-			{
-				char query[1000];
-				fread(&query, 1, index, in);
-				D->w.userValue = AllocateHeap(query);
-			}
-			fread(&header, 1, 1, in);
-
-			if (header == 76)
-			{
-				fread(D->foreignFlags, languageCount, sizeof(WORDP), in);
-				fread(&header, 1, 1, in);
-			}
-			if (header != 77) 
-				myexit((char*)"bad end of build return entry");
-		}
-		FClose(in);
-	}
-	BOM = oldBOM;
-}
 
 void WordnetLockDictionary() // dictionary and facts before build0 layer 
 {
 	currentBeforeLayer = -1;
 	LockLayer(false); // memorize dictionary values for backup to pre build locations :build0 operations (reseting word to dictionary state)
-}
-
-void ReturnDictionaryToWordNet() // drop all memory allocated after the wordnet freeze
-{
-	ReturnBeforeLayer(LAYER_0, true); // unlock it to add stuff
 }
 
 void LockLevel()
@@ -2200,12 +2137,6 @@ void LockLayer(bool boot)
 		compileVersion[i][0] = 0;
 	}
 
-#ifndef DISCARDSCRIPTCOMPILER
-#ifndef NOMAIN
-	if (!boot) WriteDictDetailsBeforeLayer(currentBeforeLayer + 1);
-#endif
-#endif
-
 	LockLevel();
 }
 
@@ -2215,13 +2146,6 @@ void ReturnToAfterLayer(int layer, bool unlocked)
 	while (lastFactUsed > factsPreBuild[layer + 1]) FreeFact(lastFactUsed--); //   restore back to facts alone
 	DictionaryRelease(dictionaryPreBuild[layer + 1], heapPreBuild[layer + 1]);
 
-#ifndef DISCARDSCRIPTCOMPILER
-	if (!server)
-	{
-		if (layer < 1 || dictionaryBitsChanged)
-			ReadDictDetailsBeforeLayer(layer + 1);// on server we assume scripts will not damage level0 or earlier data of dictionary but user doing :trace might
-	}
-#endif
 	dictionaryBitsChanged = false;
 	LockLayer(true);	// dont write data to file
 	numberOfTopics = numberOfTopicsInLayer[layer];
@@ -2230,26 +2154,19 @@ void ReturnToAfterLayer(int layer, bool unlocked)
 	if (unlocked) UnlockLayer(layer);
 }
 
-void ReturnBeforeLayer(int layer, bool unlocked)
+void ReturnBeforeBootLayer()
 {
 	ClearUserVariables();
 	UnwindUserLayerProtect();
-	while (lastFactUsed > factsPreBuild[layer]) FreeFact(lastFactUsed--); //   restore back to facts alone
-	DictionaryRelease(dictionaryPreBuild[layer], heapPreBuild[layer]);
-	if (layer <= LAYER_BOOT)  botVariableThreadList = NULL; // this layer is gone
-
-#ifndef DISCARDSCRIPTCOMPILER
-#ifndef NOMAIN // dll and shared object dont bother as we dont expect them to compile anything
-	if (!server) ReadDictDetailsBeforeLayer(layer);// on server we assume scripts will not damage level0 or earlier data of dictionary but user doing :trace might
-#endif
-#endif
-
+	while (lastFactUsed > factsPreBuild[LAYER_BOOT]) FreeFact(lastFactUsed--); //   restore back to facts alone
+	DictionaryRelease(dictionaryPreBuild[LAYER_BOOT], heapPreBuild[LAYER_BOOT]);
+	botVariableThreadList = NULL; // this layer is gone
 	dictionaryBitsChanged = false;
 	LockLayer(true);	// dont write data to file
-	numberOfTopics = (layer) ? numberOfTopicsInLayer[layer] : 0;
-	currentBeforeLayer = layer;
+	numberOfTopics = numberOfTopicsInLayer[LAYER_BOOT];
+	currentBeforeLayer = LAYER_BOOT;
 	// canonical map in layer 1 is now garbage- 
-	if (unlocked) UnlockLayer(layer);
+	UnlockLayer(LAYER_BOOT);
 }
 
 void CloseDictionary()
@@ -2600,7 +2517,8 @@ WORDP ReadDWord(FILE * in)
 	{
 		unsigned char x[3];
 		if (fread(x, 1, 3, in) != 3) return 0;
-		return Index2Word((x[0]) + (x[1] << 8) + (x[2] << 16));
+		unsigned int index = x[0] + (x[1] << 8) + (x[2] << 16);
+		return Index2Word(index);
 	}
 	else
 	{
@@ -2665,22 +2583,21 @@ static WORDP ReadBinaryEntry(FILE * in)
 	if (bits & (1 << 12))  // will be NONE at present
 	{
 		D->foreignFlags = (WORDP*)AllocateHeap(NULL, languageCount, sizeof(WORDP), true);
-		for (unsigned int i = 0; i < languageCount; ++i) D->foreignFlags[i] = Index2Word(Read32(0));
+		for (unsigned int i = 0; i < languageCount; ++i)
+		{
+			D->foreignFlags[i] = Index2Word(Read32(0)) ;
+		}
 	}
 
 	if (bits & (1 << 7)) D->internalBits = Read32(0);
 	D->nextNode = Read32(0);
 	if (D->internalBits & CONDITIONAL_IDIOM)
 	{
-		unsigned int index = Read32(0);
-		if (!index) D->w.conditionalIdiom = NULL;
-		else D->w.conditionalIdiom = Index2Word(index);
+		D->w.conditionalIdiom = Index2Word(Read32(0));
 	}
 	if (D->systemFlags & HAS_SUBSTITUTE)
 	{
-		unsigned int index = Read32(0);
-		if (!index) D->w.substitutes = NULL;
-		else D->w.substitutes = Index2Word(index);
+		D->w.substitutes = Index2Word(Read32(0));
 	}
 	if (bits & (1 << 0))
 	{
@@ -3357,7 +3274,8 @@ MEANING MakeMeaning(WORDP x, unsigned int y) //   compose a meaning
 
 WORDP Meaning2Word(MEANING x) //   convert meaning to its dictionary entry
 {
-	WORDP D = (!x) ? NULL : Index2Word((x & MAX_DICTIONARY));
+	x &= MAX_DICTIONARY;
+	WORDP D = Index2Word(x);
 	return D;
 }
 
@@ -3612,7 +3530,7 @@ HEAPREF SetSubstitute(char* originalx, char* replacementx, unsigned int build, u
 		++replacement;
 	}
 	at = replacement;
-	if (*at != '\'')  // ' " xxx xxx" protects spaces
+	if (*at != '\'' && *at != '(' )  //  ' " xxx xxx" protects spaces except in patterns
 	{
 		while ((at = strchr(at, ' '))) *at = '+';	// change spaces to plus - leave _ to be single token
 	}
@@ -4409,7 +4327,7 @@ void ReadLivePosData()
 	ReadPosPatterns(word);
 #endif
 	tags = (uint64*)AllocateHeap((char*)xdata, tagRuleCount * MAX_TAG_FIELDS, sizeof(uint64), false);
-	comments = 0;
+	comments = NULL;
 	bool haveComments = true;
 #ifdef IOS // applications dont want comments
 	haveComments = false;
@@ -4499,7 +4417,7 @@ static void ReadAsciiDictionaries()
 	if (!strchr(language_list, ','))
 	{
 		ReadAsciiDictionary();
-		ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL, -1);
+		ReadFacts(UseDictionaryFile((char*)"facts.txt"), NULL,-1);
 	}
 	else WalkLanguages(ReadLanguage);
 	endOfLanguage = dictionaryFree;
@@ -4825,11 +4743,7 @@ void LoadDictionary(char* heapstart)
 	}
 	*currentFilename = 0;
 
-	unsigned int memdiff = heapFree - heapbase;
-	memdiff += (dictionaryFree - dictbase) / sizeof(WORDENTRY);
-	memdiff += (lastFactUsed - factbase) / sizeof(FACT);
-	memdiff /= 1048576;
-	//printf("Dict heap load %d\r\n", memdiff);
+	printf("Dictionary loaded\r\n");
 
 	fullDictionary = (!stricmp(current_language, (char*)"ENGLISH")) || (dictionaryFree - dictionaryBase) > 170000; // a lot of words are defined, must be a full dictionary.
 }
@@ -5078,7 +4992,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	{
 		if (D->w.substitutes)
 		{
-			if (GetSubstitute(D)) Log(USERLOG, "\r\nSUBSTITUTION SOURCE-> %s\r\n", GetSubstitute(D)->word);
+			if (GetSubstitute(D)) Log(USERLOG, "\r\n        SUBSTITUTION SOURCE-> %s \r\n", GetSubstitute(D)->word);
 		}
 		else  Log(USERLOG, "\r\nSUBSTITUTION SOURCE-> erase original\r\n");
 	}

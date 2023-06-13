@@ -59,7 +59,7 @@ extern bool showMark;
 extern HEAPREF concepts[MAX_SENTENCE_LENGTH];
 extern HEAPREF topics[MAX_SENTENCE_LENGTH];
 extern int upperCount, lowerCount;
-unsigned int GetNextSpot(WORDP D,int start,bool reverse = false,int gap = 0,MARKDATA* hitdata = NULL);
+unsigned int GetNextSpot(WORDP D,int start,bool reverse = false,unsigned int gap = 0,MARKDATA* hitdata = NULL);
 unsigned int GetIthSpot(WORDP D,int i, unsigned int& start,unsigned int& end);
 bool MarkWordHit(int depth, MEANING ucase, WORDP D, int index, unsigned int start, unsigned int end, unsigned int prefix = 0, unsigned int kind = 5);
 void ShowMarkData(char* word); 

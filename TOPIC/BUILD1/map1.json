@@ -1,6 +1,6 @@
 [
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/childhood.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/HARRY/childhood.top",
 "items" : [
 {
 "topic" : "~childhood",
@@ -155,7 +155,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/introductions.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/HARRY/introductions.top",
 "items" : [
 {
 "topic" : "~introductions",
@@ -195,6 +195,7 @@
 {
 "rule" : "3.0",
 "kind" : "u:",
+"label" : "YOURNAME",
 "line" : 22,
 "complexity" : 1
 }]
@@ -203,7 +204,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/keywordless.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/HARRY/keywordless.top",
 "items" : [
 {
 "topic" : "~keywordless",
@@ -244,7 +245,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/HARRY/simplecontrol.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/HARRY/simplecontrol.top",
 "items" : [
 {
 "macro" : "^harry",
@@ -332,7 +333,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_because.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_because.top",
 "items" : [
 {
 "topic" : "~quibble_because",
@@ -451,7 +452,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_can.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_can.top",
 "items" : [
 {
 "topic" : "~quibble_will",
@@ -942,7 +943,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_do.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_do.top",
 "items" : [
 {
 "topic" : "~quibble_do",
@@ -1611,7 +1612,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_how.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_how.top",
 "items" : [
 {
 "topic" : "~quibble_howmuch",
@@ -3081,7 +3082,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_misc.top",
 "items" : [
 {
 "topic" : "~quibble_misc",
@@ -7569,7 +7570,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_not.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_not.top",
 "items" : [
 {
 "topic" : "~quibble_not",
@@ -8998,7 +8999,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_or.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_or.top",
 "items" : [
 {
 "topic" : "~quibble_or",
@@ -9492,7 +9493,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_what.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_what.top",
 "items" : [
 {
 "topic" : "~quibble_what",
@@ -10295,7 +10296,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_when.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_when.top",
 "items" : [
 {
 "topic" : "~quibble_when",
@@ -10528,7 +10529,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_where.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_where.top",
 "items" : [
 {
 "topic" : "~quibble_where",
@@ -10809,7 +10810,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_who.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_who.top",
 "items" : [
 {
 "topic" : "~quibble_who",
@@ -11162,7 +11163,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/eliza_why.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/eliza_why.top",
 "items" : [
 {
 "topic" : "~quibble_why",
@@ -11858,7 +11859,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/honest.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/honest.top",
 "items" : [
 {
 "topic" : "~intent",
@@ -12500,7 +12501,7 @@
 ]
 },
 {
-"file" : "C:/Zinstall/DESKTOP-8D5FQFT-drive_D/ChatScript/RAWDATA/QUIBBLE/quibble.top",
+"file" : "C:/ddrive/ChatScript/RAWDATA/QUIBBLE/quibble.top",
 "items" : [
 {
 "topic" : "~quibble_all",

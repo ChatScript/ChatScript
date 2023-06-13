@@ -1,10 +1,12 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "13.1";
+char* version = "13.2";
 const char* buildString = "compiled " __DATE__ ", " __TIME__ ".";
 char sourceInput[200];
 int cs_qsize = 0;
 char repairinput[20];
+unsigned int argcx;
+char** argvx;
 bool integrationTest = false;
 char websocketclient[200];
 bool nophrases = false;
@@ -64,7 +66,7 @@ unsigned int idetrace = (unsigned int)-1;
 int outputlevel = 0;
 uint64 timedeployed = 0;
 // parameters
-int argc;
+unsigned int argc;
 char** argv;
 char* configFile = "cs_init.txt";	// can set config params
 char* configFile2 = "cs_initmore.txt";	// can set config params
@@ -303,39 +305,6 @@ void InitStandalone()
 	*computerID = 0; // default bot
 }
 
-static void OpenBotVariables()
-{
-	ReturnToAfterLayer(currentBeforeLayer - 1, true);
-}
-
-static void CloseBotVariables()
-{
-	NoteBotVariables(); // these go into level 1
-	LockLayer(true); // dont write out details of layer
-}
-
-static void SetBotVariable(char* word)
-{
-	char* eq = strchr(word, '=');
-	if (eq)
-	{
-		*eq = 0;
-		*word = USERVAR_PREFIX;
-		if (eq[1] == '"')
-		{
-			++eq;
-			size_t len = strlen(eq);
-			if (eq[len - 1] == '"') eq[len - 1] = 0;
-		}
-		SetUserVariable(word, eq + 1);
-		if (server && debugLevel > 0) Log(SERVERLOG, "botvariable: %s = %s\r\n", word, eq + 1);
-		else if (debugLevel > 0) (*printer)((char*)"botvariable: %s = %s\r\n", word, eq + 1);
-		// need to restore the initial markers so that a restart can process them
-		*eq = '=';
-		*word = 'V';
-	}
-}
-
 static void RelocateDeadBootFacts(FACT* F)
 {
 	// move dead/transient facts to end
@@ -441,7 +410,7 @@ unsigned int CountWordsInBuckets(unsigned int& unused, unsigned int* depthcount,
 		else
 		{
 			WORDP D = Index2Word(hashbuckets[i]);
-			while (D != dictionaryBase)
+			while (D)
 			{
 				++n;
 				D = Index2Word(GETNEXTNODE(D));
@@ -452,30 +421,6 @@ unsigned int CountWordsInBuckets(unsigned int& unused, unsigned int* depthcount,
 			depthcount[n] += n; // this many words have a bucket access of n
 	}
 	return words;
-}
-
-static void ReadBotVariable(char* file)
-{
-	char buffer[5000];
-	char word[MAX_WORD_SIZE];
-	FILE* in = FopenReadOnly(file);
-	if (in)
-	{
-		OpenBotVariables();
-		while (ReadALine(buffer, in, MAX_WORD_SIZE) >= 0)
-		{
-			char* x = strchr(buffer, '='); // var assign maybe
-			if (*buffer == 'V' && x && x[1] == '"')
-			{
-				strcpy(word, buffer);
-			}
-			else ReadCompiledWord(buffer, word);
-			if (*word == 'V') 
-				SetBotVariable(word); // these are level 1 values
-		}
-		FClose(in);
-		CloseBotVariables();
-	}
 }
 
 static void ShowMemoryUsage()
@@ -549,6 +494,16 @@ static void ShowMemoryUsage()
 		buf2, StdIntOutput(dictfree), dictFreeMemMB, buf, factmb, buf1);
 	if (server) Log(SERVERLOG, "%s", data);
 	else (*printer)((char*)"%s", data);
+}
+
+static void PerformBoot()
+{
+	buildbootjid = 0;
+	builduserjid = 0;
+	UnlockLayer(LAYER_BOOT); // unlock it to add stuff
+	HandleReBoot(FindWord((char*)"^csboot"), false);// run script on startup of system. data it generates will also be layer 1 data
+	LockLayer(true);
+	currentBeforeLayer = LAYER_BOOT;
 }
 
 void CreateSystem()
@@ -637,38 +592,11 @@ void CreateSystem()
 	sprintf(name, "%s/BUILD1", topicfolder);
 	MakeDirectory(name);
 
-	LoadSystem();			// builds base facts and dictionary (from wordnet)
-	char* lang = language_list;
-	lang = GetNextLanguage(lang);
-	SetLanguage(lang);
-	*currentFilename = 0;
-	*debugEntry = 0;
+	originalUserInput = NULL;
+	currentInput = NULL;
 
-	OpenBotVariables();
-	char word[MAX_WORD_SIZE];
-	for (int i = 1; i < argc; ++i)
-	{
-		strcpy(word, argv[i]);
-		if (*word == '"' && word[1] == 'V')
-		{
-			memmove(word, word + 1, strlen(word));
-			size_t len = strlen(word);
-			if (word[len - 1] == '"') word[len - 1] = 0;
-		}
-		if (*word == 'V') SetBotVariable(word); // predefined bot variable in level 1
-	}
-	for (int i = 0; i < configLinesLength; i++)
-	{
-		char* line = configLines[i];
-		if (*line == 'V') SetBotVariable(line); // these are level 1 values
-	}
-	CloseBotVariables();
+	LoadSystem(0,argc,argv);		
 
-	kernelVariableThreadList = botVariableThreadList; // switch variables to kernel 
-	botVariableThreadList = NULL;
-
-	UnlockLayer(LAYER_BOOT); // unlock it to add stuff
-	trace = oldtrace; // allow boot tracing
 	strcpy(dbparams, mssqlparams); // do regardless so can use dummy codes
 #ifndef DISCARDMONGO
 	strcpy(dbparams, mongodbparams);
@@ -680,16 +608,22 @@ void CreateSystem()
 	strcpy(dbparams, mysqlparams);
 #endif
 
-	buildbootjid = 0;
-	builduserjid = 0;
-	HandleReBoot(FindWord((char*)"^csboot"), false);// run script on startup of system. data it generates will also be layer 1 data
-	LockLayer(true);
-	currentBeforeLayer = LAYER_BOOT;
+#ifdef TREETAGGER
+	// We will be reserving some working space for treetagger on the heap
+	// so make sure it is tucked away where it cannot be touched
+   // NOT IN DEBUGGER WILL FORCE reloads of layers
+	InitTreeTagger(treetaggerParams);
+#endif
+#ifndef DISCARD_JAPANESE
+	printf("Loaded Mecab kanji tagger\r\n");
+#endif
+
+	trace = oldtrace; // allow boot tracing
+	PerformBoot();
 	InitSpellCheck(); // after boot vocabulary added
 
 	ShowMemoryUsage();
 	
-	trace = oldtrace;
 #ifdef DISCARDSERVER 
 	(*printer)((char*)"    Server disabled.\r\n");
 #endif
@@ -735,20 +669,20 @@ void CreateSystem()
 	printf("System created in %u ms\r\n", (unsigned int)(ElapsedMilliseconds() - timedeployed));
 }
 
-void LoadSystem()
+void LoadSystem(unsigned int limit,unsigned int argc, char** argv)
 {//   reset the basic system 
-	currentInput = NULL;
 	myBot = 0; // facts loaded here are universal
-	originalUserInput = NULL;
 	InitFacts(); // malloc space
 	InitStackHeap(); // malloc space
 	InitDictionary(); // malloc space
+	
 	LoadDictionary(heapFree);
 	InitUserCache(); // malloc space
 	InitFunctionSystem(); // modify dictionary entries
 	InitScriptSystem();
 	InitVariableSystem();
 	InitSystemVariables();
+	InitLogs();
 
 	SetLanguage("universal");
 	InitUniversalTextUtilities(); // also part of basic system before a build
@@ -757,20 +691,30 @@ void LoadSystem()
 	if (multidict) SetLanguage("English"); // return to std base
 	printf("Languages: %s\r\n", language_list);
 
-#ifdef TREETAGGER
-	 // We will be reserving some working space for treetagger on the heap
-	 // so make sure it is tucked away where it cannot be touched
-	// NOT IN DEBUGGER WILL FORCE reloads of layers
-	InitTreeTagger(treetaggerParams);
-#endif
-#ifndef DISCARD_JAPANESE
-	printf("Loaded Mecab kanji tagger\r\n");
-#endif
 	WordnetLockDictionary();
 
-	InitTopicSystem();		// dictionary reverts to wordnet zone
-	ReadBotVariable(configFile);
-	ReadBotVariable(configFile2);
+	char* lang = language_list;
+	lang = GetNextLanguage(lang);
+	SetLanguage(lang);
+	*currentFilename = 0;
+	*debugEntry = 0;
+
+	InitTopicSystem(limit);		// dictionary reverts to wordnet zone
+
+	InitBotVariables(argc, argv);
+}
+
+void Rebegin(unsigned int buildId,unsigned int argc, char** argv)
+{
+	CloseLogs();
+	FreeAllUserCaches(); // user system
+	CloseDictionary();	// dictionary system but not its memory
+	CloseFacts();		// fact system
+
+	LoadSystem(buildId,argc,argv);
+
+	PerformBoot();
+	InitSpellCheck(); // after boot vocabulary added
 }
 
 static void ProcessArgument(char* arg)
@@ -1139,10 +1083,7 @@ static void LoadconfigFromUrl(char* configUrl, char** configUrlHeaders, int head
 	curl_easy_setopt(req, CURLOPT_CUSTOMREQUEST, "GET");
 	curl_easy_setopt(req, CURLOPT_URL, configUrl);
 	struct curl_slist* headers = NULL;
-	for (int i = 0; i < headerCount; i++)
-	{
-		headers = curl_slist_append(headers, configUrlHeaders[i]);
-	}
+	for (int i = 0; i < headerCount; i++) headers = curl_slist_append(headers, configUrlHeaders[i]);
 	headers = curl_slist_append(headers, "Accept: text/plain");
 	headers = curl_slist_append(headers, "Cache-Control: no-cache");
 	curl_easy_setopt(req, CURLOPT_HTTPHEADER, headers);
@@ -1155,16 +1096,11 @@ static void LoadconfigFromUrl(char* configUrl, char** configUrlHeaders, int head
 		if (response_string[i] == '\n' || (response_string[i] == '\\' && response_string[i + 1] == 'n')) {
 			configLines[configLinesLength] = mymalloc(sizeof(char) * MAX_WORD_SIZE);
 			strcpy(configLines[configLinesLength++], TrimSpaces(word, true));
-			for (int ti = 0; ti < MAX_WORD_SIZE; ti++) {
-				word[ti] = '\0';
-			}
+			for (int ti = 0; ti < MAX_WORD_SIZE; ti++)  word[ti] = '\0';
 			wordcount = 0;
-			if (!(response_string[i] == '\n'))
-				i++;
+			if (!(response_string[i] == '\n')) i++;
 		}
-		else {
-			word[wordcount++] = response_string[i];
-		}
+		else  word[wordcount++] = response_string[i];
 	}
 	curl_easy_cleanup(req);
 	ProcessConfigLines();
@@ -1174,7 +1110,7 @@ static void LoadconfigFromUrl(char* configUrl, char** configUrlHeaders, int head
 static void ReadConfig()
 {
 	// various locations of config data
-	for (int i = 1; i < argc; ++i) // essentials
+	for (unsigned int i = 1; i < argc; ++i) // essentials
 	{
 		char* configHeader;
 		if (!strnicmp(argv[i], (char*)"config=", 7)) configFile = argv[i] + 7;
@@ -1323,8 +1259,27 @@ void OpenExternalDatabase()
 	}
 }
 
+static void CommandLineBuild(unsigned int buildid,int i)
+{
+	char c = (buildid == BUILD0) ? '0' : '1';
+	sprintf(logFilename, (char*)"%s/build%c_log.txt", usersfolder, c);
+	FILE* in = FopenUTF8Write(logFilename);
+	FClose(in);
+
+	commandLineCompile = true;
+	Rebegin(buildid, argc, argv); // reload dict and layers as needed
+	InitBuild(buildid);
+
+	// NO_Spell because there is no value in giving warning messages about spellings
+	int result = ReadTopicFiles(argv[i] + 7, buildid, NO_SPELL);
+	char msg[100];
+	sprintf(msg, "build%c complete", c);
+	myexit(msg, result);
+}
+
 unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* readablePath, char* writeablePath, USERFILESYSTEM* userfiles, DEBUGAPI infn, DEBUGAPI outfn)
 { // this work mostly only happens on first startup, not on a restart
+
 	GetCurrentDir(incomingDir, MAX_WORD_SIZE);
 	sprintf(serverLogfileName, (char*)"LOGS/serverlog1024.txt");
 	bool rootgiven = false;
@@ -1430,7 +1385,7 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 
 	if (volleyLimit == -1) volleyLimit = DEFAULT_VOLLEY_LIMIT;
 
-	for (int i = 1; i < argc; ++i) // before createsystem to avoid loading unneeded layers
+	for (unsigned int i = 1; i < argc; ++i) // before createsystem to avoid loading unneeded layers
 	{
 		if (!strnicmp(argv[i], (char*)"build0=", 7)) build0Requested = true;
 		if (!strnicmp(argv[i], (char*)"build1=", 7)) build1Requested = true;
@@ -1443,30 +1398,16 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 
 	// system is ready.
 
-	for (int i = 1; i < argc; ++i) // now for immediate action arguments
+	for (unsigned int i = 1; i < argc; ++i) // now for immediate action arguments
 	{
 #ifndef DISCARDSCRIPTCOMPILER
 		if (!strnicmp(argv[i], (char*)"build0=", 7))
 		{
-			sprintf(logFilename, (char*)"%s/build0_log.txt", usersfolder);
-			in = FopenUTF8Write(logFilename);
-			FClose(in);
-			commandLineCompile = true;
-			InitBuild(BUILD0);
-			// NO_Spell because there is no value in giving warning messages about spellings
-			int result = ReadTopicFiles(argv[i] + 7, BUILD0, NO_SPELL);
-			myexit((char*)"build0 complete", result);
+			CommandLineBuild(BUILD0,i);
 		}
 		if (!strnicmp(argv[i], (char*)"build1=", 7))
 		{
-			sprintf(logFilename, (char*)"%s/build1_log.txt", usersfolder);
-			in = FopenUTF8Write(logFilename);
-			FClose(in);
-			commandLineCompile = true;
-			InitBuild(BUILD1);
-			// NO_Spell because there is no value in giving warning messages about spellings
-			int result = ReadTopicFiles(argv[i] + 7, BUILD1, NO_SPELL);
-			myexit((char*)"build1 complete", result);
+			CommandLineBuild(BUILD1,i);
 		}
 #endif
 #ifndef DISCARDTESTING
@@ -1510,6 +1451,7 @@ unsigned int InitSystem(int argcx, char* argvx[], char* unchangedPath, char* rea
 
 void PartiallyCloseSystem(bool keepalien) // server data (queues, databases, etc) remain available
 {
+	build0Requested = build1Requested = false;
 	if (!keepalien)
 	{
 		WORDP shutdown = FindWord((char*)"^csshutdown");
@@ -1551,7 +1493,6 @@ void CloseSystem()
 #endif
 	HandlePermanentBuffers(false);
 	FreeServerLog();
-	//if (!error) myexit("Close System", 0);
 }
 
 ////////////////////////////////////////////////////////
@@ -2147,7 +2088,7 @@ void ProcessInputFile() // will run any number of inputs on auto, or 1 user inpu
 		}
 		else sourceFile = stdin;
 		int diff = (int)(ElapsedMilliseconds() - sourceStart);
-		printf("Sourcefile Time used %ld ms for %d sentences %d tokens.\r\n", diff, sourceLines, sourceTokens);
+		printf("Sourcefile Time used %ld ms for %u sentences %u tokens.\r\n", diff, sourceLines, sourceTokens);
 		Log(USERLOG, "Sourcefile Time used %ld ms for %d sentences %d tokens.\r\n", diff, sourceLines, sourceTokens);
 		if (documentMode || silent) { ; } // no prompt in document mode
 		else if (*userPrefix)
@@ -2687,21 +2628,14 @@ static void LimitUserInput(char* at)
 	if (inputLimit && inputLimit <= (int)len1) at[inputLimit] = 0; // relative limit on user component
 }
 
-
 int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
-  // skip UTF8 BOM (from file)
-	if (HasUTF8BOM(incomingmessage))
-	{
-		incomingmessage += 3;
-	}
+  
+	if (HasUTF8BOM(incomingmessage)) incomingmessage += 3; // skip UTF8 BOM (from file)
 	incomingmessage = SkipWhitespace(incomingmessage);
 	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = output;
-
-	int ctr = 1;
-	int ctrvalid = 1;
-	bool colon = false;
 	output[0] = 0;
+
 	http_response = 0;
 	// dont start immediately if requested after a crash
 	if (crashBack && autorestartdelay) 
@@ -2986,7 +2920,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 
 		if (softRestart)
 		{
-			ReturnBeforeLayer(LAYER_BOOT, true); // erase it
+			ReturnBeforeBootLayer(); // erase it
 			buildbootjid = 0;
 			char* buffer = AllocateBuffer();
 			strcpy(buffer, ourMainOutputBuffer);

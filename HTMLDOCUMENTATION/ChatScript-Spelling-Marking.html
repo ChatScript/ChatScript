@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 id="chatscript-spelling-marking-manual">ChatScript Spelling Marking Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 3/21/2021 cs11.2 0</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <h1 id="spelling">Spelling</h1>
 <p>One (of many) unusual features of ChatScript is the built-in spell-checker. Most spell checkers are built to suggest possible replacements. But ChatScript's spell-checker is completely responsible for deciding what substitution to make and to make it in an environment (chat) where casing of words is highly unreliable.</p>
 <p>OK. So it does the best it can with unknown words. It is enabled by default but your scripts can disable it. All you have to do is assign a different value to $cs_token, one which does not include #DO_SPELLCHECK. E.g.</p>
@@ -58,6 +58,21 @@ replace: box &quot;my boy&quot;</code></pre>
 <p>If you want to replace something only if some specific word does not follow the match, you can use this format:</p>
 <pre><code>replace: jack_rusell ![terrier]Jack+Russell+terrier</code></pre>
 <p>This says to replace jack_russell with Jack+Russel+terrior ONLY if the word immediately following the match is not terrier (case insensitive).</p>
+<p>A more general conditional replacement is that you can name a pattern (which can extend over multiple lines) that can conditionally change the matched word into any other word or remove it or do nothing. Matching starts with _0 having been assigned to the location of the word/phrase to replace.</p>
+<pre><code>    replace: bubble_tea  ([
+        (is $$cs_replace:=2)
+        (has $$cs_replace:=null)
+        (@_0- *~2 my  $$cs_replace:=1)
+    ])
+    &quot;bubble tea is&quot; -&gt; 2 is
+    &quot;bubble tea has&quot; -&gt; has
+    &quot;my green bubble tea loves&quot; -&gt; my green 1 loves
+
+The equivalent of replace: jack_rusell ![terrier]Jack+Russell+terrier is
+replace: jack_russel (!!terrier) Jack+Russell+terrier 
+or
+replace: jack_russel (!![terrier]) Jack+Russell+terrier </code></pre>
+<p>You cannot use concepts in these patterns, nor the canonical forms of words. Your replacement data must be only tokens potentially separated by +, and potentially having _ in them. Do not use double quotes.</p>
 <h3 id="numeric-substitutions-replace-_xxx-xxxx">Numeric Substitutions replace: ?_xxx xxxx</h3>
 <p>?_ on the left takes numbers that have been conjoined with words, and separates them. Input like &quot;I weigh 5kg.&quot; is hard to handle via substitition since there are infinite number of numbers. But it's common to see stuff like that from users.</p>
 <pre><code>replace: ?_gram gram        -- this merely separates 

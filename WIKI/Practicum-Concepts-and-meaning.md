@@ -1,6 +1,6 @@
 # ChatScript Practicum: Concepts and Meaning
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 4/26/2019 cs9.3
+<br>Revision 6/13/2022 cs13.2
 
 
 '''There's more than one way to skin a cat'''. A problem often has more than one solution. This is certainly true with ChatScript. The purpose of the Practicum series is to show you how to think about features of ChatScript and what guidelines to follow in designing and coding your bot.
@@ -95,7 +95,7 @@ you have defined this stub. I typically write the stub and then the table code t
 ```
 concept: ~carmake() -- stub
 concept: ~carmodel() -- stub
-table: ~cardata($_carmake $_carmodel)
+table: ^cardata($_carmake $_carmodel)
     ^createfact($_carmodel member ~carmodel) -- adds a member
     ^createfact($_carmake member ~carmake) -- adds a member
     ^createfact($_carmodel builtby ~carmake) -- adds a relationship

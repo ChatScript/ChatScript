@@ -391,7 +391,7 @@ FunctionResult MySQLQueryCode(char* buffer)
 	if (result)  // there are rows
 	{
 		int flags;
-		int args = GetFnArgCount(func, flags);
+		unsigned int args = GetFnArgCount(func, flags);
 		unsigned int num_fields = mysql_num_fields(result);
 		if (num_fields > args && *func)
 		{

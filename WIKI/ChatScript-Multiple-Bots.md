@@ -1,6 +1,6 @@
 # ChatScript Multiple Bots Manual
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/27/2019 cs9.4
+<br>Revision 6/13/2022 cs13.2
 
 
 The system can support multiple bots cohabiting the same engine. You can restrict topics
@@ -28,7 +28,7 @@ It looks for a fact in the database whose subject will be the default bot name a
 If none is found, the default bot is called anonymous, and probably nothing works at all. 
 Defining the default bot is what a table does when you compile `simplecontrol.top`. It has:
 ```
-table: defaultbot (^name)
+table: ^defaultbot (^name)
 ^createfact(^name defaultbot defaultbot)
 DATA:
 harry

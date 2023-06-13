@@ -1,6 +1,6 @@
 # ChatScript JSON Manual
 © Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 5/10/2022 cs13.1
+<br>Revision 6/13/2022 cs13.2
 
 # Real World JSON
 
@@ -464,6 +464,10 @@ will add elements based on how you declared it (UNIQUE or DUPLICATE)
 The only restriction on arrays is that you cannot add a new array index value without using ^jsonarrayinsert
 as you are not allowed to create discontiguous indices.
 
+**NOTE** If a variable has as its value the name of another variable, CS will attempt to 
+autoindirect through it to get to the JSON structure.  if $x =  '$y' and $y points to a json structure, 
+then $x is indirected and $x.val means $y.val .
+
 **NOTE** JSON is normally a non-recursive structure with no shared pointers. But ChatScript allows you to store 
 references to JSON structures in multiple places of other JSON structures. This has its hazards. It presents no
 problem when transcribing to text for a website using `^jsonwrite` . And when you have something like this:
@@ -493,6 +497,7 @@ Assigning `null` will remove a JSON key entirely.  Having a null value and not h
 from ChatScript's perspective (but not from JSON's)'
 
 #### Accessing opposite ends of JSON structures
+
 For an array, obviously $array[0] returns one end of the array, and you can get the index of The
 other end by doing 
 ```
@@ -513,8 +518,6 @@ Just escape the $.
 ```
 $data.\$varname = hello 
 ```
-
-
 
 ### `^jsonkind`(item)
 If item is the name of a json array, it returns `array`. If item is the name of a json object, it returns `object`. Otherwise
