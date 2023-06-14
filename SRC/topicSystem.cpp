@@ -2507,19 +2507,8 @@ unsigned int counter = 0;
 
 uint64* PackBinWord(uint64* bindata, WORDP D, bool isnew)
 {
-	if (!strcmp(D->word, "I"))
-	{
-		int xx = 0;
-	}
 	// remove any transient bits
 	D->systemFlags &= ((uint64)-1) ^ MARKED_WORD;
-	// unchanged old does not need writing out
-	if (!isnew && !(D->internalBits & BIT_CHANGED) && !(D->internalBits & QUERY_KIND) && *D->word != '$'
-		&& !D->subjectHead && !D->verbHead && !D->objectHead)
-	{
-		return bindata; // just referred to but already exists
-	}
-	
 	D->internalBits &= -1 ^ (BIT_CHANGED | BEEN_HERE);
 	if (*D->word == '$') D->internalBits &= -1 ^ VAR_CHANGED;
 	++counter;
