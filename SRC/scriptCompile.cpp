@@ -1478,7 +1478,7 @@ static void ClearBeenHere(WORDP D, uint64 junk)
 {
 	RemoveInternalFlag(D,BEEN_HERE);
     // clear transient ignore spell warning flag
-    if (D->internalBits & DO_NOISE && !(D->systemFlags & HAS_SUBSTITUTE))
+    if (*D->word != '^' && *D->word != '~' && *D->word != '$' &&  D->internalBits & DO_NOISE && !(D->systemFlags & HAS_SUBSTITUTE))
         RemoveInternalFlag(D, DO_NOISE);
 }
 
@@ -5023,7 +5023,7 @@ static char* ReadMacro(char* ptr,FILE* in,char* kind,unsigned int build,char* da
                     AddMap((char*)"    macro:", macroName, &mapItemCount);
 				}
 			}
-			D = StoreWord(macroName);
+			D = StoreWord(macroName,AS_IS);
 			if (D->x.codeIndex) BADSCRIPT((char*)"MACRO-3 may not redefine system function %s\r\n", word)
 			if (D->w.fndefinition && D->internalBits & FUNCTION_NAME && !table) // must be different BOT ID
 			{

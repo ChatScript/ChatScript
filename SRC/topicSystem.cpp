@@ -3112,7 +3112,7 @@ static void InitMacros(const char* name, const char* layer, unsigned int build)
 		if (!*readBuffer) continue;
 		char* ptr = ReadCompiledWord(readBuffer, tmpWord); //   the name
 		if (!*tmpWord) continue;
-		WORDP D = StoreWord(tmpWord, 0);
+		WORDP D = StoreWord(tmpWord, AS_IS);
 		AddInternalFlag(D, (unsigned int)(FUNCTION_NAME | build)); // must be in same build if multiple
 		D->x.codeIndex = 0;	//   if one redefines a system macro, that macro is lost.
 		ptr = ReadCompiledWord(ptr, tmpWord);
