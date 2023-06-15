@@ -481,7 +481,7 @@ unsigned int GetNextSpot(WORDP D, int start, bool reverse, unsigned int legalgap
 			}
 			else // reverse
 			{
-				for (unsigned int at = start-1; at > 0; --at)
+				for (int at = start-1; at > 0; --at)
 				{
 					if (unmarked[at]) continue;
 					++separation;

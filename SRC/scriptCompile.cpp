@@ -112,6 +112,8 @@ void EraseTopicBin(unsigned int build, char* name)
 void InitScriptSystem()
 {
 	compiling = NOT_COMPILING;
+	undefinedCallThreadList = NULL;
+	undefinedConceptThreadList = NULL;
 	oldScriptBuffer = NULL;
 	newScriptBuffer = NULL;
 	mapFile = NULL;
@@ -7536,8 +7538,6 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	flagsRedefines = NULL;
     char filename[SMALL_WORD_SIZE];
     nospellcheck = false;
-	undefinedCallThreadList = 0;
-	undefinedConceptThreadList = 0;
 	isDescribe = false;
 	*scopeBotName = 0;
 	myBot = 0;
