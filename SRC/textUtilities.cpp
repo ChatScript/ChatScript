@@ -1553,6 +1553,15 @@ bool IsArithmeticOp(char* word)
 			);
 }
 
+bool IsAssignOp(char* word)
+{
+	char c = *word;
+	if (c == '=' && !word[1]) return true;
+	if (word[1] != '='  || word[3]) return false;
+	if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%' || c == '&' || c == '|' || c == '^')  return true;
+	return false;
+}
+
 char* IsUTF8(char* buffer, char* character) // swallow a single utf8 character (ptr past it) or return null 
 {
 	*character = 0;

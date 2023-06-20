@@ -158,6 +158,7 @@ uint64 FindPropertyValueByName(char* name);
 char* ReadToken(const char* ptr, char* word);
 FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
+bool IsAssignOp(char* word);
 void ClearSupplementalInput();
 char* RemoveQuotes(char* item);
 bool IsAllUpper(char* ptr);

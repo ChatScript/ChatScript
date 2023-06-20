@@ -883,6 +883,8 @@ void SetUserVariable(const char* var, char* word, bool assignment,bool reuse)
 
 static FunctionResult DoMath(char* oldValue, char* moreValue, char* result, char op, char* fullop)
 {
+    if (!stricmp(fullop, "and") || !stricmp(fullop, "or")) return FAILRULE_BIT; // not math
+
     if (*oldValue == '_') oldValue = GetwildcardText(GetWildcardID(oldValue), true); // onto a wildcard
     else if (*oldValue == USERVAR_PREFIX) oldValue = GetUserVariable(oldValue,false); // onto user variable
     else if (*oldValue == '^') oldValue = FNVAR(oldValue); // onto function argument

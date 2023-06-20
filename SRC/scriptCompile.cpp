@@ -4421,6 +4421,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		startbracket = ptr;
 		startbline = currentFileLine;
 	}
+	int pendingmathassign = 0;
 	bool start = true;
 	bool needtofield = false;
 	bool javascript = false;
@@ -4433,6 +4434,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		{
 			if (*hold == '=')
 			{
+				pendingmathassign = 1;
 				strcpy(word,(char*)"=");
 				memmove(hold,hold+1,strlen(hold));
 			}
@@ -4497,6 +4499,13 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 
 		ReadNextSystemToken(in,ptr,nextToken,false,true); //   caching request
+		if (pendingmathassign && level == 0 && *word != '(')
+			pendingmathassign = 0; // turn off math assign
+		if ((*word == '$' || *word == '_') && IsAssignOp(nextToken)) pendingmathassign = 1;
+		if (pendingmathassign && (!stricmp(word, "and") || !stricmp(word, "or")))
+		{
+			BADSCRIPT("%s is not a legal math operator. CS has no boolean type.",word)
+		}
 		if (!startkind) startkind = *word; // may be ( or { or [  or other
 		switch(*word)
 		{
