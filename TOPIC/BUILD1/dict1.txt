@@ -1,60 +1,9 @@
-﻿2
-^ `alternative`   @     P     @   0   ``  
-^ `belief`   @     P     @   0   ``  
-^ `becoming`   @     P     @   0   ``  
-^ `born`   @     P     @   0   ``  
-^ `both`   @     P     @   0   ``  
-^ `be_up`   @     P     @   0   ``  
+﻿3 ENGLISH
 ^ `cents`   @     x00100800   80000000      @   0   ``  
-^ `conclusion`   @     P     @   0   ``  
-^ `circuitry`   @     P     @   0   ``  
-^ `consistency`   @     x20000800   00000000      @   0   ``  
-^ `contained`   @     P     @   0   ``  
-^ `at_the_same_time`   @     P     @   0   ``  
-^ `conceivably`   @     P     @   0   `` 1 
-^ `dream_of`   @     P     @   0   ``  
-^ `English`   @     x20000800   00000000      @   0   ``  
-^ `even`   @     x20000800   00000000      @   0   ``  
-^ `changing`   @     x20000800   00000000      @   0   ``  
-^ `else`   @     P     @   0   ``  
-^ `except_for`   @     P     @   0   ``  
-^ `figment`   @     P     @   0   ``  
-^ `feelings`   @     P     @   0   ``  
-^ `finished`   @     P     @   0   ``  
-^ `gadget`   @     P     @   0   ``  
-^ `him`   @     x20000800   00000000      @   0   ``  
-^ `insinuating`   @     P     @   0   ``  
-^ `known`   @     P     @   0   ``  
-^ `a_lot`   @     P     @   0   ``  
-^ `no_one`   @     x40000800   00000000      @   0   `no+one`  
-^ `Oahu`   @     P     @   0   ``  
-^ `frequently`   @     P     @   0   ``  
-^ `apparently`   @     x20000800   00000000      @   0   `` 1 
-^ `others`   @     P     @   0   ``  
-^ `meaning`   @     P     @   0   ``  
-^ `predictable`   @     P     @   0   ``  
-^ `go_ahead`   @     P     @   0   ``  
-^ `callback`   @     P     @   0   ``  
-^ `spice`   @     P     @   0   ``  
-^ `sinking`   @     P     @   0   ``  
-^ `Marine`   @     P     @   0   ``  
-^ `sometimes`   @     x20000800   00000000      @   0   ``  
-^ `Navy`   @     P     @   0   ``  
-^ `Air_Force`   @     P     @   0   ``  
-^ `Army`   @     P     @   0   ``  
-^ `whether`   @     P     @   0   ``  
-^ `seen`   @     P     @   0   ``  
-^ `taught`   @     x20000800   00000000      @   0   ``  
-^ `~emogoodbye`   @     x20000800   00000000      @   0   ``  
-^ `~emohello`   @     x20000800   00000000      @   0   ``  
-^ `~emohowzit`   @     x20000800   00000000      @   0   ``  
 ^ `seconds`   @     x20000800   00000000      @   0   ``  
 ^ `makes`   @     x20000800   00000000      @   0   `` 2 
 ^ `says`   @     x20000800   00000000      @   0   ``  
-^ `not_sure`   @     P     @   0   ``  
-^ `not_certain`   @     P     @   0   ``  
-^ `Coast_Guard`   @     P     @   0   ``  
-^ `kind_of`   @     P     @   0   ``  
+^ `$cs_analyzelimitlog`   @     @     x00800802   0   ``  
 ^ `~childhood`   0     0     x00000840   0   ``  
 ^ `~childhood$`   0     0     x00000800   0   ``  
 ^ `~CHILDHOOD.RUNAWAY-*`   0     0     x00006800   0   ``  
@@ -66,7 +15,7 @@
 ^ `~INTRODUCTIONS.YOURNAME-*`   0     0     x00006800   0   ``  
 ^ `~keywordless`   0     0     x00000840   0   ``  
 ^ `~keywordless$`   0     0     x00000800   0   ``  
-^ `^harry`   0     0     x00200810   0   ``  
+^ `^harry`   0     0     x00200890   0   ``  
 ^ `~control$`   0     0     x00000800   0   ``  
 ^ `^tbl:defaultbot`   0     0     x00280900   0   ``  
 ^ `defaultbot`   0     0     x00000800   0   ``  

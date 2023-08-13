@@ -1,0 +1,80 @@
+﻿~legal_glean.17.0=AVOIDUS  #! a us citizen  
+~legal_glean.20.0=DISCARDVERB  #! discard these as verbs
+~legal_glean.22.0=PREPOSITION  #! of federally recognized indian tribes
+~legal_glean.23.0=DISCARDROLE  #! discard these as roles
+    ~legal_glean.23.17  #! her boyfriend the father
+    ~legal_glean.23.18  #! my boss
+    ~legal_glean.23.21  #! equivalence
+    ~legal_glean.23.22  #! my husband/boyfriend
+    ~legal_glean.23.23  #! I am a creditor
+    ~legal_glean.23.23  #! daughter is a md driver - but not  "I am worried because my son was arrested"
+    ~legal_glean.23.26  #! my citizen children
+    ~legal_glean.23.27  #! adult son
+    ~legal_glean.23.28  #! rarely children
+    ~legal_glean.23.34  #! I am the resident and I went home
+    ~legal_glean.23.37  #! my employee dispute
+~legal_glean.24.0=NOTWILL  #! the associated stuff
+~legal_glean.31.0=DEAD  #! my friend's brother died
+~legal_glean.32.0=DEAD  #! the_mother_of_his_15_year_old_son died
+~legal_glean.33.0=DEAD  #! my deceased parent
+~legal_glean.34.0=DECEASED2  #! my mother died
+~legal_glean.35.0=DECEASED  #! my mother died
+~legal_glean.36.0=DECEASED1  #! partner was recently killed 
+~legal_glean.37.0=DECEASED1  #! partner was recently killed 
+~legal_glean.41.0=NOUN2_CANCEL  #! a delinquent student loan
+~legal_glean.42.0  #! fixes to flat
+~legal_glean.44.0=DC  #! Washington DC
+~legal_glean.45.0=STATE  #! California
+~legal_glean.46.0=PROVINCE  #! Ottawa
+~legal_glean.50.0=ARKANSAS  #! AR is texting remapped to ares
+~legal_glean.51.0=NORTHDAKOTA  #! ND is texting remapped to and
+~legal_glean.54.0=STATE_ABBREV  #! CA
+~legal_glean.55.0=STATE_ABBREV_IN  #! CA
+~legal_glean.56.0=CITY  #! Boston
+    ~legal_glean.56.1  #! my name is Clevland
+~legal_glean.57.0=COUNTRY  #! United Kingdom - but not travel to country - not most territories
+~legal_glean.62.0  #! ecstacy
+~legal_glean.62.0  #! criminal_entity
+~legal_glean.62.0  #! officer
+~legal_glean.62.0  #! contract
+~legal_glean.63.0=PROPERTY  #! vacant lot
+~legal_glean.65.0=CRIME  #! judge
+~legal_glean.65.0=CRIME  #! guilty
+~legal_glean.65.0=CRIME  #! arrested
+~legal_glean.65.0=CRIME  #! codeine
+~legal_glean.65.0=CRIME  #! first degree
+~legal_glean.65.0=CRIME  #! theft
+~legal_glean.66.0=DRUGPOSSESS  #! drug possession
+~legal_glean.68.0=DUALEMPLOY  #! can an employer an employee
+~legal_glean.69.0=IS_EMPLOYER  #! my employee
+~legal_glean.70.0=IS_EMPLOYEE_MORE  #! I was terminated --- override
+~legal_glean.71.0=IS_EMPLOYEE  #! I work for
+~legal_glean.71.0=IS_EMPLOYEE  #! my boss
+~legal_glean.74.0=CHARGED  #! charged
+~legal_glean.77.0=CONVICTED  #! during the sentencing phase
+~legal_glean.77.0=CONVICTED  #! my probation officer
+~legal_glean.77.0=CONVICTED  #! convicted
+~legal_glean.77.0=CONVICTED  #! I had a class 1 felony
+~legal_glean.77.0=CONVICTED  #! I paid the fine
+~legal_glean.77.0=CONVICTED  #! I did public 
+~legal_glean.80.0=IFLABEL  #! what happens if you
+~legal_glean.82.0=PARTY1CAN  #! can your bank account be garnished
+~legal_glean.83.0=PARTY1AM  #! am on ss
+~legal_glean.84.0=PARTY1TRY  #! Trying to do something
+~legal_glean.85.0=PARTY1CAN  #! can you be sued
+~legal_glean.87.0  #! my department leader
+    ~legal_glean.89.2  #! I am very worried
+    ~legal_glean.89.3  #! I am asking for my son
+    ~legal_glean.89.4  #! I wonder / I'm curious / I wanted to know
+    ~legal_glean.90.2  #! she  hers
+    ~legal_glean.90.3  #! he him 
+    ~legal_glean.90.4  #! they
+~legal_glean.93.0=ACTOR3AND  #! my son's mother's son and daughter
+~legal_glean.94.0=ACTOR3  #! my son's mother's boyfriend 
+~legal_glean.96.0=ACTOR1AND  #! the actor and I, 
+~legal_glean.97.0=ACTOR1OFMY  #! the actor
+~legal_glean.97.0=ACTOR1OFMY  #! the mother of my children -- my children' mother
+~legal_glean.98.0=IHAVEA  #! I have a friend that has been arrested
+~legal_glean.99.0=ACTOR1  #! the actor
+~legal_glean.100.0=MY  #! My 13 year old step daughter wants to live with us. 
+~legal_glean.101.0=OUR  #! Our 13 year old step daughter wants to live with us. 

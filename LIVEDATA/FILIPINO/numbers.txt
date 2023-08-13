@@ -1,0 +1,46 @@
+﻿# REAL_NUMBER is a word that directly represents a number, like two
+# WORD_NUMBER is a word that implies a number value, like dozen
+# FRACTION_NUMBER is a word that implies a faction value like half
+# filipinos use filipino for some counting and spanish for others
+
+sero 0 REAL_NUMBER	
+isa	1 REAL_NUMBER	
+uno 1 REAL_NUMBER	
+dalawa	 2 REAL_NUMBER	
+dos 2 REAL_NUMBER	
+tatlo	3 REAL_NUMBER
+tres 3 REAL_NUMBER
+apat 4 REAL_NUMBER
+kuwatro 4 REAL_NUMBER
+Lima	 5 REAL_NUMBER
+Singko 5 REAL_NUMBER
+Anim 6 REAL_NUMBER
+Sais 6 REAL_NUMBER
+Pito	 7 REAL_NUMBER
+Siete 7 REAL_NUMBER
+Walo	 8 REAL_NUMBER
+Otso 8 REAL_NUMBER
+Siyam 9 REAL_NUMBER
+Nuwebe 9 REAL_NUMBER
+Sampu 10 REAL_NUMBER
+Diyez 10 REAL_NUMBER
+Labing-isa	 11 REAL_NUMBER
+Onse 11 REAL_NUMBER
+Labing-dalawa	 12 REAL_NUMBER
+Dose 12 REAL_NUMBER
+Labing-tatlo 13 REAL_NUMBER
+Trese 13 REAL_NUMBER
+Labing-apat	 14 REAL_NUMBER
+Katorse 14 REAL_NUMBER
+Labing-lime	 15 REAL_NUMBER
+Kinse 15 REAL_NUMBER
+Labing-anim	 16 REAL_NUMBER
+Disisais 16 REAL_NUMBER
+Labing-pito 17 REAL_NUMBER	
+Disisiete 17 REAL_NUMBER
+Labing-walo	 18 REAL_NUMBER
+Disiotso 18 REAL_NUMBER
+Labing-siyam	 19 REAL_NUMBER
+Disinuwebe 19 REAL_NUMBER
+Dalawampu 20 REAL_NUMBER
+Beynte 20 REAL_NUMBER

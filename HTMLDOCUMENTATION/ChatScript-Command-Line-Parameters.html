@@ -1,29 +1,220 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Command-Line-Parameters</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="chatscript-command-line-parameters">ChatScript Command Line Parameters</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
+<h1 id="chatscript-command-line-parameters">ChatScript Command Line
+Parameters</h1>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <h1 id="command-line-parameters">Command Line Parameters</h1>
-<p>You can give parameters on the run command or in a config file or via a http request. The default config file is <code>cs_init.txt</code> at the top level of CS (if the file exists). A second file if present can add or override values - cs_initmore.txt And then third level named after the current language chosen can override those two cs_initenglish.txt being the default. The language one, in particular is useful to rebalance memory sizings (dictionary entries in particular) since foreign languages require more entries than English.</p>
-<p>Or you can name where the file is on a command line parameter <code>config=xxx</code>. And <code>config2=xxx</code> for the initmore file. If you have secret information that you don't want stored in a config file or exposed on a command line then you can request the config data from a URL. Use the command line parameter configurl=http://xxx to specify the address of the data. Additional command line parameters, configheader=xxx, can be included to define HTTP request headers. If there are several headers then use separate configheader=xxx configheader=yyy etc parameters for each header name/value pair.</p>
-<p>Config file data are command line parameters, 1 per line, like below:</p>
+<p>You can give parameters on the run command or in a config file or via
+a http request. The default config file is <code>cs_init.txt</code> at
+the top level of CS (if the file exists). A second file if present can
+add or override values - cs_initmore.txt And then third level named
+after the current language chosen can override those two
+cs_initenglish.txt being the default. The language one, in particular is
+useful to rebalance memory sizings (dictionary entries in particular)
+since foreign languages require more entries than English.</p>
+<p>Or you can name where the file is on a command line parameter
+<code>config=xxx</code>. And <code>config2=xxx</code> for the initmore
+file. If you have secret information that you don’t want stored in a
+config file or exposed on a command line then you can request the config
+data from a URL. Use the command line parameter configurl=http://xxx to
+specify the address of the data. Additional command line parameters,
+configheader=xxx, can be included to define HTTP request headers. If
+there are several headers then use separate configheader=xxx
+configheader=yyy etc parameters for each header name/value pair.</p>
+<p>Config file data are command line parameters, 1 per line, like
+below:</p>
 <pre><code>noboot 
 port=20</code></pre>
-<p>Some parameters require a value and use the <code>=</code> format with no spaces. Other parameters may only require you name the parameter (they have no choices of values).</p>
-<p>Actual command line parameters have priority over config file values, and those have priority over http requested values.</p>
+<p>Some parameters require a value and use the <code>=</code> format
+with no spaces. Other parameters may only require you name the parameter
+(they have no choices of values).</p>
+<p>Actual command line parameters have priority over config file values,
+and those have priority over http requested values.</p>
 <h2 id="language-options">Language options</h2>
-<p>The command line parameter <code>language=</code> as shipped would be</p>
+<p>The command line parameter <code>language=</code> as shipped would
+be</p>
 <pre><code>language=english</code></pre>
-<p>but it can consist of a series of languages separated by commas with the first language being the default until you use a command to change to some other language on the fly. This enables multi-dictionary behavior.</p>
+<p>but it can consist of a series of languages separated by commas with
+the first language being the default until you use a command to change
+to some other language on the fly. This enables multi-dictionary
+behavior.</p>
 <pre><code>language=english,spanish,german,japanese</code></pre>
-<p>When compiling your scripts, you may want different things in different languages. For example here is a multi-language level 0 script that compiles std cs concepts simultaneously in different languages.</p>
+<p>When compiling your scripts, you may want different things in
+different languages. For example here is a multi-language level 0 script
+that compiles std cs concepts simultaneously in different languages.</p>
 <pre><code>language: UNIVERSAL
 RAWDATA/ONTOLOGY/       # underlying vocabulary organization
 language: ENGLISH
@@ -34,11 +225,14 @@ RAWDATA/ONTOLOGY/GERMAN//
 language: SPANISH
 RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <h2 id="memory-options">Memory options</h2>
-<p>Chatscript statically allocates its memory and so (barring unusual circumstance) will not allocate memory ever during its interactions with users. These parameters can control those allocations. Done typically in a memory poor environment like a cellphone.</p>
+<p>Chatscript statically allocates its memory and so (barring unusual
+circumstance) will not allocate memory ever during its interactions with
+users. These parameters can control those allocations. Done typically in
+a memory poor environment like a cellphone.</p>
 <table>
 <colgroup>
-<col width="17%" />
-<col width="82%" />
+<col style="width: 16%" />
+<col style="width: 83%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -53,7 +247,8 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="even">
 <td><code>buffer=15x80</code></td>
-<td>allocate 15 buffers of 80k bytes each (default buffer size is 80k)</td>
+<td>allocate 15 buffers of 80k bytes each (default buffer size is
+80k)</td>
 </tr>
 <tr class="odd">
 <td><code>fullinputlimit=150000</code></td>
@@ -61,12 +256,17 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Most chat doesn't require huge output and buffers around 20k each will be more than enough. 20 buffers is often enough too (depends on recursive issues in your scripts).</p>
-<p>If the system runs out of buffers, it will perform emergency allocations to try to get more, but in limited memory environments (like phones) it might fail. You are not allowed to allocate less than a 20K buffer size.</p>
+<p>Most chat doesn’t require huge output and buffers around 20k each
+will be more than enough. 20 buffers is often enough too (depends on
+recursive issues in your scripts).</p>
+<p>If the system runs out of buffers, it will perform emergency
+allocations to try to get more, but in limited memory environments (like
+phones) it might fail. You are not allowed to allocate less than a 20K
+buffer size.</p>
 <table>
 <colgroup>
-<col width="17%" />
-<col width="82%" />
+<col style="width: 16%" />
+<col style="width: 83%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -89,11 +289,13 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="even">
 <td><code>hash=n</code></td>
-<td>use this hash size for finding dictionary words (bigger = faster access)</td>
+<td>use this hash size for finding dictionary words (bigger = faster
+access)</td>
 </tr>
 <tr class="odd">
 <td><code>cache=50x1</code></td>
-<td>allocate a 50K buffer for handling 1 user file at a time. A server might want to cache multiple users at a time.</td>
+<td>allocate a 50K buffer for handling 1 user file at a time. A server
+might want to cache multiple users at a time.</td>
 </tr>
 <tr class="even">
 <td><code>filecache=5000x100</code></td>
@@ -101,17 +303,32 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 </tbody>
 </table>
-<p>A default version of ChatScript will allocate much more than it needs, because it doesn't know what you might need.</p>
-<p>A server might want to cache common files across volleys and users, using filecache.</p>
-<p>If you want to use the least amount of memory (multiple servers on a machine or running on a mobile device), you should look at the USED line on startup and add small amounts to the entries (unless your application does unusual things with facts).</p>
-<p>If you want to know how much, try doing <code>:show stats</code> and then <code>:source REGRESS/bigregress.txt</code>. This will run your bot against a wide range of input and the stats at the end will include the maximum values needed during a volley. To be paranoid, add beyond those valuse. Take your max dict value and double it. Same with max fact. Add 10000 to max text.</p>
-<p>Just for reference, for our most advanced bot, the actual max values used were: max dict: 346 max fact: 689 max text: 38052.</p>
-<p>And the maximum rules executed to find an answer to an input sentence was 8426 (not that you control or care). Typical rules executed for an input sentence was 500-2000 rules. For example, add 1000 to the dict and fact used amounts and 10 (kb) to the string space to have enough normal working room.</p>
+<p>A default version of ChatScript will allocate much more than it
+needs, because it doesn’t know what you might need.</p>
+<p>A server might want to cache common files across volleys and users,
+using filecache.</p>
+<p>If you want to use the least amount of memory (multiple servers on a
+machine or running on a mobile device), you should look at the USED line
+on startup and add small amounts to the entries (unless your application
+does unusual things with facts).</p>
+<p>If you want to know how much, try doing <code>:show stats</code> and
+then <code>:source REGRESS/bigregress.txt</code>. This will run your bot
+against a wide range of input and the stats at the end will include the
+maximum values needed during a volley. To be paranoid, add beyond those
+valuse. Take your max dict value and double it. Same with max fact. Add
+10000 to max text.</p>
+<p>Just for reference, for our most advanced bot, the actual max values
+used were: max dict: 346 max fact: 689 max text: 38052.</p>
+<p>And the maximum rules executed to find an answer to an input sentence
+was 8426 (not that you control or care). Typical rules executed for an
+input sentence was 500-2000 rules. For example, add 1000 to the dict and
+fact used amounts and 10 (kb) to the string space to have enough normal
+working room.</p>
 <h2 id="output-options">Output options</h2>
 <table>
 <colgroup>
-<col width="21%" />
-<col width="78%" />
+<col style="width: 20%" />
+<col style="width: 79%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -122,20 +339,32 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <tbody>
 <tr class="odd">
 <td><code>output=nnn</code></td>
-<td>limits output line length for a bot to that amount (forcing crnl as needed). 0 is unlimited.</td>
+<td>limits output line length for a bot to that amount (forcing crnl as
+needed). 0 is unlimited.</td>
 </tr>
 <tr class="even">
 <td><code>outputsize=80000</code></td>
-<td>is the maximum output that can be shipped by a volley from the bot without getting truncated.</td>
+<td>is the maximum output that can be shipped by a volley from the bot
+without getting truncated.</td>
 </tr>
 </tbody>
 </table>
-<p>Actually the <code>outputsize</code> value is somewhat less, because routines generating partial data for later incorporation into the output also use the buffer and need some usually small amount of clearance. You can find out how close you have approached the max in a session by typing <code>:memstats</code>. If you need to ship a lot of data around, you can raise this into the megabyte range and expect CS will continue to function. 80K is the default. For normal operation, when you change <code>outputsize</code> you should also change <code>logsize</code> to be at least as much, so that the system can do complete logs. You are welcome to set log size lots smaller if you don't care about the log.</p>
+<p>Actually the <code>outputsize</code> value is somewhat less, because
+routines generating partial data for later incorporation into the output
+also use the buffer and need some usually small amount of clearance. You
+can find out how close you have approached the max in a session by
+typing <code>:memstats</code>. If you need to ship a lot of data around,
+you can raise this into the megabyte range and expect CS will continue
+to function. 80K is the default. For normal operation, when you change
+<code>outputsize</code> you should also change <code>logsize</code> to
+be at least as much, so that the system can do complete logs. You are
+welcome to set log size lots smaller if you don’t care about the
+log.</p>
 <h2 id="file-options">File options</h2>
 <table>
 <colgroup>
-<col width="17%" />
-<col width="82%" />
+<col style="width: 16%" />
+<col style="width: 83%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -146,23 +375,33 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <tbody>
 <tr class="odd">
 <td><code>livedata=xxx</code></td>
-<td>name relative or absolute path to your own private LIVEDATA folder. Do not add trailing / on this path<br>Recommended is you use <code>RAWDATA/yourbotfolder/LIVEDATA</code> to keep all your data in one place. You can have your own live data, yet use ChatScripts default <code>LIVEDATA/SYSTEM</code> and <code>LIVEDATA/ENGLISH</code> by providing paths to the <code>system=</code> and <code>english=</code> parameters as well as the <code>livedata=</code> parameter</td>
+<td>name relative or absolute path to your own private LIVEDATA folder.
+Do not add trailing / on this path<br>Recommended is you use
+<code>RAWDATA/yourbotfolder/LIVEDATA</code> to keep all your data in one
+place. You can have your own live data, yet use ChatScripts default
+<code>LIVEDATA/SYSTEM</code> and <code>LIVEDATA/ENGLISH</code> by
+providing paths to the <code>system=</code> and <code>english=</code>
+parameters as well as the <code>livedata=</code> parameter</td>
 </tr>
 <tr class="even">
 <td><code>topic=xxx</code></td>
-<td>name relative or absolute path to your own private TOPIC folder. Do not add trailing / on this path <code>/</code></td>
+<td>name relative or absolute path to your own private TOPIC folder. Do
+not add trailing / on this path <code>/</code></td>
 </tr>
 <tr class="odd">
 <td><code>buildfiles=xxx</code></td>
-<td>name relative or absolute path to your own folder where filesxxx.txt is found. Do not add trailing / on this path <code>/</code></td>
+<td>name relative or absolute path to your own folder where filesxxx.txt
+is found. Do not add trailing / on this path <code>/</code></td>
 </tr>
 <tr class="even">
 <td><code>users=xxx</code></td>
-<td>name relative or absolute path to where you want the USERS folder to be. Do not add trailing <code>/</code></td>
+<td>name relative or absolute path to where you want the USERS folder to
+be. Do not add trailing <code>/</code></td>
 </tr>
 <tr class="odd">
 <td><code>logs=xxx</code></td>
-<td>name relative or absolute path to where you want the LOGS folder to be. Do not add trailing <code>/</code></td>
+<td>name relative or absolute path to where you want the LOGS folder to
+be. Do not add trailing <code>/</code></td>
 </tr>
 <tr class="even">
 <td><code>userlog</code></td>
@@ -170,15 +409,17 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>userlog=1</code></td>
-<td>alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout 4 means stderr - you may combine</td>
+<td>alternate form of request, you can use 0 for off and 1 for on
+(file). 2 means stdout 4 means stderr - you may combine</td>
 </tr>
 <tr class="even">
 <td><code>userlogging=file</code></td>
-<td>primary form of request, you can use none for off and file, stdout, stderr. - you may combine userlogging=file,stdout</td>
+<td>primary form of request, you can use none for off and file, stdout,
+stderr. - you may combine userlogging=file,stdout</td>
 </tr>
 <tr class="odd">
 <td><code>nouserlog</code></td>
-<td>Don't store a user-bot log</td>
+<td>Don’t store a user-bot log</td>
 </tr>
 <tr class="even">
 <td><code>serverlog</code></td>
@@ -186,51 +427,60 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>serverlog=1</code></td>
-<td>alternate form of request, you can use 0 for off and 1 for on (file). 2 means stdout 4 means stderr - you may combine</td>
+<td>alternate form of request, you can use 0 for off and 1 for on
+(file). 2 means stdout 4 means stderr - you may combine</td>
 </tr>
 <tr class="even">
 <td><code>serverlogging=file</code></td>
-<td>primary form of request, you can use none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout</td>
+<td>primary form of request, you can use none for off and file, stdout,
+stderr. - you may combine serverlogging=file,stdout</td>
 </tr>
 <tr class="odd">
 <td><code>noserverlog</code></td>
-<td>Don't store a server log</td>
+<td>Don’t store a server log</td>
 </tr>
 <tr class="even">
 <td><code>noretrybackup</code></td>
-<td>Don't save volley backup files for :retry when in standalone mode</td>
+<td>Don’t save volley backup files for :retry when in standalone
+mode</td>
 </tr>
 <tr class="odd">
 <td><code>tmp=xxx</code></td>
-<td>name relative or absolute path to where you want the TMP folder to be. Do not add trailing <code>/</code></td>
+<td>name relative or absolute path to where you want the TMP folder to
+be. Do not add trailing <code>/</code></td>
 </tr>
 <tr class="even">
 <td><code>crashpath=xxx</code></td>
-<td>file to write about fatal Linux signals that will be outside of the cs folder <code>/</code></td>
+<td>file to write about fatal Linux signals that will be outside of the
+cs folder <code>/</code></td>
 </tr>
 <tr class="odd">
 <td><code>windowsbuglog=xxx</code></td>
-<td>names a WINDOWS directory to replicate the BUGS.txt log file outside of the CS directory area</td>
+<td>names a WINDOWS directory to replicate the BUGS.txt log file outside
+of the CS directory area</td>
 </tr>
 <tr class="even">
 <td><code>linuxsbuglog=xxx</code></td>
-<td>names a LINUX directory to replicate the BUGS.txt log file outside of the CS directory area</td>
+<td>names a LINUX directory to replicate the BUGS.txt log file outside
+of the CS directory area</td>
 </tr>
 <tr class="odd">
-<td><code>Vcs_new_user=&quot;text&quot;</code></td>
-<td>if input has given text within it, treat user as new and dont read the topic file</td>
+<td><code>Vcs_new_user="text"</code></td>
+<td>if input has given text within it, treat user as new and dont read
+the topic file</td>
 </tr>
 <tr class="even">
 <td><code>deployloggingdelay=5</code></td>
-<td>auto enable server logging for 5 minutes after a deploy before using default logging value</td>
+<td>auto enable server logging for 5 minutes after a deploy before using
+default logging value</td>
 </tr>
 </tbody>
 </table>
 <h2 id="execution-options">Execution options</h2>
 <table>
 <colgroup>
-<col width="19%" />
-<col width="80%" />
+<col style="width: 18%" />
+<col style="width: 81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -241,23 +491,31 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 <tbody>
 <tr class="odd">
 <td><code>source=xxxx</code></td>
-<td>Analogous to the <code>:source</code> command. The file is executed</td>
+<td>Analogous to the <code>:source</code> command. The file is
+executed</td>
 </tr>
 <tr class="even">
 <td><code>login=xxxx</code></td>
-<td>The same as you would name when asked for a login, this avoids having to ask for it. Can be <code>login=george</code> or <code>login=george:harry</code> or whatever</td>
+<td>The same as you would name when asked for a login, this avoids
+having to ask for it. Can be <code>login=george</code> or
+<code>login=george:harry</code> or whatever</td>
 </tr>
 <tr class="odd">
 <td><code>build0=filename</code></td>
-<td>runs <code>:build</code> on the filename as level0 and exits with 0 on success or 4 on failure</td>
+<td>runs <code>:build</code> on the filename as level0 and exits with 0
+on success or 4 on failure</td>
 </tr>
 <tr class="even">
 <td><code>build1=filename</code></td>
-<td>runs <code>:build</code> on the filename as level1 and exits with 0 on success or 4 on failure.<br>Eg. ChatScript <code>build0=files0.txt</code> will rebuild the usual level 0</td>
+<td>runs <code>:build</code> on the filename as level1 and exits with 0
+on success or 4 on failure.<br>Eg. ChatScript
+<code>build0=files0.txt</code> will rebuild the usual level 0</td>
 </tr>
 <tr class="odd">
 <td><code>debug=:xxx</code></td>
-<td>xxx runs the given debug command and then exits. Useful for <code>:trim</code>, for example or more specific <code>:build</code> commands</td>
+<td>xxx runs the given debug command and then exits. Useful for
+<code>:trim</code>, for example or more specific <code>:build</code>
+commands</td>
 </tr>
 <tr class="even">
 <td><code>param=xxxxx</code></td>
@@ -273,7 +531,9 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>redo</code></td>
-<td>see documentation for :redo in <a href="ChatScript-Debugging-Manual.html">ChatScript Debugging Manual</a> manual</td>
+<td>see documentation for :redo in <a
+href="ChatScript-Debugging-Manual.md">ChatScript Debugging Manual</a>
+manual</td>
 </tr>
 <tr class="even">
 <td><code>noboot</code></td>
@@ -281,7 +541,8 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>logsize=n</code></td>
-<td>When server log file exceeds n megabytes, rename it and start with a new file.</td>
+<td>When server log file exceeds n megabytes, rename it and start with a
+new file.</td>
 </tr>
 <tr class="even">
 <td><code>defaultbot=name</code></td>
@@ -297,31 +558,38 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>autoreload</code></td>
-<td>in event of cs engine crash, output a dummy message and reload on next input (see $cs_crashmsg and $cs_crash)</td>
+<td>in event of cs engine crash, output a dummy message and reload on
+next input (see $cs_crashmsg and $cs_crash)</td>
 </tr>
 <tr class="even">
 <td><code>nofastload</code></td>
-<td>If you suspect fast loading is faulty, you can set this to see if things work without it</td>
+<td>If you suspect fast loading is faulty, you can set this to see if
+things work without it</td>
 </tr>
 <tr class="odd">
 <td><code>syslogstr=xxx</code></td>
-<td>In linux will output this as part of Microsoft sql trace data to the syslog</td>
+<td>In linux will output this as part of Microsoft sql trace data to the
+syslog</td>
 </tr>
 <tr class="even">
 <td><code>buildflags=xxx</code></td>
-<td>this data will be used to control :build (quiet and nomixedcase are xxx values)</td>
+<td>this data will be used to control :build (quiet and nomixedcase are
+xxx values)</td>
 </tr>
 <tr class="odd">
 <td><code>autorestartdelay=n</code></td>
-<td>in event of cs engine internal restart, delay n milliseconds before accepts users</td>
+<td>in event of cs engine internal restart, delay n milliseconds before
+accepts users</td>
 </tr>
 <tr class="even">
 <td><code>crnl_safe</code></td>
-<td>tells system it does not need to search for cr or nl to remove from inputs.</td>
+<td>tells system it does not need to search for cr or nl to remove from
+inputs.</td>
 </tr>
 <tr class="odd">
 <td><code>blockapitrace</code></td>
-<td>disables any %trace_on in ^testpattern and ^testoutput. Used for production servers.</td>
+<td>disables any %trace_on in ^testpattern and ^testoutput. Used for
+production servers.</td>
 </tr>
 <tr class="even">
 <td><code>traceboot</code></td>
@@ -329,11 +597,13 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>parselimit=n</code></td>
-<td>if input is larger than n characters, disable intense spellchecking, pos-tagging, and parsing for speed</td>
+<td>if input is larger than n characters, disable intense spellchecking,
+pos-tagging, and parsing for speed</td>
 </tr>
 <tr class="even">
 <td><code>parselimit=1</code></td>
-<td>inputs longer than this will get no pos-tagging,parsing, or spellchecking - speeds up</td>
+<td>inputs longer than this will get no pos-tagging,parsing, or
+spellchecking - speeds up</td>
 </tr>
 <tr class="odd">
 <td><code>random=n</code></td>
@@ -345,217 +615,299 @@ RAWDATA/ONTOLOGY/SPANISH//</code></pre>
 </tr>
 <tr class="odd">
 <td><code>nophrases</code></td>
-<td>suppresses marking ~prep_phrase, ~verb_phrase, ~noun_phrase (minor speedup)</td>
+<td>suppresses marking ~prep_phrase, ~verb_phrase, ~noun_phrase (minor
+speedup)</td>
 </tr>
 <tr class="even">
 <td><code>nopatterndata</code></td>
-<td>disables pattern data gathering that supports ^MatchesCode (minor speedup)</td>
+<td>disables pattern data gathering that supports ^MatchesCode (minor
+speedup)</td>
 </tr>
 </tbody>
 </table>
-<p>Legacymatch default if not given is legacymatch=1. It redefines match variable contents when matching a concept. Canonical (eg _0) is the concept member NOT the canonical form of the words. Original (eg '_0) 'is what user typed (after corrections)</p>
+<p>Legacymatch default if not given is legacymatch=1. It redefines match
+variable contents when matching a concept. Canonical (eg _0) is the
+concept member NOT the canonical form of the words. Original (eg ’_0)
+’is what user typed (after corrections)</p>
 <pre><code>    concept: ~food (&quot;baked potato&quot;) with input &quot;baked potatoes&quot;
                 legacy=1 : (_~food) =&gt;  &#39;_0 - baked_potatoes  _0 - bake_potato
                 legacy=0 : (_~food) =&gt; &#39;_0 - baked_potatoes  _0 - baked_potato</code></pre>
-<p>If you don't have code that depends on legacy, you are better off adding legacy=0 to your init file. Then you don't need code like this for concept matches of unknown-words. <code>if (_0 == unknown-word){_0 = '_0'}</code>'</p>
-<p>Trustpos is normally off by default because CS is only about 94% accurate in its built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of a word rather than miss a match. Ergo concept: <sub>all(feel</sub>n) will match any use of &quot;feel&quot; rather than just noun meaning. But combining CS with Treetagger for english (if you license it) is better at pos-tagging than either alone, making it competitive with the best taggers in the world.</p>
-<p>Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):</p>
-<p>Rebuild <em>level0</em> (compiling system ChatScript files, listed usually in file <code>files0.txt</code>):</p>
-<pre><code>BINARIES/LinuxChatScript64 local build0=files0.txt </code></pre>
-<p>Rebuild <em>level1</em>, compiling bot <em>Mybot</em> (files listed in file <code>filesMybot.txt</code>), showing build report on screen (stdout):</p>
-<pre><code>BINARIES/LinuxChatScript64 local build1=filesMybot.txt </code></pre>
-<p>Rebuild and run: If building phase is without building errors, you can run the just built <em>Mybot</em> in local mode (interactive console) with user name <em>Amy</em>:</p>
-<pre><code>BINARIES/LinuxChatScript64 local login=Amy</code></pre>
-<p>Build bot <em>Mybot</em> and run ChatScript with user <em>Amy</em>:</p>
-<pre><code>BINARIES/LinuxChatScript64 local build1=filesMybot.txt &amp;&amp;  BINARIES/LinuxChatScript64 local login=Amy</code></pre>
-<h2 id="bot-variables-aka-server-variables">Bot variables (aka Server variables)</h2>
-<p>You can create predefined bot variables by simply naming permanent variables on the command line, using V to replace $ (since Linux shell scripts don't like $). Eg.</p>
-<pre><code>ChatScript Vmyvar=fatcat</code></pre>
-<pre><code>ChatScript Vmyvar=&quot;tony is here&quot;</code></pre>
-<pre><code>ChatScript &quot;Vmyvar=tony is here&quot;</code></pre>
-<p>Quoted strings will be stored without the quotes. Bot variables are always reset to their original value at each volley, even if you overwrite them during a volley. This can be used to provide server-host specific values into a script. Nor will they be saved in The user's topic file across volleys. This also applies to variables defined during any CS_BOOT</p>
-<h2 id="no-such-bot-specific---nosuchbotrestarttrue">No such bot-specific - nosuchbotrestart=true</h2>
-<p>If the system does not recognize the bot name requested, it can automatically restart a server (on the presumption that something got damaged). If you don't expect no such bot to happen, you can enable this restart using <code>nosuchbotrestart=true</code>. Default is false.</p>
-<h2 id="time-options">Time options</h2>
-<table>
-<colgroup>
-<col width="19%" />
-<col width="80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>Timer=15000</code></td>
-<td>if a volley lasts more than 15 seconds, abort it and return a timeout message.</td>
-</tr>
-<tr class="even">
-<td><code>Timer=18000x10</code></td>
-<td>same as above, but more roughly, higher number after the x reduces how frequently it samples time, reducing the cost of sampling</td>
-</tr>
-<tr class="odd">
-<td><code>Timelog=5000</code></td>
-<td>if a volley lasts more than 5000 milliseconds, record it in LOGS/time.txt and for LINUX in /log/cstime.txt .</td>
-</tr>
-</tbody>
-</table>
-<h2 id="translateconcept-google-api-key"><code>:TranslateConcept</code> Google API Key</h2>
-<table>
-<colgroup>
-<col width="19%" />
-<col width="80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>apikey=xxxxxx</code></td>
-<td>is how you provide a google translate api key to <code>:translateconcept</code></td>
-</tr>
-</tbody>
-</table>
-<h1 id="security">Security</h1>
-<p>Typically security parameters only are used in a server configuration.</p>
-<table>
-<colgroup>
-<col width="19%" />
-<col width="80%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>sandbox</code></td>
-<td>If the engine is not allowed to alter the server machine other than through the standard ChatScript directories, you can start it with the parameter <code>sandbox</code> which disables Export and System calls.</td>
-</tr>
-<tr class="even">
-<td><code>nodebug</code></td>
-<td>Users may not issue debug commands (regardless of authorizations). Scripts can still do so.</td>
-</tr>
-<tr class="odd">
-<td><code>authorize=&quot;&quot;</code></td>
-<td>bunch of authorizations &quot;&quot;. The contents of the string are just like the contents of the authorizations file for the server. Each entry separated from the other by a space. This list is checked first. If it fails to authorize AND there is a file, then the file will be checked also. Otherwise authorization is denied.</td>
-</tr>
-<tr class="even">
-<td><code>encrypt=xxxxx</code><br><code>decrypt=xxxxx</code></td>
-<td>These name URLs that accept JSON data to encrypt and decrypt user data. User data is of two forms, topic data and LTM data. LTM data is intended to be more personalized for a user, so if <code>encrypt</code> is set, LTM will be encrypted. User topic data is often just execution state of the user and potentially big, so by default it is not encrypted. You can request encryption using <code>userencrypt</code> as a command line parameter to encrypt the topic file and <code>ltmdecrypt</code> to encrypt the ltm file.</td>
-</tr>
-</tbody>
-</table>
-<p>The JSON data sent to the URL given by the parameters looks like this:</p>
-<pre><code>{&quot;datavalues&quot;: {&quot;x&quot;: &quot;...&quot;}} </code></pre>
-<p>where ... is the text to encrypt or decrypt. Data from CS will be filled into the ... and are JSON compatible.</p>
-<h1 id="server-parameters">Server Parameters</h1>
-<p>Either Mac/LINUX or Windows versions accept the following command line args:</p>
-<table>
-<colgroup>
-<col width="23%" />
-<col width="76%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>option</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>port=xxx</code></td>
-<td>This tells the system to be a server and to use the given numeric port. You must do this to tell Windows to run as a server. The standard port is 1024 but you can use any port.</td>
-</tr>
-<tr class="even">
-<td><code>local</code></td>
-<td>The opposite of the port command, this says run the program as a stand-alone system, not as a server.</td>
-</tr>
-<tr class="odd">
-<td><code>interface=127.0.0.1</code></td>
-<td>By default the value is <code>0.0.0.0</code> and the system directly uses a port that may be open to the internet. You can set the interface to a different value and it will set the local port of the TCP connection to what you designate. 127 is the classic TCP port.</td>
-</tr>
-</tbody>
-</table>
-<h1 id="user-data">User Data</h1>
-<p>Scripts can direct the system to store individualized data for a user in the user's topic file in USERS. It can store user variables (<code>$xxx</code>) or facts. Since variables hold only a single piece of information a script already controls how many of those there are. But facts can be arbitrarily created by a script and there is no natural limit. As these all take up room in the user's file, affecting how long it takes to process a volley (due to the time it takes to load and write back a topic file), you may want to limit how many facts each user can have written. This is unrelated to universal facts the system has at its permanent disposal as part of the base system.</p>
-<p><code>userfacts=n</code> limits a user file to saving only the n most recently created facts of a user (this does not include facts stored in fact sets). Overridden if the user has <code>$cs_userfactlimit</code> set to some value</p>
-<h3 id="user-caching">User Caching</h3>
-<p>Each user is tracked via their topic file in USERS. The system must load it and write it back for each volley and in some cases will become I/O bound as a result (particularly if the filesystem is not local).</p>
-<p>You can direct the system to keep a cache in memory of recent users, to reduce the I/O volume. It will still write out data periodically, but not every volley. Of course if you do this and the server crashes, writebacks may not have happened and some system rememberance of user interaction will be lost.</p>
-<p>Of course if the system crashes, user's may not think it unusually that the chatbot forgot some of what happened. By default, the system automatically writes to disk every volley, If you use a different value, a user file will never be more out of date than that.</p>
-<pre><code>cache=20
-cache=20x1</code></pre>
-<p>This specifies how many users can be cached in memory and how big the cache block in kb should be for a user. The default block size is <code>50</code> (50,000 bytes). User files typically are under 20,000 bytes.</p>
-<p>If a file is too big for the block, it will just have to write directly to and from the filesystem. The default cache count is 1, telling how many users to cache at once, but you can explicitly set how many users get cached with the number after the &quot;x&quot;. If the second number is 0, then no caching is done and users have no data saved. They remember nothing from volley to volley.</p>
-<p>Do not use caching with fork. The forks will be hiding user data from each other.</p>
-<pre><code>save=n</code></pre>
-<p>This specifies how many volleys should elapse before a cached user is saved to disk. Default is 1. A value of 0 not only causes a user's data to be written out every volley, but also causes the user record to be dropped from the cache, so it is read back in every time it is needed (handy when running multi-core copies of chatscript off the same port).</p>
-<p>Note, if you change the default to a number higher than 1, you should always use <code>:quit</code> to end a server. Merely killing the process may result in loss of the most recent user activity.</p>
-<h2 id="logging-or-not">Logging or Not</h2>
-<p>In stand-alone mode the system logs what a user says with a bot in the USERS folder. It can also do this in server mode. It can also log what the server itself does. But logging slows down the system. Particularly if you have an intervening server running and it is logging things, you may have no use whatsoever for ChatScript's logging.</p>
-<pre><code>Userlog</code></pre>
-<p>Store a user-bot log in USERS directory. Stand-alone default if unspecified. Alternatively you can do userlog=1 to enable.</p>
-<pre><code>Nouserlog</code></pre>
-<p>Don't store a user-bot log. Server default if unspecified. Alternatively you can do userlog=0 to disable. Alternatively you can do userlogging=none.</p>
-<pre><code>Serverlog</code></pre>
-<p>Write a server log and a bugs log. Alternatively you can do serverlog=1 to enable to file, 2 to use stdout, 4 to use stderr. You can combine like serverlog=5 Prefer the alternate form of request, serverlogging=none for off and file, stdout, stderr. - you may combine serverlogging=file,stdout Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.</p>
-<p>The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port.</p>
-<p>The bugs log is in the same directory under bugs.txt (all ports).</p>
-<p>The server log records all transactions by all users in order of arrival. Whereas the user log records transactions by user/bot.</p>
-<p>The server log can be written regardless of whether CS is running in server mode or not.</p>
-<pre><code>serverlogauthcode=xxxxx</code></pre>
-<p>In addition to permanently turning on server and/or user logging, you can provide a cheat code in your input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code is hidden from CS processing so it will not impact NL processing.</p>
-<p>In calls to ^testpattern, this will log to return in a <code>trace</code> field. By default, this code will just trace patterns. But if you concat <code>2</code> onto the code it will do a full cs trace.</p>
-<p>In calls to ^testouput, this will log to return in a trace field but will always be a full trace.</p>
-<pre><code>hidefromlog=&quot;label label2 label3&quot;</code></pre>
-<p>If there is data you don't want reflected into either server or user log files, this is the parameter. Maybe you don't want an authorization code recorded, or whatever. This presumes the data is part of some JSON object. You name one or more labels and when those are found in data outbound to a log file, the label and its value will be omitted.</p>
-<pre><code>Serverctrlz</code></pre>
-<p>Have server terminate its output with 0x00 0xfe 0xff as a verification the client received the entire message, since without sending to server, client cannot be positive the connection wasn't broken somewhere and await more input forever.</p>
-<pre><code>pseudoserver</code></pre>
-<p>This asserts that cs in DLL/sharedobject form is being used as a server (though its caller is doing all the server work). This enables the required authorizations from CS before using debug commands.</p>
-<pre><code>Noserverlog</code></pre>
-<p>Superceeded by <code>serverloggging=</code>. Don't write a server log or a bugs log. Alternatively you can do serverlog=0 to disable.</p>
-<pre><code>Nobuglog</code></pre>
-<p>Don't write a bugs log. Same as Buglog=0 or Buglog=none</p>
-<pre><code>Buglog
-Buglog=n
-Buglogging=none,file,stdout,stderr</code></pre>
-<p>Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. Alternate form of request, you can use buglogging=none for off and file, stdout, stderr. - you may combine buglogging=file,stderr</p>
-<pre><code>DebugLevel=n</code></pre>
-<p>Sets debug level of server logging. 0 will remove logging all the startup variables and their values.</p>
-<pre><code>Fork=n</code></pre>
-<p>If using LINUX EVSERVER, you can request extra copies of ChatScript (to run on each core for example). n specifies how many additional copies of ChatScript to launch.</p>
-<pre><code>Serverretry</code></pre>
-<p>Allows <code>:retry</code> to work from a server - don't use this except for testing a single-person on a server as it slows down the server.</p>
-<pre><code>servertrace</code></pre>
-<p>when present, forces all users to have tracing turned on. Traces go to the user logs.</p>
-<pre><code>repeatLimit=n</code></pre>
-<p>Servers are subject to malicious inputs, often generated as repeated words over and over. This detects repeated input and if the number of sequential repeats is non-zero and equal or greater to this parameter, such inputs will be truncated to just the initial repeats. All other input in this volley will be discarded.</p>
-<pre><code>erasename=myname</code></pre>
-<p>:reset, when called from running script, is unable to fully reset the system. Facts that have already been created are not destroyed and user variables that have been defined are not erased, only ones in the bot definition are changed back to their default settings. The erasename parameter is used to perform a full reset prior to loading the user topic file. The incoming input is scanned for the text given, and if found the system bypasses loading the topic file and instead just initializes a fresh bot. The actual erasename seen in input will be converted to all blanks, so it will not disturb normal behavior, either in OOB input or user input.</p>
-<p>The default value for this is: <code>csuser_erase</code> which you can change to anything else you want.</p>
-<pre><code>cs_new_user=&quot;text&quot;&quot;</code></pre>
-<p>The cs_new_user parameter is used to perform a full reset prior to loading the user topic file. The incoming input is scanned for the text given, and if found the system bypasses loading the topic file and instead just initializes a fresh bot. This differs from erasename in that the text is not erased.</p>
-<h2 id="no-such-bot-specific---nosuchbotrestarttrue-1">No such bot-specific - nosuchbotrestart=true</h2>
-<p>If the system does not recognize the bot name requested, it can automatically restart a server (on the presumption that something got damaged). If you don't expect no such bot to happen, you can enable this restart using <code>nosuchbotrestart=true</code>. Default is false.</p>
-<h2 id="testing-a-server">Testing a server</h2>
-<p>There are various configurations for having an instance be a client to test a server.</p>
-<pre><code>client=xxxx:yyyy</code></pre>
-<p>This says be a client to test a remote server at IP xxxx and port yyyy. You will be able to &quot;login&quot; to this client and then send and receive messages with a server.</p>
-<pre><code>client=localhost:yyyy</code></pre>
-<p>This says be a client to test a local server on port yyyy. Similar to above.</p>
-<pre><code>Load=1</code></pre>
-<p>This creates a localhost client that constantly sends messages to a server. Works its way through <code>REGRESS/bigregress.txt</code> as its input (over 100K messages). Can assign different numbers to create different loading clients (e.g., load=10 creates 10 clients).</p>
-<pre><code>Dual</code></pre>
-<p>Yet another client. But this one feeds the output of the server back as input for the next round. There are also command line parameters for controlling memory usage which are not specific to being a server.</p>
+<p>If you don’t have code that depends on legacy, you are better off
+adding legacy=0 to your init file. Then you don’t need code like this
+for concept matches of unknown-words.</p>
+<pre><code>if (_0 == unknown-word){_0 = &#39;_0&#39;} 
+```&#39;
+
+Trustpos is normally off by default because CS is only about 94% accurate in its
+built-in pos-tagging. So it prefers to wrongly match by allowing all pos values Of
+a word rather than miss a match. Ergo concept: ~all(feel~n) will match any use of &quot;feel&quot; rather than
+just noun meaning. But combining CS with Treetagger for english (if you license it) is better at
+pos-tagging than either alone, making it competitive with the best taggers in the world.
+    
+
+Here few command line parameters usage examples of usual edit/compile developement phase, running ChatScript from a Linux terminal console (standalone mode):
+
+Rebuild _level0_ (compiling system ChatScript files, listed usually in file `files0.txt`):</code></pre>
+<p>BINARIES/LinuxChatScript64 local build0=files0.txt</p>
+<pre><code>
+Rebuild _level1_, compiling bot _Mybot_ (files listed in file `filesMybot.txt`), showing build report on screen (stdout):
+</code></pre>
+<p>BINARIES/LinuxChatScript64 local build1=filesMybot.txt</p>
+<pre><code>
+Rebuild and run: If building phase is without building errors, you can run the just built _Mybot_ in local mode (interactive console) with user name _Amy_:
+</code></pre>
+<p>BINARIES/LinuxChatScript64 local login=Amy</p>
+<pre><code>
+Build bot _Mybot_ and run ChatScript with user _Amy_: 
+</code></pre>
+<p>BINARIES/LinuxChatScript64 local build1=filesMybot.txt &amp;&amp;
+BINARIES/LinuxChatScript64 local login=Amy</p>
+<pre><code>
+
+## Bot variables (aka Server variables)
+
+You can create predefined bot variables by simply naming permanent variables on the
+command line, using V to replace $ (since Linux shell scripts don&#39;t like $). Eg.</code></pre>
+<p>ChatScript Vmyvar=fatcat</p>
+<pre><code></code></pre>
+<p>ChatScript Vmyvar=“tony is here”</p>
+<pre><code></code></pre>
+<p>ChatScript “Vmyvar=tony is here”</p>
+<pre><code>
+Quoted strings will be stored without the quotes. Bot variables are always reset to their
+original value at each volley, even if you overwrite them during a volley. This can be
+used to provide server-host specific values into a script. Nor will they be saved in The
+user&#39;s topic file across volleys.  This also applies to variables defined during any CS_BOOT
+
+
+## No such bot-specific - nosuchbotrestart=true
+
+If the system does not recognize the bot name requested, it can automatically restart a
+server (on the presumption that something got damaged). If you don&#39;t expect no such bot
+to happen, you can enable this restart using `nosuchbotrestart=true`. Default is false.
+
+
+## Time options
+| option           | description
+|------------------|-----------------------------------------------------------------------------
+| `Timer=15000`    | if a volley lasts more than 15 seconds, abort it and return a timeout message.
+| `Timer=18000x10` |same as above, but more roughly, higher number after the x reduces how frequently it samples time, reducing the cost of sampling
+| `Timelog=5000`    | if a volley lasts more than 5000 milliseconds, record it in LOGS/time.txt and for LINUX in /log/cstime.txt .
+
+## `:TranslateConcept` Google API Key
+| option           | description
+|------------------|-----------------------------------------------------------------------------
+| `apikey=xxxxxx`  | is how you provide a google translate api key to `:translateconcept`
+
+# Security
+
+Typically security parameters only are used in a server configuration.
+
+| option           | description
+|------------------|-----------------------------------------------------------------------------
+| `sandbox`        | If the engine is not allowed to alter the server machine other than through the standard ChatScript directories, you can start it with the parameter `sandbox` which disables Export and System calls.
+| `nodebug`        | Users may not issue debug commands (regardless of authorizations). Scripts can still do so.
+|`authorize=&quot;&quot;`| bunch of authorizations &quot;&quot;. The contents of the string are just like the contents of the authorizations file for the server. Each entry separated from the other by a space. This list is checked first. If it fails to authorize AND there is a file, then the file will be checked also. Otherwise authorization is denied.
+|`encrypt=xxxxx`&lt;br&gt;`decrypt=xxxxx` | These name URLs that accept JSON data to encrypt and decrypt user data. User data is of two forms, topic data and LTM data. LTM data is intended to be more personalized for a user, so if `encrypt` is set, LTM will be  encrypted. User topic data is often just execution state of the user and potentially big, so by default it is not encrypted. You can request encryption using `userencrypt` as a command line parameter to encrypt the topic file and `ltmdecrypt` to encrypt the ltm file.
+
+The JSON data sent to the URL given by the parameters looks like this:</code></pre>
+<p>{“datavalues”: {“x”: “…”}}</p>
+<pre><code>where ... is the text to encrypt or decrypt. Data from CS will be filled into the ... and are JSON compatible.
+
+
+# Server Parameters
+
+Either Mac/LINUX or Windows versions accept the following command line args:
+
+| option                | description
+|-----------------------|-----------------------------------------------------------------------------
+| `port=xxx`            | This tells the system to be a server and to use the given numeric port. You must do this to tell Windows to run as a server. The standard port is 1024 but you can use any port.
+| `local`               | The opposite of the port command, this says run the program as a stand-alone system, not as a server.
+| `interface=127.0.0.1` | By default the value is `0.0.0.0` and the system directly uses a port that may be open to the internet. You can set the interface to a different value and it will set the local port of the TCP connection to what you designate. 127 is the classic TCP port.
+
+# User Data
+
+Scripts can direct the system to store individualized data for a user in the user&#39;s topic file
+in USERS. It can store user variables (`$xxx`) or facts. Since variables hold only a single
+piece of information a script already controls how many of those there are. But facts can
+be arbitrarily created by a script and there is no natural limit. 
+As these all take up room in the user&#39;s file, affecting how long it takes to process a volley 
+(due to the time it takes to load and write back a topic file), 
+you may want to limit how many facts each user can have written. 
+This is unrelated to universal facts the system has at its permanent disposal as part of the base system.
+
+`userfacts=n` limits a user file to saving only the n most recently created facts of a user (this does not include facts stored in fact sets). 
+Overridden if the user has `$cs_userfactlimit` set to some value
+
+### User Caching
+
+Each user is tracked via their topic file in USERS. The system must load it and write it
+back for each volley and in some cases will become I/O bound as a result (particularly if
+the filesystem is not local). 
+
+You can direct the system to keep a cache in memory of recent users, to reduce the I/O volume. 
+It will still write out data periodically, but not every volley. 
+Of course if you do this and the server crashes, 
+writebacks may not have happened and some system rememberance of user interaction will be lost. 
+
+Of course if the system crashes, user&#39;s may not think it unusually that the chatbot forgot some of what happened. 
+By default, the system automatically writes to disk every volley, If you use a different value, 
+a user file will never be more out of date than that.</code></pre>
+<p>cache=20 cache=20x1</p>
+<pre><code>This specifies how many users can be cached in memory and how big the cache block in
+kb should be for a user. The default block size is `50` (50,000 bytes). 
+User files typically are under 20,000 bytes.
+
+If a file is too big for the block, it will just have to write directly to and from the filesystem. 
+The default cache count is 1, telling how many users to cache at once, 
+but you can explicitly set how many users get cached with the number after the
+&quot;x&quot;. If the second number is 0, then no caching is done and users have no data saved.
+They remember nothing from volley to volley.
+
+Do not use caching with fork. The forks will be hiding user data from each other.
+</code></pre>
+<p>save=n</p>
+<pre><code>This specifies how many volleys should elapse before a cached user is saved to disk.
+Default is 1. A value of 0 not only causes a user&#39;s data to be written out every volley, but
+also causes the user record to be dropped from the cache, so it is read back in every time
+it is needed (handy when running multi-core copies of chatscript off the same port). 
+
+Note, if you change the default to a number higher than 1, you should always use `:quit` 
+to end a server. Merely killing the process may result in loss of the most recent user activity.
+
+## Logging or Not
+
+In stand-alone mode the system logs what a user says with a bot in the USERS folder. It
+can also do this in server mode. It can also log what the server itself does. But logging
+slows down the system. Particularly if you have an intervening server running and it is
+logging things, you may have no use whatsoever for ChatScript&#39;s logging.
+</code></pre>
+<p>Userlog</p>
+<pre><code>Store a user-bot log in USERS directory. Stand-alone default if unspecified.
+Alternatively you can do  userlog=1   to enable.
+</code></pre>
+<p>Nouserlog</p>
+<pre><code>Don&#39;t store a user-bot log. Server default if unspecified.
+Alternatively you can do  userlog=0   to disable.
+Alternatively you can do userlogging=none.
+</code></pre>
+<p>Serverlog</p>
+<pre><code>Write a server log and a bugs log. 
+Alternatively you can do  serverlog=1   to enable to file,  2 to use stdout, 4 to use stderr. You can combine like serverlog=5
+Prefer the alternate form of request,  serverlogging=none for off and file, stdout, stderr.  - you may combine serverlogging=file,stdout
+Last form scanned (read in order from cs_init.txt and then cs_initmore.txt) wins.
+
+The server log will be put into the LOGS directory under serverlogxxx.txt where xxx is the port. 
+
+The bugs log is in the same directory under bugs.txt (all ports).
+
+The server log records all transactions by all users in order of arrival. Whereas the user log
+records transactions by user/bot.
+
+The server log can be written regardless of whether CS is running in
+server mode or not.
+</code></pre>
+<p>serverlogauthcode=xxxxx</p>
+<pre><code>In addition to permanently turning on server and/or user logging, you can provide a cheat code in your
+input that, if it matches the serverlogauthcode, will enable server and user logging for that input. This code
+is hidden from CS processing so it will not impact NL processing.
+
+In calls to ^testpattern, this will log to return in a `trace` field. By
+default, this code will just trace patterns. But if you concat `2` onto the
+code it will do a full cs trace.
+
+In calls to ^testouput, this will log to return in a trace field but will always
+be a full trace.
+</code></pre>
+<p>hidefromlog=“label label2 label3”</p>
+<pre><code>If there is data you don&#39;t want reflected into either server or user log files, this is the parameter. Maybe you don&#39;t
+want an authorization code recorded, or whatever. This presumes the data is part of some JSON object. You name one or more labels
+and when those are found in data outbound to a log file, the label and its value will be omitted.
+
+</code></pre>
+<p>Serverctrlz</p>
+<pre><code>Have server terminate its output with 0x00 0xfe 0xff as a verification the client received
+the entire message, since without sending to server, client cannot be positive the
+connection wasn&#39;t broken somewhere and await more input forever.</code></pre>
+<p>pseudoserver</p>
+<pre><code>This asserts that cs in DLL/sharedobject form is being used as a server (though its caller is doing all the server work).
+This enables the required authorizations from CS before using debug commands.
+</code></pre>
+<p>Noserverlog</p>
+<pre><code>Superceeded by `serverloggging=`.
+Don&#39;t write a server log or a bugs log.
+Alternatively you can do  serverlog=0   to disable.
+</code></pre>
+<p>Nobuglog</p>
+<pre><code>Don&#39;t write a  bugs log. Same as Buglog=0 or Buglog=none
+</code></pre>
+<p>Buglog Buglog=n Buglogging=none,file,stdout,stderr</p>
+<pre><code>Write a LOGS/bugs.txt log if n = 1. Write nothing if n == 0. 
+Alternate form of request, you can use buglogging=none for off and file, stdout, stderr.  - you may combine buglogging=file,stderr
+</code></pre>
+<p>DebugLevel=n</p>
+<pre><code>Sets debug level of server logging. 0 will remove logging all the startup variables and their values.
+</code></pre>
+<p>Fork=n</p>
+<pre><code>If using LINUX EVSERVER, you can request extra copies of ChatScript (to run on each
+core for example). n specifies how many additional copies of ChatScript to launch.
+</code></pre>
+<p>Serverretry</p>
+<pre><code>Allows `:retry` to work from a server - don&#39;t use this except for testing a single-person 
+on a server as it slows down the server.
+</code></pre>
+<p>servertrace</p>
+<pre><code>when present, forces all users to have tracing turned on. Traces go to the user logs.
+</code></pre>
+<p>repeatLimit=n</p>
+<pre><code>Servers are subject to malicious inputs, often generated as repeated words over and over.
+This detects repeated input and if the number of sequential repeats is non-zero and equal or
+greater to this parameter, such inputs will be truncated to just the initial repeats. All
+other input in this volley will be discarded.
+</code></pre>
+<p>erasename=myname</p>
+<pre><code>:reset, when called from running script, is unable to fully reset the system.
+Facts that have already been created are not destroyed and user variables that have been
+defined are not erased, only ones in the bot definition are changed back to their default
+settings.  The erasename parameter is used to perform a full reset prior to loading the
+user topic file. The incoming input is scanned for the text given, and if found the
+system bypasses loading the topic file and instead just initializes a fresh bot.
+The actual erasename seen in input will be converted to all blanks, so it will not disturb
+normal behavior, either in OOB input or user input.
+
+The default value for this is: `csuser_erase` which you can change to anything else you want.
+</code></pre>
+<p>cs_new_user=“text””</p>
+<pre><code>The cs_new_user parameter is used to perform a full reset prior to loading the
+user topic file. The incoming input is scanned for the text given, and if found the
+system bypasses loading the topic file and instead just initializes a fresh bot.
+This differs from erasename in that the text is not erased. 
+
+## No such bot-specific - nosuchbotrestart=true
+
+If the system does not recognize the bot name requested, it can automatically restart a
+server (on the presumption that something got damaged). If you don&#39;t expect no such bot
+to happen, you can enable this restart using `nosuchbotrestart=true`. Default is false.
+
+
+## Testing a server
+
+There are various configurations for having an instance be a client to test a server.</code></pre>
+<p>client=xxxx:yyyy</p>
+<pre><code>This says be a client to test a remote server at IP xxxx and port yyyy. You will be able to
+&quot;login&quot; to this client and then send and receive messages with a server.
+</code></pre>
+<p>client=localhost:yyyy</p>
+<pre><code>This says be a client to test a local server on port yyyy. Similar to above.
+</code></pre>
+<p>Load=1</p>
+<pre><code>This creates a localhost client that constantly sends messages to a server. Works its way
+through `REGRESS/bigregress.txt` as its input (over 100K messages). Can assign different
+numbers to create different loading clients (e.g., load=10 creates 10 clients).
+</code></pre>
+<p>Dual ``` Yet another client. But this one feeds the output of the
+server back as input for the next round. There are also command line
+parameters for controlling memory usage which are not specific to being
+a server.</p>
 </body>
 </html>

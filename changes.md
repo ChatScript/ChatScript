@@ -1,3 +1,11 @@
+# Version 13.3 August 13, 2023
+1. Support for Filipino
+2. potential phone numbers are marked 
+	~phonenumber, ~uslocal_phonenumber,
+	~usinternational,~usinternal_phonenumber,~ukinternal_phonenumber
+	~ukinternational,~deinternational
+	~jpinternational,~esinternational, ~mxinternational
+
 # Version 13.2 June  13, 2023
 
 Note- you will be forced to recompile your bot when you run this version initially.

@@ -264,8 +264,10 @@ bool MarkWordHit(int depth, MEANING exactWord, WORDP D, int meaningIndex, unsign
 			}
 			if (kind == RAW || kind == RAWCASE) kindlabel = "(raw)";
 			Log((showMark) ? ECHOUSERLOG : USERLOG, (D->internalBits & TOPIC) ? "+T%s%s " : (char*)" +%s%s", D->word, which);
+			char* exactd = "";
+			if (exactWord && D->word[0] == '~') exactd = Meaning2Word(exactWord)->word;
 			if (prefix) Log((showMark) ? ECHOUSERLOG : USERLOG, " (%d,%d-%d)\r\n", prefix,start, end);
-			else Log((showMark) ? ECHOUSERLOG : USERLOG," (%d-%d) %s %s\r\n", start, end,kindlabel,other);
+			else Log((showMark) ? ECHOUSERLOG : USERLOG," (%d-%d) %s %s %s\r\n", start, end,kindlabel,other,exactd);
 			markLength = 0;
 		}
 	}
@@ -1160,6 +1162,7 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 	memset(sameraw, 0, sizeof(sameraw)); // raw == fixed?
 	unsigned int fixedlength[MAX_SENTENCE_LENGTH];
 	unsigned int canonlength[MAX_SENTENCE_LENGTH];
+	unsigned int endnumbermerge = 0;
 	for (unsigned int i = 1; i <= wordCount; ++i)
 	{
 		// huntmatch is case insensitive, so note when fixed and canonical are same or vary
@@ -1191,11 +1194,23 @@ static void FindSequences() //   mark words in sequence, original and canonical 
 	
 	bool hasParticle = false;
 
+
 	//   consider all sets of up to 5-in-a-row 
 	if (endSentence > wordCount)
 		endSentence = wordCount;
 	for (unsigned int i = startSentence; i <= (int)endSentence; ++i)
 	{
+		PhoneNumber(i);
+
+		uint64 val = (i > endnumbermerge) ? ComposeNumber(i, endnumbermerge) : 0;
+		if (val)
+		{
+			char* num = PrintU64(val);
+			WORDP D = StoreWord(num, AS_IS| ADJECTIVE|ADJECTIVE_NUMBER | NOUN_NUMBER);
+			MarkMeaningAndImplications(0, MakeMeaning(D), MakeMeaning(FindWord((char*)"~integer")), i, endnumbermerge, FIXED, true);
+			i = endnumbermerge;
+			continue;
+		}
 		if (!IsAlphaUTF8OrDigit(*wordStarts[i])) continue; // we only composite words, not punctuation or quoted stuff
 		if (IsDate(wordStarts[i])) continue;// 1 word date, caught later
 		// check for dates
@@ -1926,12 +1941,17 @@ static void MarkSentence(bool limitnlp)
 
 	//   handle phrases now
 	markLength = 0;
+    uint64 start_time_sequence = ElapsedMilliseconds();
+
 	if (!limitnlp) FindSequences(); //   sequences of words
 	ProcessPendingConcepts();
 
 	if (hasFundamentalMeanings && !limitnlp) MarkFundamentalMeaning();
 
 	ExecuteConceptPatterns(); // now use concept patterns
+
+    int diff = (int)(ElapsedMilliseconds() - start_time_sequence);
+    TrackTime((char*)"MarkWordSequence",diff);
 }
 
 void MarkAllImpliedWords(bool limitnlp)

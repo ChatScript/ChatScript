@@ -1,24 +1,209 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Debugging-Manual</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="chatscript-debugging-manual">ChatScript Debugging Manual</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 6/13/2022 cs13.2</p>
-<p>You've written script. It doesn't work. Now what? Now you need to debug it, fix it, and recompile it. Debugging is mostly a matter of tracing what the system does and finding out where it doesn't do what you expected.</p>
-<p>Sometimes debugging involves changes to the cs_init.txt and cs_initmore.txt files. In stand-alone mode you can just type <code>:restart</code> after editing those files and cs will reboot. In a live running cs however, if you have not authorized debug commands then you can't type restart. But you can add a top level file named <code>restart.txt</code> which will force cs to reboot itself as it starts to process the next user input (and it erases the file after doing that).</p>
-<p>If you don't have Windows, then debugging mostly done by issuing debug commands to the engine, as opposed to chatting. If you have windows, you can run your program under ChatScriptIDE to debug it interactively. See the ChatScript-Debugger manual.</p>
-<p>Debugging commands only show their data if user logging is enabled. In cs_init.txt you can put 'userlogging-file' or create at top level the file 'userlogging.txt'.</p>
-<p>If the system detects bugs during execution, they go into <code>TMP/bugs.txt</code> You can erase the entire contents of the TMP directory any time you want to. But odds are this is not your problem.</p>
-<p>Debugging generally requires use of some :xxxx commands. I don't always remember them all, so at times I might simply say</p>
-<h2 id="special-input-controls-in-user-input"><code>Special Input controls in user input</code></h2>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com
+www.brilligunderstanding.com<br> <br>Revision 6/13/2022 cs13.2</p>
+<p>You’ve written script. It doesn’t work. Now what? Now you need to
+debug it, fix it, and recompile it. Debugging is mostly a matter of
+tracing what the system does and finding out where it doesn’t do what
+you expected.</p>
+<p>Sometimes debugging involves changes to the cs_init.txt and
+cs_initmore.txt files. In stand-alone mode you can just type
+<code>:restart</code> after editing those files and cs will reboot. In a
+live running cs however, if you have not authorized debug commands then
+you can’t type restart. But you can add a top level file named
+<code>restart.txt</code> which will force cs to reboot itself as it
+starts to process the next user input (and it erases the file after
+doing that).</p>
+<p>If you don’t have Windows, then debugging mostly done by issuing
+debug commands to the engine, as opposed to chatting. If you have
+windows, you can run your program under ChatScriptIDE to debug it
+interactively. See the ChatScript-Debugger manual.</p>
+<p>Debugging commands only show their data if user logging is enabled.
+In cs_init.txt you can put ‘userlogging-file’ or create at top level the
+file ‘userlogging.txt’.</p>
+<p>If the system detects bugs during execution, they go into
+<code>TMP/bugs.txt</code> You can erase the entire contents of the TMP
+directory any time you want to. But odds are this is not your
+problem.</p>
+<p>Debugging generally requires use of some :xxxx commands. I don’t
+always remember them all, so at times I might simply say</p>
+<p>##<code>Special Input controls in user input</code></p>
 <pre><code>#!Rosette#my message</code></pre>
-<p>The use of the above syntax means to change the bot to Rosette and then use <code>my message</code> as the actual input.</p>
+<p>The use of the above syntax means to change the bot to Rosette and
+then use <code>my message</code> as the actual input.</p>
 <h2 id="commands"><code>:commands</code></h2>
 <p>to get a list of the commands and a rough description.</p>
 <pre><code>:commands</code></pre>
@@ -153,101 +338,210 @@
 :worddump          - show words via hardcoded test
 :verifySentence    - verification data
 :labelremap     - for a topic builds an xref of internal tags to their labels (if they have one)  into TMP/labels.txt</code></pre>
-<p>All commands can be written in full, or most can be abbreviated using <code>:firstletterlastletter</code>, eg</p>
+<p>All commands can be written in full, or most can be abbreviated using
+<code>:firstletterlastletter</code>, eg</p>
 <pre><code>:build</code></pre>
 <p>can be</p>
 <pre><code>:bd</code></pre>
-<p><code>:commands off</code> will locally disable commands until a corresponding <code>:commands on</code> is given.</p>
+<p><code>:commands off</code> will locally disable commands until a
+corresponding <code>:commands on</code> is given.</p>
 <p><strong>Before it goes wrong during execution</strong></p>
-<p>Before you chat with your chatbot and discover things don't work, there are a couple of things to do first, to warn you of problems.</p>
+<p>Before you chat with your chatbot and discover things don’t work,
+there are a couple of things to do first, to warn you of problems.</p>
 <h2 id="compiling-build">Compiling (<code>:build</code>)</h2>
-<p>Of course, you started with <code>:build</code> to compile your script. It wouldn't have passed a script that was completely wrong, but it might have issued warnings.</p>
-<p>That's also not likely to be your problem, but let's look at what it might have told you as a warning. The system will warn you as it compiles and it will summarize its findings at the end of the compile. The compilation messages occur on screen and in the log file.</p>
-<p>The most significant warnings are a reference to an undefined set or an undefined <code>^reuse</code> label. E.g.,</p>
+<p>Of course, you started with <code>:build</code> to compile your
+script. It wouldn’t have passed a script that was completely wrong, but
+it might have issued warnings.</p>
+<p>That’s also not likely to be your problem, but let’s look at what it
+might have told you as a warning. The system will warn you as it
+compiles and it will summarize its findings at the end of the compile.
+The compilation messages occur on screen and in the log file.</p>
+<p>The most significant warnings are a reference to an undefined set or
+an undefined <code>^reuse</code> label. E.g.,</p>
 <pre><code>*** Warning- missing set definition ~car_names
 *** Warning- Missing cross-topic label ~allergy.JOHN for reuse</code></pre>
-<p>Those you should fix because clearly they are wrong, although the script will execute fine everywhere but in those places.</p>
+<p>Those you should fix because clearly they are wrong, although the
+script will execute fine everywhere but in those places.</p>
 <pre><code>*** Warning- flowglow is unknown as a word in pattern</code></pre>
-<p>Warnings about words in patterns that it doesn't recognize or it recognizes in lower case but you used upper case may or may not matter. Neither of these is wrong, unless you didn't intend it. Words it doesn't recognize arise either because you made a typo (requiring you fix it) or simply because the word isn't in the dictionary.</p>
-<p>Words in upper case are again words it knows as lower case, but you used it as upper case. Maybe right or wrong.</p>
+<p>Warnings about words in patterns that it doesn’t recognize or it
+recognizes in lower case but you used upper case may or may not matter.
+Neither of these is wrong, unless you didn’t intend it. Words it doesn’t
+recognize arise either because you made a typo (requiring you fix it) or
+simply because the word isn’t in the dictionary.</p>
+<p>Words in upper case are again words it knows as lower case, but you
+used it as upper case. Maybe right or wrong.</p>
 <h3 id="echorule">echorule</h3>
-<p>When you add this after the build name, the system will show what rule pattern is has most recently compiled in the log. If build crashes in a topic or you are not clear where you are when things go wrong, this trace can help identify the rule in question.</p>
-<h3 id="ignorespell-...">ignorespell: ...</h3>
-<p>You can disable case spelling warnings for specific words by naming them in lower case like this:</p>
+<p>When you add this after the build name, the system will show what
+rule pattern is has most recently compiled in the log. If build crashes
+in a topic or you are not clear where you are when things go wrong, this
+trace can help identify the rule in question.</p>
+<h3 id="ignorespell">ignorespell: …</h3>
+<p>You can disable case spelling warnings for specific words by naming
+them in lower case like this:</p>
 <pre><code>ignorespell: me or</code></pre>
-<p>This will not warn you when the system detects <code>me</code> or <code>ME</code> (abbreviation of Maine). You can also globally turn off spell warnings using</p>
+<p>This will not warn you when the system detects <code>me</code> or
+<code>ME</code> (abbreviation of Maine). You can also globally turn off
+spell warnings using</p>
 <pre><code>ignorespell: *</code></pre>
 <p>which remains in effect until you do</p>
 <pre><code>ignorespell: !*</code></pre>
-<p>You can, for example, fix all warnings you can in a file, And once you believe there are no more issues and the file is frozen, just turn ignorespell on at start of file and off at end of file.</p>
-<p>Editing the main dictionary is not a task for the faint-hearted. But ChatScript maintains secondary dictionaries in the <code>TOPIC</code> folder and those are easy to adjust. To alter them, you can define concepts that add local dictionary entries. The names of important word type bits are in <code>src/dictionarySystem.h</code> but the basics are <code>NOUN</code>, <code>VERB</code>, <code>ADJECTIVE</code>, and <code>ADVERB</code>.</p>
+<p>You can, for example, fix all warnings you can in a file, And once
+you believe there are no more issues and the file is frozen, just turn
+ignorespell on at start of file and off at end of file.</p>
+<p>Editing the main dictionary is not a task for the faint-hearted. But
+ChatScript maintains secondary dictionaries in the <code>TOPIC</code>
+folder and those are easy to adjust. To alter them, you can define
+concepts that add local dictionary entries. The names of important word
+type bits are in <code>src/dictionarySystem.h</code> but the basics are
+<code>NOUN</code>, <code>VERB</code>, <code>ADJECTIVE</code>, and
+<code>ADVERB</code>.</p>
 <pre><code>concept: ~morenoun NOUN (fludge flwoa boara)</code></pre>
-<p>A concept like the above, declared before use of those words, will define them into the local dictionary as nouns and suppress the warning message. You can be more specific as well with multiple flags like this:</p>
+<p>A concept like the above, declared before use of those words, will
+define them into the local dictionary as nouns and suppress the warning
+message. You can be more specific as well with multiple flags like
+this:</p>
 <pre><code>concept: ~myverbs VERB VERB_INFINITIVE (spluat babata)</code></pre>
-<p>You can define concepts at level 0 and/or level 1 of the build, so you can put define new words whenever you need to.</p>
-<p>When build is complete, it will pick up where it left off with the user (his data files unchanged). If you want to automatically clear the user and start afresh, use</p>
+<p>You can define concepts at level 0 and/or level 1 of the build, so
+you can put define new words whenever you need to.</p>
+<p>When build is complete, it will pick up where it left off with the
+user (his data files unchanged). If you want to automatically clear the
+user and start afresh, use</p>
 <pre><code>:build xxx reset</code></pre>
 <h3 id="tracing-during-compilation">Tracing during compilation</h3>
-<p>You can put :trace commands interspersed with table arguments or between top level commands in script files. You can put :debug commands interspersed with table arguments.</p>
+<p>You can put :trace commands interspersed with table arguments or
+between top level commands in script files. You can put :debug commands
+interspersed with table arguments.</p>
 <p><strong>After it goes wrong during execution</strong></p>
-<p>The most common issue is that ChatScript will munge with your input in various ways so you don't submit what you think you are submitting. The substitutions files will change words or phrases.</p>
-<p>Spell correction will change words. Proper name and number merging will adjust words. And individual words of yours will be merged into single words if WordNet lists them as a multiple-word (like <code>TV_star</code>). So you really need to see what your actual input ended up being before you can tell if your pattern was correct or not. Thus the most common debug command is <code>:prepare</code>.</p>
+<p>The most common issue is that ChatScript will munge with your input
+in various ways so you don’t submit what you think you are submitting.
+The substitutions files will change words or phrases.</p>
+<p>Spell correction will change words. Proper name and number merging
+will adjust words. And individual words of yours will be merged into
+single words if WordNet lists them as a multiple-word (like
+<code>TV_star</code>). So you really need to see what your actual input
+ended up being before you can tell if your pattern was correct or not.
+Thus the most common debug command is <code>:prepare</code>.</p>
 <h2 id="most-useful-debug-commands">Most Useful Debug Commands</h2>
-<h3 id="prepare-this-is-my-sample-input"><code>:prepare this is my sample input</code></h3>
-<p>This shows you how the system will tokenize a sentence and what concepts it matches. It's what the system does to prepare to match topics against your input. From that you can deduce what patterns would match and what topics might be invoked.</p>
-<p>If you give no arguments to prepare, it just turns on a prepare trace for all future inputs which disables actually responding. Not usually what you want.</p>
-<p>There is an optional first argument to <code>:prepare</code>, which is a variable. If given it indicates the <code>$cs_token</code> value to use for preparation. E.g</p>
+<h3
+id="prepare-this-is-my-sample-input"><code>:prepare this is my sample input</code></h3>
+<p>This shows you how the system will tokenize a sentence and what
+concepts it matches. It’s what the system does to prepare to match
+topics against your input. From that you can deduce what patterns would
+match and what topics might be invoked.</p>
+<p>If you give no arguments to prepare, it just turns on a prepare trace
+for all future inputs which disables actually responding. Not usually
+what you want.</p>
+<p>There is an optional first argument to <code>:prepare</code>, which
+is a variable. If given it indicates the <code>$cs_token</code> value to
+use for preparation. E.g</p>
 <pre><code>:prepare $mytoken this is a sentence.</code></pre>
-<p>The <code>$cs_prepass</code> variable contains optional topic script that will be executed before the main control script is executed. The topic should be flagged SYSTEM so it does not erase itself as it gets used.</p>
-<p>The advantage of <code>$cs_prepass</code> is that it is also executed by <code>:prepare</code>, so you can see traces of it there. If you want to see preparation w/o this topic (raw preparation by the engine) you can add the optional argument <code>NOPREPASS</code> or <code>PREPASS</code>. Eg.</p>
+<p>The <code>$cs_prepass</code> variable contains optional topic script
+that will be executed before the main control script is executed. The
+topic should be flagged SYSTEM so it does not erase itself as it gets
+used.</p>
+<p>The advantage of <code>$cs_prepass</code> is that it is also executed
+by <code>:prepare</code>, so you can see traces of it there. If you want
+to see preparation w/o this topic (raw preparation by the engine) you
+can add the optional argument <code>NOPREPASS</code> or
+<code>PREPASS</code>. Eg.</p>
 <pre><code>:prepare NOPREPASS This is a sentence
 :prepare $newtoken NOPREPASS This is a sentence.</code></pre>
-<p>The use of the <code>PREPASS</code> or <code>NOPREPASS</code> is remembered during the run of CS, so that the next time you call <code>:prepare</code> you can omit it and the same setting will be used. If all you want to know is what concepts a word is involved in, consider <code>:common</code>.</p>
+<p>The use of the <code>PREPASS</code> or <code>NOPREPASS</code> is
+remembered during the run of CS, so that the next time you call
+<code>:prepare</code> you can omit it and the same setting will be used.
+If all you want to know is what concepts a word is involved in, consider
+<code>:common</code>.</p>
 <h3 id="why"><code>:why</code></h3>
-<p>When I test my bots (assuming they pass verification), I chat with them until I get an answer I don't like. I then ask it why it generated the answer it did.</p>
-<p>This specifies the rules that generated the actual output and what topics they came from. I can often see, looking at the rule, why I wouldn't want it to match and go fix that rule. That doesn't address why some rule I want to match failed, so for that I'll need typically need tracing.</p>
+<p>When I test my bots (assuming they pass verification), I chat with
+them until I get an answer I don’t like. I then ask it why it generated
+the answer it did.</p>
+<p>This specifies the rules that generated the actual output and what
+topics they came from. I can often see, looking at the rule, why I
+wouldn’t want it to match and go fix that rule. That doesn’t address why
+some rule I want to match failed, so for that I’ll need typically need
+tracing.</p>
 <h3 id="clearlog"><code>:clearlog</code></h3>
-<p>Erases current user's log file.</p>
+<p>Erases current user’s log file.</p>
 <h3 id="comparelog"><code>:comparelog</code></h3>
 <pre><code>:comparelog LOGS/serverlog1024.txt  oldlog.txt</code></pre>
-<p>Will read both logs in parallel and list into user log significant differences (assumption is that both logs represent the same inputs against different versions of CS).</p>
+<p>Will read both logs in parallel and list into user log significant
+differences (assumption is that both logs represent the same inputs
+against different versions of CS).</p>
 <h3 id="ingestlog-filename"><code>:ingestlog  filename</code></h3>
 <pre><code>:ingestlog LOGS/serverlog1024.txt  </code></pre>
-<p>Will read named cs log file and re-execute it. Differences will be reported in tmp/ingesterr.txt as well as user log when enabled and briefly onscreen.</p>
+<p>Will read named cs log file and re-execute it. Differences will be
+reported in tmp/ingesterr.txt as well as user log when enabled and
+briefly onscreen.</p>
 <h2 id="trace">Trace</h2>
-<h3 id="trace-all-trace-always-trace-none"><code>:trace all</code> / <code>:trace always</code> / <code>:trace none</code></h3>
-<p>The ultimate debugging command dumps a trace of everything that happens during execution to the screen and into the log file. After entering this, you type in your chat and watch what happens (which also gets dumped into the current log file). Problem is, it's potentially a large trace. You really want to be more focused in your endeavor.</p>
+<h3 id="trace-all-trace-always-trace-none"><code>:trace all</code> /
+<code>:trace always</code> / <code>:trace none</code></h3>
+<p>The ultimate debugging command dumps a trace of everything that
+happens during execution to the screen and into the log file. After
+entering this, you type in your chat and watch what happens (which also
+gets dumped into the current log file). Problem is, it’s potentially a
+large trace. You really want to be more focused in your endeavor.</p>
 <p>But ignoring that,</p>
 <pre><code>:trace all </code></pre>
-<p>turns on all tracing. It can be suppressed in areas of code executing within <code>^NOTRACE()</code>.</p>
+<p>turns on all tracing. It can be suppressed in areas of code executing
+within <code>^NOTRACE()</code>.</p>
 <pre><code>:trace always</code></pre>
 <p>ignores ^notrace protection and traces everything.</p>
 <pre><code>:trace ignorenotrace</code></pre>
-<p>allows you to use the limited traces below, and still ignore <code>NOTRACE</code> covered calls.</p>
-<p>If you want to jump to where the user output was created and then see where you are, search for &quot;message:&quot;.</p>
-<p>There are fake system variables you can execute in output code to turn on and off debugging also. These are %trace_on and %trace_off. They are simpler to remember how to do than invoking ^eval to invoke debug commands. And these disallow behavior if server authorization doesnt exist. These variables do not actually show up in output.</p>
+<p>allows you to use the limited traces below, and still ignore
+<code>NOTRACE</code> covered calls.</p>
+<p>If you want to jump to where the user output was created and then see
+where you are, search for “message:”.</p>
+<p>There are fake system variables you can execute in output code to
+turn on and off debugging also. These are %trace_on and %trace_off. They
+are simpler to remember how to do than invoking ^eval to invoke debug
+commands. And these disallow behavior if server authorization doesnt
+exist. These variables do not actually show up in output.</p>
 <h3 id="trace-myfunction"><code>:trace ^myfunction</code></h3>
-<p>this enables tracing for the function. Call it again to restore to normal.</p>
+<p>this enables tracing for the function. Call it again to restore to
+normal.</p>
 <h3 id="trace-var"><code>:trace $var</code></h3>
-<p>this enables tracing when this variable changes. Local variables only show a trace during the current volley. Global variables show a trace across volleys.</p>
+<p>this enables tracing when this variable changes. Local variables only
+show a trace during the current volley. Global variables show a trace
+across volleys.</p>
 <h3 id="trace-education"><code>:trace ~education</code></h3>
-<p>this enables tracing for this topic and all the topics it calls. Call it again to restore to normal. This is probably what you need usually to see what went wrong. You know the code you expected to execute, so monitor the topic it is in.</p>
+<p>this enables tracing for this topic and all the topics it calls. Call
+it again to restore to normal. This is probably what you need usually to
+see what went wrong. You know the code you expected to execute, so
+monitor the topic it is in.</p>
 <h3 id="trace-education-1"><code>:trace !~education</code></h3>
-<p>this disables current tracing for this topic and all the topics it calls when <code>:trace all</code> is running. Call it again to restore to normal.</p>
+<p>this disables current tracing for this topic and all the topics it
+calls when <code>:trace all</code> is running. Call it again to restore
+to normal.</p>
 <p>Similarly you can do</p>
 <h3 id="trace-education.4.5"><code>:trace ~education.4.5</code></h3>
-<p>which says to trace just the 4th top level rule in <code>~education</code>, rejoinder # 5. The above defaults to tracing everything while in that topic. You can specify what you want to trace by naming trace values and then the topic.</p>
-<h3 id="trace-prepare-basic-facts-education"><code>:trace prepare basic facts ~education</code></h3>
-<p>The above will turn on a bunch of trace values and then assign them to the topic, clearing the trace values.</p>
+<p>which says to trace just the 4th top level rule in
+<code>~education</code>, rejoinder # 5. The above defaults to tracing
+everything while in that topic. You can specify what you want to trace
+by naming trace values and then the topic.</p>
+<h3
+id="trace-prepare-basic-facts-education"><code>:trace prepare basic facts ~education</code></h3>
+<p>The above will turn on a bunch of trace values and then assign them
+to the topic, clearing the trace values.</p>
 <h3 id="trace-input"><code>:trace input</code></h3>
-<p>:trace prepare can generate a lot of data about concept marking. If you just want a simple check on what the adjusted input looks like, you can do <code>:trace input</code></p>
-<h3 id="trace-prepare-basic-facts-myfunc"><code>:trace prepare basic facts ^myfunc</code></h3>
-<p>The above will turn on a bunch of trace values and then assign them to the function, clearing the trace values.</p>
-<p>Note: If you want to set a regular trace value and a topic and/or function, the regular trace values must occur last, after all topic and function traces.</p>
-<h3 id="trace-factcreate-subject-verb-object"><code>:trace factcreate subject verb object</code></h3>
-<p>subject, verb, and object name values of those fields. You can use null when you don't want to name a value. This trace will show whenever facts matching this template are created.</p>
+<p>:trace prepare can generate a lot of data about concept marking. If
+you just want a simple check on what the adjusted input looks like, you
+can do <code>:trace input</code></p>
+<h3
+id="trace-prepare-basic-facts-myfunc"><code>:trace prepare basic facts ^myfunc</code></h3>
+<p>The above will turn on a bunch of trace values and then assign them
+to the function, clearing the trace values.</p>
+<p>Note: If you want to set a regular trace value and a topic and/or
+function, the regular trace values must occur last, after all topic and
+function traces.</p>
+<h3
+id="trace-factcreate-subject-verb-object"><code>:trace factcreate subject verb object</code></h3>
+<p>subject, verb, and object name values of those fields. You can use
+null when you don’t want to name a value. This trace will show whenever
+facts matching this template are created.</p>
 <h3 id="tracing-tables"><code>Tracing tables</code></h3>
-<p>You can insert a trace command (eg :trace all or :trace none) in the data of a table declaration, to trace a table being built (the log file will be from the build in progress). E.g.,</p>
+<p>You can insert a trace command (eg :trace all or :trace none) in the
+data of a table declaration, to trace a table being built (the log file
+will be from the build in progress). E.g.,</p>
 <pre><code>table: ^capital (^base ^city)
 _9 = join(^city , _ ^base)
 ^createfact(_9 member ~capital)
@@ -256,37 +550,59 @@ DATA:
 :trace all
 Utah Salt_lake_city
 :trace none</code></pre>
-<h3 id="tracing-compiling-of-files"><code>Tracing compiling of files</code></h3>
-<p>You can insert a trace in the list of files to process for a build. From files1.txt</p>
+<h3
+id="tracing-compiling-of-files"><code>Tracing compiling of files</code></h3>
+<p>You can insert a trace in the list of files to process for a build.
+From files1.txt</p>
 <pre><code>RAWDATA/simplecontrol.top # conversational control
 :trace all
 RAWDATA/simpletopic.top # things we can chat about
 :trace none</code></pre>
-<h3 id="tracing-compiling-of-a-topic"><code>Tracing compiling of a topic</code></h3>
-<p>And you can insert a trace in the list of commands of a topic file:</p>
+<h3
+id="tracing-compiling-of-a-topic"><code>Tracing compiling of a topic</code></h3>
+<p>And you can insert a trace in the list of commands of a topic
+file:</p>
 <pre><code>topic: foo […]
 ...
 :trace all</code></pre>
-<p>Tracing is also good in conjunction with some other commands that give you a restricted view. You can name tracing options by subtraction. E.g.,</p>
+<p>Tracing is also good in conjunction with some other commands that
+give you a restricted view. You can name tracing options by subtraction.
+E.g.,</p>
 <pre><code>:trace all -infer -pattern</code></pre>
-<p>When I'm doing a thorough trace, I usually do</p>
+<p>When I’m doing a thorough trace, I usually do</p>
 <pre><code>:trace all -query</code></pre>
-<p>because I want to see fact searches but only need the answers and not all the processing the query did. If you want to see the arguments and answer to a query, you can leave :tracel all, but then do :notrace ^query. This will shut down all the internal guts of the ^query function.</p>
-<p>NOTE: if you want tracing to start at startup, when you don't have control, login with a botname of trace. E.g, at the login type:</p>
+<p>because I want to see fact searches but only need the answers and not
+all the processing the query did. If you want to see the arguments and
+answer to a query, you can leave :tracel all, but then do :notrace
+^query. This will shut down all the internal guts of the ^query
+function.</p>
+<p>NOTE: if you want tracing to start at startup, when you don’t have
+control, login with a botname of trace. E.g, at the login type:</p>
 <pre><code>john:trace</code></pre>
 <p>This will turn on all tracing.</p>
 <h3 id="tracing-readfile"><code>Tracing ^readfile</code></h3>
-<p>You can do :trace all and :trace none as lines of a file being read in via ^readfile.</p>
-<h3 id="tracing-specific-things"><code>Tracing specific things</code></h3>
-<p><code>:trace</code> also has individual collections and items it can trace. If you just say :trace you get a listing of things.</p>
+<p>You can do :trace all and :trace none as lines of a file being read
+in via ^readfile.</p>
+<h3
+id="tracing-specific-things"><code>Tracing specific things</code></h3>
+<p><code>:trace</code> also has individual collections and items it can
+trace. If you just say :trace you get a listing of things.</p>
 <pre><code>:notrace {ON,OFF} ~topic1 ~topic2 {ON,OFF} ~topic3</code></pre>
-<p>Regardless of the use of <code>:trace</code>, <code>:notrace</code> marks some topics to not trace. Particularly useful to do :notrace ^Query which omits most of the guts of query calls, which can often be extensive.</p>
-<p>By default, the flag is set <code>ON</code> on listed topics but you can change the value on the fly to enable trace blocking on some topics or turn it off on ones previously turned on.</p>
-<p>You can also trace specific kinds of data. If you just say <code>:trace</code>, it will list the status of what is and is not being traced. Calls to <code>:trace</code> can be additive, you can name some and add more in another call. Here are things you can trace:</p>
-<table style="width:35%;">
+<p>Regardless of the use of <code>:trace</code>, <code>:notrace</code>
+marks some topics to not trace. Particularly useful to do :notrace
+^Query which omits most of the guts of query calls, which can often be
+extensive.</p>
+<p>By default, the flag is set <code>ON</code> on listed topics but you
+can change the value on the fly to enable trace blocking on some topics
+or turn it off on ones previously turned on.</p>
+<p>You can also trace specific kinds of data. If you just say
+<code>:trace</code>, it will list the status of what is and is not being
+traced. Calls to <code>:trace</code> can be additive, you can name some
+and add more in another call. Here are things you can trace:</p>
+<table>
 <colgroup>
-<col width="18%" />
-<col width="16%" />
+<col style="width: 52%" />
+<col style="width: 47%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -297,7 +613,8 @@ RAWDATA/simpletopic.top # things we can chat about
 <tbody>
 <tr class="odd">
 <td>match</td>
-<td>traces the rule finding/matching (overlaps with pattern but is more abstract)</td>
+<td>traces the rule finding/matching (overlaps with pattern but is more
+abstract)</td>
 </tr>
 <tr class="even">
 <td>variables</td>
@@ -309,11 +626,13 @@ RAWDATA/simpletopic.top # things we can chat about
 </tr>
 <tr class="even">
 <td>ruleflow</td>
-<td>show labels, some of the pattern and some of the output code of a rule whose</td>
+<td>show labels, some of the pattern and some of the output code of a
+rule whose</td>
 </tr>
 <tr class="odd">
 <td>output</td>
-<td>is executed. It's a very abbreviated view of where flow of control went</td>
+<td>is executed. It’s a very abbreviated view of where flow of control
+went</td>
 </tr>
 <tr class="even">
 <td>input</td>
@@ -337,11 +656,13 @@ RAWDATA/simpletopic.top # things we can chat about
 </tr>
 <tr class="odd">
 <td>infer</td>
-<td>traces functions that manipulate facts apart from query and fact</td>
+<td>traces functions that manipulate facts apart from query and
+fact</td>
 </tr>
 <tr class="even">
 <td>sample</td>
-<td>when testing rules, show the sample input as part of trace (easier to see where you are)</td>
+<td>when testing rules, show the sample input as part of trace (easier
+to see where you are)</td>
 </tr>
 <tr class="odd">
 <td>substitute</td>
@@ -349,7 +670,8 @@ RAWDATA/simpletopic.top # things we can chat about
 </tr>
 <tr class="even">
 <td>hierarchy</td>
-<td>internal showing of marking process (even more detailed if its the only flag)</td>
+<td>internal showing of marking process (even more detailed if its the
+only flag)</td>
 </tr>
 <tr class="odd">
 <td>fact</td>
@@ -405,24 +727,44 @@ RAWDATA/simpletopic.top # things we can chat about
 </tr>
 <tr class="even">
 <td>deep</td>
-<td>input macro sample infer substitute fact varassign query user pos tcp usercache sql label topic</td>
+<td>input macro sample infer substitute fact varassign query user pos
+tcp usercache sql label topic</td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
 <pre><code>:trace all -query -infer</code></pre>
-<p>If you want to trace a topic in a limited manner, set the limits before naming the topic:</p>
+<p>If you want to trace a topic in a limited manner, set the limits
+before naming the topic:</p>
 <pre><code>:trace pattern pos ~mytopic</code></pre>
-<p>The system will set the limits, then upon hitting the topic name, swallow them to be used for that topic. This means you can do multiple topics and global limits in one command:</p>
+<p>The system will set the limits, then upon hitting the topic name,
+swallow them to be used for that topic. This means you can do multiple
+topics and global limits in one command:</p>
 <pre><code>:trace pattern ~mytopic pos ~yourtopic varassign</code></pre>
-<p><code>~mytopic</code> gets the pattern limit, <code>~yourtopic</code> gets the pos limit, and globally you do varassign.</p>
-<p>Note: the correct way to turn on/off normal tracing from script is by changing the tracing variable, e.g., <code>$cs_trace = -1</code>.</p>
+<p><code>~mytopic</code> gets the pattern limit, <code>~yourtopic</code>
+gets the pos limit, and globally you do varassign.</p>
+<p>Note: the correct way to turn on/off normal tracing from script is by
+changing the tracing variable, e.g., <code>$cs_trace = -1</code>.</p>
 <h3 id="tracing-a-server">Tracing a server</h3>
-<p>Sometimes you do not control the user account, so you cannot do :trace from it. You can do <code>:trace universal</code> from any account to force the server to trace all users. Turn it off with <code>:trace none</code>. Obviously not a good thing to do on a highly active server as it slows everyone and generates large logs potentially.</p>
-<p>Also you can do :serverlog 1 to turn on server logging and :serverlog 0 to turn off serverlogging. You can even force server logging without restarting a server by merely adding the file &quot;serverlogging.txt&quot; with arbitrary contents to the top level of CS and removing when you are done. This is actually what :serverlog does.</p>
-<p>Similarly, if file <code>traceboot.txt</code> exists at the top level of CS when the server executes any boot code, that will be traced (same as adding <code>traceboot</code> in command line params).</p>
-<p>Creating the top level file <code>prelogging.txt</code> turns on prelogging into server and user files (when logging into those files).</p>
-<h3 id="understanding-a-pattern-trace">Understanding a pattern trace</h3>
+<p>Sometimes you do not control the user account, so you cannot do
+:trace from it. You can do <code>:trace universal</code> from any
+account to force the server to trace all users. Turn it off with
+<code>:trace none</code>. Obviously not a good thing to do on a highly
+active server as it slows everyone and generates large logs
+potentially.</p>
+<p>Also you can do :serverlog 1 to turn on server logging and :serverlog
+0 to turn off serverlogging. You can even force server logging without
+restarting a server by merely adding the file “serverlogging.txt” with
+arbitrary contents to the top level of CS and removing when you are
+done. This is actually what :serverlog does.</p>
+<p>Similarly, if file <code>traceboot.txt</code> exists at the top level
+of CS when the server executes any boot code, that will be traced (same
+as adding <code>traceboot</code> in command line params).</p>
+<p>Creating the top level file <code>prelogging.txt</code> turns on
+prelogging into server and user files (when logging into those
+files).</p>
+<h3 id="understanding-a-pattern-trace">Understanding a pattern
+trace</h3>
 <pre><code>    try 3.0: ( ! %response=0 !%lastquestion !%outputrejoinder )   
             ( !%response(0)=0- Remaining pattern: !%lastquestion ! %outputrejoinder )
           try 6.0: ( &lt; do you know _a _* )
@@ -433,159 +775,316 @@ RAWDATA/simpletopic.top # things we can chat about
               what- Remaining pattern: is it like _* )
           try 8.0: ( &lt; what is _*~4 like &gt; )
             ( &lt;+ what- Remaining pattern: is _*~4 like &gt; )</code></pre>
-<p>When the system is trying responders and rejoinders, for each rule it says &quot;try&quot; and names which top-level rule it is, and perhaps what rejoinder.</p>
+<p>When the system is trying responders and rejoinders, for each rule it
+says “try” and names which top-level rule it is, and perhaps what
+rejoinder.</p>
 <p>3.0 means the 4th top level rule.</p>
-<p>The .0 refers to the rejoinder underneath it, but 0 means the rule itself. Along with the rule it, it may put out the label if there is one (eg 7.0 DESCRIBE) and it puts out the pattern it will try to match.</p>
-<p>The next line begins matching data. Each pattern element will be marked at the end of it with a <code>+</code> if it matched, or a <code>-</code> if it didn't match.</p>
-<p>Whenever the system enters a paired token, i.e., <code>()</code>, <code>[]</code>, <code>{}</code>, <code>&lt;&lt;</code> <code>&gt;&gt;</code>, it indents and moves to a new line. When it finishes a paired token, it will mark with a + or - whether the pair worked and it will resume the old indentation as it continues.</p>
-<p>When a relationship test is performed, the value of a piece of it will be given in parens. Similarly when a concept is matched, the matching word will be shown in parens.</p>
-<p>When a pattern fails, the system will say &quot;remaining pattern&quot; and show what it has not tried to process. Occasionally when an initial word matches but the rest do not, the system will say ------ Try pattern matching again, after word 1 (where)</p>
+<p>The .0 refers to the rejoinder underneath it, but 0 means the rule
+itself. Along with the rule it, it may put out the label if there is one
+(eg 7.0 DESCRIBE) and it puts out the pattern it will try to match.</p>
+<p>The next line begins matching data. Each pattern element will be
+marked at the end of it with a <code>+</code> if it matched, or a
+<code>-</code> if it didn’t match.</p>
+<p>Whenever the system enters a paired token, i.e., <code>()</code>,
+<code>[]</code>, <code>{}</code>, <code>&lt;&lt;</code>
+<code>&gt;&gt;</code>, it indents and moves to a new line. When it
+finishes a paired token, it will mark with a + or - whether the pair
+worked and it will resume the old indentation as it continues.</p>
+<p>When a relationship test is performed, the value of a piece of it
+will be given in parens. Similarly when a concept is matched, the
+matching word will be shown in parens.</p>
+<p>When a pattern fails, the system will say “remaining pattern” and
+show what it has not tried to process. Occasionally when an initial word
+matches but the rest do not, the system will say —— Try pattern matching
+again, after word 1 (where)</p>
 <h3 id="tracedfunctions"><code>:tracedfunctions</code></h3>
 <p>list all user functions being traced</p>
 <h3 id="tracedtopics"><code>:tracedtopics</code></h3>
 <p>list all topics being traced</p>
 <h3 id="time"><code>:time</code></h3>
-<p>measures milliseconds taken by topics and functions for performance analysis. Just type :time to see keywords.</p>
+<p>measures milliseconds taken by topics and functions for performance
+analysis. Just type :time to see keywords.</p>
 <p><code>:time all</code> turns on timing everywhere</p>
-<p>It is similar to <code>:trace</code> (using several of the same keywords) and can be used to limit to just certain topics/rules and ^macros. A simple <code>:time</code> will list those keywords.</p>
-<p>Note the time output is only shown in the user's log file and is not echoed to the console.</p>
-<p>By default items that don't take any time will not be shown, but this can be overridden by <code>:time always</code></p>
+<p>It is similar to <code>:trace</code> (using several of the same
+keywords) and can be used to limit to just certain topics/rules and
+^macros. A simple <code>:time</code> will list those keywords.</p>
+<p>Note the time output is only shown in the user’s log file and is not
+echoed to the console.</p>
+<p>By default items that don’t take any time will not be shown, but this
+can be overridden by <code>:time always</code></p>
 <h3 id="notime"><code>:notime</code></h3>
 <p>disables timing for some topic or functions</p>
 <h3 id="timedtopics"><code>:timedtopics</code></h3>
 <p>lists what topics are currently being timed.</p>
 <h3 id="timedfunctions"><code>:timedfunctions</code></h3>
 <p>list functions currently being timed</p>
-<h3 id="retry-retry-this-is-my-new-input"><code>:retry</code> / <code>:retry This is my new input</code></h3>
-<p><code>:retry</code> tells the system to rerun the most recent input on the state of the system a moment ago, and retry it. It should do exactly what it did before, but this time if you have turned on tracing it will trace it.</p>
-<p>It performs this magic in stand-alone mode by copying the user's topic file into the TMP directory before each volley, so it can back up one time if needed. Because it operates from that tmp copy you can, if your log file is currently messy, merely erase all the contents of the USER folder before executing the revert and the log trace will only be from this input.</p>
-<p>You can also put in different input using <code>:retry</code>. This is a fast way to try alternatives in a context and see what the system would do.</p>
-<p>You can also designate a file you want loaded instead (if you have copied some previous user topic file out) by saying</p>
+<h3 id="retry-retry-this-is-my-new-input"><code>:retry</code> /
+<code>:retry This is my new input</code></h3>
+<p><code>:retry</code> tells the system to rerun the most recent input
+on the state of the system a moment ago, and retry it. It should do
+exactly what it did before, but this time if you have turned on tracing
+it will trace it.</p>
+<p>It performs this magic in stand-alone mode by copying the user’s
+topic file into the TMP directory before each volley, so it can back up
+one time if needed. Because it operates from that tmp copy you can, if
+your log file is currently messy, merely erase all the contents of the
+USER folder before executing the revert and the log trace will only be
+from this input.</p>
+<p>You can also put in different input using <code>:retry</code>. This
+is a fast way to try alternatives in a context and see what the system
+would do.</p>
+<p>You can also designate a file you want loaded instead (if you have
+copied some previous user topic file out) by saying</p>
 <pre><code>:retry FILE filepath  _This is my input_</code></pre>
-<p><code>:retry</code> is expected to be used on a stand-alone system. NORMAL servers only allow users in the authorizedip.txt file to use debug commands.. If retry has been server enabled using the command line parameter &quot;serverretry&quot;, thereafter each volley is tracked</p>
-<h3 id="redo-5-this-is-new-input"><code>:redo 5 This is new input</code></h3>
-<p><code>:redo</code> is like <code>:retry</code> but takes a volley number and requires substitute input.</p>
-<p>The command line parameter <code>redo</code> enables this command (otherwise becomes a <code>:retry</code>). This memorizes all inputs (and numbers the outputs with the current volley number). You can then back up to the input leading to any volley number by saying <code>:redo n</code> here is new input. Can chew up file space in TMP directory</p>
+<p><code>:retry</code> is expected to be used on a stand-alone system.
+NORMAL servers only allow users in the authorizedip.txt file to use
+debug commands.. If retry has been server enabled using the command line
+parameter “serverretry”, thereafter each volley is tracked</p>
+<h3
+id="redo-5-this-is-new-input"><code>:redo 5 This is new input</code></h3>
+<p><code>:redo</code> is like <code>:retry</code> but takes a volley
+number and requires substitute input.</p>
+<p>The command line parameter <code>redo</code> enables this command
+(otherwise becomes a <code>:retry</code>). This memorizes all inputs
+(and numbers the outputs with the current volley number). You can then
+back up to the input leading to any volley number by saying
+<code>:redo n</code> here is new input. Can chew up file space in TMP
+directory</p>
 <h3 id="do-stream"><code>:do stream</code></h3>
-<p>This execute sthe stream specified as though a rule has matched input and has this stream as its output section. E.g.</p>
+<p>This execute sthe stream specified as though a rule has matched input
+and has this stream as its output section. E.g.</p>
 <pre><code>:do pos(noun word plural) will output &quot;words&quot;.
 :do $cs_token |= #STRICT_CASING will augment the user variable.</code></pre>
-<p>Sometimes you need the system to set up a situation (typically pronoun resolution).</p>
+<p>Sometimes you need the system to set up a situation (typically
+pronoun resolution).</p>
 <pre><code>:do hello world</code></pre>
 <p>will tell the system to generate hello world as its output.</p>
-<p>In all cases the system will literally pretend a dummy user input of <code>:do</code>, incrementing the input count, and running the preprocess. Then, instead of running the main control topic, it merely executes the stream you gave it as though that were from some rule matched during main processing. The output generated is handled per normal and the system then runs the postprocess. The results are saved in the user's topic file.</p>
-<h3 id="topics-this-is-my-sample-input"><code>:topics This is my sample input</code></h3>
-<p>This will display the topics whose keywords match the input, the score the topic gets, and the specific words that matched.</p>
-<h3 id="say-this-is-bot-output"><code>:say this is bot output</code></h3>
-<p>This will output whatever you wrote as though the chatbot said it. Useful for testing postprocessing code.</p>
+<p>In all cases the system will literally pretend a dummy user input of
+<code>:do</code>, incrementing the input count, and running the
+preprocess. Then, instead of running the main control topic, it merely
+executes the stream you gave it as though that were from some rule
+matched during main processing. The output generated is handled per
+normal and the system then runs the postprocess. The results are saved
+in the user’s topic file.</p>
+<h3
+id="topics-this-is-my-sample-input"><code>:topics This is my sample input</code></h3>
+<p>This will display the topics whose keywords match the input, the
+score the topic gets, and the specific words that matched.</p>
+<h3
+id="say-this-is-bot-output"><code>:say this is bot output</code></h3>
+<p>This will output whatever you wrote as though the chatbot said it.
+Useful for testing postprocessing code.</p>
 <h3 id="silent"><code>:silent</code></h3>
-<p>This toggles whether or not output is sent to the user. Useful when running regression tests.</p>
-<h3 id="diff-file1-file2-optional-separator"><code>:diff file1 file2 optional-separator</code></h3>
-<p>Reports on lines that are different between the two files. Useful when running regression tests. Often used with <code>:silent</code> and <code>:log</code> as well.</p>
-<p>The system normally compares the lines of the two files, bypassing leading and trailing whitespace. If you provide an optional separator character, it will only compare the lines up to but not including that character, though it will display the full lines when they fail to match. Aside from the usual echoing into the user's log file, the differences are also written to <code>LOGS/diff.txt</code>.</p>
+<p>This toggles whether or not output is sent to the user. Useful when
+running regression tests.</p>
+<h3
+id="diff-file1-file2-optional-separator"><code>:diff file1 file2 optional-separator</code></h3>
+<p>Reports on lines that are different between the two files. Useful
+when running regression tests. Often used with <code>:silent</code> and
+<code>:log</code> as well.</p>
+<p>The system normally compares the lines of the two files, bypassing
+leading and trailing whitespace. If you provide an optional separator
+character, it will only compare the lines up to but not including that
+character, though it will display the full lines when they fail to
+match. Aside from the usual echoing into the user’s log file, the
+differences are also written to <code>LOGS/diff.txt</code>.</p>
 <h2 id="other-debug-commands">Other Debug Commands</h2>
 <h3 id="show"><code>:show</code></h3>
-<p>The <code>:show</code> choices are all toggles. Each call flips its state. However, you can supply a second argument to <code>:show</code>, which is a value and instead of toggling the flag will be set to that value.</p>
+<p>The <code>:show</code> choices are all toggles. Each call flips its
+state. However, you can supply a second argument to <code>:show</code>,
+which is a value and instead of toggling the flag will be set to that
+value.</p>
 <h3 id="show-all"><code>:show all</code></h3>
-<p>toggles a system mode where it will not stop after it first finds an output. It will find everything that matches and shows all the outputs. It just doesn't proceed to do gambits. Since it is showing everything, it erases nothing. There is a system variable %all you can query to see if the all mode is turned on if you want some of your script to be unreactive when running all.</p>
+<p>toggles a system mode where it will not stop after it first finds an
+output. It will find everything that matches and shows all the outputs.
+It just doesn’t proceed to do gambits. Since it is showing everything,
+it erases nothing. There is a system variable %all you can query to see
+if the all mode is turned on if you want some of your script to be
+unreactive when running all.</p>
 <h3 id="show-input"><code>:show input</code></h3>
-<p>displays the things you send back into the system using the <code>^input</code> function.</p>
+<p>displays the things you send back into the system using the
+<code>^input</code> function.</p>
 <h3 id="show-mark"><code>:show mark</code></h3>
-<p>is not something you are likely to use but it displays in the log the propogation of marked items in your sentence. If you do <code>:echo</code> that stuff will also display on your screen.</p>
+<p>is not something you are likely to use but it displays in the log the
+propogation of marked items in your sentence. If you do
+<code>:echo</code> that stuff will also display on your screen.</p>
 <h3 id="show-newline"><code>:show newline</code></h3>
-<p>normally the log file transcodes all newline/return characters so that the log line of the bot output is all one line (so various tools work). But if you have an indented/newline oriented display you want to see in the logs, you can make this true. It does ruin the ability to use other tools like :regress, etc.</p>
+<p>normally the log file transcodes all newline/return characters so
+that the log line of the bot output is all one line (so various tools
+work). But if you have an indented/newline oriented display you want to
+see in the logs, you can make this true. It does ruin the ability to use
+other tools like :regress, etc.</p>
 <h3 id="show-number"><code>:show number</code></h3>
-<p>displays the current input number at the front of the bot's output. It is always shown in the log, but this shows it on-screen.</p>
-<p>I use this before running a large regression test like <code>:source REGRESS/bigregress.txt</code> so I will know how far it has gotten while it's running.</p>
+<p>displays the current input number at the front of the bot’s output.
+It is always shown in the log, but this shows it on-screen.</p>
+<p>I use this before running a large regression test like
+<code>:source REGRESS/bigregress.txt</code> so I will know how far it
+has gotten while it’s running.</p>
 <h3 id="show-pos"><code>:show pos</code></h3>
-<p>displays summary on the POS-tagging. Not useful for a user, but useful to me in debugging the engine itself.</p>
+<p>displays summary on the POS-tagging. Not useful for a user, but
+useful to me in debugging the engine itself.</p>
 <h3 id="show-topic"><code>:show topic</code></h3>
 <p>displays the current topic the bot is in, prefixed to its output.</p>
 <h3 id="show-topics"><code>:show topics</code></h3>
 <p>displays all the topics whose keywords matched the input.</p>
 <h3 id="show-why"><code>:show why</code></h3>
-<p>this turns on <code>:why</code> for each volley so you always see the rule causing output before seeing the output.</p>
+<p>this turns on <code>:why</code> for each volley so you always see the
+rule causing output before seeing the output.</p>
 <h3 id="log-xxxx"><code>:log xxxx</code></h3>
-<p>put the message you write directly into the log file. Useful for testers to send comments back to scriptors in the moment of some issue arising.</p>
+<p>put the message you write directly into the log file. Useful for
+testers to send comments back to scriptors in the moment of some issue
+arising.</p>
 <h3 id="noreact"><code>:noreact</code></h3>
 <p>toggles whether the system tries to respond to input.</p>
-<h3 id="testtopic-topic-sentence"><code>:testtopic ~topic sentence</code></h3>
-<p>This will execute responder mode of the named topic on the sentence given, to see what would happen. It forces focus on that topic, so no other topic could intervene. In addition to showing you the output it generates, it shows you the values of all user variables it changes.</p>
-<h3 id="testpattern-...-sentence"><code>:testpattern (...) sentence</code></h3>
-<p>The system inputs the sentence and tests the pattern you provide against it. It tells you whether it matched or failed.</p>
+<h3
+id="testtopic-topic-sentence"><code>:testtopic ~topic sentence</code></h3>
+<p>This will execute responder mode of the named topic on the sentence
+given, to see what would happen. It forces focus on that topic, so no
+other topic could intervene. In addition to showing you the output it
+generates, it shows you the values of all user variables it changes.</p>
+<h3
+id="testpattern-...-sentence"><code>:testpattern (...) sentence</code></h3>
+<p>The system inputs the sentence and tests the pattern you provide
+against it. It tells you whether it matched or failed.</p>
 <pre><code>:testpattern ( it died ) Do you know if it died?</code></pre>
-<p>Some patterns require variables to be set up certain ways. You can perform assignments prior to the sentence.</p>
+<p>Some patterns require variables to be set up certain ways. You can
+perform assignments prior to the sentence.</p>
 <pre><code>:testpattern ($gender=male hit) $gender = male hit me</code></pre>
-<p>Typically you might use <code>:testpattern</code> to see if a subset of your pattern that fails works, trying to identify what has gone wrong. The corresponding thing for testing output is <code>:do</code>. You can also name an existing rule, rather than supply a pattern.</p>
+<p>Typically you might use <code>:testpattern</code> to see if a subset
+of your pattern that fails works, trying to identify what has gone
+wrong. The corresponding thing for testing output is <code>:do</code>.
+You can also name an existing rule, rather than supply a pattern.</p>
 <pre><code>:testpattern ~aliens.ufo do you believe in aliens?</code></pre>
 <h3 id="topicstats"><code>:topicstats</code></h3>
-<p>This walks all topics and computes how many rules of various kinds you have (e.g., how big is your system). You can also just name a topic or use a wildcard like <code>~do*</code> to see all topics starting with <code>~do</code>.</p>
-<p>If you do :topicstats labels you just get the name of the topic and then 1 line for each rule label (indented to show rule hierarchy relationship). Simiarly :topicstats labels ~mytopic for just a single topic.</p>
+<p>This walks all topics and computes how many rules of various kinds
+you have (e.g., how big is your system). You can also just name a topic
+or use a wildcard like <code>~do*</code> to see all topics starting with
+<code>~do</code>.</p>
+<p>If you do :topicstats labels you just get the name of the topic and
+then 1 line for each rule label (indented to show rule hierarchy
+relationship). Simiarly :topicstats labels ~mytopic for just a single
+topic.</p>
 <h3 id="skip-n"><code>:skip n</code></h3>
-<p>The system will disable the next n gambits of the current topic, and tell you where you will end up next. Thereafter your next simple input like <em>ok</em> will execute that gambit, and the n previous will already have been used up.</p>
+<p>The system will disable the next n gambits of the current topic, and
+tell you where you will end up next. Thereafter your next simple input
+like <em>ok</em> will execute that gambit, and the n previous will
+already have been used up.</p>
 <h2 id="data-display-commands">Data Display Commands</h2>
-<p>The system is filled with data, some of which you might want to see from time to time.</p>
+<p>The system is filled with data, some of which you might want to see
+from time to time.</p>
 <h3 id="pending"><code>:pending</code></h3>
-<p>Show the interesting topics list. Topics that have been entered recently but are not the current topic.</p>
+<p>Show the interesting topics list. Topics that have been entered
+recently but are not the current topic.</p>
 <h3 id="commands-1"><code>:commands</code></h3>
 <p>Displays available commands and a brief statement of purpose.</p>
 <h3 id="concepts-word"><code>:concepts word</code></h3>
 <p>Lists all concepts that are affiliated with this word.</p>
 <h3 id="conceptlist-argument"><code>:conceptlist {argument}</code></h3>
-<p>List all concepts defined in the system or with an argument like <code>~w*</code>, show all concepts starting with <code>~w</code></p>
+<p>List all concepts defined in the system or with an argument like
+<code>~w*</code>, show all concepts starting with <code>~w</code></p>
 <h3 id="definition-xxxx"><code>:definition ^xxxx</code></h3>
 <p>Shows the code of the user-defined macro named.</p>
 <h3 id="mixedcase"><code>:mixedcase</code></h3>
-<p>Lists all words which have multiple case forms and where the words came from (dictionary, layer 0, layer 1). Helps you locate words where you inadvertently created a wrong case.</p>
+<p>Lists all words which have multiple case forms and where the words
+came from (dictionary, layer 0, layer 1). Helps you locate words where
+you inadvertently created a wrong case.</p>
 <h3 id="directories"><code>:directories</code></h3>
-<p>Lists the directories in use: the path to the exe file, the current working directory, and directory overrides used in embedded applications.</p>
+<p>Lists the directories in use: the path to the exe file, the current
+working directory, and directory overrides used in embedded
+applications.</p>
 <h3 id="findwords-word"><code>:findwords word</code></h3>
-<p>Given a word pattern, find all words in the dictionary that match that pattern. The pattern starts with a normal word character, after which you can intermix the wildcard * with other normal characters. For example,</p>
+<p>Given a word pattern, find all words in the dictionary that match
+that pattern. The pattern starts with a normal word character, after
+which you can intermix the wildcard * with other normal characters. For
+example,</p>
 <ul>
-<li><code>slo*</code> finds <em>slothful</em>, <em>slower</em>, <em>sloshed</em>.</li>
-<li><code>s*p*y</code> finds <em>supposedly</em>, <em>spendy</em>, and <em>surprizingly</em>.</li>
+<li><code>slo*</code> finds <em>slothful</em>, <em>slower</em>,
+<em>sloshed</em>.</li>
+<li><code>s*p*y</code> finds <em>supposedly</em>, <em>spendy</em>, and
+<em>surprizingly</em>.</li>
 </ul>
 <h3 id="functions"><code>:functions</code></h3>
 <p>Show all <code>^functions</code> defined by the system.</p>
 <h3 id="macros"><code>:macros</code></h3>
 <p>Show all ^macros defined by the user.</p>
 <h3 id="memstats"><code>:memstats</code></h3>
-<p>Show memory use, number of words, number of facts, amount of text space used, number of buffers allocated.</p>
+<p>Show memory use, number of words, number of facts, amount of text
+space used, number of buffers allocated.</p>
 <h3 id="queries"><code>:queries</code></h3>
 <p>Show all defined queries.</p>
 <h3 id="variables-kind"><code>:variables {kind}</code></h3>
-<p>Rarely will the issue be that some variable of yours isn't correct. If you provide an argument, &quot;system&quot; restricts it to system variables and &quot;user&quot; restricts it to user variables, and &quot;match&quot; restricts it to all match variables and &quot;bot&quot; restricts it to bot variables.</p>
+<p>Rarely will the issue be that some variable of yours isn’t correct.
+If you provide an argument, “system” restricts it to system variables
+and “user” restricts it to user variables, and “match” restricts it to
+all match variables and “bot” restricts it to bot variables.</p>
 <h3 id="who"><code>:who</code></h3>
 <p>Show name of current user and current bot.</p>
 <h3 id="nonset-type-set"><code>:nonset type set</code></h3>
-<p>find what words of the given part of speech are not encompassed by the named concept. This is a command to determine if some words are not covered by an ontology tree, and not used by normal scripters. E.g., <code>:nonset NOUN ~nounlist</code>.</p>
+<p>find what words of the given part of speech are not encompassed by
+the named concept. This is a command to determine if some words are not
+covered by an ontology tree, and not used by normal scripters. E.g.,
+<code>:nonset NOUN ~nounlist</code>.</p>
 <h3 id="common-dog-cat"><code>:common dog cat</code></h3>
-<p>Given 2 or more words, this displays the concepts they share in common, most close first. This only applies to statically defined concepts, and not to dynamic engine concepts like parts-of-speech, role-in-sentence, <code>~number</code>, etc</p>
+<p>Given 2 or more words, this displays the concepts they share in
+common, most close first. This only applies to statically defined
+concepts, and not to dynamic engine concepts like parts-of-speech,
+role-in-sentence, <code>~number</code>, etc</p>
 <h3 id="word-apple"><code>:word apple</code></h3>
-<p>Given a word, this displays the dictionary entry for it as well some data up it's hierarchy. The word is case sensitive and if you want to check out a composite word, you need to use underscores instead of blanks. So <code>:word TV_star</code>.</p>
-<p>Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts can limit or expand how many are shown.</p>
+<p>Given a word, this displays the dictionary entry for it as well some
+data up it’s hierarchy. The word is case sensitive and if you want to
+check out a composite word, you need to use underscores instead of
+blanks. So <code>:word TV_star</code>.</p>
+<p>Shows a limited number of facts involving the word, and an optional
+2nd argument of a count of facts can limit or expand how many are
+shown.</p>
 <h3 id="fact-apple"><code>:fact apple</code></h3>
-<p>Given a word, this displays facts which have that as one of the fields. The word is case sensitive and if you want to check out a composite word, you need to use underscores instead of blanks. So <code>:word TV_star</code>. If the word is a fact set id like <span class="citation">@1</span>, then all facts in that set are displayed.</p>
-<p>Shows a limited number of facts involving the word, and an optional 2nd argument of a count of facts can limit or expand how many are shown.</p>
+<p>Given a word, this displays facts which have that as one of the
+fields. The word is case sensitive and if you want to check out a
+composite word, you need to use underscores instead of blanks. So
+<code>:word TV_star</code>. If the word is a fact set id like <span
+class="citation" data-cites="1">@1</span>, then all facts in that set
+are displayed.</p>
+<p>Shows a limited number of facts involving the word, and an optional
+2nd argument of a count of facts can limit or expand how many are
+shown.</p>
 <h3 id="dualupper"><code>:dualupper</code></h3>
-<p>Lists words that have multiple upper-case spellings. Ideally there would be only one such spelling.</p>
+<p>Lists words that have multiple upper-case spellings. Ideally there
+would be only one such spelling.</p>
 <h3 id="userfacts"><code>:userfacts</code></h3>
 <p>This prints out the current facts stored with the user.</p>
 <h3 id="quotelines"><code>:quotelines</code></h3>
-<p>This takes a filename as argument, reads the lines and rewrites them to TMP/tmp.txt with double quotes around them. Useful for converting multiple word values into quoted ones for concepts.</p>
+<p>This takes a filename as argument, reads the lines and rewrites them
+to TMP/tmp.txt with double quotes around them. Useful for converting
+multiple word values into quoted ones for concepts.</p>
 <h3 id="allfacts"><code>:allfacts</code></h3>
-<p>This dumps a list of all the facts (including system facts) into the file <code>TMP/facts.txt</code>.</p>
-<h3 id="facts-meaning-facts-n"><code>:facts meaning</code> / <code>:facts @n</code></h3>
-<p>This displays all facts for the given word or meaning. If you give a meaning (e.g., <code>sky~1</code>) then only facts involving that specific meaning are displayed. You can also give a fact like (subject verb object) and all facts containing that fact will be shown, but the fact can not contain any facts itself, it must be all simple fields.</p>
-<p>If you use <code>:facts @2</code> then it will display all facts in that fact set. Bear in mind that normally factsets are NOT stored across volleys, so displaying a factset will likely show nothing unless you've executed ^save to protect it.</p>
+<p>This dumps a list of all the facts (including system facts) into the
+file <code>TMP/facts.txt</code>.</p>
+<h3 id="facts-meaning-facts-n"><code>:facts meaning</code> /
+<code>:facts @n</code></h3>
+<p>This displays all facts for the given word or meaning. If you give a
+meaning (e.g., <code>sky~1</code>) then only facts involving that
+specific meaning are displayed. You can also give a fact like (subject
+verb object) and all facts containing that fact will be shown, but the
+fact can not contain any facts itself, it must be all simple fields.</p>
+<p>If you use <code>:facts @2</code> then it will display all facts in
+that fact set. Bear in mind that normally factsets are NOT stored across
+volleys, so displaying a factset will likely show nothing unless you’ve
+executed ^save to protect it.</p>
 <h3 id="up-word"><code>:up word</code></h3>
-<p>Shows the dictionary and concept hierarchy of things above the given word or concept.</p>
+<p>Shows the dictionary and concept hierarchy of things above the given
+word or concept.</p>
 <h3 id="down-word-n"><code>:down word n</code></h3>
-<p>Shows the dictionary hierarchy below a word or, if the word is name of a concept, the members of the concept. Since displaying down can subsume a lot of entries, you can specify how many levels down to display (n). The default is 1.</p>
-<h3 id="allmembers-concept-notconcept-notconcept1-..."><code>:allmembers ~concept ~notconcept ~notconcept1 ...</code></h3>
-<p>Dumps the members of ~concept into TMP/tmp.txt, one per line, but excludes any that are member of the ~nonconcept sets.</p>
+<p>Shows the dictionary hierarchy below a word or, if the word is name
+of a concept, the members of the concept. Since displaying down can
+subsume a lot of entries, you can specify how many levels down to
+display (n). The default is 1.</p>
+<h3
+id="allmembers-concept-notconcept-notconcept1-..."><code>:allmembers ~concept ~notconcept ~notconcept1 ...</code></h3>
+<p>Dumps the members of ~concept into TMP/tmp.txt, one per line, but
+excludes any that are member of the ~nonconcept sets.</p>
 <h3 id="findwords-pattern"><code>:findwords pattern</code></h3>
-<p>This uses the pattern of characters and * to name words and phrases in the dictionary matching it. E.g.</p>
+<p>This uses the pattern of characters and * to name words and phrases
+in the dictionary matching it. E.g.</p>
 <pre><code>:findwords *_executive
 chief_executive
 railroad_executive
@@ -594,112 +1093,238 @@ chief_executive
 chief_executive_officer
 Dancing_and_singing_are_my_idea_of_exercise.</code></pre>
 <h3 id="respondonly-filename"><code>:respondonly filename</code></h3>
-<p>Take serverlog named and replicate in tmp but without serverpre or separator lines.</p>
+<p>Take serverlog named and replicate in tmp but without serverpre or
+separator lines.</p>
 <h3 id="splitfile-filename"><code>:splitfile filename</code></h3>
-<p>Reads a really large file, line by line. The filename omits the .txt which is assumed. Writes new files limited to 20MB in tmp of the same name, with a number index before the suffix .txt.</p>
+<p>Reads a really large file, line by line. The filename omits the .txt
+which is assumed. Writes new files limited to 20MB in tmp of the same
+name, with a number index before the suffix .txt.</p>
 <h3 id="overlap-set1-set2"><code>:overlap set1 set2</code></h3>
-<p>This tests atomic members of set1 to see if they are also in set2, printing out the ones that are in both.</p>
+<p>This tests atomic members of set1 to see if they are also in set2,
+printing out the ones that are in both.</p>
 <h3 id="dumpcache"><code>:dumpcache</code></h3>
 <p>This dumps data about files currently cached by server.</p>
 <h2 id="system-control-commands">System Control Commands</h2>
 <h3 id="build"><code>:build</code></h3>
-<p>This compiles script into ready-to-use data in the TOPICS folder. You name a file to build. If the file name has a 0 at the end of it, it will build as level 0. Any other file name will build as level 1. You can build levels in any order or just update a single level.</p>
-<p>A build file is named <code>filesxxx.txt</code> where the xxx part is what you specify to the build command. So <code>:build angela0</code> will use <code>filesAngela0.txt</code> to build level 0. A build file has as its content a list of file paths to read as the script source data. It may also have comment lines starting with <code>#</code>.</p>
+<p>This compiles script into ready-to-use data in the TOPICS folder. You
+name a file to build. If the file name has a 0 at the end of it, it will
+build as level 0. Any other file name will build as level 1. You can
+build levels in any order or just update a single level.</p>
+<p>A build file is named <code>filesxxx.txt</code> where the xxx part is
+what you specify to the build command. So <code>:build angela0</code>
+will use <code>filesAngela0.txt</code> to build level 0. A build file
+has as its content a list of file paths to read as the script source
+data. It may also have comment lines starting with <code>#</code>.</p>
 <p>These paths are usually relative to the top level directory. E.g,</p>
 <pre><code># ontology data
 RAWDATA/ONTOLOGY/adverbhierarchy.top
 RAWDATA/ONTOLOGY/adjectivehierarchy.top
 RAWDATA/ONTOLOGY/prepositionhierarchy.top</code></pre>
-<p>Depending on what you put into it, a build file may build a single bot or lots of bots or a common set of data or whatever.</p>
+<p>Depending on what you put into it, a build file may build a single
+bot or lots of bots or a common set of data or whatever.</p>
 <h3 id="bot-sue"><code>:bot sue</code></h3>
-<p>Change focus to conversing with the named bot (presuming you have such a bot). It resets the user back to complete new, flushing the users history, variables, etc.</p>
+<p>Change focus to conversing with the named bot (presuming you have
+such a bot). It resets the user back to complete new, flushing the users
+history, variables, etc.</p>
 <h3 id="language-french"><code>:language french</code></h3>
-<p>Change current language of user to named language which must be in the language= command line parameter. Given no argument, it returns the current language.</p>
+<p>Change current language of user to named language which must be in
+the language= command line parameter. Given no argument, it returns the
+current language.</p>
 <h3 id="reset"><code>:reset</code></h3>
-<p>Flush the current user's total history (erases the <code>USER/TOPIC</code> file) and reruns the bot definition macro, starting conversation from the beginning. Can be done from within a script without damaging the existing control flow or input sentence but that means variables and facts not covered by the bot definition will remain untouched. For a complete reset see command line parameter <code>erasename</code>.</p>
+<p>Flush the current user’s total history (erases the
+<code>USER/TOPIC</code> file) and reruns the bot definition macro,
+starting conversation from the beginning. Can be done from within a
+script without damaging the existing control flow or input sentence but
+that means variables and facts not covered by the bot definition will
+remain untouched. For a complete reset see command line parameter
+<code>erasename</code>.</p>
 <h3 id="user-username"><code>:user username</code></h3>
-<p>Change your login id. It will then prompt you for new input as that user and proceed from there, not starting a new conversation but merely continuing a prior one.</p>
-<h3 id="tsvsource-filename-conversationid-message-speaker-count-skip"><code>:tsvsource filename conversationid message speaker count skip</code></h3>
-<p>The system will switch to reading input from a delimited file describing conversations.</p>
-<p>Conversationid is the field index where the id for login will be found. Message is the field index of the input being supplied. Speaker is field index of who is speaking (Professional or Customer).</p>
-<p>Each successive line with the same conversation id continues the conversation. Either speaker can be doing the talking. When a new conversation id is read, the prior conversation ends and a new one begins. As the conversation ends, a topic you can define called ~cs_tsvsource which consists only of gambits. It is not harmful if you don't have this topic. It allows you to do any final processing of the conversation.</p>
-<h3 id="source-regressbigregress.txt"><code>:source REGRESS/bigregress.txt</code></h3>
-<p>Switch the system to reading input from the named file. Good for regression testing.</p>
-<p>The system normally prints out just the output, while the log file contains both the input and the output. You can say <code>:source filename echo</code> to have input echoed to the console.</p>
-<p>If you say <code>:source filename internal</code> the system will echo the input, then echo the tokenized sentences it handled.</p>
-<p>An input sentence that is merely <code>:quit</code> or <code>:exit</code> will stop source reading before the file ends, and return to normal source input.</p>
-<p>:source can accept a log file and will execute the log entry data appropriate (and skip non-useful lines).</p>
+<p>Change your login id. It will then prompt you for new input as that
+user and proceed from there, not starting a new conversation but merely
+continuing a prior one.</p>
+<h3
+id="tsvsource-filename-conversationid-message-speaker-count-skip"><code>:tsvsource filename conversationid message speaker count skip</code></h3>
+<p>The system will switch to reading input from a delimited file
+describing conversations.</p>
+<p>Conversationid is the field index where the id for login will be
+found. Message is the field index of the input being supplied. Speaker
+is field index of who is speaking (Professional or Customer).</p>
+<p>Each successive line with the same conversation id continues the
+conversation. Either speaker can be doing the talking. When a new
+conversation id is read, the prior conversation ends and a new one
+begins. As the conversation ends, a topic you can define called
+~cs_tsvsource which consists only of gambits. It is not harmful if you
+don’t have this topic. It allows you to do any final processing of the
+conversation.</p>
+<h3
+id="source-regressbigregress.txt"><code>:source REGRESS/bigregress.txt</code></h3>
+<p>Switch the system to reading input from the named file. Good for
+regression testing.</p>
+<p>The system normally prints out just the output, while the log file
+contains both the input and the output. You can say
+<code>:source filename echo</code> to have input echoed to the
+console.</p>
+<p>If you say <code>:source filename internal</code> the system will
+echo the input, then echo the tokenized sentences it handled.</p>
+<p>An input sentence that is merely <code>:quit</code> or
+<code>:exit</code> will stop source reading before the file ends, and
+return to normal source input.</p>
+<p>:source can accept a log file and will execute the log entry data
+appropriate (and skip non-useful lines).</p>
 <h3 id="pos"><code>:pos</code></h3>
-<p>This is a subset of :prepare that just runs the POS-tagger parser on the input you supply. I use it to debug the system. It either is given a sentence or toggles a mode if not (just like <code>:prepare</code>). It also displays pronoun data gathered from the input.</p>
+<p>This is a subset of :prepare that just runs the POS-tagger parser on
+the input you supply. I use it to debug the system. It either is given a
+sentence or toggles a mode if not (just like <code>:prepare</code>). It
+also displays pronoun data gathered from the input.</p>
 <h3 id="tokenize"><code>:tokenize</code></h3>
-<p>This is a subset of :prepare that just runs tokenization and adjusts the input, but does not show POS-tagging and concept marking.</p>
+<p>This is a subset of :prepare that just runs tokenization and adjusts
+the input, but does not show POS-tagging and concept marking.</p>
 <h3 id="canonize"><code>:canonize</code></h3>
-<p>This is a subset of :prepare that shows the canonical form of the input</p>
+<p>This is a subset of :prepare that shows the canonical form of the
+input</p>
 <h3 id="logging"><code>:logging</code></h3>
-<p>Dynamically alter logging behavior from whatever current settings are.</p>
+<p>Dynamically alter logging behavior from whatever current settings
+are.</p>
 <pre><code>    :logging user {file,none,stdout,stderr,prelog}  
     :logging servertrace {on, off} 
     :logging server {file,none,stdout,stderr,prelog} </code></pre>
-<p>Serverlogging is a location for the log file. It does not matter if CS is acting as a server or not. Server log files go in LOGS/serverlogxxxx.txt where xxx is the port number.</p>
-<p>Userlogging is stored in USERS folder, in files named by the bot and user. And userlogging is needed if you want to trace user processing, which goes into that user's file.</p>
+<p>Serverlogging is a location for the log file. It does not matter if
+CS is acting as a server or not. Server log files go in
+LOGS/serverlogxxxx.txt where xxx is the port number.</p>
+<p>Userlogging is stored in USERS folder, in files named by the bot and
+user. And userlogging is needed if you want to trace user processing,
+which goes into that user’s file.</p>
 <h3 id="testpos"><code>:testpos</code></h3>
-<p>This switches input to the named file (if not named defaults to <code>REGRESS/posttest.txt</code>) and running regression POS testing. If the result of processing an input deviates from that listed in the test file, the system presents this as an error.</p>
+<p>This switches input to the named file (if not named defaults to
+<code>REGRESS/posttest.txt</code>) and running regression POS testing.
+If the result of processing an input deviates from that listed in the
+test file, the system presents this as an error.</p>
 <h3 id="verifysubstitutes"><code>:verifysubstitutes</code></h3>
-<p>This tests each substitution in the <code>LIVEDATA/substitutes</code> file to see if it does the expected thing.</p>
+<p>This tests each substitution in the <code>LIVEDATA/substitutes</code>
+file to see if it does the expected thing.</p>
 <h3 id="verifyspell"><code>:verifyspell</code></h3>
-<p>This tests each spelling in the <code>LIVEDATA/spellfix</code> file to see if it does the expected thing.</p>
+<p>This tests each spelling in the <code>LIVEDATA/spellfix</code> file
+to see if it does the expected thing.</p>
 <h3 id="verifypos"><code>:verifypos</code></h3>
-<p>This tests pos regression data in REGRESS to see if it does the expected thing.</p>
+<p>This tests pos regression data in REGRESS to see if it does the
+expected thing.</p>
 <p>:fuse filename<br />
-This will read in the file named, replace new lines with spaces, and write to TMP/tmp.txt. This makes a multiple line file into a single file. This is handy if you are trying to create a large json structure to be passed as user input, which is easy to read in multiple lines, but then must be reformatted to single line for input.</p>
+This will read in the file named, replace new lines with spaces, and
+write to TMP/tmp.txt. This makes a multiple line file into a single
+file. This is handy if you are trying to create a large json structure
+to be passed as user input, which is easy to read in multiple lines, but
+then must be reformatted to single line for input.</p>
 <h3 id="fuse-filename"><code>:fuse filename</code></h3>
 <h3 id="restart"><code>:restart</code></h3>
-<p>This will force the system to reload all its data files from disk (dictionary, topic data, live data) and then ask for your login. It's like starting the system from scratch, but it never stops execution. Good for revising a live server. But it does not return a message to the user, it restarts immediately. If you want to complete the current volley, say &quot;:restart completevolley&quot;</p>
-<p>You may also say <code>:restart erase</code> to force the existing user to start with a new topic file (restarting a system might load new incompatible data if you've changed something).</p>
-<p>You may also give up to 4 parameters exactly as you would on the command line to alter startup behavior. E.g., from script:</p>
+<p>This will force the system to reload all its data files from disk
+(dictionary, topic data, live data) and then ask for your login. It’s
+like starting the system from scratch, but it never stops execution.
+Good for revising a live server. But it does not return a message to the
+user, it restarts immediately. If you want to complete the current
+volley, say “:restart completevolley”</p>
+<p>You may also say <code>:restart erase</code> to force the existing
+user to start with a new topic file (restarting a system might load new
+incompatible data if you’ve changed something).</p>
+<p>You may also give up to 4 parameters exactly as you would on the
+command line to alter startup behavior. E.g., from script:</p>
 <pre><code>^eval(:restart erase Vserver=app.john.com/api/1.1 )</code></pre>
-<p>:restart redo_boot will, at end of volley, unwind the boot layer and reexecute boot functions to repopulate the server with new boot data visible to all bots and users.</p>
+<p>:restart redo_boot will, at end of volley, unwind the boot layer and
+reexecute boot functions to repopulate the server with new boot data
+visible to all bots and users.</p>
 <h3 id="autoreply-xxx"><code>:autoreply xxx</code></h3>
-<p>This command causes the system to talk to itself. As the user it always says whatever you put in xxx.</p>
-<h2 id="debugging-function-debug">Debugging Function <code>^debug()</code></h2>
-<p>As a last ditch, you can add this function call into a pattern or the output and it will call DebugCode in <code>functionExecute.cpp</code> so you know exactly where you are and can use a debugger to follow code thereafter if you can debug c code.</p>
-<h2 id="logging-function-log...">Logging Function <code>^log(...)</code></h2>
-<p>This allows you to print something directly to the users log file. You can actually append to any file by putting at the front of your output the word FILE in capital letters followed by the name of the file. E.g.,</p>
+<p>This command causes the system to talk to itself. As the user it
+always says whatever you put in xxx.</p>
+<h2 id="debugging-function-debug">Debugging Function
+<code>^debug()</code></h2>
+<p>As a last ditch, you can add this function call into a pattern or the
+output and it will call DebugCode in <code>functionExecute.cpp</code> so
+you know exactly where you are and can use a debugger to follow code
+thereafter if you can debug c code.</p>
+<h2 id="logging-function-log...">Logging Function
+<code>^log(...)</code></h2>
+<p>This allows you to print something directly to the users log file.
+You can actually append to any file by putting at the front of your
+output the word FILE in capital letters followed by the name of the
+file. E.g.,</p>
 <pre><code>^log(FILE TMP/mylog.txt This is my log output.)</code></pre>
-<p>Logging appends to the file. If you want to clear it first, issue a log command like this:</p>
+<p>Logging appends to the file. If you want to clear it first, issue a
+log command like this:</p>
 <pre><code>^log(FILE TMP/mylog.txt NEW This is my log output)</code></pre>
-<p>The &quot;new&quot; tells it to initialize the file to empty. Additionally you can optimize log file behavior. If you expect to write to a file a lot during a volley (eg during :document mode), you can leave the file open by using</p>
+<p>The “new” tells it to initialize the file to empty. Additionally you
+can optimize log file behavior. If you expect to write to a file a lot
+during a volley (eg during :document mode), you can leave the file open
+by using</p>
 <pre><code>^log(OPEN TMP/mylog.txt This is my log output.)</code></pre>
-<p>which caches the file ptr. After which you can write with OPEN or FILE equivalently. To close the file use</p>
+<p>which caches the file ptr. After which you can write with OPEN or
+FILE equivalently. To close the file use</p>
 <pre><code>^log(CLOSE TMP/mylog.txt)</code></pre>
-<p>You can log into the existing serverlog with ^log(SERVERLOG ...). You can log into the existing userlog with ^log(USERLOG ...). Actually getting stuff put into those files will depending on whether logging into those files is enabled.</p>
+<p>You can log into the existing serverlog with ^log(SERVERLOG …). You
+can log into the existing userlog with ^log(USERLOG …). Actually getting
+stuff put into those files will depending on whether logging into those
+files is enabled.</p>
 <h2 id="login-after-crash">Login after crash</h2>
-<p>If you want to repeat a crash and not go thru all the trouble to recreate the situation you can do the login differently. The old status of the system is still in the user's folder. Normally when you login, it picks that up, but begins a new conversation.</p>
-<p>To resume the old conversation as though you had never left, login with <code>loginname:&amp;</code>. If before you were user bruce, login as <code>bruce:&amp;</code>. Now if you say what you said before, it should crash just the same. Not that that will do most of you any good, but it's handy if you can debug src code.</p>
+<p>If you want to repeat a crash and not go thru all the trouble to
+recreate the situation you can do the login differently. The old status
+of the system is still in the user’s folder. Normally when you login, it
+picks that up, but begins a new conversation.</p>
+<p>To resume the old conversation as though you had never left, login
+with <code>loginname:&amp;</code>. If before you were user bruce, login
+as <code>bruce:&amp;</code>. Now if you say what you said before, it
+should crash just the same. Not that that will do most of you any good,
+but it’s handy if you can debug src code.</p>
 <h2 id="when-all-else-fails">When all else fails</h2>
 <p>Usually you can email me for advice and solutions.</p>
 <h1 id="sortconcept">:sortconcept</h1>
-<p>This takes one or all concepts currently compiled, and can neaten them up in various ways.</p>
+<p>This takes one or all concepts currently compiled, and can neaten
+them up in various ways.</p>
 <pre><code>:sortconcept ~concept 1</code></pre>
-<p>will take the named concept and write it out to <code>cset.txt</code> as a single line, with members sorted alphabetically.</p>
+<p>will take the named concept and write it out to <code>cset.txt</code>
+as a single line, with members sorted alphabetically.</p>
 <pre><code>:sortconcept ~concept 0</code></pre>
-<p>will take the named concept and write it out to <code>cset.txt</code> as a multiple tidy lines, with members sorted alphabetically.</p>
+<p>will take the named concept and write it out to <code>cset.txt</code>
+as a multiple tidy lines, with members sorted alphabetically.</p>
 <pre><code>:sortconcept 1</code></pre>
-<p>will take the all built concept and write them out to <code>concepts.top</code> as a single line, with members sorted alphabetically and concept declarations sorted alphabetically. You can use this output to replace your original scripted concepts.</p>
+<p>will take the all built concept and write them out to
+<code>concepts.top</code> as a single line, with members sorted
+alphabetically and concept declarations sorted alphabetically. You can
+use this output to replace your original scripted concepts.</p>
 <pre><code>:sortconcept 0</code></pre>
-<p>will take the all built concept and write them out to <code>concepts.top</code> as a multiple line, with members sorted alphabetically. If you want the concept declarations sorted alphabetically, first do <code>:sortconcept 1</code>, then take <code>concepts.top</code> and replace your original script concepts from it. Then do this and then replace your original script concepts from this.</p>
+<p>will take the all built concept and write them out to
+<code>concepts.top</code> as a multiple line, with members sorted
+alphabetically. If you want the concept declarations sorted
+alphabetically, first do <code>:sortconcept 1</code>, then take
+<code>concepts.top</code> and replace your original script concepts from
+it. Then do this and then replace your original script concepts from
+this.</p>
 <h1 id="variablereference">:variablereference</h1>
-<p>List all user variable assignments in a bot and uses into TMP/reference.txt . See documentation in Finalize a bot</p>
+<p>List all user variable assignments in a bot and uses into
+TMP/reference.txt . See documentation in Finalize a bot</p>
 <h1 id="testpattern-and-testoutput">^testpattern and ^testoutput</h1>
 <p>There are special debugging abilities tied to ^testpattern.</p>
-<p>A pattern that has %trace-on in it, turns on :trace all until either the pattern ends or %trace-off is found. This will output in the trace field of json return.</p>
-<p>If the user message starts with <code>cheat cs info</code> then the system will output a newglobal $cs_info with the timestamps of the engine compilation, and the level 0 and level1 script.</p>
-<p>If user input contains the serverauthorizationcode you supply in cs_initmore.txt, followed immediately by 2, then if there is a double quoted string as the next token, and the first token of that string is the label of the currently executing testpattern node, the rest of the string will be compiled, executed, and its output returned as a debug field. If no testpattern nodes match that name, then the first testoutput node that is invoked will execute the debug string. Eg.</p>
+<p>A pattern that has %trace-on in it, turns on :trace all until either
+the pattern ends or %trace-off is found. This will output in the trace
+field of json return.</p>
+<p>If the user message starts with <code>cheat cs info</code> then the
+system will output a newglobal $cs_info with the timestamps of the
+engine compilation, and the level 0 and level1 script.</p>
+<p>If user input contains the serverauthorizationcode you supply in
+cs_initmore.txt, followed immediately by 2, then if there is a double
+quoted string as the next token, and the first token of that string is
+the label of the currently executing testpattern node, the rest of the
+string will be compiled, executed, and its output returned as a debug
+field. If no testpattern nodes match that name, then the first
+testoutput node that is invoked will execute the debug string. Eg.</p>
 <pre><code>    cs_initmore.txt:
 serverauthcode=mycheat
     userinput:
 I love mycheat2 &quot;NODE4 :do test %bot me&quot; in the morning.</code></pre>
-<p>The above should return a debug field with &quot;test somebotname me&quot; in it. If the ^testpattern NODE4 is never executed then the first ^testoutput node will execute this.</p>
-<p>Whereas: <code>userinput:  I love mycheat1 in the morning.</code> will execute a simple :trace pattern with output in trace field in the resulting object.</p>
+<p>The above should return a debug field with “test somebotname me” in
+it. If the ^testpattern NODE4 is never executed then the first
+^testoutput node will execute this.</p>
+<p>Whereas:</p>
+<pre><code>    userinput:
+ I love mycheat1 in the morning.</code></pre>
+<p>will execute a simple :trace pattern with output in trace field in
+the resulting object.</p>
 </body>
 </html>

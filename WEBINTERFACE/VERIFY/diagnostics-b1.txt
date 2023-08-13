@@ -1,0 +1,3 @@
+﻿~diagnostics.5.0=CHEATREMAP  #! cheat remap
+~diagnostics.6.0=DUMPDATA  #! cheat dump data
+~diagnostics.10.0=RESET  #! reset

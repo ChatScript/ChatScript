@@ -1,0 +1,35 @@
+﻿    ~medical_role_detection~1.2.2  #! she  hers
+    ~medical_role_detection~1.2.4  #! they
+~medical_role_detection~1.3.0=DISCARDROLE  #! discard these as roles
+    ~medical_role_detection~1.3.5  #! her boyfriend the father
+    ~medical_role_detection~1.3.6  #! equivalence
+    ~medical_role_detection~1.3.7  #! my husband/boyfriend
+    ~medical_role_detection~1.3.9  #! I am a creditor
+    ~medical_role_detection~1.3.9  #! daughter is a md driver - but not  "I am worried because my son was arrested"
+    ~medical_role_detection~1.3.11  #! adult son
+    ~medical_role_detection~1.3.12  #! I am the resident and I went home
+~medical_role_detection~1.5.0=NONI  #! I wonder / I'm curious / I wanted to know
+~medical_role_detection~1.13.0=DEAD  #! my deceased parent or unborn son
+~medical_role_detection~1.14.0=DECEASED2  #! my mother died
+~medical_role_detection~1.15.0=DECEASED  #! my mother died
+~medical_role_detection~1.16.0=DECEASED1  #! partner was recently killed 
+~medical_role_detection~1.19.0=IHAVEA  #! I have a friend that has been arrested
+    ~medical_role_detection~1.22.1  #! what happens if you
+    ~medical_role_detection~1.22.2  #! can your bank account be garnished
+    ~medical_role_detection~1.22.3  #! am on ss
+    ~medical_role_detection~1.22.4  #! Trying to do something
+    ~medical_role_detection~1.22.5  #! I know
+    ~medical_role_detection~1.22.6  #! can you be sued
+    ~medical_role_detection~1.23.1  #! she  hers
+    ~medical_role_detection~1.23.3  #! they
+~medical_role_detection~1.24.0=IAMXOFY  #! I am a mother of a 5 years old.
+~medical_role_detection~1.27.0=ACTOR3AND  #! my son's mother's son and daughter  DISABLED
+~medical_role_detection~1.28.0=ACTOR3  #! my son's mother's boyfriend 
+~medical_role_detection~1.30.0=ACTOR1AND  #! the actor and I, 
+~medical_role_detection~1.31.0=ACTOR1OFMY  #! the actor
+~medical_role_detection~1.31.0=ACTOR1OFMY  #! my friend has a 3-year old 
+~medical_role_detection~1.31.0=ACTOR1OFMY  #! the mother of my children -- my children' mother
+~medical_role_detection~1.32.0=ACTOR1  #! the actor
+~medical_role_detection~1.33.0=MY  #! My 13 year old step daughter wants to live with us. 
+~medical_role_detection~1.34.0=OUR  #! Our 13 year old step daughter wants to live with us. 
+~medical_role_detection~1.37.0=PARTICIPLEI  #! having an issue with

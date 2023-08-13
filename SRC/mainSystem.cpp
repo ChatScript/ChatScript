@@ -1,6 +1,6 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "13.2";
+char* version = "13.3";
 const char* buildString = "compiled " __DATE__ ", " __TIME__ ".";
 char sourceInput[200];
 int cs_qsize = 0;
@@ -2705,7 +2705,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	static HOOKPTR fne = FindHookFunction((char*)"EndChat");
 	if (fns)
 	{
-		((PerformChatArgumentsHOOKFN)fns)(user, usee, incoming);
+		((PerformChatArgumentsHOOKFN)fns)(user, usee, incomingmessage);
 }
 #endif
 
@@ -2718,6 +2718,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 	Prelog(caller, callee, originalUserInput);
 
 	SetLanguage(baseLanguage);
+	SetUserVariable("$cs_language", baseLanguage);
 
 	FILE* in = fopen("restart.txt", (char*)"rb"); // per external file created, enable server log
 	if (in) // trigger restart
@@ -3016,7 +3017,8 @@ FunctionResult Reply()
 				{
 					ptr = ReadCompiledWord(ptr, vlabel);
 					if (trace) Log(USERLOG, "VERIFY set %s to %s\r\n", var, vlabel);
-					volleyCount = 2; // make not at startup
+					if (volleyCount > 1) --volleyCount; // make not at startup
+					else volleyCount = 2;
 					SetUserVariable(var, vlabel);
 					strcpy(currentOutputBase, "OK");
 					AddResponse(currentOutputBase, 0);
@@ -3030,7 +3032,8 @@ FunctionResult Reply()
 				{
 					ptr = ReadCompiledWord(ptr, vlabel);
 					if (trace) Log(USERLOG, "VERIFY set %s to %s\r\n", var, vlabel);
-					volleyCount = 2; // make not at startup
+					if (volleyCount > 1) --volleyCount; // make not at startup
+					else volleyCount = 2;
 					SystemVariable(var, vlabel);
 					strcpy(currentOutputBase, "OK");
 					AddResponse(currentOutputBase, 0);
@@ -3049,7 +3052,8 @@ FunctionResult Reply()
 				 paren = strchr(before, ')');
 				memmove(paren + 1, paren, strlen(paren) + 1);
 				*paren = ' ';
-				volleyCount = 2; // make not at startup
+				if (volleyCount > 1) --volleyCount; // make not at startup
+				else volleyCount = 2;
 				Output(before, currentOutputBase, result, 0);
 				strcpy(currentOutputBase, "OK");
 				AddResponse(currentOutputBase, 0);
@@ -3942,196 +3946,212 @@ static void SplitInterjection(bool analyze)
 
 void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobstart, bool atlimit)
 { // nlp processing
-	unsigned int mytrace = trace;
-	uint64 start_time = ElapsedMilliseconds();
-	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
-	ResetSentence();
-	ResetTokenSystem();
-	char separators[MAX_SENTENCE_LENGTH];
-	memset(separators, 0, sizeof(char) * MAX_SENTENCE_LENGTH);
+    unsigned int mytrace = trace;
+    uint64 start_time = ElapsedMilliseconds();
+    int diff = 0;
+    if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE) mytrace = 0;
+    ResetSentence();
+    ResetTokenSystem();
+    char separators[MAX_SENTENCE_LENGTH];
+    memset(separators, 0, sizeof(char) * MAX_SENTENCE_LENGTH);
+    
+    char* ptr = input;
+    size_t len = strlen(ptr);
+    char* nearend = ptr + len - 50;
+    
+    // protection from null input bug to testpattern
+    char* in = strstr(input, "\"input\": \", \"pattern");
+    if (in)
+    {
+        in += 10;
+        memmove(in + 1, in, strlen(in) + 1); // make room to patch
+        *in = '"';
+        ReportBug("INFO: Missing dq in API input field");
+    }
+    
+    tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
+    ptr = SkipWhitespace(ptr); // not needed now?
+    char startc = *ptr;
+    char* start = ptr;
+    loading = true; // block fact language assign, so oob json visible to all languages
+    char* xy = ptr;
+    if (!oobstart) while ((xy = strchr(ptr, '`'))) *xy = ' '; // get rid of internal reserved use
+    uint64 start_time_tokenize = ElapsedMilliseconds();
+    ptr = Tokenize(ptr, wordCount, wordStarts, separators, false, oobstart);
+    diff = (int)(ElapsedMilliseconds() - start_time_tokenize);
+    TrackTime((char*)"Tokenize",diff);
+    loading = false;
+    SetContinuationInput(ptr);
+    retryInput = AllocateHeap(start,ptr-start); // what we are doing now (for retry use)
+    if (!wordCount && startc) // insure we return something always
+    {
+        char x[10];
+        x[0] = startc;
+        x[1] = 0;
+        wordStarts[++wordCount] = AllocateHeap(x);
+    }
+    actualTokenCount = wordCount;
+    upperCount = 0;
+    lowerCount = 0;
+    int repeat = 0;
+    for (unsigned int i = 1; i <= wordCount; ++i)   // see about SHOUTing
+    {
+        if (i < wordCount) // junk input?
+        {
+            if (!strcmp(wordStarts[i], wordStarts[i + 1])) ++repeat;
+            else repeat = 0;
+        }
+        if (repeatLimit && repeat >= repeatLimit)
+        {
+            *ptr = 0;
+            *input = 0;
+            wordCount = 2;
+        }
+        char* at = wordStarts[i] - 1;
+        while (*++at)
+        {
+            if (IsAlphaUTF8(*at))
+            {
+                if (IsUpperCase(*at)) ++upperCount;
+                else ++lowerCount;
+            }
+        }
+    }
+    
+    // set derivation data on original words of user before we do substitution
+    // separators might use the first character when there is a single quoted word
+    for (unsigned int i = 1; i <= wordCount; ++i)
+    {
+        derivationIndex[i] = (unsigned short)((i << 8) | i); // track where substitutions come from
+        derivationSentence[i] = wordStarts[i];
+    }
+    memcpy(derivationSeparator, separators, (wordCount + 1) * sizeof(char));
+    derivationLength = wordCount;
+    derivationSentence[wordCount + 1] = NULL;
+    derivationSeparator[wordCount + 1] = 0;
+    
+    if (oobPossible && wordCount && *wordStarts[1] == '[' && !wordStarts[1][1] && *wordStarts[wordCount] == ']' && !wordStarts[wordCount][1])
+    {
+        oobPossible = false; // no more for now
+        oobExists = true;
+    }
+    else oobExists = false;
+    
+    if (tokenControl & ONLY_LOWERCASE && !oobExists) // force lower case
+    {
+        for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
+        {
+            if (wordStarts[i][0] != 'I' || wordStarts[i][1]) MakeLowerCase(wordStarts[i]);
+        }
+    }
+    
+    if (!oobExists) FixCasing();
+    
+    if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
+    {
+        TraceTokenization(input);
+    }
+    
+    char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
+    char* timelimit = GetUserVariable("$cs_analyzelimit");
+    bool timeover = false;
+    if (*timelimit && !oobExists)
+    {
+        uint64 used = ElapsedMilliseconds() - callStartTime;
+        if (used >= atoi(timelimit))
+        {
+            timeover = true;  // enforce time limit for nl- too long in q
+            char* logit = GetUserVariable("$cs_analyzelimitlog");
+            if (*logit && *logit != '0') ReportBug("Limiting analysis");
+        }
+    }
+    if (!oobExists && !timeover && !*bad)
+    {
+        uint64 start_time_nlp = ElapsedMilliseconds();
+        NLPipeline(mytrace);
+        diff = (int)(ElapsedMilliseconds() - start_time_nlp);
+        TrackTime((char*)"NLPipeline",diff);
+        bad = GetUserVariable("$$cs_badspell", false); // possibly set by NLPipeline
+    }
+    else // need wordcanonical to be valid (nonzero)  for any savesentence call
+    {
+        marklimit = 0;
+        for (unsigned int i = 1; i <= wordCount; ++i)
+        {
+            wordCanonical[i] = wordStarts[i];
+            // even oob has possible pattern match, so mark its components
+            MarkWordHit(0, EXACTNOTSET, StoreWord(wordStarts[i], AS_IS), 0, i, i);
+        }
+    }
+    if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
+        SplitInterjection(analyze);
+    
+    // copy the raw sentence original input that this sentence used
+    *rawSentenceCopy = 0;
+    char* atword = rawSentenceCopy;
+    unsigned int reach = 0;
+    for (unsigned i = 1; i <= wordCount; ++i)
+    {
+        unsigned int start = derivationIndex[i] >> 8;
+        unsigned int end = derivationIndex[i] & 0x00ff;
+        if (start > reach)
+        {
+            reach = end;
+            for (unsigned int j = start; j <= reach; ++j)
+            {
+                if (j == 1) strncat(atword, &derivationSeparator[0], 1);
+                strcpy(atword, derivationSentence[j]);
+                if (j < derivationLength) strncat(atword, &derivationSeparator[j], 1);
+                atword += strlen(atword);
+                *atword = 0;
+            }
+        }
+    }
+    
+    if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
+    {
+        TraceDerivation(analyze);
+    }
+    
+    if (echoSource == SOURCE_ECHO_LOG)
+    {
+        Log(ECHOUSERLOG, (char*)"  => ");
+        for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
+        Log(ECHOUSERLOG, (char*)"\r\n");
+    }
+    
+    wordStarts[0] = wordStarts[wordCount + 1] = AllocateHeap((char*)""); // visible end of data in debug display
+    wordStarts[wordCount + 2] = 0;
+    
+    if (!oobExists && mark && wordCount)
+    {
+        bool limitnlp = (*bad || timeover || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false;
 
-	char* ptr = input;
-	size_t len = strlen(ptr);
-	char* nearend = ptr + len - 50;
+        uint64 start_time_tag = ElapsedMilliseconds();
+        TagIt(limitnlp); // pos tag and maybe parse
+        diff = (int)(ElapsedMilliseconds() - start_time_tag);
+        TrackTime((char*)"PosTag",diff);
 
-	// protection from null input bug to testpattern
-	char* in = strstr(input, "\"input\": \", \"pattern");
-	if (in)
-	{
-		in += 10;
-		memmove(in + 1, in, strlen(in) + 1); // make room to patch
-		*in = '"';
-		ReportBug("INFO: Missing dq in API input field");
-	}
-
-	tokenFlags |= (user) ? USERINPUT : 0; // remove any question mark
-	ptr = SkipWhitespace(ptr); // not needed now?
-	char startc = *ptr;
-	char* start = ptr;
-	loading = true; // block fact language assign, so oob json visible to all languages
-	char* xy = ptr;
-	if (!oobstart) while ((xy = strchr(ptr, '`'))) *xy = ' '; // get rid of internal reserved use
-	ptr = Tokenize(ptr, wordCount, wordStarts, separators, false, oobstart);
-	loading = false;
-	SetContinuationInput(ptr);
-	retryInput = AllocateHeap(start,ptr-start); // what we are doing now (for retry use)
-	if (!wordCount && startc) // insure we return something always
-	{
-		char x[10];
-		x[0] = startc;
-		x[1] = 0;
-		wordStarts[++wordCount] = AllocateHeap(x);
-	}
-	actualTokenCount = wordCount;
-	upperCount = 0;
-	lowerCount = 0;
-	int repeat = 0;
-	for (unsigned int i = 1; i <= wordCount; ++i)   // see about SHOUTing
-	{
-		if (i < wordCount) // junk input?
-		{
-			if (!strcmp(wordStarts[i], wordStarts[i + 1])) ++repeat;
-			else repeat = 0;
-		}
-		if (repeatLimit && repeat >= repeatLimit)
-		{
-			*ptr = 0;
-			*input = 0;
-			wordCount = 2;
-		}
-		char* at = wordStarts[i] - 1;
-		while (*++at)
-		{
-			if (IsAlphaUTF8(*at))
-			{
-				if (IsUpperCase(*at)) ++upperCount;
-				else ++lowerCount;
-			}
-		}
-	}
-
-	// set derivation data on original words of user before we do substitution
-	// separators might use the first character when there is a single quoted word
-	for (unsigned int i = 1; i <= wordCount; ++i)
-	{
-		derivationIndex[i] = (unsigned short)((i << 8) | i); // track where substitutions come from
-		derivationSentence[i] = wordStarts[i];
-	}
-	memcpy(derivationSeparator, separators, (wordCount + 1) * sizeof(char));
-	derivationLength = wordCount;
-	derivationSentence[wordCount + 1] = NULL;
-	derivationSeparator[wordCount + 1] = 0;
-
-	if (oobPossible && wordCount && *wordStarts[1] == '[' && !wordStarts[1][1] && *wordStarts[wordCount] == ']' && !wordStarts[wordCount][1])
-	{
-		oobPossible = false; // no more for now
-		oobExists = true;
-	}
-	else oobExists = false;
-
-	if (tokenControl & ONLY_LOWERCASE && !oobExists) // force lower case
-	{
-		for (unsigned int i = FindOOBEnd(1); i <= wordCount; ++i)
-		{
-			if (wordStarts[i][0] != 'I' || wordStarts[i][1]) MakeLowerCase(wordStarts[i]);
-		}
-	}
-
-	if (!oobExists) FixCasing();
-
-	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
-	{
-		TraceTokenization(input);
-	}
-
-	char* bad = GetUserVariable("$$cs_badspell", false); // spelling says this user is a mess
-	char* timelimit = GetUserVariable("$cs_analyzelimit");
-	bool timeover = false;
-	if (*timelimit && !oobExists)
-	{
-		uint64 used = ElapsedMilliseconds() - callStartTime;
-		if (used >= atoi(timelimit))
-		{
-			timeover = true;  // enforce time limit for nl- too long in q
-			char* logit = GetUserVariable("$cs_analyzelimitlog");
-			if (*logit && *logit != '0') ReportBug("Limiting analysis");
-		}
-	}
-	if (!oobExists && !timeover && !*bad)
-	{
-		NLPipeline(mytrace);
-		bad = GetUserVariable("$$cs_badspell", false); // possibly set by NLPipeline
-	}
-	else // need wordcanonical to be valid (nonzero)  for any savesentence call
-	{
-		marklimit = 0;
-		for (unsigned int i = 1; i <= wordCount; ++i)
-		{
-			wordCanonical[i] = wordStarts[i];
-			// even oob has possible pattern match, so mark its components
-			MarkWordHit(0, EXACTNOTSET, StoreWord(wordStarts[i], AS_IS), 0, i, i);
-		}
-	}
-	if (!oobExists && tokenControl & DO_INTERJECTION_SPLITTING && wordCount > 1 && *wordStarts[1] == '~') // interjection. handle as own sentence
-		SplitInterjection(analyze);
-
-	// copy the raw sentence original input that this sentence used
-	*rawSentenceCopy = 0;
-	char* atword = rawSentenceCopy;
-	unsigned int reach = 0;
-	for (unsigned i = 1; i <= wordCount; ++i)
-	{
-		unsigned int start = derivationIndex[i] >> 8;
-		unsigned int end = derivationIndex[i] & 0x00ff;
-		if (start > reach)
-		{
-			reach = end;
-			for (unsigned int j = start; j <= reach; ++j)
-			{
-				if (j == 1) strncat(atword, &derivationSeparator[0], 1);
-				strcpy(atword, derivationSentence[j]);
-				if (j < derivationLength) strncat(atword, &derivationSeparator[j], 1);
-				atword += strlen(atword);
-				*atword = 0;
-			}
-		}
-	}
-
-	if (mytrace & TRACE_INPUT || prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE)
-	{
-		TraceDerivation(analyze);
-	}
-
-	if (echoSource == SOURCE_ECHO_LOG)
-	{
-		Log(ECHOUSERLOG, (char*)"  => ");
-		for (unsigned i = 1; i <= wordCount; ++i) Log(USERLOG, "%s  ", wordStarts[i]);
-		Log(ECHOUSERLOG, (char*)"\r\n");
-	}
-
-	wordStarts[0] = wordStarts[wordCount + 1] = AllocateHeap((char*)""); // visible end of data in debug display
-	wordStarts[wordCount + 2] = 0;
-
-	if (!oobExists && mark && wordCount)
-	{
-		bool limitnlp = (*bad || timeover || actualTokenCount == REAL_SENTENCE_WORD_LIMIT) ? true : false;
-		TagIt(limitnlp); // pos tag and maybe parse
-		MarkAllImpliedWords(limitnlp);
-		SetSentenceTense(1, wordCount); // english, mostly, some foreign
-	}
-	if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & (TRACE_POS | TRACE_PREPARE) || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
-	if (timing & TIME_PREPARE) {
-		int diff = (int)(ElapsedMilliseconds() - start_time);
-		if (timing & TIME_ALWAYS || diff > 0)
-		{
-			char hold[10];
-			strncpy(hold, input + 50, 4);
-			strcpy(input + 50, "..."); // avoid long inputs
-			Log(STDTIMELOG, (char*)"Prepare %s time: %d ms\r\n", input, diff);
-			strncpy(input + 50, hold, 4);
-		}
-	}
-	}
+        uint64 start_time_mark = ElapsedMilliseconds();
+        MarkAllImpliedWords(limitnlp);
+        diff = (int)(ElapsedMilliseconds() - start_time_mark);
+        TrackTime((char*)"MarkWords",diff);
+        SetSentenceTense(1, wordCount); // english, mostly, some foreign
+    }
+    if (prepareMode == PREPARE_MODE || prepareMode == TOKENIZE_MODE || trace & (TRACE_POS | TRACE_PREPARE) || prepareMode == POS_MODE || (prepareMode == PENN_MODE && trace & TRACE_POS)) DumpTokenFlags((char*)"After parse");
+    diff = (int)(ElapsedMilliseconds() - start_time);
+    TrackTime((char*)"PrepareSentence",diff);
+    if (timing & TIME_PREPARE) {
+        if (timing & TIME_ALWAYS || diff > 0)
+        {
+            char hold[10];
+            strncpy(hold, input + 50, 4);
+            strcpy(input + 50, "..."); // avoid long inputs
+            Log(STDTIMELOG, (char*)"Prepare %s time: %d ms\r\n", input, diff);
+            strncpy(input + 50, hold, 4);
+        }
+    }
+}
 
 #ifndef NOMAIN
 int main(int argc, char* argv[])

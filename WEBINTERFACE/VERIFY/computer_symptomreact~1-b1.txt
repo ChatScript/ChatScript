@@ -1,0 +1,1 @@
+﻿    ~computer_symptomreact~1.38.3  #! non-Mac and non-Windows or unknown

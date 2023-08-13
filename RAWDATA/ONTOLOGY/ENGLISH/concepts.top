@@ -1877,7 +1877,127 @@ concept: ~unreachable (~scenery_air ~scenery_outer_space )
 concept: ~us_minorities (African-American~1 Asian Asiatic~1 Black Hispanic~2 Indian Mexican_American Native_American ) 
 concept: ~usefulfactverb (~bodily_activities_verbs ~bodily_function_verbs ~exercise_verbs ~sport be ) 
 concept: ~vegetable   (artichoke arugula beet bok_choy broccoli brussel_sprout cabbage carrot cauliflower celery corn endive green_bean kale lettuce lima_bean onion 
-          pea potato purslane radish spinach tomato turnip watercress yarrow ) 
+artichoke
+aubergine  eggplant 
+asparagus
+broccoflower
+broccoli calabrese
+brussels_sprouts
+cabbage
+kohlrabi
+savoy_cabbage
+red cabbage
+cauliflower
+celery
+endive
+fiddleheads
+frisee
+fennel
+greens
+arugula
+bok_choy
+chard beet_greens
+collard_greens
+kale
+lettuce
+mustard_greens
+spinach
+herbs
+anise
+basil
+caraway
+coriander
+chamomile
+daikon
+dill
+fennel
+lavender
+cymbopogon lemongrass
+marjoram
+oregano
+parsley
+rosemary
+thyme
+legumes
+alfalfa sprouts
+azuki_beans  adzuki
+bean_sprouts
+black beans
+black-eyed peas
+borlotti bean
+broad beans
+chickpeas  garbanzos   ceci_beans
+green_beans
+kidney_beans
+lentils
+lima_beans  butter_bean
+mung_beans
+navy_beans
+peanuts
+pinto_beans
+runner_beans
+split_peas
+soy_beans
+peas
+mange_tout  snap_peas
+mushrooms
+nettles
+spinach
+okra
+chives
+garlic
+leek
+onion
+shallot
+scallion spring_onion  green_onion 
+peppers
+bell_pepper
+chili_pepper
+jalapeño
+habanero
+paprika
+tabasco_pepper
+cayenne_pepper
+radicchio
+rhubarb
+beetroot  beet 
+mangelwurzel
+carrot
+celeriac
+corms
+eddoe
+konjac
+taro
+water_chestnut
+ginger
+parsnip
+rutabaga
+radish
+wasabi
+horseradish
+daikon  white_radish
+tubers
+jicama
+jerusalem_artichoke
+potato
+sweet_potato
+yam
+turnip
+salsify 
+skirret
+sweetcorn 
+topinambur
+squash
+bitter_melon
+courgette  zucchini 
+cucumber
+delicata
+marrow  
+spaghetti squash
+tat_soi
+tomato
+watercress
+ pea potato purslane radish spinach tomato turnip watercress yarrow ) 
 concept: ~vehicle (~transport_vehicles ~vehicles_air ~vehicles_land ~vehicles_sea ~vehicles_space convoy ) 
 concept: ~vehicle_conduit (avenue boulevard drawbridge driveway expressway highway path road roadway street tollgate turnpike ) 
 concept: ~vehicle_weapons (aircraft_carrier bomber fighter_jet half-track submarine tank ) 

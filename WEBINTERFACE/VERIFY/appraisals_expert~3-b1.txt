@@ -1,0 +1,4 @@
+﻿    ~appraisals_expert~3.5.1  #! nothing is wrong
+~appraisals_expert~3.6.0=REACT  #!x*** SYMPATHY
+    ~appraisals_expert~3.7.1  #! what was valuable
+~appraisals_expert~3.9.0  #!x*** LAST CHANCE FOR THEM TO ADD DATA

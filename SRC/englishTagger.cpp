@@ -506,7 +506,7 @@ void TreeTagger()
 		if (*wordStarts[i] == '~') { ; }
 		else if (canonical0 && canonical0->properties == 0 && canonical && canonical->properties > 0) { ; }
 		else if (flags & NUMBER_BITS && X && X->properties & NUMBER_BITS) { ; }
-		else if (canonical0) { ; }
+		else if (!canonical0) { ; }
 		else
 		{
 			canonical = canonical0;

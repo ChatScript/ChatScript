@@ -1,0 +1,19 @@
+﻿~keywordless~3.2.0  #! you didnt answer my question
+~keywordless~3.3.0  #! Do you trust the experts?
+~keywordless~3.4.0  #! I already included that information in my question
+~keywordless~3.5.0  #! Happy Holidays! 
+~keywordless~3.6.0  #! why do you ask?
+~keywordless~3.7.0  #! huh?
+~keywordless~3.8.0  #! i'm disappointed with your service
+~keywordless~3.9.0  #! can i talk to your manager?
+~keywordless~3.10.0  #! what's your manager's name? 
+~keywordless~3.11.0  #! Is this all confidential
+~keywordless~3.12.0  #! how do i talk to a real person?
+~keywordless~3.13.0  #! Can we talk about my cat?
+~keywordless~3.14.0  #! Where do you work?
+~keywordless~3.15.0  #! who is your boss
+~keywordless~3.16.0  #! who is Jamie Kurtzig
+~keywordless~3.17.0  #! who is Kelly Kurtzig
+~keywordless~3.18.0  #! who is Kai Kurtzig
+~keywordless~3.19.0  #! who is Sara Kurtzig
+~keywordless~3.21.0=MINIMIZE  #! fuck off

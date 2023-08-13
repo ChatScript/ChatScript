@@ -1,56 +1,257 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="status">Status</h1>
-<p>The former repository of ChatScript was at https://github.com/bwilcox-1234/ChatScript, however, I lost access to this repository (2 factor authentication lost that I didn't want in the first place and I could not convince github to restore my access). So it is no longer maintained. But the global user ChatScript became available, and is a better name anyway.</p>
+<p>The former repository of ChatScript was at
+https://github.com/bwilcox-1234/ChatScript, however, I lost access to
+this repository (2 factor authentication lost that I didn’t want in the
+first place and I could not convince github to restore my access). So it
+is no longer maintained. But the global user ChatScript became
+available, and is a better name anyway.</p>
 <h1 id="chatscript">ChatScript</h1>
 <p>Natural Language tool/dialog manager</p>
-<p>ChatScript is the next generation chatbot engine that has won the Loebner's 4 times and is the basis for natural language company for a variety of tech startups.</p>
-<p>ChatScript is a rule-based engine, where rules are created by humans writers in program scripts through a process called dialog flow scripting. These use a scripting metalanguage (simply called a &quot;script&quot;) as their source code. Here what a ChatScript script file looks like:</p>
+<p>ChatScript is the next generation chatbot engine that has won the
+Loebner’s 4 times and is the basis for natural language company for a
+variety of tech startups.</p>
+<p>ChatScript is a rule-based engine, where rules are created by humans
+writers in program scripts through a process called dialog flow
+scripting. These use a scripting metalanguage (simply called a “script”)
+as their source code. Here what a ChatScript script file looks like:</p>
 <pre><code>#
 # file: food.top
 #
@@ -89,21 +290,27 @@ s: ( ~like ~fruit ![~animal _bear] )  Vegan, you too...
 s: ( I eat _*1 &gt; ) 
   $food = &#39;_0 
   I eat oysters.</code></pre>
-<p>Above example mentioned in article <a href="https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.2qdxjuyvs">How to build your first chatbot using ChatScript</a>.</p>
+<p>Above example mentioned in article <a
+href="https://medium.freecodecamp.com/chatscript-for-beginners-chatbots-developers-c58bb591da8#.2qdxjuyvs">How
+to build your first chatbot using ChatScript</a>.</p>
 <h2 id="basic-features">Basic Features</h2>
 <ul>
 <li>Powerful pattern matching aimed at detecting meaning.</li>
 <li>Simple rule layout combined with C-style general scripting.</li>
 <li>Built-in WordNet dictionary for ontology and spell-checking.</li>
-<li>Extensive extensible ontology of nouns, verbs, adjectives, adverbs.</li>
-<li>Data as fact triples enables inferencing and supports JSON representation.</li>
+<li>Extensive extensible ontology of nouns, verbs, adjectives,
+adverbs.</li>
+<li>Data as fact triples enables inferencing and supports JSON
+representation.</li>
 <li>Rules can examine and alter engine and script behavior.</li>
 <li>Remembers user interactions across conversations.</li>
 <li>Document mode allows you to scan documents for content.</li>
 <li>Ability to control local machines via popen/tcpopen/jsonopen.</li>
 <li>Ability to read structured JSON data from websites.</li>
 <li>Built in english pos-tagging and parsing</li>
-<li><a href="https://www.postgresql.org/">Postgres</a> and <a href="https://www.mongodb.com/">Mongo</a> databases support for big data or large-user-volume chatbots.</li>
+<li><a href="https://www.postgresql.org/">Postgres</a> and <a
+href="https://www.mongodb.com/">Mongo</a> databases support for big data
+or large-user-volume chatbots.</li>
 </ul>
 <h2 id="os-features">OS Features</h2>
 <ul>
@@ -114,59 +321,100 @@ s: ( I eat _*1 &gt; )
 <h2 id="support-features">Support Features</h2>
 <ul>
 <li>Mature technology in use by various parties around the world.</li>
-<li>Integrated tools to support maintaining and testing large systems.</li>
+<li>Integrated tools to support maintaining and testing large
+systems.</li>
 <li>UTF8 support allows scripts written in any language</li>
-<li>User support forum on <a href="https://www.chatbots.org/ai_zone/viewforum/44/">chatbots.org</a></li>
-<li>Issues or bugs on this <a href="https://github.com/bwilcox-1234/ChatScript/issues">repo</a></li>
+<li>User support forum on <a
+href="https://www.chatbots.org/ai_zone/viewforum/44/">chatbots.org</a></li>
+<li>Issues or bugs on this <a
+href="https://github.com/bwilcox-1234/ChatScript/issues">repo</a></li>
 </ul>
 <h1 id="getting-started">Getting started</h1>
 <h2 id="installation">Installation</h2>
-<p>Take this project and put it into some directory on your machine (typically we call the directory ChatScript, but you can name it whatever). That takes care of installation.</p>
+<p>Take this project and put it into some directory on your machine
+(typically we call the directory ChatScript, but you can name it
+whatever). That takes care of installation.</p>
 <pre><code>git clone https://github.com/ChatScript/ChatScript</code></pre>
-<h2 id="standalone-mode---run-locally-on-a-console-for-developementtest">Standalone mode - run locally on a console (for developement/test)</h2>
-<p>From your ChatScript home directory, go to the BINARIES directory:</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> BINARIES</code></pre></div>
+<h2
+id="standalone-mode---run-locally-on-a-console-for-developementtest">Standalone
+mode - run locally on a console (for developement/test)</h2>
+<p>From your ChatScript home directory, go to the BINARIES
+directory:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> BINARIES</span></code></pre></div>
 <p>And run the ChatScript engine</p>
 <h3 id="windows">Windows</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ChatScript</span></span></code></pre></div>
 <h3 id="linux">Linux</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span> local</code></pre></div>
-<p>Note: to set the file executable: <code>chmod a+x ./LinuxChatScript64</code></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./LinuxChatScript64</span> local</span></code></pre></div>
+<p>Note: to set the file executable:
+<code>chmod a+x ./LinuxChatScript64</code></p>
 <h3 id="macos">MacOS</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span> local</code></pre></div>
-<p>This will cause ChatScript to load and ask you for a username. Enter whatever you want. You are then talking to the default demo bot <code>Harry</code>.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./MacChatScript</span> local</span></code></pre></div>
+<p>This will cause ChatScript to load and ask you for a username. Enter
+whatever you want. You are then talking to the default demo bot
+<code>Harry</code>.</p>
 <h2 id="server-mode-for-production">Server Mode (for production)</h2>
-<p>From your ChatScript home directory, go to the BINARIES directory and run the ChatScript engine as server ### Run the server on Windows</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span> port=1024</code></pre></div>
+<p>From your ChatScript home directory, go to the BINARIES directory and
+run the ChatScript engine as server ### Run the server on Windows</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ChatScript</span> port=1024</span></code></pre></div>
 <h3 id="run-the-server-on-linux">Run the server on Linux</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./LinuxChatScript64</span></span></code></pre></div>
 <h3 id="run-the-server-on-macos">Run the server on MacOS</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./MacChatScript</span></span></code></pre></div>
 <p>This will cause ChatScript to load as a server.<br />
-But you also need a client (to test client-server communication). You can run a separate command window and go to the BINARIES directory and type</p>
-<h3 id="run-a-client-test-on-windows">Run a client (test) on Windows</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">ChatScript</span> client=localhost:1024 </code></pre></div>
+But you also need a client (to test client-server communication). You
+can run a separate command window and go to the BINARIES directory and
+type</p>
+<h3 id="run-a-client-test-on-windows">Run a client (test) on
+Windows</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ChatScript</span> client=localhost:1024 </span></code></pre></div>
 <h3 id="run-a-client-test-on-linux">Run a client (test) on Linux</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./LinuxChatScript64</span> client=localhost:1024</code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./LinuxChatScript64</span> client=localhost:1024</span></code></pre></div>
 <h3 id="run-a-client-test-on-macos">Run a client (test) on MacOS</h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">./MacChatScript</span> client=localhost:1024</code></pre></div>
-<p>This will cause ChatScript to load as a client and you can talk to the server.</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./MacChatScript</span> client=localhost:1024</span></code></pre></div>
+<p>This will cause ChatScript to load as a client and you can talk to
+the server.</p>
 <h2 id="how-to-build-a-bot">How to build a bot</h2>
 <p>Run ChatScript locally. From the ChatScript command prompt, type</p>
 <pre><code>:build Harry</code></pre>
-<p>or whatever other preinstalled bot exists. If you have revised basic data, you can first:</p>
+<p>or whatever other preinstalled bot exists. If you have revised basic
+data, you can first:</p>
 <pre><code>:build 0</code></pre>
 <h2 id="how-to-compile-the-engine.">How to compile the engine.</h2>
-<p>On windows if you have Visual Studio installed, launch <code>VS2010/chatscript.sln</code> or <code>VS2015/chatscript.sln</code> and do a build. The result will go in the <code>BINARIES</code> directory.</p>
-<p>On Linux, go stand in the SRC directory and type <code>make server</code> (assuming you have make and g++ installed). This creates BINARIES/ChatScript, which can run as a server or locally. There are other make choices for installing PostGres or Mongo.</p>
+<p>On windows if you have Visual Studio installed, launch
+<code>VS2010/chatscript.sln</code> or <code>VS2015/chatscript.sln</code>
+and do a build. The result will go in the <code>BINARIES</code>
+directory.</p>
+<p>On Linux, go stand in the SRC directory and type
+<code>make server</code> (assuming you have make and g++ installed).
+This creates BINARIES/ChatScript, which can run as a server or locally.
+There are other make choices for installing PostGres or Mongo.</p>
 <h2 id="docker-image">Docker image</h2>
-<h3 id="building-the-base-docker-image">Building the base Docker image</h3>
-<p>The <code>Dockerfile</code> in this repository provides a ChatScript server with no bots. To build and run it, run the following commands:</p>
+<h3 id="building-the-base-docker-image">Building the base Docker
+image</h3>
+<p>The <code>Dockerfile</code> in this repository provides a ChatScript
+server with no bots. To build and run it, run the following
+commands:</p>
 <pre><code>docker build -t chatscript .
 docker run -it -p 1024:1024 chatscript</code></pre>
-<p>Note: You will probably want to replace the image tag <code>chatscript</code> with a more meaningful one for your purposes.</p>
-<h3 id="building-a-docker-image-containing-bot-data">Building a Docker image containing bot data</h3>
-<p>Adding bot data to the base image above is as simple as writing a <code>Dockerfile</code> like the following one, which builds the <code>Harry</code> bot:</p>
+<p>Note: You will probably want to replace the image tag
+<code>chatscript</code> with a more meaningful one for your
+purposes.</p>
+<h3 id="building-a-docker-image-containing-bot-data">Building a Docker
+image containing bot data</h3>
+<p>Adding bot data to the base image above is as simple as writing a
+<code>Dockerfile</code> like the following one, which builds the
+<code>Harry</code> bot:</p>
 <pre><code>FROM chatscript
 
 # Copy raw data needed for Harry
@@ -176,16 +424,18 @@ COPY ./RAWDATA/QUIBBLE /opt/ChatScript/RAWDATA/QUIBBLE
 
 # Build Harry
 RUN /opt/ChatScript/BINARIES/LinuxChatScript64 local build1=filesHarry.txt</code></pre>
-<p>This <code>Dockerfile</code> can then be built and run in the same manner as the base <code>chatscript</code> image:</p>
+<p>This <code>Dockerfile</code> can then be built and run in the same
+manner as the base <code>chatscript</code> image:</p>
 <pre><code>docker build -t chatscript-harry .
 docker run -it chatscript-harry local</code></pre>
 <h1 id="full-documentation">Full Documentation</h1>
-<p><a href="/WIKI/README.md">ChatScript Wiki (user guides, tutorials, papers)</a></p>
+<p><a href="/WIKI/README.md">ChatScript Wiki (user guides, tutorials,
+papers)</a></p>
 <h1 id="contributing">Contributing</h1>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Fork it</li>
 <li>Create your feature branch (git checkout -b my-new-feature)</li>
-<li>Commit your changes (git commit -am 'Add some feature')</li>
+<li>Commit your changes (git commit -am ‘Add some feature’)</li>
 <li>Push to the branch (git push origin my-new-feature)</li>
 <li>Create new Pull Request</li>
 </ol>
@@ -193,9 +443,13 @@ docker run -it chatscript-harry local</code></pre>
 <p><a href="/changes.md">changes.md</a></p>
 <h1 id="author">Author</h1>
 <ul>
-<li>Bruce Wilcox</li>
-<li>home website: <a href="http://www.brilligunderstanding.com">BrilligUnderstanding.com</a></li>
-<li>mail: <a href="mailto:gowilcox@gmail.com">gowilcox@gmail.com</a></li>
+<li>Bruce Wilcox
+<ul>
+<li>home website: <a
+href="http://www.brilligunderstanding.com">BrilligUnderstanding.com</a></li>
+<li>mail: <a
+href="mailto:gowilcox@gmail.com">gowilcox@gmail.com</a></li>
+</ul></li>
 </ul>
 </body>
 </html>

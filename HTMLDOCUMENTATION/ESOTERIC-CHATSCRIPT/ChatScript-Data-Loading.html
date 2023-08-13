@@ -1,21 +1,200 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Data-Loading</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="chatscript-data-loading">ChatScript-Data-Loading</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+brilligunderstanding.com<br> <br>Revision 6/20/2022 cs12.2</p>
 <h1 id="overview">Overview</h1>
-<p>The CS engine is a collection of capabilities which requires data to exploit. On startup the system loads cs_init and cs_initmore, dictionary, LIVEDATA, and TOPIC data.</p>
+<p>The CS engine is a collection of capabilities which requires data to
+exploit. On startup the system loads cs_init and cs_initmore,
+dictionary, LIVEDATA, and TOPIC data.</p>
 <h2 id="cs_init-files">CS_INIT files</h2>
-<p>Two init files define bot variables, limits, hookups to outside, and other things. Run-command parameters are processed first, then cs_init.txt, then cs_initmore.txt. If any parameter is redefined by a later collection, that last one wins. cs_init.txt is used for parameters that are machine-dependent and vary based on where cs is being started. cs_initmore.txt is used for globally applicable parameters.</p>
+<p>Two init files define bot variables, limits, hookups to outside, and
+other things. Run-command parameters are processed first, then
+cs_init.txt, then cs_initmore.txt. If any parameter is redefined by a
+later collection, that last one wins. cs_init.txt is used for parameters
+that are machine-dependent and vary based on where cs is being started.
+cs_initmore.txt is used for globally applicable parameters.</p>
 <h2 id="dictionary">Dictionary</h2>
-<p>For each language, CS reads in DICT/... data. Initially it loads the .txt forms of data and then writes out .bin forms (dict.bin and facts.bin) for faster loading on restarts. When only 1 language is requested, the bin forms go in the folder for that language. If multipe languages are requested, the bin files go in the top level DICT folder. Japanese language has no cs-visible dictionary. Where multiple languages have the same spelled word, each gets its own entry with appropriate language bits to differentiate.</p>
+<p>For each language, CS reads in DICT/… data. Initially it loads the
+.txt forms of data and then writes out .bin forms (dict.bin and
+facts.bin) for faster loading on restarts. When only 1 language is
+requested, the bin forms go in the folder for that language. If multipe
+languages are requested, the bin files go in the top level DICT folder.
+Japanese language has no cs-visible dictionary. Where multiple languages
+have the same spelled word, each gets its own entry with appropriate
+language bits to differentiate.</p>
 <p>A sample english dictionary entry is this:</p>
 <pre><code> march ( meanings=12 glosses=11 NOUN_ABSTRACT VERB_PRESENT 
     VERB_INFINITIVE NOUN VERB NOUN_SINGULAR COMMON4 
@@ -23,60 +202,125 @@
      march~1nz (^progress~2) a steady advance
      parade~5v 
      demonstrate~4vz march in protest</code></pre>
-<p>The word, then in parens various flags (properies, systemflags, internalbits) along with a count of how many meanings it has and how many glosses it has. There may be multiple parts of speech for this word in the flags. In the subsequent lines each meaning is given. A meaning identifies its part of speech and links (usually) to a synonym. The synonym (eg demonstrate~4) is which entry of the demonstrate word has the same meaning. n and v here refer to noun and verb postags. the z indicates that OUR definition here is considered the master definition for the synonym set (synset). Words often are more specific instances of general words, like dog is a canine is a mammal. Those ISA links will be facts linking the master of the more specific to the more general. This allows us to mark appropriately higher words when we see a lower one. Here, for march~1 (1st definition) it is a synset head and has an uplink to progress~2. Progress~2 is the entry &quot;onward_motion~1nz (^motion~1) the act of moving forward&quot; which in turn uplinks to motion~1. So when we see the word march (as a noun) we will mark it and progress and motion.</p>
-<p>A sample spanish dictionary entry is much simpler. It does not come from Wordnet (which has structure and glosses and synsets). It comes from Treetagger's simple data.</p>
+<p>The word, then in parens various flags (properies, systemflags,
+internalbits) along with a count of how many meanings it has and how
+many glosses it has. There may be multiple parts of speech for this word
+in the flags. In the subsequent lines each meaning is given. A meaning
+identifies its part of speech and links (usually) to a synonym. The
+synonym (eg demonstrate~4) is which entry of the demonstrate word has
+the same meaning. n and v here refer to noun and verb postags. the z
+indicates that OUR definition here is considered the master definition
+for the synonym set (synset). Words often are more specific instances of
+general words, like dog is a canine is a mammal. Those ISA links will be
+facts linking the master of the more specific to the more general. This
+allows us to mark appropriately higher words when we see a lower one.
+Here, for march~1 (1st definition) it is a synset head and has an uplink
+to progress~2. Progress~2 is the entry “onward_motion~1nz (^motion~1)
+the act of moving forward” which in turn uplinks to motion~1. So when we
+see the word march (as a noun) we will mark it and progress and
+motion.</p>
+<p>A sample spanish dictionary entry is much simpler. It does not come
+from Wordnet (which has structure and glosses and synsets). It comes
+from Treetagger’s simple data.</p>
 <p>imprimibles ( ADJECTIVE ADJECTIVE_NORMAL ) lemma=imprimible</p>
-<p>impuestos ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL ) lemma= impuesto|imponer NC VLadj</p>
-<p>For english we don't have conjugated forms in the dictionary, we compute their lemma on the fly. For spanish the dictionary lists all forms of the word and provides the name of the lemma. Words that represent multiple parts of speech can require different lemmas, so the lemma data indicates what the lemma is for each part of speech. Treetagger lists parts of speech tags differently from english (often more complex). The flags inside parens are mappings to english pos. The lemma data keeps the actual tags from treetagger. The top level of Dict has spanish tag documentation file that explains what the spanish tag means and a file spanish tags that maps the spanish tag to a list of cs tags. their english equivalent where known. Eg,</p>
-<p><code>NC Common nouns (mesas, mesa, libro, ordenador)  NC NOUN NOUN_SINGULAR NOUN_PLURAL</code></p>
-<p>Note that NC spanish says nothing about singular or plural. Treetagger doesn't care. We have our own code to detect plurality, gender, and pronoun referencing.</p>
+<p>impuestos ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_SINGULAR NOUN_PLURAL
+) lemma= impuesto|imponer NC VLadj</p>
+<p>For english we don’t have conjugated forms in the dictionary, we
+compute their lemma on the fly. For spanish the dictionary lists all
+forms of the word and provides the name of the lemma. Words that
+represent multiple parts of speech can require different lemmas, so the
+lemma data indicates what the lemma is for each part of speech.
+Treetagger lists parts of speech tags differently from english (often
+more complex). The flags inside parens are mappings to english pos. The
+lemma data keeps the actual tags from treetagger. The top level of Dict
+has spanish tag documentation file that explains what the spanish tag
+means and a file spanish tags that maps the spanish tag to a list of cs
+tags. their english equivalent where known. Eg,</p>
+<pre><code>NC Common nouns (mesas, mesa, libro, ordenador)
+NC NOUN NOUN_SINGULAR NOUN_PLURAL</code></pre>
+<p>Note that NC spanish says nothing about singular or plural.
+Treetagger doesn’t care. We have our own code to detect plurality,
+gender, and pronoun referencing.</p>
 <h2 id="livedata">Livedata</h2>
-<p>There is no binary form for this data. It includes global data and language specific data. Global data includes the names of top-level internet domains, definitions of predefined query types, and system- controlled punctuation behavior. Language specific data includes the rules for pos-tagging (english only), spelling substitutions that come with cs (as opposed to replace: ones listed in your scripts), explicit canonicals, handling for currency, numbers, months.</p>
+<p>There is no binary form for this data. It includes global data and
+language specific data. Global data includes the names of top-level
+internet domains, definitions of predefined query types, and system-
+controlled punctuation behavior. Language specific data includes the
+rules for pos-tagging (english only), spelling substitutions that come
+with cs (as opposed to replace: ones listed in your scripts), explicit
+canonicals, handling for currency, numbers, months.</p>
 <h3 id="topic">TOPIC</h3>
-<p>This folder contains subfolders BUILD0 and BUILD1. :build 0 makes the content of BUILD0 and :build botname makes the content of BUILD1. These are loaded in order. The text files are read, then rewritten out as .bin files for faster loading in the future. Files are canon, describe, dict, fact, keywords, macros, map, patternwords, private, script.</p>
+<p>This folder contains subfolders BUILD0 and BUILD1. :build 0 makes the
+content of BUILD0 and :build botname makes the content of BUILD1. These
+are loaded in order. The text files are read, then rewritten out as .bin
+files for faster loading in the future. Files are canon, describe, dict,
+fact, keywords, macros, map, patternwords, private, script.</p>
 <h3 id="canon">Canon</h3>
-<p>Canon are lemma (canonicals) explicitly defined in script using canon: .</p>
-<pre><code>does-1 do-1 
- ```
-
-The above says that the word does has a lemma of do in the first language in the 
-language= list (english).
-
- ### Describe and Map 
- Describe and map are documentation/debug files, not relevant to running code.
-
- ### Dict 
- Dict is supplemental words with optional flags as found in concept definitions. eg.
- ```
- + authoring VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4 </code></pre>
+<p>Canon are lemma (canonicals) explicitly defined in script using
+canon: .</p>
+<pre><code>does-1 do-1 </code></pre>
+<p>The above says that the word does has a lemma of do in the first
+language in the language= list (english).</p>
+<p>### Describe and Map Describe and map are documentation/debug files,
+not relevant to running code.</p>
+<p>### Dict Dict is supplemental words with optional flags as found in
+concept definitions. eg.
+<code>+ authoring VERB_PRESENT_PARTICIPLE VERB ADJECTIVE_PARTICIPLE NOUN_GERUND GRADE3_4</code></p>
 <h3 id="fact">Fact</h3>
-<p>Fact includes global variables and their value, then facts created.</p>
+<p>Fact includes global variables and their value, then facts
+created.</p>
 <pre><code>$awe_talks=ja-+0
 #`end variables
 ( ~normalcreature component ( head count 1 x00100000 ) x00100020 )
 ( 323i_Touring instance BMW x00100001 256 )</code></pre>
-<p>In the above, the value of $awe_talks is set to a json array. Then there is a complex fact. Subject and verb are simple but object is itself a fact. Each fact has fact flags. When a fact needs to designate it is visible to only a specific bot, it may have a tailing bot id number (like 256 above).</p>
+<p>In the above, the value of $awe_talks is set to a json array. Then
+there is a complex fact. Subject and verb are simple but object is
+itself a fact. Each fact has fact flags. When a fact needs to designate
+it is visible to only a specific bot, it may have a tailing bot id
+number (like 256 above).</p>
 <h3 id="keywords">Keywords</h3>
-<p>Keywords are the list of concepts and implied concepts (topic) along with their keywords and flags on the concept. A T in front of the ~ indicates this is a topic, not just a concept.</p>
+<p>Keywords are the list of concepts and implied concepts (topic) along
+with their keywords and flags on the concept. A T in front of the ~
+indicates this is a topic, not just a concept.</p>
 <pre><code>~musicalbums NODUPLICATE ( ~musicalbums_ja_jp ~musicalbums_en_us )
 ~creditcardlist NODUPLICATE ( &#39;Discover`1048576-1 
     Visa`1048576-1 MasterCard`1048576-1  Visa`1-1 MasterCard`1-1 )</code></pre>
-<p>Some concepts allow repeated words and some don't. If the words are simple, they are delimited by space in front and back (see ~musicalbums). Complex words use a backtick at the end followed by the additional complexity of possibly what bot id is allowed to see the membership and possibly what language the word is from. Note above has two copies of Visa and MasterCard, for 2 different bots. And note Discover has a quote in front of it.</p>
+<p>Some concepts allow repeated words and some don’t. If the words are
+simple, they are delimited by space in front and back (see
+~musicalbums). Complex words use a backtick at the end followed by the
+additional complexity of possibly what bot id is allowed to see the
+membership and possibly what language the word is from. Note above has
+two copies of Visa and MasterCard, for 2 different bots. And note
+Discover has a quote in front of it.</p>
 <h3 id="macros">Macros</h3>
 <p>Macros are the functions defined in script.</p>
 <pre><code>^setcategory O 1 0 D( ^category $_specialty $_allowpivot $_category  ) 
     ^if 00G( $holder.n) `</code></pre>
-<p>It has function name, kind of function (O = outputmacro), bot id, flags on the arguments, number of arguments, list in parens of argument names as well as all local variable names, followed by compiled code.</p>
+<p>It has function name, kind of function (O = outputmacro), bot id,
+flags on the arguments, number of arguments, list in parens of argument
+names as well as all local variable names, followed by compiled
+code.</p>
 <h3 id="patternwords">Patternwords</h3>
-<p>Patternwords is a list of words to be marked with the PATTERNWORD flag. They are words not known in dictionary which arise in patterns and for which we don't want spellcheck to find some dictionary word to replace it.</p>
+<p>Patternwords is a list of words to be marked with the PATTERNWORD
+flag. They are words not known in dictionary which arise in patterns and
+for which we don’t want spellcheck to find some dictionary word to
+replace it.</p>
 <h3 id="private">Private</h3>
-<p>private is a list of word pairs from replace: , with original and replacement words.</p>
+<p>private is a list of word pairs from replace: , with original and
+replacement words.</p>
 <h3 id="script">Script</h3>
-<p>Script are the TOPICS definitions. The first line tells how many topics, when this was compiled for what build and with what version of cs.</p>
+<p>Script are the TOPICS definitions. The first line tells how many
+topics, when this was compiled for what build and with what version of
+cs.</p>
 <pre><code>00081 May31&#39;22-16:41:25-1654011685478 xander 12.1</code></pre>
 <p>Successive pairs of lines are topic data.</p>
-<p>First line of pair is name, flag bits, checksum, number of top level rules, number of gambits, byte size and what file it is defined in.</p>
-<p>Second line of pair is a text string of all the botnames allowed to see this topic, and then its compiled rules. Each rule ends in backtick. Followed by the next rule. The first 3 digits of a rule are the jump code that translates to an offset where the next rule begins. A zero offset will happen at the very end of all rules</p>
+<p>First line of pair is name, flag bits, checksum, number of top level
+rules, number of gambits, byte size and what file it is defined in.</p>
+<p>Second line of pair is a text string of all the botnames allowed to
+see this topic, and then its compiled rules. Each rule ends in backtick.
+Followed by the next rule. The first 3 digits of a rule are the jump
+code that translates to an offset where the next rule begins. A zero
+offset will happen at the very end of all rules</p>
 <pre><code>TOPIC: ~services_en_us 0x3 99311429 18 0 2406 services_en_US.top
 &quot; all &quot; 00y u: ( ) ^check_lang ( en_US ) `00B u: ( [ vine ] ) 
     ^fail ( TOPIC ) `000 </code></pre>

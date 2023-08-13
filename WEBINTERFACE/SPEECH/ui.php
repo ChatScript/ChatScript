@@ -26,7 +26,7 @@
  */
 
 //  =============  user values ====
-$host = "1.22.08.4";  //  <<<<<<<<<<<<<<<<< YOUR CHATSCRIPT SERVER IP ADDRESS OR HOST-NAME GOES HERE
+$host = "localhost";  //  <<<<<<<<<<<<<<<<< YOUR CHATSCRIPT SERVER IP ADDRESS OR HOST-NAME GOES HERE
 $port = 1024;          // <<<<<<< your port number if different from 1024
 $bot  = "";       // <<<<<<< desired botname, or "" for default bot
 //=========================

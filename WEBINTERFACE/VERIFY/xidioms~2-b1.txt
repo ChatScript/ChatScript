@@ -1,0 +1,4 @@
+﻿~xidioms~2.1.0  #! texting r
+~xidioms~2.2.0  #! texting u
+~xidioms~2.3.0  #! texting k
+~xidioms~2.4.0  #! I

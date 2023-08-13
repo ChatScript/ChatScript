@@ -104,12 +104,7 @@ static unsigned int FilenameHash(char* filename)
     size_t len = strlen(filename);
     if (len == 0) return 0;
 
-    bool hasUpperCharacters;
-    bool hasUTF8Characters;
-    bool hasSeparatorCharacters;
-    unsigned int fullhash = Hashit((unsigned char*)filename, len, hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters);
-
-    return fullhash;
+    return Hashit((unsigned char*)filename, len, hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters);
 }
 
 static void BufferFilename(char* buffer, char* filename)

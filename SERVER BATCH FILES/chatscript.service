@@ -1,0 +1,14 @@
+
+[Unit]
+Description=ChatScript service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ec2-user
+ExecStart=/ec2-user/ChatScript/BINARIES/ChatScript
+
+[Install]
+WantedBy=multi-user.target

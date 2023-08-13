@@ -65,7 +65,10 @@ but is needed when seeing the dictionary definitions(:word) and if one wants to 
 bool exportdictionary = false;
 bool warnedaboutbuild0 = false;
 char current_language[150] = "";							// indicate current language used
-char language_list[400];				// indicate legal languages- comma separated
+char language_list[400];// indicate legal languages- comma separated
+unsigned int wordhash;
+bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
+unsigned int fullhash;
 unsigned int language_bits = LANGUAGE_UNIVERSAL; // current language used to mark/filter WORDP items
 unsigned int languageIndex; // current language used to mark facts and index data by language
 unsigned int max_language = LANGUAGE_1;
@@ -1373,12 +1376,11 @@ int GetWords(char* word, WORDP* set, bool strictcase, bool allvalid)
 
 	int index = 0;
 
-	bool hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters;
-	unsigned int  fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters
-	unsigned int hash = (fullhash % maxHashBuckets); // mod by the size of the table
+	fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters
+	wordhash = (fullhash % maxHashBuckets); // mod by the size of the table
 
 	 //   lowercase bucket
-	WORDP D = Index2Word( hashbuckets[hash]);
+	WORDP D = Index2Word( hashbuckets[wordhash]);
 	char word1[MAX_WORD_SIZE];
 	if (strictcase && hasUpperCharacters) D = dictionaryBase; // lower case not allowed to match uppercase input
 	int limit = GETWORDSLIMIT;
@@ -1410,7 +1412,7 @@ int GetWords(char* word, WORDP* set, bool strictcase, bool allvalid)
 	}
 
 	// upper case bucket
-	D = Index2Word(hashbuckets[hash + 1]);
+	D = Index2Word(hashbuckets[wordhash + 1]);
 	if (strictcase && !hasUpperCharacters) D = NULL; // upper case not allowed to match lowercase input
 	while (D && D != dictionaryBase)
 	{
@@ -1451,9 +1453,8 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 
 	if (word == NULL || *word == 0 || dictionaryBase == NULL) return NULL;
 	if (len == 0) len = strlen(word);
-	bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
-	unsigned int  fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters 
-	unsigned int hash = (fullhash % maxHashBuckets); // mod by the size of the table
+	fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters 
+	wordhash = (fullhash % maxHashBuckets); // mod by the size of the table
 	
 	// Hash returns index for lowercase bucket.
 	// If we have uppercase characters and  are allowed to match uppercase, we will up bucket 1 
@@ -1464,7 +1465,7 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 		if (caseAllowed == UPPERCASE_LOOKUP) return NULL; // not allowed to find
 		caseAllowed = LOWERCASE_LOOKUP; // these are always lower case
 	}
-	else if (hasUpperCharacters || (caseAllowed & UPPERCASE_LOOKUP)) ++hash;
+	else if (hasUpperCharacters || (caseAllowed & UPPERCASE_LOOKUP)) ++wordhash;
 
 	// you can search on upper or lower specifically (not both) or primary or secondary or both
 
@@ -1482,8 +1483,8 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 	
 	primaryLookupSucceeded = true;
 	if (caseAllowed & (PRIMARY_CASE_ALLOWED | LOWERCASE_LOOKUP | UPPERCASE_LOOKUP))
-	{
-		D = Index2Word(hashbuckets[hash]);
+	{ // d3a from :word
+		D = Index2Word(hashbuckets[wordhash]);
 		WORDP almost = NULL;
 		WORDP preferred = NULL;
 		WORDP exact = NULL;
@@ -1553,7 +1554,7 @@ WORDP FindWord(const char* word, unsigned int len, uint64 caseAllowed,bool exact
 	{
 		WORDP almost = NULL;
 		WORDP preferred = NULL;
-		D =Index2Word( hashbuckets[hash + ((hasUpperCharacters) ? -1 : 1)]);
+		D =Index2Word( hashbuckets[wordhash + ((hasUpperCharacters) ? -1 : 1)]);
 		int limit = DICTSEARCHLIMIT;
 		while (D && D != dictionaryBase && --limit)
 		{
@@ -1729,49 +1730,42 @@ bool SUPERCEDED(WORDP D)
 	return  (!D || D->internalBits & IS_SUPERCEDED);
 }
 
-WORDP MakeLanguageWord(const char* word)
-{ // you must you findword(word,0,PRIMARY_CASE_LOOKUP,true)  first to prove it is not already there
+WORDP GetLanguageWord(const char* word)
+{ 
 	if (!dictionaryBase)
 		return NULL;
 	size_t len = strlen(word);
-	bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
-	unsigned int  fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters
-	unsigned int hash = (fullhash % maxHashBuckets); //   mod the size of the table (saving 0 to mean no pointer and reserving an end upper case bucket)
-	if (hasUpperCharacters) ++hash;
+	WORDP E = FindWord(word, len, PRIMARY_CASE_ALLOWED, true);  // see if have universal of it
+	if (E) // entry either unique to language or universal word
+	{
+		if (E->foreignFlags) // multilanguage universal word
+		{
+			E = E->foreignFlags[languageIndex];
+		}
+		if (E) return E; 
+	}
+	// hash and fullhash was set by call to findword
 
-	//   not found, add entry 
+	// We dont have a unique language entry, make one which will be transient
 	WORDP D = AllocateEntry((char*)word);
-	D->nextNode = hashbuckets[hash];
-	hashbuckets[hash] = Word2Index(D);
+	D->nextNode = hashbuckets[wordhash];
+	hashbuckets[wordhash] = Word2Index(D);
 	D->hash = fullhash;
 	D->length = (unsigned short)len;
-	
-	WORDP E = FindWord(word, len, PRIMARY_CASE_ALLOWED);  // see if have universal of it
-	if (E && !(E->internalBits & UNIVERSAL_WORD)) E = NULL;
-	
 	unsigned int flags = IsUniversal(D->word, 0) ? UNIVERSAL_WORD :language_bits;
-	if (E) flags |= IS_SUPERCEDED;
 	if (hasUTF8Characters) flags |= UTF8;
 	if (hasUpperCharacters) flags |= UPPERCASE_HASH; // dont label it NOUN or NOUN_UPPERCASE
 	if (hasSeparatorCharacters) flags |= MULTIPLE_WORD;
 	AddInternalFlag(D, flags);
-
-	return D;
-}
-
-WORDP FindOrMakeWord(const char* word)
-{
-	// find word from this language ONLY
-	WORDP D  = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
-	if (!D)
-	{
-		D = MakeLanguageWord(word);
-	}
 	return D;
 }
 
 WORDP StoreWord(const char* word, uint64 properties)
 {
+	if (!stricmp(word, u8"sepárame"))
+	{
+		int xx = 0;
+	}
 	if (!dictionaryBase) 
 		return NULL;
 	if (!*word) // this is legal coming from json parse. we dont expect it anywhere else
@@ -1814,17 +1808,16 @@ WORDP StoreWord(const char* word, uint64 properties)
 	properties &= -1 ^ AS_IS;
 
 	size_t len = strlen(word);
-	bool hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters;
-	unsigned int  fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters
-	unsigned int hash = (fullhash % maxHashBuckets); //   mod the size of the table (saving 0 to mean no pointer and reserving an end upper case bucket)
+	fullhash = Hashit((unsigned char*)word, len, hasUpperCharacters, hasUTF8Characters,hasSeparatorCharacters); //   sets hasUpperCharacters and hasUTF8Characters
+	wordhash = (fullhash % maxHashBuckets); //   mod the size of the table (saving 0 to mean no pointer and reserving an end upper case bucket)
 	if (hasUpperCharacters)
 	{
 		if (lowercase) hasUpperCharacters = false; // refuse the case
-		else ++hash;
+		else ++wordhash;
 	}
 
 	//   locate spot existing entry goes - we use different buckets for lower case and upper case forms (next bucket up)
-	unsigned int offset = hashbuckets[hash];
+	unsigned int offset = hashbuckets[wordhash];
 	WORDP D = Index2Word(offset);
 	WORDP match = NULL;
 	int limit = DICTSEARCHLIMIT;
@@ -1878,8 +1871,8 @@ WORDP StoreWord(const char* word, uint64 properties)
 	//   not found, add entry 
 	D = AllocateEntry((char*)word);
 	unsigned int index = Word2Index(D); // debug info
-	D->nextNode = hashbuckets[hash];
-	hashbuckets[hash] = Word2Index(D);
+	D->nextNode = hashbuckets[wordhash];
+	hashbuckets[wordhash] = Word2Index(D);
 	// fill in data on word
 	D->hash = fullhash;
 	D->length = (unsigned short)len;
@@ -2007,13 +2000,13 @@ void WalkDictionary(DICTIONARY_FUNCTION func, uint64 data)
 void DeleteDictionaryEntry(WORDP D)
 {
 	// Newly added dictionary entries will be after some marker (provided we are not loading the base dictionary).
-	unsigned int hash = (D->hash % maxHashBuckets);
+	wordhash = (D->hash % maxHashBuckets);
 	if (D->internalBits & UPPERCASE_HASH) 
-		++hash;
-	WORDP E = Index2Word(hashbuckets[hash]);
+		++wordhash;
+	WORDP E = Index2Word(hashbuckets[wordhash]);
 	if (E != D) // should be top of bucket - maybe lacks uppercase bit?
 		myexit("Dictionary delete is wrong");
-	hashbuckets[hash] = GETNEXTNODE(D); // move this out of bucket
+	hashbuckets[wordhash] = GETNEXTNODE(D); // move this out of bucket
 }
 
 void ShowStats(bool reset)
@@ -3154,9 +3147,12 @@ bool ReadDictionary(char* file)
 
 		// we dont want entries that have no useful data
 		if (!D->properties && !D->systemFlags)  continue;
-		
 		WORDP hold = D;
-		D = FindOrMakeWord(word); // unique word
+		// a foreign verb with no tense bits and no lemma will be canonical infinitiv
+		if (stricmp(current_language, "english") &&
+			hold->properties & VERB && !(hold->properties & VERB_BITS) && !lemma)
+			hold->properties |= VERB_INFINITIVE;
+		D = GetLanguageWord(word); // unique word
 		size_t len = strlen(word);
 		if (stricmp(D->word, word)) 
 			ReportBug((char*)"Dictionary read does not match original %s %s\r\n", D->word, word);
@@ -3172,9 +3168,9 @@ bool ReadDictionary(char* file)
 			if (!*word) break;
 			equal = strchr(word, '=');
 			*equal++ = 0;
-			if (!strcmp(word, (char*)"conjugate")) { SetTense(D, MakeMeaning(FindOrMakeWord(equal))); } // only happens with english
-			else if (!strcmp(word, (char*)"plural")) { SetPlural(D, MakeMeaning(FindOrMakeWord(equal))); } // only happens with english
-			else if (!strcmp(word, (char*)"comparative")) { SetComparison(D, MakeMeaning(FindOrMakeWord(equal))); } // only happens with english
+			if (!strcmp(word, (char*)"conjugate")) { SetTense(D, MakeMeaning(GetLanguageWord(equal))); } // only happens with english
+			else if (!strcmp(word, (char*)"plural")) { SetPlural(D, MakeMeaning(GetLanguageWord(equal))); } // only happens with english
+			else if (!strcmp(word, (char*)"comparative")) { SetComparison(D, MakeMeaning(GetLanguageWord(equal))); } // only happens with english
 			else if (!strcmp(word, (char*)"lemma")) // foreign languages only
 			{
 				char copy[MAX_WORD_SIZE];
@@ -3190,7 +3186,7 @@ bool ReadDictionary(char* file)
 				char* end1 = strchr(lemma + 1, '`'); // first end
 				if (!end1)
 				{
-					SetCanonical(D, MakeMeaning(FindOrMakeWord(copy))); // multiple choice tells lemmas and which pos in order
+					SetCanonical(D, MakeMeaning(GetLanguageWord(copy))); // multiple choice tells lemmas and which pos in order
 					continue;
 				}
 				char* end2 = strchr(end1 + 1, '`'); // maybe 2nd end
@@ -3213,8 +3209,8 @@ bool ReadDictionary(char* file)
 				if (!end5 && end4 && !strcmp(end3 + 1, end1 + 1)) end4= NULL;
 				if (!end4 && end3 && !strcmp(end2 + 1, end1 + 1)) end3 = NULL;
 				if (!end3 && end2 && !strcmp(lemma + 1, end1 + 1)) end2 = NULL;
-				if (!end2) SetCanonical(D, MakeMeaning(FindOrMakeWord(lemma+1))); // single word
-				else SetCanonical(D, MakeMeaning(FindOrMakeWord(copy))); // multiple choice tells lemmas and which pos in order
+				if (!end2) SetCanonical(D, MakeMeaning(GetLanguageWord(lemma+1))); // single word
+				else SetCanonical(D, MakeMeaning(GetLanguageWord(copy))); // multiple choice tells lemmas and which pos in order
 				break; // swallow rest of line
 			}
 		}
@@ -4969,7 +4965,8 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	uint64 bit = START_BIT;
 	while (properties && bit)
 	{
-		if (properties & bit) Log(USERLOG, "%s ", FindNameByValue(bit));
+		if (properties & bit) 
+			Log(USERLOG, "%s ", FindNameByValue(bit));
 		bit >>= 1;
 	}
 
@@ -5010,7 +5007,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 		D = entry;
 		properties = D->properties;
 	}
-	sysflags |= xflags;
+
 	bit = START_BIT;
 	bool extended = false;
 	uint64 unionprop = inferredProperties | properties;
@@ -5020,10 +5017,11 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 		{
 			char* label = FindNameByValue(bit);
 			if (!(properties & bit)) Log(USERLOG, "%s+ ", label); // bits beyond what was directly known in dictionary before
-			else Log(USERLOG, "%s ", label);
 		}
 		bit >>= 1;
 	}
+
+	sysflags |= xflags;
 	if (sysflags)
 	{
 		Log(USERLOG, "\r\n  SystemFlags: x%08x %08x\r\n", (unsigned int)(sysflags >> 32), (unsigned int)(sysflags & 0x00000000ffffffff));

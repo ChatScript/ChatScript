@@ -224,7 +224,7 @@ static IrregularSpanishInfo irregularSpanishVerbs[] =
 	{ "dar","da","d", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "dar","deis","d", VERB | VERB_PRESENT, PRONOUN_PLURAL | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "dar","des","d", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
-	{ "dar","dáselo","d", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE | PRONOUN_INDIRECTOBJECT | PRONOUN_INDIRECTOBJECT_SINGULAR, ""},
+	{ "dar",u8"dáselo","d", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE | PRONOUN_INDIRECTOBJECT | PRONOUN_INDIRECTOBJECT_SINGULAR, ""},
 	{ "dar",u8"dé","d", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "decir","di","dec", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "girar","gire","gir", VERB | VERB_PRESENT, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
@@ -241,7 +241,7 @@ static IrregularSpanishInfo irregularSpanishVerbs[] =
 	{ "ir",u8"andá","ir", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "ir",u8"vayáis","ir", VERB | VERB_PRESENT, PRONOUN_PLURAL | PRONOUN_I | VERB_IMPERATIVE, ""},
 	{ "ir",u8"vámonos","ir", VERB | VERB_PRESENT, PRONOUN_PLURAL | PRONOUN_I | VERB_IMPERATIVE, ""},
-	{ "laxar","lávenselas","lax", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE | PRONOUN_OBJECT_PLURAL | PRONOUN_OBJECT_SINGULAR, ""},
+	{ "laxar",u8"lávenselas","lax", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE | PRONOUN_OBJECT_PLURAL | PRONOUN_OBJECT_SINGULAR, ""},
 	{ "poner","pon","pon", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "repetir","repite","repit", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_YOU | VERB_IMPERATIVE, ""},
 	{ "separar","separa","separ", VERB | VERB_PRESENT | SINGULAR_PERSON, PRONOUN_SINGULAR | PRONOUN_I | PRONOUN_YOU | VERB_IMPERATIVE, ""},
@@ -334,8 +334,7 @@ uint64 FindSpanishSingular(char* original, char* word, WORDP& entry, WORDP& cano
 		canonical = E;
 		if (!exportdictionary)
 		{
-			entry = FindWord(original, 0, PRIMARY_CASE_ALLOWED, true);
-			if (!entry) entry = MakeLanguageWord(original);
+			entry = GetLanguageWord(original);
 		}
 		else entry = canonical;
 		sysflags = E->systemFlags;
@@ -442,8 +441,7 @@ static uint64 FindSpanishInfinitive(char* original, const char* suffix, char* ve
 	size_t suffixLen = strlen(suffix);
 	size_t stemLen = originalLen - suffixLen;
 	if (strcmp(original + stemLen, suffix)) 	return 0; // this conjugation doesnt end with suffix named
-	WORDP D = FindWord(original,  0, PRIMARY_CASE_ALLOWED, true);
-	if (!D) MakeLanguageWord(original);
+	WORDP D = GetLanguageWord(original);
 	
 	// original ended in designated suffix. See if we can get its infinitive form with no changes of spelling
 	char stem[MAX_WORD_SIZE];
@@ -599,8 +597,7 @@ static uint64 ReflexiveVerbSpanish(char* word, WORDP& entry, WORDP& canonical, u
 			canonical = E;
 			if (!exportdictionary)
 			{
-				entry = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
-				if (!entry) entry = MakeLanguageWord(word);
+				entry = GetLanguageWord(word);
 				properties |= VERB_PRESENT;
 			}
 			else entry = canonical;
@@ -674,7 +671,7 @@ static uint64 IrregularSpanishVerb(char* wordToFind, WORDP& entry, WORDP& canoni
 	if (verb_map.find(unaccentedWord) != verb_map.end())
 	{
 		IrregularSpanishInfo* fn = verb_map[unaccentedWord];
-		canonical = MakeLanguageWord(fn->lemma);
+		canonical = GetLanguageWord(fn->lemma);
 		sysflags |= fn->sysFlags;
 		properties = fn->properties;
 	}
@@ -799,7 +796,8 @@ uint64 ImperativeSpanish(char* word, WORDP& entry, WORDP& canonical, uint64& sys
 		strcpy(&base[len - 1], "a");
 	}
 	// ustedes form, en -> ar as infinitive, an -> er, an -> ir
-	if (!stricmp(&base[len - 2], "en")) {
+	if (!stricmp(&base[len - 2], "en")) 
+	{
 		strcpy(&base[len - 2], "ar");
 		Dcanon = FindSpanishWord(base, base);
 		if (Dcanon && (Dcanon->properties & VERB_INFINITIVE))
@@ -885,6 +883,8 @@ uint64  PresentSpanish(char* original, WORDP& entry, WORDP& canonical, uint64& s
 	// we have the original. We know verb infinitive comes in 3 flavors. We try those flavors with the
 	// various possible stems. 
 
+// Spanish infinitives end in ar, er, or ir.
+// 
 	// 1st person  //		yo			(habl)o			(com)o		(abr)o
 	transient = PRONOUN_SINGULAR | PRONOUN_I;
 	if (FindSpanishInfinitive(original, "o", "ar", entry, canonical, transient)) // yo
@@ -1736,7 +1736,7 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 	{
 		properties = NOUN_HE | NOUN_SHE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		copy[len - 1] = 0;
-		canonical = MakeLanguageWord(copy);
+		canonical = GetLanguageWord(copy);
 		return properties;
 	}
 	// RULE 3	Adjectives that end in e or -ista do not change according to gender.  do change for number.
@@ -1752,8 +1752,7 @@ uint64 ComputeSpanishAdjective(char* word, WORDP D, WORDP& entry, WORDP& canonic
 		// Mi profesora es muy idealistas.
 		properties = NOUN_SHE | NOUN_HE | PLACE_NUMBER | ADJECTIVE | ADJECTIVE_NORMAL;
 		copy[len - 1] = 0;
-		canonical = FindWord(copy, 0, PRIMARY_CASE_ALLOWED, true);
-		if (!canonical) canonical = MakeLanguageWord(copy);
+		canonical = GetLanguageWord(copy);
 		properties |= NOUN_SHE | NOUN_HE | SINGULAR_PERSON | ADJECTIVE | ADJECTIVE_NORMAL;
 		return properties;
 	}
@@ -2148,7 +2147,7 @@ uint64 ComputeSpanishAdverb(int at, const char* original, WORDP& entry, WORDP& c
 		WORDP Q = FindWord(original, strlen(original) - 5,PRIMARY_CASE_ALLOWED,true);
 		if (Q && Q->properties & ADJECTIVE)
 		{
-			if (!exportdictionary) entry = FindOrMakeWord(original);
+			if (!exportdictionary) entry = GetLanguageWord(original);
 			else entry = canonical = dictionaryBase + 1;
 			sysflags = 0;
 			properties |= ADVERB;
@@ -2246,8 +2245,10 @@ uint64 ComputeSpanishVerb(int at, const char* original, WORDP& entry, WORDP& can
 	uint64 ans = ReflexiveVerbSpanish(word, entry, canonical, sysflags);
 	if (ans) return ans;
 
+	// if handleobjectsuffixes finds one, it is stripped off and returned in word, 
+	// which should now be a verb conjugation normal, no object refs
 	properties |= HandleObjectSuffixesSpanish(word, at, entry, canonical, sysflags);
-
+	
 	// irregular verb
 	uint64 tense = IrregularSpanishVerb(word, entry, canonical, sysflags);
 	if (tense)
@@ -2313,8 +2314,7 @@ uint64 ComputeSpanishVerb(int at, const char* original, WORDP& entry, WORDP& can
 			uint64 flags = PRONOUN_OBJECT_SINGULAR;
 			if (word[len - 2] == 'm') flags |= PRONOUN_OBJECT_I;
 			else if (word[len - 2] == 't') flags |= PRONOUN_OBJECT_YOU;
-			entry = FindWord(word, 0,PRIMARY_CASE_ALLOWED,true);
-			if (!entry) entry = MakeLanguageWord(word);
+			entry = GetLanguageWord(word);
 			return properties | PRONOUN_OBJECT;
 		}
 	}
@@ -2331,8 +2331,7 @@ uint64 ComputeSpanish1(int at, const char* original, WORDP& entry, WORDP& canoni
 	sysflags = 0;
 	strcpy(word, original);
 	MakeLowerCase(word); // only nouns MIGHT really be uppercase and we dont worry about their listings in the dictionary
-	WORDP D = FindWord(word, 0,PRIMARY_CASE_ALLOWED, true);
-	if (!D) D = MakeLanguageWord(word); // ensure in dictionary
+	WORDP D = GetLanguageWord(word); // ensure in dictionary
 	canonical = GetCanonical(D, D->properties);
 
 	// we need to check for pronouns because dict doesnt have them
@@ -2355,23 +2354,23 @@ uint64 ComputeSpanish1(int at, const char* original, WORDP& entry, WORDP& canoni
 	old_sysflags = sysflags; // inherit old sysflags
 	uint64 ans = ComputeSpanishAdjective(word, D, entry, canonical, sysflags);
 	if (!ans) sysflags = old_sysflags;
-	properties |= ans;
+	else properties |= ans;
 
 	old_sysflags = sysflags;
 	ans = ComputeSpanishNoun(word, D, entry, canonical, sysflags);
 	if (!ans) sysflags = old_sysflags;
-	properties |= ans;
+	else properties |= ans;
 
 	// note botas is noun (plural) but verb (singular)
 	old_sysflags = sysflags;
 	ans = ComputeSpanishVerb(at, original, entry, canonical, sysflags); // case sensitive, may add word to dictionary, will not augment flags of existing words
 	if (!ans) sysflags = old_sysflags;
-	properties |= ans;
+	else properties |= ans;
 
 	old_sysflags = sysflags;
 	ans = ComputeSpanishAdverb(at, original, entry, canonical, sysflags); // case sensitive, may add word to dictionary, will not augment flags of existing words
 	if (!ans) sysflags = old_sysflags;
-	properties |= ans;
+	else properties |= ans;
 
 	// accept what dict has (desperation, lacks lemma) or adjective or conjugates 
 	if (!properties && D->properties & (VERB | ADJECTIVE | NOUN))
@@ -2389,19 +2388,192 @@ uint64 ComputeSpanish1(int at, const char* original, WORDP& entry, WORDP& canoni
 	if (properties)
 	{
 		entry = D;
+		AddProperty(entry, properties);
+		AddSystemFlag(entry, sysflags);
 		properties = entry->properties; // The merge of entry and our new properties
 	}
 
 	return properties;
 }
 
-uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+static uint64 ComputeFilipinoNoun(int at,char* word, WORDP D, WORDP& entry, WORDP& canonical, uint64& sysflags)
+{
+	entry = D;
+	uint64 properties = D->properties & NOUN;
+	if (properties && at > 1 && !stricmp(wordStarts[at - 1], "mga"))
+	{
+		entry = D;
+		canonical = D;
+		return NOUN | NOUN_PLURAL;
+	}
+
+	// affixes indicating plural
+	if (!strnicmp(word, "mag", 3))
+	{
+		WORDP E = FindWord(word + 3);
+		if (E && E->properties & NOUN)
+		{
+			entry = D;
+			canonical = E;
+			return NOUN | NOUN_PLURAL;
+		}
+	}
+	if (!strnicmp(word, "magka", 5))
+	{
+		WORDP E = FindWord(word + 5);
+		if (E && E->properties & NOUN)
+		{
+			entry = D;
+			canonical = E;
+			return NOUN | NOUN_PLURAL;
+		}
+	}
+	
+	// s plural?
+	size_t len = strlen(word);
+	if (word[len - 1] == 's')
+	{
+		WORDP E = FindWord(word, len - 1);
+		if (E && E->properties & NOUN_SINGULAR)
+		{
+			entry = D;
+			canonical = E;
+			return NOUN | NOUN_PLURAL;
+		}
+	}
+
+	if (!properties) return 0; // not a basic noun
+
+	// default singular
+	return NOUN | NOUN_SINGULAR;
+}
+
+static uint64 ComputeFilipinoVerb(int at, char* word, WORDP D, WORDP& entry, WORDP& canonical, uint64& sysflags)
+{
+	entry = D;
+	uint64 properties = D->properties & VERB;
+	// MAG verbs
+	if (!strnicmp(word, "mag", 3) && !strncmp(word+3,word+5,2)) // repeated syllable pair (maybe more)
+	{
+		WORDP D = FindWord(word + 5);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_INFINITIVE; // actually future
+		}
+	}
+	if (!strnicmp(word, "mag", 3)) 
+	{
+		WORDP D = FindWord(word + 3);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_INFINITIVE; 
+		}
+	}
+	if (!strnicmp(word, "nag", 3) && !strncmp(word + 3, word + 5, 2) )
+	{
+		WORDP D = FindWord(word + 5);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_PRESENT; 
+		}
+	}
+	if (!strnicmp(word, "nag", 3))
+	{
+		WORDP D = FindWord(word + 3);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_PAST;
+		}
+	}
+
+	// MA verbs
+	if (!strnicmp(word, "ma", 2) && !strncmp(word + 2, word + 4, 2)) // repeated syllable pair (maybe more)
+	{
+		WORDP D = FindWord(word + 4);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_INFINITIVE; // actually future
+		}
+	}
+	if (!strnicmp(word, "ma", 2))
+	{
+		WORDP D = FindWord(word + 2);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_INFINITIVE;
+		}
+	}
+	if (!strnicmp(word, "na", 2) && !strncmp(word + 2, word + 4, 2))
+	{
+		WORDP D = FindWord(word + 2);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_PRESENT;
+		}
+	}
+	if (!strnicmp(word, "na", 2))
+	{
+		WORDP D = FindWord(word + 2);
+		if (D && D->properties & VERB)
+		{
+			entry = D;
+			return VERB | VERB_PAST;
+		}
+	}
+
+	// UM verbs
+
+	// IN Verbs
+
+	// O to U verbs
+
+	// I verbs
+
+	if (!properties) return 0;
+
+	return VERB | VERB_INFINITIVE;
+}
+
+static uint64 ComputeFilipino1(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+{
+	char word[MAX_WORD_SIZE];
+	sysflags = 0;
+	strcpy(word, original);
+	MakeLowerCase(word); // only nouns MIGHT really be uppercase and we dont worry about their listings in the dictionary
+	WORDP D = GetLanguageWord(word); // ensure in dictionary
+	canonical = GetCanonical(D, D->properties);
+
+	// we need to check for pronouns because dict doesnt have them
+	// dont use verb if conflict conjunction or preposition (para is one as it is also a command parar form)
+	// WE DONT exclude adjective here because some verb forms are adjective as well 
+	// verb infinitive we dont do here, because we might have decided it is a pronoun conjugation of an infinitive buscarlo
+	if (D->properties & (DETERMINER | CONJUNCTION | PREPOSITION) ||
+		(D->properties & PRONOUN_SUBJECT && !(D->properties & VERB)))// pure pronoun
+	{
+		if (!canonical) canonical = D;
+		entry = D;
+		sysflags = D->systemFlags;
+		return D->properties;
+	}
+
+	uint64 ans = ComputeFilipinoNoun(at,word, D, entry, canonical, sysflags);
+	return ans;
+}
+
+uint64 ComputeFilipino(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
 { // this interface actually changes a dict entry
-
 	WORDP old = FindWord(original, 0, PRIMARY_CASE_ALLOWED, true);
-	uint64 properties = ComputeSpanish1(at, original,  entry, canonical, sysflags);
+	uint64 properties = ComputeFilipino1(at, original, entry, canonical, sysflags);
+	if (properties) return properties;
 
-	WORDP D = FindOrMakeWord(original); // find actual entry for spanish itself
+	WORDP D = GetLanguageWord(original); // find actual entry for spanish itself
 	D->properties |= properties;
 	D->systemFlags |= sysflags;
 
@@ -2420,7 +2592,32 @@ uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonic
 	return properties;
 }
 
-static void ShowSpanishProperties(uint64 properties, uint64 systemFlags)
+uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags)
+{ // this interface actually changes a dict entry
+
+	WORDP old = FindWord(original, 0, PRIMARY_CASE_ALLOWED, true);
+	uint64 properties = ComputeSpanish1(at, original,  entry, canonical, sysflags);
+
+	WORDP D = GetLanguageWord(original); // find actual entry for spanish itself
+	D->properties |= properties;
+	D->systemFlags |= sysflags;
+
+	WORDP E = FindWord(original); // find appropriate entry which may be universal
+	if (E != D && E->internalBits & UNIVERSAL_WORD && old != D) // update universal (transient)
+	{
+		if (E->internalBits & UNIVERSAL_WORD)
+		{// BUG could become freed
+			WORDP* foreign = E->foreignFlags;
+			ongoingUniversalDictChanges = AllocateHeapval(HV1_WORDP | HV2_INT | HV3_INT, ongoingUniversalDictChanges, (uint64)D, (uint64)D->foreignFlags, true);
+			E->foreignFlags = (WORDP*)AllocateHeap(NULL, languageCount, sizeof(WORDP), true);
+			if (foreign) memcpy(ongoingUniversalDictChanges, E->foreignFlags, sizeof(WORDP*) * languageCount);
+			E->foreignFlags[GET_FOREIGN_INDEX(E)] = D;
+		}
+	}
+	return properties;
+}
+
+static void ShowSpanishProperties(uint64 properties)
 {
 	if (properties & VERB) printf("~verb ");
 	if (properties & VERB_INFINITIVE) printf("~verb_infinitive ");
@@ -2431,13 +2628,32 @@ static void ShowSpanishProperties(uint64 properties, uint64 systemFlags)
 		printf("~AUX_VERB_FUTURE ");
 		printf("~verb_future ");
 	}
+	if (properties & PRONOUN_OBJECT) printf("~pronoun_object ");
+	if (properties & NOUN) printf("~noun ");
+	if (properties & NOUN_SINGULAR) printf("~noun_singular ");
+	if (properties & NOUN_PLURAL) printf("~noun_plural ");
+	if (properties & NOUN_GERUND) printf("~noun_gerund ");
+
+	if (properties & ADVERB) printf("~adverb ");
+	if (properties & ADJECTIVE) printf("~adjective ");
+	if (properties & PREPOSITION) printf("~preposition ");
+	if (properties & CONJUNCTION) printf("~conjunction ");
+	if (properties & DETERMINER) printf("~determiner ");
+	if (properties & NOUN_HE) printf("~NOUN_HE ");
+	if (properties & NOUN_SHE) printf("~NOUN_SHE ");
+	if (properties & SINGULAR_PERSON) printf("~SINGULAR_PERSON ");
+	if (properties & PLACE_NUMBER) printf("~PLACE_NUMBER ");
+	printf("\r\n");
+}
+
+static void ShowSpanishSysflags(uint64 systemFlags)
+{
 	if (systemFlags & VERB_IMPERATIVE) printf("~verb_imperative ");
 	if (systemFlags & PRONOUN_SINGULAR) printf("~pronoun_singular ");
 	if (systemFlags & PRONOUN_PLURAL) printf("~pronoun_plural ");
 	if (systemFlags & PRONOUN_I) printf("~pronoun_I ");
 	if (systemFlags & PRONOUN_YOU) printf("~pronoun_you ");
 
-	if (properties & PRONOUN_OBJECT) printf("~pronoun_object ");
 	if (systemFlags & PRONOUN_OBJECT_SINGULAR) printf("~pronoun_object_singular ");
 	if (systemFlags & PRONOUN_OBJECT_PLURAL) printf("~pronoun_object_plural ");
 	if (systemFlags & PRONOUN_OBJECT_I) printf("~pronoun_object_i ");
@@ -2447,24 +2663,15 @@ static void ShowSpanishProperties(uint64 properties, uint64 systemFlags)
 	if (systemFlags & PRONOUN_INDIRECTOBJECT_PLURAL) printf("~pronoun_indirectobject_plural ");
 	if (systemFlags & PRONOUN_INDIRECTOBJECT_I) printf("~pronoun_indirectobject_i ");
 	if (systemFlags & PRONOUN_INDIRECTOBJECT_YOU) printf("~pronoun_indirectobject_you ");
-
-	if (properties & NOUN) printf("~noun ");
-	if (properties & NOUN_SINGULAR) printf("~noun_singular ");
-	if (properties & NOUN_PLURAL) printf("~noun_plural ");
-	if (properties & NOUN_GERUND) printf("~noun_gerund ");
-
-	if (properties & ADVERB) printf("~adverb ");
-	if (properties & ADJECTIVE) printf("~adjective ");
-
-	if (properties & PREPOSITION) printf("~preposition ");
-	if (properties & CONJUNCTION) printf("~conjunction ");
-	if (properties & DETERMINER) printf("~determiner ");
-
-	if (properties & NOUN_HE) printf("~NOUN_HE ");
-	if (properties & NOUN_SHE) printf("~NOUN_SHE ");
-	if (properties & SINGULAR_PERSON) printf("~SINGULAR_PERSON ");
-	if (properties & PLACE_NUMBER) printf("~PLACE_NUMBER ");
 	printf("\r\n");
+}
+
+static void ShowSpanishAttributes(uint64 properties, uint64 systemFlags)
+{
+	if (properties) printf("Properties: ");
+	ShowSpanishProperties(properties);
+	if (systemFlags) printf("SystemFlags: ");
+	ShowSpanishSysflags(systemFlags);
 }
 
 void C_ComputeSpanish(char* word)
@@ -2473,8 +2680,7 @@ void C_ComputeSpanish(char* word)
 	uint64 sysflags = 0;
 	SetLanguage("spanish");
 	wordCount = 2; // avoid the 1 ignore restriction
-	WORDP D = FindWord(word, 0, PRIMARY_CASE_ALLOWED, true);
-	if (!D) D = MakeLanguageWord(word);
+	WORDP D = GetLanguageWord(word);
 	uint64 origprop = D->properties;
 	uint64 origsys = D->systemFlags;
 	uint64 properties = ComputeSpanish1(1, word, entry, canonical, sysflags);
@@ -2487,12 +2693,10 @@ void C_ComputeSpanish(char* word)
 	if (!canonical) canonical = D;
 	printf("word: %s  actual: %s   lemma: %s\r\n", word, entry->word, canonical->word);
 	printf("Computed properties : ");
-	ShowSpanishProperties(properties, sysflags);
+	ShowSpanishAttributes(properties, sysflags);
 	printf("DICT properties: ");
-	ShowSpanishProperties(origprop, origsys);
+	ShowSpanishAttributes(origprop, origsys);
 }
-
-#ifdef JA_UNITTEST
 
 static int test_word(
 	const char* word,
@@ -2503,64 +2707,45 @@ static int test_word(
 	WORDP entry = NULL;
 	WORDP canonical = NULL;
 	uint64 sysflags = 0;
-	SetLanguage("spanish");
 	uint64 properties = ComputeSpanish1(1, word, entry, canonical, sysflags);
-	int got_difference = 0;
-	if (!canonical) {
-		printf("Error: could not find canonical\n");
-		got_difference = 1;
-	}
-	else if (stricmp(expected_canonical, canonical->word)) {
-		printf("Expected canonical word %s doesn't match canonical %s\n",
-			expected_canonical, canonical->word);
-		got_difference = 1;
-	}
-	if (got_difference ||
+	bool got_difference = false;
+
+	if (!canonical || stricmp(expected_canonical, canonical->word) ||
 		(expected_properties & properties) != expected_properties ||
 		(expected_sysflags & sysflags) != expected_sysflags)
 	{
-		printf("Errors processing %s\n", word);
+		printf("Error tagging: %s\r\n", word);
+		got_difference = true;
 	}
-	if ((expected_properties & properties) != expected_properties)
+	if (!canonical) 
 	{
-		printf("Expected properties don't match\n");
-		printf("Actual Properties: 0x%16llx\n", properties);
-		printf("Expect Properties: 0x%16llx\n", expected_properties);
-		got_difference = 1;
+		printf("Error: could not find canonical\n");
 	}
-	if ((expected_sysflags & sysflags) != expected_sysflags)
+	else if (stricmp(expected_canonical, canonical->word)) 
 	{
-		printf("Expected flags don't match\n");
-		printf("Actual Sysflags: 0x%16llx\n", sysflags);
-		printf("Expect Sysflags: 0x%16llx\n", expected_sysflags);
-		got_difference = 1;
+		printf("  Expected canonical word %s doesn't match canonical %s\n",
+			expected_canonical, canonical->word);
 	}
-	if (got_difference) {
-		uint64 bit = START_BIT;
-		while (bit)
+	if (got_difference) 
+	{
+		if ((expected_properties & properties) != expected_properties)
 		{
-			if (properties & bit) printf("%s ", FindNameByValue(bit));
-			bit >>= 1;
+			printf("  Expect Properties: 0x%16llx   ", expected_properties);
+			ShowSpanishProperties(expected_properties);
+			printf("  Actual Properties: 0x%16llx   ", properties);
+			ShowSpanishProperties(properties);
 		}
-		printf("\n");
-		bool extended = false;
-		bit = START_BIT;
-		while (bit)
+
+		if ((expected_sysflags & sysflags) != expected_sysflags)
 		{
-			if ((sysflags & bit)) // bits beyond what was directly known in dictionary before
-			{
-				if (!extended) printf("Implied: 0x%llx\n", sysflags);
-				extended = true;
-				char* label = FindNameByValue(bit);
-				printf("%s ", label);
-			}
-			bit >>= 1;
+			printf("  Expect sysflags: 0x%16llx   ", expected_sysflags);
+			ShowSpanishSysflags(expected_sysflags);
+			printf("Actual sysflags: 0x%16llx   ", sysflags);
+			ShowSpanishSysflags(sysflags);
+			printf("\r\n");
 		}
-		ShowSpanishProperties(expected_properties, expected_sysflags);
 	}
-	else {
-		printf(".");
-	}
+	else printf(".");
 	fflush(stdout);
 	return got_difference;
 }
@@ -2591,20 +2776,22 @@ int C_JaUnitTestSpanish()
 	int errors = 0;
 
 	printf("Starting spanish tests\n");
-
-	errors += test_word("algo", "algo", 0, 0);
+	errors += test_word("giren", "girar", VERB, P_Y | P_P | V_I);
+	errors += test_word("mostrar", "mostrar", VERB | V_INF, 0); // infinitive verb form
+	errors += test_word(u8"giréis", "girar", VERB, P_Y | P_S | V_I);
+	errors += test_word("giremos", "girar", VERB, P_I | P_P | V_I);
+	errors += test_word("hablales", "hablar", VERB, P_Y | P_S | V_I | P_IO | P_IOP);
+	errors += test_word("salten", "saltar", VERB, P_Y | P_P | V_I);
+	errors += test_word("hacerme", "hacer", VERB, P_IOS | P_IOI);
 	errors += test_word(u8"sepárame", "separar", VERB, P_S | V_I);
+	errors += test_word("algo", "algo", 0, 0);
 	errors += test_word("siente", "sentir", VERB, P_Y | P_S | V_I | P_IOS | P_IOY);
 	errors += test_word(u8"váyase", "ir", VERB, P_Y | P_S | V_I);
-	errors += test_word("hacerme", "hacer", VERB, P_IOS | P_IOI);
 	errors += test_word("para", "parar", PREPOSITION, 0);
-	errors += test_word(u8"sepárame", "separar", VERB, P_S | V_I);
 	errors += test_word("come", "comer", VERB, P_S | V_I);
 	errors += test_word("tome", "tomar", VERB, P_S | V_I);
 	errors += test_word("repite", "repetir", VERB, P_Y | P_S | V_I);
 	errors += test_word("di", "decir", VERB, P_S | V_I);
-	errors += test_word("salten", "saltar", VERB, P_Y | P_P | V_I);
-	errors += test_word("hablales", "hablar", VERB, P_Y | P_S | V_I | P_IO | P_IOP);
 	errors += test_word(u8"háblales", "hablar", VERB, P_Y | P_S | V_I | P_IO | P_IOP);
 	errors += test_word(u8"cuéntanos", "contar", VERB, P_Y | P_S | V_I | P_IOP | P_IOI);
 	errors += test_word("cuentanos", "contar", VERB, P_Y | P_S | V_I | P_IOP | P_IOI);
@@ -2614,17 +2801,13 @@ int C_JaUnitTestSpanish()
 	errors += test_word("salte", "saltar", VERB, P_Y | P_S | V_I);
 	errors += test_word("coja", "coger", VERB, P_Y | P_S | V_I);
 	errors += test_word("suba", "subir", VERB, P_Y | P_S | V_I);
-	errors += test_word("salten", "saltar", VERB, P_Y | P_P | V_I);
 	errors += test_word("suban", "subir", VERB, P_Y | P_P | V_I);
 	errors += test_word("gires", "girar", VERB, P_Y | P_S | V_I);
 	errors += test_word("gire", "girar", VERB, P_Y | P_S | V_I);
-	errors += test_word("giremos", "girar", VERB, P_I | P_P | V_I);
-	errors += test_word(u8"giréis", "girar", VERB, P_Y | P_S | V_I);
-	errors += test_word("giren", "girar", VERB, P_Y | P_P | V_I);
 	errors += test_word(u8"váyase", "ir", VERB, P_Y | P_S | V_I);
 	errors += test_word(u8"dáselo", "dar", VERB, P_Y | P_S | V_I | P_IO | P_IOS);
 	errors += test_word(u8"lávenselas", "laxar", VERB, P_S | P_Y | V_I | P_OP | P_OS);
-	errors += test_word("ayúdame", "ayudar", VERB, P_S | P_Y | V_I | P_IOI | P_IOS); // (you) help me
+	errors += test_word(u8"ayúdame", "ayudar", VERB, P_S | P_Y | V_I | P_IOI | P_IOS); // (you) help me
 	errors += test_word("ayudame", "ayudar", VERB, P_S | P_Y | V_I | P_IOI | P_IOS);
 	errors += test_word(u8"dámelo", "dar", VERB | P_O, P_S | P_Y | V_I | P_IOI | P_IOS | P_OS); // (you) give it to me
 	errors += test_word("damelo", "dar", VERB | P_O, P_S | P_Y | V_I | P_IOI | P_IOS | P_OS); // (you) give it to me
@@ -2648,7 +2831,6 @@ int C_JaUnitTestSpanish()
 	errors += test_word(u8"léanlo", "leer", VERB | P_O, V_I | P_O3); // imperative and direct object
 	errors += test_word(u8"mostrándole", "mostrar", 0, P_IO3); // present participle (gerund) and indirect object
 	errors += test_word("muestro", "mostrar", VERB, P_I); // verb form with irregular stem
-	errors += test_word("mostrar", "mostrar", VERB | V_INF, 0); // infinitive verb form
 
 	return errors;
 }
@@ -2657,14 +2839,11 @@ void C_JaUnittest(char* word)
 {
 	int errors = 0;
 	uint64 start_time_ms = ElapsedMilliseconds();
-
+	char currentlang[100];
+	strcpy(currentlang, current_language);
+	SetLanguage("spanish");
 	errors += C_JaUnitTestSpanish();
-
-	uint64 stop_time_ms = ElapsedMilliseconds();
-	float dt = (stop_time_ms - start_time_ms) / 1e3;
 	if (errors > 0) printf("\nErrors %d,", errors);
 	else printf("\nNo errors,");
-	printf(" test duration %0.3f s\n", dt);
+	SetLanguage(currentlang);
 }
-
-#endif // JA_UNITTEST

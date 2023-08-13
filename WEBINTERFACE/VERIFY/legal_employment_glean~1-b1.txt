@@ -1,0 +1,6 @@
+﻿~legal_employment_glean~1.1.0=DUALEMPLOY  #! can an employer an employee
+~legal_employment_glean~1.2.0=IS_EMPLOYER  #! my employee
+~legal_employment_glean~1.3.0=IS_EMPLOYEE_MORE  #! I was terminated --- override
+~legal_employment_glean~1.4.0=IS_EMPLOYEE  #! I work for
+~legal_employment_glean~1.4.0=IS_EMPLOYEE  #! my boss
+~legal_employment_glean~1.18.0=PERHOUR  #! 12/hour, $12/hour, $12 /hour, $12.25/hour.

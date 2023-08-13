@@ -1,0 +1,12 @@
+﻿    ~car_symptomreact_checkengine~2.1.1  #! yes
+    ~car_symptomreact_checkengine~2.1.2  #! no
+    ~car_symptomreact_checkengine~2.1.2  #! Don't know.
+    ~car_symptomreact_checkengine~2.1.2  #! I don't know what that is.
+    ~car_symptomreact_checkengine~2.1.2  #! Where would I find that?
+    ~car_symptomreact_checkengine~2.1.2  #! How would I know how to find that?
+~car_symptomreact_checkengine~2.2.0  #! what's a code?
+~car_symptomreact_checkengine~2.2.0  #! What is the code
+~car_symptomreact_checkengine~2.3.0  #! Why?
+~car_symptomreact_checkengine~2.3.0  #! Why do you need that?
+~car_symptomreact_checkengine~2.3.0  #! Do I have to have that?
+~car_symptomreact_checkengine~2.3.0  #! Can you still help me if I don't have it?

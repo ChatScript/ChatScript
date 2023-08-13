@@ -416,6 +416,19 @@ You may make references to outputmacros before they are defined, EXCEPT when the
 is directly or indirectly referenced from a table. Tables immediately execute as they
 are compiled, and you will get an error if a function it tries to use is not defined.
 
+NOTE: arguments to functions must be simple literal valus and/or variables. 
+You may not use arguments that compute values.
+```
+    ^myfunc( ^pos(10))  -- not legal
+    ^myfunc( 1 + 2)  -- not legal (this is 3 arguments)
+```
+
+Strings and active strings are considered simple literal values.
+```
+    ^myfunc( "this is a single argument")  
+    ^myfunc( ^"this is $word also a single argument using $foo") 
+```
+
 ## Indirect function calls
 
 You can store an outputmacro name on a variable and then call that indirectly.

@@ -1527,7 +1527,7 @@ char* TokenizeJapanese(char* input, unsigned int& count, char** words, char* sep
 	else continuation = input + strlen(input);
 
 	int error_flag = jp_tokenize(input);
-	if (error_flag != 0) {
+	if (error_flag) {
 		count = 0;
 		ReportBug("Bad input to jp_tokenize %s", input);
 		return continuation;
@@ -2376,81 +2376,81 @@ void ProperNameMerge()
 
 static void MergeNumbers(unsigned int& start, unsigned int& end) //   four score and twenty = four-score-twenty
 {//   start thru end exclusive of end, but put in number power order if out of order (four and twenty becomes twenty-four)
-    char word[MAX_WORD_SIZE];
-    char* ptr = word;
-    for (unsigned int i = start; i < end; ++i)
-    {
+	char word[MAX_WORD_SIZE];
+	char* ptr = word;
+	for (unsigned int i = start; i < end; ++i) // find all number merges
+	{
 		char* item = wordStarts[i];
-        if (*item == numberComma) continue; //   ignore commas
+		if (*item == numberComma) continue; //   ignore commas
 		if (i > start && *item == '-') ++item; // skip leading -
-		if (i > start && IsDigit(*wordStarts[i-1]) && !IsDigit(*item)) // digit followed by word
+		if (i > start && IsDigit(*wordStarts[i - 1]) && !IsDigit(*item)) // digit followed by word
 		{
 			end = start = (unsigned int)UNINIT;
-			return; 
+			return;
 		}
-		if (i > start && !IsDigit(*wordStarts[i-1]) && IsDigit(*item) && *wordStarts[i-1] != '-' && *wordStarts[i-1] != '+' ) // word followed by digit
+		if (i > start && !IsDigit(*wordStarts[i - 1]) && IsDigit(*item) && *wordStarts[i - 1] != '-' && *wordStarts[i - 1] != '+') // word followed by digit
 		{
 			end = start = (unsigned int)UNINIT;
-			return; 
+			return;
 		}
 
-        size_t len = strlen(wordStarts[i]);
+		size_t len = strlen(wordStarts[i]);
 		//   one thousand one hundred and twenty three
 		//   OR  one and twenty 
-        if (i > 1 && i < wordCount && (*item == 'a' || *item == 'A')) //   and,  maybe flip order if first, like one and twenty, then ignore
-        {
-			int64 power1 = NumberPower(wordStarts[i-1], numberStyle);
-			int64 power2 = NumberPower(wordStarts[i+1], numberStyle);
+		if (i > 1 && i < wordCount && (*item == 'a' || *item == 'A')) //   and,  maybe flip order if first, like one and twenty, then ignore
+		{
+			int64 power1 = NumberPower(wordStarts[i - 1], numberStyle);
+			int64 power2 = NumberPower(wordStarts[i + 1], numberStyle);
 			if (power1 < power2) //   latter is bigger than former --- assume nothing before and just overwrite
 			{
-				strcpy(word,wordStarts[i+1]);
-                ptr = word + strlen(word);
-                *ptr++ = '-';
-                strcpy(ptr,wordStarts[i-1]);
-                ptr += strlen(ptr);
-                break;
+				strcpy(word, wordStarts[i + 1]);
+				ptr = word + strlen(word);
+				*ptr++ = '-';
+				strcpy(ptr, wordStarts[i - 1]);
+				ptr += strlen(ptr);
+				break;
 			}
 			if (power1 == power2) // same granularity, don't merge, like "what is two and two"
 			{
-				  end = start = (unsigned int)UNINIT;
-				  return;
+				end = start = (unsigned int)UNINIT;
+				return;
 			}
-            continue;
-        }
+			continue;
+		}
 
-        strcpy(ptr,item);
-        ptr += len;
-        *ptr = 0;
-        if (i > 1 && i != start) //   prove not mixing types digits and words
-        {
-  			int64 power1 = NumberPower(wordStarts[i-1], numberStyle);
+		strcpy(ptr, item);
+		ptr += len;
+		*ptr = 0;
+		if (i > 1 && i != start) //   prove not mixing types digits and words
+		{
+			int64 power1 = NumberPower(wordStarts[i - 1], numberStyle);
 			int64 power2 = NumberPower(wordStarts[i], numberStyle);
 			if (power1 == power2 && power1 != 1) // allow one two three
 			{
-				end = start = (unsigned int)UNINIT; 
+				end = start = (unsigned int)UNINIT;
 				return;
 			}
-	        if (*word == '-' && !IsDigit(*item)) 
+			if (*word == '-' && !IsDigit(*item))
 			{
 				end = start = (unsigned int)UNINIT;
 				return; //   - not a sign? CANCEL MERGE
 			}
-        }
-        if (i < (end-1) && *item != '-') *ptr++ = '-'; //   hypenate words (not digits )
-        else if (i < (end-1) && strchr(wordStarts[i+1],'/')) *ptr++ = '-'; //   is a fraction? BUG
-    }
-    *ptr = 0;
+		}
+		if (i < (end - 1) && *item != '-') *ptr++ = '-'; //   hypenate words (not digits )
+		else if (i < (end - 1) && strchr(wordStarts[i + 1], '/')) *ptr++ = '-'; //   is a fraction? BUG
+	}
+	*ptr = 0;
 
 	//   change any _ to - (substitutions or wordnet might have merged using _
-	while ((ptr = strchr(word,'_'))) *ptr = '-';
+	while ((ptr = strchr(word, '_'))) *ptr = '-';
 
 	//   create the single word and replace all the tokens
-    WORDP D = StoreFlaggedWord(word,ADJECTIVE|NOUN|ADJECTIVE_NUMBER|NOUN_NUMBER, NOUN_NODETERMINER);
+	WORDP D = StoreFlaggedWord(word, ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER, NOUN_NODETERMINER);
 	char* tokens[2];
 	tokens[1] = D->word;
-	ReplaceWords("Merge number",start,end-start,1,tokens);
+	ReplaceWords("Merge number", start, end - start, 1, tokens);
 	tokenFlags |= DO_NUMBER_MERGE;
-    end = start = (unsigned int)UNINIT;
+	end = start = (unsigned int)UNINIT;
 }
 
 void ProcessSplitUnderscores()

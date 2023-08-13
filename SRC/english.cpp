@@ -1180,6 +1180,14 @@ uint64 GetPosData(unsigned  int at, char* original, WORDP& revise, WORDP& entry,
 		if (entry && !properties) canonical = GetCanonical(entry);
 		return ComputeSpanish(at, original, entry, canonical, sysflags);
 	}
+	else if (!stricmp(current_language, "Filipino"))
+	{
+		entry = canonical = NULL;
+		sysflags = 0;
+		properties = ComputeFilipino(at, original, entry, canonical, sysflags);
+		if (entry && !properties) canonical = GetCanonical(entry);
+		return ComputeSpanish(at, original, entry, canonical, sysflags);
+	}
 
 	/////// WHETHER OR NOT WE KNOW THE WORD, IT MIGHT BE ALSO SOME OTHER WORD IN ALTERED FORM (like plural noun or comparative adjective)
 	// Prefer a canonical which is different from original (if we have multiple postags, we wont know which it is)
@@ -1814,9 +1822,12 @@ static bool SetQuestionCommandPunctuation(unsigned int start,unsigned  int end)
 {
 	if (tokenFlags & (QUESTIONMARK | EXCLAMATIONMARK)) return false;
 	unsigned int loc = start;
-	if (!stricmp(wordStarts[loc], "that") ) return false; // starting that will be a statement
-
-	if (!stricmp(wordStarts[loc], "please") && end > 1) ++loc; // ignore please
+	bool isEnglish = !stricmp(current_language, "ENGLISH");
+	if (isEnglish)
+	{
+		if (!stricmp(wordStarts[loc], "that")) return false; // starting that will be a statement
+		if (!stricmp(wordStarts[loc], "please") && end > 1) ++loc; // ignore please
+	}
 
 	WORDP D = FindWord("~qwords");
 	MARKDATA hitdata;
@@ -1826,7 +1837,7 @@ static bool SetQuestionCommandPunctuation(unsigned int start,unsigned  int end)
 	if (GetNextSpot(D, 0, false, 0, &hitdata) && hitdata.start == loc)
 	{
 		if (wordCount == 1) return true; // simple question word-- like what? without ?
-		if (stricmp(current_language, "english")) return true; // all foreign
+		if (!isEnglish) return true; // all foreign
 		
 		unsigned int loc1 = hitdata.end + 1; // usually 1, but how_many is 2 word
 		
@@ -1834,7 +1845,7 @@ static bool SetQuestionCommandPunctuation(unsigned int start,unsigned  int end)
 		if (loc1 <= wordCount && finalPosValues[loc1] & (AUX_VERB | VERB_BITS)) return true;  // what will happen
 
 		// how many is generally a question, as is how often, but how beatiful you are is not
-		if (!stricmp(wordStarts[loc], "how"))
+		if (isEnglish && !stricmp(wordStarts[loc], "how"))
 		{
 			if (!stricmp(wordStarts[loc + 1], "many") || !stricmp(wordStarts[loc + 1], "often")) return true;
 			// how beautiful are you 
@@ -1843,18 +1854,18 @@ static bool SetQuestionCommandPunctuation(unsigned int start,unsigned  int end)
 			if (finalPosValues[loc1+1] & (DETERMINER_BITS | PRONOUN_BITS)) return false;
 		}
 		// what about your hair
-		if (!stricmp(wordStarts[loc], "what") && !stricmp(wordStarts[loc1], "about")) return true;
+		if (isEnglish && !stricmp(wordStarts[loc], "what") && !stricmp(wordStarts[loc1], "about")) return true;
 
 		// how are you?
 		if (loc1 <= wordCount && finalPosValues[loc1] & (AUX_VERB | VERB_BITS)) return true;  // what will happen
 
 		// what boy or which girl
-		if (finalPosValues[loc1] & NOUN_BITS)
+		if (finalPosValues[loc1] & NOUN_BITS && isEnglish)
 		{
 			if (!strcmp(wordCanonical[loc], "what") || !strcmp(wordCanonical[loc], "which"))	return true;
 		}
 	}
-	if (stricmp(current_language, "english")) return false; // all foreign
+	if (!isEnglish) return false; // all foreign
 
 	// dont bother me but not  dont you ... which may be either
 	if (!stricmp(wordStarts[loc], "do") && !stricmp(wordStarts[loc + 1], "not") && !(finalPosValues[loc + 2] & PRONOUN_BITS)) return true;

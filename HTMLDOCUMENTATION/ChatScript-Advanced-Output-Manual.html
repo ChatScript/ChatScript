@@ -1,40 +1,249 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Advanced-Output-Manual</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="chatscript-advanced-users-manual">ChatScript Advanced User's Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
+<h1 id="chatscript-advanced-users-manual">ChatScript Advanced User’s
+Manual</h1>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
 <h1 id="advanced-output">ADVANCED OUTPUT</h1>
 <h2 id="committed-output">Committed Output</h2>
-<p>Simple output puts words into the output stream, a magical place that queues up each word you write in a rule output. What I didn't tell you before was that if the rule fails along the way, an incomplete stream is canceled and says nothing to the user. For example,</p>
+<p>Simple output puts words into the output stream, a magical place that
+queues up each word you write in a rule output. What I didn’t tell you
+before was that if the rule fails along the way, an incomplete stream is
+canceled and says nothing to the user. For example,</p>
 <pre><code>t: I love this rule. ^fail(RULE)</code></pre>
-<p>Processing the above gambits successively puts the words <em>I</em>, <em>love</em>, <em>this</em>, <em>rule</em>, <em>.</em> into the output stream of that rule.</p>
-<p>If somewhere along the way that rule fails (in this case by the call at the end), the stream is discarded. If the rule completes and this is a top level rule, the stream is converted into a line of output and stored in the responses list.</p>
-<p>When the system is finished processing all rules, it will display the responses list to the user, in the order they were generated (unless you used <code>^preprint</code> or <code>^insertprint</code> to generate responses in a different order). If the output was destined for storing on a variable or becoming the argument to a function or macro, then the output stream is stored in the appropriate place instead.</p>
-<p>I also didn't tell you that the system monitors what it says, and won't repeat itself (even if from a different rule) within the last 20 outputs. So if, when converting the output stream into a response to go in the responses list, the system finds it already had such a response sent to the user in some recently earlier volley, the output is also discarded and the rule &quot;fails&quot;.</p>
-<p>Actually, it's a bit more complicated than that. Let's imagine a stream is being built up. And then suddenly the rule calls another rule (<code>^reuse</code>, <code>^gambit</code>, <code>^respond</code>). What happens? E.g.</p>
+<p>Processing the above gambits successively puts the words <em>I</em>,
+<em>love</em>, <em>this</em>, <em>rule</em>, <em>.</em> into the output
+stream of that rule.</p>
+<p>If somewhere along the way that rule fails (in this case by the call
+at the end), the stream is discarded. If the rule completes and this is
+a top level rule, the stream is converted into a line of output and
+stored in the responses list.</p>
+<p>When the system is finished processing all rules, it will display the
+responses list to the user, in the order they were generated (unless you
+used <code>^preprint</code> or <code>^insertprint</code> to generate
+responses in a different order). If the output was destined for storing
+on a variable or becoming the argument to a function or macro, then the
+output stream is stored in the appropriate place instead.</p>
+<p>I also didn’t tell you that the system monitors what it says, and
+won’t repeat itself (even if from a different rule) within the last 20
+outputs. So if, when converting the output stream into a response to go
+in the responses list, the system finds it already had such a response
+sent to the user in some recently earlier volley, the output is also
+discarded and the rule “fails”.</p>
+<p>Actually, it’s a bit more complicated than that. Let’s imagine a
+stream is being built up. And then suddenly the rule calls another rule
+(<code>^reuse</code>, <code>^gambit</code>, <code>^respond</code>). What
+happens? E.g.</p>
 <pre><code>u: ( some test ) I like fruit and vegetables. ^reuse(COMMON) And so do you.</code></pre>
-<p>What happens is this- when the system detects the transfer of control (the <code>^reuse</code> call), if there is output pending it is finished off (committed) and packaged for the user. The current stream is cleared, and the rule is erased (if allowed to be). Then the <code>^reuse()</code> happens. Even if it fails, this rule has produced output and been erased.</p>
-<p>Assuming the reuse doesn't fail, it will have sent whatever it wants into the stream and been packaged up for the user. The rest of the message for this rule now goes into the output stream <em>and so do you</em> and then that too is finished off and packaged for the user. The rule is erased because it has output in the stream when it ends (but it was already erased so it doesn't matter).</p>
-<p>So, output does two things. It queues up tokens to send to the user, which may be discarded if the rule ultimately fails. And it can call out to various functions. Things those functions may do are permanent, not undone if the rule later fails.</p>
-<p>There is a system variable <code>%response</code> which will tell you the number of committed responses. Some code (like Harry's control script) do something like this:</p>
+<p>What happens is this- when the system detects the transfer of control
+(the <code>^reuse</code> call), if there is output pending it is
+finished off (committed) and packaged for the user. The current stream
+is cleared, and the rule is erased (if allowed to be). Then the
+<code>^reuse()</code> happens. Even if it fails, this rule has produced
+output and been erased.</p>
+<p>Assuming the reuse doesn’t fail, it will have sent whatever it wants
+into the stream and been packaged up for the user. The rest of the
+message for this rule now goes into the output stream <em>and so do
+you</em> and then that too is finished off and packaged for the user.
+The rule is erased because it has output in the stream when it ends (but
+it was already erased so it doesn’t matter).</p>
+<p>So, output does two things. It queues up tokens to send to the user,
+which may be discarded if the rule ultimately fails. And it can call out
+to various functions. Things those functions may do are permanent, not
+undone if the rule later fails.</p>
+<p>There is a system variable <code>%response</code> which will tell you
+the number of committed responses. Some code (like Harry’s control
+script) do something like this:</p>
 <pre><code>$_response = %response
 ...
 if ($_response == %response) {...}</code></pre>
-<p>which is intented to mean if no response has been generated so far, try the code in the ^if. But you have to be wary of the pending buffer. Calling some code, even if it fails, may commit the pending buffer. If there is a chance you will have pending output, the correct and safe way to code this is:</p>
+<p>which is intented to mean if no response has been generated so far,
+try the code in the ^if. But you have to be wary of the pending buffer.
+Calling some code, even if it fails, may commit the pending buffer. If
+there is a chance you will have pending output, the correct and safe way
+to code this is:</p>
 <pre><code>^flushoutput()
 $_response = %response
 ...
 if ($_response == %response) {...}</code></pre>
 <p><code>^flushoutput</code> will commit pending output.</p>
-<h2 id="output-cannot-have-rules-in-it">Output cannot have rules in it</h2>
-<p>An output script cannot embed another rule inside it. Output is executed during the current volley whereas rules (like rejoinder rules) may be executed in a different volley. Therefore this is illegal:</p>
+<h2 id="output-cannot-have-rules-in-it">Output cannot have rules in
+it</h2>
+<p>An output script cannot embed another rule inside it. Output is
+executed during the current volley whereas rules (like rejoinder rules)
+may be executed in a different volley. Therefore this is illegal:</p>
 <pre><code>u: GREETING ( ~emohello )
    if ($username)
    {
@@ -56,66 +265,140 @@ if ($_response == %response) {...}</code></pre>
      I don&#39;t believe we&#39;ve met, what&#39;s your name?
    }
   a: (_*) So your name is &#39;_0?</code></pre>
-<p>Of course you don't want the rejoinder triggered if you can from the <code>if</code> side, so you'd also need to add a call to <code>^setnorejoinder</code> from inside it.</p>
-<h2 id="formatted-double-quotes-activeformat-string">Formatted double quotes (Active/Format String)</h2>
-<p>Because you can intermix program script with ordinary output words, ChatScript normally autoformats output code. But programming languages allow you to control your output with format strings and ChatScript is no exception.</p>
-<p>In the case of ChatScript, the active string <code>^&quot;xxx&quot;</code> string is a format string. The system will remove the <code>^</code> and the quotes and put it out exactly as you have it, except, it will substitute variables (which you learn about shortly) with their values and it will accept <code>[ ]</code> <code>[ ]</code> choice blocks. And will allow function calls. You can't do assignment statements or loops or if statements.</p>
+<p>Of course you don’t want the rejoinder triggered if you can from the
+<code>if</code> side, so you’d also need to add a call to
+<code>^setnorejoinder</code> from inside it.</p>
+<h2 id="formatted-double-quotes-activeformat-string">Formatted double
+quotes (Active/Format String)</h2>
+<p>Because you can intermix program script with ordinary output words,
+ChatScript normally autoformats output code. But programming languages
+allow you to control your output with format strings and ChatScript is
+no exception.</p>
+<p>In the case of ChatScript, the active string <code>^"xxx"</code>
+string is a format string. The system will remove the <code>^</code> and
+the quotes and put it out exactly as you have it, except, it will
+substitute variables (which you learn about shortly) with their values
+and it will accept <code>[ ]</code> <code>[ ]</code> choice blocks. And
+will allow function calls. You can’t do assignment statements or loops
+or if statements.</p>
 <pre><code>t: ^&quot;I like you.&quot;</code></pre>
 <p>puts out <em>I like you</em>.</p>
-<p>When you want special characters in the format string like <code>&quot;</code>, you need to backslash them, which the format string removes when it executes. For example:</p>
+<p>When you want special characters in the format string like
+<code>"</code>, you need to backslash them, which the format string
+removes when it executes. For example:</p>
 <pre><code>u: () $tmp = [ hi ^&quot;there \&quot;john\&quot;&quot; ]</code></pre>
-<p>the quote inside the format string need protecting using <code>\&quot;</code>.</p>
-<p>You can write <code>\n</code>, <code>\r</code>, <code>\t</code> and those will be translated into newline, newline, and tab. However, you should avoid <code>\r</code> because on LINUX it is not needed and in Windows the system will change <code>\n</code> to carriage-return and newline. The use is for API function ^testoutput where you want to emit a newline but the incoming system will be sending newlines itself to allow errors to be reported by line number.</p>
-<p>Format strings evaluate themselves as soon as they can. If you write:</p>
+<p>the quote inside the format string need protecting using
+<code>\"</code>.</p>
+<p>You can write <code>\n</code>, <code>\r</code>, <code>\t</code> and
+those will be translated into newline, newline, and tab. However, you
+should avoid <code>\r</code> because on LINUX it is not needed and in
+Windows the system will change <code>\n</code> to carriage-return and
+newline. The use is for API function ^testoutput where you want to emit
+a newline but the incoming system will be sending newlines itself to
+allow errors to be reported by line number.</p>
+<p>Format strings evaluate themselves as soon as they can. If you
+write:</p>
 <pre><code>u: () $tmp = ^&quot; This is $var output&quot;</code></pre>
-<p>then <code>$tmp</code> will be set to the result of evaluating the format string. Similarly, if you write:</p>
+<p>then <code>$tmp</code> will be set to the result of evaluating the
+format string. Similarly, if you write:</p>
 <pre><code>u: () $tmp = ^myfunc(^&quot; This is $var output&quot;)</code></pre>
-<p>then the format string is evaluated before being sent to <code>^myfunc</code>.</p>
-<p>You can continue a format string across multiple source lines. It will always have a single space representing the line change, regardless of how many spaces were before or after the line break. E.g</p>
+<p>then the format string is evaluated before being sent to
+<code>^myfunc</code>.</p>
+<p>You can continue a format string across multiple source lines. It
+will always have a single space representing the line change, regardless
+of how many spaces were before or after the line break. E.g</p>
 <pre><code>^&quot;this is my life&quot; # -&gt; ^&quot;this is my life&quot;</code></pre>
-<p>regardless of whether there were no spaces after is or 100 spaces after is. You may not have comments at the ends of such lines (they would be absorbed into the string).</p>
-<p>While an active string tries to detect and substitute variables, it can't succeed if you have letters immediately after the variable name. E.g.</p>
+<p>regardless of whether there were no spaces after is or 100 spaces
+after is. You may not have comments at the ends of such lines (they
+would be absorbed into the string).</p>
+<p>While an active string tries to detect and substitute variables, it
+can’t succeed if you have letters immediately after the variable name.
+E.g.</p>
 <pre><code>^&quot;T$$time_computed_hrs:$$time_computed_mins:$$time_computed_secsZ&quot;</code></pre>
-<p>The Z at the end of the <code>$$time_computed_secs</code> will make that variable hard to detect, since it will look like the variable is <code>$$time_computed_secsZ</code>.</p>
-<p>You can fix that by escaping the next character not part of the name. <code>$$time_computed_secs\Z</code>.</p>
-<p>While you can have function calls inside an active string, the system will strip a single space in front of the call. E.g., if ^mycall returns <code>test</code></p>
+<p>The Z at the end of the <code>$$time_computed_secs</code> will make
+that variable hard to detect, since it will look like the variable is
+<code>$$time_computed_secsZ</code>.</p>
+<p>You can fix that by escaping the next character not part of the name.
+<code>$$time_computed_secs\Z</code>.</p>
+<p>While you can have function calls inside an active string, the system
+will strip a single space in front of the call. E.g., if ^mycall returns
+<code>test</code></p>
 <pre><code>    $_var = ^&quot;this is ^mycall(x)&quot;</code></pre>
-<p>then the above sets $_var to <code>this istest</code> and you need to add an extra space in front of the call if you want a space. This is because you cannot do without the space in front of the function call merely to recognize the call (lest it join as part of the prior token). And you may want to merge the result together. Hence extra space if you want one.</p>
+<p>then the above sets $_var to <code>this istest</code> and you need to
+add an extra space in front of the call if you want a space. This is
+because you cannot do without the space in front of the function call
+merely to recognize the call (lest it join as part of the prior token).
+And you may want to merge the result together. Hence extra space if you
+want one.</p>
 <h2 id="json-active-strings">Json Active Strings</h2>
-<p><code>^' xxxxxx '</code> is another kind of active string. It is intended for writing easy JSON, because you don't have to escape doublequotes unless json would need to.</p>
-<p>It will converting <code>\n</code>,<code>\t</code>, <code>\r</code> into their control characters, convert <code>\\</code> into just <code>\</code>, and leave all other characters alone. Eg</p>
+<p><code>^' xxxxxx '</code> is another kind of active string. It is
+intended for writing easy JSON, because you don’t have to escape
+doublequotes unless json would need to.</p>
+<p>It will converting <code>\n</code>,<code>\t</code>, <code>\r</code>
+into their control characters, convert <code>\\</code> into just
+<code>\</code>, and leave all other characters alone. Eg</p>
 <pre><code>^&#39;{ &quot;test&quot; : &quot;my \&quot;value\&quot; \x&quot; }</code></pre>
 <p>will become</p>
 <pre><code>^&#39;{ &quot;test&quot; : &quot;my \&quot;value\&quot; \x&quot; }</code></pre>
 <h2 id="functional-strings">Functional Strings</h2>
-<p>Whenever format strings are placed in tables, they become a slightly different flavor, called functional strings. They are like regular output- they are literally output script.</p>
-<p>Formatting is automatic and you get to make them do any kind of executable thing, as though you were staring at actual output script. So you lose the ability to control spacing, but gain full other output execution abilities.</p>
-<p>They have to be different because there is no user context when compiling a table. As a consequence, if you have table code that looks like this:</p>
+<p>Whenever format strings are placed in tables, they become a slightly
+different flavor, called functional strings. They are like regular
+output- they are literally output script.</p>
+<p>Formatting is automatic and you get to make them do any kind of
+executable thing, as though you were staring at actual output script. So
+you lose the ability to control spacing, but gain full other output
+execution abilities.</p>
+<p>They have to be different because there is no user context when
+compiling a table. As a consequence, if you have table code that looks
+like this:</p>
 <pre><code>^createfact( x y ^&quot; This is $var output&quot;)</code></pre>
-<p>the functional string does NOT evaluate itself before going to createfact. It gets stored as its original self.</p>
-<p>We will now learn functions that can be called that might fail or have interesting other effects. And some control constructs.</p>
-<h2 id="loop-construct---loop-or-loop-and-jsonloop">Loop Construct - loop or ^loop and jsonloop</h2>
-<p>Loop allows you to repeat script. It takes an optional argument within parens, which is how many times to loop. It executes the code within <code>{ }</code> until the loop count expires or until a <code>FAIL</code> or <code>END</code> code of some kind is issued.</p>
+<p>the functional string does NOT evaluate itself before going to
+createfact. It gets stored as its original self.</p>
+<p>We will now learn functions that can be called that might fail or
+have interesting other effects. And some control constructs.</p>
+<h2 id="loop-construct---loop-or-loop-and-jsonloop">Loop Construct -
+loop or ^loop and jsonloop</h2>
+<p>Loop allows you to repeat script. It takes an optional argument
+within parens, which is how many times to loop. It executes the code
+within <code>{ }</code> until the loop count expires or until a
+<code>FAIL</code> or <code>END</code> code of some kind is issued.</p>
 <ul>
-<li><p><code>End(loop)</code> signals merely the end of the loop, not really the rule, and will not cancel any pending output in the output stream.</p></li>
-<li><p><code>Fail(LOOP)</code> will terminate both loop and rule enclosing. All other return codes have their usual effect.</p></li>
+<li><p><code>End(loop)</code> signals merely the end of the loop, not
+really the rule, and will not cancel any pending output in the output
+stream.</p></li>
+<li><p><code>Fail(LOOP)</code> will terminate both loop and rule
+enclosing. All other return codes have their usual effect.</p></li>
 </ul>
-<p><strong>Deprecated is <code>fail(rule)</code> and <code>end(rule)</code> which merely terminated the loop.</strong></p>
+<p><strong>Deprecated is <code>fail(rule)</code> and
+<code>end(rule)</code> which merely terminated the loop.</strong></p>
 <pre><code>t: Hello. ^loop (5) { me }
 
 t: ^loop () { This is forever, not. end(LOOP)}</code></pre>
-<p>The first gambit prints <em>Hello. me me me me me</em>. The second loop would print forever, but actually prints out This is forever, not. because after starting output, the loop is terminated.</p>
-<p>Loop also has a built in limit of 1000 so it will never run forever. You can override this if you define <code>$cs_looplimit</code> to have some value you prefer.</p>
+<p>The first gambit prints <em>Hello. me me me me me</em>. The second
+loop would print forever, but actually prints out This is forever, not.
+because after starting output, the loop is terminated.</p>
+<p>Loop also has a built in limit of 1000 so it will never run forever.
+You can override this if you define <code>$cs_looplimit</code> to have
+some value you prefer.</p>
 <h2 id="loop-n"><code>^loop</code>( n )</h2>
-<p>Loop can be given a count. This can be either a number, function call that results in a number, or you can use a factset id to loop through each item of the factset via <code>^loop (@0)</code>.</p>
-<p>A non-json loop has a global limit to protect against really big loops. The loop count you give locally will only go as far as that global limit. UNLESS, you use a pure numeric loop count. If you do, that wins over the global. So</p>
+<p>Loop can be given a count. This can be either a number, function call
+that results in a number, or you can use a factset id to loop through
+each item of the factset via <code>^loop (@0)</code>.</p>
+<p>A non-json loop has a global limit to protect against really big
+loops. The loop count you give locally will only go as far as that
+global limit. UNLESS, you use a pure numeric loop count. If you do, that
+wins over the global. So</p>
 <pre><code>    $_tmp = 2000
     ^loop($_tmp)   -- will run to global limit 1000.
     ^loop(2000)     -- will run to local limit 2000.</code></pre>
-<h2 id="jsonloop-jsonvar-_val1-_val2"><code>^jsonloop</code>( $jsonvar $_val1 $_val2 )</h2>
-<p>See ^jsonloop in Json manual for looping through a JSON object or array.</p>
-<h2 id="if-construct---if-or-if">If Construct - <code>if</code> or <code>^if</code></h2>
-<p>The if allows you to conditionally execute blocks of script. The full syntax is:</p>
+<h2 id="jsonloop-jsonvar-_val1-_val2"><code>^jsonloop</code>( $jsonvar
+$_val1 $_val2 )</h2>
+<p>See ^jsonloop in Json manual for looping through a JSON object or
+array.</p>
+<h2 id="if-construct---if-or-if">If Construct - <code>if</code> or
+<code>^if</code></h2>
+<p>The if allows you to conditionally execute blocks of script. The full
+syntax is:</p>
 <pre><code>if ( test1 ) 
     { 
       script1 
@@ -129,53 +412,112 @@ else
     { 
       script3 
     }</code></pre>
-<p>You can omit the else if section, having just if and else, and you can omit the else section, having just if or if and else if. You may have any number of else if sections. The test condition can be:</p>
+<p>You can omit the else if section, having just if and else, and you
+can omit the else section, having just if or if and else if. You may
+have any number of else if sections. The test condition can be:</p>
 <ul>
 <li>A variable - if it is defined, the test passes</li>
-<li><code>!</code> variable - if it is not defined, the test passes (same as relation variable <code>==</code> null)</li>
-<li>A function call - if it doesn't fail and doesn't return the values 0 or false, it passes</li>
-<li>A relation - one of <code>==</code> <code>!=</code> <code>&lt;</code> <code>&lt;=</code> <code>&gt;</code> <code>&gt;=</code> <code>?</code> <code>!?</code></li>
+<li><code>!</code> variable - if it is not defined, the test passes
+(same as relation variable <code>==</code> null)</li>
+<li>A function call - if it doesn’t fail and doesn’t return the values 0
+or false, it passes</li>
+<li>A relation - one of <code>==</code> <code>!=</code>
+<code>&lt;</code> <code>&lt;=</code> <code>&gt;</code>
+<code>&gt;=</code> <code>?</code> <code>!?</code></li>
 </ul>
-<p>For the purposes of numeric comparison <code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a number will be considered as 0. But == will not consider a null value as 0 because this conflicts with the ability to detect if the variable has some value or not.</p>
-<p>You may have a series of test conditions separated by <code>AND</code> and <code>OR</code>. The failure of the test condition can be any end or fail code. It does not affect outside the condition; it merely controls which branch of the if gets taken.</p>
+<p>For the purposes of numeric comparison
+<code>(&lt; &lt;= &gt; &gt;=)</code> a null value compared against a
+number will be considered as 0. But == will not consider a null value as
+0 because this conflicts with the ability to detect if the variable has
+some value or not.</p>
+<p>You may have a series of test conditions separated by
+<code>AND</code> and <code>OR</code>. The failure of the test condition
+can be any end or fail code. It does not affect outside the condition;
+it merely controls which branch of the if gets taken.</p>
 <pre><code>if ($var) { } # if $var has a value
 
 if ($var == 5 and foo(3)) {} # if $var is 5 and foo(3) doesn&#39;t fail or return 0 or false</code></pre>
 <p>Comparison tests between two text strings is case insensitive.</p>
-<p>A word of warning on the <code>?</code> (in set) relation test. It only works for actual concepts that have enumerated values. A number of sets marked by the engine for patterns do not consist of enumerated members.</p>
-<p>All of the pos-tagging and parse-related concepts are like this, so you cannot use <code>~number</code>, <code>~noun</code>, <code>~verb</code>, etc here.</p>
-<p>It will work if you compare a match variable derived from input, because that has access to knowing all the marked concepts of that particular word.</p>
+<p>A word of warning on the <code>?</code> (in set) relation test. It
+only works for actual concepts that have enumerated values. A number of
+sets marked by the engine for patterns do not consist of enumerated
+members.</p>
+<p>All of the pos-tagging and parse-related concepts are like this, so
+you cannot use <code>~number</code>, <code>~noun</code>,
+<code>~verb</code>, etc here.</p>
+<p>It will work if you compare a match variable derived from input,
+because that has access to knowing all the marked concepts of that
+particular word.</p>
 <h2 id="pattern-if">Pattern If</h2>
-<p>An alternative If test condition is the pattern If. You write the test using the word pattern at the start, and then you write exactly what you can write when you write a rule pattern. Eg.</p>
+<p>An alternative If test condition is the pattern If. You write the
+test using the word pattern at the start, and then you write exactly
+what you can write when you write a rule pattern. Eg.</p>
 <pre><code>if (pattern bingo _*1 ~helo) { ... }</code></pre>
-<p>This gives you the full power of the pattern matcher, including the ability to match and memorize from the current input.</p>
+<p>This gives you the full power of the pattern matcher, including the
+ability to match and memorize from the current input.</p>
 <h2 id="quoting">Quoting</h2>
-<p>Normally output evaluates things it sees. This includes <code>$user</code> variables, which print out their value. But if you put quote in front of it, it prints its own name. <code>'$name</code> will print <em>$name</em>.</p>
-<p>The exception to this rule is that internal functions that process their own arguments uniquely can do what they want, and the query function defines <code>'$name</code> to mean use the contents of <code>$name</code>, just don't expand it if it is a concept or topic name as value.</p>
-<p>Similarly, a function variable like <code>^name</code> will pretend it was its content originally. This means if the value was <code>$var</code> then, had $var been there in the output originally, it would have printed out its content. So normally <code>^name</code> will print out the contents of its content. Again, you can suppress with using <code>'^name</code> to force it to only print its content directly.</p>
+<p>Normally output evaluates things it sees. This includes
+<code>$user</code> variables, which print out their value. But if you
+put quote in front of it, it prints its own name. <code>'$name</code>
+will print <em>$name</em>.</p>
+<p>The exception to this rule is that internal functions that process
+their own arguments uniquely can do what they want, and the query
+function defines <code>'$name</code> to mean use the contents of
+<code>$name</code>, just don’t expand it if it is a concept or topic
+name as value.</p>
+<p>Similarly, a function variable like <code>^name</code> will pretend
+it was its content originally. This means if the value was
+<code>$var</code> then, had $var been there in the output originally, it
+would have printed out its content. So normally <code>^name</code> will
+print out the contents of its content. Again, you can suppress with
+using <code>'^name</code> to force it to only print its content
+directly.</p>
 <h2 id="outputting-underscores">Outputting underscores</h2>
-<p>Normal English sentences do not contain underscores. Wordnet uses underscores in composite words involving spaces.</p>
-<p>ChatScript, therefore has a special use for underscores internally and if you put underscores in your output text, when they are shipped to the user they are converted to spaces.</p>
-<p>This doesn't apply to internal uses like storing on variables. So normally you cannot output an underscore to a user. But a web address might legitimately contain underscores. So, if you put two underscores in a row, ChatScript will output a single underscore to the user.</p>
+<p>Normal English sentences do not contain underscores. Wordnet uses
+underscores in composite words involving spaces.</p>
+<p>ChatScript, therefore has a special use for underscores internally
+and if you put underscores in your output text, when they are shipped to
+the user they are converted to spaces.</p>
+<p>This doesn’t apply to internal uses like storing on variables. So
+normally you cannot output an underscore to a user. But a web address
+might legitimately contain underscores. So, if you put two underscores
+in a row, ChatScript will output a single underscore to the user.</p>
 <h2 id="response-controlinput">Response Controlinput</h2>
-<p>Having said that CS automatically changes underscores to spaces, you can alter this and other default response output processing. The variable <code>$cs_response</code> can be set to some combination of values to alter behavior. The default value is #ALL_RESPONSES which consists of</p>
+<p>Having said that CS automatically changes underscores to spaces, you
+can alter this and other default response output processing. The
+variable <code>$cs_response</code> can be set to some combination of
+values to alter behavior. The default value is #ALL_RESPONSES which
+consists of</p>
 <pre><code>$cs_response = #RESPONSE_UPPERSTART +
                #RESPONSE_REMOVESPACEBEFORECOMMA +
                #RESPONSE_ALTERUNDERSCORES +
                #RESPONSE_REMOVETILDE +
                #RESPONSE_NOCONVERTSPECIAL 
 </code></pre>
-<p>which controls automatically up-casing the first letter of output, removing spaces before commas, and converting underscores to spaces, removing <code>~</code> from concept names, and not converting carriage return, newline, and tabs from CS backslashed notation to actual ASCII character.</p>
+<p>which controls automatically up-casing the first letter of output,
+removing spaces before commas, and converting underscores to spaces,
+removing <code>~</code> from concept names, and not converting carriage
+return, newline, and tabs from CS backslashed notation to actual ASCII
+character.</p>
 <p>Equivalently</p>
 <pre><code>$cs_response = #ALL_RESPONSES</code></pre>
-<p>which if you want all is what you should use in case new ones are added in the system later.</p>
+<p>which if you want all is what you should use in case new ones are
+added in the system later.</p>
 <h2 id="output-macros">Output Macros</h2>
-<p>Just as you can write your own common routines (functions) for handling pattern code with patternmacro:, you can do the same for output code.</p>
+<p>Just as you can write your own common routines (functions) for
+handling pattern code with patternmacro:, you can do the same for output
+code.</p>
 <pre><code>Outputmacro: name (^arg1 ^arg2 ...)</code></pre>
-<p>and then your code. Only now you use output script instead of pattern stuff. Again, when calling the macro, arguments are separated with spaces and not commas.</p>
-<p>Whereas most programming language separate their arguments with commas because they are reserved tokens in their language, in ChatScript a comma is a normal word. So you separate arguments to functions just with spaces.</p>
+<p>and then your code. Only now you use output script instead of pattern
+stuff. Again, when calling the macro, arguments are separated with
+spaces and not commas.</p>
+<p>Whereas most programming language separate their arguments with
+commas because they are reserved tokens in their language, in ChatScript
+a comma is a normal word. So you separate arguments to functions just
+with spaces.</p>
 <pre><code>?: ( hi) ^FiveArgFunction( 1 3 my , word)</code></pre>
-<p>Outputmacros can return a value, just like a normal function. You just dump the text as you would a message to the user.</p>
+<p>Outputmacros can return a value, just like a normal function. You
+just dump the text as you would a message to the user.</p>
 <pre><code>outputmacro: ^mymac()
 tested here
 
@@ -183,19 +525,49 @@ TOPIC: ~patterns keep repeat []
 #! what time is it?
 u: ( &lt;&lt; what time &gt;&gt; ) $test = ^mymac() join(ok $test)</code></pre>
 <p>will print <em>oktested here</em>.</p>
-<p>However, it is clearer and cleaner if you are returning data to be stored somewhere else (not to be merely immediately sent to the user), to use <code>^return(&quot;tested here&quot;)</code>. This both creates the result, and ends the function immediately even if other code follows.</p>
-<p><strong>Note - calls to macros use &quot;pass by reference&quot;, so the actual value of the <code>^variable</code> is the name of what was passed in, and it is generally (but not always) evaluated on use.</strong></p>
-<p>You may make references to outputmacros before they are defined, EXCEPT when the Function is directly or indirectly referenced from a table. Tables immediately execute as they are compiled, and you will get an error if a function it tries to use is not defined.</p>
+<p>However, it is clearer and cleaner if you are returning data to be
+stored somewhere else (not to be merely immediately sent to the user),
+to use <code>^return("tested here")</code>. This both creates the
+result, and ends the function immediately even if other code
+follows.</p>
+<p><strong>Note - calls to macros use “pass by reference”, so the actual
+value of the <code>^variable</code> is the name of what was passed in,
+and it is generally (but not always) evaluated on use.</strong></p>
+<p>You may make references to outputmacros before they are defined,
+EXCEPT when the Function is directly or indirectly referenced from a
+table. Tables immediately execute as they are compiled, and you will get
+an error if a function it tries to use is not defined.</p>
+<p>NOTE: arguments to functions must be simple literal valus and/or
+variables. You may not use arguments that compute values.</p>
+<pre><code>    ^myfunc( ^pos(10))  -- not legal
+    ^myfunc( 1 + 2)  -- not legal (this is 3 arguments)</code></pre>
+<p>Strings and active strings are considered simple literal values.</p>
+<pre><code>    ^myfunc( &quot;this is a single argument&quot;)  
+    ^myfunc( ^&quot;this is $word also a single argument using $foo&quot;) </code></pre>
 <h2 id="indirect-function-calls">Indirect function calls</h2>
-<p>You can store an outputmacro name on a variable and then call that indirectly.</p>
+<p>You can store an outputmacro name on a variable and then call that
+indirectly.</p>
 <pre><code>^$_xx(value1)  if $_xx holds a function name</code></pre>
 <h2 id="sharing-function-definitions">Sharing function definitions</h2>
-<p>ChatScript requires that a function be defined before use. When you use that function from multiple files, you may have trouble ordering the files for compilation if you merely name the folder in <code>filesxxx.txt</code> since you cannot guarantee compilation order unless you explicitly name the files. But you can also just put your functions in a top level file and then have your other files in folders, and name it and then them in your <code>filesxxx.txt</code> file.</p>
+<p>ChatScript requires that a function be defined before use. When you
+use that function from multiple files, you may have trouble ordering the
+files for compilation if you merely name the folder in
+<code>filesxxx.txt</code> since you cannot guarantee compilation order
+unless you explicitly name the files. But you can also just put your
+functions in a top level file and then have your other files in folders,
+and name it and then them in your <code>filesxxx.txt</code> file.</p>
 <h2 id="save-restore-locals">Save-Restore locals</h2>
-<p><code>$$xxx</code> and <code>$xxx</code> variables are global, merely transient and permanent.</p>
-<p>Function variables like <code>^myval</code> are restricted in use to the function declaring them, so they are sort of local variables, but they are stand-ins for the arguments passed, which means if you write indirectly the function variable you are changing something above you as well.</p>
+<p><code>$$xxx</code> and <code>$xxx</code> variables are global, merely
+transient and permanent.</p>
+<p>Function variables like <code>^myval</code> are restricted in use to
+the function declaring them, so they are sort of local variables, but
+they are stand-ins for the arguments passed, which means if you write
+indirectly the function variable you are changing something above you as
+well.</p>
 <p>Fortunately there are local variables, <code>$_xxx</code>.</p>
-<p>Without local variables, it is easy to accidentally reuse the same name of a transient variable that you used above you in the call chain. Imagine this:</p>
+<p>Without local variables, it is easy to accidentally reuse the same
+name of a transient variable that you used above you in the call chain.
+Imagine this:</p>
 <pre><code>outputmacro: ^mycall()
     $$counter = 0
     loop()
@@ -211,65 +583,131 @@ loop()
     # ...
     $$counter += 1
     }</code></pre>
-<p>You have two areas using the same counter variable and the inner one destroys the outer one. Here is where save-restore variables come in.</p>
-<p>You can either use local variables, when you don't need to pass information between places except via function args. Or you can use save-restore variables.</p>
-<p>You can declare a list of variables whose contents will be memorized on entry to a function or a topic, and restored to their former values on exit.<br />
-You can safely write all over them within the function or topic, without harming a caller. And they are still global, in that they are visible to anyone your function calls.</p>
-<p>Of course if you intend to pass back data in a global variable, don't put it in your save-restore list.</p>
+<p>You have two areas using the same counter variable and the inner one
+destroys the outer one. Here is where save-restore variables come
+in.</p>
+<p>You can either use local variables, when you don’t need to pass
+information between places except via function args. Or you can use
+save-restore variables.</p>
+<p>You can declare a list of variables whose contents will be memorized
+on entry to a function or a topic, and restored to their former values
+on exit.<br />
+You can safely write all over them within the function or topic, without
+harming a caller. And they are still global, in that they are visible to
+anyone your function calls.</p>
+<p>Of course if you intend to pass back data in a global variable, don’t
+put it in your save-restore list.</p>
 <pre><code>Outputmacro: ^myfunc(^arg1)($$tmp  $global  $$tmp2) # $$bestscore exported
 # code
 
 Topic: ~mytopic(keyword1 keyword2) ($$tmp $$global $$tmp2)
 # rules</code></pre>
-<p>You can protect both transient and permanent variables, but usually you would just protect all of the transient variables you assign values to inside your function or topic. The comment is what I would say if I intended a variable be returned outside in addition to a primary return value. That way anyone reading the code would know $$bestscore was not accidentally left off the save-restore list.</p>
-<p>And whenever you can, prefer local variables because then you don't have to remember to add them to the protected save-restore list. ChatScript does that automatically.</p>
+<p>You can protect both transient and permanent variables, but usually
+you would just protect all of the transient variables you assign values
+to inside your function or topic. The comment is what I would say if I
+intended a variable be returned outside in addition to a primary return
+value. That way anyone reading the code would know $$bestscore was not
+accidentally left off the save-restore list.</p>
+<p>And whenever you can, prefer local variables because then you don’t
+have to remember to add them to the protected save-restore list.
+ChatScript does that automatically.</p>
 <pre><code>Outputmacro: ^myfunc(^arg1)($$tmp $global $$tmp2) # $$bestscore exported ... code</code></pre>
-<p>You can protect both transient and permanent variables, but usually you would just protect all of the transient variables you assign values to inside your function.</p>
-<p>The comment is what I would say if I intended a local variable be returned outside in addition to a primary return value. That way anyone reading the code would know <code>$$bestscore</code> was not accidentally left off the save-restore list.</p>
+<p>You can protect both transient and permanent variables, but usually
+you would just protect all of the transient variables you assign values
+to inside your function.</p>
+<p>The comment is what I would say if I intended a local variable be
+returned outside in addition to a primary return value. That way anyone
+reading the code would know <code>$$bestscore</code> was not
+accidentally left off the save-restore list.</p>
 <pre><code>dualmacro: name(...) </code></pre>
-<p>is exactly like <code>outputmacro:</code>, but the function can be called on then side or on the output side. Typically this makes most sense for a function that performs a fixed <code>^query</code> which you can see if it fails in pattern side or as a test on the output side or inside an if condition.</p>
-<p>Output macros can be passed system function names and output macro names, allowing you to indirectly call things. E.g.</p>
+<p>is exactly like <code>outputmacro:</code>, but the function can be
+called on then side or on the output side. Typically this makes most
+sense for a function that performs a fixed <code>^query</code> which you
+can see if it fails in pattern side or as a test on the output side or
+inside an if condition.</p>
+<p>Output macros can be passed system function names and output macro
+names, allowing you to indirectly call things. E.g.</p>
 <pre><code>outputmacro: ^indirect(^fn ^value)
     $$tmp = ^fn(^value)</code></pre>
-<p>The above will evaluate <code>^fn</code>, and if it finds that it is a function name, will use that in a call. The only tricky part is creating the name of the function to call in the first place.</p>
-<p>If you just write a function name with ^ in output, the compiler will complain about your call. So you have to synthesize the name somehow. Here are two ways:</p>
+<p>The above will evaluate <code>^fn</code>, and if it finds that it is
+a function name, will use that in a call. The only tricky part is
+creating the name of the function to call in the first place.</p>
+<p>If you just write a function name with ^ in output, the compiler will
+complain about your call. So you have to synthesize the name somehow.
+Here are two ways:</p>
 <pre><code>outputmacro: ^mycall()
     $$tmpfn = ^join( ^&quot;\^&quot; func)
     ^indirect($$tmpfn 34)
     ^indirect( ^&quot;\^func&quot; 34)</code></pre>
-<p>You can also store function names on user and match variables and then call them. E.g.</p>
+<p>You can also store function names on user and match variables and
+then call them. E.g.</p>
 <pre><code>$$tmp = ^&quot;\^func&quot;
 $$tmp(34)</code></pre>
-<p>You can declare an outputmacro to accept a variable number of arguments. You define the macro with the maximum and then put &quot;variable&quot; before the argument list. All missing arguments will be set to null on the call.</p>
+<p>You can declare an outputmacro to accept a variable number of
+arguments. You define the macro with the maximum and then put “variable”
+before the argument list. All missing arguments will be set to null on
+the call.</p>
 <pre><code>outputmacro: ^myfn variable (^arg1 ^arg2 ^arg3 ^arg4)</code></pre>
-<h2 id="output-macros-vs-reuse">Output Macros vs <code>^reuse()</code></h2>
-<p>An outputmacro is a block of code, treated as a kind of function. But another way to make a block of code is create a rule and <code>^reuse</code> it. E.g.</p>
+<h2 id="output-macros-vs-reuse">Output Macros vs
+<code>^reuse()</code></h2>
+<p>An outputmacro is a block of code, treated as a kind of function. But
+another way to make a block of code is create a rule and
+<code>^reuse</code> it. E.g.</p>
 <pre><code>s: MYCODE ( ? ) here is a block of code that goes on and on</code></pre>
-<p>Code you write in an output macro could be code you write on the output side of a <code>^reused</code> rule. Notice that this rule can never trigger on its own (an input sentence cannot be a statement and a question simultaneously).</p>
-<p>So what are the distinctions between the two? The distinction is not in tracing. You can trace a single rule or an outputmacro equally. And both return to their caller when normally complete.</p>
-<p>An advantage for outputmacros is that you can pass them arguments, making them more easily tailorable. To do the same with a rule, you have to store values on globals, which is more inconvenient, harder to understand, and subject to the risk that you accidentally reuse the same variable in something the rule calls. Similarly outputmacros can return a value, while you have to use globals to return a value from a rule.</p>
-<p>An advantage for rules is that they can have rejoinders. So if the rule generates output, it may also have rejoinders to react to it. Another advantage for rules is that you can terminate their execution early <code>^end(RULE)</code> without impacting the calling rule. There is no such ability in an outputmacro, so you'd have to organize if statements to manage early termination effects.</p>
-<h2 id="randomized-output-revisited">Randomized Output Revisited <code>[ ]</code></h2>
+<p>Code you write in an output macro could be code you write on the
+output side of a <code>^reused</code> rule. Notice that this rule can
+never trigger on its own (an input sentence cannot be a statement and a
+question simultaneously).</p>
+<p>So what are the distinctions between the two? The distinction is not
+in tracing. You can trace a single rule or an outputmacro equally. And
+both return to their caller when normally complete.</p>
+<p>An advantage for outputmacros is that you can pass them arguments,
+making them more easily tailorable. To do the same with a rule, you have
+to store values on globals, which is more inconvenient, harder to
+understand, and subject to the risk that you accidentally reuse the same
+variable in something the rule calls. Similarly outputmacros can return
+a value, while you have to use globals to return a value from a
+rule.</p>
+<p>An advantage for rules is that they can have rejoinders. So if the
+rule generates output, it may also have rejoinders to react to it.
+Another advantage for rules is that you can terminate their execution
+early <code>^end(RULE)</code> without impacting the calling rule. There
+is no such ability in an outputmacro, so you’d have to organize if
+statements to manage early termination effects.</p>
+<h2 id="randomized-output-revisited">Randomized Output Revisited
+<code>[ ]</code></h2>
 <p>Remember this construct:</p>
 <pre><code>?: ( hi ) [How are you feeling?][Why are you here?]</code></pre>
-<p>These choices are picked equally. But maybe you don't want some choices. You can put an existence test of a variable at the start of a choice to restrict it.</p>
+<p>These choices are picked equally. But maybe you don’t want some
+choices. You can put an existence test of a variable at the start of a
+choice to restrict it.</p>
 <pre><code>?: ( hi ) [$ready How are you feeling?][Why are you here?]</code></pre>
-<p>In the above, the first choice is controlled by <code>$ready</code>. If it is undefined, the choice cannot be used. You can also use negative tests.</p>
+<p>In the above, the first choice is controlled by <code>$ready</code>.
+If it is undefined, the choice cannot be used. You can also use negative
+tests.</p>
 <pre><code>?: ( hi ) [!$ready this is a][This is b]</code></pre>
-<p>In the above only if <code>$ready</code> is undefined can you say <em>this is a</em></p>
-<p>If you want the variable to be a lead item in the actual output of a choice, you can do this:</p>
+<p>In the above only if <code>$ready</code> is undefined can you say
+<em>this is a</em></p>
+<p>If you want the variable to be a lead item in the actual output of a
+choice, you can do this:</p>
 <pre><code>?: (hi) [^eval($ready) is part of the output]</code></pre>
 <p>or the more clunky:</p>
 <pre><code>?: ( hi ) _0 = $ready [ _0 is part of the output]</code></pre>
-<p>Choices lead to issues when you want rejoinders. You can label rejoinder branches of choices. Those without labels default to <code>a:</code></p>
+<p>Choices lead to issues when you want rejoinders. You can label
+rejoinder branches of choices. Those without labels default to
+<code>a:</code></p>
 <pre><code>?: ( what meat ) [c: rabbit ] [e: steak] [ h: lamb] [pork]
     a: this rejoinders pork
     c: this rejoinders rabbit
     e: this rejoinders steak
     f: this rejoinders on e:
     h: this rejoinders lamb</code></pre>
-<p>In the above, pork rejoinders at <code>a:</code>, while the other choices name their rejoinder value. Each new starting label needs to be at least one higher than the rejoinder before it. That allows the system to detect rejoinders on rejoinders from choice branches.</p>
-<p>If you do both variable control and rejoinder label, the control comes first and label after you have successful control.</p>
+<p>In the above, pork rejoinders at <code>a:</code>, while the other
+choices name their rejoinder value. Each new starting label needs to be
+at least one higher than the rejoinder before it. That allows the system
+to detect rejoinders on rejoinders from choice branches.</p>
+<p>If you do both variable control and rejoinder label, the control
+comes first and label after you have successful control.</p>
 <pre><code>?: ( what meat ) [$ready c: rabbit ] [e: steak] [ g: lamb] [pork]</code></pre>
 </body>
 </html>

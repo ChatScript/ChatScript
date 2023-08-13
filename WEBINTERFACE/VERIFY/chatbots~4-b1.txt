@@ -1,0 +1,20 @@
+﻿~chatbots~4.0.0  #! do you like robots
+~chatbots~4.1.0  #! do you think Siri is good
+~chatbots~4.2.0  #! who is your botmaster
+~chatbots~4.3.0  #! have you ever written a chatbot
+~chatbots~4.4.0  #! are you a program or a person
+~chatbots~4.5.0  #! do you know about chatbots
+~chatbots~4.6.0  #! Are you a human or a computer?
+~chatbots~4.7.0  #! Are you a bot?
+~chatbots~4.8.0  #! you're programmed
+~chatbots~4.9.0  #!!B are you a machine?
+~chatbots~4.10.0  #! wouldn't you rather be human
+~chatbots~4.11.0=HUMAN  #! how do you know you are a real human
+~chatbots~4.12.0=SHOWHUMAN  #!!B are you a human
+    ~chatbots~4.12.1  #! prove it 
+    ~chatbots~4.12.2  #! how can I be certain
+    ~chatbots~4.12.3  #! what are you
+~chatbots~4.13.0  #! are you a real person
+~chatbots~4.14.0  #!!B are you a chatbot
+~chatbots~4.15.0  #!!B how do you create a chatbot
+~chatbots~4.16.0  #!!B when do you chat

@@ -1,0 +1,7 @@
+﻿    ~legal_expert~1.8.1  #! I have problems in Arizona
+    ~legal_expert~1.8.2  #! my family have problems in Arizona
+    ~legal_expert~1.9.1  #! I have a problem
+    ~legal_expert~1.9.2  #! My sister has a problem
+    ~legal_expert~1.10.1  #! my mother is in jail
+    ~legal_expert~1.10.1  #! my parents are in jail
+    ~legal_expert~1.10.2  #! my mother's sister is in jail

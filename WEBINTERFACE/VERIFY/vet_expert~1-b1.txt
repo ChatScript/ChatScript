@@ -1,0 +1,43 @@
+﻿    ~vet_expert~1.1.1  #! nothing is wrong
+    ~vet_expert~1.1.2  #! can I kick her
+    ~vet_expert~1.1.3  #! why does
+~vet_expert~1.3.0=KIND  #!x*** ANIMAL TYPE
+    ~vet_expert~1.3.2  #! my dog
+    ~vet_expert~1.3.3  #! dog
+    ~vet_expert~1.3.4  #! fungus
+    ~vet_expert~1.3.5  #! yes
+    ~vet_expert~1.3.6  #! no
+~vet_expert~1.4.0  #!x*** NAME AND AGE
+~vet_expert~1.4.0  #! I don't know her age
+    ~vet_expert~1.4.1  #! kitten
+    ~vet_expert~1.4.2  #! adult 
+~vet_expert~1.5.0=REACT  #!x*** SYMPATHY
+~vet_expert~1.7.0  #!x*** THEY GAVE NO SYMPTOMS, TRY TO GET SOME
+    ~vet_expert~1.8.1  #! doesnt hurt
+    ~vet_expert~1.8.2  #! body part
+    ~vet_expert~1.8.3  #! other
+    ~vet_expert~1.9.1  #! no
+    ~vet_expert~1.9.2  #! yes
+    ~vet_expert~1.9.3  #! body part
+    ~vet_expert~1.9.4  #! body part
+    ~vet_expert~1.10.1  #! yes
+    ~vet_expert~1.10.2  #! no
+    ~vet_expert~1.10.3  #! she is not eating
+    ~vet_expert~1.11.1  #! no
+    ~vet_expert~1.11.2  #! yes
+    ~vet_expert~1.12.1  #! no
+    ~vet_expert~1.12.2  #! yes
+    ~vet_expert~1.13.2  #! nothing
+    ~vet_expert~1.13.3  #! jessie but not jon is worried about our kitten
+    ~vet_expert~1.13.4  #! Bobbie
+    ~vet_expert~1.13.5  #! fluffy and he is 2
+    ~vet_expert~1.13.6  #! 20, Fluffy
+    ~vet_expert~1.13.7  #! Fluffy, 20
+    ~vet_expert~1.13.8  #! Zip and
+    ~vet_expert~1.13.9  #! Fluffy. She's 20
+    ~vet_expert~1.13.10  #! Coco, she
+    ~vet_expert~1.15.1  #! my cat was born two years ago
+    ~vet_expert~1.15.2  #! 15
+~vet_expert~1.16.0  #!x*** LAST CHANCE FOR THEM TO ADD DATA
+~vet_expert~1.18.0=EXPERT  #! can you think of anything
+~vet_expert~1.19.0  #! what might the problem be

@@ -1,0 +1,119 @@
+﻿~vet_glean_symptoms~2.0.0  #! not the name
+~vet_glean_symptoms~2.3.0  #! had a kitten 
+~vet_glean_symptoms~2.4.0  #! urgency
+~vet_glean_symptoms~2.5.0  #! kitten
+~vet_glean_symptoms~2.6.0  #! puppy
+~vet_glean_symptoms~2.7.0  #! adult
+~vet_glean_symptoms~2.8.0  #! Age: 3
+~vet_glean_symptoms~2.9.0  #! the age is 2
+~vet_glean_symptoms~2.10.0  #! 5 years and 3 months
+~vet_glean_symptoms~2.11.0  #! aged 1 and a half 
+~vet_glean_symptoms~2.12.0  #! aged 1 and a quarter 
+~vet_glean_symptoms~2.13.0  #! aged 1 and a quarter 
+~vet_glean_symptoms~2.14.0  #! 5 months, 2 weeks
+~vet_glean_symptoms~2.15.0  #! is 6 years old
+~vet_glean_symptoms~2.16.0  #! my cat is two years old
+~vet_glean_symptoms~2.16.0  #! my cat was born two years ago
+~vet_glean_symptoms~2.17.0  #! She's a year old.
+~vet_glean_symptoms~2.18.0=AGE  #! 15
+~vet_glean_symptoms~2.19.0=AGE  #! my cat is almost 15 and going strong
+~vet_glean_symptoms~2.20.0  #! my cat is  almost 2
+~vet_glean_symptoms~2.21.0  #! 7 yo
+~vet_glean_symptoms~2.22.0  #! will be 12 in december
+~vet_glean_symptoms~2.23.0  #! 7 month old 
+~vet_glean_symptoms~2.24.0  #! is urgent
+~vet_glean_symptoms~2.25.0  #! it is a concern for me
+~vet_glean_symptoms~2.27.0=OWNERSHIP  #! my cat is a stray 
+~vet_glean_symptoms~2.28.0  #! the dog is my postman's
+~vet_glean_symptoms~2.29.0  #! my dog
+~vet_glean_symptoms~2.30.0  #! female cat
+~vet_glean_symptoms~2.31.0  #! she 
+~vet_glean_symptoms~2.32.0  #! he 
+~vet_glean_symptoms~2.34.0  #! baby zebra
+~vet_glean_symptoms~2.35.0=ANIMAL  #! my cat
+~vet_glean_symptoms~2.36.0=ANIMAL1  #! i have a Persian
+~vet_glean_symptoms~2.37.0=ANIMAL2  #! i have a Doberman
+~vet_glean_symptoms~2.38.0=ANIMAL3  #! i have a cat
+~vet_glean_symptoms~2.42.0=SYMPTOM  #! sneezing
+~vet_glean_symptoms~2.43.0  #! drooling, there is always saliva
+~vet_glean_symptoms~2.44.0=ATE  #! ate something bad
+~vet_glean_symptoms~2.45.0=ATE  #! licked some Neosporin
+~vet_glean_symptoms~2.46.0=ATE  #! got into Neosporin
+~vet_glean_symptoms~2.47.0=POISON  #! poison
+~vet_glean_symptoms~2.48.0  #! tears in his eyes
+~vet_glean_symptoms~2.49.0  #! sores in his mouth
+~vet_glean_symptoms~2.50.0  #! fever
+~vet_glean_symptoms~2.51.0  #! sores
+~vet_glean_symptoms~2.52.0  #! eyes yesterday and now are closed and crusty
+~vet_glean_symptoms~2.53.0  #! swollen
+~vet_glean_symptoms~2.54.0  #! crying
+~vet_glean_symptoms~2.55.0  #! seizure
+~vet_glean_symptoms~2.56.0  #! won't get out of bed/crate/kennel/nest
+~vet_glean_symptoms~2.57.0  #! stays inside
+~vet_glean_symptoms~2.58.0  #! thirsty
+~vet_glean_symptoms~2.59.0  #! drink
+~vet_glean_symptoms~2.60.0  #! bringing in dead birds all week
+~vet_glean_symptoms~2.61.0  #! fever
+~vet_glean_symptoms~2.62.0  #! vomiting
+~vet_glean_symptoms~2.63.0  #! burn
+~vet_glean_symptoms~2.64.0  #! not hungry
+    ~vet_glean_symptoms~2.64.1  #! less
+    ~vet_glean_symptoms~2.64.2  #! more
+~vet_glean_symptoms~2.65.0  #! lameness
+~vet_glean_symptoms~2.68.0  #! lumps
+~vet_glean_symptoms~2.69.0  #! epilepsy
+~vet_glean_symptoms~2.70.0  #! pain
+~vet_glean_symptoms~2.71.0  #! shakes
+~vet_glean_symptoms~2.72.0  #! losing hair
+~vet_glean_symptoms~2.73.0  #! walking funny
+~vet_glean_symptoms~2.74.0  #! smelly breath
+~vet_glean_symptoms~2.75.0  #! breath stinks
+~vet_glean_symptoms~2.76.0  #! cat stinks
+~vet_glean_symptoms~2.77.0  #! cough
+~vet_glean_symptoms~2.78.0  #! cut
+~vet_glean_symptoms~2.79.0  #! scab spot
+~vet_glean_symptoms~2.80.0  #! cut
+~vet_glean_symptoms~2.81.0  #! it doesnt breath
+~vet_glean_symptoms~2.82.0  #! runny nose
+~vet_glean_symptoms~2.83.0  #! E-coli
+~vet_glean_symptoms~2.84.0  #! my cat has an infection
+~vet_glean_symptoms~2.85.0  #! parasite
+~vet_glean_symptoms~2.86.0  #! difficulty chewing
+~vet_glean_symptoms~2.87.0=TEETH  #! toothache
+~vet_glean_symptoms~2.88.0=FAT  #! fat
+~vet_glean_symptoms~2.89.0=PEE  #! pee
+    ~vet_glean_symptoms~2.89.1  #! blood in his pee
+    ~vet_glean_symptoms~2.89.2  #! unable to pee
+    ~vet_glean_symptoms~2.89.3  #! peeing on the bed
+~vet_glean_symptoms~2.90.0=POOP  #! poop
+    ~vet_glean_symptoms~2.90.1  #! blood in his poop
+    ~vet_glean_symptoms~2.90.2  #! unable to poop
+    ~vet_glean_symptoms~2.90.3  #! other poop
+~vet_glean_symptoms~2.91.0  #! using the litter box
+~vet_glean_symptoms~2.92.0  #! straining over litter box
+~vet_glean_symptoms~2.93.0  #! constipated
+~vet_glean_symptoms~2.94.0  #! has diabetes
+~vet_glean_symptoms~2.95.0  #! his mouth smells
+~vet_glean_symptoms~2.96.0  #! licking genital
+~vet_glean_symptoms~2.97.0  #! licking her skin
+~vet_glean_symptoms~2.98.0  #! depressed
+~vet_glean_symptoms~2.99.0  #! lethargic
+~vet_glean_symptoms~2.100.0  #! not move
+~vet_glean_symptoms~2.101.0  #! lost a lot of hair
+~vet_glean_symptoms~2.102.0  #! abnormal breathing
+~vet_glean_symptoms~2.103.0  #! ear discharge
+~vet_glean_symptoms~2.104.0  #! flea
+~vet_glean_symptoms~2.105.0  #! urinates frequently
+~vet_glean_symptoms~2.106.0  #! weightloss
+~vet_glean_symptoms~2.107.0  #! chews my shoes
+~vet_glean_symptoms~2.108.0  #! sharpen claw
+~vet_glean_symptoms~2.109.0  #! irritable
+~vet_glean_symptoms~2.110.0  #! fights a lot
+~vet_glean_symptoms~2.111.0  #! attack people
+~vet_glean_symptoms~2.112.0  #! chases birds
+~vet_glean_symptoms~2.113.0  #! wont go outside
+~vet_glean_symptoms~2.114.0  #! hides
+~vet_glean_symptoms~2.115.0  #! not house trained
+~vet_glean_symptoms~2.116.0  #! weird behavior
+~vet_glean_symptoms~2.117.0  #! her head 
+    ~vet_glean_symptoms~2.117.1  #! Her head hurts. 

@@ -1,0 +1,7 @@
+﻿~handle_oob~5.3.0  #! [ping]
+~handle_oob~5.7.0=SETDATA  #! [ category: car ]
+~handle_oob~5.12.0  #! [ answer ] 
+~handle_oob~5.13.0=GIVEN_TYPE  #! [ type: FunnelQuestion ]
+~handle_oob~5.14.0=GIVEN_LOCATION  #! [ location: UK ]
+~handle_oob~5.19.0=GIVEN_SPECIALTY  #! [ specialty: opthomology]
+~handle_oob~5.20.0=GIVEN_CATEGORY  #! [ category: car ]

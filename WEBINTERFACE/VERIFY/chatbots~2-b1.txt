@@ -1,0 +1,18 @@
+﻿~chatbots~2.0.0  #! do you like robots
+~chatbots~2.1.0  #! do you think Siri is good
+~chatbots~2.2.0  #! who is your botmaster
+~chatbots~2.3.0  #! have you ever written a chatbot
+~chatbots~2.4.0  #! are you a program or a person
+~chatbots~2.5.0  #! do you know about chatbots
+~chatbots~2.6.0  #! Are you a human or a computer?
+~chatbots~2.7.0  #! Are you a bot?
+~chatbots~2.8.0  #! you're programmed
+~chatbots~2.9.0  #!!B are you a machine?
+~chatbots~2.10.0  #! wouldn't you rather be human
+~chatbots~2.11.0=HUMAN  #! how do you know you are a real human
+~chatbots~2.12.0  #! I don't think u r real
+~chatbots~2.13.0=SHOWHUMAN  #!!B are you a human
+~chatbots~2.14.0  #! are you a real person
+~chatbots~2.15.0  #!!B are you a chatbot
+~chatbots~2.16.0  #!!B how do you create a chatbot
+~chatbots~2.17.0  #!!B when do you chat

@@ -498,7 +498,7 @@ static bool Riccochet(unsigned int baseFlags, FACT* G,int set,unsigned int limit
 		AddFact(set,I); 
 		if (trace & TRACE_QUERY && CheckTopicTrace("^query"))
 		{
-			Log(USERLOG,"    Found:");
+			Log(USERLOG,"    Found: ");
 			TraceFact(I);
 		}
 		if (FACTSET_COUNT(set) >= limit) return false;
@@ -1304,7 +1304,25 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 			bool match = true;
 			if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 			{
-				Log(USERLOG,"    marks wanted(%d %d %d) => marks has(%d %d %d)\r\n", marks, markv, marko, S->inferMark, V->inferMark, O->inferMark);
+				char a[20];
+				if (!marks) strcpy(a, "'");
+				else sprintf(a, "%d", marks);
+				char b[20];
+				if (!markv) strcpy(b, "'");
+				else sprintf(b, "%d", markv);
+				char c[20];
+				if (!marko) strcpy(c, "'");
+				else sprintf(c, "%d", marko);
+				char w[20];
+				if (!S->inferMark) strcpy(w,"'");
+				else sprintf(w, "%d", S->inferMark);
+				char x[20];
+				if (!V->inferMark) strcpy(x, "'");
+				else sprintf(x, "%d", V->inferMark);
+				char y[20];
+				if (!O->inferMark) strcpy(y, "'");
+				else sprintf(y, "%d", O->inferMark);
+				Log(USERLOG,"    marks wanted(%s %s %s) => marks has(%s %s %s)\r\n", a, b, c, w, x, y);
 				Log(USERLOG,"");
 			}
 			// follow dictionary path?
@@ -1382,7 +1400,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				AddFact(whichset,G);
 				if (trace & TRACE_QUERY && CheckTopicTrace("^query") )
 				{
-					Log(USERLOG,"    Found:");
+					Log(USERLOG,"    Found: ");
 					TraceFact(G);
 				}
 				if (FACTSET_COUNT(whichset) >= count) 
@@ -1421,7 +1439,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				AddFact(whichset,G); 
 				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
-					Log(USERLOG,"    Found:");
+					Log(USERLOG,"    Found: ");
 					TraceFact(G);
 				}
 				if (FACTSET_COUNT(whichset) >= count) 
@@ -1444,7 +1462,7 @@ nextsearch:  //   can do multiple searches, thought they have the same basemark 
 				AddFact(whichset,G); 
 				if (trace & TRACE_QUERY  && CheckTopicTrace("^query"))
 				{
-					Log(USERLOG,"    Found:");
+					Log(USERLOG,"    Found: ");
 					TraceFact(G);
 				}
 				if (FACTSET_COUNT(whichset) >= count) 

@@ -1,6 +1,15 @@
 ﻿# Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 10/16/2022 cs12.3
+<br>Revision 16/8/2023 cs12.3
+
+The set of semi-supported languages will always be
+in th folder LIVEDATA, as each language there
+at least recognizes numbers and some other things.
+
+German has additional spellcheck support.
+Spanish has inbuilt pos-tagging and spellcheck support.
+Filipino has additional spellcheck support.
+
 
 # Emoji
 

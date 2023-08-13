@@ -1,0 +1,24 @@
+﻿~payment.5.0=PAY_PAY  #! I don't want to pay
+~payment.6.0=PAY_WHYSHOULDPAY  #! Why should I pay?
+~payment.7.0=PAY_COST  #! Can I pay later?
+~payment.8.0  #! is this a free service
+~payment.20.0=PAY_PAYANSWER  #! Do i pay for the answer?
+~payment.21.0=PAY_HOW_PAY  #! How do I pay?
+~payment.22.0=PAY_SOEXPENSIVE  #! Why is it so expensive?
+~payment.23.0=PAY_WORTHPAY  #! Is it worth paying to talk to an expert?
+~payment.24.0=PAY_WORTHPAYREJOINDER  #! what did you ask them?
+~payment.25.0=PAY_WHATSAID  #! what did they say?
+~payment.26.0=PAY_DOREFUND  #! How can I get my money back?
+~payment.27.0=PAY_NOTLIKE  #! What if I don't like the answer my expert gave me?
+~payment.28.0=PAY_SECONDOPINION  #! What if I want a second opinion?
+~payment.29.0  #! How long does it take to get a refund?
+~payment.30.0=PAY_RATEDEXPERT  #! I gave my expert a good rating for the answer but now I want a refund. Can you do that?
+~payment.31.0=PAY_SERVICE  #! Who do I call up to complain or ask more questions?
+~payment.32.0=PAY_FREE  #! Do I have to pay for my first question?
+~payment.33.0=PAY_BEMEMBER  #! Do I have to be a member to ask an expert questions?
+~payment.34.0=PAY_ANYEXPERT  #! Can I talk to any expert if I'm a member?
+~payment.35.0=PAY_SPECIALOFFER  #! Are there special offers for new members?
+~payment.36.0  #! is there a free trial
+~payment.37.0=PAY_BILLING  #! How will I recognise your company on my billing statement?
+~payment.38.0=PAY_HOWLONGWAIT  #! How long will I have to wait for my answer?
+~payment.39.0=PAY_OUTOFQUESTIONS  #! What if I run out of questions?

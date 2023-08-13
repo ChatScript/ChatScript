@@ -1835,7 +1835,7 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
                         F = factlist[count];
                         char* key = Meaning2Word(F->subject)->word;
                         if (!matched) Log(USERLOG,"%s- ", key);
-                        else if (matched && positionStart == positionEnd &&
+                        else if (matched && positionStart > 0 && positionStart == positionEnd &&
                             (!stricmp(key, wordStarts[positionStart]) || !stricmp(key, wordCanonical[positionStart])))
                         {
                             Log(USERLOG,"%s+ ", key);
@@ -1847,7 +1847,7 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
                             char* x = strchr(xword, '_');
                             if (!x) x = strchr(xword, ' ');
                             if (x) *x = 0; // does first word of phrase match?
-                            if (!stricmp(xword, wordStarts[positionStart]) || !stricmp(xword, wordCanonical[positionStart]))
+                            if (positionStart > 0 && (!stricmp(xword, wordStarts[positionStart]) || !stricmp(xword, wordCanonical[positionStart])))
                             {
                                 Log(USERLOG,"%s+ ", key);
                                 break; // dont need whole list
@@ -2096,8 +2096,12 @@ void ExecuteConceptPatterns(FACT* specificPattern)
 {
     WORDP D = FindWord("conceptPattern");
     if (!D) return; // none
+   
+    bool hasConceptPattern = false;
+    uint64 start_time = ElapsedMilliseconds();
+
     SAVESYSTEMSTATE()
-        if (trace & TRACE_PATTERN) Log(USERLOG, "ConceptPatterns:\r\n");
+
     char* buffer = AllocateBuffer();
     FACT* F = (specificPattern ? specificPattern : GetVerbNondeadHead(D));
     WORDP lastMatchedConcept = NULL;
@@ -2139,7 +2143,16 @@ void ExecuteConceptPatterns(FACT* specificPattern)
                 end = WILDCARD_END_ONLY(wildcardPosition[0]);
             }
             else if (end == 0) start = end = 1;  // didnt match a word
-            if ((trace & TRACE_PATTERN) || showMark || (trace & TRACE_PREPARE)) Log(USERLOG,"mark  @word %s %d-%d ", concept->word, start, end);
+            if ((trace & TRACE_PATTERN) || showMark || (trace & TRACE_PREPARE))
+            {
+                if (!hasConceptPattern)
+                {
+                    Log(USERLOG,"\r\n");
+                    Log(USERLOG,"Concept Patterns:\r\n");
+                    hasConceptPattern = true;
+                }
+                Log(USERLOG,"mark  @word %s %d-%d ", concept->word, start, end);
+            }
             MarkMeaningAndImplications(0, 0, conceptMeaning, start, end, FIXED, false, false);
             if (*concept->word != '~') Add2ConceptTopicList(concepts, concept, start, end, true); // add ordinary word to concept list directly as WordHit will not store anything but concepts
 
@@ -2159,4 +2172,8 @@ void ExecuteConceptPatterns(FACT* specificPattern)
         }
     }
     RESTORESYSTEMSTATE()
+    
+    if (hasConceptPattern) Log(USERLOG,"\r\n");
+    int diff = (int)(ElapsedMilliseconds() - start_time);
+    TrackTime((char*)"ConceptPatterns",diff);
 }

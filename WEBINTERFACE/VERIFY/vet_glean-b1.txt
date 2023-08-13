@@ -1,0 +1,123 @@
+﻿~vet_glean.0.0  #! had a kitten 
+~vet_glean.1.0  #! urgency
+~vet_glean.2.0  #! Age: 3
+~vet_glean.3.0  #! the age is 2
+~vet_glean.4.0  #! 5 years and 3 months
+~vet_glean.5.0  #! aged 1 and a half 
+~vet_glean.6.0  #! aged 1 and a quarter 
+~vet_glean.7.0  #! aged 1 and a quarter 
+~vet_glean.8.0  #! 5 months, 2 weeks
+~vet_glean.9.0  #! is 6 years old
+~vet_glean.10.0  #! my cat is two years old
+~vet_glean.10.0  #! my cat was born two years ago
+~vet_glean.11.0  #! She's a year old.
+~vet_glean.12.0=AGE  #! 15
+~vet_glean.13.0=AGE  #! my cat is almost 15 and going strong
+~vet_glean.14.0  #! my cat is  almost 2
+~vet_glean.15.0  #! kitten
+~vet_glean.16.0  #! puppy
+~vet_glean.17.0  #! adult
+~vet_glean.18.0  #! is urgent
+~vet_glean.19.0  #! it is a concern for me
+~vet_glean.20.0=NAME  #! name is Bob
+~vet_glean.21.0  #! Name: Flinch. Age: 3
+~vet_glean.22.0  #! Fluffy. She's 20
+~vet_glean.23.0  #! Fluffy is 20
+~vet_glean.24.0  #! my cat
+    ~vet_glean.24.1  #! my cat Josie
+    ~vet_glean.24.2  #! my Josie
+    ~vet_glean.24.3  #! my cat mittens has
+    ~vet_glean.24.4  #! my cat  is pickles
+    ~vet_glean.24.5  #! I named him pickles
+~vet_glean.25.0  #! Gemini is her name
+~vet_glean.27.0=OWNERSHIP  #! my cat is a stray 
+~vet_glean.28.0  #! the dog is my postman's
+~vet_glean.29.0  #! my dog
+~vet_glean.30.0  #! female cat
+~vet_glean.31.0  #! she 
+~vet_glean.32.0  #! he 
+~vet_glean.33.0=ANIMAL  #! i have a cat
+~vet_glean.34.0=ANIMAL  #! i have a Persian
+~vet_glean.35.0=ANIMAL  #! i have a Doberman
+~vet_glean.36.0=SYMPTOM  #! sneezing
+~vet_glean.37.0  #! drooling, there is always saliva
+~vet_glean.38.0=ATE  #! ate something bad
+~vet_glean.39.0=ATE  #! licked some Neosporin
+~vet_glean.40.0=ATE  #! got into Neosporin
+~vet_glean.41.0=POISON  #! poison
+~vet_glean.42.0  #! tears in his eyes
+~vet_glean.43.0  #! sores in his mouth
+~vet_glean.44.0  #! fever
+~vet_glean.45.0  #! sores
+~vet_glean.46.0  #! eyes yesterday and now are closed and crusty
+~vet_glean.47.0  #! swollen
+~vet_glean.48.0  #! crying
+~vet_glean.49.0  #! seizure
+~vet_glean.50.0  #! won't get out of bed/crate/kennel/nest
+~vet_glean.51.0  #! stays inside
+~vet_glean.52.0  #! thirsty
+~vet_glean.53.0  #! drink
+~vet_glean.54.0  #! bringing in dead birds all week
+~vet_glean.55.0  #! fever
+~vet_glean.56.0  #! vomiting
+~vet_glean.57.0  #! burn
+~vet_glean.58.0  #! not hungry
+    ~vet_glean.58.1  #! less
+    ~vet_glean.58.2  #! more
+~vet_glean.59.0  #! lameness
+~vet_glean.60.0  #! lumps
+~vet_glean.61.0  #! epilepsy
+~vet_glean.62.0  #! pain
+~vet_glean.63.0  #! shakes
+~vet_glean.64.0  #! losing hair
+~vet_glean.65.0  #! walking funny
+~vet_glean.66.0  #! smelly breath
+~vet_glean.67.0  #! breath stinks
+~vet_glean.68.0  #! cat stinks
+~vet_glean.69.0  #! cough
+~vet_glean.70.0  #! cut
+~vet_glean.71.0  #! scab spot
+~vet_glean.72.0  #! cut
+~vet_glean.73.0  #! it doesnt breath
+~vet_glean.74.0  #! runny nose
+~vet_glean.75.0  #! E-coli
+~vet_glean.76.0  #! parasite
+~vet_glean.77.0  #! difficulty chewing
+~vet_glean.78.0=TEETH  #! toothache
+~vet_glean.79.0=FAT  #! fat
+~vet_glean.80.0=PEE  #! pee
+    ~vet_glean.80.1  #! blood in his pee
+    ~vet_glean.80.2  #! unable to pee
+    ~vet_glean.80.3  #! peeing on the bed
+~vet_glean.81.0=POOP  #! poop
+    ~vet_glean.81.1  #! blood in his poop
+    ~vet_glean.81.2  #! unable to poop
+    ~vet_glean.81.3  #! other poop
+~vet_glean.82.0  #! using the litter box
+~vet_glean.83.0  #! straining over litter box
+~vet_glean.84.0  #! constipated
+~vet_glean.85.0  #! has diabetes
+~vet_glean.86.0  #! his mouth smells
+~vet_glean.87.0  #! licking genital
+~vet_glean.88.0  #! licking her skin
+~vet_glean.89.0  #! depressed
+~vet_glean.90.0  #! lethargic
+~vet_glean.91.0  #! not move
+~vet_glean.92.0  #! lost a lot of hair
+~vet_glean.93.0  #! abnormal breathing
+~vet_glean.94.0  #! ear discharge
+~vet_glean.95.0  #! flea
+~vet_glean.96.0  #! urinates frequently
+~vet_glean.97.0  #! weightloss
+~vet_glean.98.0  #! chews my shoes
+~vet_glean.99.0  #! sharpen claw
+~vet_glean.100.0  #! irritable
+~vet_glean.101.0  #! fights a lot
+~vet_glean.102.0  #! attack people
+~vet_glean.103.0  #! chases birds
+~vet_glean.104.0  #! wont go outside
+~vet_glean.105.0  #! hides
+~vet_glean.106.0  #! not house trained
+~vet_glean.107.0  #! weird behavior
+~vet_glean.108.0  #! her head 
+    ~vet_glean.108.1  #! Her head hurts. 

@@ -18,9 +18,7 @@ uint64 GetSpanishLemmaBits(char* word);
 void MarkSpanishTags(WORDP OL,int i);
 uint64 KnownSpanishUnaccented(char* original, WORDP& entry,uint64& sysflags);
 uint64 ComputeSpanish(int at, const char* original, WORDP& entry, WORDP& canonical, uint64& sysflags); // case sensitive, may add word to dictionary, will not augment flags of existing words
-
-#ifdef JA_UNITTEST
+uint64 ComputeFilipino(int at, const char* original, WORDP & entry, WORDP & canonical, uint64 & sysflags);
 void C_JaUnittest(char* word);
-#endif // JA_UNITTEST
 
 #endif // SPANISH_H

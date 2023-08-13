@@ -1,4 +1,27 @@
 #include "common.h"
+
+
+typedef struct InternationalPhones
+{
+	const char* countrydigits; 
+	const char* concept;
+	const int countrycode;		
+	const int areacode;			
+	const int exchangecode; // variable digits counts are put here
+	const int subscriber;
+} InternationalPhones;
+
+InternationalPhones phoneData[] = {
+	{"1",  "~usinternational",1,3,3,4},
+	{"44","~ukinternational",2,0,3,6},
+	{"49","~deinternational",2,0,3,4}, 
+	{"81","~jpinternational",2,0,3,4},
+	{"34","~esinternational",2,3,3,3},
+	{"52","~mxinternational",2,2,4,4},
+	NULL
+};
+
+
 typedef struct JapanCharInfo
 {
 	const char* charword;		//  japanese 3 byte character
@@ -1960,6 +1983,92 @@ void ComputeWordData(char* word, WORDINFO* info) // how many characters in word
 	}
 }
 
+uint64 ComposeNumber(unsigned int i, unsigned int& end)
+{
+	if (1==1) return 0;  // not ready
+	if (i == wordCount) return 0; // no room to merge
+
+	end = 0;
+	char* number;
+	char* word = wordStarts[i];
+	bool isNumber = IsNumber(wordStarts[i], numberStyle) != NOT_A_NUMBER && !IsPlaceNumber(word, numberStyle) && !GetCurrency((unsigned char*)word, number) && !strchr(word, '.');
+	if (!isNumber) return 0; // not a number or is float  
+	char* word1 = wordStarts[++i];
+	bool anded = false;
+	if (!stricmp(word1, "and"))
+	{
+		if (i == wordCount) return 0;
+		word1 = wordStarts[++i];
+		bool isNumber1 = IsNumber(word1, numberStyle) != NOT_A_NUMBER && !IsPlaceNumber(word1, numberStyle) && !GetCurrency((unsigned char*)word1, number) && !strchr(word1, '.');
+		if (!isNumber1) return 0; // not a joiner
+		end = i;
+		anded = true;
+	}
+	else end = i;
+
+		//  one and twenty
+		// five hundred
+		// twenty thousand
+	uint64 value = 0;
+	int64 power1 = NumberPower(word, numberStyle);
+	int64 power2 = NumberPower(word1, numberStyle);
+	int64 val1 = Convert2Integer(word, numberStyle);
+	int64 val2 = Convert2Integer(word1, numberStyle);
+	if (power1 < power2) // one thousand, one and twenty, twenty thousand
+	{
+		if (anded) value += value + val1;
+		else value += value * val1;
+		power1 = power2; // dominant
+	}
+	else if (power1 == power2) return 0; // same granularity, don't merge, like "what is two and two"
+	else // thirty 1
+	{
+		if (power2 == 1)
+		{
+			value += val1 + val2;
+		}
+		else return 0;
+	}
+	
+	// we now have a first pair number. Time to absorb another number
+	
+	char* word3 = wordStarts[++i];
+	if (i > wordCount) return value;
+
+	anded = false;
+	if (!stricmp(word3, "and"))
+	{
+		if (i == wordCount) return value;
+		char* word4 = wordStarts[++i];
+		bool isNumber3 = IsNumber(word3, numberStyle) != NOT_A_NUMBER && !IsPlaceNumber(word1, numberStyle) && !GetCurrency((unsigned char*)word1, number) && !strchr(word1, '.');
+		if (!isNumber3) return value; // not a joiner
+		anded = true;
+	}
+
+	char* word4 = wordStarts[++i];
+	int64 power3 = NumberPower(word3, numberStyle);
+	int64 val3 = Convert2Integer(word3, numberStyle);
+	bool isNumber4 = word4 && IsNumber(word4, numberStyle) != NOT_A_NUMBER && !IsPlaceNumber(word4, numberStyle) && !GetCurrency((unsigned char*)word4, number) && !strchr(word4, '.');
+	if (isNumber4) // swallow next pair
+	{
+		int64 val4 = Convert2Integer(word4, numberStyle);
+		int64 power4 = NumberPower(word4, numberStyle);
+		if (power4 > power3) // one thousand two hundred
+		{
+			uint64 newval = val3 * val4;
+			value += newval;
+			end = i;
+			return value;
+		}
+		else  // one thousand fifty
+		{
+			value += val3;
+		}
+	}
+
+	return value;
+}
+
 unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simple digit number or word number or currency number
 {
 	if (!*num) return NOT_A_NUMBER;
@@ -2125,6 +2234,163 @@ char* GetActual(char* msg)
 	}
 	else actual = (char*)"";
 	return actual;
+}
+
+static char* FixNumber(char* from, char* to, int countrycode, int areacode,int citycode, int localcode)
+{
+	if (*from == '+') ++from; // skip marker
+	char* start = to;
+	if (countrycode)
+	{
+		*to++ = '+';
+		memcpy(to, from, countrycode);
+		to += countrycode;
+		from += countrycode;
+		*to++ = '-';
+	}
+	if (areacode)
+	{
+		memcpy(to, from, areacode);
+		to += areacode;
+		from += areacode;
+		*to++ = '-';
+	}
+	if (citycode)
+	{
+		memcpy(to, from, citycode);
+		to += citycode;
+		from += citycode;
+		*to++ = '-';
+	}
+	memcpy(to, from, localcode);
+	to[localcode] = 0;
+	return start;
+}
+
+void PhoneNumber(unsigned int start)
+{
+/* 
+ 7 or more digits in a phone number, separated with spaces or hyphens and area code in parens
+ German Numbers are often written in blocks of two. Example: +49 (A AA) B BB BB
+
+The standard format for writing international phone numbers is to use nothing except digits, spaces, and the plus sign at the beginning to signify that the following digits are the country code. 
+For example, +1 999 555 0123 or +44 22 2345 1234 
+(The use of other punctuation, including periods, dashes, slashes, and parentheses, is discouraged because those punctuation marks may have different meanings in different local formats.)
+(555) 123-4567: This is a common format for phone numbers in the United States. The number is divided into three parts: the area code in parentheses, followed by a three-digit prefix, and then a four-digit line number.
+555-123-4567: This format is similar to the previous one, but without the parentheses around the area code. It's also widely used and recognized in the United States.
+1-555-123-4567: This format includes the country code for the United States, which is "1". The number is then divided into three parts, with a hyphen separating each part.
+
+01234 567890: This format is commonly used in the United Kingdom. The number is divided into two parts: the area code (including the leading zero) and the local number. 
+The area code and local number are separated by a space.
++44 1234 567890: This format includes the country code for the United Kingdom, which is "+44". 
+The number is then divided into two parts: the area code (including the leading zero) and the local number. 
+The country code, area code, and local number are separated by spaces.
+44 (0) 1234 567890: This format is similar to the previous one but includes the "0" in parentheses after the country code. 
+The number is then divided into two parts: the area code (including the leading zero) and the local number. 
+The country code, area code, and local number are separated by spaces.
+
+030 12345678: This format is commonly used in Germany. The number is divided into two parts: the area code and the local number. The area code and local number are separated by a space.
++49 30 12345678: This format includes the country code for Germany, which is "+49". The number is then divided into two parts: the area code and the local number. The country code, area code, and local number are separated by spaces.
+49 (0) 30 12345678: This format is similar to the previous one but includes the "0" in parentheses after the country code. The number is then divided into two parts: the area code and the local number. The country code, area code, and local number are separated by spaces.
+
+912 345 678: This format is commonly used in Spain. 
+The number is divided into three parts: the first digit represents the province or region code, followed by a three-digit prefix, and then a three-digit line number. The province or region code is often omitted when dialing the number locally.
++34 912 345 678: This format includes the country code for Spain, which is "+34". 
+The number is then divided into three parts: the province or region code, the three-digit prefix, and the three-digit line number. The country code, province or region code, prefix, and line number are separated by spaces.
+34 912 345 678: This format is similar to the previous one but does not include the "+" symbol before the country code. 
+The number is divided into three parts: the province or region code, the three-digit prefix, and the three-digit line number. 
+The country code, province or region code, prefix, and line number are separated by spaces.
+*/
+	// are there more numbers AFTER this chunk. we start from the rear of the phone number
+	if (*wordStarts[start] == '-') return; // invalid start
+	if (start != wordCount) // invalid trailer
+	{
+		char* afterword = wordStarts[start + 1];
+		if (IsDigit(*afterword)) return; // presume we are not at end of numbers
+		if (*afterword == '-' && !afterword[1]) return; // hyphen between
+	}
+
+	unsigned int count = 0;
+	int i;
+	char* word;
+	int countrycode = 0;
+	char number[50];
+	number[49] = 0;
+	unsigned int index = 49;
+	for (i = start; i > 0; --i) // scan contiguous number words backwards
+	{
+		if (countrycode) break; // no more
+		word = wordStarts[i];
+		size_t len = strlen(word);
+		unsigned int startindex = index;
+		for (int j = len-1; j >= 0; --j)
+		{
+			if (word[j] == '+' && j == 0) // presume country code marker
+			{
+				char* hyphen = strchr(word, '-');
+				if (hyphen) countrycode = hyphen - word - 1;
+				else countrycode = 1;
+			}
+			else if (IsDigit(word[j]))
+			{
+				number[--index] = word[j];
+				if (index == 25) return; // seeing way too many digits to be phone number
+			}
+			else if (word[j] != '-' && word[j] != '(' && word[j] != ')') // invalid word 
+			{
+				index = startindex; // discard word impact and end scan
+				break;
+			}
+		}
+		if (index != startindex)  // we added some digits
+		{
+			if ((49 - index) > 15) return; // max international w countrycode is 15 digits
+		} 
+		// word was illegal, its numbers meaningless
+		else if (word[1]  || (*word != '-' && *word != '(' && *word != ')')) break;
+	}
+	int size = 49 - index;
+	if (size < 6) return; // not enough digits for a local number (us local number is 7 digits, vatican is 6)
+	
+	char renumber[20];
+	// we always end on non-legal word index
+	FixNumber(number + index, renumber, countrycode, 0, size - 4 - countrycode, 4);
+	WORDP D = StoreWord(renumber, AS_IS);
+	MarkWordHit(0, MakeMeaning(D), StoreWord("~phonenumber", AS_IS), 0,i + 1, start);
+
+	if (size == 7 && numberStyle == AMERICAN_NUMBERS)
+	{
+		FixNumber(number + index, renumber, 0, 0,3, 4);
+		WORDP D = StoreWord(renumber, AS_IS);
+		MarkWordHit(0, MakeMeaning(D), StoreWord("~uslocal_phonenumber", AS_IS), 0, i + 1, start);
+	}
+	else if (size == 10 && numberStyle == AMERICAN_NUMBERS)
+	{
+		FixNumber(number + index, renumber,0,3, 3, 4);
+		WORDP D = StoreWord(renumber, AS_IS);
+		MarkWordHit(0, MakeMeaning(D), StoreWord("~usinternal_phonenumber", AS_IS), 0, i + 1, start);
+	}
+	else if (countrycode)
+	{
+		int dindex = -1;
+		while (phoneData[++dindex].countrycode)
+		{
+			if (!strncmp(number + index, phoneData[dindex].countrydigits, strlen(phoneData[dindex].countrydigits)))
+			{
+				int exchangecode = size - phoneData[dindex].subscriber - phoneData[dindex].areacode - phoneData[dindex].countrycode;
+				FixNumber(number + index, renumber, phoneData[dindex].countrycode, phoneData[dindex].areacode, exchangecode, phoneData[dindex].subscriber);
+				WORDP D = StoreWord(renumber, AS_IS);
+				MarkWordHit(0, MakeMeaning(D), StoreWord(phoneData[dindex].concept, AS_IS), 0, i + 1, start);
+				break;
+			}
+		}
+	}
+	else if (number[index] == '0' && size == 11) // local uk
+	{
+		FixNumber(number + index, renumber, 0, 1, 4, 6);
+		WORDP D = StoreWord(renumber, AS_IS);
+		MarkWordHit(0, MakeMeaning(D), StoreWord("~ukinternal_phonenumber", AS_IS), 0, i + 1, start);
+	}
 }
 
 char* ReadTabField(char* buffer, char* storage)

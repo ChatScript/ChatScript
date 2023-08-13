@@ -450,8 +450,8 @@ char* GetSetEnd(char* x)
 void TraceFact(FACT* F,bool ignoreDead)
 {	if (!F) return;
 	char* word = AllocateBuffer(); 
-	Log(ECHOUSERLOG,"FactIndex: %d x%08x: %s\r\n",Fact2Index(F),F,WriteFact(F,false,word,ignoreDead,false,true));
-	Log(ECHOUSERLOG,"");
+	Log(FORCESTAYUSERLOG,"FactIndex: %d x%08x: %s\r\n",Fact2Index(F),F,WriteFact(F,false,word,ignoreDead,false,true));
+	Log(FORCESTAYUSERLOG,"");
 	FreeBuffer();
 } 
 
@@ -2100,6 +2100,12 @@ bool ReadFacts(const char* name,const char* layer,int build,bool user) //   a fa
 			EraseTopicFiles(1, "1");
 			printf("Erase your TOPIC folder, rerun CS and recompile your bot. Data formats have changed\r\n");
 			ReportBug("FATAL: Erase your TOPIC folder, rerun CS and recompile your bot. Data formats have changed\r\n");
+		}
+		char* ptr = strchr(readBuffer, ' '); // new field languages required?
+		if (ptr && strnicmp(language_list, ptr+1, strlen(ptr+1)))
+		{
+			printf("FATAL: languages=%s but build requires %s. Alter your languages= init or  Erase your TOPIC folder, rerun CS and recompile your bot.", language_list, ptr);
+			ReportBug("FATAL: languages=%s but build requires %s. Alter your languages= init or  Erase your TOPIC folder, rerun CS and recompile your bot.", language_list, ptr);
 		}
 	}
 

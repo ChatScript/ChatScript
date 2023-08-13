@@ -1149,12 +1149,6 @@ In addition to simple assignment, you can do `+=`, `-=`, `*=`, `/=`, `%=`, `|=`,
 
 `|^=` turns off bits and `$x |^= 2` is equivalent to `$x &= (-1 ^ 2)`
 
-Variable assignments extend also across arithmetic operations but you cannot use parens
-to control operator precedence. E.g.,
-
-    $myvalue = $foo + 20 * 5 / 59  This is normal output after the assignment.
-
-
 You can even assign sets of facts in various ways (see [ChatScript Fact Manual](ChatScript-Fact-Manual.md) for understanding facts) like:
 
 ```
@@ -1183,6 +1177,23 @@ the first term. Similarly, you may be surprised by something like this:
     $myvar -= $articlesize * 10
 
 because it first deducts `$articlesize` from `$myvar` and then multiplies that result by 10. 
+
+While there is no natural precedence (like in other computer languages) of multiplication over addition,
+you can use parens to force precedence.
+```
+    $myvalue = ($x * $y) 
+```
+The above will NOT do $myvalue = $x  and then $myvalue *= $y. It will do the $x * $y and assign
+the result to $myvalue. 
+```
+    $myvalue = ($foo + 3) * 2   
+```
+The above only computes $myvalue as ($foo + 3).  The  * 2 is not part of the assignment and will just
+be printed out as output.
+```
+$_x = ( (1 + 2) * (3 + 4) )  -- becomes 3 * 7 = 21
+$_x = (s(3 + 4) * 2  )  -- becomes 7 * 2 = 14
+```	
 
 You can test variables in patterns in a variety of ways. Some such tests do not affect the
 current position pointer of the match. Merely putting in the variable name will ask "does

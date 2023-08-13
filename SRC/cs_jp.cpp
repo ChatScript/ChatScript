@@ -23,7 +23,8 @@ int malloc_jp_token_buffers() {
         return -1;
     }
 #ifndef DISCARD_JAPANESE
-    tagger = MeCab::createTagger(""); 
+    tagger = MeCab::createTagger("");
+    if (!tagger) ReportBug("Failed to load MeCab tagger");
 #endif
     return 0;
 }
@@ -254,6 +255,7 @@ int jp_tokenize(char* buffer) {
 
     // Gets tagged result in string format.
 #ifndef DISCARD_JAPANESE
+    if (!tagger) return 1;
     const char *result = tagger->parse(jpt.input);
     if (trace & TRACE_PREPARE) maybe_trace();
     process_mecab_result((char*)result, jpt);

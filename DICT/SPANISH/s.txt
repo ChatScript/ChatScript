@@ -611,7 +611,7 @@
  saltamos ( VERB ) lemma=`saltar` VLfin  
  saltan ( VERB ) lemma=`saltar` VLfin  
  saltando ( NOUN NOUN_GERUND ) lemma=`saltar` VLger  
- saltar ( VERB ) 
+ saltar ( VERB VERB_INFINITIVE ) 
  saltarla ( VERB_INFINITIVE VERB ) lemma=`saltar` VCLIinf  
  saltarlo ( VERB ) lemma=`saltar` VLinf  
  saltarme ( VERB_INFINITIVE VERB ) lemma=`saltar` VCLIinf  

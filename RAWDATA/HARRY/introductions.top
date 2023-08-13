@@ -19,4 +19,4 @@ t: Have you been here before?
 	a: (~no) Then welcome to your first time.
 
 #! what is your name 
-u: ( what is your name ) My name is Harry Potter.
+u: YOURNAME(what is your name ) My name is Harry Potter.

@@ -1,46 +1,319 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Foreign-Languages</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="foreign-language-support">Foreign Language Support</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 10/16/2022 cs12.3</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com
+www.brilligunderstanding.com <br>Revision 16/8/2023 cs12.3</p>
+<p>The set of semi-supported languages will always be in th folder
+LIVEDATA, as each language there at least recognizes numbers and some
+other things.</p>
+<p>German has additional spellcheck support. Spanish has inbuilt
+pos-tagging and spellcheck support. Filipino has additional spellcheck
+support.</p>
 <h1 id="emoji">Emoji</h1>
-<p>OK. So it's not really a foreign language. But it does have unique support. First off, in LIVEDATA/interjections.txt you can see some emoji declarations like:</p>
+<p>OK. So it’s not really a foreign language. But it does have unique
+support. First off, in LIVEDATA/interjections.txt you can see some emoji
+declarations like:</p>
 <pre><code>:( ~emosad EMOJI</code></pre>
-<p>This goes one step beyond saying that :( should mark the concept ~emosad. It also declares it as an emoji. All declared emoji are members of ~emoji and ~interjections. And, among other things, if you jam a bunch of emoji together in input, the tokenizer will separate them into distinct emoji that can be recognized. And you can define a concept of emoticons via</p>
+<p>This goes one step beyond saying that :( should mark the concept
+~emosad. It also declares it as an emoji. All declared emoji are members
+of ~emoji and ~interjections. And, among other things, if you jam a
+bunch of emoji together in input, the tokenizer will separate them into
+distinct emoji that can be recognized. And you can define a concept of
+emoticons via</p>
 <pre><code>concept: ~stuff EMOTICON ( ... )</code></pre>
-<p>Just be careful to keep a space between the last emoticon and the closing ).</p>
+<p>Just be careful to keep a space between the last emoticon and the
+closing ).</p>
 <h1 id="foreign-language-overview">Foreign Language Overview</h1>
-<p>ChatScript comes natively with full English support. If you want to use a different language you need a variety of things. * Pos-tagging support (optional if you don't use pos-based keywords) * Spell check support * Concepts in the language (that you use) * LIVEDATA substitutions appropriate to the language (including month names, number names, currencies, plurals * Patterns in the language * Output in the language * Lemmas (comes with foreign pos-taggers or available from ^pos(canonical))</p>
-<p>ChatScript has a command line parameter <code>language=</code> that tells CS the language you intend. It defaults to <code>ENGLISH</code>. The effects of this parameter are generically these, unless special information is given below about the language: * If not ENGLISH, internal pos-tagging (other than marking possible english tags and numbers and dates and such) and parsing are disabled. * If treetagger is licensed and has that language, it will pos tag. * The system will use DICT/<code>language</code>. * The system will use LIVEDATA/<code>language</code> * The script compiler will automatically compile lines marked to be conditionally compiled with the language (see language comments). * The system will store the user's topic file suffixed by language as well.</p>
-<p>While concepts, topics, and functions can be owned by a bot, only words and facts have a language affiliation. Concepts, topics, functions, variables, etc are all commonly visible in all languages, having a language affiliation of UNIVERSAL. You can declare words to have language UNIVERSAL, in which case all other language copies of the word disappear and the facts based on them transferred to the UNIVERSAL form. Facts can never mix two languages (except where UNIVERSAL is one of them) and take on the language of any field that is language constrained.</p>
-<h1 id="embedded-foreign-language-support">Embedded Foreign Language Support</h1>
-<p>Using a language generally means using the dictionary of that language and spell-checking in that language. It may also control recognition of the numeric value of words (like dozen == 12), knowing the names of the months and currencies. ChatScript is told what languages to make available using the command line parameter &quot;language=&quot; . If you don't supply this, the default language is English. But you can for example say &quot;language=german&quot;.</p>
-<p>You can name up to seven different languages (for which you have dictionaries) by listing them on that parameter &quot;language=english,german,spanish,japanese&quot;. You need to use the same language sequence for all compilations and normal execution (hence its a parameter typically listed in cs_init.txt). The first language listed is always the default language (and if you have english, best to make that first).</p>
-<p>In addition, if you have Treetagger licenses, you can use multiple treetaggers by putting on a cs_init line something like:</p>
+<p>ChatScript comes natively with full English support. If you want to
+use a different language you need a variety of things. * Pos-tagging
+support (optional if you don’t use pos-based keywords) * Spell check
+support * Concepts in the language (that you use) * LIVEDATA
+substitutions appropriate to the language (including month names, number
+names, currencies, plurals * Patterns in the language * Output in the
+language * Lemmas (comes with foreign pos-taggers or available from
+^pos(canonical))</p>
+<p>ChatScript has a command line parameter <code>language=</code> that
+tells CS the language you intend. It defaults to <code>ENGLISH</code>.
+The effects of this parameter are generically these, unless special
+information is given below about the language: * If not ENGLISH,
+internal pos-tagging (other than marking possible english tags and
+numbers and dates and such) and parsing are disabled. * If treetagger is
+licensed and has that language, it will pos tag. * The system will use
+DICT/<code>language</code>. * The system will use
+LIVEDATA/<code>language</code> * The script compiler will automatically
+compile lines marked to be conditionally compiled with the language (see
+language comments). * The system will store the user’s topic file
+suffixed by language as well.</p>
+<p>While concepts, topics, and functions can be owned by a bot, only
+words and facts have a language affiliation. Concepts, topics,
+functions, variables, etc are all commonly visible in all languages,
+having a language affiliation of UNIVERSAL. You can declare words to
+have language UNIVERSAL, in which case all other language copies of the
+word disappear and the facts based on them transferred to the UNIVERSAL
+form. Facts can never mix two languages (except where UNIVERSAL is one
+of them) and take on the language of any field that is language
+constrained.</p>
+<h1 id="embedded-foreign-language-support">Embedded Foreign Language
+Support</h1>
+<p>Using a language generally means using the dictionary of that
+language and spell-checking in that language. It may also control
+recognition of the numeric value of words (like dozen == 12), knowing
+the names of the months and currencies. ChatScript is told what
+languages to make available using the command line parameter “language=”
+. If you don’t supply this, the default language is English. But you can
+for example say “language=german”.</p>
+<p>You can name up to seven different languages (for which you have
+dictionaries) by listing them on that parameter
+“language=english,german,spanish,japanese”. You need to use the same
+language sequence for all compilations and normal execution (hence its a
+parameter typically listed in cs_init.txt). The first language listed is
+always the default language (and if you have english, best to make that
+first).</p>
+<p>In addition, if you have Treetagger licenses, you can use multiple
+treetaggers by putting on a cs_init line something like:</p>
 <pre><code>treetagger=english,spanish</code></pre>
-<p>Treetagger improves CS's inbuilt pos-tagging, and provides the only pos-tagging for spanish and german.</p>
+<p>Treetagger improves CS’s inbuilt pos-tagging, and provides the only
+pos-tagging for spanish and german.</p>
 <pre><code>:language xxx</code></pre>
 <p>allows you to change language on the fly in standalone mode.</p>
-<p>All API external functions( ^compilepattern, ^testpattern, ^compileoutput, ^testoutput ) accept a top-level &quot;language&quot; parameter which sets the language for the duration of the call. The script compiler can be told &quot;language: spanish&quot; at the top level of a file, to change language for compilation for future script. During local execution you can type the debug command &quot;:language german&quot; to change the language recognized by the bot. You can use ^setlanguage(english) from script to change language. At the end of every volley, the server returns to the default language. But for any conversation, the language it was last in is memorized and that user's conversation will resume next volley in that language.</p>
-<p>The current language implies using the dictionary corresponding to that language and using spell-checking rules devoted to that language as well as numeric conversions of words in that language.</p>
-<p>If <code>language=ideographic</code> is used, then spell check is disabled and tokenization will make each character be a token. This is useful for languages like Korean and Chinese.</p>
+<p>All API external functions( ^compilepattern, ^testpattern,
+^compileoutput, ^testoutput ) accept a top-level “language” parameter
+which sets the language for the duration of the call. The script
+compiler can be told “language: spanish” at the top level of a file, to
+change language for compilation for future script. During local
+execution you can type the debug command “:language german” to change
+the language recognized by the bot. You can use ^setlanguage(english)
+from script to change language. At the end of every volley, the server
+returns to the default language. But for any conversation, the language
+it was last in is memorized and that user’s conversation will resume
+next volley in that language.</p>
+<p>The current language implies using the dictionary corresponding to
+that language and using spell-checking rules devoted to that language as
+well as numeric conversions of words in that language.</p>
+<p>If <code>language=ideographic</code> is used, then spell check is
+disabled and tokenization will make each character be a token. This is
+useful for languages like Korean and Chinese.</p>
 <h2 id="words-facts">Words &amp; Facts</h2>
-<p>When you load multiple dictionaries, you can have multiple copies of the same word. Each exists independently and when a word is looked up, it is mated to the word found in that language. Variables, concept names, and function names are not in the dictionaries that were loaded, and are considered universal names. Facts that get created are also specific to a language, so facts are flagged with what language they come from and when you retrieve any of its fields, they will be decoded from the language of the fact. This means that while a concept name is visible in any language, its members are specific to that language. Two english words are considered universal words, and they are not listed in foreign dictionaries. (portugese). These are used for system facts relating to concept membership and english dictionary hierarchy.</p>
-<p>When you build, you can specify what language is to be used for some section of your files. This means that concepts, topics, and facts created will be accessible only from that language. There is, however, the language UNIVERSAL you can specify, which intends that the facts, topics, and words created from that will be accessible to all languages. Note the phrase &quot;words created&quot;. Suppose we want to create a word &quot;bacck&quot; in universal. But it already exists for some language. If we use that word, it is not visible to other languages. But if we create a new word entry for the universal language, we now hide the other entries because universal word is found first and is acceptable for all languages. We will lose seeing definitions of english words from Wordnet. And pos-tags for them.</p>
+<p>When you load multiple dictionaries, you can have multiple copies of
+the same word. Each exists independently and when a word is looked up,
+it is mated to the word found in that language. Variables, concept
+names, and function names are not in the dictionaries that were loaded,
+and are considered universal names. Facts that get created are also
+specific to a language, so facts are flagged with what language they
+come from and when you retrieve any of its fields, they will be decoded
+from the language of the fact. This means that while a concept name is
+visible in any language, its members are specific to that language. Two
+english words are considered universal words, and they are not listed in
+foreign dictionaries. (portugese). These are used for system facts
+relating to concept membership and english dictionary hierarchy.</p>
+<p>When you build, you can specify what language is to be used for some
+section of your files. This means that concepts, topics, and facts
+created will be accessible only from that language. There is, however,
+the language UNIVERSAL you can specify, which intends that the facts,
+topics, and words created from that will be accessible to all languages.
+Note the phrase “words created”. Suppose we want to create a word
+“bacck” in universal. But it already exists for some language. If we use
+that word, it is not visible to other languages. But if we create a new
+word entry for the universal language, we now hide the other entries
+because universal word is found first and is acceptable for all
+languages. We will lose seeing definitions of english words from
+Wordnet. And pos-tags for them.</p>
 <h2 id="japanese">Japanese</h2>
-<p>ChatScript uses the std CS engine, has no special dictionary or LIVEDATA for Japanese. It knows something is japanese because either the a command line parameter has &quot;language=japanese&quot;, or because japanese characters are being used in compiling a pattern (^compilepattern), or because a global variable is passed in via ^testpattern &quot;$language = japanese&quot;.</p>
-<p>^testpattern will change bits of japanese-written punctuation in a pattern to english to be compatible with pattern matching. This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.</p>
-<p>^testoutput will remove all spaces not within doublequotes. And will change bits of japanese-written punctuation in a pattern to english to be compatible. This includes japanese ( ) [ ] { } space. All variables need . - _ letters and digits converted from japanese to ascii.</p>
+<p>ChatScript uses the std CS engine, has no special dictionary or
+LIVEDATA for Japanese. It knows something is japanese because either the
+a command line parameter has “language=japanese”, or because japanese
+characters are being used in compiling a pattern (^compilepattern), or
+because a global variable is passed in via ^testpattern “$language =
+japanese”.</p>
+<p>^testpattern will change bits of japanese-written punctuation in a
+pattern to english to be compatible with pattern matching. This includes
+japanese ( ) [ ] { } space. All variables need . - _ letters and digits
+converted from japanese to ascii.</p>
+<p>^testoutput will remove all spaces not within doublequotes. And will
+change bits of japanese-written punctuation in a pattern to english to
+be compatible. This includes japanese ( ) [ ] { } space. All variables
+need . - _ letters and digits converted from japanese to ascii.</p>
 <h3 id="mecab-japanese-tokenizer">Mecab Japanese tokenizer</h3>
-<p>CS uses the Mecab open source library to tokenize a continuous stream of Japanese characters, to provide the pos-tags and lemmas. To use Japanse you need to go to common.h and remove #define DISABLE_JAPANESE 1 and install mecab on your machines. Here are the instructions for that...</p>
-<p>Here is how to install and build the mecab Japanese tokenizer libraries used by ChatScript. These instructions are based on the web page here.</p>
+<p>CS uses the Mecab open source library to tokenize a continuous stream
+of Japanese characters, to provide the pos-tags and lemmas. To use
+Japanse you need to go to common.h and remove #define DISABLE_JAPANESE 1
+and install mecab on your machines. Here are the instructions for
+that…</p>
+<p>Here is how to install and build the mecab Japanese tokenizer
+libraries used by ChatScript. These instructions are based on the web
+page here.</p>
 <pre><code>Windows - prebuilt library  (THIS HAS ALREADY BEEN DONE FOR YOU)
 install visual studio
 go to https://taku910.github.io/mecab/#download
@@ -84,25 +357,60 @@ copy the static library up: cp mecab-0.996/src/.libs/libmecab.a .
 echo &quot;/usr/local/lib&quot; &gt;&gt; /etc/ld.so.conf 
 (you may have to do echo after first write permitting the destination file)
 ldconfig</code></pre>
-<h3 id="numbers">Numbers</h3>
-<p>For english numbers as digits residing adjacent to japanese characters, the english number is broken off intact. Thus ??72????? becomes ? ? 72 ? ? ? ? ? on inputs</p>
+<p>###Numbers</p>
+<p>For english numbers as digits residing adjacent to japanese
+characters, the english number is broken off intact. Thus ??72?????
+becomes ? ? 72 ? ? ? ? ? on inputs</p>
 <h3 id="sentence-terminators">Sentence Terminators</h3>
-<p>The major japanese characters acting as sentence terminators (the equivalent of ?, ! and .) in user inputs are automatically converted to their ascii equivalents so that CS rules regarding that punctuation will be maintained for pattern matching or rule invocation.</p>
+<p>The major japanese characters acting as sentence terminators (the
+equivalent of ?, ! and .) in user inputs are automatically converted to
+their ascii equivalents so that CS rules regarding that punctuation will
+be maintained for pattern matching or rule invocation.</p>
 <h2 id="german">GERMAN</h2>
-<p>The spell checker has code to break apart an unknown compound word into its separate recognizable pieces, based on https://www.dartmouth.edu/~deutsch/Grammatik/Wortbildung/Komposita.html . So &quot;Esszimmer&quot; (dining room) becomes Ess Zimmer.</p>
-<p>CS comes with a german dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>
-<p>New postag attribute labels for German: ~spanish_she, ~german_he, ~german_neuter, german_accusative, ~german_dative, ~german_nominative, ~german_genitive_object_complement</p>
+<p>The spell checker has code to break apart an unknown compound word
+into its separate recognizable pieces, based on
+https://www.dartmouth.edu/~deutsch/Grammatik/Wortbildung/Komposita.html
+. So “Esszimmer” (dining room) becomes Ess Zimmer.</p>
+<p>CS comes with a german dictionary, and spell checking will use it. In
+particular, if the input lacks appropriate accent marks, CS will likely
+fill them in for you.</p>
+<p>New postag attribute labels for German: ~spanish_she, ~german_he,
+~german_neuter, german_accusative, ~german_dative, ~german_nominative,
+~german_genitive_object_complement</p>
 <h2 id="spanish">SPANISH</h2>
-<p>The tokenizer will simply delete any upside down question or exclamation marks.</p>
-<p>CS comes with a spanish dictionary, and spell checking will use it. In particular, if the input lacks appropriate accent marks, CS will likely fill them in for you.</p>
-<p>CS can use inbuilt rules for adjectives and nouns to mark a word with plurality (~spanish_singular or ~spanish_plural) and gender (~spanish_he or ~spanish_she). For verbs, CS recognizes present, past, and future tense (simple, marked as ~spanish_future) as well as ~verb_imperative.</p>
-<p>Pronouns will be marked with ~pronoun_object_singular or ~pronoun_object_plural or ~pronoun_object_you. Also ~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and ~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you.</p>
+<p>The tokenizer will simply delete any upside down question or
+exclamation marks.</p>
+<p>CS comes with a spanish dictionary, and spell checking will use it.
+In particular, if the input lacks appropriate accent marks, CS will
+likely fill them in for you.</p>
+<p>CS can use inbuilt rules for adjectives and nouns to mark a word with
+plurality (~spanish_singular or ~spanish_plural) and gender (~spanish_he
+or ~spanish_she). For verbs, CS recognizes present, past, and future
+tense (simple, marked as ~spanish_future) as well as
+~verb_imperative.</p>
+<p>Pronouns will be marked with ~pronoun_object_singular or
+~pronoun_object_plural or ~pronoun_object_you. Also
+~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and
+~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you.</p>
 <h2 id="multiple-language-dictionary">MULTIPLE LANGUAGE DICTIONARY</h2>
-<p>ChatScript leans heavily on its dictionary, which normally is in a single language. But you can support up to 3 languages in the dictionary simultanously as well as the &quot;universal&quot; language. Words and facts are segregated by language and are only visible to a matching current language.</p>
-<p>The command line parameter <code>language=</code> can consist of a series of languages separated by commas. This enables multi-dictionary behavior and with it, the ability to change the current language on the fly. E.g., <code>language=english,spanish,german,japanese</code> Note that japanese involves no dictionary at all, so it can be listed last without compromising the 3-language limit.</p>
-<p>Variables, concept and topic names, numbers, operators and punctuation are language agnostic and always visible.</p>
+<p>ChatScript leans heavily on its dictionary, which normally is in a
+single language. But you can support up to 3 languages in the dictionary
+simultanously as well as the “universal” language. Words and facts are
+segregated by language and are only visible to a matching current
+language.</p>
+<p>The command line parameter <code>language=</code> can consist of a
+series of languages separated by commas. This enables multi-dictionary
+behavior and with it, the ability to change the current language on the
+fly. E.g., <code>language=english,spanish,german,japanese</code> Note
+that japanese involves no dictionary at all, so it can be listed last
+without compromising the 3-language limit.</p>
+<p>Variables, concept and topic names, numbers, operators and
+punctuation are language agnostic and always visible.</p>
 <h2 id="level-0">LEVEL 0</h2>
-<p>The script compiler has <code>language: xxx</code> as a construct to allow you to mix compilation of data in various languages. One can write the files0.txt file to provide data for multiple languages like this:</p>
+<p>The script compiler has <code>language: xxx</code> as a construct to
+allow you to mix compilation of data in various languages. One can write
+the files0.txt file to provide data for multiple languages like
+this:</p>
 <pre><code>RAWDATA/ONTOLOGY/ENGLISH//
 RAWDATA/WORLDDATA/
 
@@ -111,34 +419,73 @@ RAWDATA/ONTOLOGY/GERMAN//
 
 language: SPANISH
 RAWDATA/ONTOLOGY/SPANISH//</code></pre>
-<p>Scripts can change language on the fly using ^language and testing supports the :language command to change language on the fly from user input. These changes only apply to the current volley.</p>
+<p>Scripts can change language on the fly using ^language and testing
+supports the :language command to change language on the fly from user
+input. These changes only apply to the current volley.</p>
 <h1 id="input-and-output">INPUT and OUTPUT</h1>
-<p>ChatScript supports UTF8, so making output or patterns in the language is entirely up to you. Ditto for LIVEDATA.</p>
-<p>ChatScript supports two kinds of conditional compile comments. Single line comments look like this:</p>
+<p>ChatScript supports UTF8, so making output or patterns in the
+language is entirely up to you. Ditto for LIVEDATA.</p>
+<p>ChatScript supports two kinds of conditional compile comments. Single
+line comments look like this:</p>
 <pre><code>#ENGLISH this line will compile if the language is English.
 #GERMAN this line will not compile if the language is English.</code></pre>
-<p>As always, such comments run til end of line. The other comment is the block comment like this:</p>
+<p>As always, such comments run til end of line. The other comment is
+the block comment like this:</p>
 <pre><code>##&lt;&lt;ENGLISH these lines will be compiled under English 
 until a normal closing block comment ##&gt;&gt;</code></pre>
-<p>Using conditional compilation, you can make English and other language versions of code sit side by side if you want to.</p>
+<p>Using conditional compilation, you can make English and other
+language versions of code sit side by side if you want to.</p>
 <h1 id="dictionary">DICTIONARY</h1>
-<p>The dictionary file can be just a list of words of the language, one per line. You must list all conjugations of a word because there is no in-built support to figure that out. You may also add english equivalent pos tags (see examples in existing foreign language dictionaries) if you want to use existing keywords tied to pos-tags.</p>
-<p>In addition to normal words, there is a file LIVEDATA/.../numbers.txt that for a language describes a number word and what it's implied number meaning is.</p>
-<p><code>:buildforeign language</code> can be used to rebuild a foreign dictionary given the rawwords data in TreeTagger directory (which you dont have) and</p>
+<p>The dictionary file can be just a list of words of the language, one
+per line. You must list all conjugations of a word because there is no
+in-built support to figure that out. You may also add english equivalent
+pos tags (see examples in existing foreign language dictionaries) if you
+want to use existing keywords tied to pos-tags.</p>
+<p>In addition to normal words, there is a file LIVEDATA/…/numbers.txt
+that for a language describes a number word and what it’s implied number
+meaning is.</p>
+<p><code>:buildforeign language</code> can be used to rebuild a foreign
+dictionary given the rawwords data in TreeTagger directory (which you
+dont have) and</p>
 <h1 id="pos-tags-and-lemmas">POS-TAGS AND LEMMAS</h1>
-<p>If you want actual POS values and lemmas (canonical form of a word), you will need a POS-tagger of some sort or use ^pos(canonical) ona word. While it is possible to hook in an external tagger via a web call, that will be noticably slower than an in-built system. You would call the service and then appropriately decode its output using<sup>setcanon, </sup>settag, ^setrole (if you get such from external service), and ^setoriginal (maybe).</p>
-<p>ChatScript supports in-build TreeTagger system, which supports a number of languages. However, you can only use this if you have a commercial license. You can try it out using <code>^popen</code>, as is done in the German bot, however it will be slow because it has to reinitialize TreeTagger for every sentence. The in-built system does not. A license (per language) is about $1000 for universal life-time use. You can contact me if you want to arrange to use it.</p>
+<p>If you want actual POS values and lemmas (canonical form of a word),
+you will need a POS-tagger of some sort or use ^pos(canonical) ona word.
+While it is possible to hook in an external tagger via a web call, that
+will be noticably slower than an in-built system. You would call the
+service and then appropriately decode its output using^setcanon,
+^settag, ^setrole (if you get such from external service), and
+^setoriginal (maybe).</p>
+<p>ChatScript supports in-build TreeTagger system, which supports a
+number of languages. However, you can only use this if you have a
+commercial license. You can try it out using <code>^popen</code>, as is
+done in the German bot, however it will be slow because it has to
+reinitialize TreeTagger for every sentence. The in-built system does
+not. A license (per language) is about $1000 for universal life-time
+use. You can contact me if you want to arrange to use it.</p>
 <h1 id="ontology">Ontology</h1>
-<p>CS ships with a Spanish and some other dictionaries that provides spelling of words (for spell correction) and parts of speech of words. It also ships with some ontologies like LIVEDATA/ONTOLOGY/SPANISH which you can do :build 0 if you have set language=SPANISH in cs_init.txt file.</p>
+<p>CS ships with a Spanish and some other dictionaries that provides
+spelling of words (for spell correction) and parts of speech of words.
+It also ships with some ontologies like LIVEDATA/ONTOLOGY/SPANISH which
+you can do :build 0 if you have set language=SPANISH in cs_init.txt
+file.</p>
 <h1 id="translating-scripts">Translating scripts</h1>
-<p>There is built-in code to translate scripts using Microsoft Translate. It requires you have an api key for it (but you can sign up for free and a bunch of credit. The scripts are translated as follows:</p>
+<p>There is built-in code to translate scripts using Microsoft
+Translate. It requires you have an api key for it (but you can sign up
+for free and a bunch of credit. The scripts are translated as
+follows:</p>
 <pre><code>1. topic keywords are translated individually
 2. pattern keywords that are not number or concept names or variable names are translated individually
 3. Output sentences are translated intact for sections between computations.
 4. #! sample inputs are translated</code></pre>
-<p>The original text is put in the output file in comments, along with the translation. This allows human translators to verify the translations. The arguments to this capability are:</p>
+<p>The original text is put in the output file in comments, along with
+the translation. This allows human translators to verify the
+translations. The arguments to this capability are:</p>
 <pre><code>:translatetop filename original_language new_language</code></pre>
-<p>The file will be written to tmp/filename. Languages use the MS/utf8 language naming conventions where english is en_US, german is de_DE, french canadian is fr_CA, and french french is fr_FR. If your topic name or concept names or rule labels seen have the name of language in them, they are translated to new name. Eg</p>
+<p>The file will be written to tmp/filename. Languages use the MS/utf8
+language naming conventions where english is en_US, german is de_DE,
+french canadian is fr_CA, and french french is fr_FR. If your topic name
+or concept names or rule labels seen have the name of language in them,
+they are translated to new name. Eg</p>
 <pre><code># -- topic: ~QUIBBLE_en_US keep repeat nostay (beer)
 topic: ~QUIBBLE_de_DE keep repeat nostay (Bier)
 # -- #! awesome
@@ -147,30 +494,53 @@ topic: ~QUIBBLE_de_DE keep repeat nostay (Bier)
 u: QUIBBLE_de_DE(&lt;&lt;[prima Großartig wunderbar]&gt;&gt;)
     Einverstanden.</code></pre>
 <h1 id="translating-concepts">Translating concepts</h1>
-<p>There is built-in code to translate concepts using Google Translate. It requires you have an api key for Google Translate (but you can sign up for free and get $300 worth of credit good for 3 months which is enough to do all your translation work probably). You tell CS this as a command line parameter:</p>
+<p>There is built-in code to translate concepts using Google Translate.
+It requires you have an api key for Google Translate (but you can sign
+up for free and get $300 worth of credit good for 3 months which is
+enough to do all your translation work probably). You tell CS this as a
+command line parameter:</p>
 <pre><code>apikey=AIzaSyAxxxx</code></pre>
 <p>When I want to translate all level 0 concepts I do the following:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>erase the contents of TOPIC folder</li>
 <li><code>:build 0</code></li>
-<li>run CS using command line parameter <code>noboot</code> and your apikey</li>
+<li>run CS using command line parameter <code>noboot</code> and your
+apikey</li>
 <li><code>:sortconcept x</code></li>
 <li><code>:translateconcept german myfilename</code></li>
 </ol>
-<p>If you run ^csboot and that generates new concept data then you need <code>noboot</code>, otherwise it doesn't matter.</p>
-<p><code>:sortconcept x</code> locates all currently defined concepts (hence just :build 0) and writes them out to a top level file named <code>concepts.top</code> with one concept per line. This file will be read by the next stage.</p>
-<p><code>:translateconcept</code> uses the apikey. It reads each line of concepts.top (1 line per concept) and calls google translate for the language you named, saving the results in the path/file you gave. Currently this only recognizes the following language names: german, french, italian, spanish, russian, hindi. I could add more if needed.</p>
-<p>The resulting file will automatically prepend each line with conditional compile markers for the language you named, so you can directly add it to your bot and it will only compile when you are in that language mode.</p>
-<p>If you want to translate concepts from your bot, then do the following:</p>
-<ol style="list-style-type: decimal">
+<p>If you run ^csboot and that generates new concept data then you need
+<code>noboot</code>, otherwise it doesn’t matter.</p>
+<p><code>:sortconcept x</code> locates all currently defined concepts
+(hence just :build 0) and writes them out to a top level file named
+<code>concepts.top</code> with one concept per line. This file will be
+read by the next stage.</p>
+<p><code>:translateconcept</code> uses the apikey. It reads each line of
+concepts.top (1 line per concept) and calls google translate for the
+language you named, saving the results in the path/file you gave.
+Currently this only recognizes the following language names: german,
+french, italian, spanish, russian, hindi. I could add more if
+needed.</p>
+<p>The resulting file will automatically prepend each line with
+conditional compile markers for the language you named, so you can
+directly add it to your bot and it will only compile when you are in
+that language mode.</p>
+<p>If you want to translate concepts from your bot, then do the
+following:</p>
+<ol type="1">
 <li>erase the contents of TOPIC folder</li>
 <li><code>:build harry</code> (or whatever your bot is)</li>
-<li>run CS using command line parameter <code>noboot</code> and your apikey</li>
+<li>run CS using command line parameter <code>noboot</code> and your
+apikey</li>
 <li><code>:sortconcept x</code></li>
 <li><code>:translateconcept french myfilename</code></li>
 </ol>
-<p>If you just want to translate a single concept/topic then you can call</p>
+<p>If you just want to translate a single concept/topic then you can
+call</p>
 <pre><code>:translateconcept ~myconcept french myfilename</code></pre>
-<p>It will, as a byproduct, provide the sorted english form of the concept on a single line in <code>cset.txt</code>. If you dont give a language and filename, then it will just sort your english concept and write it out.</p>
+<p>It will, as a byproduct, provide the sorted english form of the
+concept on a single line in <code>cset.txt</code>. If you dont give a
+language and filename, then it will just sort your english concept and
+write it out.</p>
 </body>
 </html>

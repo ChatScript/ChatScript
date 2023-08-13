@@ -1,97 +1,365 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Database_Access</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="chatscript-database-access">ChatScript Database Access</h1>
-<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
+<p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com
+www.brilligunderstanding.com <br>Revision 4/24/2022 cs12.1</p>
 <h1 id="overview">Overview</h1>
-<p>By default, a CS server records the current state of a user in a file stored in the local filesystem under the name topic_username_botname.txt. This works fine for single-server systems. In a world where one uses a second server as a hot backup and transfer users to it while redeploying the primary server, user information gets lost. The solution to this (and the ability to scale CS with an arbitrary number of servers) is to have some kind of networked file server.</p>
-<p>CS directly supports use of Mongo, Postgres, MySQL,and MsSQL databases as file servers. Instead of writing the users's state record to the local file system, it writes it as a record in the database. That record will be overwritten each volley with the changed state. There is no accumulation of prior state data. Nor are user logs ever written there. If user logging is on, such logs are written to the machine performing the chat (which may scatter them over many machines). Likewise server logging is kept per machine.</p>
-<h2 id="mysql-fileserver-and-database">MySQL Fileserver and Database</h2>
+<p>By default, a CS server records the current state of a user in a file
+stored in the local filesystem under the name
+topic_username_botname.txt. This works fine for single-server systems.
+In a world where one uses a second server as a hot backup and transfer
+users to it while redeploying the primary server, user information gets
+lost. The solution to this (and the ability to scale CS with an
+arbitrary number of servers) is to have some kind of networked file
+server.</p>
+<p>CS directly supports use of Mongo, Postgres, MySQL,and MsSQL
+databases as file servers. Instead of writing the users’s state record
+to the local file system, it writes it as a record in the database. That
+record will be overwritten each volley with the changed state. There is
+no accumulation of prior state data. Nor are user logs ever written
+there. If user logging is on, such logs are written to the machine
+performing the chat (which may scatter them over many machines).
+Likewise server logging is kept per machine.</p>
+<h2 id="mysql-fileserver-and-database">MySQL Fileserver and
+Database</h2>
 <h3 id="fileserver-setup">Fileserver Setup</h3>
-<p>To run CS MySQL you need two things. First, you need to run an executable that has been compiled with MySQL enabled.<br />
-Second, you need to supply parameters for CS startup in the cs_init.txt file or cs_initmore.txt file. A line entry looks like this:</p>
+<p>To run CS MySQL you need two things. First, you need to run an
+executable that has been compiled with MySQL enabled.<br />
+Second, you need to supply parameters for CS startup in the cs_init.txt
+file or cs_initmore.txt file. A line entry looks like this:</p>
 <pre><code>mysql=&quot;host=localhost port=3306 user=root password=admin db=chatscript&quot; </code></pre>
-<p>where the host and port refer to the MySQL server access, user and password refer to some userid on the mysql server allowed to access the named db.<br />
-The database itself needs to already exist, it is not automatically created by CS. It should be defined with the following fields in the schema/table called chatscript using this statement: The keys (hose, port, user, password, db, appendport) should be in lowercase.</p>
+<p>where the host and port refer to the MySQL server access, user and
+password refer to some userid on the mysql server allowed to access the
+named db.<br />
+The database itself needs to already exist, it is not automatically
+created by CS. It should be defined with the following fields in the
+schema/table called chatscript using this statement: The keys (hose,
+port, user, password, db, appendport) should be in lowercase.</p>
 <pre><code>create database chatscript character set &#39;UTF8&#39;;
 create user chatuser identified by &#39;password&#39;;    or whatever
 grant all on chatscript.* to chatuser;
 use chatscript;
 CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, file MEDIUMBLOB, when DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)</code></pre>
-<p>The table name &quot;userfiles&quot; and the field names are fixed. ChatScript assumes them. userid: a limit of 64 is more than enough file: in our world we are going to have less than 500K bytes of data when: CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.</p>
-<p>An optional key is <code>appendport</code> which takes no value. It means to add the current CS port as a suffix onto the db name. So</p>
+<p>The table name “userfiles” and the field names are fixed. ChatScript
+assumes them. userid: a limit of 64 is more than enough file: in our
+world we are going to have less than 500K bytes of data when: CS never
+sends or uses this value. It is there to allow an external program to
+query the database and delete old records since our users do not
+continue forever with Pearl.</p>
+<p>An optional key is <code>appendport</code> which takes no value. It
+means to add the current CS port as a suffix onto the db name. So</p>
 <pre><code>mysql=&quot;host=localhost port=3306 user=root password=admin db=chatscript appendport&quot; </code></pre>
-<p>will yield a db name of <code>chatscript1024</code> for a default CS server.</p>
+<p>will yield a db name of <code>chatscript1024</code> for a default CS
+server.</p>
 <h4 id="mysql-termination">MySQL Termination:</h4>
-<p>If at any time a call to utilize MySQL fails, the CS server will abort itself. If you have an automatic restart and retry mechanism, then maybe things will just work next time, or a different CS server will get invoked.</p>
+<p>If at any time a call to utilize MySQL fails, the CS server will
+abort itself. If you have an automatic restart and retry mechanism, then
+maybe things will just work next time, or a different CS server will get
+invoked.</p>
 <h3 id="mysql-database">MySQL database</h3>
-<p>A script may also access MySQL using 3 functions: ^MySQLInit, ^MySQLQuery, ^MySQLClose.</p>
-<h4 id="mysqlinitinformation-string">^MySQLInit(&quot;information string&quot;)</h4>
-<p>To open a database access, you need to supply a string of information. The data is similar to the cs_init.txt mysql line, e.g.,</p>
+<p>A script may also access MySQL using 3 functions: ^MySQLInit,
+^MySQLQuery, ^MySQLClose.</p>
+<h4 id="mysqlinitinformation-string">^MySQLInit(“information
+string”)</h4>
+<p>To open a database access, you need to supply a string of
+information. The data is similar to the cs_init.txt mysql line,
+e.g.,</p>
 <pre><code>^mysqlinit(&quot;host=localhost port=3306 user=root password=admin db=chatscript&quot;)</code></pre>
-<p>This implies you must have already created the database to be used.</p>
+<p>This implies you must have already created the database to be
+used.</p>
 <h4 id="mysqlclose">^MySQLClose()</h4>
-<p>When you are done accessing the database, this will end the connection.</p>
-<h4 id="mysqlquery-query-string-fn">^MySQLQuery( &quot;query string&quot; {'^fn})</h4>
-<p>You may provide a query in the query string. The output, if there is any, will be returned from this function. You have the option to provide a quoted function name to execute on each row of data returned. If your function only takes 1 argument, all output from a row will be sent to it as a single quoted string. If your function takes multiple arguments, the separate columns of a row will be passed to the corresponding arguments.</p>
+<p>When you are done accessing the database, this will end the
+connection.</p>
+<h4 id="mysqlquery-query-string-fn">^MySQLQuery( “query string”
+{’^fn})</h4>
+<p>You may provide a query in the query string. The output, if there is
+any, will be returned from this function. You have the option to provide
+a quoted function name to execute on each row of data returned. If your
+function only takes 1 argument, all output from a row will be sent to it
+as a single quoted string. If your function takes multiple arguments,
+the separate columns of a row will be passed to the corresponding
+arguments.</p>
 <h4 id="sample-bot">Sample Bot</h4>
 <p>There is a sample bot compilable with :build mysql.</p>
 <h2 id="mssql-fileserver">MsSQL Fileserver</h2>
-<p>Currently Microsoft SQL can be used as a file server or as a database. As a file server, this allows infinite scaling of CS.</p>
+<p>Currently Microsoft SQL can be used as a file server or as a
+database. As a file server, this allows infinite scaling of CS.</p>
 <h3 id="fileserver-setup-1">Fileserver Setup</h3>
-<p>For Linux you need to install a Microsoft ODBC driver to your machine. Instructions are here: https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15</p>
-<p>To run CS MsSQL you need two things. First, you need to run an executable that has been compiled with MySQL enabled.<br />
-Second, you need to supply parameters for CS startup in the cs_init.txt file or cs_initmore.txt file. A line entry looks like this:</p>
+<p>For Linux you need to install a Microsoft ODBC driver to your
+machine. Instructions are here:
+https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15</p>
+<p>To run CS MsSQL you need two things. First, you need to run an
+executable that has been compiled with MySQL enabled.<br />
+Second, you need to supply parameters for CS startup in the cs_init.txt
+file or cs_initmore.txt file. A line entry looks like this:</p>
 <pre><code>mssql=&quot;host=localhost port=3306 user=chatuser password=admin db=chatscript&quot; </code></pre>
-<p>where the host and port refer to the MsSQL server access, user and password refer to some userid on the mssql server allowed to access the named db.<br />
-The database itself needs to already exist, it is not automatically created by CS. It should be defined with the following fields in the schema/table called chatscript using this statement: The keys (host, port, user, password, db) should be in lowercase.</p>
+<p>where the host and port refer to the MsSQL server access, user and
+password refer to some userid on the mssql server allowed to access the
+named db.<br />
+The database itself needs to already exist, it is not automatically
+created by CS. It should be defined with the following fields in the
+schema/table called chatscript using this statement: The keys (host,
+port, user, password, db) should be in lowercase.</p>
 <pre><code>create database chatscript character set &#39;UTF8&#39;;
 create user chatuser identified by &#39;password&#39;;    or whatever
 grant all on chatscript.* to chatuser;
 use chatscript;
 CREATE TABLE userfiles (userid varchar(100) PRIMARY KEY, [file] VARBINARY(max), stored DATETIME DEFAULT CURRENT_TIMESTAMP)</code></pre>
-<p>The table name &quot;userfiles&quot; and the field names are fixed. ChatScript assumes them. userid: a limit of 64 is more than enough file: in our world we are going to have less than 500K bytes of data stored: CS never sends or uses this value. It is there to allow an external program to query the database and delete old records since our users do not continue forever with Pearl.</p>
+<p>The table name “userfiles” and the field names are fixed. ChatScript
+assumes them. userid: a limit of 64 is more than enough file: in our
+world we are going to have less than 500K bytes of data stored: CS never
+sends or uses this value. It is there to allow an external program to
+query the database and delete old records since our users do not
+continue forever with Pearl.</p>
 <h3 id="mssql-termination">MsSQL Termination:</h3>
-<p>If at any time a call to utilize MsSQL fails, the CS server will abort itself. If you have an automatic restart and retry mechanism, then maybe things will just work next time, or a different CS server will get invoked. Such a mechanism is done automatically by CS.</p>
-<p>From user script one can open a database with <code>^msqlinit($_params)</code><br />
-and close it with <code>^msqlclose()</code>. <code>^msqlread($_username)</code> and <code>^msqlwrite($_username $_value)</code> perform db operations. Init Params are the same as for using such a db for a filesystem.</p>
-<h2 id="mongo-fileserver-and-database">Mongo Fileserver and Database</h2>
-<p>Aside from using Mongo to store data for a chatbot to look up, one can also use Mongo as a replacement for the local file system of the USERS directory. Log files will remain local but the <code>USERS/topicxxxxx</code> will be rerouted, as will any <code>^export</code> or <code>^import</code> request. If you name your file <code>USERS/ltm-xxxxx</code> then that will be routed to its own collection, otherwise it will go into the same collection as the topic file.</p>
+<p>If at any time a call to utilize MsSQL fails, the CS server will
+abort itself. If you have an automatic restart and retry mechanism, then
+maybe things will just work next time, or a different CS server will get
+invoked. Such a mechanism is done automatically by CS.</p>
+<p>From user script one can open a database with
+<code>^msqlinit($_params)</code><br />
+and close it with <code>^msqlclose()</code>.
+<code>^msqlread($_username)</code> and
+<code>^msqlwrite($_username $_value)</code> perform db operations. Init
+Params are the same as for using such a db for a filesystem.</p>
+<h2 id="mongo-fileserver-and-database">Mongo Fileserver and
+Database</h2>
+<p>Aside from using Mongo to store data for a chatbot to look up, one
+can also use Mongo as a replacement for the local file system of the
+USERS directory. Log files will remain local but the
+<code>USERS/topicxxxxx</code> will be rerouted, as will any
+<code>^export</code> or <code>^import</code> request. If you name your
+file <code>USERS/ltm-xxxxx</code> then that will be routed to its own
+collection, otherwise it will go into the same collection as the topic
+file.</p>
 <p>To set collections, on the command line use:</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection&quot;</code></pre>
 <p>or for user topic and ltm files</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm&quot;</code></pre>
 <p>or for a remote host with no ltm file.</p>
 <pre><code>mongo=mongodb://127.0.0.1:27017 ChatScript topic:UserTopics</code></pre>
-<p>Any <code>^import()</code> and <code>^export()</code> will check the file name for a match against a collection reference to allow for any document to be redirected to the database. For example, with the following definition any file names that cache will be saved in a MyCache collction in the Mongo database.</p>
+<p>Any <code>^import()</code> and <code>^export()</code> will check the
+file name for a match against a collection reference to allow for any
+document to be redirected to the database. For example, with the
+following definition any file names that cache will be saved in a
+MyCache collction in the Mongo database.</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache&quot;</code></pre>
-<p>Read preferences for queries on Mongo collections can be added to each collection definition. To specify the cache documents can be read from a secondary replica, but keeping the topic and ltm read from primary (the default), use definitions like</p>
+<p>Read preferences for queries on Mongo collections can be added to
+each collection definition. To specify the cache documents can be read
+from a secondary replica, but keeping the topic and ltm read from
+primary (the default), use definitions like</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred&quot;</code></pre>
 <p>or</p>
 <pre><code>mongo=&quot;mongodb://localhost:27017 ChatScript topic:MyCollection ltm:MyLtm cache:MyCache?readPreference=secondaryPreferred&amp;readPreferenceTags=dc:east&amp;readPreferenceTags=west&quot;</code></pre>
-<p>The additional options follow the standard Mongo style used in URL definitions, see https://www.mongodb.com/docs/manual/reference/connection-string/#read-preference-options</p>
-<p>Using a cs_init.txt file to contain that line is most convenient, so no quotes are needed.</p>
-<p>Obviously put the correct data for your mongo machine. CS will store user topic files in the Mongo machine and well as <code>^export</code> and <code>^import</code> data. For user and server logs it will continue to store those on the local machine. You may have the same or different collection active, one or two via filesystem replacement and once via normal script access.</p>
+<p>The additional options follow the standard Mongo style used in URL
+definitions, see
+https://www.mongodb.com/docs/manual/reference/connection-string/#read-preference-options</p>
+<p>Using a cs_init.txt file to contain that line is most convenient, so
+no quotes are needed.</p>
+<p>Obviously put the correct data for your mongo machine. CS will store
+user topic files in the Mongo machine and well as <code>^export</code>
+and <code>^import</code> data. For user and server logs it will continue
+to store those on the local machine. You may have the same or different
+collection active, one or two via filesystem replacement and once via
+normal script access.</p>
 <h3 id="access-a-mongo-database">Access A Mongo Database</h3>
 <p>There are only a couple of functions you need.</p>
-<h3 id="mongoinit-server-domain-collection"><code>^mongoinit</code>( server domain collection )</h3>
-<p>Once the named collection is open, it becomes the current database the server uses until you close it no matter how many volleys later that is. Currently you can only have one collection open at a time.</p>
-<p>By the way, if a call to <code>^mongoinit</code> fails, the system will both write why to the user log and set it onto the value of <code>$$mongo_error</code>. <code>^mongonit</code> will fail if the database is already open.</p>
+<h3 id="mongoinit-server-domain-collection"><code>^mongoinit</code>(
+server domain collection )</h3>
+<p>Once the named collection is open, it becomes the current database
+the server uses until you close it no matter how many volleys later that
+is. Currently you can only have one collection open at a time.</p>
+<p>By the way, if a call to <code>^mongoinit</code> fails, the system
+will both write why to the user log and set it onto the value of
+<code>$$mongo_error</code>. <code>^mongonit</code> will fail if the
+database is already open.</p>
 <h4 id="mongoclose"><code>^mongoclose</code>()</h4>
 <p>closes the currently open collection.</p>
-<h4 id="mongoinsertdocumentkey-string"><code>^mongoinsertdocument</code>(key string)</h4>
-<p>does an up-sert of a json string (which need not have double quotes around it. Key is also a string which does not require double quotes.</p>
-<h4 id="mongodeletedocumentkey"><code>^mongodeletedocument</code>(key)</h4>
+<h4
+id="mongoinsertdocumentkey-string"><code>^mongoinsertdocument</code>(key
+string)</h4>
+<p>does an up-sert of a json string (which need not have double quotes
+around it. Key is also a string which does not require double
+quotes.</p>
+<h4
+id="mongodeletedocumentkey"><code>^mongodeletedocument</code>(key)</h4>
 <p>removes the corresponding data.</p>
-<h4 id="mongofinddocumentpattern"><code>^mongofinddocument</code>(pattern)</h4>
-<p>finds documents corresponding to the mongo pattern (see a mongo manual).</p>
+<h4
+id="mongofinddocumentpattern"><code>^mongofinddocument</code>(pattern)</h4>
+<p>finds documents corresponding to the mongo pattern (see a mongo
+manual).</p>
 <pre><code>^mongoinit(mongodb://localhost:27017 ChatScript InputOutput)
 
 ^mongoinsertdocument(dog ^&quot;I have a dog&quot;)
@@ -100,63 +368,119 @@ $_var = ^mongofinddocument(dog)
 # $_var  ==  I have a dog
 
 ^mongoclose()</code></pre>
-<p>You can include a JSON object's worth of additional attributes on a Mongo upsert using $cs_mongoqueryparams.</p>
+<p>You can include a JSON object’s worth of additional attributes on a
+Mongo upsert using $cs_mongoqueryparams.</p>
 <p>You also use a private hook code to alter things on upsert.</p>
 <h3 id="mongo-cs-variables">Mongo CS variables</h3>
-<p>$mongo_enable_ssl if set to &quot;true&quot; will then use these variables:</p>
+<p>$mongo_enable_ssl if set to “true” will then use these variables:</p>
 <pre><code>$mongosslcafile
 $mongosslpemfile
 $mongosslpempwd
 $mongovalidatessl
 $mongo_timeexcess -- record into log file if operation takes more than this ms</code></pre>
 <p>$$mongo_error</p>
-<h2 id="postgres-fileserver-and-databse">Postgres Fileserver and Databse</h2>
-<p>While standing in the SRC directory, you can do: <code>make server</code> - build ordinary CS server w/o PostgreSQL client <br><code>make pgserver</code> - build CS server w PostgreSQL client (you had to install postgress first)</p>
-<p>Usually postgres somes with amazon servers, but if not you may have to do something like</p>
+<h2 id="postgres-fileserver-and-databse">Postgres Fileserver and
+Databse</h2>
+<p>While standing in the SRC directory, you can do:
+<code>make server</code> - build ordinary CS server w/o PostgreSQL
+client <br><code>make pgserver</code> - build CS server w PostgreSQL
+client (you had to install postgress first)</p>
+<p>Usually postgres somes with amazon servers, but if not you may have
+to do something like</p>
 <pre><code>sudo apt-get install libpq-dev</code></pre>
 <p>to build successfully.</p>
-<p>On Mac and IOS <code>#define DISCARDPOSTGRES</code> is on by default. If you have access to a PostgreSQL server remotely, that's fine. If you need one installed on your machine, see the end for how to install one.</p>
-<h3 id="using-postgres-as-file-server">Using Postgres as file server</h3>
+<p>On Mac and IOS <code>#define DISCARDPOSTGRES</code> is on by default.
+If you have access to a PostgreSQL server remotely, that’s fine. If you
+need one installed on your machine, see the end for how to install
+one.</p>
+<h3 id="using-postgres-as-file-server">Using Postgres as file
+server</h3>
 <p>To do this, on the ChatScript command line use:</p>
 <pre><code>pguser=&quot;dbname = mydb host = 129.22.22.24 port = 5432 user = postgres password = somepassword &quot;</code></pre>
-<p>If host is omitted, it defaults to localhost. Localhost might not work as the name of the host, in which case use 127.0.0.1 .</p>
-<p>If you do not specify dbname, the system assumes you have a db named <code>users</code>. If it doesn't find it, it will try to open a root database named <code>postgres</code>. If it can find that, it will then create the <code>users</code> db. CS will automatically create a <code>users</code> database and a <code>userfiles</code> tables. Each user will get an entry in the userfiles table.</p>
-<p>If the dbname is specified, the postgres module will not try to create a new database or a userfiles table.</p>
-<p>The postgres code uses the following parameter queries to read, insert, and update a user record:</p>
+<p>If host is omitted, it defaults to localhost. Localhost might not
+work as the name of the host, in which case use 127.0.0.1 .</p>
+<p>If you do not specify dbname, the system assumes you have a db named
+<code>users</code>. If it doesn’t find it, it will try to open a root
+database named <code>postgres</code>. If it can find that, it will then
+create the <code>users</code> db. CS will automatically create a
+<code>users</code> database and a <code>userfiles</code> tables. Each
+user will get an entry in the userfiles table.</p>
+<p>If the dbname is specified, the postgres module will not try to
+create a new database or a userfiles table.</p>
+<p>The postgres code uses the following parameter queries to read,
+insert, and update a user record:</p>
 <pre><code>-- read a user
 SELECT file FROM userfiles WHERE userid = $1::varchar ;
 -- insert a user
 INSERT INTO userfiles (file, userid) VALUES ($1::bytea, $2::varchar) ;
 -- update a user
 UPDATE userfiles SET file = $1::bytea WHERE userid = $2::varchar ;</code></pre>
-<p>You can override these queries to support alternate schemas. However, the postgres module assumes that any sql used to override the default queries will use the same sequence of arguments. For example, assume you want to store user data in a table named 'randomusertable.' The following parameters can be used to override the default postgres SQL:</p>
+<p>You can override these queries to support alternate schemas. However,
+the postgres module assumes that any sql used to override the default
+queries will use the same sequence of arguments. For example, assume you
+want to store user data in a table named ‘randomusertable.’ The
+following parameters can be used to override the default postgres
+SQL:</p>
 <pre><code>pguserread=SELECT userdata FROM randomusertable WHERE username=$1::varchar ;
 pguserinsert=INSERT INTO randomusertable (userdata,username) VALUES ($1::bytea, $2::varchar) ;
 pguserupdate=UPDATE randomusertable SET userdata = $1::bytea WHERE username = $2::varchar ;</code></pre>
-<p>Note that the default and override queries use the same arguments in the same order.</p>
-<h3 id="access-a-postgresql-database-not-fileserver">Access A PostgreSQL Database (not fileserver)</h3>
+<p>Note that the default and override queries use the same arguments in
+the same order.</p>
+<h3 id="access-a-postgresql-database-not-fileserver">Access A PostgreSQL
+Database (not fileserver)</h3>
 <p>There are only a couple of functions you need.</p>
 <h4 id="dbinit-xxx"><code>^dbinit</code>( xxx )</h4>
-<p><code>xxx</code> is the parameter string you want to pass PostgreSQL. The default minimal would be something like this:</p>
+<p><code>xxx</code> is the parameter string you want to pass PostgreSQL.
+The default minimal would be something like this:</p>
 <pre><code>u: (open) 
     if (^dbinit( dbname = postgres port = 5432 user = postgres password = mypassword ))
         {db opened}
     else 
         {db failed}</code></pre>
-<p>Once the named database is open, it becomes the current database the server uses until you close it no matter how many volleys later that is. Currently you can only have one database open at a time. By the way, if a call to <code>^dbinit</code> fails, the system will both write why to the user log and set it onto the value of <code>$$db_error</code>.</p>
+<p>Once the named database is open, it becomes the current database the
+server uses until you close it no matter how many volleys later that is.
+Currently you can only have one database open at a time. By the way, if
+a call to <code>^dbinit</code> fails, the system will both write why to
+the user log and set it onto the value of <code>$$db_error</code>.</p>
 <pre><code>^dbinit(^&quot;null&quot;) </code></pre>
-<p>creates a dummy database access, whereby nothing is actually done thereafter but you can pretend to write to the database.</p>
-<p><code>^dbinit</code> will fail if the database is already open. If you want it return without failure, having done nothing, just add this at the start of your arguments: <code>EXISTS</code></p>
+<p>creates a dummy database access, whereby nothing is actually done
+thereafter but you can pretend to write to the database.</p>
+<p><code>^dbinit</code> will fail if the database is already open. If
+you want it return without failure, having done nothing, just add this
+at the start of your arguments: <code>EXISTS</code></p>
 <pre><code>u: (open) 
     if (^dbinit(EXISTS dbname = postgres port = 5432 user = postgres password = mypassword ))</code></pre>
-<h4 id="dbexecute-xxx-myfunc"><code>^dbexecute</code>( &quot;xxx&quot; <code>'myfunc</code>)</h4>
-<p>executes database commands as a blocking call.You may omit the 2nd argument if those commands do not generate answers, otherwise it names a function you have defined whose argument count matches the number of pieces of information coming from the database.</p>
-<p>Typically a database query like <code>SELECT</code> will return multiple rows containing multiple columns of values. The number of values per row must match your function, which is called once for each row. The exception is that a one-argument function will accept all the values returned from the query for each row, automatically concatenated with underscore separators.</p>
-<p>If any call to your function fails, <code>^dbexecute</code> stops and fails. When you want to use multiple commands to the database, you must separate them with ; and only answers from the last command are returned (per PostgreSQL standards and behavior).</p>
-<p>Note: for any direct calls, the format string <code>^&quot;xxx&quot;`` is your friend, as it will generally preserve the contents of the string unchanged (except for variable substitutions) to pass to</code>^dbexecute<code>. In addition, don't worry generally about single quotes inside of quoted parameters. ChatScript will automatically double the internal single quotes for you. There will be issues with format strings because ChatScript finds meanings in some things that conflict with postgres command structure. ``` if (^dbexecute(^&quot;INSERT INTO word VALUES '_1' );&quot; NULL ))      {word added} else      {dbexecute failed - $$db_error} ``` The</code>_1<code>has issues because postgre wants quotes around string values, but ChatScript will be trying to decode</code>'_1<code>as the original form of</code>_1<code>. This might require you to do this: ``` $$tmp = '_1 if (^dbexecute(^&quot;INSERT INTO word VALUES '$$tmp' );&quot; NULL ))      {word added} else      {dbexecute failed - $$db_error} ``` Due to conflicts in interpreting</code><span class="math inline">$`, you can't use postgres `$</span><span class="math inline"><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em></span>$<code>notation inside a quoted string because ChatScript will seek variable values.  So, after this, you can read whatever commands PostgreSQL supports because they all funnel through</code>^dbexecute`.</p>
-<p>Note there is a similar issue with text strings coming back from Postgres. They may be multiple words, etc. You should declare arguments to outputmacros that will receive postgres text like this:</p>
+<h4 id="dbexecute-xxx-myfunc"><code>^dbexecute</code>( “xxx”
+<code>'myfunc</code>)</h4>
+<p>executes database commands as a blocking call.You may omit the 2nd
+argument if those commands do not generate answers, otherwise it names a
+function you have defined whose argument count matches the number of
+pieces of information coming from the database.</p>
+<p>Typically a database query like <code>SELECT</code> will return
+multiple rows containing multiple columns of values. The number of
+values per row must match your function, which is called once for each
+row. The exception is that a one-argument function will accept all the
+values returned from the query for each row, automatically concatenated
+with underscore separators.</p>
+<p>If any call to your function fails, <code>^dbexecute</code> stops and
+fails. When you want to use multiple commands to the database, you must
+separate them with ; and only answers from the last command are returned
+(per PostgreSQL standards and behavior).</p>
+<p>Note: for any direct calls, the format string
+<code>^"xxx"`` is your friend, as it will generally preserve the contents of the string unchanged (except for variable substitutions) to pass to</code>^dbexecute<code>. In addition, don't worry generally about single quotes inside of quoted parameters. ChatScript will automatically double the internal single quotes for you. There will be issues with format strings because ChatScript finds meanings in some things that conflict with postgres command structure. ``` if (^dbexecute(^"INSERT INTO word VALUES '_1' );" NULL ))      {word added} else      {dbexecute failed - $$db_error} ``` The</code>_1<code>has issues because postgre wants quotes around string values, but ChatScript will be trying to decode</code>’_1<code>as the original form of</code>_1<code>. This might require you to do this: ``` $$tmp = '_1 if (^dbexecute(^"INSERT INTO word VALUES '$$tmp' );" NULL ))      {word added} else      {dbexecute failed - $$db_error} ``` Due to conflicts in interpreting</code><span
+class="math inline">$`, you can't use postgres `$</span><span
+class="math inline"><em>v</em><em>a</em><em>l</em><em>u</em><em>e</em></span>$<code>notation inside a quoted string because ChatScript will seek variable values.  So, after this, you can read whatever commands PostgreSQL supports because they all funnel through</code>^dbexecute`.</p>
+<p>Note there is a similar issue with text strings coming back from
+Postgres. They may be multiple words, etc. You should declare arguments
+to outputmacros that will receive postgres text like this:</p>
 <pre><code>outputmacro: ^myfunc( ^arg1.HANDLE_QUOTES ^arg2)</code></pre>
-<p>where <code>^arg1</code> will receive a text argument. This causes DBExecute to put double-quotes around the value (and <code>\</code> on any interior quotes) and then the call to <code>^myfunc</code> will strip them off after evaluation. You can use <code>:trace sql</code> to see what goes in and what comes out. By the way, if a call to <code>^dbexecute</code> fails, the system will both write why to the user log and set it onto the value of <code>$$db_error</code>.</p>
+<p>where <code>^arg1</code> will receive a text argument. This causes
+DBExecute to put double-quotes around the value (and <code>\</code> on
+any interior quotes) and then the call to <code>^myfunc</code> will
+strip them off after evaluation. You can use <code>:trace sql</code> to
+see what goes in and what comes out. By the way, if a call to
+<code>^dbexecute</code> fails, the system will both write why to the
+user log and set it onto the value of <code>$$db_error</code>.</p>
 <h3 id="postgresql-commands">PostgreSQL Commands</h3>
 <p>The basic commands you most likely need are:</p>
 <h3 id="creating-data">Creating Data</h3>
@@ -172,39 +496,73 @@ date date
 )</code></pre>
 <pre><code>DROP TABLE weather</code></pre>
 <p>to delete a table</p>
-<p>Note that the weather table, while shown all nicely laid out, has to be a single string to <code>^dbexecute</code> which will NOT span multiple lines (but could have been created by <code>^join(...)</code> whose arguments could have been neatly laid out. Field names are case insensitive (per std).</p>
+<p>Note that the weather table, while shown all nicely laid out, has to
+be a single string to <code>^dbexecute</code> which will NOT span
+multiple lines (but could have been created by <code>^join(...)</code>
+whose arguments could have been neatly laid out. Field names are case
+insensitive (per std).</p>
 <pre><code>INSERT INTO weather VALUES (&#39;San Francisco&#39;, &#39;CA&#39;, 46, 50, 0.25, &#39;1994-11-27&#39;)</code></pre>
-<p>Note that text values must be encased in ' xxx ' (per std). Better style is to name the fields and values, omitting any you don't want to supply:</p>
+<p>Note that text values must be encased in ’ xxx ’ (per std). Better
+style is to name the fields and values, omitting any you don’t want to
+supply:</p>
 <pre><code>INSERT INTO weather (date, city, temp_hi, temp_lo)
 VALUES (&#39;1994-11-29&#39;, &#39;Hayward&#39;, 54, 37)</code></pre>
-<p>or with lots of data and a file on the same machine as the database server,</p>
+<p>or with lots of data and a file on the same machine as the database
+server,</p>
 <pre><code>COPY weather FROM &#39;/home/user/weather.txt&#39;</code></pre>
 <h3 id="retrieving-data">Retrieving Data</h3>
 <pre><code>SELECT * FROM weather </code></pre>
-<p>retrieves all fields and all rows of table weather (rows in arbitrary order). You can name the fields and order with this:</p>
+<p>retrieves all fields and all rows of table weather (rows in arbitrary
+order). You can name the fields and order with this:</p>
 <pre><code>SELECT city, temp_lo, temp_hi, prcp, date FROM weather</code></pre>
-<p>assuming the function of yours named expects 5 arguments. And a constrained query like:</p>
+<p>assuming the function of yours named expects 5 arguments. And a
+constrained query like:</p>
 <pre><code>SELECT * FROM weather WHERE city = &#39;San Francisco&#39; AND prcp &gt; 0.0</code></pre>
-<p>And of course there are other things the database can do, including joins and other searches, but you can go read the PostgreSQL manual for that. The above is enough to do many simple things.</p>
-<h3 id="creating-a-postgresql-database">Creating A PostgreSQL Database</h3>
-<p>It's never as easy as you'd hope. Maybe I've hit all the stumbles for you.</p>
+<p>And of course there are other things the database can do, including
+joins and other searches, but you can go read the PostgreSQL manual for
+that. The above is enough to do many simple things.</p>
+<h3 id="creating-a-postgresql-database">Creating A PostgreSQL
+Database</h3>
+<p>It’s never as easy as you’d hope. Maybe I’ve hit all the stumbles for
+you.</p>
 <h4 id="installation-on-windows">Installation on Windows</h4>
-<p>While in theory you can install a 64-bit version of PostgreSQL on a 64-bit machine, I found there were problems in compiling ChatScript with it, so I use only the 32-bit version, which works on either 32-bit or 64-bit Windows machines. Note that the 32-bit dll that is needed is at the top level of ChatScript, so the system will automatically find it. For reference, the compilation header files and library for loading are in <code>src/postgre/WIN32</code></p>
-<p>First, you need to download the 32-bit Windows PostgreSQL. I used version 9.3.3 from this page: http://www.enterprisedb.com/products-services-training/pgdownload#windows win-x86-32. Download that and run it. You can default everything. ChatScript will just work with it.</p>
+<p>While in theory you can install a 64-bit version of PostgreSQL on a
+64-bit machine, I found there were problems in compiling ChatScript with
+it, so I use only the 32-bit version, which works on either 32-bit or
+64-bit Windows machines. Note that the 32-bit dll that is needed is at
+the top level of ChatScript, so the system will automatically find it.
+For reference, the compilation header files and library for loading are
+in <code>src/postgre/WIN32</code></p>
+<p>First, you need to download the 32-bit Windows PostgreSQL. I used
+version 9.3.3 from this page:
+http://www.enterprisedb.com/products-services-training/pgdownload#windows
+win-x86-32. Download that and run it. You can default everything.
+ChatScript will just work with it.</p>
 <h3 id="installation-on-mac">Installation on Mac</h3>
-<p>Sorry. Don't have a mac. You have to figure it out yourself.</p>
+<p>Sorry. Don’t have a mac. You have to figure it out yourself.</p>
 <h4 id="installation-on-linux">Installation on Linux</h4>
-<p>So many choices. You probably have to read docs for your system. I went wrong in so many directions I lost track of whether I was logged in as me, su, sudo, postgres, etc. If you have problems installing, here is my best knowledge... After that go search the internet or documentation, don't come to me to get postgres installed.</p>
+<p>So many choices. You probably have to read docs for your system. I
+went wrong in so many directions I lost track of whether I was logged in
+as me, su, sudo, postgres, etc. If you have problems installing, here is
+my best knowledge… After that go search the internet or documentation,
+don’t come to me to get postgres installed.</p>
 <p>On my amazon AMI server I used</p>
 <pre><code>sudo yum -y install postgresql postgresql-server postgresql-devel postgresql-contrib</code></pre>
-<p>My 64-bit machine worked fine, my 32-bit machine had issues. Nominally you need to: set a password for your postgres user (the user that runs the db) and initialize the database in PGDATA via</p>
+<p>My 64-bit machine worked fine, my 32-bit machine had issues.
+Nominally you need to: set a password for your postgres user (the user
+that runs the db) and initialize the database in PGDATA via</p>
 <pre><code>service postgresql initdb</code></pre>
 <p>or</p>
 <pre><code>su - postgresql
 initdb -D /var/lib/pgsql9/data/</code></pre>
-<p>Confirm there is now stuff installed in <code>/var/lib/pgsql9</code>. You may need to edit <code>/var/lib/pgsql9/pg_hba.conf</code> to change the local validation from peer to trust - e.g.</p>
+<p>Confirm there is now stuff installed in <code>/var/lib/pgsql9</code>.
+You may need to edit <code>/var/lib/pgsql9/pg_hba.conf</code> to change
+the local validation from peer to trust - e.g.</p>
 <pre><code>local all all trust</code></pre>
-<p>Sometimes it was already trust, and sometimes it was peer. On a 32-bit AMI I tried to lauch the postgres server but it wanted it to have been installed in <code>/var/lib/pgsql</code> for some reason. So I had to create a symbolic link to make it happy:</p>
+<p>Sometimes it was already trust, and sometimes it was peer. On a
+32-bit AMI I tried to lauch the postgres server but it wanted it to have
+been installed in <code>/var/lib/pgsql</code> for some reason. So I had
+to create a symbolic link to make it happy:</p>
 <pre><code>ln -s /var/lib/pgsql9 /var/lib/pgsql
 #2 launch the server via
 service postgresql start</code></pre>
@@ -215,9 +573,24 @@ pg_ctl start - starts server in background
 chkconfig postgresql on</code></pre>
 <p>You can confirm a server is running by typing</p>
 <pre><code>psql</code></pre>
-<p>which is a tool to log into the server. You may have to be logged in as postgres. There's a bunch more about setting up login passwords, etc. RTFM.</p>
-<h1 id="warnings-about-characters-from-a-user">WARNINGS about characters from a user:</h1>
-<p>Be careful about allowing the special characters / and  . It will likely break your CS database implementation if you are using Postgres. You can always use ^substitute to alter your input.</p>
-<p>The Postgres CS database schema definition for your user data field value is bytea and under the latest version of Postgres, the / and  are special characters that will not be saved in this field without escaping it. So, if you save the data and these special characters are within it, it will not save the data. You might not notice it, until you realize that your user data is not being saved. And to fix this, it is a rabbit hole for now. Best to just avoid it altogether, unless you have a solution. You will need to modify the Postgres cs code and database definition. I would stay away from using any reference of / and  in anything that might make it to your user files. Actually, I would scan all of your code and get rid of anything that uses these characters.</p>
+<p>which is a tool to log into the server. You may have to be logged in
+as postgres. There’s a bunch more about setting up login passwords, etc.
+RTFM.</p>
+<h1 id="warnings-about-characters-from-a-user">WARNINGS about characters
+from a user:</h1>
+<p>Be careful about allowing the special characters / and  . It will
+likely break your CS database implementation if you are using Postgres.
+You can always use ^substitute to alter your input.</p>
+<p>The Postgres CS database schema definition for your user data field
+value is bytea and under the latest version of Postgres, the / and  are
+special characters that will not be saved in this field without escaping
+it. So, if you save the data and these special characters are within it,
+it will not save the data. You might not notice it, until you realize
+that your user data is not being saved. And to fix this, it is a rabbit
+hole for now. Best to just avoid it altogether, unless you have a
+solution. You will need to modify the Postgres cs code and database
+definition. I would stay away from using any reference of / and  in
+anything that might make it to your user files. Actually, I would scan
+all of your code and get rid of anything that uses these characters.</p>
 </body>
 </html>

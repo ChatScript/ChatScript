@@ -1,0 +1,14 @@
+﻿~tech_corrections_prescan~1.18.0=NORELATED  #! not email releated ipad screen is black but i know it's on as I can talk to Siri
+~tech_corrections_prescan~1.20.0=NOTABRAND  #! It's not a Samsung it's an lg
+~tech_corrections_prescan~1.98.0  #! Sierra
+~tech_corrections_prescan~1.99.0=AMAZON  #! amazon
+~tech_corrections_prescan~1.100.0=NOTSHARP  #! sharp
+~tech_corrections_prescan~1.101.0=NOTMODEL  #! dont trust single letter (not digit) models
+~tech_corrections_prescan~1.102.0=RCA  #! rca jack
+~tech_corrections_prescan~1.103.0=CARBRAND  #! car electronics
+~tech_corrections_prescan~1.110.0=ERRORCODE  #! The error message says B200
+~tech_corrections_prescan~1.116.0  #! code 5F6 is not a model number
+~tech_corrections_prescan~1.117.0  #! --email----bodyguard_009@yahoo.com.  not a reference to email topic
+~tech_corrections_prescan~1.161.0  #! Its my Internet not on the phone  
+~tech_corrections_prescan~1.162.0=NOTAPPLE  #! its not apple
+~tech_corrections_prescan~1.164.0=NOTPRODUCT1  #! not a tv  - dont have a tv

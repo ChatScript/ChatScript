@@ -1,90 +1,324 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Advanced-Variable-Manual</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="chatscript-advanced-variable-manual">ChatScript Advanced Variable Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
+<h1 id="chatscript-advanced-variable-manual">ChatScript Advanced
+Variable Manual</h1>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com<br> <br>Revision 10/16/2022 cs12.3</p>
 <h1 id="advanced-variables">Advanced Variables</h1>
 <h2 id="local-variables">Local Variables</h2>
-<p>User variables <code>$xxx</code> and <code>$$xxx</code> are all global in scope.</p>
+<p>User variables <code>$xxx</code> and <code>$$xxx</code> are all
+global in scope.</p>
 <p>Anyone can access them to get or set them.</p>
-<p>But if you want to write safe code, you also want local variables that no one can access and ruin on you. <code>$_xxx</code> are local variables.</p>
-<p>When you use them inside an outputmacro or a topic, they only have meaning and access inside that code. No other code can see them. They can use the same variable name, and get their own local instance.</p>
-<p>Local variables always start out initialized to null. If you pass them to an outputmacro, unlike normal variables which are passed by reference (hence can be written upon if you use Indirection Variables below), local variables are passed by value. Their content is passed, so no one can touch the variable itself.</p>
-<p>Local variables used in a topic all remain accessible while in that topic. If you do <code>^gambit(~topic)</code> and then inside you do <code>^gambit(~)</code> or <code>^reuse(MYLABEL)</code>, you have not left the topic and so the variables remain intact. But if you call outside the topic, then a deeper call to the original topic sees new variables (just as a recursive call to an outputmacro would).</p>
-<p>Hence <code>^gambit(~mytopic)</code> which calls <code>^reuse(~histopic.label)</code> which then calls <code>^gambit(~mytopic)</code> will get two different instances of <code>~mytopic</code> and the variables separately handled by each.</p>
-<p>By definition, local variables are transient and do not get saved in a user's topic file.</p>
+<p>But if you want to write safe code, you also want local variables
+that no one can access and ruin on you. <code>$_xxx</code> are local
+variables.</p>
+<p>When you use them inside an outputmacro or a topic, they only have
+meaning and access inside that code. No other code can see them. They
+can use the same variable name, and get their own local instance.</p>
+<p>Local variables always start out initialized to null. If you pass
+them to an outputmacro, unlike normal variables which are passed by
+reference (hence can be written upon if you use Indirection Variables
+below), local variables are passed by value. Their content is passed, so
+no one can touch the variable itself.</p>
+<p>Local variables used in a topic all remain accessible while in that
+topic. If you do <code>^gambit(~topic)</code> and then inside you do
+<code>^gambit(~)</code> or <code>^reuse(MYLABEL)</code>, you have not
+left the topic and so the variables remain intact. But if you call
+outside the topic, then a deeper call to the original topic sees new
+variables (just as a recursive call to an outputmacro would).</p>
+<p>Hence <code>^gambit(~mytopic)</code> which calls
+<code>^reuse(~histopic.label)</code> which then calls
+<code>^gambit(~mytopic)</code> will get two different instances of
+<code>~mytopic</code> and the variables separately handled by each.</p>
+<p>By definition, local variables are transient and do not get saved in
+a user’s topic file.</p>
 <h2 id="indirection-variables">Indirection Variables</h2>
-<p>You can, of course, merely refer to a variable in a script to set or get its value. But suppose you wanted to associate a variable with every topic you have.</p>
-<p>Maybe when the user says <em>I'm bored</em> you want to leave a topic and not reopen it yourself for any near future (say 200 volleys).<br />
-In that case, you don't have a variable but you need to create one dynamically.</p>
+<p>You can, of course, merely refer to a variable in a script to set or
+get its value. But suppose you wanted to associate a variable with every
+topic you have.</p>
+<p>Maybe when the user says <em>I’m bored</em> you want to leave a topic
+and not reopen it yourself for any near future (say 200 volleys).<br />
+In that case, you don’t have a variable but you need to create one
+dynamically.</p>
 <pre><code>$$topicname = substitute(character %topic ~ &quot;&quot;)</code></pre>
-<p>The above gives you a topic name without the <code>~</code>. Pretend the current topic is <code>~washing</code>. Then you can create a dynamic variable name simply by using</p>
+<p>The above gives you a topic name without the <code>~</code>. Pretend
+the current topic is <code>~washing</code>. Then you can create a
+dynamic variable name simply by using</p>
 <pre><code>$$tmp = ^join($ $$topicname)</code></pre>
 <p>which would create the name $washing.</p>
-<p>Now suppose you wanted to set that variable to some number representing the turn after which you might return.</p>
+<p>Now suppose you wanted to set that variable to some number
+representing the turn after which you might return.</p>
 <pre><code>$$tmp = 25</code></pre>
-<p>doesn't work. It wipes out the <span class="math inline">$washing value of `$</span>$tmp<code>and replaces it with</code>25`.</p>
-<p>You can set indirectly through <code>$$tmp</code> using function notation <code>^$$tmp</code> The above says take the value of <code>$$tmp</code>, treat it as the name of a variable, and assign into it. Which means it does the equivalent of</p>
+<p>doesn’t work. It wipes out the <span class="math inline">$washing
+value of `$</span>$tmp<code>and replaces it with</code>25`.</p>
+<p>You can set indirectly through <code>$$tmp</code> using function
+notation <code>^$$tmp</code> The above says take the value of
+<code>$$tmp</code>, treat it as the name of a variable, and assign into
+it. Which means it does the equivalent of</p>
 <pre><code>$washing = 25</code></pre>
-<p>If you want to an indirect value back, you can't do:</p>
+<p>If you want to an indirect value back, you can’t do:</p>
 <pre><code>$$val = $$tmp</code></pre>
-<p>because that just passes the name of <code>$washing</code> over to <code>$$val</code>. Instead you do indirection again:</p>
+<p>because that just passes the name of <code>$washing</code> over to
+<code>$$val</code>. Instead you do indirection again:</p>
 <pre><code>$$val = ^$$tmp # $$val becomes 25</code></pre>
-<p>Indirection works with values that are user variables and with values that are match variables or quoted match variables.</p>
-<p>Many routines automatically evaluate a variable when using it as an argument, like <code>^gambit($$tmp)</code>. But if you want the value of the variable it represents, then you need to evaluate it another time.</p>
+<p>Indirection works with values that are user variables and with values
+that are match variables or quoted match variables.</p>
+<p>Many routines automatically evaluate a variable when using it as an
+argument, like <code>^gambit($$tmp)</code>. But if you want the value of
+the variable it represents, then you need to evaluate it another
+time.</p>
 <pre><code>$$tmp1 = ^$$tmp
 ^gambit($$tmp1)</code></pre>
 <p>Equivalently <code>^gambit(^$$tmp1)</code> is legal.</p>
-<p>Similarly, ^eval evaluates its argument, but if its argument is a variable whose value is the name of a variable, you just get back that name. If you want the value of that, you need to indirect again:</p>
+<p>Similarly, ^eval evaluates its argument, but if its argument is a
+variable whose value is the name of a variable, you just get back that
+name. If you want the value of that, you need to indirect again:</p>
 <pre><code>$nox = 1
 $$tmp = join($ no x)
 $$val = eval($$tmp) # returns $nox the name, not the value  1 
 $$val = eval(^$$tmp) # returns the value of the name content in $$tmp, i.e. 1</code></pre>
-<p>See also Indirect Pattern Elements in <a href="ChatScript-Pattern-Redux.html">ChatScript Pattern Redux</a> manual.</p>
+<p>See also Indirect Pattern Elements in <a
+href="ChatScript-Pattern-Redux.md">ChatScript Pattern Redux</a>
+manual.</p>
 <h2 id="indirect-function-calls">Indirect function calls</h2>
-<p>You can create a variable which is a function name, then make a call using it. It can only do runtime testing on the number of arguments you supply to the actual call.</p>
+<p>You can create a variable which is a function name, then make a call
+using it. It can only do runtime testing on the number of arguments you
+supply to the actual call.</p>
 <pre><code>    $_fn = ^join( ^testing  _ en_us)
     $_text = ^$_fn($_tmp)</code></pre>
-<h2 id="bot-variables-aka-server-variables">Bot variables (aka Server variables)</h2>
-<p>You can also define variables that are &quot;owned&quot; by the server. Any variables you create as part of layer 0 or layer 1 are always resident. As are any variables you define on the command line starting ChatScript or in cs_init.txt or cs_initmore.txt You can see them and even change them during a volley, but they will always refresh back to their original values at the start of the next volley.</p>
+<h2 id="bot-variables-aka-server-variables">Bot variables (aka Server
+variables)</h2>
+<p>You can also define variables that are “owned” by the server. Any
+variables you create as part of layer 0 or layer 1 are always resident.
+As are any variables you define on the command line starting ChatScript
+or in cs_init.txt or cs_initmore.txt You can see them and even change
+them during a volley, but they will always refresh back to their
+original values at the start of the next volley.</p>
 <h2 id="match-variables">Match Variables</h2>
-<p>Match variables like <code>_5</code> are generally the result of using an underscore in a pattern match. Match variables hold 3 pieces of data</p>
+<p>Match variables like <code>_5</code> are generally the result of
+using an underscore in a pattern match. Match variables hold 3 pieces of
+data</p>
 <ul>
 <li>original word(s)</li>
 <li>canonical word(s)</li>
 <li>position, range location of the word(s).</li>
 </ul>
-<p>You can transfer part of Assigning match variables to user variables:</p>
+<p>You can transfer part of Assigning match variables to user
+variables:</p>
 <pre><code>$$stuff = _0</code></pre>
-<p>but user variables only have a single piece of data. So on assignment you lose 2 of the 3 pieces from the match variable. You can choose which words (original or canonical) when you assign.</p>
+<p>but user variables only have a single piece of data. So on assignment
+you lose 2 of the 3 pieces from the match variable. You can choose which
+words (original or canonical) when you assign.</p>
 <pre><code>$$stuff = &#39;_0 #  original words</code></pre>
-<p>You can store positional data onto a different variable using <code>^position(start _0)</code> or</p>
+<p>You can store positional data onto a different variable using
+<code>^position(start _0)</code> or</p>
 <pre><code>    ^position(end _0).
     _0 = $$stuff</code></pre>
-<p>When you assign onto a match variable from a user variable, you make both original and canonical values of the match variable the same, and the positional data is set to 0.</p>
+<p>When you assign onto a match variable from a user variable, you make
+both original and canonical values of the match variable the same, and
+the positional data is set to 0.</p>
 <pre><code>    _0 = _10</code></pre>
-<p>This is a transfer from one match variable to another, so no data is lost.</p>
-<p>One unusual property of match variables is that they are not cleared between volleys. This makes them the ONLY way you can pass data between volleys on a server where different users are involved.</p>
+<p>This is a transfer from one match variable to another, so no data is
+lost.</p>
+<p>One unusual property of match variables is that they are not cleared
+between volleys. This makes them the ONLY way you can pass data between
+volleys on a server where different users are involved.</p>
 <p>Note: Match variables have a 20,000 character limit.</p>
-<h2 id="json-dotted-notation-for-variables">JSON dotted notation for variables</h2>
-<p>If a variable holds a JSON object value, you can directly set and get from fields of that object using dotted notation.</p>
-<p>This can be a fixed static fieldname or a variable value- <code>$myvar.$myfield</code> is legal.</p>
-<p>Dotted notation is cleaner and faster than <code>^jsonpath</code> and <code>jsonobjectinsert</code> and for get, has the advantage that it never fails, it only returns null if it can't find the field. On the other hand, assignment fails if the path does not contain a json object at some level.</p>
+<h2 id="json-dotted-notation-for-variables">JSON dotted notation for
+variables</h2>
+<p>If a variable holds a JSON object value, you can directly set and get
+from fields of that object using dotted notation.</p>
+<p>This can be a fixed static fieldname or a variable value-
+<code>$myvar.$myfield</code> is legal.</p>
+<p>Dotted notation is cleaner and faster than <code>^jsonpath</code> and
+<code>jsonobjectinsert</code> and for get, has the advantage that it
+never fails, it only returns null if it can’t find the field. On the
+other hand, assignment fails if the path does not contain a json object
+at some level.</p>
 <pre><code>$x = $$$obj.name.value.data.side 
 $$$obj.name.value.data.side = 7</code></pre>
-<p>Assigning <code>null</code> will remove a JSON key entirely. Assigning <code>&quot;&quot;</code> <code>^&quot;&quot;</code> will set the field to the JSON literal <code>null</code>.</p>
-<h2 id="fact-dotted-notation-for-variables">Fact dotted notation for variables</h2>
+<p>Assigning <code>null</code> will remove a JSON key entirely.
+Assigning <code>""</code> <code>^""</code> will set the field to the
+JSON literal <code>null</code>.</p>
+<h2 id="fact-dotted-notation-for-variables">Fact dotted notation for
+variables</h2>
 <p>If <code>$$f</code> holds a fact id, then</p>
 <pre><code>$$f.subject
 $$f.verb
 $$f.object</code></pre>
-<p>will return those components. You may NOT, however, assign into them.</p>
+<p>will return those components. You may NOT, however, assign into
+them.</p>
 </body>
 </html>

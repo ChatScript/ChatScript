@@ -1,0 +1,5 @@
+﻿~legal_family_glean.26.0=DEAD  #! the_mother_of_his_15_year_old_son died
+~legal_family_glean.27.0=DEAD  #! my deceased parent
+~legal_family_glean.28.0=DECEASED2  #! my mother died
+~legal_family_glean.29.0=DECEASED  #! my mother died
+~legal_family_glean.30.0=DECEASED1  #! partner was recently killed 

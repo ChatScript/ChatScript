@@ -1,0 +1,27 @@
+﻿    ~xquestion.1.7  #! never can I go home
+    ~xquestion.1.8  #! when I x, y
+    ~xquestion.1.14  #! blessed are
+    ~xquestion.1.18  #! What a beautiful day
+    ~xquestion.1.19  #! be dark
+    ~xquestion.2.4  #! when I x, y
+    ~xquestion.2.7  #! I wonder if
+    ~xquestion.2.9  #! guess how old I am
+    ~xquestion.2.10  #! Perhaps you can tell us
+    ~xquestion.2.11  #! would you eat
+    ~xquestion.2.12  #!!P if I died would you care
+    ~xquestion.2.13  #! where
+    ~xquestion.2.14  #! on a scale from 1 to 10 how old are you
+    ~xquestion.2.15  #! how are you
+    ~xquestion.2.16  #! What are birds
+    ~xquestion.2.16  #! What kind of man are you
+    ~xquestion.2.17  #! Have you seen a poem
+    ~xquestion.2.17  #! Would the man go home soon
+    ~xquestion.2.18  #! solve for a
+    ~xquestion.2.19  #! what famous person would you like to meet
+    ~xquestion.2.20  #! please Tell me about birds.
+    ~xquestion.2.21  #! name a poet
+    ~xquestion.2.22  #! French is the language of what country
+    ~xquestion.2.23  #! Joan is married to whom
+    ~xquestion.2.24  #! John was born when
+    ~xquestion.2.25  #!!B Tell me about sex
+    ~xquestion.2.26  #! the moon is what shape?

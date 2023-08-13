@@ -460,6 +460,7 @@ bool SpellCheckSentence()
 	bool isEnglish = (!stricmp(current_language, "english") ? true : false);
     bool isGerman = (!stricmp(current_language, "german") ? true : false);
 	bool isSpanish = (!stricmp(current_language, "spanish") ? true : false);
+	bool isFilipino = (!stricmp(current_language, "filipino") ? true : false);
 
 	unsigned int startWord = FindOOBEnd(1);
 	unsigned int i;
@@ -528,6 +529,25 @@ bool SpellCheckSentence()
 				continue;
 			}
 		}
+
+
+		// filipino conjugated word?
+		if (isFilipino)
+		{
+			WORDP entry, canonical = NULL;
+			uint64 sysflags = 0;
+			uint64 properties = ComputeFilipino(i, word, entry, canonical, sysflags);
+			if (properties) // we figured it out as a conjugation of a verb, noun, or adjective
+			{
+				if (entry && strcmp(word, entry->word)) // changed ?
+				{
+					tokens[1] = entry->word;
+					fixedSpell = ReplaceWords("filipino word  change", i, 1, 1, tokens);
+				}
+				continue;
+			}
+		}
+
 		char bigword[3 * MAX_WORD_SIZE]; // allows join of 2 words
 		if (spellTrace)
 		{

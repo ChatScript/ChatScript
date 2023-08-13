@@ -12,8 +12,8 @@
 bool SUPERCEDED(WORDP D);
 #define ALL_OBJECTS ( MAINOBJECT | MAININDIRECTOBJECT | OBJECT2 | INDIRECTOBJECT2 )
 #define SUBSTITUTE_SEPARATOR '|'
-#define CHECKSTAMP 17  // binary version id  - affects dict*.bin, TOPIC (bin)
-#define CHECKSTAMPRAW 2  // if compile output format changes source version id  - affects  TOPIC (*.txt)
+#define CHECKSTAMP 18  // binary version id  - affects dict*.bin, TOPIC (bin)
+#define CHECKSTAMPRAW 3  // if compile output format changes source version id  - affects  TOPIC (*.txt)
 #define GET_LANGUAGE_INDEX(D)  ((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT)
 #define GET_FOREIGN_INDEX(D)  (((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT) - 1)
 #define GET_LANGUAGE_INDEX_OR_UNIVERSAL(D)  ((D->internalBits & UNIVERSAL_WORD) ? 0 : ((D->internalBits & LANGUAGE_BITS) >> LANGUAGE_SHIFT))
@@ -195,6 +195,8 @@ void UnlockLayer(int layer);
 void WriteDictDetailsBeforeLayer(int layer);
 WORDP GetLanguageWord(WORDP word);
 char* GetWord(char* word);
+extern bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
+
 WORDP GetPlural(WORDP D);
 bool IsValidLanguage(WORDP D);
 bool SetLanguage(char* arg1);
@@ -287,8 +289,8 @@ WORDP StoreIntWord(int);
 void ClearHeapThreads();
 void ClearWordMaps();
 bool TraceHierarchyTest(int x);
-WORDP MakeLanguageWord(const char* word);
-WORDP FindOrMakeWord(const char* word);
+WORDP GetLanguageWord(const char* word);
+WORDP GetLanguageWord(const char* word);
 WORDP StoreWord(const char* word, uint64 properties = 0);
 WORDP StoreFlaggedWord(const char* word, uint64 properties, uint64 flags);
 WORDP FindWord(const char* word, unsigned int len = 0,uint64 caseAllowed = STANDARD_LOOKUP,bool exact = false,bool underscorespaceequivalent = false);

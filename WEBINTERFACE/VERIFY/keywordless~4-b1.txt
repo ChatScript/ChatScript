@@ -1,0 +1,54 @@
+﻿~keywordless~4.0.0=COMPLIMENT  #! aren't you sweet?
+~keywordless~4.1.0  #! you are sweet
+~keywordless~4.2.0  #! aren't you ugly?
+~keywordless~4.3.0  #! you didnt answer my question
+~keywordless~4.4.0  #! what have you used the experts for
+~keywordless~4.5.0  #! What car do you drive/have/own?
+~keywordless~4.6.0  #! What's wrong with your car?
+~keywordless~4.7.0  #! Do you trust the experts?
+~keywordless~4.8.0  #! Have you had my problem with your car?
+    ~keywordless~4.8.1  #! What?
+~keywordless~4.9.0  #! I already included that information in my question
+~keywordless~4.10.0  #! Happy Holidays! 
+~keywordless~4.11.0  #! Did you see the movie 
+~keywordless~4.12.0  #! Are you watching the Super Bowl
+~keywordless~4.13.0  #! not going to tell you
+~keywordless~4.14.0=NONAME  #! doesn't have a name
+~keywordless~4.15.0  #! I have not named it yet
+~keywordless~4.16.0  #! I don't think u r real
+~keywordless~4.17.0  #! You think it's worrying?
+~keywordless~4.18.0  #! are you a vet?
+~keywordless~4.19.0  #! why do you ask?
+~keywordless~4.20.0  #! huh?
+~keywordless~4.21.0  #! i'm disappointed with your service
+~keywordless~4.22.0  #! can i talk to your manager?
+~keywordless~4.23.0  #! what's your manager's name? 
+~keywordless~4.24.0  #! who is Andy
+~keywordless~4.25.0  #! Is this all confidential
+~keywordless~4.26.0  #! how do i talk to a real person?
+    ~keywordless~4.26.1  #! yes
+~keywordless~4.27.0  #! Does the Vet take my insurance?
+~keywordless~4.28.0=WAIT  #! can i talk to a vet now?
+~keywordless~4.29.0  #! how long is the queue
+~keywordless~4.30.0  #! how long will it be
+~keywordless~4.31.0  #! when will it be my turn?
+~keywordless~4.32.0  #! when can i get help
+~keywordless~4.33.0  #! how much longer until i talk to a vet?
+~keywordless~4.34.0  #! how long is the wait
+~keywordless~4.35.0  #! What is your job? 
+~keywordless~4.36.0  #! is this a real person
+~keywordless~4.37.0  #! Her name isn't shet
+    ~keywordless~4.37.1  #! spot
+    ~keywordless~4.37.2  #! Cindy
+~keywordless~4.38.0  #! Is the Vet good?
+~keywordless~4.39.0  #! Who is the Vet
+~keywordless~4.40.0  #! Who are you?
+~keywordless~4.41.0  #! Can we talk about my cat?
+~keywordless~4.42.0  #! Where do you work?
+~keywordless~4.43.0  #! who is your boss
+~keywordless~4.44.0  #! who is Jamie Kurtzig
+~keywordless~4.45.0  #! who is Kelly Kurtzig
+~keywordless~4.46.0  #! who is Kai Kurtzig
+~keywordless~4.47.0  #! who is Sara Kurtzig
+~keywordless~4.48.0  #! do you like your boss
+~keywordless~4.49.0  #! do you work from home?

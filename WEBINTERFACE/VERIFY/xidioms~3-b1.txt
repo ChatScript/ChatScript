@@ -1,0 +1,19 @@
+﻿~xidioms~3.1.0  #! yes
+~xidioms~3.2.0  #! So how are you finding today?
+~xidioms~3.3.0  #! I need to go home
+~xidioms~3.4.0  #! leaving now     
+~xidioms~3.5.0  #! time I finished up here
+~xidioms~3.6.0  #! we are finished chatting
+~xidioms~3.7.0  #! our chat is over
+~xidioms~3.8.0  #! we have chatted for long enough now 
+~xidioms~3.9.0  #! nice to have met you
+~xidioms~3.10.0  #! time's up
+~xidioms~3.11.0  #! finish up now
+~xidioms~3.12.0  #! time to stop
+~xidioms~3.13.0  #! out of time
+~xidioms~3.14.0  #! this is the end of our chat     
+~xidioms~3.15.0  #! This conversation is over.      
+~xidioms~3.16.0  #! What are you talking about?  
+~xidioms~3.17.0  #! texting r
+~xidioms~3.18.0  #! texting u
+~xidioms~3.19.0  #! I

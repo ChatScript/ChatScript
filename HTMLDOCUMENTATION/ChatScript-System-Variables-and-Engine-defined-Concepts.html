@@ -1,27 +1,204 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-System-Variables-and-Engine-defined-Concepts</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="chatscript-system-variables-and-engine-defined-concepts">ChatScript System Variables and Engine-defined Concepts</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
+<h1
+id="chatscript-system-variables-and-engine-defined-concepts">ChatScript
+System Variables and Engine-defined Concepts</h1>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined Concepts</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System Variables</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#control-over-input">Control over Input</a></li>
-<li><a href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#interchange-variables">Interchange Variables</a></li>
+<li><a
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts">Engine-defined
+Concepts</a></li>
+<li><a
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables">System
+Variables</a></li>
+<li><a
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#control-over-input">Control
+over Input</a></li>
+<li><a
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#interchange-variables">Interchange
+Variables</a></li>
 </ul>
 <h1 id="engine-defined-concepts">Engine-defined concepts</h1>
-<p>In addition to concepts defined in script files, the system automatically defines a bunch of dictionary-based sets as well as dynamically computed concept members.</p>
-<table style="width:67%;">
+<p>In addition to concepts defined in script files, the system
+automatically defines a bunch of dictionary-based sets as well as
+dynamically computed concept members.</p>
+<table>
 <colgroup>
-<col width="23%" />
-<col width="43%" />
+<col style="width: 34%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -52,7 +229,8 @@
 </tr>
 <tr class="even">
 <td><code>~grade_5-6</code></td>
-<td>word learned in these grades. Unmarked words are learned even later</td>
+<td>word learned in these grades. Unmarked words are learned even
+later</td>
 </tr>
 <tr class="odd">
 <td><code>~utf8</code></td>
@@ -92,14 +270,28 @@
 </tr>
 </tbody>
 </table>
-<h2 id="interjections-discourse-acts-and-concept-sets">Interjections, &quot;discourse acts&quot;, and concept sets</h2>
-<p>Some words and phrases have interpretations based on whether they are at sentence start or not. E.g., <em>good day, mate</em> and <em>It is a good day</em> are different for <em>good day</em>.</p>
+<h2 id="interjections-discourse-acts-and-concept-sets">Interjections,
+“discourse acts”, and concept sets</h2>
+<p>Some words and phrases have interpretations based on whether they are
+at sentence start or not. E.g., <em>good day, mate</em> and <em>It is a
+good day</em> are different for <em>good day</em>.</p>
 <p>Likewise <em>sure</em> and <em>I am sure</em> are different.</p>
-<p>Words that have a different meaning at the start of a sentence are commonly called interjections.</p>
-<p>In ChatScript these are defined by the <code>livedata/interjections.txt</code> file. In addition, the file augments this concept with &quot;discourse acts&quot;, phrases that are like an interjection. All interjections and discourse acts map to concept sets, which come thru as the user input instead of what they wrote.</p>
-<p>For example <em>yes</em> and <em>sure</em> and <em>of course</em> are all treated as meaning the discourse act of agreement in the interjections file. So you don’t see <em>yes, I will go</em> coming out of the engine.</p>
-<p>The interjections file will remap that to the sentence <code>~yes</code>, breaking off that into its own sentence, followed by <em>I will go</em> as a new sentence.</p>
-<p>These generic interjections (which are open to author control via interjections.txt) are:</p>
+<p>Words that have a different meaning at the start of a sentence are
+commonly called interjections.</p>
+<p>In ChatScript these are defined by the
+<code>livedata/interjections.txt</code> file. In addition, the file
+augments this concept with “discourse acts”, phrases that are like an
+interjection. All interjections and discourse acts map to concept sets,
+which come thru as the user input instead of what they wrote.</p>
+<p>For example <em>yes</em> and <em>sure</em> and <em>of course</em> are
+all treated as meaning the discourse act of agreement in the
+interjections file. So you don’t see <em>yes, I will go</em> coming out
+of the engine.</p>
+<p>The interjections file will remap that to the sentence
+<code>~yes</code>, breaking off that into its own sentence, followed by
+<em>I will go</em> as a new sentence.</p>
+<p>These generic interjections (which are open to author control via
+interjections.txt) are:</p>
 <table>
 <thead>
 <tr class="header">
@@ -202,11 +394,18 @@
 </tr>
 </tbody>
 </table>
-<p>Because all interjections at the start of a sentence are broken off into their own sentence, this kind of pattern does not work:</p>
+<p>Because all interjections at the start of a sentence are broken off
+into their own sentence, this kind of pattern does not work:</p>
 <pre><code>u: (~yes _*)</code></pre>
-<p>You cannot capture the rest of the sentence here, because it will be part of the next sentence instead. This means interjections act somewhat differently from other concepts.</p>
-<p>If you use a word in a pattern which may get remapped on input, the script compiler will issue a warning. Likely you should use the remapped name instead.</p>
-<p>The following concepts are triggered by exactly repeating either the chatbot or oneself (to a repeat count of how often repeated). Repeats are within a recency window of about 20 volleys.</p>
+<p>You cannot capture the rest of the sentence here, because it will be
+part of the next sentence instead. This means interjections act somewhat
+differently from other concepts.</p>
+<p>If you use a word in a pattern which may get remapped on input, the
+script compiler will issue a warning. Likely you should use the remapped
+name instead.</p>
+<p>The following concepts are triggered by exactly repeating either the
+chatbot or oneself (to a repeat count of how often repeated). Repeats
+are within a recency window of about 20 volleys.</p>
 <table>
 <thead>
 <tr class="header">
@@ -246,7 +445,9 @@
 </tbody>
 </table>
 <h2 id="pos-part-of-speech-tags">POS (Part of Speech) Tags</h2>
-<p>Words will have pos-tags attached, specififying both generic and specific tag attributes, eg., <code>~noun</code>, <code>~noun_singular</code>.</p>
+<p>Words will have pos-tags attached, specififying both generic and
+specific tag attributes, eg., <code>~noun</code>,
+<code>~noun_singular</code>.</p>
 <h3 id="generic-specifics">Generic Specifics</h3>
 <table>
 <thead>
@@ -364,7 +565,10 @@
 </tr>
 </tbody>
 </table>
-<p>Auxilliary verbs are segmented into normal ones and special ones. Normal ones give their tense directly. Special ones give their root word. The tense of the be/have/do verbs can be had via <code>^properties()</code> and testing for verb tenses</p>
+<p>Auxilliary verbs are segmented into normal ones and special ones.
+Normal ones give their tense directly. Special ones give their root
+word. The tense of the be/have/do verbs can be had via
+<code>^properties()</code> and testing for verb tenses</p>
 <table>
 <thead>
 <tr class="header">
@@ -418,6 +622,10 @@
 </tbody>
 </table>
 <table>
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 31%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>adverbs in comparative form</th>
@@ -443,11 +651,11 @@
 </tr>
 <tr class="odd">
 <td><code>~possessive</code></td>
-<td>covers <em>'</em> and <em>'s</em> at end of word</td>
+<td>covers <em>’</em> and <em>’s</em> at end of word</td>
 </tr>
 <tr class="even">
 <td><code>~to_infinitive</code></td>
-<td>&quot;to&quot; when used before a noun infinitive</td>
+<td>“to” when used before a noun infinitive</td>
 </tr>
 <tr class="odd">
 <td><code>~preposition</code><br><code>~particle</code></td>
@@ -459,7 +667,7 @@
 </tr>
 <tr class="odd">
 <td><code>~quote</code></td>
-<td>covers <em>'</em> and <em>&quot;</em> when not embedded in a word</td>
+<td>covers <em>’</em> and <em>“</em> when not embedded in a word</td>
 </tr>
 <tr class="even">
 <td><code>~paren</code></td>
@@ -475,11 +683,13 @@
 </tr>
 </tbody>
 </table>
-<p>In addition to normal generic kinds of pos tags, words which are serving a pos-tag role different from their putative word type are marked as members of the major tag they act as part of. E.g,</p>
-<table style="width:64%;">
+<p>In addition to normal generic kinds of pos tags, words which are
+serving a pos-tag role different from their putative word type are
+marked as members of the major tag they act as part of. E.g,</p>
+<table>
 <colgroup>
-<col width="43%" />
-<col width="20%" />
+<col style="width: 68%" />
+<col style="width: 31%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -498,11 +708,12 @@
 </tr>
 <tr class="odd">
 <td><code>~noun_omitted_adjective</code></td>
-<td>an adjective used as a collective noun (eg <em>the beautiful are kind</em>)</td>
+<td>an adjective used as a collective noun (eg <em>the beautiful are
+kind</em>)</td>
 </tr>
 <tr class="even">
 <td><code>~adjectival_noun</code></td>
-<td>noun used as adjective like bank &quot;bank teller&quot;</td>
+<td>noun used as adjective like bank “bank teller”</td>
 </tr>
 <tr class="odd">
 <td><code>~adjective_participle</code></td>
@@ -510,12 +721,16 @@
 </tr>
 </tbody>
 </table>
-<p>For <code>~noun_gerund</code> in <em>I like swimming</em> the verb gerund <em>swimming</em> is treated as a noun (hence called noun-gerund) but retains verb sense when matching keywords tagged with part-of-speech (i.e., it would match <code>swim~v</code> as well as <code>swim~n</code>).</p>
+<p>For <code>~noun_gerund</code> in <em>I like swimming</em> the verb
+gerund <em>swimming</em> is treated as a noun (hence called noun-gerund)
+but retains verb sense when matching keywords tagged with part-of-speech
+(i.e., it would match <code>swim~v</code> as well as
+<code>swim~n</code>).</p>
 <p>Additionally, there is</p>
-<table style="width:53%;">
+<table>
 <colgroup>
-<col width="31%" />
-<col width="20%" />
+<col style="width: 61%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -526,11 +741,14 @@
 <tbody>
 <tr class="odd">
 <td><code>~number</code></td>
-<td>is not a part of speech, but is comprise of <code>~noun_number</code> (a normal number value like <em>17</em> or <em>seventeen</em>)</td>
+<td>is not a part of speech, but is comprise of
+<code>~noun_number</code> (a normal number value like <em>17</em> or
+<em>seventeen</em>)</td>
 </tr>
 <tr class="even">
 <td><code>~adjective_number</code></td>
-<td>also a normal numeral value and also <code>~placenumber</code>) like <em>first</em>.</td>
+<td>also a normal numeral value and also <code>~placenumber</code>) like
+<em>first</em>.</td>
 </tr>
 <tr class="odd">
 <td><code>~integer</code></td>
@@ -574,11 +792,13 @@
 </tr>
 </tbody>
 </table>
-<p>&quot;To&quot; can be a preposition or it can be special. When used in the infinitive phrase To go, it is marked <code>~to_infinitive</code> and is followed by <code>~noun_infinitive</code>.</p>
-<table style="width:53%;">
+<p>“To” can be a preposition or it can be special. When used in the
+infinitive phrase To go, it is marked <code>~to_infinitive</code> and is
+followed by <code>~noun_infinitive</code>.</p>
+<table>
 <colgroup>
-<col width="31%" />
-<col width="20%" />
+<col style="width: 61%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -589,19 +809,28 @@
 <tbody>
 <tr class="odd">
 <td><code>~verb_infinitive</code></td>
-<td>refers to a match on the infinitive form of the verb (<em>I hear John sing</em> or <em>I will sing</em>).</td>
+<td>refers to a match on the infinitive form of the verb (<em>I hear
+John sing</em> or <em>I will sing</em>).</td>
 </tr>
 <tr class="even">
 <td><code>~There_existential</code></td>
-<td>refers to the use of where not involving location, meaning the existence of, as in There is no future.</td>
+<td>refers to the use of where not involving location, meaning the
+existence of, as in There is no future.</td>
 </tr>
 <tr class="odd">
 <td><code>~Particle</code></td>
-<td>refers to a preposition piece of a compound verb idiom which allows being separated from the verb. If you say <em>I will call off the meeting</em>, call_off is the composite verb and is a single token. But if you split it as in <em>I will call the meeting off</em>, then there are two tokens. The original form of the verb will be call and the canonical form of the verb will be call_off, while the free-standing off will be labeled <code>~particle</code>.</td>
+<td>refers to a preposition piece of a compound verb idiom which allows
+being separated from the verb. If you say <em>I will call off the
+meeting</em>, call_off is the composite verb and is a single token. But
+if you split it as in <em>I will call the meeting off</em>, then there
+are two tokens. The original form of the verb will be call and the
+canonical form of the verb will be call_off, while the free-standing off
+will be labeled <code>~particle</code>.</td>
 </tr>
 <tr class="even">
 <td><code>~verb_present</code></td>
-<td>will be used for normal present verbs not in third person singular like <em>I walk</em> and</td>
+<td>will be used for normal present verbs not in third person singular
+like <em>I walk</em> and</td>
 </tr>
 <tr class="odd">
 <td><code>~verb_present_3ps</code></td>
@@ -609,7 +838,9 @@
 </tr>
 <tr class="even">
 <td><code>~possesive</code></td>
-<td>refers to <em>‘s</em> and <em>‘</em> that indicate possession, while possessive pronouns get their own labeling <code>~pronoun_possessive</code>.</td>
+<td>refers to <em>’s</em> and <em>’</em> that indicate possession, while
+possessive pronouns get their own labeling
+<code>~pronoun_possessive</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>~pronoun_subject</code></td>
@@ -621,11 +852,12 @@
 </tr>
 </tbody>
 </table>
-<p>Individual words serve roles in the parse of a sentence, which are retrievable. These include:</p>
-<table style="width:53%;">
+<p>Individual words serve roles in the parse of a sentence, which are
+retrievable. These include:</p>
+<table>
 <colgroup>
-<col width="31%" />
-<col width="20%" />
+<col style="width: 61%" />
+<col style="width: 38%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -672,7 +904,8 @@
 </tr>
 <tr class="even">
 <td><code>~object_complement</code></td>
-<td>2ndary noun or infinitive verb filling modifying mainobject or object2</td>
+<td>2ndary noun or infinitive verb filling modifying mainobject or
+object2</td>
 </tr>
 <tr class="odd">
 <td><code>~conjunct_noun</code><br><code>~conjunct_verb</code><br><code>~conjunct_adjective</code><br><code>~conjunct_adverb</code><br><code>~conjunct_phrase</code><br><code>~conjunct_clause</code><br><code>~conjunct_sentence</code></td>
@@ -704,7 +937,8 @@
 </tr>
 <tr class="even">
 <td><code>~omittedtimeprep</code></td>
-<td>modified time word used as phrase but lacking preposition (<em>Next tuesday I will go</em>)</td>
+<td>modified time word used as phrase but lacking preposition (<em>Next
+tuesday I will go</em>)</td>
 </tr>
 <tr class="odd">
 <td><code>~phrase</code></td>
@@ -720,16 +954,29 @@
 </tr>
 </tbody>
 </table>
-<p>and special concepts: | <code>~capacronym</code> | word is in all caps (and &amp;) and is likely an acronym | <code>~emoji</code> | word starts and end with : and represents an emoji</p>
+<p>and special concepts: | <code>~capacronym</code> | word is in all
+caps (and &amp;) and is likely an acronym | <code>~emoji</code> | word
+starts and end with : and represents an emoji</p>
 <h2 id="spanish">Spanish</h2>
-<p>For Spanish (if you are in spanish language mode) there is ~spanish_he, ~spanish_she, ~spanish_singular, ~spanish_plural for nouns and adjectives and determiner 'the'. Pronouns will be marked with ~pronoun_object_singular or ~pronoun_object_plural or ~pronoun_object_you. Also ~pronoun_indirectobject_singular and ~pronoun_indirectobject_plural and ~pronoun_indirectobject_you. Also ~pronoun_I and ~pronoun_you. And simple future tense verbs will be marked ~spanish_future.</p>
+<p>For Spanish (if you are in spanish language mode) there is
+~spanish_he, ~spanish_she, ~spanish_singular, ~spanish_plural for nouns
+and adjectives and determiner ‘the’. Pronouns will be marked with
+~pronoun_object_singular or ~pronoun_object_plural or
+~pronoun_object_you. Also ~pronoun_indirectobject_singular and
+~pronoun_indirectobject_plural and ~pronoun_indirectobject_you. Also
+~pronoun_I and ~pronoun_you. And simple future tense verbs will be
+marked ~spanish_future.</p>
 <h1 id="system-variables">System Variables</h1>
-<p>The system has some predefined variables which you can generally test and use but not normally assign to. These all begin with <code>%</code> . Ones that are reasonable to set are written in bold underline. Boolean values are always <code>1</code> or <code>null</code> on returns. <code>1</code> or <code>0</code> if you are setting them.</p>
+<p>The system has some predefined variables which you can generally test
+and use but not normally assign to. These all begin with <code>%</code>
+. Ones that are reasonable to set are written in bold underline. Boolean
+values are always <code>1</code> or <code>null</code> on returns.
+<code>1</code> or <code>0</code> if you are setting them.</p>
 <h2 id="date-time-numbers">Date &amp; Time &amp; Numbers</h2>
-<table style="width:78%;">
+<table>
 <colgroup>
-<col width="12%" />
-<col width="65%" />
+<col style="width: 14%" />
+<col style="width: 85%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -752,7 +999,8 @@
 </tr>
 <tr class="even">
 <td><code>%fulltime</code></td>
-<td>seconds representing the current time and date (Unix epoch time)</td>
+<td>seconds representing the current time and date (Unix epoch
+time)</td>
 </tr>
 <tr class="odd">
 <td><code>%fullmstime</code></td>
@@ -764,7 +1012,15 @@
 </tr>
 <tr class="odd">
 <td><code>%timenumbers</code></td>
-<td>completely consistent full time info in numbers that you can do <br><code>_0 = ^burst(%timenumbers)</code>to get <code>_0</code> =seconds (2digit) <br><code>_1</code>=minutes (2digit) <br><code>_2</code>=hours (2digit) <br><code>_3</code>=dayinweek(0-6 Sunday=0) <br><code>_4</code>=dateinmonth (1-31) <br><code>_5</code>=month(0-11 January=0) <br><code>_6</code>=year.<br>You need to get it simultaneously if you want to do accurate things with current time, since retrieving %hour %minute separately allows time to change between calls</td>
+<td>completely consistent full time info in numbers that you can do
+<br><code>_0 = ^burst(%timenumbers)</code>to get <code>_0</code>
+=seconds (2digit) <br><code>_1</code>=minutes (2digit)
+<br><code>_2</code>=hours (2digit) <br><code>_3</code>=dayinweek(0-6
+Sunday=0) <br><code>_4</code>=dateinmonth (1-31)
+<br><code>_5</code>=month(0-11 January=0)
+<br><code>_6</code>=year.<br>You need to get it simultaneously if you
+want to do accurate things with current time, since retrieving %hour
+%minute separately allows time to change between calls</td>
 </tr>
 <tr class="even">
 <td><code>%leapyear</code></td>
@@ -816,13 +1072,19 @@
 </tr>
 </tbody>
 </table>
-<p>Time and date information are normally local, relative to the system clock of the machine CS is running on. See $cs_utcoffset for adjusting time based on relationship to utc (e.g your server is in Virginia and you are in Colorado).</p>
-<p>%rand is only pseudo-random. A specific username is assigned a seed based on their name. Thereafter the seed evolves by the dialog but it is repeatable when the same user starts over again. If you want truly random, use %fullmstime % $howmany to get range 0 .. $howmany-1</p>
+<p>Time and date information are normally local, relative to the system
+clock of the machine CS is running on. See $cs_utcoffset for adjusting
+time based on relationship to utc (e.g your server is in Virginia and
+you are in Colorado).</p>
+<p>%rand is only pseudo-random. A specific username is assigned a seed
+based on their name. Thereafter the seed evolves by the dialog but it is
+repeatable when the same user starts over again. If you want truly
+random, use %fullmstime % $howmany to get range 0 .. $howmany-1</p>
 <h2 id="user-input">User Input</h2>
-<table style="width:39%;">
+<table>
 <colgroup>
-<col width="27%" />
-<col width="11%" />
+<col style="width: 73%" />
+<col style="width: 26%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -837,7 +1099,8 @@
 </tr>
 <tr class="even">
 <td><code>%revisedinput</code></td>
-<td>Boolean is current input from <code>^input</code> not direct from user</td>
+<td>Boolean is current input from <code>^input</code> not direct from
+user</td>
 </tr>
 <tr class="odd">
 <td><code>%command</code></td>
@@ -853,7 +1116,8 @@
 </tr>
 <tr class="even">
 <td><code>%impliedsubject</code></td>
-<td>Boolean was the user input having an implied subject (not you, usually I)</td>
+<td>Boolean was the user input having an implied subject (not you,
+usually I)</td>
 </tr>
 <tr class="odd">
 <td><code>%input</code></td>
@@ -861,7 +1125,8 @@
 </tr>
 <tr class="even">
 <td><code>%volley</code></td>
-<td>sae as %input, the count of the number of volleys this user has made ever</td>
+<td>sae as %input, the count of the number of volleys this user has made
+ever</td>
 </tr>
 <tr class="odd">
 <td><code>%ip</code></td>
@@ -885,15 +1150,18 @@
 </tr>
 <tr class="even">
 <td><code>%morequestion</code></td>
-<td>Boolean is there a <code>?</code> or question word in the pending sentences</td>
+<td>Boolean is there a <code>?</code> or question word in the pending
+sentences</td>
 </tr>
 <tr class="odd">
 <td><code>%originalinput</code></td>
-<td>all sentences user passed into volley, before adjusted in any way except OOB data is stripped off</td>
+<td>all sentences user passed into volley, before adjusted in any way
+except OOB data is stripped off</td>
 </tr>
 <tr class="even">
 <td><code>%originalsentence</code></td>
-<td>the current sentence after tokenization but before any adjustments</td>
+<td>the current sentence after tokenization but before any
+adjustments</td>
 </tr>
 <tr class="odd">
 <td><code>%parsed</code></td>
@@ -901,7 +1169,8 @@
 </tr>
 <tr class="even">
 <td><code>%question</code></td>
-<td>Boolean was the user input a question - same as <code>?</code> in a pattern</td>
+<td>Boolean was the user input a question - same as <code>?</code> in a
+pattern</td>
 </tr>
 <tr class="odd">
 <td><code>%quotation</code></td>
@@ -913,11 +1182,13 @@
 </tr>
 <tr class="odd">
 <td><code>%tableinput</code></td>
-<td>current line being executed in a table expansion during script compilation</td>
+<td>current line being executed in a table expansion during script
+compilation</td>
 </tr>
 <tr class="even">
 <td><code>%tense</code></td>
-<td>past , present, or future simple tense (present perfect is a past tense)</td>
+<td>past , present, or future simple tense (present perfect is a past
+tense)</td>
 </tr>
 <tr class="odd">
 <td><code>%user</code></td>
@@ -925,11 +1196,13 @@
 </tr>
 <tr class="even">
 <td><code>%userfirstline</code></td>
-<td>value of <code>%input</code> that is at the start of this conversation start</td>
+<td>value of <code>%input</code> that is at the start of this
+conversation start</td>
 </tr>
 <tr class="odd">
 <td><code>%speaker</code></td>
-<td>value of <code>speaker</code> from a conversation involving :tsvsource</td>
+<td>value of <code>speaker</code> from a conversation involving
+:tsvsource</td>
 </tr>
 <tr class="even">
 <td><code>%userinput</code></td>
@@ -941,11 +1214,13 @@
 </tr>
 <tr class="even">
 <td><code>%trace_on</code></td>
-<td>Fake empty variable used to turn on tracing (see Debugging commands)</td>
+<td>Fake empty variable used to turn on tracing (see Debugging
+commands)</td>
 </tr>
 <tr class="odd">
 <td><code>%trace_off</code></td>
-<td>Fake empty variable used to turn off tracing (see Debugging commands)</td>
+<td>Fake empty variable used to turn off tracing (see Debugging
+commands)</td>
 </tr>
 <tr class="even">
 <td><code>%starttimems</code></td>
@@ -957,7 +1232,8 @@
 </tr>
 <tr class="even">
 <td><code>%inputlimited</code></td>
-<td>1 if too many characters were given (relative to fullinputlimit)</td>
+<td>1 if too many characters were given (relative to
+fullinputlimit)</td>
 </tr>
 <tr class="odd">
 <td><code>%tsvsource</code></td>
@@ -970,10 +1246,10 @@
 </tbody>
 </table>
 <h2 id="chatbot-output">Chatbot Output</h2>
-<table style="width:31%;">
+<table>
 <colgroup>
-<col width="12%" />
-<col width="18%" />
+<col style="width: 40%" />
+<col style="width: 60%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -984,11 +1260,13 @@
 <tbody>
 <tr class="odd">
 <td><code>%inputrejoinder</code></td>
-<td>rule tag of any pending rejoinder for input or null if none pending</td>
+<td>rule tag of any pending rejoinder for input or null if none
+pending</td>
 </tr>
 <tr class="even">
 <td><code>%lastoutput</code></td>
-<td>the text of the last generated response for the current volley - always null across volleys</td>
+<td>the text of the last generated response for the current volley -
+always null across volleys</td>
 </tr>
 <tr class="odd">
 <td><code>%lastquestion</code></td>
@@ -1000,16 +1278,20 @@
 </tr>
 <tr class="odd">
 <td><code>%response</code></td>
-<td>number of committed responses that have been generated for this sentence (see Advanced User- Advanced Output: Committed Responses</td>
+<td>number of committed responses that have been generated for this
+sentence (see Advanced User- Advanced Output: Committed Responses</td>
 </tr>
 </tbody>
 </table>
 <h2 id="system-variables-1">System variables</h2>
-<p>Note for all time variables, they normally use local machine time. If you have a $cs_utcoffset variable with a value, then all time will be relative to GMT/UTC/Zulu (which means it doesn't pay attention to daylight savings and you have to do that yourself with the answer).</p>
-<table style="width:24%;">
+<p>Note for all time variables, they normally use local machine time. If
+you have a $cs_utcoffset variable with a value, then all time will be
+relative to GMT/UTC/Zulu (which means it doesn’t pay attention to
+daylight savings and you have to do that yourself with the answer).</p>
+<table>
 <colgroup>
-<col width="12%" />
-<col width="11%" />
+<col style="width: 53%" />
+<col style="width: 46%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1048,11 +1330,12 @@
 </tr>
 <tr class="even">
 <td><code>%maxfactsets</code></td>
-<td>highest number of <span class="citation">@factsets</span>, currently 20</td>
+<td>highest number of <span class="citation"
+data-cites="factsets">@factsets</span>, currently 20</td>
 </tr>
 <tr class="odd">
 <td><code>%host</code></td>
-<td>name of the current host machine or &quot;local&quot;</td>
+<td>name of the current host machine or “local”</td>
 </tr>
 <tr class="even">
 <td><code>%regression</code></td>
@@ -1064,11 +1347,14 @@
 </tr>
 <tr class="even">
 <td><code>%rule</code></td>
-<td>get a tag to the current executing rule. Can be used in place of a label</td>
+<td>get a tag to the current executing rule. Can be used in place of a
+label</td>
 </tr>
 <tr class="odd">
 <td><code>%topic</code></td>
-<td>name of the current &quot;real&quot; topic . if control is currently in a topic or called from a topic which is not system or nostay, then that is the topic. Otherwise the most recent pending topic is found</td>
+<td>name of the current “real” topic . if control is currently in a
+topic or called from a topic which is not system or nostay, then that is
+the topic. Otherwise the most recent pending topic is found</td>
 </tr>
 <tr class="even">
 <td><code>%actualtopic</code></td>
@@ -1092,31 +1378,38 @@
 </tr>
 <tr class="odd">
 <td><code>%timeout</code></td>
-<td>Boolean tells if a timeout has happened, based on the timelimit command line parameter</td>
+<td>Boolean tells if a timeout has happened, based on the timelimit
+command line parameter</td>
 </tr>
 <tr class="even">
 <td><code>%lastcurltime</code></td>
-<td>Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect: Pretransfer: Total Transfer:</td>
+<td>Time Analysis: Name Look up: Host/proxy connect: App(SSL) connect:
+Pretransfer: Total Transfer:</td>
 </tr>
 <tr class="odd">
 <td><code>%crosstalk</code></td>
-<td>4k buffer in server visible between users to pass data back and forth</td>
+<td>4k buffer in server visible between users to pass data back and
+forth</td>
 </tr>
 <tr class="even">
 <td><code>%crosstalk1</code></td>
-<td>4k buffer in server visible between users to pass data back and forth</td>
+<td>4k buffer in server visible between users to pass data back and
+forth</td>
 </tr>
 <tr class="odd">
 <td><code>%crosstalk2</code></td>
-<td>4k buffer in server visible between users to pass data back and forth</td>
+<td>4k buffer in server visible between users to pass data back and
+forth</td>
 </tr>
 <tr class="even">
 <td><code>%crosstalk3</code></td>
-<td>4k buffer in server visible between users to pass data back and forth</td>
+<td>4k buffer in server visible between users to pass data back and
+forth</td>
 </tr>
 <tr class="odd">
 <td><code>%logging</code></td>
-<td>bit status of serverLog, userLog, and host name - 0=off 1=file 2= stdout 4=stderr 8=prelog)</td>
+<td>bit status of serverLog, userLog, and host name - 0=off 1=file 2=
+stdout 4=stderr 8=prelog)</td>
 </tr>
 <tr class="even">
 <td><code>%forkcount</code></td>
@@ -1124,7 +1417,8 @@
 </tr>
 <tr class="odd">
 <td><code>%dbparams</code></td>
-<td>copy of the server params given to db used as fileserver (pg or mysql or mssql or mongo)</td>
+<td>copy of the server params given to db used as fileserver (pg or
+mysql or mssql or mongo)</td>
 </tr>
 <tr class="even">
 <td><code>%botid</code></td>
@@ -1140,11 +1434,14 @@
 </tr>
 <tr class="odd">
 <td><code>%testpattern</code></td>
-<td>The index number in the array of patterns of current pattern being matched in ^testpattern</td>
+<td>The index number in the array of patterns of current pattern being
+matched in ^testpattern</td>
 </tr>
 </tbody>
 </table>
-<p>%httpresponse returns the official http response codes when it succeeds in connecting to a server. When it fails, it returns various negative codes that are specific to curl.</p>
+<p>%httpresponse returns the official http response codes when it
+succeeds in connecting to a server. When it fails, it returns various
+negative codes that are specific to curl.</p>
 <pre><code>-1 timeout - connection attempt was canceled or no time was allowed (instant fail)
 -2 couldn&#39;t connect or not resolve host or proxy
 -3 unsupported protocol
@@ -1152,11 +1449,16 @@
 -5 malformed url
 -6 other
 -7 curl operation timeout</code></pre>
-<h2 id="testpattern-control-variables">^testpattern control variables</h2>
-<div style="white-space: pre-line;"><code>%testpattern-prescan</code> | execute this pattern on all sentences before doing other patterns one-by-one
-<code>%trace_on</code> | starting here, do :trace pattern in ^testpattern
-<code>%trace_on all</code> | starting here, do :trace all in ^testpattern
-<code>%trace_off</code> | turn off tracing (also turns off at end of cs call)</div>
+<h2 id="testpattern-control-variables">^testpattern control
+variables</h2>
+<div class="line-block"><code>%testpattern-prescan</code> | execute this
+pattern on all sentences before doing other patterns one-by-one<br />
+<code>%trace_on</code> | starting here, do :trace pattern in
+^testpattern<br />
+<code>%trace_on all</code> | starting here, do :trace all in
+^testpattern<br />
+<code>%trace_off</code> | turn off tracing (also turns off at end of cs
+call)</div>
 <h2 id="build-data">Build data</h2>
 <table>
 <thead>
@@ -1188,11 +1490,24 @@
 </tr>
 </tbody>
 </table>
-<p>You actually can assign to any of them. This will override them and make them return what you tell them to and is a particularly BAD thing to do if this is running on a server since it affects all users (unless you reset the variable at the end of the volley. Assigning a period to a variable resets it).</p>
-<p>Typically one does this as a temporary assignment in a <code>#!</code> comment line to set up conditions for testing using <code>:verify</code>.</p>
-<p>Making them return a new value is NOT the same thing as making the engine have a different value. Unless the variable is marked as settable, setting a value affects only the value returned by a future call to the system variable. It does not change engine values the variable is meant to reflect.</p>
+<p>You actually can assign to any of them. This will override them and
+make them return what you tell them to and is a particularly BAD thing
+to do if this is running on a server since it affects all users (unless
+you reset the variable at the end of the volley. Assigning a period to a
+variable resets it).</p>
+<p>Typically one does this as a temporary assignment in a
+<code>#!</code> comment line to set up conditions for testing using
+<code>:verify</code>.</p>
+<p>Making them return a new value is NOT the same thing as making the
+engine have a different value. Unless the variable is marked as
+settable, setting a value affects only the value returned by a future
+call to the system variable. It does not change engine values the
+variable is meant to reflect.</p>
 <h1 id="control-over-input">Control Over Input</h1>
-<p>The system can do a number of standard processing on user input, including spell correction, proper-name merging, expanding contractions etc. This is managed by setting the user variable <code>$cs_token</code>.</p>
+<p>The system can do a number of standard processing on user input,
+including spell correction, proper-name merging, expanding contractions
+etc. This is managed by setting the user variable
+<code>$cs_token</code>.</p>
 <p>The default $cs_token that comes with Harry is:</p>
 <pre><code>$cs_token = #DO_INTERJECTION_SPLITTING | 
             #DO_SUBSTITUTE_SYSTEM |
@@ -1200,12 +1515,14 @@
             #DO_PROPERNAME_MERGE | 
             #DO_SPELLCHECK |
             #DO_PARSE</code></pre>
-<p>The <code>#</code>signals a named constant from the <code>dictionarySystem.h</code> file. One can set the following:</p>
-<p>These enable various LIVEDATA files to perform substitutions on input:</p>
+<p>The <code>#</code>signals a named constant from the
+<code>dictionarySystem.h</code> file. One can set the following:</p>
+<p>These enable various LIVEDATA files to perform substitutions on
+input:</p>
 <table>
 <colgroup>
-<col width="33%" />
-<col width="66%" />
+<col style="width: 32%" />
+<col style="width: 67%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1216,7 +1533,8 @@
 <tbody>
 <tr class="odd">
 <td><code>#DO_ESSENTIALS</code></td>
-<td>perform <code>LIVEDATA/systemessentials</code> which mostly strips off trailing punctuation and sets corresponding flags instead</td>
+<td>perform <code>LIVEDATA/systemessentials</code> which mostly strips
+off trailing punctuation and sets corresponding flags instead</td>
 </tr>
 <tr class="even">
 <td><code>#DO_SUBSTITUTES</code></td>
@@ -1224,23 +1542,28 @@
 </tr>
 <tr class="odd">
 <td><code>#DO_CONTRACTIONS</code></td>
-<td>perform <code>LIVEDATA/contractions</code>, expanding contractions</td>
+<td>perform <code>LIVEDATA/contractions</code>, expanding
+contractions</td>
 </tr>
 <tr class="even">
 <td><code>#DO_INTERJECTIONS</code></td>
-<td>perform <code>LIVEDATA/interjections</code>, changing phrases to interjections</td>
+<td>perform <code>LIVEDATA/interjections</code>, changing phrases to
+interjections</td>
 </tr>
 <tr class="odd">
 <td><code>#DO_BRITISH</code></td>
-<td>perform <code>LIVEDATA/british</code>, respelling brit words to American</td>
+<td>perform <code>LIVEDATA/british</code>, respelling brit words to
+American</td>
 </tr>
 <tr class="even">
 <td><code>#DO_SPELLING</code></td>
-<td>performs the <code>LIVEDATA/spelling</code> file (manual spell correction)</td>
+<td>performs the <code>LIVEDATA/spelling</code> file (manual spell
+correction)</td>
 </tr>
 <tr class="odd">
 <td><code>#DO_TEXTING</code></td>
-<td>performs the <code>LIVEDATA/texting</code> file (expand texting notation)</td>
+<td>performs the <code>LIVEDATA/texting</code> file (expand texting
+notation)</td>
 </tr>
 <tr class="even">
 <td><code>#DO_SUBSTITUTE_SYSTEM</code></td>
@@ -1248,14 +1571,30 @@
 </tr>
 </tbody>
 </table>
-<p>The contents of the files above are pairs of tokens per line. Left is the word to replace and right is the replacement. When multiple words are involved, the left side uses underscores to represent this and the right side uses <code>+</code>. If the right side is missing, it means just delete. | <code>#DO_INTERJECTION_SPLITTING</code> | break off leading interjections into own sentence | <code>#$DO_NUMBER_MERGE</code> | merge multiple word numbers into one (<em>four and twenty</em>)<br />
-| <code>#$DO_PROPERNAME_MERGE</code> | merge multiple proper name into one (<em>George Harrison</em>) | <code>#DO_DATE_MERGE</code> | merge month day and/or year sequences (<em>January 2, 1993</em>) | <code>#JSON_DIRECT_FROM_OOB</code> | asking the tokenizer to directly process OOB data. See <code>^jsonparse</code> in JSON manual. | <code>#NO_FIX_UTF</code> | do not adjust inputs with html or utf8 encodings to simple ascii.<br />
-| <code>#TOKENIZE_BY_CHARACTER</code> | Every non-whitespace character becomes its own token and canonical form. (good for Japanese)</p>
-<p>If any of the above items affect the input (except TOKENIZE_BY_CHARACTER), they will be echoed as values into <code>%tokenFlags</code> so you can detect they happened. The next changes do not echo into %tokenFlags and relate to grammar of input:</p>
+<p>The contents of the files above are pairs of tokens per line. Left is
+the word to replace and right is the replacement. When multiple words
+are involved, the left side uses underscores to represent this and the
+right side uses <code>+</code>. If the right side is missing, it means
+just delete. | <code>#DO_INTERJECTION_SPLITTING</code> | break off
+leading interjections into own sentence | <code>#$DO_NUMBER_MERGE</code>
+| merge multiple word numbers into one (<em>four and twenty</em>)<br />
+| <code>#$DO_PROPERNAME_MERGE</code> | merge multiple proper name into
+one (<em>George Harrison</em>) | <code>#DO_DATE_MERGE</code> | merge
+month day and/or year sequences (<em>January 2, 1993</em>) |
+<code>#JSON_DIRECT_FROM_OOB</code> | asking the tokenizer to directly
+process OOB data. See <code>^jsonparse</code> in JSON manual. |
+<code>#NO_FIX_UTF</code> | do not adjust inputs with html or utf8
+encodings to simple ascii.<br />
+| <code>#TOKENIZE_BY_CHARACTER</code> | Every non-whitespace character
+becomes its own token and canonical form. (good for Japanese)</p>
+<p>If any of the above items affect the input (except
+TOKENIZE_BY_CHARACTER), they will be echoed as values into
+<code>%tokenFlags</code> so you can detect they happened. The next
+changes do not echo into %tokenFlags and relate to grammar of input:</p>
 <table>
 <colgroup>
-<col width="29%" />
-<col width="70%" />
+<col style="width: 28%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1274,31 +1613,43 @@
 </tr>
 <tr class="odd">
 <td><code>DO_CONDITIONAL_POSTAG</code></td>
-<td>perform pos-tagging only if all words are known. Avoids wasting time on foreign sentences in particular</td>
+<td>perform pos-tagging only if all words are known. Avoids wasting time
+on foreign sentences in particular</td>
 </tr>
 <tr class="even">
 <td><code>NO_CONDITIONAL_IDIOM</code></td>
-<td>will not perform substitutions in the dictionary which are considered conditional idioms</td>
+<td>will not perform substitutions in the dictionary which are
+considered conditional idioms</td>
 </tr>
 <tr class="odd">
 <td><code>NO_ERASE</code></td>
-<td>where a substitution would delete a word entirely as junk, don't</td>
+<td>where a substitution would delete a word entirely as junk,
+don’t</td>
 </tr>
 <tr class="even">
 <td><code>DO_SPLIT_UNDERSCORES</code></td>
-<td>happens after all other input tokenization and adjustments except number merge, and separates words that have been conjoined either because the dictionary has them (<em>credit_card</em>) or because they were merged by proper name merging, or by substitution. The result is only words without underscores (excluding number words like <em>five_thousand_and_four</em></td>
+<td>happens after all other input tokenization and adjustments except
+number merge, and separates words that have been conjoined either
+because the dictionary has them (<em>credit_card</em>) or because they
+were merged by proper name merging, or by substitution. The result is
+only words without underscores (excluding number words like
+<em>five_thousand_and_four</em></td>
 </tr>
 <tr class="odd">
 <td><code>MARK_LOWER</code></td>
-<td>if a word is considered a proper name in CS and is marked as an upper case word, this will force it to perform any markings for its lower case form as well. Sometimes users type stuff in upper case that really should be lower</td>
+<td>if a word is considered a proper name in CS and is marked as an
+upper case word, this will force it to perform any markings for its
+lower case form as well. Sometimes users type stuff in upper case that
+really should be lower</td>
 </tr>
 </tbody>
 </table>
-<p>Normally the system tries to outguess the user, who cannot be trusted to use correct punctuation or casing or spelling. These block that:</p>
-<table style="width:18%;">
+<p>Normally the system tries to outguess the user, who cannot be trusted
+to use correct punctuation or casing or spelling. These block that:</p>
+<table>
 <colgroup>
-<col width="6%" />
-<col width="11%" />
+<col style="width: 36%" />
+<col style="width: 63%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1309,11 +1660,14 @@
 <tbody>
 <tr class="odd">
 <td><code>STRICT_CASING</code></td>
-<td>except for 1st word of a sentence, assume user uses correct casing on words</td>
+<td>except for 1st word of a sentence, assume user uses correct casing
+on words</td>
 </tr>
 <tr class="even">
 <td><code>NO_INFER_QUESTION</code></td>
-<td>the system will not try to set the QUESTIONMARK flag if the user didn't input a ? and the structure of the input looks like a question</td>
+<td>the system will not try to set the QUESTIONMARK flag if the user
+didn’t input a ? and the structure of the input looks like a
+question</td>
 </tr>
 <tr class="odd">
 <td><code>DO_SPELLCHECK</code></td>
@@ -1321,7 +1675,8 @@
 </tr>
 <tr class="even">
 <td><code>ONLY_LOWERCASE</code></td>
-<td>force all input (except &quot;I&quot;) to be lower case, refuse to recognize uppercase forms of anything</td>
+<td>force all input (except “I”) to be lower case, refuse to recognize
+uppercase forms of anything</td>
 </tr>
 <tr class="odd">
 <td><code>NO_IMPERATIVE</code></td>
@@ -1329,7 +1684,7 @@
 </tr>
 <tr class="even">
 <td><code>NO_WITHIN</code></td>
-<td>don't match fragments within a composite word</td>
+<td>don’t match fragments within a composite word</td>
 </tr>
 <tr class="odd">
 <td><code>NO_SENTENCE_END</code></td>
@@ -1337,11 +1692,12 @@
 </tr>
 </tbody>
 </table>
-<p>Normally the tokenizer breaks apart some kinds of sentences into two. These prevent that:</p>
-<table style="width:18%;">
+<p>Normally the tokenizer breaks apart some kinds of sentences into two.
+These prevent that:</p>
+<table>
 <colgroup>
-<col width="6%" />
-<col width="11%" />
+<col style="width: 36%" />
+<col style="width: 63%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1352,29 +1708,41 @@
 <tbody>
 <tr class="odd">
 <td><code>NO_COLON_END</code></td>
-<td>don't break apart a sentence after a colon</td>
+<td>don’t break apart a sentence after a colon</td>
 </tr>
 <tr class="even">
 <td><code>NO_SEMICOLON_END</code></td>
-<td>don't break apart a sentence after a semi-colon</td>
+<td>don’t break apart a sentence after a semi-colon</td>
 </tr>
 <tr class="odd">
 <td><code>UNTOUCHED_INPUT</code></td>
-<td>if set to this alone, will tokenize only on spaces, leaving everything but spacing untouched</td>
+<td>if set to this alone, will tokenize only on spaces, leaving
+everything but spacing untouched</td>
 </tr>
 <tr class="even">
 <td><code>LEAVE_QUOTE</code></td>
-<td>if input is found within &quot; &quot; it will become a single token exactly as it is seen. W/o Leave_Quote, it is converted into a word without quotes and using underscores instead of spaces. So &quot;My Fair Lady&quot; becomes My_Fair_Lady, which would match a movie title if you had one, unlike <em>My Fair Lady</em> becoming the resulting token and unrecognized</td>
+<td>if input is found within ” ” it will become a single token exactly
+as it is seen. W/o Leave_Quote, it is converted into a word without
+quotes and using underscores instead of spaces. So “My Fair Lady”
+becomes My_Fair_Lady, which would match a movie title if you had one,
+unlike <em>My Fair Lady</em> becoming the resulting token and
+unrecognized</td>
 </tr>
 <tr class="odd">
 <td><code>SPLIT_QUOTE</code></td>
-<td>if input is found within &quot; &quot; the quotes will be removed.</td>
+<td>if input is found within ” ” the quotes will be removed.</td>
 </tr>
 </tbody>
 </table>
 <p>Note</p>
-<p>you can change <code>$cs_token</code> on the fly and force input to be reanalyzed via <code>^retry(SENTENCE)</code>. I do this when I detect the user is trying to give his name, and many foreign names might be spell-corrected into something wrong and the user is unlikely to misspell his own name.</p>
-<p>Just remember to reset <code>$cs_token</code> back to normal after you are done. Here is one such way, assuming <code>$stdtoken</code> is set to your normal tokenflags in your bot definition outputmacro:</p>
+<p>you can change <code>$cs_token</code> on the fly and force input to
+be reanalyzed via <code>^retry(SENTENCE)</code>. I do this when I detect
+the user is trying to give his name, and many foreign names might be
+spell-corrected into something wrong and the user is unlikely to
+misspell his own name.</p>
+<p>Just remember to reset <code>$cs_token</code> back to normal after
+you are done. Here is one such way, assuming <code>$stdtoken</code> is
+set to your normal tokenflags in your bot definition outputmacro:</p>
 <pre><code>#! my name is Rogr
 s: (name is _*)
 
@@ -1387,26 +1755,40 @@ s: (name is _*)
         }
     _0 is the name.
     $cs_token = $stdtoken</code></pre>
-<p>If you type <em>my name is Rogr</em> into a topic with this, the original input is spell-corrected to <em>my name is Roger</em>, but this will change the <code>$cs_token</code> over to one without spell correction and redo the sentence, which will now come back with <em>my name is Rogr</em> and be echoed correctly, and <code>$cs_token reset</code>.</p>
-<p>That's assuming nothing else would run differently and trap the response elsewhere. If you were worried about that, it would be possible for the script to save where it is using <code>^getrule(tag)</code> and modify your control script to return immediate control to here after input processing if you had changed <code>$cs_token</code>.</p>
+<p>If you type <em>my name is Rogr</em> into a topic with this, the
+original input is spell-corrected to <em>my name is Roger</em>, but this
+will change the <code>$cs_token</code> over to one without spell
+correction and redo the sentence, which will now come back with <em>my
+name is Rogr</em> and be echoed correctly, and
+<code>$cs_token reset</code>.</p>
+<p>That’s assuming nothing else would run differently and trap the
+response elsewhere. If you were worried about that, it would be possible
+for the script to save where it is using <code>^getrule(tag)</code> and
+modify your control script to return immediate control to here after
+input processing if you had changed <code>$cs_token</code>.</p>
 <h2 id="tokenflags">%tokenflags</h2>
-<p>These are the values that %tokenflags may have after analysis of a sentence... #define PRESENT 0x0000000000002000ULL<br />
-#define PAST 0x0000000000004000ULL // basic tense- both present perfect and past perfect map to it #define FUTURE 0x0000000000008000ULL<br />
-#define PRESENT_PERFECT 0x0000000000010000ULL // distinguish PAST PERFECT from PAST PRESENT_PERFECT #define CONTINUOUS 0x0000000000020000ULL<br />
+<p>These are the values that %tokenflags may have after analysis of a
+sentence… #define PRESENT 0x0000000000002000ULL<br />
+#define PAST 0x0000000000004000ULL // basic tense- both present perfect
+and past perfect map to it #define FUTURE 0x0000000000008000ULL<br />
+#define PRESENT_PERFECT 0x0000000000010000ULL // distinguish PAST
+PERFECT from PAST PRESENT_PERFECT #define CONTINUOUS
+0x0000000000020000ULL<br />
 #define PERFECT 0x0000000000040000ULL<br />
 #define PASSIVE 0x0000000000080000ULL</p>
-<h1 id="define-implied_subject">define IMPLIED_SUBJECT</h1>
-<h1 id="define-questionmark">define QUESTIONMARK</h1>
-<h1 id="define-exclamationmark">define EXCLAMATIONMARK</h1>
-<h1 id="define-periodmark">define PERIODMARK</h1>
-<h1 id="define-userinput">define USERINPUT</h1>
-<h1 id="define-commandmark">define COMMANDMARK</h1>
-<h1 id="define-implied_you">define IMPLIED_YOU</h1>
-<h1 id="foreign_tokens">FOREIGN_TOKENS</h1>
-<h1 id="faulty_parse">FAULTY_PARSE</h1>
-<h1 id="quotation">QUOTATION</h1>
-<h1 id="not_sentence">NOT_SENTENCE</h1>
-<p>One or more of these will be set if input was changed do to use of these files</p>
+<p>#define IMPLIED_SUBJECT<br />
+#define QUESTIONMARK<br />
+#define EXCLAMATIONMARK<br />
+#define PERIODMARK<br />
+#define USERINPUT<br />
+#define COMMANDMARK<br />
+#define IMPLIED_YOU<br />
+#FOREIGN_TOKENS<br />
+#FAULTY_PARSE<br />
+#QUOTATION<br />
+#NOT_SENTENCE</p>
+<p>One or more of these will be set if input was changed do to use of
+these files</p>
 <pre><code>#DO_ESSENTIALS           
 #DO_SUBSTITUTES         
 #DO_CONTRACTIONS            
@@ -1421,10 +1803,16 @@ s: (name is _*)
 #DO_SPELLCHECK                  
 #DO_INTERJECTION_SPLITTING    </code></pre>
 <h2 id="private-substitutions">Private Substitutions</h2>
-<p>While in general, substitutions are defined in the LIVEDATA folder, you can define private substititions for your specific bot using the scripting language. You can say</p>
+<p>While in general, substitutions are defined in the LIVEDATA folder,
+you can define private substititions for your specific bot using the
+scripting language. You can say</p>
 <pre><code>replace: xxx yyyyy</code></pre>
-<p>which defines a substitution just like a livedata substitution file. It actually creates a substitution file called <code>private0.txt</code> or <code>private1.txt</code> in your TOPIC folder.</p>
-<p>Even then, those substitutions will not be enacted unless you explicitly add to the <code>$cs_token</code> value <code>#DO_PRIVATE</code>, eg</p>
+<p>which defines a substitution just like a livedata substitution file.
+It actually creates a substitution file called <code>private0.txt</code>
+or <code>private1.txt</code> in your TOPIC folder.</p>
+<p>Even then, those substitutions will not be enacted unless you
+explicitly add to the <code>$cs_token</code> value
+<code>#DO_PRIVATE</code>, eg</p>
 <pre><code>$cs_token = #DO_INTERJECTION_SPLITTING | 
             #DO_SUBSTITUTE_SYSTEM |
             #DO_NUMBER_MERGE | 
@@ -1432,30 +1820,62 @@ s: (name is _*)
             #DO_SPELLCHECK | 
             #DO_PARSE | 
             #DO_PRIVATE</code></pre>
-<p>The left side of the substitution pair is case insensitive (matches either case on input) and can be placed in double-quotes (which converts spaces to underscores internally).</p>
-<p>The right side of the substitution pair is case sensitive and can be placed in double-quotes (which converts spaces to plus signs internally).</p>
-<p>Note: if you privately define a substitution that leads to a known interjection, it will be treated as an interjection, marked as DO_INTERJECTIONS rather than DO_PRIVATE. Interjections do not perform an actual substitution, does not replace the words on the left with the interjection concept name on the right. Instead interjections merely mark the phrase as being a member of that concept, leaving the actual words unchanged.</p>
-<p>Similarly while canonical values of words can be defined in <code>LIVEDATA/SYSTEM/canonical.txt</code>, you can define private canonical values for your bots by using the scripting language. You can say:</p>
+<p>The left side of the substitution pair is case insensitive (matches
+either case on input) and can be placed in double-quotes (which converts
+spaces to underscores internally).</p>
+<p>The right side of the substitution pair is case sensitive and can be
+placed in double-quotes (which converts spaces to plus signs
+internally).</p>
+<p>Note: if you privately define a substitution that leads to a known
+interjection, it will be treated as an interjection, marked as
+DO_INTERJECTIONS rather than DO_PRIVATE. Interjections do not perform an
+actual substitution, does not replace the words on the left with the
+interjection concept name on the right. Instead interjections merely
+mark the phrase as being a member of that concept, leaving the actual
+words unchanged.</p>
+<p>Similarly while canonical values of words can be defined in
+<code>LIVEDATA/SYSTEM/canonical.txt</code>, you can define private
+canonical values for your bots by using the scripting language. You can
+say:</p>
 <pre><code>canon: oh 0 
 canon: faster fast</code></pre>
-<p>which defines new canonical values for things and creates a file <code>canon0.txt</code> or <code>canon1.txt</code> in your TOPIC folder.</p>
-<p>You can optionally add MORE_FORM or MOST_FORM as a 3rd argument, to set those flags for adjectives and adverbs.</p>
-<p>If you want to set a canonical pair from a table during compilation, you can use a function to do the same thing (but only 1 pair at a time).</p>
+<p>which defines new canonical values for things and creates a file
+<code>canon0.txt</code> or <code>canon1.txt</code> in your TOPIC
+folder.</p>
+<p>You can optionally add MORE_FORM or MOST_FORM as a 3rd argument, to
+set those flags for adjectives and adverbs.</p>
+<p>If you want to set a canonical pair from a table during compilation,
+you can use a function to do the same thing (but only 1 pair at a
+time).</p>
 <pre><code>^canon(word canonicalform)</code></pre>
 <h2 id="numeric-substitutions">Numeric Substitutions</h2>
-<p>A special kind of private substitution (equally applicable in regular substitution files) is the numeric substitution.</p>
+<p>A special kind of private substitution (equally applicable in regular
+substitution files) is the numeric substitution.</p>
 <pre><code>replace: ?_km kilometers</code></pre>
-<p>The ?_ matches a digit number followed immediately by km, like <code>1.2km</code> and will separate the number and replace the units with the given replacement. The input can be singular or have an 's' like <code>10.5dollars</code>. And it can be with or without abbreviation periods, like <code>10kps</code> or <code>10k.p.s</code></p>
-<h2 id="apostrophe-substitutions-replace">Apostrophe Substitutions replace</h2>
+<p>The ?_ matches a digit number followed immediately by km, like
+<code>1.2km</code> and will separate the number and replace the units
+with the given replacement. The input can be singular or have an ‘s’
+like <code>10.5dollars</code>. And it can be with or without
+abbreviation periods, like <code>10kps</code> or
+<code>10k.p.s</code></p>
+<h2 id="apostrophe-substitutions-replace">Apostrophe Substitutions
+replace</h2>
 <pre><code>replace: &#39;xxx  yyy</code></pre>
-<p>allows you to split during tokenization any word followed by 'xxx into two words, original sans 'xxx and yyy. eg</p>
+<p>allows you to split during tokenization any word followed by ’xxx
+into two words, original sans ’xxx and yyy. eg</p>
 <pre><code>replace: &#39;ve have</code></pre>
-<p>gives &quot;companies've =&gt; &quot;companies have&quot;.</p>
-<h2 id="replacing-to-a-word-with-in-it">Replacing to a word with + in it</h2>
-<p>Normally <code>replace:  x  y+z</code> will generate 2 words, y and z. If you need a plus in your word, you can escape your 2nd word:</p>
+<p>gives “companies’ve =&gt;”companies have”.</p>
+<h2 id="replacing-to-a-word-with-in-it">Replacing to a word with + in
+it</h2>
+<p>Normally <code>replace:  x  y+z</code> will generate 2 words, y and
+z. If you need a plus in your word, you can escape your 2nd word:</p>
 <pre><code>    replace: &quot;black and decker&quot; \BLACK+DECKER</code></pre>
-<h2 id="advanced-replace-substitution">Advanced replace substitution</h2>
-<p>You can name a pattern (which can extend over multiple lines) that can conditionally change the matched word into any other word or remove it or do nothing. Matching starts with _0 having been assigned to the location of the word/phrase to replace.</p>
+<h2 id="advanced-replace-substitution">Advanced replace
+substitution</h2>
+<p>You can name a pattern (which can extend over multiple lines) that
+can conditionally change the matched word into any other word or remove
+it or do nothing. Matching starts with _0 having been assigned to the
+location of the word/phrase to replace.</p>
 <pre><code>    replace: bubble_tea  ([
         (is $$cs_replace:=2)
         (has $$cs_replace:=null)
@@ -1464,13 +1884,16 @@ canon: faster fast</code></pre>
     &quot;bubble tea is&quot; -&gt; 2 is
     &quot;bubble tea has&quot; -&gt; has
     &quot;my green bubble tea loves&quot; -&gt; my green 1 loves</code></pre>
-<p>You cannot use concepts in these patterns, nor the canonical forms of words. Your replacement data must be only tokens potentially separated by +, and potentially having _ in them. Do not use double quotes.</p>
+<p>You cannot use concepts in these patterns, nor the canonical forms of
+words. Your replacement data must be only tokens potentially separated
+by +, and potentially having _ in them. Do not use double quotes.</p>
 <h1 id="interchange-variables">Interchange Variables</h1>
-<p>The following variables can be defined in a script and the engine will react to their contents.</p>
-<table style="width:39%;">
+<p>The following variables can be defined in a script and the engine
+will react to their contents.</p>
+<table>
 <colgroup>
-<col width="27%" />
-<col width="11%" />
+<col style="width: 73%" />
+<col style="width: 26%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1485,103 +1908,56 @@ canon: faster fast</code></pre>
 </tr>
 <tr class="even">
 <td><code>$cs_response</code></td>
-<td>controls automatic handling of outputs to user. By default it consists of <code>$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde</code> If you want none of theses, use $cs_response = 0 (all flags turned off). See ^print for explanation of flags. <br><code>#response_noconvertspecial</code> - leave escaped n r and t alone in output and ^log, <br><code>#response_upperstart</code> - makes the first letter of an output sentence capitalized, <br><code>#Response_removespacebeforecomma</code> - does the obvious, <br><code>#Response_alterunderscores</code> - converts single underscores to spaces and double underscores to singles (eg for a web url)</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_crashmsg</code></td>
-<td>in server mode, what to say if the server crashes and we return a message to the user. By default the message is <em>Hey, sorry. I forgot what I was thinking about.</em></td>
-</tr>
-<tr class="even">
-<td><code>$cs_abstract</code></td>
-<td>used with :abstract</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_trace</code></td>
-<td>if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data</td>
-</tr>
-<tr class="even">
-<td><code>$cs_control_pre</code></td>
-<td>name of topic (flag it SYSTEM) to run in gambit mode on pre-pass, set by author. Runs before any sentences of the input volley are analyzed. Good for setting up initial values</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_usermessagelimit</code></td>
-<td>max number of message pairs (user input &amp; bot output) saved in topic file</td>
-</tr>
-<tr class="even">
-<td><code>$cs_externaltag</code></td>
-<td>name of a topic to use to replace existing internal English pos-parser. See bottom of ChatScript PosParser manual for details</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_prepass</code></td>
-<td>name of a topic (mark it SYSTEM) to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like <em>if you see me what will you think</em> to <em>assume you see me. What will you think?</em>)</td>
-</tr>
-<tr class="even">
-<td><code>$cs_control_main</code></td>
-<td>name of topic (flag it SYSTEM) to run in responder mode on main volleys, set by author</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_control_post</code></td>
-<td>name of topic (flag it SYSTEM) to run in gambit mode on post-pass, set by author</td>
-</tr>
-<tr class="even">
-<td><code>$botprompt</code></td>
-<td>message for console window to label bot output</td>
-</tr>
-<tr class="odd">
-<td><code>$userprompt</code></td>
-<td>message for console window to label user input line</td>
-</tr>
-<tr class="even">
-<td><code>$cs_crashmsg</code></td>
-<td>message to use if a crash occurs. see also $cs_crash</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_crash</code></td>
-<td>topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg</td>
-</tr>
-<tr class="even">
-<td><code>$cs_language</code></td>
-<td>if spanish, will adjust spell checking for spanish colloquial</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_token</code></td>
-<td>bits controlling how the tokenizer works. By default when null, you get all bits assumed on. The possible values are in src/dictionarySystem.h (hunt for $token) and you put a # in front of them to generate that named numeric constant</td>
-</tr>
-<tr class="even">
-<td><code>$cs_abstract</code></td>
-<td>topic used by :abstract to display facts if you want them displayed</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_prepass</code></td>
-<td>topic used between parsing and running user control script. Useful to supplement parsing, setting the question value, and revising input idioms</td>
-</tr>
-<tr class="even">
-<td><code>$cs_wildcardseparator</code></td>
-<td>when a match variable covers multiple words, what should separate them- by default it's a space, but underscore is handy too. Initial system character is space, creating fidelity with what was typed. Useful if _ can be recognized in input (web addresses). Changing to _ is consistent with multi-word representation and keyword recognition for concepts. CS automatically converts _ to space on output, so internal use of _ is normal</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_userfactlimit</code></td>
-<td>how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100. * means all.</td>
-</tr>
-<tr class="even">
-<td><code>$cs_outputchoice</code></td>
-<td>for regression: forces specific one of a [] [] output choice block - base 0</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_response</code></td>
-<td>controls some characteristics of how responses are formatted</td>
-</tr>
-<tr class="even">
-<td><code>$cs_randIndex</code></td>
-<td>the random seed for this volley</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_utcoffset</code></td>
-<td>if defined, then %time returns current utc time + timezone offset. The offset is usually a simple number, meaning hours, and can have + or - in front of it. It can also be a normal time reference like 02:30 which means plus 2 hours and 30 minutes beyond utc, or -01:30:20 which means 1 hour, 30 minutes, and 20 seconds before utc (as if anyone would use that). The following variables are generated by the system on behalf of scripts</td>
-</tr>
-<tr class="even">
-<td><code>$$db_error</code></td>
-<td>error message from a postgres failure $$findtext_start - ^findtext return the end normally, this is where it puts the start</td>
+<td>controls automatic handling of outputs to user. By default it
+consists of
+<code>$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde</code>
+If you want none of theses, use <span class="math inline">$cs_response =
+0 (all flags turned off). See ^print for explanation of flags.
+&lt;br&gt;`#response_noconvertspecial` - leave escaped n r and t alone
+in output and ^log, &lt;br&gt;`#response_upperstart` - makes the first
+letter of an output sentence capitalized,
+&lt;br&gt;`#Response_removespacebeforecomma` - does the obvious,
+&lt;br&gt;`#Response_alterunderscores` - converts single underscores to
+spaces and double underscores to singles (eg for a web url) | |
+`$</span>cs_crashmsg<code>|  in server mode, what to say if the server crashes and we return a message to the user. By default the message is _Hey, sorry. I forgot what I was thinking about._ |  |</code><span
+class="math inline">$cs_abstract` | used with :abstract | |
+`$</span>cs_trace<code>|  if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data |  |</code><span
+class="math inline">$cs_control_pre` | name of topic (flag it SYSTEM) to
+run in gambit mode on pre-pass, set by author. Runs before any sentences
+of the input volley are analyzed. Good for setting up initial values | |
+`$</span>cs_usermessagelimit<code>| max number of message pairs (user input &amp; bot output) saved in topic file |  |</code><span
+class="math inline">$cs_externaltag` | name of a topic to use to replace
+existing internal English pos-parser. See bottom of ChatScript PosParser
+manual for details | |
+`$</span>cs_prepass<code>|  name of a topic  (mark it SYSTEM) to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like _if you see me what will you think_ to _assume you see me. What will you think?_) |  |</code><span
+class="math inline">$cs_control_main` | name of topic (flag it SYSTEM)
+to run in responder mode on main volleys, set by author | |
+`$</span>cs_control_post<code>|  name of topic  (flag it SYSTEM) to run in gambit mode on post-pass, set by author|  |</code><span
+class="math inline">$botprompt` | message for console window to label
+bot output | |
+`$</span>userprompt<code>|  message for console window to label user input line|  |</code>$cs_crashmsg<code>|  message to use if a crash occurs. see also $cs_crash|  |</code>$cs_crash<code>|  topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg|  |</code><span
+class="math inline">$cs_language` | if spanish, will adjust spell
+checking for spanish colloquial| |
+`$</span>cs_token<code>|  bits controlling how the tokenizer works. By default when null, you get all bits assumed on. The possible values are in src/dictionarySystem.h (hunt for $token) and you put a # in front of them to generate that named numeric constant |  |</code><span
+class="math inline">$cs_abstract` | topic used by :abstract to display
+facts if you want them displayed | |
+`$</span>cs_prepass<code>|  topic used between parsing and running user control script. Useful to supplement parsing, setting the question value, and revising input idioms |  |</code><span
+class="math inline">$cs_wildcardseparator` | when a match variable
+covers multiple words, what should separate them- by default it's a
+space, but underscore is handy too. Initial system character is space,
+creating fidelity with what was typed. Useful if _ can be recognized in
+input (web addresses). Changing to _ is consistent with multi-word
+representation and keyword recognition for concepts. CS automatically
+converts _ to space on output, so internal use of _ is normal | |
+`$</span>cs_userfactlimit<code>| how many of the most recent permanent facts created by the script in response to user inputs are kept for each user. Std default is 100. * means all. |  |</code><span
+class="math inline">$cs_outputchoice` | for regression: forces specific
+one of a [] [] output choice block - base 0 | |
+`$</span>cs_response<code>|  controls some characteristics of how responses are formatted |  |</code><span
+class="math inline">$cs_randIndex` | the random seed for this volley | |
+`$</span>cs_utcoffset<code>|  if defined, then %time returns current utc time + timezone offset. The offset is usually a simple number, meaning hours, and can have + or - in front of it. It can also be a normal time reference like 02:30 which means plus 2 hours and 30 minutes beyond utc, or -01:30:20 which means 1 hour, 30 minutes, and 20 seconds before utc (as if anyone would use that). The following variables are generated by the system on behalf of scripts |  |</code><span
+class="math display">$$db_error`            |  error message from a
+postgres failure $$</span>findtext_start - ^findtext return the end
+normally, this is where it puts the start</td>
 </tr>
 <tr class="odd">
 <td><code>$$tcpopen_error</code></td>
@@ -1613,98 +1989,136 @@ canon: faster fast</code></pre>
 </tr>
 <tr class="even">
 <td><code>$cs_fullfloat</code></td>
-<td>if defined, causes the system to generate full float 64-bit precision on outputs, otherwise you get 2 digit precision by default</td>
+<td>if defined, causes the system to generate full float 64-bit
+precision on outputs, otherwise you get 2 digit precision by
+default</td>
 </tr>
 <tr class="odd">
 <td><code>$cs_botid</code></td>
-<td>when non-zero creates facts and functions restricted by this bitmask so facts and functions created by other masks cannot be seen. allows you to separate facts and functions per bot in a multi-bot environment. During compilation if this is set by a bot: command, then functions created and facts created by tables will be restricted to that owner.</td>
+<td>when non-zero creates facts and functions restricted by this bitmask
+so facts and functions created by other masks cannot be seen. allows you
+to separate facts and functions per bot in a multi-bot environment.
+During compilation if this is set by a bot: command, then functions
+created and facts created by tables will be restricted to that
+owner.</td>
 </tr>
 <tr class="even">
 <td><code>$cs_numbers</code></td>
-<td>if defined, causes the system to output numbers in a different language style: french, indian. All other values are english.</td>
+<td>if defined, causes the system to output numbers in a different
+language style: french, indian. All other values are english.</td>
 </tr>
 <tr class="odd">
 <td><code>%trace_on and %trace_off</code></td>
-<td>Pseudo system variable used by the ^testpattern and ^testoutput call to let code request a trace be returned.</td>
+<td>Pseudo system variable used by the ^testpattern and ^testoutput call
+to let code request a trace be returned.</td>
 </tr>
 <tr class="even">
 <td><code>$cs_indentlevel</code></td>
-<td>controls indenting when tracing in ^testpattern. 3 is a good number usually</td>
+<td>controls indenting when tracing in ^testpattern. 3 is a good number
+usually</td>
 </tr>
 <tr class="odd">
 <td><code>$indentlevel</code></td>
-<td>deprecated form of $cs_indentlevel</td>
-</tr>
-<tr class="even">
-<td><code>$cs_tracetestoutput</code></td>
-<td>set to 1 to force tracing in ^testoutput</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_outputlimit</code></td>
-<td>Generating more output than this will report a bug into LOGS/bugs.txt</td>
-</tr>
-<tr class="even">
-<td><code>$cs_summary</code></td>
-<td>After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_showtime</code></td>
-<td>After volley prints to terminal milliseconds of time used</td>
-</tr>
-<tr class="even">
-<td><code>$cs_new_user</code></td>
-<td>set to 1, treat user as always new (don't try to read topic file)</td>
-</tr>
-<tr class="odd">
-<td><code>$cs_jid</code></td>
-<td>number to start with when starting indexing of new json structure ids</td>
-</tr>
-<tr class="even">
-<td><code>$cs_directfromoob</code></td>
-<td>when set to true tells cs to convert any incoming oob directly into a json structure</td>
+<td>deprecated form of <span class="math inline">$cs_indentlevel | |
+`$</span>cs_tracetestoutput<code>| set to 1 to force tracing in ^testoutput| |</code><span
+class="math inline">$cs_outputlimit` | Generating more output than this
+will report a bug into LOGS/bugs.txt | |
+`$</span>cs_summary<code>| After volley prints to terminal milliseconds of time used in preparation, rules, postprocessing | |</code><span
+class="math inline">$cs_showtime` | After volley prints to terminal
+milliseconds of time used | |
+`$</span>cs_new_user<code>| set to 1, treat user as always new (don't try to read topic file)  | |</code><span
+class="math inline">$cs_jid` | number to start with when starting
+indexing of new json structure ids | | `$</span>cs_directfromoob`</td>
 </tr>
 </tbody>
 </table>
 <h1 id="hook-functions">hook functions</h1>
-<div style="white-space: pre-line;"><code>$cs_beforereset</code> | if set to a topic, will be executed before :reset is executed |
-<code>$cs_addresponse</code> | provides a function name hook onto the output q to the user. |
-<code>$testpatternpretopic</code> | execute this topic to preprocess input before matchines |
-<code>$$cs_testpatterninput</code> | a copy of user input created by engine for $testpatternpretopic to change if it wants |
-<code>$testpattern_posttopic</code> | can name a topic to be executed after ^testpattern to alter returned new variables |</div>
+<div class="line-block"><code>$cs_beforereset</code> | if set to a
+topic, will be executed before :reset is executed |<br />
+<code>$cs_addresponse</code> | provides a function name hook onto the
+output q to the user. |<br />
+<code>$testpatternpretopic</code> | execute this topic to preprocess
+input before matchines |<br />
+<code>$$cs_testpatterninput</code> | a copy of user input created by
+engine for $testpatternpretopic to change if it wants |<br />
+<code>$testpattern_posttopic</code> | can name a topic to be executed
+after ^testpattern to alter returned new variables |</div>
 <h1 id="variables-to-limit-effort">variables to limit effort</h1>
-<div style="white-space: pre-line;"><code>$cs_topicretrylimit</code> | if defined changes how many times you can pass back RETRY_TOPIC before it fails (current limit is 30) |
-<code>$$topic_retry_limit_exceeded</code> | set if topic retry limit is encountered |
-<code>$cs_userhistorylimit</code> | if not null, indicates how many volleys back are tracked as what was said by both parties |
-<code>$cs_sentences_limit</code> | after this many sentences in volley, cs ignores the rest (default 50) |
-<code>$cs_inputlimit</code> | Restrict user input size (excluding oob) |
-<code>$cs_looplimit</code> | loop() defaults to 1000 iterations before stopping. You can change this default with this |
-<code>$cs_analyzelimit</code> | in non-standalone mode, after this millisecond limit, cs stops NL analysis of more sentences |
-<code>$cs_analyzelimitlog</code> | if analyzelimit triggers, report this fact in bug log |
-<code>$FakeTimeOffset</code> | For testing analyzelimit, pretend this much ms has already lapsed on start |
-<code>$cs_badspellLimit</code> | x-y format. After x many spelling corrections or x/y ratio of badspells to words seen, stop spellchecking |
-<code>$cs_sequence</code> | How many words in sequence to check as a composite (default: 5) |</div>
+<div class="line-block"><code>$cs_topicretrylimit</code> | if defined
+changes how many times you can pass back RETRY_TOPIC before it fails
+(current limit is 30) |<br />
+<code>$$topic_retry_limit_exceeded</code> | set if topic retry limit is
+encountered |<br />
+<code>$cs_userhistorylimit</code> | if not null, indicates how many
+volleys back are tracked as what was said by both parties |<br />
+<code>$cs_sentences_limit</code> | after this many sentences in volley,
+cs ignores the rest (default 50) |<br />
+<code>$cs_inputlimit</code> | Restrict user input size (excluding oob)
+|<br />
+<code>$cs_looplimit</code> | loop() defaults to 1000 iterations before
+stopping. You can change this default with this |<br />
+<code>$cs_analyzelimit</code> | in non-standalone mode, after this
+millisecond limit, cs stops NL analysis of more sentences |<br />
+<code>$cs_analyzelimitlog</code> | if analyzelimit triggers, report this
+fact in bug log |<br />
+<code>$FakeTimeOffset</code> | For testing analyzelimit, pretend this
+much ms has already lapsed on start |<br />
+<code>$cs_badspellLimit</code> | x-y format. After x many spelling
+corrections or x/y ratio of badspells to words seen, stop spellchecking
+|<br />
+<code>$cs_sequence</code> | How many words in sequence to check as a
+composite (default: 5) |</div>
 <h1 id="json-variables">JSON variables</h1>
-<div style="white-space: pre-line;"><code>$cs_jsontimeout</code> | seconds before JsonOpen declares a time out failure. If unspecified the default is 300 |
-<code>$cs_saveusedJson</code> | if not null, the only JSON facts CS will write into the user's topic files that are referred to (directly or indirectly) from user variables being saved. (see below) |
-<code>$cs_proxycredentials</code> | See ^JSONOPEN in JSON manual|
-<code>$cs_proxyserver</code> | See ^JSONOPEN in JSON manual|
-<code>$cs_proxymethod</code> | See ^JSONOPEN in JSON manual|
+<div class="line-block"><code>$cs_jsontimeout</code> | seconds before
+JsonOpen declares a time out failure. If unspecified the default is 300
+|<br />
+<code>$cs_saveusedJson</code> | if not null, the only JSON facts CS will
+write into the user’s topic files that are referred to (directly or
+indirectly) from user variables being saved. (see below) |<br />
+<code>$cs_proxycredentials</code> | See ^JSONOPEN in JSON manual|<br />
+<code>$cs_proxyserver</code> | See ^JSONOPEN in JSON manual|<br />
+<code>$cs_proxymethod</code> | See ^JSONOPEN in JSON manual|<br />
 <code>$correlation_id</code> | See ^JSONOPEN in JSON manual|</div>
 <h1 id="mongo-variables">Mongo variables</h1>
-<div style="white-space: pre-line;"><code>$cs_mongoqueryparams</code> | set as a json structure of move its fields to a mongo query |
-<code>$mongo_enable_ssl</code> | if set to true, will use ssl |
-<code>$mongosslcafile</code> | data for ssl |
-<code>$mongosslpemfile</code> | data for ssl |
-<code>$mongosslpempwd</code> | data for ssl |
-<code>$mongovalidatessl</code> | data for ssl |
-<code>$mongo_timeexcess</code> | if certain operations exceed this ms, log entry is created |
+<div class="line-block"><code>$cs_mongoqueryparams</code> | set as a
+json structure of move its fields to a mongo query |<br />
+<code>$mongo_enable_ssl</code> | if set to true, will use ssl |<br />
+<code>$mongosslcafile</code> | data for ssl |<br />
+<code>$mongosslpemfile</code> | data for ssl |<br />
+<code>$mongosslpempwd</code> | data for ssl |<br />
+<code>$mongovalidatessl</code> | data for ssl |<br />
+<code>$mongo_timeexcess</code> | if certain operations exceed this ms,
+log entry is created |<br />
 <code>$$mongo_error</code> | error message if db not openable |</div>
-<p>Note for %trace_on and %trace_off - you can use the command line parameter <code>blockapitrace</code> to prevent tracing in any code you accidentally leave in place.</p>
-<p><code>$cs_saveusedJson</code> exists as a kind of garbage collection. Nowadays most facts will come from JSON data either from a website or created in script. But keeping on top of deleting obsolete JSON may be overlooked. When this variable is non-null, ChatScript will automatically destroy any JSON fact that cannot trace a JSON fact path back to some user variable. Variables that have as values the name of a JSON object or array automatically protect all JSON facts underneath. JSON references merely within some text string will not protect anything, nor will references from some other non-JSON fact.</p>
-<p><code>$cs_inputlimit=x:y</code> for excessively long user input (excluding oob portion), the input will be truncated by keeping the first x characters and the last y characters.</p>
-<p><code>$cs_crash</code> - This topic can generate an appropriate dummy output and CS completes that volley but does not save an updated user file. The NEXT volley coming in will force cs to completely reload itself before processing. Making a dummy output hopefully means the same fatal input will not be sent back into CS to crash it again (due to external retry when no answer is received from CS). E.g.,</p>
+<p>Note for %trace_on and %trace_off - you can use the command line
+parameter <code>blockapitrace</code> to prevent tracing in any code you
+accidentally leave in place.</p>
+<p><code>$cs_saveusedJson</code> exists as a kind of garbage collection.
+Nowadays most facts will come from JSON data either from a website or
+created in script. But keeping on top of deleting obsolete JSON may be
+overlooked. When this variable is non-null, ChatScript will
+automatically destroy any JSON fact that cannot trace a JSON fact path
+back to some user variable. Variables that have as values the name of a
+JSON object or array automatically protect all JSON facts underneath.
+JSON references merely within some text string will not protect
+anything, nor will references from some other non-JSON fact.</p>
+<p><code>$cs_inputlimit=x:y</code> for excessively long user input
+(excluding oob portion), the input will be truncated by keeping the
+first x characters and the last y characters.</p>
+<p><code>$cs_crash</code> - This topic can generate an appropriate dummy
+output and CS completes that volley but does not save an updated user
+file. The NEXT volley coming in will force cs to completely reload
+itself before processing. Making a dummy output hopefully means the same
+fatal input will not be sent back into CS to crash it again (due to
+external retry when no answer is received from CS). E.g.,</p>
 <pre><code>topic: ~crashtopic system ()
     t: Huh?</code></pre>
-<p><code>$cs_addresponse</code> names a function of 2 arguments that will be called when CS wants put text into the output queue of the user. The first argument will be what CS wants to output. The second is the rule tag that generated this output. If the function returns a failure code, the message will be aborted and not put into the queue. If the function returns a text value (not null) then that message will replace what was intended to go to the user.</p>
+<p><code>$cs_addresponse</code> names a function of 2 arguments that
+will be called when CS wants put text into the output queue of the user.
+The first argument will be what CS wants to output. The second is the
+rule tag that generated this output. If the function returns a failure
+code, the message will be aborted and not put into the queue. If the
+function returns a text value (not null) then that message will replace
+what was intended to go to the user.</p>
 </body>
 </html>

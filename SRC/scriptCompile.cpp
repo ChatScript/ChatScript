@@ -4,6 +4,8 @@
 //------------------------
 #define PATTERNDEPTH 1000
 bool nowarndupconcept = false;
+
+static unsigned char mathphrase[20];
 unsigned int supplementalColumn = 0;
 static HEAPREF undefinedCallThreadList = NULL;
 static HEAPREF undefinedConceptThreadList = NULL;
@@ -4499,7 +4501,7 @@ char* ReadOutput(bool optionalBrace,bool nested,char* ptr, FILE* in,char* &mydat
 		}
 
 		ReadNextSystemToken(in,ptr,nextToken,false,true); //   caching request
-		if (pendingmathassign && level == 0 && *word != '(')
+		if (pendingmathassign && *word != '(')
 			pendingmathassign = 0; // turn off math assign
 		if ((*word == '$' || *word == '_') && IsAssignOp(nextToken)) pendingmathassign = 1;
 		if (pendingmathassign && (!stricmp(word, "and") || !stricmp(word, "or")))
@@ -5991,7 +5993,6 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 		len += displayLen;
 		memmove(data,display,displayLen);
 	}
-	bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
 	unsigned int checksum = ((unsigned int) Hashit((unsigned char*) data, len,hasUpperCharacters,hasUTF8Characters, hasSeparatorCharacters)) & 0x0fffffff;
 	
 	//   trailing blank after jump code
@@ -7406,8 +7407,8 @@ static void WriteDictionaryChange(FILE* dictout, unsigned int build)
 static void WriteExtendedFacts(FILE* factout,FILE* dictout,FILE* varout, unsigned int build)
 {
 	if (!factout || !dictout || !varout) return;
-	fprintf(dictout, "%d\r\n", CHECKSTAMPRAW); 
-	fprintf(factout, "%d\r\n", CHECKSTAMPRAW);
+	fprintf(dictout, "%d %s\r\n", CHECKSTAMPRAW,language_list); 
+	fprintf(factout, "%d %s\r\n", CHECKSTAMPRAW,language_list);
 	fprintf(varout, "%d\r\n", CHECKSTAMPRAW);
 	seeAllFacts = true;
 	

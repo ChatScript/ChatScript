@@ -3154,7 +3154,7 @@ void AddContext(int topicid, char* label)
 	topicContext[contextIndex] = (unsigned short)topicid;
 	inputContext[contextIndex] = (int)volleyCount;
 	++contextIndex;
-	if (contextIndex == MAX_RECENT) contextIndex = 0; // ring buffer
+	if (contextIndex == MAX_RECENT) contextIndex = 0; // ring buffer always writing at the end of the ring the newest
 }
 
 void SetContext(bool val)
@@ -3183,10 +3183,11 @@ char* WriteUserContext(char* ptr, bool sharefile)
 	if (!ptr) return NULL;
 
 	// write out recent context
-	int i = contextIndex;
+
+	int i = contextIndex; // unused slot
 	sprintf(ptr, (char*)"%s", (char*)"#context ");
 	ptr += strlen(ptr);
-	while (--i != (int)contextIndex)
+	while (--i != (int)contextIndex) // most recent first 
 	{
 		if (i < 0) i = MAX_RECENT;
 		if (topicContext[i] == 0) break;
@@ -3206,6 +3207,8 @@ bool ReadUserContext()
 	char* ptr = readBuffer;
 	ptr = ReadCompiledWord(ptr, word);
 	memset(topicContext, 0, sizeof(topicContext));
+	memset(inputContext, 0, sizeof(inputContext));
+	memset(labelContext, 0, sizeof(labelContext));
 	contextIndex = 0;
 	// #context ~anythingelse~4 3 ANYTHINGELSE ~tech_symptomreact~4 1 EMAIL-BAD_PASSWORD_1KB_RL ~computer_expert~7 0 GENERAL_START ~tech_symptomreact~4 2 EMAIL-BAD_PASSWORD_2_1KB_C_RL 
 	if (stricmp(word, (char*)"#context")) return false; // cant handle it

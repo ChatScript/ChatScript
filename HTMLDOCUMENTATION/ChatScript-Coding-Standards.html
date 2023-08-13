@@ -1,29 +1,213 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Coding-Standards</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <h1 id="chatscript-coding-standards">ChatScript Coding Standards</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com <br>Revision 6/20/2022 cs12.2</p>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com <br>Revision 6/20/2022 cs12.2</p>
 <p>Contents:</p>
 <ul>
-<li><a href="ChatScript-Coding-Standards.html#indentation-of-rules">Indentation of rules</a></li>
-<li><a href="ChatScript-Coding-Standards.html#rule-labels">Rule Labels</a></li>
-<li><a href="ChatScript-Coding-Standards.html#give-sample-inputs">Give Sample inputs</a></li>
-<li><a href="ChatScript-Coding-Standards.html#easy-to-read-patterns">Easy to read patterns</a></li>
-<li><a href="ChatScript-Coding-Standards.html#easy-to-read-rule-output">Easy to read rule output</a></li>
-<li><a href="ChatScript-Coding-Standards.html#bundle-related-rules">Bundle related rules</a></li>
-<li><a href="ChatScript-Coding-Standards.html#concept-and-function-localization">Concept and Function localization</a></li>
-<li><a href="ChatScript-Coding-Standards.html#keywords">Keywords</a></li>
-<li><a href="ChatScript-Coding-Standards.html#keyword-casing-and-misspellings">Keyword casing and Misspellings</a></li>
+<li><a
+href="ChatScript-Coding-Standards.md#indentation-of-rules">Indentation
+of rules</a></li>
+<li><a href="ChatScript-Coding-Standards.md#rule-labels">Rule
+Labels</a></li>
+<li><a href="ChatScript-Coding-Standards.md#give-sample-inputs">Give
+Sample inputs</a></li>
+<li><a href="ChatScript-Coding-Standards.md#easy-to-read-patterns">Easy
+to read patterns</a></li>
+<li><a
+href="ChatScript-Coding-Standards.md#easy-to-read-rule-output">Easy to
+read rule output</a></li>
+<li><a href="ChatScript-Coding-Standards.md#bundle-related-rules">Bundle
+related rules</a></li>
+<li><a
+href="ChatScript-Coding-Standards.md#concept-and-function-localization">Concept
+and Function localization</a></li>
+<li><a href="ChatScript-Coding-Standards.md#keywords">Keywords</a></li>
+<li><a
+href="ChatScript-Coding-Standards.md#keyword-casing-and-misspellings">Keyword
+casing and Misspellings</a></li>
 </ul>
-<p><em>Rationale</em>:<br> Coding Standards allow you and others to understand your code. They can also allow others who are not programmers to view an abstract of your code, generated by CS’s <code>:abstract</code> ability.</p>
-<p>To use <code>:abstract</code>, merely login locally with a new user name (or erase contents of USERS), then type <code>:abstract ~mytopic</code> for a single topic. The abstract will whiz by on screen but is captured in the user log. Just rename that log file and move it somewhere else.</p>
+<p><em>Rationale</em>:<br> Coding Standards allow you and others to
+understand your code. They can also allow others who are not programmers
+to view an abstract of your code, generated by CS’s
+<code>:abstract</code> ability.</p>
+<p>To use <code>:abstract</code>, merely login locally with a new user
+name (or erase contents of USERS), then type
+<code>:abstract ~mytopic</code> for a single topic. The abstract will
+whiz by on screen but is captured in the user log. Just rename that log
+file and move it somewhere else.</p>
 <h2 id="indentation-of-rules">Indentation of rules</h2>
 <ul>
 <li>Do not indent top level rules.</li>
@@ -41,8 +225,13 @@ u: (how are you) I am good.
 u: (and then) xxx # this is bad - jammed immediately after top level rule
 
     u: (why not) because. # this is bad indentation of top level rule</code></pre>
-<p><em>Rationale</em>:<br> On one hand you want to minimize useless space on a page. So top-level rules should not be indented (nor should their sample inputs).</p>
-<p>On the other hand you want to easily see the structure of the code, so properly indenting rejoinders makes structure clear. And you want to easily spot where one rule chunk ends and another begins. So separating top level rules and keep rejoinders together is what I do.</p>
+<p><em>Rationale</em>:<br> On one hand you want to minimize useless
+space on a page. So top-level rules should not be indented (nor should
+their sample inputs).</p>
+<p>On the other hand you want to easily see the structure of the code,
+so properly indenting rejoinders makes structure clear. And you want to
+easily spot where one rule chunk ends and another begins. So separating
+top level rules and keep rejoinders together is what I do.</p>
 <h2 id="rule-labels">Rule Labels</h2>
 <ul>
 <li>Make meaningful labels using capital letters.</li>
@@ -54,12 +243,18 @@ u: (and then) xxx # this is bad - jammed immediately after top level rule
     a: () ^reuse(EMAIL_GIVEN)
 
 t: B55() What is your email address? # bad- meaningless label</code></pre>
-<p><em>Rationale</em>:<br> Using capital letters for rule labels (both at the rule and in places that <code>^reuse</code> the rule) make it easy to see them in a mass of text like a <code>:trace</code>.</p>
-<p>If yours is not your own private bot project then every rule that generates output should have such a label, which will appear in an abstract. This allows others to refer to your rule and maybe find it in log files of customers.</p>
+<p><em>Rationale</em>:<br> Using capital letters for rule labels (both
+at the rule and in places that <code>^reuse</code> the rule) make it
+easy to see them in a mass of text like a <code>:trace</code>.</p>
+<p>If yours is not your own private bot project then every rule that
+generates output should have such a label, which will appear in an
+abstract. This allows others to refer to your rule and maybe find it in
+log files of customers.</p>
 <h2 id="give-sample-inputs">Give sample inputs</h2>
 <ul>
 <li>Give sample inputs for responders and rejoinders.</li>
-<li>Give multiple samples for wildly different sentence constructions when you have multiple patterns in a rule.</li>
+<li>Give multiple samples for wildly different sentence constructions
+when you have multiple patterns in a rule.</li>
 </ul>
 <p>Examples:</p>
 <pre><code>t: What year is it?
@@ -73,8 +268,12 @@ t: B55() What is your email address? # bad- meaningless label</code></pre>
     (who be ‘you)
     ])
     My name is Rose.</code></pre>
-<p><em>Rationale</em>:<br> Sample inputs explain your patterns. Instead of having to interpret the pattern, you know immediately what the rule is intending to do.</p>
-<p>Sample inputs allow you to use <code>:abstract</code> to give non-programmers an overview of your code. Sample inputs also allow CS to unit-test your code for you using <code>:verify</code>.</p>
+<p><em>Rationale</em>:<br> Sample inputs explain your patterns. Instead
+of having to interpret the pattern, you know immediately what the rule
+is intending to do.</p>
+<p>Sample inputs allow you to use <code>:abstract</code> to give
+non-programmers an overview of your code. Sample inputs also allow CS to
+unit-test your code for you using <code>:verify</code>.</p>
 <h2 id="easy-to-read-patterns">Easy-to-read patterns</h2>
 <ul>
 <li>Avoid superfluous parentheses.</li>
@@ -92,10 +291,15 @@ u: BAD_CHOICES ([
     (~mywords) # superfluous parens
     ([ word1 word2]) # superfluous parens
     ])</code></pre>
-<p><em>Rationale</em>:<br> Superfluous parens make patterns harder to read, so harder to visually confirm they are correct. They also slow down the CS engine, but not enough to matter.</p>
-<p>When you are using multiple patterns in a rule, putting each on its own line allows you (or code reviewers) to comprehend each one separately.</p>
+<p><em>Rationale</em>:<br> Superfluous parens make patterns harder to
+read, so harder to visually confirm they are correct. They also slow
+down the CS engine, but not enough to matter.</p>
+<p>When you are using multiple patterns in a rule, putting each on its
+own line allows you (or code reviewers) to comprehend each one
+separately.</p>
 <h2 id="easy-to-read-rule-output">Easy to read rule output</h2>
-<p>Indent each sentence and each CS code statement on separate lines.</p>
+<p>Indent each sentence and each CS code statement on separate
+lines.</p>
 <p>Examples:</p>
 <pre><code>#! Test
 u: (test)
@@ -113,8 +317,12 @@ u: (where * you * born) # bad- harder to read
 u: (where * you * born) # good
     I was born in San Francisco near the old church on the hill.
     I was born an only child but my parents always wanted more.</code></pre>
-<p><em>Rationale</em>:<br> Multiple sentence user output is harder to read if on the same line since they will tend to run into very long lines.</p>
-<p>Code is certainly harder to understand when multiple actions are on the same line. On the other hand if the output is tiny, you might put it on a single line like this:</p>
+<p><em>Rationale</em>:<br> Multiple sentence user output is harder to
+read if on the same line since they will tend to run into very long
+lines.</p>
+<p>Code is certainly harder to understand when multiple actions are on
+the same line. On the other hand if the output is tiny, you might put it
+on a single line like this:</p>
 <pre><code>u: (test) OK. $status += 1</code></pre>
 <h2 id="bundle-related-rules">Bundle related rules</h2>
 <ul>
@@ -142,29 +350,63 @@ topic: ~family()
 ?: ( what * father * do) He works.
 #!x*** Siblings
 ...</code></pre>
-<p><em>Rationale</em>:<br> With appropriate bundling you should immediately know where to add a new rule or discover that you have multiple rules doing the same job.</p>
-<p>I even annotate clusters of rules for <code>:abstract</code> using <code>#!x</code> comments which will reflect into the abstract to label the cluster and make it easy for people to follow along. The only problem may be when some earlier rule blocks a later one and you need to move something around. Consider using <code>!</code> keywords as instead.</p>
-<h2 id="concept-and-function-localization">Concept and Function localization</h2>
+<p><em>Rationale</em>:<br> With appropriate bundling you should
+immediately know where to add a new rule or discover that you have
+multiple rules doing the same job.</p>
+<p>I even annotate clusters of rules for <code>:abstract</code> using
+<code>#!x</code> comments which will reflect into the abstract to label
+the cluster and make it easy for people to follow along. The only
+problem may be when some earlier rule blocks a later one and you need to
+move something around. Consider using <code>!</code> keywords as
+instead.</p>
+<h2 id="concept-and-function-localization">Concept and Function
+localization</h2>
 <ul>
-<li>If a concept or function is only used in 1 file, put it into that file.</li>
-<li>If a concept or function is used in multiple places, use a global functions.top or concepts.top.</li>
+<li>If a concept or function is only used in 1 file, put it into that
+file.</li>
+<li>If a concept or function is used in multiple places, use a global
+functions.top or concepts.top.</li>
 <li>For tables used only used in 1 file, depends on size of table.</li>
 </ul>
-<p><em>Rationale</em>:<br> When you can localize data to the one file that uses it, it makes it easier to find the definition when you want to inspect it.</p>
+<p><em>Rationale</em>:<br> When you can localize data to the one file
+that uses it, it makes it easier to find the definition when you want to
+inspect it.</p>
 <h2 id="keywords">Keywords</h2>
 <ul>
-<li>Keywords and phrases in concepts, topic keywords, and patterns should be in lemma form if you want all conjugations matched.</li>
+<li>Keywords and phrases in concepts, topic keywords, and patterns
+should be in lemma form if you want all conjugations matched.</li>
 <li>Numbers should be in digit rather than word form.</li>
 <li>Put the rareest keywords first in [ ] .</li>
-<li>If you use [ ] in a pattern and then repeat that the same in another pattern, best to make a concept of it and use the concept.</li>
+<li>If you use [ ] in a pattern and then repeat that the same in another
+pattern, best to make a concept of it and use the concept.</li>
 </ul>
-<p><em>Rationale</em>:<br> You want to match the most you can. Don't repeat singular and plural forms of a word, or word forms of a number, etc. And you want to put rarest first in [] because you want to avoid accidental matches on common words.</p>
-<p>You make a concept out of repeated [ ] pieces, because: Firstly, because when you want to add items in later, you may forget to add them in equivalently in other rules. Secondly, because the concept hunts for earliest match of any whereas [ ] hunts in specific order.<br />
-If pattern is ( are you * [ dry happy] near me) then if input is &quot;are you happy to be dry while near me&quot;, the pattern will bind are you dry, then fail on near because the next word in sentence is while. But it cant back up (not full lookahead mechanism) and try happy instead. It can retry the start of sentence, but that will just come back to &quot;are you&quot;. But with a concept, it finds the earliest match to anything in the concept.</p>
-<h2 id="keyword-casing-and-misspellings">Keyword Casing and Misspellings</h2>
-<p>Use standard dictionary casing (or product owner's casing in the case of new non-words in the language) for keywords in concepts or patterns.</p>
-<p>Avoid putting misspellings in concepts or keywords. Use replace: in your scripts file to effectively add additions to the predefined substitutions files that come with ChatScript.</p>
-<p>But use <code>:replace</code> only when the misspell has only one possible obvious value. <code>replace:</code> changes the dictionary for ALL BOTS.! For misspellings which are legal words, add them to concepts or keywords.</p>
+<p><em>Rationale</em>:<br> You want to match the most you can. Don’t
+repeat singular and plural forms of a word, or word forms of a number,
+etc. And you want to put rarest first in [] because you want to avoid
+accidental matches on common words.</p>
+<p>You make a concept out of repeated [ ] pieces, because: Firstly,
+because when you want to add items in later, you may forget to add them
+in equivalently in other rules. Secondly, because the concept hunts for
+earliest match of any whereas [ ] hunts in specific order.<br />
+If pattern is ( are you * [ dry happy] near me) then if input is “are
+you happy to be dry while near me”, the pattern will bind are you dry,
+then fail on near because the next word in sentence is while. But it
+cant back up (not full lookahead mechanism) and try happy instead. It
+can retry the start of sentence, but that will just come back to “are
+you”. But with a concept, it finds the earliest match to anything in the
+concept.</p>
+<h2 id="keyword-casing-and-misspellings">Keyword Casing and
+Misspellings</h2>
+<p>Use standard dictionary casing (or product owner’s casing in the case
+of new non-words in the language) for keywords in concepts or
+patterns.</p>
+<p>Avoid putting misspellings in concepts or keywords. Use replace: in
+your scripts file to effectively add additions to the predefined
+substitutions files that come with ChatScript.</p>
+<p>But use <code>:replace</code> only when the misspell has only one
+possible obvious value. <code>replace:</code> changes the dictionary for
+ALL BOTS.! For misspellings which are legal words, add them to concepts
+or keywords.</p>
 <p>Examples:</p>
 <pre><code>concept: ~protocols (Blu-ray WiFi)
 replace: blue_ray Blu-ray # true always. Do this as the correct spelling
@@ -178,7 +420,16 @@ u: (_~planets) ‘_0 # outputs Mars even though user typed mars
 
 #! Do you like sheep?
 u: ([sheep shep sheap]) I like sheep # generally bad to do this</code></pre>
-<p><em>Rationale</em>:<br> If a word exists with only one casing in the dictionary, CS can automatically adjust the input to make it correct. Even if a word exists in multiple cases, if a concept set has it in only one casing (e.g. <code>~planets</code> has the noun Mars and not the verb mars), if you memorize it, CS can memorize the correct casing.</p>
-<p>Sometimes you expect some user typos. Putting the illegal forms in your patterns (like shep), means they enter the dictionary as acceptable words. This means spelling correction can change “misspellings” of misspellings, causing word drift for an input like “hep”. Prefer to use <code>replace:</code> if a misspelling can only go to one obvious place.</p>
+<p><em>Rationale</em>:<br> If a word exists with only one casing in the
+dictionary, CS can automatically adjust the input to make it correct.
+Even if a word exists in multiple cases, if a concept set has it in only
+one casing (e.g. <code>~planets</code> has the noun Mars and not the
+verb mars), if you memorize it, CS can memorize the correct casing.</p>
+<p>Sometimes you expect some user typos. Putting the illegal forms in
+your patterns (like shep), means they enter the dictionary as acceptable
+words. This means spelling correction can change “misspellings” of
+misspellings, causing word drift for an input like “hep”. Prefer to use
+<code>replace:</code> if a misspelling can only go to one obvious
+place.</p>
 </body>
 </html>

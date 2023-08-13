@@ -1,48 +1,266 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ChatScript-Advanced-Layers-Manual</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height; auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="chatscript-advanced-layers-manual">ChatScript Advanced Layers Manual</h1>
-<p>Copyright Bruce Wilcox, gowilcox@gmail.com www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
+<h1 id="chatscript-advanced-layers-manual">ChatScript Advanced Layers
+Manual</h1>
+<p>Copyright Bruce Wilcox, gowilcox@gmail.com
+www.brilligunderstanding.com<br> <br>Revision 7/18/2021 cs11.5</p>
 <h1 id="layers">LAYERS</h1>
 <p>ChatScript loads its startup data layers at a time.</p>
-<p>Layer 0 comes from :build 0 typically, which is common stuff that comes with ChatScript. You can override its contents by providing your own files0.txt file. The layer is intended for stuff that won't be changing much (thus saving recompilation time). Some people have used layer 0 to house their entire bot, with layer 1 used for downloadable patches on phone apps.</p>
-<p>Layer 1 comes from :build harry or :build yourbot and is typically your bot.</p>
-<p>Layer 2 is a boot layer, which may not have any content. More later.</p>
-<p>Layer 3 is the user layer. Every volley starts out by loading it from the user's topic file. At the end of the volley data is written back out to that file, and this layer is removed.</p>
+<p>Layer 0 comes from :build 0 typically, which is common stuff that
+comes with ChatScript. You can override its contents by providing your
+own files0.txt file. The layer is intended for stuff that won’t be
+changing much (thus saving recompilation time). Some people have used
+layer 0 to house their entire bot, with layer 1 used for downloadable
+patches on phone apps.</p>
+<p>Layer 1 comes from :build harry or :build yourbot and is typically
+your bot.</p>
+<p>Layer 2 is a boot layer, which may not have any content. More
+later.</p>
+<p>Layer 3 is the user layer. Every volley starts out by loading it from
+the user’s topic file. At the end of the volley data is written back out
+to that file, and this layer is removed.</p>
 <h2 id="boot-layer">BOOT layer</h2>
-<p>The boot layer is used for adding dynamic data to the basic server on startup (since layers 0 and 1 are precompiled).</p>
+<p>The boot layer is used for adding dynamic data to the basic server on
+startup (since layers 0 and 1 are precompiled).</p>
 <h3 id="csboot"><code>^CSBOOT()</code></h3>
 <p>outputmacro: ^CSBOOT()</p>
-<p>This function, if defined by you, will be executed on startup of the ChatScript system. It is a way to dynamically add facts and user variables into the base system common to all users (the boot layer). And returned output will go to the console and if a server, into the server log Note that when a user alters a system <code>$variable</code>, it will be refreshed back to its original value for each user.</p>
-<p>If you create JSON data, you should probably use ^jsonlabel() to create unique names separate from the normal json naming space.</p>
-<p>Changing the content of boot json facts (e.g. <code>$data.value += 1</code>) may create abandoned data in the boot layer (the old value of $data.value) and do this often enough and you may run out of memory since there is no way to reclaim it.</p>
-<p>All permanent facts created during the boot process will reside in this layer while the server remains operational. If you restart the server, whatever was stored here is gone, presumably recreated by a new call to ^CSBOOT.</p>
-<p>Note: In a multi-bot system, you need to define this function ONCE in a common area (like a botmacro file) which is visible to all bots.</p>
+<p>This function, if defined by you, will be executed on startup of the
+ChatScript system. It is a way to dynamically add facts and user
+variables into the base system common to all users (the boot layer). And
+returned output will go to the console and if a server, into the server
+log Note that when a user alters a system <code>$variable</code>, it
+will be refreshed back to its original value for each user.</p>
+<p>If you create JSON data, you should probably use ^jsonlabel() to
+create unique names separate from the normal json naming space.</p>
+<p>Changing the content of boot json facts
+(e.g. <code>$data.value += 1</code>) may create abandoned data in the
+boot layer (the old value of $data.value) and do this often enough and
+you may run out of memory since there is no way to reclaim it.</p>
+<p>All permanent facts created during the boot process will reside in
+this layer while the server remains operational. If you restart the
+server, whatever was stored here is gone, presumably recreated by a new
+call to ^CSBOOT.</p>
+<p>Note: In a multi-bot system, you need to define this function ONCE in
+a common area (like a botmacro file) which is visible to all bots.</p>
 <p>HOW DOES GC WORK HERE if you create transient facts?</p>
-<p>You can also add facts to the boot layer from execution of user scripts. Just create facts from a user script using ^createFact(s v o #FACTBOOT) and when layer 1 is being removed at the end of the volley, these facts will migrate to the boot layer.</p>
-<p>You may define any number of ^CSBOOT functions. This allows both multibot and standalone environments to compile without triggering a complaint about already defined functions, though only the first will ever execute.</p>
+<p>You can also add facts to the boot layer from execution of user
+scripts. Just create facts from a user script using ^createFact(s v o
+#FACTBOOT) and when layer 1 is being removed at the end of the volley,
+these facts will migrate to the boot layer.</p>
+<p>You may define any number of ^CSBOOT functions. This allows both
+multibot and standalone environments to compile without triggering a
+complaint about already defined functions, though only the first will
+ever execute.</p>
 <h3 id="purgeboot-what">^purgeboot (what)</h3>
-<p>If you created facts previously during user script executing (via CreateFact with a flags argument FACTBOOT) Or via fact creation in ^csboot, then they would reside there unchanged as part of a server until it goes down. Those facts are visible to all users and becaue they are system owned facts, cannot be modified by a user. However, you can use this function to remove them from the boot layer.</p>
+<p>If you created facts previously during user script executing (via
+CreateFact with a flags argument FACTBOOT) Or via fact creation in
+^csboot, then they would reside there unchanged as part of a server
+until it goes down. Those facts are visible to all users and becaue they
+are system owned facts, cannot be modified by a user. However, you can
+use this function to remove them from the boot layer.</p>
 <pre><code>^purgeboot($variable)</code></pre>
 <pre><code>^purgeboot(@1)</code></pre>
-<p>All facts you may have queried into this factset which are facts from the boot layer will be removed.</p>
+<p>All facts you may have queried into this factset which are facts from
+the boot layer will be removed.</p>
 <pre><code>^purgeboot(botid)</code></pre>
-<p>All facts with the given numeric bot id in the boot layer will be removed.</p>
-<p>If ^purgeboot is called to remove the contents of a json variable, then if that variable is not a user variable, it will be allowed to be reassigned to later, without it automatically reverting to pre-user values (which is normally what happens to changes to bot variables)</p>
+<p>All facts with the given numeric bot id in the boot layer will be
+removed.</p>
+<p>If ^purgeboot is called to remove the contents of a json variable,
+then if that variable is not a user variable, it will be allowed to be
+reassigned to later, without it automatically reverting to pre-user
+values (which is normally what happens to changes to bot variables)</p>
 <h3 id="cs_reboot"><code>^CS_REBOOT()</code></h3>
 <pre><code>outputmacro: ^CS_REBOOT()</code></pre>
-<p>This function, if defined by you, will be executed on every volley prior to loading user data. It is executed as a user-level program which means when it has completed all newly created facts and variables just disappear. Typically you would have the ^CS_REBOOT function test some condition (results of a version stamp) and if the version currently loaded in the boot layer is current, it simply returns having done nothing. If the boot layer is not current, then you call the cs function ^REBOOT() which erases the current boot data and treats the remainder of the script as refilling the boot layer with new facts and variables.</p>
+<p>This function, if defined by you, will be executed on every volley
+prior to loading user data. It is executed as a user-level program which
+means when it has completed all newly created facts and variables just
+disappear. Typically you would have the ^CS_REBOOT function test some
+condition (results of a version stamp) and if the version currently
+loaded in the boot layer is current, it simply returns having done
+nothing. If the boot layer is not current, then you call the cs function
+^REBOOT() which erases the current boot data and treats the remainder of
+the script as refilling the boot layer with new facts and variables.</p>
 <h3 id="command-line-parameters">Command Line Parameters</h3>
 <h4 id="bootcmdxxx">bootcmd=xxx</h4>
-<p>runs this command string before CSBOOT is run. Use it to trace the boot process or whatever.</p>
+<p>runs this command string before CSBOOT is run. Use it to trace the
+boot process or whatever.</p>
 <h4 id="recordboot">recordboot</h4>
-<p>Will append to the toplevel file bootfacts.txt file any data moved from user layer to boot layer due to FACTBOOT facts being created. Normally facts moved to the boot layer from user layer would just be lost when the server restarts. This allows you to recover them, using ^importfact to read back these facts on server startup.</p>
+<p>Will append to the toplevel file bootfacts.txt file any data moved
+from user layer to boot layer due to FACTBOOT facts being created.
+Normally facts moved to the boot layer from user layer would just be
+lost when the server restarts. This allows you to recover them, using
+^importfact to read back these facts on server startup.</p>
 </body>
 </html>

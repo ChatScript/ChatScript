@@ -1,0 +1,40 @@
+﻿~payment~4.3.0  #! how do I pay
+~payment~4.3.0  #! I will pay
+~payment~4.3.0  #! let me  pay
+~payment~4.3.0  #! Will asking you questions cost me anything
+~payment~4.4.0=PAY  #! I don't want to pay
+~payment~4.5.0  #! is it free
+~payment~4.6.0  #! Why should I pay?
+~payment~4.7.0=COST  #! Can I pay later?
+~payment~4.8.0  #! what is the cost
+~payment~4.9.0  #! Exactly how much will I have to pay?
+~payment~4.9.0  #! What will it cost to ask a question?
+~payment~4.10.0  #! is there a charge
+~payment~4.11.0  #! Do i pay for the answer?
+~payment~4.12.0=WHYDEPOSIT  #! why is there a deposit
+~payment~4.13.0=HOW_PAY  #! How do I pay?
+~payment~4.14.0  #! Why is it so expensive?
+~payment~4.15.0  #! Is it worth paying to talk to an expert?
+    ~payment~4.15.1  #! what did you ask them?
+~payment~4.16.0  #! what did they say?
+~payment~4.17.0  #! What is the purpose of the deposit?
+~payment~4.18.0=DOREFUND  #! How can I get my money back?
+~payment~4.19.0  #! I want a refund
+~payment~4.20.0  #! can i get a refund? 
+~payment~4.21.0  #! What if I don't like the answer my expert gave me?
+~payment~4.22.0  #! What if I want a second opinion?
+~payment~4.23.0  #! How long does it take to get a refund?
+~payment~4.24.0  #! I gave my expert a good rating for the answer but now I want a refund. Can you do that?
+~payment~4.25.0  #! Who do I call up to complain or ask more questions?
+~payment~4.26.0=FREE  #! I'm in Japan, it'll cost me a fortune to call customer support what should I do?
+~payment~4.26.0=FREE  #! Do I have to be a member to ask an expert questions?
+~payment~4.26.0=FREE  #! Do I have to pay for my first question?
+~payment~4.27.0  #! Are there special offers for new members?
+~payment~4.28.0  #! is there a free trial
+~payment~4.29.0  #! How will I recognise your company on my billing statement?
+~payment~4.30.0  #! How long will I have to wait for my answer?
+~payment~4.31.0  #! What does it cost to become a member?
+    ~payment~4.31.1  #! won't you tell me simply what it costs to join?
+~payment~4.32.0  #! How do I get the free trial membership?
+~payment~4.33.0  #! What if I run out of questions?
+~payment~4.34.0  #! Can I talk to any expert if I'm a member?

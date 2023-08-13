@@ -1,0 +1,1 @@
+﻿~tech_glean.7.0=TABLET2ANDROID  #! convert tablet to android devices now (else goes to mac) so themes can work

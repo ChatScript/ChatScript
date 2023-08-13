@@ -1,0 +1,3 @@
+﻿    ~homework_expert~3.12.1  #! nothing is wrong
+~homework_expert~3.13.0=REACT  #!x*** SYMPATHY
+~homework_expert~3.16.0=HOMEWORK_PAYMENT  #!x*** LAST CHANCE FOR THEM TO ADD DATA

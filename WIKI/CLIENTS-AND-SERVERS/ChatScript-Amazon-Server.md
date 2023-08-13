@@ -61,10 +61,10 @@ pieces of software on this machine.
 
 To compile CS src or even just to execute it, you will need to have Curl installed, which for some machines is:
 ```
-sudo yum -y install libcurl libcurl-devel
+sudo yum  install curl-devel
 ```
 
-For AMI linux do:
+For AMI linux do:  (centos?)
 
 1. become a superuser with `sudo -s`
 2. get yum to update itself with `yum -y update`
@@ -161,6 +161,27 @@ sudo cp WEBINTERFACE/BETTER/*.* /var/www/html
 
 >Thanks to Dave Morton for the improved interface. You need to edit ui.php to set your IP address and
 > bot name.
+
+
+Making a Linux service
+Create a file called /etc/systemd/system/chatscript.service:
+
+[Unit]
+Description=ChatScrip service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ec2-user
+ExecStart=/ec2-user/ChatScript/BINARIES/ChatScript
+
+[Install]
+WantedBy=multi-user.target
+
+
+systemctl start chatscript
 
 And beyond that is a SPEECH WEB INTERFACE
 

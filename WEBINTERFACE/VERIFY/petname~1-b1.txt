@@ -1,0 +1,15 @@
+﻿~petname~1.2.0  #! my cat  is pickles and is 2
+~petname~1.3.0=FLUFFYIS  #! fluffy is 2
+~petname~1.4.0  #! sugarbaby and her age is 3
+~petname~1.5.0  #! Gemini is her name
+~petname~1.6.0=NAME  #! name is Bob
+~petname~1.10.0  #! Name: Flinch. Age: 3
+~petname~1.11.0=AGEIS  #! Fluffy is 20
+~petname~1.12.0  #! my cat
+    ~petname~1.12.1  #! baby cat, Josie
+    ~petname~1.12.2  #! my cat, Josie
+    ~petname~1.12.3  #! my Josie -- BUT NOT MY ENGLISH
+    ~petname~1.12.3  #! my cat mittens has
+    ~petname~1.12.4  #! my cat  is pickles
+    ~petname~1.12.5  #! my cat pickles,
+    ~petname~1.12.6  #! I named him pickles

@@ -985,9 +985,10 @@ void ReadUserData() // passed  buffer with file content (where feasible)
 	}
 	if (shared) ReadFileData((char*)"share");  // read shared file, if any, or get it from cache
 
-	if (timing & TIME_USER) 
+    int diff = (int)(ElapsedMilliseconds() - start_time);
+    TrackTime((char*)"GetUserData",diff);
+	if (timing & TIME_USER)
 	{
-		int diff = (int)(ElapsedMilliseconds() - start_time);
 		if (timing & TIME_ALWAYS || diff > 0) Log(STDTIMELOG, (char*)"Read user data time: %d ms\r\n", diff);
 	}
 	loading = false;
@@ -1025,7 +1026,6 @@ void ReadNewUser()
 	wildcardSeparatorGiven = false;
 
 	//   set his random seed
-	bool hasUpperCharacters, hasUTF8Characters, hasSeparatorCharacters;
 	unsigned int rand = (unsigned int) Hashit((unsigned char *) loginID,strlen(loginID),hasUpperCharacters,hasUTF8Characters, hasSeparatorCharacters);
 	char word[MAX_WORD_SIZE];
 	oldRandIndex = randIndex = rand & 4095;

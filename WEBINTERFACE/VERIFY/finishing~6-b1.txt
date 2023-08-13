@@ -1,0 +1,10 @@
+﻿    ~finishing~6.1.1  #! are you a bot?
+    ~finishing~6.1.2  #! no
+    ~finishing~6.1.3  #! I can't wait
+    ~finishing~6.1.4  #! I need an answer now
+    ~finishing~6.1.5  #! not that I can think of
+    ~finishing~6.1.6  #! that's it
+    ~finishing~6.1.7  #! yes
+    ~finishing~6.1.9  #! anything
+    ~finishing~6.1.10  #! his tail is stuck
+    ~finishing~6.1.11  #! nothing specific

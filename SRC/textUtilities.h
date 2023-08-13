@@ -160,6 +160,7 @@ FunctionResult AnalyzeCode(char* buffer);
 void SetContinuationInput(char* buffer);
 bool IsAssignOp(char* word);
 void ClearSupplementalInput();
+void PhoneNumber(unsigned int start);
 char* RemoveQuotes(char* item);
 bool IsAllUpper(char* ptr);
 void Translate_UTF16_2_UTF8(char* input);
@@ -199,6 +200,7 @@ char* UTF16_2_UTF8(char* in,bool withinquote);
 bool AdjustUTF8(char* start, char* buffer);
 bool IsArithmeticOperator(char* word);
 bool IsArithmeticOp(char* word);
+uint64 ComposeNumber(unsigned int i, unsigned int& end);
 unsigned IsNumber(char* word,int useNumberStyle = AMERICAN_NUMBERS,bool placeAllowed = true); // returns kind of number
 bool IsPlaceNumber(char* word, int useNumberStyle = AMERICAN_NUMBERS);
 bool IsFractionNumber(char* word);

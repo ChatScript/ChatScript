@@ -1,0 +1,4 @@
+﻿~diagnostics~2.4.0=CHEATREMAP  #! cheat valhalla variable regression
+~diagnostics~2.4.0=CHEATREMAP  #! cheat remap
+~diagnostics~2.5.0=DUMPDATA  #! cheat dump data
+~diagnostics~2.9.0=RESET  #! reset

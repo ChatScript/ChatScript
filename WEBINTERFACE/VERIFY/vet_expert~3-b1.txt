@@ -1,0 +1,48 @@
+﻿    ~vet_expert~3.8.1  #! nothing is wrong
+    ~vet_expert~3.8.2  #! can I kick her
+    ~vet_expert~3.8.3  #! why does
+~vet_expert~3.10.0=KIND  #!x*** ANIMAL TYPE
+    ~vet_expert~3.10.1  #! dog
+    ~vet_expert~3.10.2  #! fungus
+    ~vet_expert~3.10.3  #! yes
+    ~vet_expert~3.10.4  #! no
+~vet_expert~3.11.0  #! what cats do you have
+~vet_expert~3.12.0  #!x*** NAME AND AGE
+~vet_expert~3.12.0  #! I don't know her age
+    ~vet_expert~3.12.1  #! kitten
+    ~vet_expert~3.12.2  #! adult 
+~vet_expert~3.13.0=REACT  #!x*** SYMPATHY
+~vet_expert~3.15.0  #!x*** THEY GAVE NO SYMPTOMS, TRY TO GET SOME
+    ~vet_expert~3.16.1  #! doesnt hurt
+    ~vet_expert~3.16.2  #! body part
+    ~vet_expert~3.16.3  #! other
+    ~vet_expert~3.17.1  #! no
+    ~vet_expert~3.17.2  #! yes
+    ~vet_expert~3.17.3  #! body part
+    ~vet_expert~3.17.4  #! body part
+    ~vet_expert~3.18.1  #! yes
+    ~vet_expert~3.18.2  #! no
+    ~vet_expert~3.18.3  #! she is not eating
+    ~vet_expert~3.19.1  #! no
+    ~vet_expert~3.19.2  #! yes
+    ~vet_expert~3.20.1  #! no
+    ~vet_expert~3.20.2  #! yes
+    ~vet_expert~3.21.2  #! my cat  is pickles and is 2
+    ~vet_expert~3.21.3  #! fluffy is 2
+    ~vet_expert~3.21.4  #! sugarbaby and her age is 3
+    ~vet_expert~3.21.5  #! sugar baby and her age is 3
+    ~vet_expert~3.21.6  #! fluffy and he is 2
+    ~vet_expert~3.21.7  #! Reggie
+    ~vet_expert~3.21.8  #! biddie,
+    ~vet_expert~3.21.9  #! Cindy
+    ~vet_expert~3.21.9  #! Pat, 2 years
+    ~vet_expert~3.22.2  #! my cat  is pickles and is 2
+    ~vet_expert~3.22.3  #! fluffy is 2
+    ~vet_expert~3.22.4  #! Reggie
+    ~vet_expert~3.22.5  #! Cindy
+    ~vet_expert~3.22.6  #! Pat, 2 years
+    ~vet_expert~3.23.1  #! my cat was born two years ago
+    ~vet_expert~3.23.2  #! 15
+~vet_expert~3.24.0  #!x*** LAST CHANCE FOR THEM TO ADD DATA
+~vet_expert~3.26.0=EXPERT  #! can you think of anything
+~vet_expert~3.27.0  #! what might the problem be

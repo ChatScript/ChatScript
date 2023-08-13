@@ -7713,6 +7713,101 @@ void IngestFile(char* file, uint64 junk)
 	bufferIndex = oldIndex; //because performchat clears buffers down to raw base
 }
 
+static void C_Simplelog(char* file)
+{
+	FILE* in = FopenReadOnly(file);
+	if (!in)
+	{
+		(*printer)("no such file");
+		return;
+	}
+	FILE* out = FopenBinaryWrite("tmp/simplelog.txt");
+	char oldmonth[50];
+	char olddate[50];
+	*oldmonth = 0;
+	*olddate = 0;
+	int counter = 0;
+	while (ReadALine(readBuffer, in, maxBufferSize, false, false, true) >= 0) 
+	{
+		// Jun 01 15:38:07.204 2023 Respond: user:local_user bot:sage len:8 ip:127.0.0.1 (~chief_chat_en_us) 1 Hi Chief ==> [ callback=20000 ] {"transcript": "Welcome recruits to Liberty Station. I'm Chief, your new RDC or Recruit Division Commander for those of you who just joined this squad. I'm here to turn jelly into steel while you're here with me. Are you tough enough to be in my Navy?", "audio": "Chief_INTRO_LESSON_en_US", "emotion": "happy", "animation": "Chief_INTRO_LESSON_en_US", "rule": "CHIEF_INTRO_LESSON_EN_US", "input": "Hi Chief", "bot": "Chief", "language": "en_US"}   When:Jun 01 15:38:07.245 2023 41ms q 0 Why:~control_post.12.0=SHOWOOB ~chief_chat_en_us.6.0=CHIEF_INTRO_LESSON_EN_US.~control.76.0=CONTINUECHAT  JOpen:0/0 Timeout:0 pid:0
+		char word[MAX_WORD_SIZE];
+		char date[MAX_WORD_SIZE];
+		if (strstr(readBuffer, "Start:"))
+		{
+			fprintf(out, "%s\r\n", readBuffer);
+		}
+		if (!strstr(readBuffer, "Respond:")) continue;
+
+		char* input = strchr(readBuffer, ')'); 
+		char* userinput = ReadCompiledWord(input + 1, word); // swallow volley id
+		if (!strnicmp(userinput, "[callback]", 10)) continue; // machine generated
+
+		bool gpt = strstr(readBuffer, "G_QUESTION") || strstr(readBuffer, "G_STATEMENT");
+
+
+		char* ptr = ReadCompiledWord(readBuffer, word); // month
+		ptr = ReadCompiledWord(ptr, date); //date
+		if (*olddate &&  (stricmp(date, olddate) || stricmp(word, oldmonth))) // new record zone
+		{
+			fprintf(out, "%d records for %s %s\r\n", counter,oldmonth,olddate);
+			counter = 0;
+		}
+
+		++counter;
+		fprintf(out, "%s ", word);
+		fprintf(out, "%s    ", date);
+		strcpy(oldmonth, word);
+		strcpy(olddate, date);
+
+		char* output = strstr(userinput, "==>");
+		*output = 0;
+		fprintf(out, "%s ==> ", userinput);
+
+		output += 4;
+		char callback[100];
+		*callback = 0;
+		char* timeout = strstr(output, "callback=");
+		if (timeout) ReadCompiledWord(timeout, callback);
+		char* transcript = strstr(output, "\"transcript\": \"");
+		if (!transcript)
+		{
+			char* when = strstr(output, "When:");
+			*when = 0;
+			fprintf(out, "%s\r\n",output);
+		}
+		else
+		{
+			char* rule = strstr(output, "\"rule\":");
+			char rulename[100];
+			*rulename = 0;
+			if (rule) ReadCompiledWord(rule + 8, rulename);
+			
+			char username[MAX_WORD_SIZE];
+			*username = 0;
+			char* user = strstr(readBuffer, "user:");
+			if (user) ReadCompiledWord(user + 5, username);
+			char* bot = strstr(output, "\"bot\": \"");
+			if (bot)
+			{
+				bot += 8;
+				char* end = strchr(bot, '"');
+				*end = 0;
+				fprintf(out, "(%s%s %s)  ", bot, gpt ? "*"  : "",username);
+			}
+
+			transcript += 15;
+			char* end = strstr(transcript, "\", \"");
+			*end = 0;
+			if (!*rulename) fprintf(out,"%s\r\n", transcript);
+			else fprintf(out, "%s (%s)\r\n", transcript, rulename);
+		}
+	}
+	fprintf(out, "%d records for %s %s\r\n", counter,oldmonth,olddate);
+	fclose(in);
+	fclose(out);
+	printf("done\r\n");
+}
+
 static void C_Ingestlog(char* input)
 {
 	size_t limit = fullInputLimit;
@@ -14060,6 +14155,43 @@ static void C_VerifyRun(char* junk)
 	serverLog = 1;
 	C_Source(junk);
 }
+static void DecomposeWhy(char* why, char* actualRuleLabel, char* actualRuleID)
+{
+	why += 4;
+	char how[MAX_WORD_SIZE];
+	ReadCompiledWord(why, how);
+
+	// find referral
+	char* dot;
+	dot = strchr(how, '.'); // primary rule now point toprule
+	dot = strchr(dot + 1, '.');// primary rule now point rejoinder
+	dot = strchr(dot + 1, '.');// referring rule?
+	if (dot)
+	{
+		char* x = strchr(dot, '=');
+		if (x) *x = 0; // isolate referrer ruleid
+		memmove(how, dot + 1, strlen(dot));
+	}
+	char* referrer = strchr(why + 1, '~'); // who sent up
+	char* equal = strchr(why, '=');
+	if (equal && (!referrer || (referrer && equal < referrer))) // if we are later, referrer has a label but we dont
+	{
+		*equal = 0;
+		ReadCompiledWord(equal + 1, actualRuleLabel);
+		dot = strchr(actualRuleLabel, '.');
+		if (dot) *dot = 0;
+	}
+	else *actualRuleLabel = 0;
+	dot = strchr(why, '.');
+	if (dot) dot = strchr(dot + 1, '.');
+	if (dot) dot = strchr(dot + 1, '.');
+	if (dot) *dot = 0; // remove caller data
+	ReadCompiledWord(why, actualRuleID);
+	char* d = strchr(actualRuleID, '.');
+	d = strchr(d + 1, '.'); // rejoinder level
+	if (d[1] != '0') // if refine level, credit top level
+		d[1] = '0';
+}
 
 static void C_VerifyMatch(char* input)
 {
@@ -14101,6 +14233,7 @@ static void C_VerifyMatch(char* input)
 		char expectedRuleID[MAX_WORD_SIZE];
 		char expectedRuleLabel[MAX_WORD_SIZE];
 		char actualRuleLabel[MAX_WORD_SIZE];
+		char actualRuleID[MAX_WORD_SIZE];
 		if (strstr(readBuffer, "Respond"))
 		{
 			char* paren = strchr(readBuffer, ')');
@@ -14197,46 +14330,12 @@ static void C_VerifyMatch(char* input)
 			char* why = strstr(readBuffer, "Why:");
 			if (why)
 			{
-				why += 4;
-				char how[MAX_WORD_SIZE];
-				ReadCompiledWord(why, how);
+				bool matched = false;
+				if (strstr(why, expectedRuleID)) matched = true;
+				else if (strstr(why, expectedRuleLabel)) matched = true;
+				DecomposeWhy(why, actualRuleLabel, actualRuleID);
 
-				// find referral
-				char* dot;
-				dot = strchr(how, '.'); // primary rule now point toprule
-				dot = strchr(dot + 1, '.');// primary rule now point rejoinder
-				dot = strchr(dot + 1, '.');// referring rule?
-				if (dot)
-				{
-					char* x = strchr(dot, '=');
-					if (x) *x = 0; // isolate referrer ruleid
-					memmove(how, dot + 1, strlen(dot));
-				}
-				char* referrer = strchr(why + 1, '~'); // who sent up
-				char* equal = strchr(why, '=');
-				if (equal && (!referrer || (referrer && equal < referrer))) // if we are later, referrer has a label but we dont
-				{
-					*equal = 0;
-					ReadCompiledWord(equal + 1, actualRuleLabel);
-					dot = strchr(actualRuleLabel, '.');
-					if (dot) *dot = 0;
-				}
-				else *actualRuleLabel = 0;
-				dot = strchr(why, '.');
-				if (dot) dot = strchr(dot + 1, '.');
-				if (dot) dot = strchr(dot + 1, '.');
-				if (dot) *dot = 0; // remove caller data
-				char actualRuleID[MAX_WORD_SIZE];
-				ReadCompiledWord(why, actualRuleID);
-				char* d = strchr(actualRuleID, '.');
-				d = strchr(d + 1, '.'); // rejoinder level
-				if (d[1] != '0') // if refine level, credit top level
-					d[1] = '0';
-				// doing do rejoinder results
-				char lcrule[50];
-				MakeLowerCopy(lcrule, expectedRuleID);
-				if (*language && !strstr(lcrule, language)) { ; }
-				else if (stricmp(actualRuleID, expectedRuleID) && stricmp(how, expectedRuleID)) // primary or referral
+				if (!matched) 
 				{
 					char* when = strstr(readBuffer, "When:");
 					if (when) *when = 0;
@@ -14250,8 +14349,8 @@ static void C_VerifyMatch(char* input)
 					char* when = strstr(readBuffer, "When:");
 					if (when) *when = 0;
 					char* close = strchr(readBuffer, ')');
-					fprintf(out, "+ %s %s \t%s %s\t%s\t%s\t%s\r\n", expectedRuleID, expectedRuleLabel, actualRuleID, actualRuleLabel, input, botname, output);
-					Log(ECHOUSERLOG, "Actual+: %s %s  Expected: %s %s  Input: %s\r\n", actualRuleID, actualRuleLabel, expectedRuleID, expectedRuleLabel, input);
+					fprintf(out, "+ %s %s \t- \t%s \t%s \t%s\r\n", expectedRuleID, expectedRuleLabel, input, botname, output);
+					Log(ECHOUSERLOG, "Expected: %s %s  Input: %s\r\n",  expectedRuleID, expectedRuleLabel, input);
 					++match;
 				}
 				else ++match;
@@ -14957,7 +15056,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":testpattern",C_TestPattern,(char*)"See if a pattern works with an input."},
 	{ (char*)":variablereference",C_VariableReference,(char*)"List variables set or retrieved and how often" },
 	{ (char*)":testtopic",C_TestTopic,(char*)"Try named topic responders on input"},
-	{ (char*)":verify",C_Verify,(char*)"Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all."},
 
 	{ (char*)"\r\n---- Document Processing",0,(char*)""},
 	{ (char*)":document",C_Document,(char*)"Switch input to named file/directory as a document {single, echo}"},
@@ -14980,7 +15078,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":trimdown",C_TrimDown,(char*)"echo  to TMP/tmp.txt single word entries from a :down list" },
 	{ (char*)":checklist",C_CheckList,(char*)"echo  to TMP/tmp.txt words in file list that can be verbs" },
 	{ (char*)":dictwrite",C_DictWrite,(char*)"echo  to TMP/x.txt dictionary entries on one line" },
-	{ (char*)":validatedict",C_ValidateDict,(char*)"confirms dictionary bucket wiring is correct" },
 
 	{ (char*)":pure",pure,(char*)"modify spanish dict" },
 	{ (char*)"\r\n---- internal support",0,(char*)""},
@@ -14988,7 +15085,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":loadspanish",LoadSpanish,(char*)"convert spanish.csv to tmp/spanish.txt" },
 	{ (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },
 	{ (char*)":compiledp",C_CompileDP,(char*)"compile dp bot" },
-	{ (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
+	{ (char*)":simplelog",C_Simplelog,(char*)"display log file simply into tmp/log.txt" },
 	{ (char*)":comparelog",C_Comparelog,(char*)"diff 2 log files" },
 	{ (char*)":comparefiles",C_CompareFiles,(char*)"diff 2  files" },
 	{ (char*)":dedupe",C_Dedupe,(char*)"echo input file to TMP/tmp.txt without duplicate lines)" },
@@ -15021,9 +15118,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":excludeconcept",C_ExcludeConcept,(char*)"Remove 1st from 2nd, writing 2nd to tmp/cset.txt" },
 	{ (char*)":translateconcept",C_TranslateConcept,(char*)"take"},
 	{ (char*)":timepos",C_TimePos,(char*)"compute wps average to prepare inputs"},
-	{ (char*)":verifypos",C_VerifyPos,(char*)"Regress pos-tagging using default REGRESS/postest.txt file or named file"},
-	{ (char*)":verifyspell",C_VerifySpell,(char*)"Regress spell checker against file"},
-	{ (char*)":verifysubstitutes",C_VerifySubstitutes,(char*)"Regress test substitutes of all kinds"},
 	{ (char*)":worddump",C_WordDump,(char*)"show words via hardcoded test"},
 	{ (char*)":verifySentence",C_VerifySentence,(char*)"verification data"},
 	{ (char*)":timelog",C_TimeLog,(char*)"avg min and max of a log named" },
@@ -15032,9 +15126,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":suffix",C_Suffix,(char*)"word + suffix, tell us root" },
 	{ (char*)":logging",C_Logging,(char*)"change logging [server user] to value" },
 	{ (char*)":sap",C_Sap,(char*)"convert AWE table to tmp.txt" },
-	{ (char*)":verifylist",C_VerifyList,(char*)"put verify tests into tmp.txt" },
-	{ (char*)":verifyrun",C_VerifyRun,(char*)"execute verify test file" },
-	{ (char*)":verifymatch",C_VerifyMatch,(char*)"does userlog match verify data on why" },
 	{ (char*)":splitlog",C_SplitLog,(char*)"separate log into topics" },
 	{ (char*)":splitfile",C_SplitFile,(char*)"separate file into 1g pieces" },
 	{ (char*)":translatetop",C_TranslateTop,(char*)"rewrite topic file translated to tmp/filename" },
@@ -15043,6 +15134,18 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":sapdsetable",C_SapDSETable,(char*)"reformat table of dse" },
 	{ (char*)":sapCleanPrintJson",C_sapCleanPrintJson,(char*)"remove printbasic" },
 	{ (char*)":respondonly",C_RespondOnly,(char*)"take serverlog, replicate in tmp but without serverpre or separator lines" },
+
+	{ (char*)"\r\n---- Regression testing",0,(char*)"" },
+	{ (char*)":testspanish",C_JaUnittest,(char*)"run spanish unit tests" },
+	{ (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
+	{ (char*)":verifylist",C_VerifyList,(char*)"put verify tests into tmp.txt" },
+	{ (char*)":verifyrun",C_VerifyRun,(char*)"execute verify test file" },
+	{ (char*)":verifymatch",C_VerifyMatch,(char*)"does userlog match verify data on why" },
+	{ (char*)":verifypos",C_VerifyPos,(char*)"Regress pos-tagging using default REGRESS/postest.txt file or named file" },
+	{ (char*)":verifyspell",C_VerifySpell,(char*)"Regress spell checker against file" },
+	{ (char*)":verifysubstitutes",C_VerifySubstitutes,(char*)"Regress test substitutes of all kinds" },
+	{ (char*)":validatedict",C_ValidateDict,(char*)"confirms dictionary bucket wiring is correct" },
+	{ (char*)":verify",C_Verify,(char*)"Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all." },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

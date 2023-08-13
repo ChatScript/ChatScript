@@ -1,0 +1,4 @@
+﻿~introductions~2.0.0  #!x will match on every return start of a conversation 
+~introductions~2.1.0  #!x matches every time on startup of a new conversation
+~introductions~2.2.0  #! hello
+~introductions~2.3.0  #! how are you

@@ -564,7 +564,7 @@ FunctionResult HandleRelation(char* word1, char* op, char* word2, bool output, i
 			if (*word1) Log(USERLOG, "%s %s ", word1, traceop); // no need to show value
 			else Log(USERLOG, "null %s ", traceop);
 		}
-		else Log(USERLOG, " %s ",op);
+		else Log(USERLOG, "%s`%s` %s ",word1,val1,op);
 	}
 	
 	if (word2 && *word2) FreshOutput(word2, val2, result, OUTPUT_ONCE | OUTPUT_KEEPSET | OUTPUT_NOCOMMANUMBER | OUTPUT_NODEBUG); // 2nd arg
@@ -578,7 +578,8 @@ FunctionResult HandleRelation(char* word1, char* op, char* word2, bool output, i
 			if (*val2) id = Log(USERLOG, " %s ", word2); // no need to show value
 			else id = Log(USERLOG, " null ");
 		}
-		//else if (*op == '&') id = Log(USERLOG, " %s`%s` ", word2, x);
+		else if (*op == '&') id = Log(USERLOG, " %s`%s` ", word2, x);
+		else id = Log(USERLOG, " %s`%s` ", word2, val2);
 	}
 	
 	result = FAILRULE_BIT;

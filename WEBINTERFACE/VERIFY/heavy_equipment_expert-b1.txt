@@ -1,0 +1,3 @@
+﻿    ~heavy_equipment_expert.1.1  #! nothing is wrong
+~heavy_equipment_expert.2.0=REACT  #!x*** SYMPATHY
+~heavy_equipment_expert.6.0  #!x*** LAST CHANCE FOR THEM TO ADD DATA
