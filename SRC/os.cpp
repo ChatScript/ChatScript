@@ -977,11 +977,6 @@ void ShowMemory(char* label)
 	(*printer)("%s: HeapUsed: %d Gap: %d\r\n", label, heapBase - heapFree,heapFree - stackFree);
 }
 
-char* AllocateConstHeap(char* word, size_t len, int bytes, bool clear, bool purelocal)
-{
-	return AllocateHeap(word, len, bytes, clear, purelocal);
-}
-
 void CompleteInfiniteHeap(char* base)
 {
 	infiniteHeap = false;

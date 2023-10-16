@@ -547,7 +547,8 @@ variables. You may not use arguments that compute values.</p>
 <h2 id="indirect-function-calls">Indirect function calls</h2>
 <p>You can store an outputmacro name on a variable and then call that
 indirectly.</p>
-<pre><code>^$_xx(value1)  if $_xx holds a function name</code></pre>
+<pre><code>$_xx = ^join(^ myfunction)
+^$_xx(value1)  if $_xx holds a function name</code></pre>
 <h2 id="sharing-function-definitions">Sharing function definitions</h2>
 <p>ChatScript requires that a function be defined before use. When you
 use that function from multiple files, you may have trouble ordering the

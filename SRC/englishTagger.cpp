@@ -202,13 +202,14 @@ typedef char* (*FindIt)(char* word);
 // We allow 8 languages loaded
 #ifdef WIN32
 int __declspec(dllimport)  init_treetagger(char* param_file_name, AllocatePtr allocator, FindIt getwordfn, int language);
-double __declspec(dllimport)  tag_sentence(int languageIndex, TAGGER_STRUCT * ts);
+double __declspec(dllimport)  tag_sentence(int languageIndex, TAGGER_STRUCT* ts);
 void __declspec(dllimport)  write_treetagger();
 #else
 int init_treetagger(char* param_file_name, AllocatePtr allocator, FindIt getwordfn, int language);
-double  tag_sentence(int languageIndex, TAGGER_STRUCT * ts);
+double  tag_sentence(int languageIndex, TAGGER_STRUCT* ts);
 void   write_treetagger();
 #endif
+
 
 TAGGER_STRUCT ts;  /* tagger interface data structure */
 TAGGER_STRUCT tschunk;  /* tagger interface data structure */
@@ -659,6 +660,25 @@ static void BlendWithTreetagger(bool &changed)
 	}
 }
 
+static char* GetExtraPos(char* parfile)
+{
+	if (!parfile) return NULL;
+	char* end = strrchr(parfile, '.');
+	strcpy(end + 1, "pos");
+	return parfile;
+}
+
+static char* AllocateConstHeap(char* word, size_t len, int bytes, bool usedictionary, bool clear)
+{ // used by treetagger loader
+	if (usedictionary) // word that should be in dictionary
+	{
+		WORDP D = StoreFlaggedWord(word, AS_IS, PATTERN_WORD);
+		return D->word;
+	}
+	// generic memory request
+	else return AllocateHeap(word, len, bytes, false, false);
+}
+
 static void LoadTreetagger(char* language)
 {
 	char name[MAX_WORD_SIZE];
@@ -675,10 +695,10 @@ static void LoadTreetagger(char* language)
 	char langfile[MAX_WORD_SIZE];
 	sprintf(langfile, "treetagger/%s.par", language);
 	MakeLowerCase(langfile);
-	char* heapstart = heapFree;
 	int index = (!languageIndex) ? 0 : (2 * (languageIndex - 1));  // 0, 2,4, 6, 8 (odds are possible chunk loads)
 	//write_treetagger();
-	bool result = init_treetagger(langfile, AllocateConstHeap, GetWord, index); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
+	char* heapStart = heapFree;
+	bool result = init_treetagger(langfile, AllocateConstHeap, GetExtraPos, index); //  NULL, NULL or AllocateHeap, GetWord);  /*  Initialization of the tagger with the language parameter file */
 	if (!result)
 	{
 		(*printer)("    Unable to load %s\r\n",langfile);
@@ -691,9 +711,9 @@ static void LoadTreetagger(char* language)
 	{
 		sprintf(langfile, "treetagger/%s_chunker.par", language);
 		MakeLowerCase(langfile);
-		result = init_treetagger(langfile, AllocateConstHeap, GetWord, index+1); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
+		result = init_treetagger(langfile, AllocateConstHeap, GetExtraPos, index+1); //  NULL, NULL);  /*  Initialization of the tagger with the chunker parameter file */
 	}
-	unsigned int diff = heapstart - heapFree;
+	unsigned int diff = heapStart - heapFree;
 	printf("Loaded treetagger %s", language);
 	if (result) printf(" + chunking");
 	printf(" (%dMB)\r\n", diff / 1000000);
@@ -705,7 +725,7 @@ void InitTreeTagger(char* params) // tags=xxxx - just triggers this thing
 
 	// load each foreign postag and its correspondence to english postags
 	WalkLanguages(LoadTreetagger); 
-
+	
 	/* Memory allocation (the maximal input sentence length is here 1000) */
 	ts.word = (char**)AllocateHeap(NULL, sizeof(char*) * MAX_SENTENCE_LENGTH);
 	memset(ts.word, 0, sizeof(char*) * MAX_SENTENCE_LENGTH);
@@ -1489,7 +1509,7 @@ void TagIt(bool timeout) // get the set of all possible tags. Parse if one can t
 
 		end = wordCount;
 		// last part of sentence
-		for (unsigned j = wordCount; j > i; --j) // find an end
+		for (j = wordCount; j > i; --j) // find an end
 		{	
 			if (!ignoreWord[j]) break;
 		}

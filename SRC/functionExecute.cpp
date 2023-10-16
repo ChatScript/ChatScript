@@ -1239,7 +1239,6 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 	if (systemcall) // system function --   but IS_TABLE_MACRO distinguishes  but PLAN also has a topicindex which is a codeindex
 	{
 		ptr = SystemCall(buffer, ptr, frame, result, streamArg);
-		info = &systemFunctionSet[D->x.codeIndex];
 	}
 	else //   user function (plan macro, inputmacro, outputmacro, tablemacro)) , eg  ^call (_10 ^2 it ^call2 (3 ) )  spot each token has 1 space separator 
 	{
@@ -1257,7 +1256,14 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 	frame->x.result = result;
 	if (ChangeDepth(-1, name, true)) result = FAILINPUT_BIT; 
 	bool showtrace = ((trace & TRACE_OUTPUT || D->internalBits & MACRO_TRACE || (trace & TRACE_USERFN && frame->definition)) && CheckTopicTrace());
-	if (showtrace) FNResultTrace(frame, result, buffer,info);
+	if (showtrace)
+	{
+		if (systemcall) // system function --   but IS_TABLE_MACRO distinguishes  but PLAN also has a topicindex which is a codeindex
+		{
+			info = &systemFunctionSet[D->x.codeIndex];
+		}
+		FNResultTrace(frame, result, buffer, info);
+	}
 
 	// currently only user functions- NOTRACE printouts would be boring
 	int diff = (int)(ElapsedMilliseconds() - start_time);
@@ -1269,12 +1275,9 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 			// make a short description for which call this is, if we can
 			char word[MAX_WORD_SIZE];
 			*word = 0;
-			//if (callArgumentIndex > (unsigned int)(frame->varBaseIndex + 1))
-			{
-				strncpy(word, frame->arguments[1], 40);
-				if (*word == '$') strncpy(word, GetUserVariable(word, false), 40);
-				word[40] = 0;
-			}
+			strncpy(word, frame->arguments[1], 40);
+			if (*word == '$') strncpy(word, GetUserVariable(word, false), 40);
+			word[40] = 0;
 
 			Log(STDTIMELOG, (char*)"%s(%s) time: %d ms\r\n", name, word, diff);
 		}
@@ -2633,7 +2636,6 @@ static FunctionResult SetRejoinderCode(char* buffer)
 	char* tag = ARGUMENT(1); // kind of rejoinder or only 1 arg
 	char* where = ARGUMENT(2); // to where if 2 args given
 	if (!stricmp(where, (char*)"null")) where = ""; // clear to null
-	
 	
 	if (!*ARGUMENT(2)) { where = tag; } // single arg given
 	else if (!stricmp(tag, (char*)"input"))

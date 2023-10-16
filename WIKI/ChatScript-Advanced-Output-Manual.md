@@ -433,6 +433,7 @@ Strings and active strings are considered simple literal values.
 
 You can store an outputmacro name on a variable and then call that indirectly.
 ```
+$_xx = ^join(^ myfunction)
 ^$_xx(value1)  if $_xx holds a function name
 ```
 

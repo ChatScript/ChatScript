@@ -32,7 +32,7 @@ char* SystemVariable(char* word,char* value)
 	WORDP D = FindWord(word);
 	unsigned int index = (D) ? D->x.topicIndex : 0;
 	if (!index) return "";
-	char* var = (*sysvars[index].address)(value);
+	char* var = (*sysvars[index].address)(value); // performs assignment
 	if (!var) return "";
 	return var;
 }

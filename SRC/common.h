@@ -34,6 +34,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 //#define DISCARD_TEXT_COMPRESSION 1
 //#define DISCARDWEBSOCKET 1
 //#define DISCARD_JAPANESE 1
+#define DISCARD_PYTHON 1
 
 // these can add components
 //#define  TREETAGGER 1
@@ -157,6 +158,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 // avoid requesting malloc.h
 #else
 #include <malloc.h>
+#endif
+
+#ifndef DISCARD_PYTHON
+#define PY_SSIZE_T_CLEAN
+#include "Python/include/Python.h"
 #endif
 
 #include <algorithm>

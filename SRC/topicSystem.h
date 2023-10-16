@@ -99,6 +99,9 @@ extern int sampleTopic;
 extern int sampleRule;
 extern HEAPREF rulematches;
 
+extern WORDP undefinedFunction[100];
+extern unsigned int undefinedFunctionIndex;
+
 typedef struct topicBlock
 {
 	char* topicName;

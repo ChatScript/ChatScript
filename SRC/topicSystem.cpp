@@ -14,6 +14,8 @@ HEAPREF rulematches = NULL;
 WORDP keywordBase = NULL;
 WORDP* changedWordsDuringLoading = NULL; // list of words changing data during topic loading
 bool monitorChange = false;
+WORDP undefinedFunction[100];
+unsigned int undefinedFunctionIndex = 0;
 char* textBase = NULL;
 static void ClearFastLoad(const char* topicfolder, const char* name);
 // functions that manage topic execution (hence displays) are: PerformTopic (gambit, responder), 
@@ -575,8 +577,15 @@ unsigned int FindTopicIDByName(char* name, bool exact)
 
 	WORDP D = FindWord(word, 0, LOWERCASE_LOOKUP);
 	duplicateCount = 0;
-	while (D && D->internalBits & TOPIC)
+	while (D)
 	{
+		if (!(D->internalBits & TOPIC)) // concept which may overlap topic usage? 
+		{
+			++duplicateCount;
+			sprintf(tmpWord, (char*)"%s%c%u", word, DUPLICATETOPICSEPARATOR, duplicateCount);
+			D = FindWord(tmpWord);
+			continue;
+		}
 		int topicid = D->x.topicIndex;
 		if (!topicid)
 		{
@@ -3105,6 +3114,7 @@ static void InitMacros(const char* name, const char* layer, unsigned int build)
 	}
 	if (!in) return;
 	maxFileLine = currentFileLine = 0;
+
 	while (ReadALine(readBuffer, in) >= 0) //   ^showfavorite O 2 _0 = ^0 _1 = ^1 ^reuse (~xfave FAVE ) 
 	{
 		// eg "%s t %d %d%s\r\n"    name lctype mybot, macroflags, data
@@ -3112,16 +3122,23 @@ static void InitMacros(const char* name, const char* layer, unsigned int build)
 		if (!*readBuffer) continue;
 		char* ptr = ReadCompiledWord(readBuffer, tmpWord); //   the name
 		if (!*tmpWord) continue;
+		char type[100];
+		ptr = ReadCompiledWord(ptr, type);
+		if (IsDigit(type[0])) // undefined function from this layer
+		{
+			undefinedFunction[undefinedFunctionIndex++] = StoreWord(tmpWord, AS_IS);
+			continue;
+		}
+
 		WORDP D = StoreWord(tmpWord, AS_IS);
 		AddInternalFlag(D, (unsigned int)(FUNCTION_NAME | build)); // must be in same build if multiple
 		D->x.codeIndex = 0;	//   if one redefines a system macro, that macro is lost.
-		ptr = ReadCompiledWord(ptr, tmpWord);
-		if (*tmpWord == 't') AddInternalFlag(D, IS_TABLE_MACRO);  // table macro
-		else if (*tmpWord == 'o') AddInternalFlag(D, IS_OUTPUT_MACRO);
-		else if (*tmpWord == 'p') AddInternalFlag(D, IS_PATTERN_MACRO);
-		else if (*tmpWord == 'O') AddInternalFlag(D, IS_OUTPUT_MACRO | VARIABLE_ARGS_TABLE);
-		else if (*tmpWord == 'P') AddInternalFlag(D, IS_PATTERN_MACRO | VARIABLE_ARGS_TABLE);
-		else if (*tmpWord == 'd') AddInternalFlag(D, IS_PATTERN_MACRO | IS_OUTPUT_MACRO);
+		if (*type == 't') AddInternalFlag(D, IS_TABLE_MACRO);  // table macro
+		else if (*type == 'o') AddInternalFlag(D, IS_OUTPUT_MACRO);
+		else if (*type == 'p') AddInternalFlag(D, IS_PATTERN_MACRO);
+		else if (*type == 'O') AddInternalFlag(D, IS_OUTPUT_MACRO | VARIABLE_ARGS_TABLE);
+		else if (*type == 'P') AddInternalFlag(D, IS_PATTERN_MACRO | VARIABLE_ARGS_TABLE);
+		else if (*type == 'd') AddInternalFlag(D, IS_PATTERN_MACRO | IS_OUTPUT_MACRO);
 		else
 		{
 			FClose(in);
@@ -3334,6 +3351,7 @@ static void ClearFastLoad(const char* topicfolder, const char* name)
 
 FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 {
+	if (layer == 0) undefinedFunctionIndex = 0;
 	UnlockLayer(layer);
 	dictionaryPreBuild[layer] = dictionaryFree; // know where we started
 	textBase = heapFree;
@@ -3433,7 +3451,7 @@ FunctionResult LoadLayer(int layer, const char* name, unsigned int build)
 		Log(ECHOSERVERLOG, "%s", data);
 	}
 
-	LockLayer(false);
+	LockLayer();
 
 	return NOPROBLEM_BIT;
 }
@@ -3464,15 +3482,15 @@ void InitTopicSystem(unsigned int limit) // reload all topic data
 	if (!build0Requested) // no point in loading layer1 if we are autobuilding layer0 or layer1
 	{
 		UnlockLayer(LAYER_0);
-		LockLayer(false); 
+		LockLayer(); 
 		if (build1Requested) WriteDictDetailsBeforeLayer(1);
 		if (limit == BUILD1) return; // going to recompile this layer
 		LoadLayer(LAYER_1, (char*)"1", BUILD1);
+		// now add livedata into end of layer 1
 		UnlockLayer(LAYER_1);
 		ReadLivePosData(); // any needed concepts must have been defined by now in level 0 (assumed). Not done in level1
-		LockLayer(false);
+		LockLayer();
 	}
-
 }
 
 ///////////////////////////////////////////////////////////

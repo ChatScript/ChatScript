@@ -449,7 +449,7 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
         if (*ptr == '"' || (*ptr == '^' && ptr[1] == '"') || (*ptr == '^' && ptr[1] == '\'') || (*ptr == '\\' && ptr[1] == '"')) //   doublequote maybe with functional heading
         {
             // simple \"
-            if (*ptr == '\\' && (!ptr[2] || ptr[2] == ' ' || ptr[2] == '\t' || ptr[2] == ENDUNIT)) // legal
+            if (*ptr == '\\' && (!ptr[2] || ptr[2] == ' ' || ptr[2] == '\t' || ptr[2] == '}' || ptr[2] == ENDUNIT)) // legal
             {
                 *word = '\\';
                 word[1] = '"';
@@ -5653,7 +5653,7 @@ static char* ReadKeyword(char* word,char* ptr,bool& notted, int& quoted,MEANING 
 			if (*word == USERVAR_PREFIX || (*word == '_' && IsDigit(word[1])) || (*word == SYSVAR_PREFIX && IsLowerCase(word[1]) && IsLowerCase(word[2]))) BADSCRIPT((char*)"CONCEPT-? Cannot use $var or _var or %var as a keyword in %s\r\n",Meaning2Word(concept)->word);
 			if (*word == '~') MakeLowerCase(word); //   sets are always lower case
 			at = strchr(word + 1, '~'); //   wordnet meaning request, confirm definition exists
-			if (at && stricmp(current_language, "english")) *at = 0;
+			if ((*word != '"' && *word != '\'') && at && stricmp(current_language, "english") &&  at[-1] != '*' && IsDigit(at[1])) *at = 0;
 			if (*word == '"' && word[1] == '(')// pattern word
             {
                 unsigned int flags = 0;
@@ -5832,18 +5832,10 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 			strcpy(currentTopicName,word);
     		Log(USERLOG,"Reading topic %s\r\n",currentTopicName);
 			topicName = FindWord(currentTopicName);
-			if (!myBot && topicName && !(topicName->internalBits & TOPIC) && topicName->internalBits & (BUILD0 | BUILD1))
+			if (topicName && !(topicName->internalBits & TOPIC))
 				WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n", currentTopicName)
-			unsigned int buildid = (topicName)? topicName->internalBits & (BUILD0 | BUILD1) : 0;
-			if (buildid != build && buildid) // if it lacks buildid, not defined yet
-                    BADSCRIPT((char*)"TOPIC-1 topic already defined as  concept or topic with this name %s in prior layer\r\n", currentTopicName)
-            if (topicName && HasBotMember(topicName, myBot))
-            {
-                BADSCRIPT((char*)"TOPIC-1 Concept already defined %s\r\n", currentTopicName)
-            }
-
-            topicName = StoreWord(currentTopicName);
-			if (!IsLegalName(currentTopicName)) BADSCRIPT((char*)"TOPIC-2 Illegal characters in topic name %s\r\n",currentTopicName)
+			if (!IsLegalName(currentTopicName)) BADSCRIPT((char*)"TOPIC-2 Illegal characters in topic name %s\r\n", currentTopicName)
+			topicName = StoreWord(currentTopicName);
 			
 			// note we have seen definition
 			char cumulate[MAX_WORD_SIZE];
@@ -5859,7 +5851,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 			topicValue = MakeMeaning(topicName);
 			// handle potential multiple topics of same name
 			duplicateCount = 0;
-			while (topicName->internalBits & TOPIC)
+			while (topicName->internalBits & TOPIC || topicName->objectHead)// allow concepts and topics to be referenced
 			{
 				++duplicateCount;
 				char name[MAX_WORD_SIZE];
@@ -6547,7 +6539,7 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			// Users may not create repeated user topic names. Ones already saved in dictionary are fine to overwrite
 			MakeLowerCopy(conceptName,word);
 			if (!IsLegalName(conceptName)) BADSCRIPT((char*)"CONCEPT-2 Illegal characters in concept name %s\r\n",conceptName)
-			D = StoreWord(conceptName); 
+			D = StoreWord(conceptName,AS_IS); 
 			// note we have seen definition
 			char cumulate[MAX_WORD_SIZE];
 			strcpy(cumulate, conceptName);
@@ -6809,7 +6801,7 @@ static void ReadTopicFile(char* name,uint64 buildid) //   read contents of a top
 	}
 }
 
-static void DoubleCheckDefinition()
+static void DoubleCheckDefinition(unsigned int build,char* topicfolder,char* baseName)
 {
 	uint64 oldbot = myBot;
     HEAPREF list = undefinedCallThreadList;
@@ -6832,10 +6824,18 @@ static void DoubleCheckDefinition()
 		char* fn = functionData + 9;
 		char* botname = functionData + 10 + strlen(fn);
         WORDP D = FindWord(fn);
-        if (D && D->internalBits & FUNCTION_BITS) // must be some other bots function
-			BADSCRIPT( (char*)"Undefined function %s in bot %s\r\n", fn, botname)
-		else if (fn[1] != USERVAR_PREFIX) // allow function calls indirect off variables
-			BADSCRIPT((char*)"Undefined function %s for bot %s \r\n", fn, botname)
+		WORDP fnword = NULL;
+
+		// allow function calls indirect off variables
+		if (!D  && fn[1] != USERVAR_PREFIX) 
+		{
+			WARNSCRIPT((char*)"Undefined function %s in bot %s\r\n", fn, botname)
+			char filename[SMALL_WORD_SIZE];
+			sprintf(filename, (char*)"%s/BUILD%s/macros%s.txt", topicfolder, baseName, baseName);
+			FILE* out = FopenUTF8WriteAppend(filename);
+			fprintf(out, (char*)"%s %d %s\r\n", fn, args,botname);
+			fclose(out); // dont use Fclose
+		}
 	}
 
 	list = undefinedConceptThreadList;
@@ -7471,6 +7471,19 @@ static void EmptyVerify(char* name, uint64 junk)
 
 static int CompileCleanup(char* output,uint64 oldtokenControl, unsigned int  build)
 {
+	if (build == BUILD1)
+	{
+		for (unsigned int i = 0; i < undefinedFunctionIndex; ++i)
+		{
+			WORDP D = undefinedFunction[i];
+			if (!(D->internalBits & IS_OUTPUT_MACRO))
+			{
+				WARNSCRIPT("*** Function used in Layer 0 never defined here in Layer 1: %s\r\n", D->word);
+			}
+		}
+	}
+
+
 	EndScriptCompiler();
 	build0Requested = build0Requested = false;
 	buildID = 0;
@@ -7710,9 +7723,9 @@ int ReadTopicFiles(char* name,unsigned int build,int spell)
 	// verify errors across all files
 	DoubleCheckSetOrTopic();	//   prove all sets/topics he used were defined
 	DoubleCheckReuse();		// see if jump labels are defined
-	DoubleCheckDefinition();
+	DoubleCheckDefinition(build,topicfolder, baseName);
 	*currentFilename = 0;
-	if (*duplicateTopicName)  WARNSCRIPT((char*)"At least one duplicate topic name, i.e., %s, which may intended if bot restrictions differ.\r\n",duplicateTopicName)
+	if (*duplicateTopicName)  WARNSCRIPT((char*)"At least one duplicate topic name, i.e., %s, which may intended if bot restrictions differ or concept collision.\r\n",duplicateTopicName)
 	WalkDictionary(ClearBeenHere,0);
 
 	// write out compiled data

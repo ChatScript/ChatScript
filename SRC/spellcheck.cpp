@@ -1844,9 +1844,9 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
 		}
 		else if (isFrench)
 		{
-			while ((suffix = stems_french[i].word))
+			while ((suffix = stems_french[j].word))
 			{
-				uint64 kind = stems_french[i++].flags;
+				uint64 kind = stems_french[j++].flags;
 				size_t suffixlen = strlen(suffix);
 				if (!strnicmp(word+len-suffixlen,suffix,suffixlen))
 				{
@@ -1855,7 +1855,7 @@ static char* StemSpell(char* word,unsigned int i,uint64& base)
 					if (best) 
 					{
 						ending = suffix;
-	                    base = stems_french[i].flags;
+	                    base = stems_french[j].flags;
 						break;
 					}
 				}

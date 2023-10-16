@@ -176,16 +176,16 @@
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com
 www.brilligunderstanding.com <br>Revision 10/24/2022 cs12.31</p>
 <ul>
-<li><a href="ChatScript-Basic-User-Manual.md#overview">Overview</a></li>
-<li><a href="ChatScript-Basic-User-Manual.md#simple-topics">Simple
+<li><a href="ChatScript-Basic-User-Manual.html#overview">Overview</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#simple-topics">Simple
 Topics</a></li>
-<li><a href="ChatScript-Basic-User-Manual.md#simple-patterns">Simple
+<li><a href="ChatScript-Basic-User-Manual.html#simple-patterns">Simple
 Patterns</a></li>
-<li><a href="ChatScript-Basic-User-Manual.md#simple-output">Simple
+<li><a href="ChatScript-Basic-User-Manual.html#simple-output">Simple
 Output</a></li>
 <li><a
-href="ChatScript-Basic-User-Manual.md#variables">Variables</a></li>
-<li><a href="ChatScript-Basic-User-Manual.md#summary">Summary</a></li>
+href="ChatScript-Basic-User-Manual.html#variables">Variables</a></li>
+<li><a href="ChatScript-Basic-User-Manual.html#summary">Summary</a></li>
 </ul>
 <h1 id="overview">OVERVIEW</h1>
 <p>ChatScript (CS) is a scripting language designed to accept user text
@@ -204,7 +204,7 @@ where the index at the back was.</p>
 natural language, not just for building a chatbot</strong>.</p>
 <p>This document is about how to write script. There is a more general
 discussion about how to think about authoring a bot in the paper <a
-href="PAPERS/Writing-a-Chatbot.md">Writing a Chatbot</a> in the
+href="PAPERS/Writing-a-Chatbot.html">Writing a Chatbot</a> in the
 documentation.</p>
 <h2 id="input-and-output-sentences">Input and output sentences</h2>
 <p>ChatScript (CS) takes one or more <em>input sentences</em> from the
@@ -424,7 +424,7 @@ the rule they follow has issued output.</td>
 <td>are the story the chatbot wants to tell on a subject or the
 conversation the chatbot is trying to steer the user into.
 <code>r:</code> are random gambits (<a
-href="ChatScript-Advanced-User-Manual.md#random-gambit">explained
+href="ChatScript-Advanced-User-Manual.html#random-gambit">explained
 later</a>).</td>
 </tr>
 <tr class="even">
@@ -962,7 +962,7 @@ automatically defines a bunch of dictionary-based sets. These include
 parts-of-speech like <code>~noun</code> as well as general open concepts
 like <code>~number</code>.</p>
 <p>For a full list, see the <a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md">ChatScript
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript
 System Variables and Engine-defined Concepts</a> manual.</p>
 <h2 id="capitalization">Capitalization</h2>
 <p>However you type your input, with or without capital letters, the
@@ -1013,7 +1013,7 @@ breaking off that into its own sentence, followed by <em>I will go</em>
 as a new sentence.</p>
 <p>These generic interjections (which are open to author control via
 <code>interjections.txt</code>) are listed in the <a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md">ChatScript
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript
 System Variables and Engine-defined Concepts</a> manual.</p>
 <p>If interjections at the start of a sentence are broken off into their
 own sentence (as they used to be by default but are no longer), this
@@ -1118,7 +1118,7 @@ themselves and concepts. All commands are invisible to normal chat in
 that they do not affect the user’s state of processing chat. A list of
 all commands can be gotten by typing <code>:commands</code>.</p>
 <p>Documention on most of them is in the <a
-href="ChatScript-Debugging-Manual.md">ChatScript Debugging
+href="ChatScript-Debugging-Manual.html">ChatScript Debugging
 Manual</a>.</p>
 <pre><code>:word word</code></pre>
 <p>dumps the dictionary and fact and concept information about the word.
@@ -1207,7 +1207,7 @@ system reformats it automatically. <em>I like you?</em> and <em>I like
 you ?</em> print the same on output</p>
 <p>If you actually need to control spacing, consult “formatted double
 quotes” in the <a
-href="ChatScript-Advanced-Output-Manual.md#formatted-double-quotes-activeformat-stringd">ChatScript
+href="ChatScript-Advanced-Output-Manual.html#formatted-double-quotes-activeformat-stringd">ChatScript
 Advanced Output Manual</a>.</p>
 <h2 id="literal-output">Literal Output <code>\</code></h2>
 <p>To output characters that have reserved meaning to the engine, like
@@ -1231,7 +1231,7 @@ output</p>
 attending to user input, would be an impoverished being indeed.
 ChatScript supports several levels of memorization. The ultimate
 variable is the fact, but that has its own <a
-href="ChatScript-Fact-Manual.md">ChatScript Fact Manual</a> manual.</p>
+href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> manual.</p>
 <h2 id="match-variables"><code>_</code> Match Variables</h2>
 <p>When you use wildcards and sets in a pattern, you can ask the system
 to memorize briefly the word it matches. Just place an underscore in
@@ -1315,7 +1315,7 @@ simple assignment, you can do <code>+=</code>, <code>-=</code>,
 <p><code>|^=</code> turns off bits and <code>$x |^= 2</code> is
 equivalent to <code>$x &amp;= (-1 ^ 2)</code></p>
 <p>You can even assign sets of facts in various ways (see <a
-href="ChatScript-Fact-Manual.md">ChatScript Fact Manual</a> for
+href="ChatScript-Fact-Manual.html">ChatScript Fact Manual</a> for
 understanding facts) like:</p>
 <pre><code>@2 = @3 # put all facts in 3 into 2
 @2 += @3 # augment 2 with facts of 3 (allows duplicates)
@@ -1401,14 +1401,14 @@ bot-specific facts in the login function of a bot. If you have facts you
 want to be global across all bots and as part of the base system, you
 can put those assignments into a table and read it in under a
 <code>:build</code> command.</p>
-<p>Go read the <a href="ChatScript-Fact-Manual.md">ChatScript Fact
+<p>Go read the <a href="ChatScript-Fact-Manual.html">ChatScript Fact
 Manual</a> for more about facts.</p>
 <h2 id="system-variables"><code>%</code> System Variables</h2>
 <p>The system has some predefined variables which you can generally test
 and use but not normally assign to. These all begin with <code>%</code>.
 These include <code>%hour</code>, <code>%bot</code>, and others.</p>
 <p>See <a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md">ChatScript
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html">ChatScript
 System Variables and Engine-defined Concepts</a>.</p>
 <h1 id="summary">Summary</h1>
 <p>Not as simple as you might have wanted. Doubtless I told you much

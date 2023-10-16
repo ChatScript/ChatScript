@@ -181,7 +181,6 @@ void CompleteBindStack(int used = 0);
 bool AllocateStackSlot(char* variable);
 char** RestoreStackSlot(char* variable,char** slot);
 char* AllocateHeap(const char* word,size_t len = 0,int bytes= 1,bool clear = false,bool purelocal = false);
-char* AllocateConstHeap(char* word, size_t len = 0, int bytes = 1, bool clear = false, bool purelocal = false);
 bool PreallocateHeap(size_t len);
 void LoggingCheats(char* incoming);
 void ResetHeapFree(char* buffer);

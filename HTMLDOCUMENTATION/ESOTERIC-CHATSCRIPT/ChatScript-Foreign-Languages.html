@@ -174,8 +174,8 @@
 <body>
 <h1 id="foreign-language-support">Foreign Language Support</h1>
 <p>Copyright Bruce Wilcox, mailto:gowilcox@gmail.com
-www.brilligunderstanding.com <br>Revision 16/8/2023 cs12.3</p>
-<p>The set of semi-supported languages will always be in th folder
+www.brilligunderstanding.com <br>Revision 10/15/2023 c13.4</p>
+<p>The set of semi-supported languages will always be in the folder
 LIVEDATA, as each language there at least recognizes numbers and some
 other things.</p>
 <p>German has additional spellcheck support. Spanish has inbuilt
@@ -241,11 +241,24 @@ language sequence for all compilations and normal execution (hence its a
 parameter typically listed in cs_init.txt). The first language listed is
 always the default language (and if you have english, best to make that
 first).</p>
-<p>In addition, if you have Treetagger licenses, you can use multiple
-treetaggers by putting on a cs_init line something like:</p>
+<h1 id="treetagger-pos-tagging">TREETAGGER POS TAGGING</h1>
+<p>Iff you have Treetagger licenses, you can use treetagger by putting
+on a cs_init line something like:</p>
 <pre><code>treetagger=english,spanish</code></pre>
 <p>Treetagger improves CS’s inbuilt pos-tagging, and provides the only
-pos-tagging for spanish and german.</p>
+pos-tagging for german and various other languages. To access
+treetagger, you need additional library files from me. Write me with
+copies of your treetagger licenses.</p>
+<p>If you currently have treetagger for CS, the latest feature allows
+you to supplement the inbuilt vocabulary of a language. You need to put
+into your treetagger directory a file like “spanish.pos” which lists
+each new word on a line with appropriate data. E.g. for spanish:</p>
+<pre><code>chatear     VLinf   chatear
+chateo      VLfin   chatear     NC  chateo</code></pre>
+<p>This lists the word, its POS tag, its lemma, and additional POS tag
+and lemma pairs as appropriate. You need to consult the DICT
+documentation of tags for that language to know how to label the POS.
+Likely you should email me and have me help you.</p>
 <pre><code>:language xxx</code></pre>
 <p>allows you to change language on the fly in standalone mode.</p>
 <p>All API external functions( ^compilepattern, ^testpattern,

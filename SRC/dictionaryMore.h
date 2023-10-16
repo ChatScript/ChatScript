@@ -361,7 +361,7 @@ void InitDictionary();
 void CloseDictionary();
 void ExtendDictionary();
 void WordnetLockDictionary();
-void LockLayer(bool boot);
+void LockLayer();
 void ReturnToAfterLayer(int layer,bool unlocked);
 void ReturnBeforeBootLayer();
 void DeleteDictionaryEntry(WORDP D);

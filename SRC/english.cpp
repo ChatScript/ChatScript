@@ -591,12 +591,28 @@ static int64 ProcessNumber(int atloc, char* original, WORDP& revise, WORDP &entr
 	if (kind == PLACETYPE_NUMBER)
 	{
 		entry = StoreWord(original, properties);
-		if (atloc > 1 && start != atloc && IsNumber(wordStarts[atloc - 1], numberStyle) != NOT_A_NUMBER && !strstr(original, (char*)"second")) // fraction not place
+        bool isFraction = false;
+        if (atloc > 1 && start != atloc) // fraction not place
+        {
+            isFraction = true; // could be a fraction...
+            unsigned int prevKind = IsNumber(wordStarts[atloc - 1], numberStyle);
+            if (prevKind == NOT_A_NUMBER) isFraction = false;  // standalone place number word
+            else if (prevKind == CURRENCY_NUMBER) isFraction = false;  // unconnected to previous, => standalone place number
+            else if (prevKind == PLACETYPE_NUMBER) isFraction = false;  // sequence of place number words
+            else
+            {
+                int64 prevValue = Convert2Integer(wordStarts[atloc - 1], numberStyle);
+                if (prevValue % 10 == 0) isFraction = false;  // thirty third, twenty nineteen, hundred first
+                else if (atloc > 2 && IsNumber(wordStarts[atloc - 1], numberStyle) != NOT_A_NUMBER) isFraction = false;  // sequence of previous numbers, twenty one nineteen
+            }
+        }
+        if (isFraction)
 		{
 			double val = 1.0 / Convert2Integer(original, numberStyle);
 			WriteFloat(number,val);
 		}
 		else sprintf(number, (char*)"%d", (int)Convert2Integer(original, numberStyle));
+        
 		sysflags |= ORDINAL| NOUN_NODETERMINER;
 		properties |= ADVERB | ADJECTIVE | ADJECTIVE_NORMAL | ADJECTIVE_NUMBER | NOUN | NOUN_NUMBER | (baseflags & TAG_TEST); // place numbers all all potential adverbs:  "*first, he wept"  but not in front of an adjective or noun, only as verb effect
 	}
@@ -918,6 +934,14 @@ uint64 GetPosData(unsigned  int at, char* original, WORDP& revise, WORDP& entry,
 		if (S) entry = NULL; // let it go thru normal
 	}
 	if (entry) original = entry->word;
+	
+	// in dictionary and is known only simple nouns noun
+	if (entry && !csEnglish && (entry->properties == (NOUN | NOUN_PLURAL) || entry->properties == (NOUN | NOUN_SINGULAR)))
+	{
+		canonical = GetCanonical(entry);
+		return entry->properties;
+	}
+	
 	// if uppercase, see if lowercase singular exists
 	if (csEnglish && entry && entry->internalBits & UPPERCASE_HASH && !((entry->properties | properties) & (NOUN_PROPER_SINGULAR | NOUN_PROPER_PLURAL | NOUN_HUMAN | PRONOUN_BITS)) && original[xlen - 1] == 's') // possible plural
 	{

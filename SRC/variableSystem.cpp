@@ -52,7 +52,7 @@ void InitVariableSystem()
 void CloseBotVariables()
 {
     NoteBotVariables(); // these go into level 1
-    LockLayer(true); // dont write out details of layer
+    LockLayer(); // dont write out details of layer
 }
 
 void SetBotVariable(char* word)

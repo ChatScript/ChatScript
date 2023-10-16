@@ -697,7 +697,7 @@ contents.
 | interchange variable | description |
 | -------------------  | ------- |
 | `$cs_token`          |  described extensively above| 
-| `$cs_response`       |  controls automatic handling of outputs to user. By default it consists of `$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde` If you want none of theses, use $cs_response = 0 (all flags turned off). See ^print for explanation of flags. <br>`#response_noconvertspecial` - leave escaped n r and t alone in output and ^log, <br>`#response_upperstart` - makes the first letter of an output sentence capitalized, <br>`#Response_removespacebeforecomma` - does the obvious, <br>`#Response_alterunderscores` - converts single underscores to spaces and double underscores to singles (eg for a web url) |
+| `$cs_response`       |  controls automatic handling of outputs to user. see flags list below.| 
 | `$cs_crashmsg`       |  in server mode, what to say if the server crashes and we return a message to the user. By default the message is _Hey, sorry. I forgot what I was thinking about._ | 
 | `$cs_abstract`       |  used with :abstract | 
 | `$cs_trace`          |  if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data | 
@@ -742,6 +742,14 @@ contents.
 | `$cs_new_user` | set to 1, treat user as always new (don't try to read topic file)  |
 | `$cs_jid` | number to start with  when starting indexing of new json structure ids  |
 | `$cs_directfromoob` |  when set to true tells cs to convert any incoming oob directly into a json structure  |
+
+By default $cs_response consists of the equivalent of:
+```
+$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde
+```
+If you want none of theses, use $cs_response = 0 (all flags turned off). 
+See ^print for explanation of flags. <br>`#response_noconvertspecial` - leave escaped n r and t alone in output and ^log, <br>`#response_upperstart` - makes the first letter of an output sentence capitalized, <br>`#Response_removespacebeforecomma` - does the obvious, <br>`#Response_alterunderscores` - converts single underscores to spaces and double underscores to singles (eg for a web url) |
+
 
 # hook functions
 | `$cs_beforereset` | if set to a topic, will be executed before :reset is executed |

@@ -1762,10 +1762,6 @@ WORDP GetLanguageWord(const char* word)
 
 WORDP StoreWord(const char* word, uint64 properties)
 {
-	if (!stricmp(word, u8"sepárame"))
-	{
-		int xx = 0;
-	}
 	if (!dictionaryBase) 
 		return NULL;
 	if (!*word) // this is legal coming from json parse. we dont expect it anywhere else
@@ -1860,7 +1856,7 @@ WORDP StoreWord(const char* word, uint64 properties)
 	}
 
 	// upgrade some language entry to universal?
-	if (!language_bits && earlierWord)
+ 	if (!language_bits && earlierWord)
 	{
 		if (buffer) FreeBuffer();
 		D = Convert2Universal(earlierWord, oldwords, oldwordcount);
@@ -2097,12 +2093,12 @@ void WriteDictDetailsBeforeLayer(int layer)
 void WordnetLockDictionary() // dictionary and facts before build0 layer 
 {
 	currentBeforeLayer = -1;
-	LockLayer(false); // memorize dictionary values for backup to pre build locations :build0 operations (reseting word to dictionary state)
+	LockLayer(); // memorize dictionary values for backup to pre build locations :build0 operations (reseting word to dictionary state)
 }
 
 void LockLevel()
 {
-	currentBeforeLayer++;
+	++currentBeforeLayer;
 	dictionaryLocked = dictionaryFree;
 	stringLocked = heapFree;
 	factLocked = lastFactUsed; // lastFactUsed is a fact in use (increment before use) so factlocked is a fact in use
@@ -2116,9 +2112,9 @@ void UnlockLayer(int layer)
 	currentBeforeLayer = layer;
 }
 
-void LockLayer(bool boot)
+void LockLayer()
 {
-	// stores the results of the layer as the starting point of the next layers (hence size of arrays are +1)
+	// stores the results of the current layer as the starting point of the next layers (hence size of arrays are +1)
 	for (int i = currentBeforeLayer + 1; i < NUMBER_OF_LAYERS; ++i)
 	{
 		numberOfTopicsInLayer[i] = (currentBeforeLayer == -1) ? 0 : numberOfTopicsInLayer[currentBeforeLayer];
@@ -2140,7 +2136,7 @@ void ReturnToAfterLayer(int layer, bool unlocked)
 	DictionaryRelease(dictionaryPreBuild[layer + 1], heapPreBuild[layer + 1]);
 
 	dictionaryBitsChanged = false;
-	LockLayer(true);	// dont write data to file
+	LockLayer();	// dont write data to file
 	numberOfTopics = numberOfTopicsInLayer[layer];
 
 	// canonical map in layer 1 is now garbage- 
@@ -2155,7 +2151,7 @@ void ReturnBeforeBootLayer()
 	DictionaryRelease(dictionaryPreBuild[LAYER_BOOT], heapPreBuild[LAYER_BOOT]);
 	botVariableThreadList = NULL; // this layer is gone
 	dictionaryBitsChanged = false;
-	LockLayer(true);	// dont write data to file
+	LockLayer();	// dont write data to file
 	numberOfTopics = numberOfTopicsInLayer[LAYER_BOOT];
 	currentBeforeLayer = LAYER_BOOT;
 	// canonical map in layer 1 is now garbage- 

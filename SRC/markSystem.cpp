@@ -314,7 +314,7 @@ void ClearWhereInSentence() // erases  the WHEREINSENTENCE and the TRIEDBITS
 unsigned int* AllocateWhereInSentence(WORDP D)
 {
 	//  64bit tried by meaning field (aligned) + sentencerefs (3 bytes each + a byte for uppercase index)
-	unsigned int* data = (unsigned int*)AllocateHeap(NULL, TRIEDDATA_WORDSIZE, 4, false);
+	unsigned int* data = (unsigned int*)AllocateHeap(NULL, TRIEDDATA_WORDSIZE, sizeof(int), false);
 	if (!data) return NULL;
 
 	memset((char*)data, END_OF_REFERENCES, TRIEDDATA_WORDSIZE * sizeof(int)); // clears sentence xref start/end bits and casing byte
@@ -1744,7 +1744,7 @@ static void MarkSentence(bool limitnlp)
 			//   handle finding fractions as 3 token sequence  mark as placenumber 
 			if (i < wordCount && *wordStarts[i + 1] == '/' && wordStarts[i + 1][1] == 0 && IsDigitWord(wordStarts[i + 2], numberStyle))
 			{
-				MarkMeaningAndImplications(0, 0, MakeMeaning(Dplacenumber), i, i);
+				MarkMeaningAndImplications(0, 0, MakeMeaning(Dplacenumber), i, i+2);
 				if (trace & TRACE_PREPARE || prepareMode == PREPARE_MODE) Log(USERLOG, "=%s/%s \r\n", wordStarts[i], wordStarts[i + 2]);
 			}
 			else if (IsPlaceNumber(original, numberStyle)) // finalPosValues[i] & (NOUN_NUMBER | ADJECTIVE_NUMBER) 

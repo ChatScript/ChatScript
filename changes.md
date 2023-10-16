@@ -1,3 +1,9 @@
+# Version 13.4 October 15, 2023
+
+1. For users who have the TreeTagger add-in, the latest code supports reading a file which enumerates
+ supplemental foreign vocabulary. Write me for a copy of the library files.  See Esoterica manual on TreeTagger.
+
+
 # Version 13.3 August 13, 2023
 1. Support for Filipino
 2. potential phone numbers are marked 

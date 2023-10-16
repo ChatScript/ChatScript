@@ -1,8 +1,56 @@
-﻿# FILE CONTENT Courtesy of Kevin Crooks 2017
-
+﻿# WORD_NUMBER is a word that implies a number value, like dozen
+# ORDINAL_NUMBER is word_number and a real number that is a place number like first, second, etc
 # REAL_NUMBER is a word that directly represents a number, like two
-# WORD_NUMBER is a word that implies a number value, like dozen
 # FRACTION_NUMBER is a word that implies a faction value like half
+# male
+primero 1 ORDINAL_NUMBER
+segundo 2 ORDINAL_NUMBER
+tercero 3 ORDINAL_NUMBER
+cuarto 4 ORDINAL_NUMBER
+quinto 5 ORDINAL_NUMBER
+sexto 6 ORDINAL_NUMBER
+séptimo 7 ORDINAL_NUMBER
+octavo 8 ORDINAL_NUMBER
+noveno 9 ORDINAL_NUMBER
+décimo 10 ORDINAL_NUMBER
+décimo_primero  11 ORDINAL_NUMBER 
+undécimo 11 ORDINAL_NUMBER
+décimo_segundo  12 ORDINAL_NUMBER
+duodécimo 12 ORDINAL_NUMBER
+décimo_tercero 13 ORDINAL_NUMBER
+décimo_cuarto 14 ORDINAL_NUMBER
+décimo_quinto 15 ORDINAL_NUMBER
+décimo_sexto 16 ORDINAL_NUMBER
+décimo_séptimo 17 ORDINAL_NUMBER
+décimo_octavo  18 ORDINAL_NUMBER
+décimo_noveno  19 ORDINAL_NUMBER
+
+# female
+primera 1 ORDINAL_NUMBER
+segunda 2 ORDINAL_NUMBER
+tercera 3 ORDINAL_NUMBER
+cuarta 4 ORDINAL_NUMBER
+quinta 5 ORDINAL_NUMBER
+sexta 6 ORDINAL_NUMBER
+séptima 7 ORDINAL_NUMBER
+octava 8 ORDINAL_NUMBER
+novena 9 ORDINAL_NUMBER
+décima 10 ORDINAL_NUMBER
+décimo_primera  11 ORDINAL_NUMBER 
+undécima 11 ORDINAL_NUMBER
+décimo_segunda  12 ORDINAL_NUMBER
+duodécima 12 ORDINAL_NUMBER
+décimo_tercera 13 ORDINAL_NUMBER
+décimo_cuarta 14 ORDINAL_NUMBER
+décimo_quinta 15 ORDINAL_NUMBER
+décimo_sexta 16 ORDINAL_NUMBER
+décimo_séptima 17 ORDINAL_NUMBER
+décimo_octava  18 ORDINAL_NUMBER
+décimo_novena  19 ORDINAL_NUMBER
+# preceeds noun 1st and 3rd
+primer 1 ORDINAL_NUMBER
+tercer 3 ORDINAL_NUMBER
+
 cero 0 REAL_NUMBER
 uno 1 REAL_NUMBER
 una 1 REAL_NUMBER

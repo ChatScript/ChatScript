@@ -1,9 +1,9 @@
 ﻿# Foreign Language Support
 Copyright Bruce Wilcox, mailto:gowilcox@gmail.com www.brilligunderstanding.com
-<br>Revision 16/8/2023 cs12.3
+<br>Revision 10/15/2023 c13.4
 
 The set of semi-supported languages will always be
-in th folder LIVEDATA, as each language there
+in the folder LIVEDATA, as each language there
 at least recognizes numbers and some other things.
 
 German has additional spellcheck support.
@@ -56,7 +56,6 @@ to have language UNIVERSAL, in which case all other language copies of the word 
 on them transferred to the UNIVERSAL form. Facts can never mix two languages (except where UNIVERSAL
 is one of them) and take on the language of any field that is language constrained.
 
-
 # Embedded Foreign Language Support
 
 Using a language generally means using the dictionary of that language and spell-checking in that language. It may also control recognition
@@ -69,13 +68,35 @@ You can name up to seven different languages (for which you have dictionaries) b
 listed in cs_init.txt).   The first language listed
 is always the default language (and if you have english, best to make that first).
 
-In addition, if you have Treetagger licenses, you can use multiple
-treetaggers by putting on a cs_init line something like:
+# TREETAGGER POS TAGGING
+
+Iff you have Treetagger licenses, you can use 
+treetagger by putting on a cs_init line something like:
 ```
 treetagger=english,spanish
 ```
 Treetagger improves CS's inbuilt pos-tagging, and provides the only
-pos-tagging for spanish and german.
+pos-tagging for german and various other languages.
+To access treetagger, you need additional library files
+from me. Write me with copies of your treetagger licenses.
+
+If you currently have treetagger for CS, the
+latest feature allows you to supplement the
+inbuilt vocabulary of a language. You need to put
+into your treetagger directory a file like "spanish.pos"
+which lists each new word on a line with appropriate
+data. E.g. for spanish:
+```
+chatear		VLinf	chatear
+chateo		VLfin	chatear		NC	chateo
+```
+This lists the word, its POS tag, its lemma, and
+additional POS tag and lemma pairs as appropriate.
+You need to consult the DICT documentation of tags for that language
+to know how to label the POS. Likely you should
+email me and have me help you.
+
+
 
 ```
 :language xxx

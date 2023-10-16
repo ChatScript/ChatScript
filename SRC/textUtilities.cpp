@@ -65,10 +65,10 @@ unsigned char extendedascii2utf8[128] =
 
 typedef struct NUMBERDECODE
 {
-	int word;		//   word of a number index
+	int word;				//   word of a number index
 	unsigned int length;	//   length of word
-	int64 value;				//   value of word
-	int realNumber;			// the type, one two are real, third is fraction
+	int64 value;			//   value of word
+	int realNumber;			//	 the type: DIGIT_NUMBER(1), CURRENCY_NUMBER, PLACETYPE_NUMBER, ROMAN_NUMBER, WORD_NUMBER,
 } NUMBERDECODE;
 
 static NUMBERDECODE* numberValues[MAX_MULTIDICT]; // multilanguage
@@ -559,7 +559,10 @@ void InitTextUtilitiesByLanguage(char* lang)
 	{
 		stack = InfiniteStack(limit, "initnumbers");
 		data = (int*)stack;
-
+		// WORD_NUMBER is a word that implies a number value, like dozen
+		// ORDINAL_NUMBER is word_number and a real number that is a place number like first, second, etc
+		// REAL_NUMBER is a word that directly represents a number, like two
+		// FRACTION_NUMBER is a word that implies a faction value like half
 		while (ReadALine(readBuffer, in) >= 0) // once 1 REALNUMBER
 		{
 			if (*readBuffer == '#' || *readBuffer == 0) continue;
@@ -569,12 +572,19 @@ void InitTextUtilitiesByLanguage(char* lang)
 			int64 val;
 			ReadInt64(value, val);
 			int kindval = 0;
-			if (!stricmp(kind, "DIGIT_NUMBER")) kindval = DIGIT_NUMBER;
-			else if (!stricmp(kind, "FRACTION_NUMBER")) kindval = FRACTION_NUMBER;
-			else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER;
-			else if (!stricmp(kind, "REAL_NUMBER")) kindval = WORD_NUMBER;
+			uint64 flags = ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER; 
+			// if (!stricmp(kind, "DIGIT_NUMBER")) kindval = DIGIT_NUMBER;
+			// else 
+			if (!stricmp(kind, "FRACTION_NUMBER")) kindval = FRACTION_NUMBER; // a fractional value like quarter
+			else if (!stricmp(kind, "WORD_NUMBER")) kindval = WORD_NUMBER; //implies a number value, like dozen
+			else if (!stricmp(kind, "REAL_NUMBER")) kindval = REAL_NUMBER; //directly represents a number, like two
+			else if (!stricmp(kind, "ORDINAL_NUMBER")) //place number like first
+			{
+				kindval = PLACETYPE_NUMBER;
+				flags |= PLACE_NUMBER;
+			}
 			else myexit("Bad number table");
-			char* w = StoreFlaggedWord(word, AS_IS | ADJECTIVE | NOUN | ADJECTIVE_NUMBER | NOUN_NUMBER, NOUN_NODETERMINER)->word;
+			char* w = StoreFlaggedWord(word, AS_IS | flags, NOUN_NODETERMINER)->word;
 			int index = Heap2Index(w);
 			*data++ = index;
 			*data++ = strlen(word);
@@ -2069,7 +2079,7 @@ uint64 ComposeNumber(unsigned int i, unsigned int& end)
 	return value;
 }
 
-unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simple digit number or word number or currency number
+unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simple digit number or word number or place/ordinal number or currency number
 {
 	if (!*num) return NOT_A_NUMBER;
 	if (*num == 'I' && !num[1]) return NOT_A_NUMBER; // never decode I to a number
@@ -2150,7 +2160,6 @@ unsigned int IsNumber(char* num, int useNumberStyle, bool placeAllowed) // simpl
 	{
 		int index = numberValues[languageIndex][i].word;
 		if (!index) break;
-		char* w = Index2Heap(index);
 		char* numx = Index2Heap(index);
 		if (len == numberValues[languageIndex][i].length && !strnicmp(word, numx, len))
 		{
@@ -5244,20 +5253,25 @@ int64 Convert2Integer(char* number, int useNumberStyle)  //  non numbers return 
 		}
 	}
 	unsigned int oldlen = len;
-	// remove
+	// remove suffix
 	if (!csEnglish);
 	else if (len < 3); // cannot have suffix
 	else if (word[len - 2] == 's' && word[len - 1] == 't' && !strstr(word, (char*)"first") && IsDigit(word[len - 3])) word[len -= 2] = 0; // 1st
 	else if (word[len - 2] == 'n' && word[len - 1] == 'd' && !strstr(word, (char*)"second") && !strstr(word, (char*)"thousand") && IsDigit(word[len - 3])) word[len -= 2] = 0; // 2nd but not second or thousandf"
 	else if (word[len - 2] == 'r' && word[len - 1] == 'd' && !strstr(word, (char*)"third") && IsDigit(word[len - 3])) word[len -= 2] = 0; // 3rd
-	else if (word[len - 2] == 't' && word[len - 1] == 'h' && !strstr(word, (char*)"fifth")) //  excluding the word "fifth" which is not derived from five
+	else if (word[len - 2] == 't' && word[len - 1] == 'h') //  excluding the word "fifth" which is not derived from five
 	{
-		word[len -= 2] = 0;
-		if (word[len - 1] == 'e' && word[len - 2] == 'i') // twentieth and its ilk
-		{
-			word[--len - 1] = 'y';
-			word[len] = 0;
-		}
+        // keeo exceptions, the word "fifth" which is not derived from five
+        if (strstr(word, (char*)"fifth") || strstr(word, (char*)"eighth") || strstr(word, (char*)"ninth") || strstr(word, (char*)"twelfth")) {;}
+        else
+        {
+            word[len -= 2] = 0;
+            if (word[len - 1] == 'e' && word[len - 2] == 'i') // twentieth and its ilk
+            {
+                word[--len - 1] = 'y';
+                word[len] = 0;
+            }
+        }
 	}
 	if (oldlen != len && (word[len - 1] == '-' || word[len - 1] == '\'')) word[--len] = 0; // trim off separator
 	bool hasDigit = IsDigit(*word);

@@ -135,7 +135,7 @@ typedef unsigned int DICTINDEX;	//   indexed ref to a dictionary entry
 #define NOUN_TITLE_OF_ADDRESS	0x0200000000000000LL	//   eg. mr, miss
 #define NOUN_TITLE_OF_WORK		0x0100000000000000ULL
 #define LOWERCASE_TITLE			0X0080000000000000ULL	//   lower case word may be in a title (but not a noun)
-#define PLACE_NUMBER			0x0040000000000000ULL	// can be an abstract noun (maybe also concrete)
+#define PLACE_NUMBER			0x0040000000000000ULL	// aka Ordinal number - can be an abstract noun (maybe also concrete)
 #define MORE_FORM				0x0020000000000000ULL  
 #define MOST_FORM				0x0010000000000000ULL  
 

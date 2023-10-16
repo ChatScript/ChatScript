@@ -1,5 +1,6 @@
-﻿# REAL_NUMBER is a word that directly represents a number, like two
-# WORD_NUMBER is a word that implies a number value, like dozen
+﻿# WORD_NUMBER is a word that implies a number value, like dozen
+# ORDINAL_NUMBER is word_number and a real number that is a place number like first, second, etc
+# REAL_NUMBER is a word that directly represents a number, like two
 # FRACTION_NUMBER is a word that implies a faction value like half
 # filipinos use filipino for some counting and spanish for others
 

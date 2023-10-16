@@ -1,20 +1,27 @@
-# REAL_NUMBER is a word that directly representsWORDNUM a number, like two
 # WORD_NUMBER is a word that implies a number value, like dozen
+# ORDINAL_NUMBER is word_number and a real number that is a place number like first, second, etc
+# REAL_NUMBER is a word that directly represents a number, like two
 # FRACTION_NUMBER is a word that implies a faction value like half
+
+erste 1 ORDINAL_NUMBER
+zweite 2   ORDINAL_NUMBER 
+dritte 3 ORDINAL_NUMBER 
+vierte 4  ORDINAL_NUMBER
+fünfte 5  ORDINAL_NUMBER
+sechste 6  ORDINAL_NUMBER
+siebte 7 ORDINAL_NUMBER
+
 Zero 0 REAL_NUMBER
 Null 0 REAL_NUMBER
 eins 1 REAL_NUMBER
-erste 1 WORD_NUMBER
 einst 1  WORD_NUMBER 
 zwei 2  REAL_NUMBER 
 zwo 2  REAL_NUMBER 
-zweite 2   WORD_NUMBER 
 zweimal 2 WORD_NUMBER 
 Paar 2  WORD_NUMBER  
 Hälfte 2 FRACTION_NUMBER  
 halb 2 FRACTION_NUMBER  
 drei 3  REAL_NUMBER 
-dritte 3 REAL_NUMBER 
 verdreifachen 3  WORD_NUMBER 
 vier 4  REAL_NUMBER 
 Vierling 4  WORD_NUMBER 

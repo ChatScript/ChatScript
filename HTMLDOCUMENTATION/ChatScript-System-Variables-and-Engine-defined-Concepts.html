@@ -179,16 +179,16 @@ System Variables and Engine-defined Concepts</h1>
 www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
 <li><a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#engine-defined-concepts">Engine-defined
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#engine-defined-concepts">Engine-defined
 Concepts</a></li>
 <li><a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#system-variables">System
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#system-variables">System
 Variables</a></li>
 <li><a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#control-over-input">Control
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#control-over-input">Control
 over Input</a></li>
 <li><a
-href="ChatScript-System-Variables-and-Engine-defined-Concepts.md#interchange-variables">Interchange
+href="ChatScript-System-Variables-and-Engine-defined-Concepts.html#interchange-variables">Interchange
 Variables</a></li>
 </ul>
 <h1 id="engine-defined-concepts">Engine-defined concepts</h1>
@@ -1908,34 +1908,60 @@ will react to their contents.</p>
 </tr>
 <tr class="even">
 <td><code>$cs_response</code></td>
-<td>controls automatic handling of outputs to user. By default it
-consists of
-<code>$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde</code>
-If you want none of theses, use <span class="math inline">$cs_response =
-0 (all flags turned off). See ^print for explanation of flags.
-&lt;br&gt;`#response_noconvertspecial` - leave escaped n r and t alone
-in output and ^log, &lt;br&gt;`#response_upperstart` - makes the first
-letter of an output sentence capitalized,
-&lt;br&gt;`#Response_removespacebeforecomma` - does the obvious,
-&lt;br&gt;`#Response_alterunderscores` - converts single underscores to
-spaces and double underscores to singles (eg for a web url) | |
-`$</span>cs_crashmsg<code>|  in server mode, what to say if the server crashes and we return a message to the user. By default the message is _Hey, sorry. I forgot what I was thinking about._ |  |</code><span
-class="math inline">$cs_abstract` | used with :abstract | |
-`$</span>cs_trace<code>|  if this variable is defined, then whenever the user's volley is finished, the value of this variable is set to that of :trace and :trace is cleared to 0, but when the user is read back in, the :trace is set to this value. For a server, this means you can perform tracing on a user w/o making all user transactions dump trace data |  |</code><span
-class="math inline">$cs_control_pre` | name of topic (flag it SYSTEM) to
-run in gambit mode on pre-pass, set by author. Runs before any sentences
-of the input volley are analyzed. Good for setting up initial values | |
-`$</span>cs_usermessagelimit<code>| max number of message pairs (user input &amp; bot output) saved in topic file |  |</code><span
-class="math inline">$cs_externaltag` | name of a topic to use to replace
-existing internal English pos-parser. See bottom of ChatScript PosParser
-manual for details | |
-`$</span>cs_prepass<code>|  name of a topic  (mark it SYSTEM) to run in responder mode on main volleys, which runs before $cs_control_main and after all of the above and pos-parsing is done. Used to amend preparation data coming from the engine. You can use it to add your own spin on input processing before going to your main control. I use it to, for example, label commands as questions, standardize sentence construction (like _if you see me what will you think_ to _assume you see me. What will you think?_) |  |</code><span
-class="math inline">$cs_control_main` | name of topic (flag it SYSTEM)
-to run in responder mode on main volleys, set by author | |
-`$</span>cs_control_post<code>|  name of topic  (flag it SYSTEM) to run in gambit mode on post-pass, set by author|  |</code><span
-class="math inline">$botprompt` | message for console window to label
-bot output | |
-`$</span>userprompt<code>|  message for console window to label user input line|  |</code>$cs_crashmsg<code>|  message to use if a crash occurs. see also $cs_crash|  |</code>$cs_crash<code>|  topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg|  |</code><span
+<td>controls automatic handling of outputs to user. see flags list
+below.</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_crashmsg</code></td>
+<td>in server mode, what to say if the server crashes and we return a
+message to the user. By default the message is <em>Hey, sorry. I forgot
+what I was thinking about.</em></td>
+</tr>
+<tr class="even">
+<td><code>$cs_abstract</code></td>
+<td>used with :abstract</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_trace</code></td>
+<td>if this variable is defined, then whenever the user’s volley is
+finished, the value of this variable is set to that of :trace and :trace
+is cleared to 0, but when the user is read back in, the :trace is set to
+this value. For a server, this means you can perform tracing on a user
+w/o making all user transactions dump trace data</td>
+</tr>
+<tr class="even">
+<td><code>$cs_control_pre</code></td>
+<td>name of topic (flag it SYSTEM) to run in gambit mode on pre-pass,
+set by author. Runs before any sentences of the input volley are
+analyzed. Good for setting up initial values</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_usermessagelimit</code></td>
+<td>max number of message pairs (user input &amp; bot output) saved in
+topic file</td>
+</tr>
+<tr class="even">
+<td><code>$cs_externaltag</code></td>
+<td>name of a topic to use to replace existing internal English
+pos-parser. See bottom of ChatScript PosParser manual for details</td>
+</tr>
+<tr class="odd">
+<td><code>$cs_prepass</code></td>
+<td>name of a topic (mark it SYSTEM) to run in responder mode on main
+volleys, which runs before <span class="math inline">$cs_control_main
+and after all of the above and pos-parsing is done. Used to amend
+preparation data coming from the engine. You can use it to add your own
+spin on input processing before going to your main control. I use it to,
+for example, label commands as questions, standardize sentence
+construction (like _if you see me what will you think_ to _assume you
+see me. What will you think?_) | |
+`$</span>cs_control_main<code>|  name of topic  (flag it SYSTEM) to run in responder mode on main volleys, set by author |  |</code><span
+class="math inline">$cs_control_post` | name of topic (flag it SYSTEM)
+to run in gambit mode on post-pass, set by author| |
+`$</span>botprompt<code>|  message for console window to label bot output |  |</code><span
+class="math inline">$userprompt` | message for console window to label
+user input line| |
+`$</span>cs_crashmsg<code>|  message to use if a crash occurs. see also $cs_crash|  |</code>$cs_crash<code>|  topic to execute in gambit mode if a crash occurs. see also $cs_crashmsg|  |</code><span
 class="math inline">$cs_language` | if spanish, will adjust spell
 checking for spanish colloquial| |
 `$</span>cs_token<code>|  bits controlling how the tokenizer works. By default when null, you get all bits assumed on. The possible values are in src/dictionarySystem.h (hunt for $token) and you put a # in front of them to generate that named numeric constant |  |</code><span
@@ -1959,41 +1985,41 @@ class="math display">$$db_error`            |  error message from a
 postgres failure $$</span>findtext_start - ^findtext return the end
 normally, this is where it puts the start</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$tcpopen_error</code></td>
 <td>error message from a tcpopen error</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$$document</code></td>
 <td>name of the document being read in document mode</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_randindex</code></td>
 <td>current value of the random generator value</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_bot</code></td>
 <td>name of the bot currently in use</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_login</code></td>
 <td>login name of the user</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$$csmatch_start</code></td>
 <td>start of found words from ^match</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$$csmatch_end</code></td>
 <td>end of found words from ^match</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_fullfloat</code></td>
 <td>if defined, causes the system to generate full float 64-bit
 precision on outputs, otherwise you get 2 digit precision by
 default</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$cs_botid</code></td>
 <td>when non-zero creates facts and functions restricted by this bitmask
 so facts and functions created by other masks cannot be seen. allows you
@@ -2002,22 +2028,22 @@ During compilation if this is set by a bot: command, then functions
 created and facts created by tables will be restricted to that
 owner.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_numbers</code></td>
 <td>if defined, causes the system to output numbers in a different
 language style: french, indian. All other values are english.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>%trace_on and %trace_off</code></td>
 <td>Pseudo system variable used by the ^testpattern and ^testoutput call
 to let code request a trace be returned.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>$cs_indentlevel</code></td>
 <td>controls indenting when tracing in ^testpattern. 3 is a good number
 usually</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>$indentlevel</code></td>
 <td>deprecated form of <span class="math inline">$cs_indentlevel | |
 `$</span>cs_tracetestoutput<code>| set to 1 to force tracing in ^testoutput| |</code><span
@@ -2032,6 +2058,17 @@ indexing of new json structure ids | | `$</span>cs_directfromoob`</td>
 </tr>
 </tbody>
 </table>
+<p>By default $cs_response consists of the equivalent of:</p>
+<pre><code>$cs_response = #Response_upperstart | #response_removespacebeforecomma | #response_alterunderscores | #response_removetilde</code></pre>
+<p>If you want none of theses, use $cs_response = 0 (all flags turned
+off). See ^print for explanation of flags.
+<br><code>#response_noconvertspecial</code> - leave escaped n r and t
+alone in output and ^log, <br><code>#response_upperstart</code> - makes
+the first letter of an output sentence capitalized,
+<br><code>#Response_removespacebeforecomma</code> - does the obvious,
+<br><code>#Response_alterunderscores</code> - converts single
+underscores to spaces and double underscores to singles (eg for a web
+url) |</p>
 <h1 id="hook-functions">hook functions</h1>
 <div class="line-block"><code>$cs_beforereset</code> | if set to a
 topic, will be executed before :reset is executed |<br />

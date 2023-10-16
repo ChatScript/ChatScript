@@ -1,9 +1,11 @@
 #include "common.h" 
 #include "evserver.h"
-char* version = "13.3";
+
+char* version = "13.4";
 const char* buildString = "compiled " __DATE__ ", " __TIME__ ".";
 char sourceInput[200];
 int cs_qsize = 0;
+static int python = 0;
 char repairinput[20];
 unsigned int argcx;
 char** argvx;
@@ -502,7 +504,7 @@ static void PerformBoot()
 	builduserjid = 0;
 	UnlockLayer(LAYER_BOOT); // unlock it to add stuff
 	HandleReBoot(FindWord((char*)"^csboot"), false);// run script on startup of system. data it generates will also be layer 1 data
-	LockLayer(true);
+	LockLayer();
 	currentBeforeLayer = LAYER_BOOT;
 }
 
@@ -596,6 +598,7 @@ void CreateSystem()
 	currentInput = NULL;
 
 	LoadSystem(0,argc,argv);		
+	// leaves current layer as BOOT (2)
 
 	strcpy(dbparams, mssqlparams); // do regardless so can use dummy codes
 #ifndef DISCARDMONGO
@@ -607,17 +610,6 @@ void CreateSystem()
 #ifndef DISCARDMYSQL
 	strcpy(dbparams, mysqlparams);
 #endif
-
-#ifdef TREETAGGER
-	// We will be reserving some working space for treetagger on the heap
-	// so make sure it is tucked away where it cannot be touched
-   // NOT IN DEBUGGER WILL FORCE reloads of layers
-	InitTreeTagger(treetaggerParams);
-#endif
-#ifndef DISCARD_JAPANESE
-	printf("Loaded Mecab kanji tagger\r\n");
-#endif
-
 	trace = oldtrace; // allow boot tracing
 	PerformBoot();
 	InitSpellCheck(); // after boot vocabulary added
@@ -691,6 +683,16 @@ void LoadSystem(unsigned int limit,unsigned int argc, char** argv)
 	if (multidict) SetLanguage("English"); // return to std base
 	printf("Languages: %s\r\n", language_list);
 
+#ifdef TREETAGGER
+	// We will be reserving some working space for treetagger on the heap
+	// so make sure it is tucked away where it cannot be touched
+   // NOT IN DEBUGGER WILL FORCE reloads of layers
+	InitTreeTagger(treetaggerParams);
+#endif
+#ifndef DISCARD_JAPANESE
+	printf("Loaded Mecab kanji tagger\r\n");
+#endif
+
 	WordnetLockDictionary();
 
 	char* lang = language_list;
@@ -702,6 +704,9 @@ void LoadSystem(unsigned int limit,unsigned int argc, char** argv)
 	InitTopicSystem(limit);		// dictionary reverts to wordnet zone
 
 	InitBotVariables(argc, argv);
+#ifndef DISCARD_PYTHON
+	if (python) Py_Initialize();
+#endif
 }
 
 void Rebegin(unsigned int buildId,unsigned int argc, char** argv)
@@ -879,6 +884,7 @@ static void ProcessArgument(char* arg)
 	else if (!strnicmp(arg, (char*)"english=", 8))  CopyParam(languageFolder, arg + 8);
 	else if (!strnicmp(arg, (char*)"db=", 3))  db = atoi(arg + 3);
 	else if (!strnicmp(arg, (char*)"gzip=", 5))  gzip = atoi(arg + 5);
+	else if (!strnicmp(arg, (char*)"python=", 7))  python = atoi(arg + 7);
 	else if (!strnicmp(arg, (char*)"syslogstr=", 10)) CopyParam(syslogstr, arg + 10);
 #ifndef DISCARDMYSQL
 	else if (!strnicmp(arg, (char*)"mysql=", 6)) CopyParam(mysqlparams, arg + 6, 300);
@@ -1473,6 +1479,9 @@ void CloseSystem()
 	closed = true;
 
 	PartiallyCloseSystem();
+#ifndef DISCARD_PYTHON
+	if (python) Py_FinalizeEx();
+#endif
 	FreeStackHeap();
 	FreeDictionary();
 	CloseUserCache();
@@ -2927,7 +2936,7 @@ int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* o
 			strcpy(buffer, ourMainOutputBuffer);
 			Callback(FindWord("^csboot"), (char*)"()", true, true); // do before world is locked
 			NoteBotVariables(); // convert user variables read into bot variables in boot layer
-			LockLayer(true);
+			LockLayer();
 			strcpy(ourMainOutputBuffer,buffer); // remove any boot message
 			FreeBuffer();
 			myBot = 0;	// restore fact owner to generic all
@@ -3013,14 +3022,14 @@ FunctionResult Reply()
 			if (*var == '$')
 			{
 				ptr = ReadCompiledWord(ptr, vlabel);
-				if (*vlabel == '=')
+				if (*vlabel == '=') // assign value to user variable
 				{
 					ptr = ReadCompiledWord(ptr, vlabel);
 					if (trace) Log(USERLOG, "VERIFY set %s to %s\r\n", var, vlabel);
 					if (volleyCount > 1) --volleyCount; // make not at startup
 					else volleyCount = 2;
 					SetUserVariable(var, vlabel);
-					strcpy(currentOutputBase, "OK");
+					strcpy(currentOutputBase, "OK"); // ack verification request
 					AddResponse(currentOutputBase, 0);
 					return ENDINPUT_BIT;
 				}
@@ -3028,19 +3037,19 @@ FunctionResult Reply()
 			else if (*var == '%')
 			{
 				ptr = ReadCompiledWord(ptr, vlabel);
-				if (*vlabel == '=')
+				if (*vlabel == '=') // assign value to system variable (or . to clear)
 				{
 					ptr = ReadCompiledWord(ptr, vlabel);
 					if (trace) Log(USERLOG, "VERIFY set %s to %s\r\n", var, vlabel);
 					if (volleyCount > 1) --volleyCount; // make not at startup
 					else volleyCount = 2;
 					SystemVariable(var, vlabel);
-					strcpy(currentOutputBase, "OK");
+					strcpy(currentOutputBase, "OK"); // ack verification request
 					AddResponse(currentOutputBase, 0);
 					return ENDINPUT_BIT;
 				}
 			}
-			else if (*var == '^')
+			else if (*var == '^') // execute function
 			{
 				*labelbreak = 0;
 				char* paren = strchr(before, '(');
@@ -3055,21 +3064,21 @@ FunctionResult Reply()
 				if (volleyCount > 1) --volleyCount; // make not at startup
 				else volleyCount = 2;
 				Output(before, currentOutputBase, result, 0);
-				strcpy(currentOutputBase, "OK");
+				strcpy(currentOutputBase, "OK"); // ack verification request
 				AddResponse(currentOutputBase, 0);
 				return ENDINPUT_BIT;
 			}
 			else if (!stricmp(var, "trace"))
 			{
 				ptr = ReadCompiledWord(ptr, vlabel);
-				if (*vlabel == '=')
+				if (*vlabel == '=') // set trace valu
 				{
 					ptr = ReadCompiledWord(ptr, vlabel);
 					if (trace) Log(USERLOG, "VERIFY set %s to %s\r\n", var, vlabel);
 					volleyCount = 2; // make not at startup
 					if (!strcmp(vlabel, "none")) trace = 0;
 					else trace = (unsigned int)-1;
-					strcpy(currentOutputBase, "OK");
+					strcpy(currentOutputBase, "OK"); // ack verification request
 					AddResponse(currentOutputBase, 0);
 					return ENDINPUT_BIT;
 				}

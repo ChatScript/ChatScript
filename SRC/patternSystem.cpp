@@ -856,6 +856,11 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
             {
                 wildcardIndex = atoi(ptr); // start saves here now
                 if (IsDigit(*++ptr)) ++ptr; // swallow 2nd digit
+                if (trace & TRACE_PATTERN && CheckTopicTrace() && bidirectional != 2)  Log(USERLOG, "%s", word);
+            }
+            else if (trace & TRACE_PATTERN && CheckTopicTrace() && bidirectional != 2)
+            {
+               Log(USERLOG, "_");
             }
 
             // memorization coming - there can be up-to-two memorizations in progress: _* (wildmemorizegap) and _xxx (wildmemorizespecific)
@@ -887,7 +892,6 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
                 wildcardSelector |= (WILDMEMORIZEGAP + (wildcardIndex << GAP_SHIFT)); // variable gap
             }
             SetWildCardNull(); // dummy match to reserve place
-            if (trace & TRACE_PATTERN  && CheckTopicTrace() && bidirectional != 2) Log(USERLOG,"%s",word);
             continue;
         case '@': // factset ref or @_2+ or @retry  or @_2 anchor
             if (!stricmp(word, "@retry")) // when done, retry if match worked
@@ -1401,7 +1405,7 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
 		break;
         case '=': //   a comparison test - never quotes the left side. Right side could be quoted
                   //   format is:  = 1-bytejumpcodeToComparator leftside comparator rightside
-            if (!word[1]) //   the simple = being present
+            if (!word[1] || word[1] == '=') //   the simple = being present or == (probably mistake in pattern)
             {
                 matched = MatchTest(reverse, FindWord(word), (positionEnd < basicStart && firstMatched < 0) ? basicStart : positionEnd, NULL, NULL,
                     statusBits & QUOTE_BIT, false, 0,&hitdata); //   possessive 's
@@ -1898,7 +1902,8 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
 						Log(USERLOG,"%s%s%s", lhs, op, rhs);
 					}
 					else if (*word == '^') Log(USERLOG,"%s(...)", word);
-					else Log(USERLOG,"`%s`", word);
+                    else if (*word == '\\') Log(USERLOG, "`%s`", word+1);
+                    else Log(USERLOG,"`%s`", word);
 				}
                 if (*word == '~' && matched && IsDigit(word[1])) { ; }
                 else if (*word == '~' && matched)
@@ -1942,6 +1947,7 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
                 {
                     if (trace & TRACE_PATTERN  && CheckTopicTrace())
                     {
+                        Log(USERLOG, "\r\n");
                         Log(FORCETABUSERLOG, (char*)"------ Try pattern matching again, after word %d`%s`\r\n", firstMatched, wordStarts[firstMatched]);
                        // Log(USERLOG,"");
                     }

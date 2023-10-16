@@ -2694,7 +2694,7 @@ void MigrateFactsToBoot(FACT* endUserFacts, FACT* endBootFacts)
     FreeBuffer();  // blobs
 
     // need to cause the prebuild file to be regenerated with the new words
-    LockLayer(false);
+    LockLayer();
 
     if (buffer)
     {

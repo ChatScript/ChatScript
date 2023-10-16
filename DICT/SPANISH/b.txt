@@ -1,18 +1,18 @@
 ﻿﻿
- B ( ) lemma=`B`B` ACRNM  ALFS  
- BA ( NOUN NOUN_PROPER_PLURAL ) lemma=`BA`BA` ACRNM  NP  
+ B ( ) lemma=`B`B` ACRNM ALFS 
+ BA ( NOUN NOUN_PROPER_PLURAL ) lemma=`BA`BA` ACRNM NP 
  BAND ( NOUN NOUN_PROPER_SINGULAR ) 
  BCT ( NOUN NOUN_PROPER_SINGULAR ) 
  BDA ( NOUN NOUN_PROPER_SINGULAR ) 
  BDS ( NOUN NOUN_PROPER_SINGULAR ) 
  BEL ( NOUN NOUN_PROPER_SINGULAR ) 
- BILINGÜE ( ADJECTIVE ) lemma=`bilingüe` ADJ  
+ BILINGÜE ( ADJECTIVE ) lemma=`bilingüe` ADJ 
  BK ( NOUN NOUN_PROPER_SINGULAR ) 
  BLANCHE ( NOUN NOUN_SINGULAR ) 
  BNR ( NOUN NOUN_PROPER_SINGULAR ) 
- BS ( NOUN NOUN_PROPER_PLURAL ) lemma=`BS`BS` ACRNM  NP  
+ BS ( NOUN NOUN_PROPER_PLURAL ) lemma=`BS`BS` ACRNM NP 
  BSTJ ( NOUN NOUN_PROPER_SINGULAR ) 
- BT ( NOUN NOUN_PROPER_PLURAL ) lemma=`BT`BT` ACRNM  NP  
+ BT ( NOUN NOUN_PROPER_PLURAL ) lemma=`BT`BT` ACRNM NP 
  Babesia ( NOUN NOUN_PROPER_SINGULAR ) 
  Babilonia ( NOUN NOUN_PROPER_SINGULAR ) 
  Babinski ( NOUN NOUN_PROPER_SINGULAR ) 
@@ -45,7 +45,7 @@
  Bara ( NOUN NOUN_PROPER_SINGULAR ) 
  Barbados ( NOUN NOUN_PROPER_SINGULAR ) 
  Barbie ( NOUN NOUN_PROPER_SINGULAR ) 
- Barbies ( NOUN NOUN_PROPER_PLURAL ) lemma=`Barbie` NP  
+ Barbies ( NOUN NOUN_PROPER_PLURAL ) lemma=`Barbie` NP 
  Barbudas ( NOUN NOUN_PROPER_SINGULAR ) 
  Barcelona ( NOUN NOUN_PROPER_SINGULAR ) 
  Bariloche ( NOUN NOUN_PROPER_SINGULAR ) 
@@ -200,7 +200,7 @@
  Brunela ( NOUN NOUN_PROPER_SINGULAR ) 
  Bruselas ( NOUN NOUN_PROPER_SINGULAR ) 
  Buceo ( NOUN NOUN_PROPER_SINGULAR ) 
- Buchito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Buche` NP  
+ Buchito ( NOUN NOUN_PROPER_PLURAL ) lemma=`Buche` NP 
  Buenaventura ( NOUN NOUN_PROPER_SINGULAR ) 
  Buenos ( NOUN NOUN_PROPER_SINGULAR ) 
  Buffalo ( NOUN NOUN_PROPER_SINGULAR ) 
@@ -229,22 +229,22 @@
  b6 ( ) 
  b7 ( ) 
  b8 ( ) 
- b` ( ) lemma=`b` ALFS  
+ b` ( ) lemma=`b` ALFS 
  baba ( NOUN NOUN_SINGULAR ) 
- babeando ( NOUN NOUN_GERUND ) lemma=`babear` VLger  
- babosa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ  NC  
- babosas ( ADJECTIVE ) lemma=`baboso` ADJ  
- baboso ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ  NC  
- babosos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ  NC  
+ babeando ( NOUN NOUN_GERUND ) lemma=`babear` VLger 
+ babosa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ NC 
+ babosas ( ADJECTIVE ) lemma=`baboso` ADJ 
+ baboso ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ NC 
+ babosos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`baboso`baboso` ADJ NC 
  bacalao ( NOUN NOUN_SINGULAR ) 
- bacalaos ( NOUN NOUN_PLURAL ) lemma=`bacalao` NC  
+ bacalaos ( NOUN NOUN_PLURAL ) lemma=`bacalao` NC 
  bache ( NOUN NOUN_SINGULAR ) 
- bacheo ( VERB ) lemma=`bachear` VLfin  
- baches ( NOUN NOUN_PLURAL ) lemma=`bache` NC  
+ bacheo ( VERB ) lemma=`bachear` VLfin 
+ baches ( NOUN NOUN_PLURAL ) lemma=`bache` NC 
  bachillerato ( NOUN NOUN_SINGULAR ) 
- bachilleres ( NOUN NOUN_PLURAL ) lemma=`bachiller` NC  
+ bachilleres ( NOUN NOUN_PLURAL ) lemma=`bachiller` NC 
  bacilo ( NOUN NOUN_SINGULAR ) 
- bacilos ( NOUN NOUN_PLURAL ) lemma=`bacilo` NC  
+ bacilos ( NOUN NOUN_PLURAL ) lemma=`bacilo` NC 
  baciloscopia ( NOUN NOUN_SINGULAR ) 
  bacitracina ( NOUN NOUN_SINGULAR ) 
  back ( ) 
@@ -254,685 +254,685 @@
  bactenuria ( NOUN NOUN_SINGULAR ) 
  bacteremia ( NOUN NOUN_SINGULAR ) 
  bacteria ( NOUN NOUN_SINGULAR ) 
- bacteriana ( ADJECTIVE ) lemma=`bacteriano` ADJ  
- bacterianas ( ADJECTIVE ) lemma=`bacteriano` ADJ  
+ bacteriana ( ADJECTIVE ) lemma=`bacteriano` ADJ 
+ bacterianas ( ADJECTIVE ) lemma=`bacteriano` ADJ 
  bacteriano ( ADJECTIVE ) 
- bacterianos ( ADJECTIVE ) lemma=`bacteriano` ADJ  
- bacterias ( NOUN NOUN_PLURAL ) lemma=`bacteria` NC  
+ bacterianos ( ADJECTIVE ) lemma=`bacteriano` ADJ 
+ bacterias ( NOUN NOUN_PLURAL ) lemma=`bacteria` NC 
  bacteriología ( NOUN NOUN_SINGULAR ) 
- bacteriológica ( ADJECTIVE ) lemma=`bacteriológico` ADJ  
- bacteriológicas ( ADJECTIVE ) lemma=`bacteriológico` ADJ  
+ bacteriológica ( ADJECTIVE ) lemma=`bacteriológico` ADJ 
+ bacteriológicas ( ADJECTIVE ) lemma=`bacteriológico` ADJ 
  bacteriológico ( ADJECTIVE ) 
  bacteriuria ( NOUN NOUN_SINGULAR ) 
  bacteriófago ( NOUN NOUN_SINGULAR ) 
- bacteriófagos ( NOUN NOUN_PLURAL ) lemma=`bacteriófago` NC  
+ bacteriófagos ( NOUN NOUN_PLURAL ) lemma=`bacteriófago` NC 
  bacteroide ( ADJECTIVE ) 
- baga ( VERB ) lemma=`bagar` VLfin  
+ baga ( VERB ) lemma=`bagar` VLfin 
  bagaje ( NOUN NOUN_SINGULAR ) 
  bagatela ( NOUN NOUN_SINGULAR ) 
  bagre ( NOUN NOUN_SINGULAR ) 
- bah ( NOUN NOUN_PROPER_PLURAL ) lemma=`bah`bah` ITJN  NP  
- bahameña ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bahameño`bahameño` ADJ  NC  
+ bah ( NOUN NOUN_PROPER_PLURAL ) lemma=`bah`bah` ITJN NP 
+ bahameña ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bahameño`bahameño` ADJ NC 
  bahía ( NOUN NOUN_SINGULAR ) 
- baila ( VERB ) lemma=`bailar` VLfin  
- bailaba ( VERB ) lemma=`bailar` VLfin  
- bailaban ( VERB ) lemma=`bailar` VLfin  
- bailado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bailar` VLadj  
- bailamos ( VERB ) lemma=`bailar` VLfin  
- bailan ( VERB ) lemma=`bailar` VLfin  
- bailando ( NOUN NOUN_GERUND ) lemma=`bailar` VLger  
+ baila ( VERB ) lemma=`bailar` VLfin 
+ bailaba ( VERB ) lemma=`bailar` VLfin 
+ bailaban ( VERB ) lemma=`bailar` VLfin 
+ bailado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bailar` VLadj 
+ bailamos ( VERB ) lemma=`bailar` VLfin 
+ bailan ( VERB ) lemma=`bailar` VLfin 
+ bailando ( NOUN NOUN_GERUND ) lemma=`bailar` VLger 
  bailar ( VERB ) 
- bailara ( VERB ) lemma=`bailar` VLfin  
- bailaran ( VERB ) lemma=`bailar` VLfin  
- bailarina ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC  
- bailarinas ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC  
- bailarines ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC  
- bailaron ( VERB ) lemma=`bailar` VLfin  
- bailaría ( VERB ) lemma=`bailar` VLfin  
+ bailara ( VERB ) lemma=`bailar` VLfin 
+ bailaran ( VERB ) lemma=`bailar` VLfin 
+ bailarina ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC 
+ bailarinas ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC 
+ bailarines ( NOUN NOUN_PLURAL ) lemma=`bailarín` NC 
+ bailaron ( VERB ) lemma=`bailar` VLfin 
+ bailaría ( VERB ) lemma=`bailar` VLfin 
  bailarín ( NOUN NOUN_SINGULAR ) 
- bailaste ( VERB ) lemma=`bailar` VLfin  
- baile ( NOUN VERB NOUN_PLURAL ) lemma=`baile`bailar` NC  VLfin  
- bailes ( NOUN VERB NOUN_PLURAL ) lemma=`baile`bailar` NC  VLfin  
- bailábamos ( VERB ) lemma=`bailar` VLfin  
- bailé ( VERB ) lemma=`bailar` VLfin  
- bailó ( VERB ) lemma=`bailar` VLfin  
- baja ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bajo`baja` ADJ  NC  
- bajaba ( VERB ) lemma=`bajar` VLfin  
- bajaban ( VERB ) lemma=`bajar` VLfin  
- bajad ( VERB ) lemma=`bajar` VLfin  
- bajada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj  
- bajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj  
- bajado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj  
- bajados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj  
- bajamente ( ADVERB ) lemma=`bajo` ADV  
- bajamos ( VERB ) lemma=`bajar` VLfin  
- bajan ( VERB ) lemma=`bajar` VLfin  
- bajando ( NOUN NOUN_GERUND ) lemma=`bajar` VLger  
+ bailaste ( VERB ) lemma=`bailar` VLfin 
+ baile ( NOUN VERB NOUN_PLURAL ) lemma=`baile`bailar` NC VLfin 
+ bailes ( NOUN VERB NOUN_PLURAL ) lemma=`baile`bailar` NC VLfin 
+ bailábamos ( VERB ) lemma=`bailar` VLfin 
+ bailé ( VERB ) lemma=`bailar` VLfin 
+ bailó ( VERB ) lemma=`bailar` VLfin 
+ baja ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bajo`baja` ADJ NC 
+ bajaba ( VERB ) lemma=`bajar` VLfin 
+ bajaban ( VERB ) lemma=`bajar` VLfin 
+ bajad ( VERB ) lemma=`bajar` VLfin 
+ bajada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj 
+ bajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj 
+ bajado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj 
+ bajados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bajar` VLadj 
+ bajamente ( ADVERB ) lemma=`bajo` ADV 
+ bajamos ( VERB ) lemma=`bajar` VLfin 
+ bajan ( VERB ) lemma=`bajar` VLfin 
+ bajando ( NOUN NOUN_GERUND ) lemma=`bajar` VLger 
  bajar ( VERB ) 
- bajara ( VERB ) lemma=`bajar` VLfin  
- bajaran ( VERB ) lemma=`bajar` VLfin  
- bajaremos ( VERB ) lemma=`bajar` VLfin  
- bajarlo ( VERB_INFINITIVE VERB ) lemma=`bajar` VCLIinf  
- bajarlos ( VERB_INFINITIVE VERB ) lemma=`bajar` VCLIinf  
- bajaron ( VERB ) lemma=`bajar` VLfin  
+ bajara ( VERB ) lemma=`bajar` VLfin 
+ bajaran ( VERB ) lemma=`bajar` VLfin 
+ bajaremos ( VERB ) lemma=`bajar` VLfin 
+ bajarlo ( VERB_INFINITIVE VERB ) lemma=`bajar` VCLIinf 
+ bajarlos ( VERB_INFINITIVE VERB ) lemma=`bajar` VCLIinf 
+ bajaron ( VERB ) lemma=`bajar` VLfin 
  bajarse ( VERB_INFINITIVE VERB ) 
- bajará ( VERB ) lemma=`bajar` VLfin  
- bajarán ( VERB ) lemma=`bajar` VLfin  
- bajaré ( VERB ) lemma=`bajar` VLfin  
- bajaría ( VERB ) lemma=`bajar` VLfin  
- bajas ( ADJECTIVE ) lemma=`bajo` ADJ  
- baje ( VERB ) lemma=`bajar` VLfin  
- bajemos ( VERB ) lemma=`bajar` VLfin  
- bajen ( VERB ) lemma=`bajar` VLfin  
- bajes ( VERB ) lemma=`bajar` VLfin  
- bajista ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bajista`bajista` ADJ  NC  
- bajita ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajitas ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajito ( ADJECTIVE ADVERB ) lemma=`bajo`bajo` ADJ  ADV  
- bajitos ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajo ( NOUN VERB ADJECTIVE PREPOSITION NOUN_PLURAL ) lemma=`bajo`bajo`bajo`bajar` ADJ  NC  PREP  VLfin  
- bajos ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajábamos ( VERB ) lemma=`bajar` VLfin  
- bajé ( VERB ) lemma=`bajar` VLfin  
- bajísima ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajísimas ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajísimo ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajísimos ( ADJECTIVE ) lemma=`bajo` ADJ  
- bajó ( VERB ) lemma=`bajar` VLfin  
- bala ( NOUN VERB NOUN_PLURAL ) lemma=`bala`balar` NC  VLfin  
+ bajará ( VERB ) lemma=`bajar` VLfin 
+ bajarán ( VERB ) lemma=`bajar` VLfin 
+ bajaré ( VERB ) lemma=`bajar` VLfin 
+ bajaría ( VERB ) lemma=`bajar` VLfin 
+ bajas ( ADJECTIVE ) lemma=`bajo` ADJ 
+ baje ( VERB ) lemma=`bajar` VLfin 
+ bajemos ( VERB ) lemma=`bajar` VLfin 
+ bajen ( VERB ) lemma=`bajar` VLfin 
+ bajes ( VERB ) lemma=`bajar` VLfin 
+ bajista ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bajista`bajista` ADJ NC 
+ bajita ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajitas ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajito ( ADJECTIVE ADVERB ) lemma=`bajo`bajo` ADJ ADV 
+ bajitos ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajo ( NOUN VERB ADJECTIVE PREPOSITION NOUN_PLURAL ) lemma=`bajo`bajo`bajo`bajar` ADJ NC PREP VLfin 
+ bajos ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajábamos ( VERB ) lemma=`bajar` VLfin 
+ bajé ( VERB ) lemma=`bajar` VLfin 
+ bajísima ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajísimas ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajísimo ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajísimos ( ADJECTIVE ) lemma=`bajo` ADJ 
+ bajó ( VERB ) lemma=`bajar` VLfin 
+ bala ( NOUN VERB NOUN_PLURAL ) lemma=`bala`balar` NC VLfin 
  balacera ( NOUN NOUN_SINGULAR ) 
- balaceras ( NOUN NOUN_PLURAL ) lemma=`balacera` NC  
- balada ( VERB_PAST_PARTICIPLE VERB ) lemma=`balar` VLadj  
- baladas ( VERB_PAST_PARTICIPLE VERB ) lemma=`balar` VLadj  
+ balaceras ( NOUN NOUN_PLURAL ) lemma=`balacera` NC 
+ balada ( VERB_PAST_PARTICIPLE VERB ) lemma=`balar` VLadj 
+ baladas ( VERB_PAST_PARTICIPLE VERB ) lemma=`balar` VLadj 
  baladí ( ADJECTIVE ) 
- baladíes ( ADJECTIVE ) lemma=`baladí` ADJ  
- balance ( NOUN NOUN_PLURAL ) lemma=`balance`balance` NC  PE  
- balanceaba ( VERB ) lemma=`balancear` VLfin  
- balanceada ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj  
- balanceado ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj  
- balanceados ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj  
- balancean ( VERB ) lemma=`balancear` VLfin  
+ baladíes ( ADJECTIVE ) lemma=`baladí` ADJ 
+ balance ( NOUN NOUN_PLURAL ) lemma=`balance`balance` NC PE 
+ balanceaba ( VERB ) lemma=`balancear` VLfin 
+ balanceada ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj 
+ balanceado ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj 
+ balanceados ( VERB_PAST_PARTICIPLE VERB ) lemma=`balancear` VLadj 
+ balancean ( VERB ) lemma=`balancear` VLfin 
  balanceante ( ADJECTIVE ) 
  balancear ( VERB ) 
- balanceo ( NOUN VERB NOUN_PLURAL ) lemma=`balanceo`balancear` NC  VLfin  
- balances ( NOUN NOUN_PLURAL ) lemma=`balance` NC  
+ balanceo ( NOUN VERB NOUN_PLURAL ) lemma=`balanceo`balancear` NC VLfin 
+ balances ( NOUN NOUN_PLURAL ) lemma=`balance` NC 
  balanza ( NOUN NOUN_SINGULAR ) 
- balanzas ( NOUN NOUN_PLURAL ) lemma=`balanza` NC  
+ balanzas ( NOUN NOUN_PLURAL ) lemma=`balanza` NC 
  balar ( VERB ) 
- balas ( NOUN VERB NOUN_PLURAL ) lemma=`bala`balar` NC  VLfin  
+ balas ( NOUN VERB NOUN_PLURAL ) lemma=`bala`balar` NC VLfin 
  balazo ( NOUN NOUN_SINGULAR ) 
- balazos ( NOUN NOUN_PLURAL ) lemma=`balazo` NC  
- balcones ( NOUN NOUN_PLURAL ) lemma=`balcón` NC  
+ balazos ( NOUN NOUN_PLURAL ) lemma=`balazo` NC 
+ balcones ( NOUN NOUN_PLURAL ) lemma=`balcón` NC 
  balcón ( NOUN NOUN_SINGULAR ) 
- baldada ( VERB_PAST_PARTICIPLE VERB ) lemma=`baldar` VLadj  
- baldado ( VERB_PAST_PARTICIPLE VERB ) lemma=`baldar` VLadj  
- baldas ( VERB ) lemma=`baldar` VLfin  
- balde ( NOUN VERB NOUN_PLURAL ) lemma=`balde`baldar` NC  VLfin  
- baldes ( NOUN VERB NOUN_PLURAL ) lemma=`balde`baldar` NC  VLfin  
- baldías ( ADJECTIVE ) lemma=`baldío` ADJ  
+ baldada ( VERB_PAST_PARTICIPLE VERB ) lemma=`baldar` VLadj 
+ baldado ( VERB_PAST_PARTICIPLE VERB ) lemma=`baldar` VLadj 
+ baldas ( VERB ) lemma=`baldar` VLfin 
+ balde ( NOUN VERB NOUN_PLURAL ) lemma=`balde`baldar` NC VLfin 
+ baldes ( NOUN VERB NOUN_PLURAL ) lemma=`balde`baldar` NC VLfin 
+ baldías ( ADJECTIVE ) lemma=`baldío` ADJ 
  baldío ( ADJECTIVE ) 
- baldíos ( ADJECTIVE ) lemma=`baldío` ADJ  
- baleado ( VERB_PAST_PARTICIPLE VERB ) lemma=`balear` VLadj  
- baleados ( VERB_PAST_PARTICIPLE VERB ) lemma=`balear` VLadj  
- balear ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`balear`balear`balear` ADJ  NC  VLinf  
- baleares ( ADJECTIVE ) lemma=`balear` ADJ  
- balearon ( VERB ) lemma=`balear` VLfin  
+ baldíos ( ADJECTIVE ) lemma=`baldío` ADJ 
+ baleado ( VERB_PAST_PARTICIPLE VERB ) lemma=`balear` VLadj 
+ baleados ( VERB_PAST_PARTICIPLE VERB ) lemma=`balear` VLadj 
+ balear ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`balear`balear`balear` ADJ NC VLinf 
+ baleares ( ADJECTIVE ) lemma=`balear` ADJ 
+ balearon ( VERB ) lemma=`balear` VLfin 
  balero ( NOUN NOUN_SINGULAR ) 
- baleó ( VERB ) lemma=`balear` VLfin  
- balizas ( NOUN NOUN_PLURAL ) lemma=`baliza` NC  
+ baleó ( VERB ) lemma=`balear` VLfin 
+ balizas ( NOUN NOUN_PLURAL ) lemma=`baliza` NC 
  ballena ( NOUN NOUN_SINGULAR ) 
- ballenas ( NOUN NOUN_PLURAL ) lemma=`ballena` NC  
+ ballenas ( NOUN NOUN_PLURAL ) lemma=`ballena` NC 
  ballenera ( NOUN NOUN_SINGULAR ) 
- balleneras ( NOUN NOUN_PLURAL ) lemma=`ballenera` NC  
+ balleneras ( NOUN NOUN_PLURAL ) lemma=`ballenera` NC 
  ballet ( NOUN NOUN_SINGULAR ) 
- balnearia ( ADJECTIVE ) lemma=`balneario` ADJ  
+ balnearia ( ADJECTIVE ) lemma=`balneario` ADJ 
  balneario ( ADJECTIVE ) 
- balnearios ( ADJECTIVE ) lemma=`balneario` ADJ  
+ balnearios ( ADJECTIVE ) lemma=`balneario` ADJ 
  balneoterápico ( NOUN NOUN_SINGULAR ) 
- balon ( NOUN NOUN_PLURAL ) lemma=`balón` NC  
+ balon ( NOUN NOUN_PLURAL ) lemma=`balón` NC 
  baloncesto ( NOUN NOUN_SINGULAR ) 
- baloncito ( NOUN NOUN_PLURAL ) lemma=`balón` NC  
- balones ( NOUN NOUN_PLURAL ) lemma=`balón` NC  
+ baloncito ( NOUN NOUN_PLURAL ) lemma=`balón` NC 
+ balones ( NOUN NOUN_PLURAL ) lemma=`balón` NC 
  balonmano ( NOUN NOUN_SINGULAR ) 
  balsa ( NOUN NOUN_SINGULAR ) 
- balsas ( NOUN NOUN_PLURAL ) lemma=`balsa` NC  
+ balsas ( NOUN NOUN_PLURAL ) lemma=`balsa` NC 
  balsero ( NOUN NOUN_SINGULAR ) 
- balseros ( NOUN NOUN_PLURAL ) lemma=`balsero` NC  
+ balseros ( NOUN NOUN_PLURAL ) lemma=`balsero` NC 
  baluarte ( NOUN NOUN_SINGULAR ) 
- baluartes ( NOUN NOUN_PLURAL ) lemma=`baluarte` NC  
+ baluartes ( NOUN NOUN_PLURAL ) lemma=`baluarte` NC 
  balustrada ( NOUN NOUN_SINGULAR ) 
- balística ( ADJECTIVE ) lemma=`balístico` ADJ  
+ balística ( ADJECTIVE ) lemma=`balístico` ADJ 
  balístico ( ADJECTIVE ) 
- balísticos ( ADJECTIVE ) lemma=`balístico` ADJ  
+ balísticos ( ADJECTIVE ) lemma=`balístico` ADJ 
  balón ( NOUN NOUN_SINGULAR ) 
  bambú ( NOUN NOUN_SINGULAR ) 
  banal ( ADJECTIVE ) 
  banalidad ( NOUN NOUN_SINGULAR ) 
  banana ( NOUN NOUN_SINGULAR ) 
- bananas ( NOUN NOUN_PLURAL ) lemma=`banana` NC  
- bananera ( ADJECTIVE ) lemma=`bananero` ADJ  
- bananeras ( ADJECTIVE ) lemma=`bananero` ADJ  
- bananero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bananero`bananero` ADJ  NC  
- bananeros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bananero`bananero` ADJ  NC  
+ bananas ( NOUN NOUN_PLURAL ) lemma=`banana` NC 
+ bananera ( ADJECTIVE ) lemma=`bananero` ADJ 
+ bananeras ( ADJECTIVE ) lemma=`bananero` ADJ 
+ bananero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bananero`bananero` ADJ NC 
+ bananeros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bananero`bananero` ADJ NC 
  banano ( NOUN NOUN_SINGULAR ) 
- bananos ( NOUN NOUN_PLURAL ) lemma=`banano` NC  
+ bananos ( NOUN NOUN_PLURAL ) lemma=`banano` NC 
  banca ( NOUN NOUN_SINGULAR ) 
  bancada ( NOUN NOUN_SINGULAR ) 
  bancar ( VERB ) 
- bancaria ( ADJECTIVE ) lemma=`bancario` ADJ  
- bancarias ( ADJECTIVE ) lemma=`bancario` ADJ  
+ bancaria ( ADJECTIVE ) lemma=`bancario` ADJ 
+ bancarias ( ADJECTIVE ) lemma=`bancario` ADJ 
  bancario ( ADJECTIVE ) 
- bancarios ( ADJECTIVE ) lemma=`bancario` ADJ  
+ bancarios ( ADJECTIVE ) lemma=`bancario` ADJ 
  bancarrota ( NOUN NOUN_SINGULAR ) 
- bancas ( NOUN NOUN_PLURAL ) lemma=`banca` NC  
+ bancas ( NOUN NOUN_PLURAL ) lemma=`banca` NC 
  banco ( NOUN NOUN_SINGULAR ) 
- bancos ( NOUN NOUN_PLURAL ) lemma=`banco` NC  
- bancás ( VERB ) lemma=`bancar` VLfin  
+ bancos ( NOUN NOUN_PLURAL ) lemma=`banco` NC 
+ bancás ( VERB ) lemma=`bancar` VLfin 
  band ( ) 
  band-shift ( NOUN NOUN_SINGULAR ) 
  banda ( NOUN NOUN_SINGULAR ) 
  bandada ( NOUN NOUN_SINGULAR ) 
- bandadas ( NOUN NOUN_PLURAL ) lemma=`bandada` NC  
- bandas ( NOUN NOUN_PLURAL ) lemma=`banda` NC  
+ bandadas ( NOUN NOUN_PLURAL ) lemma=`bandada` NC 
+ bandas ( NOUN NOUN_PLURAL ) lemma=`banda` NC 
  bande ( ) 
  bandeamiento ( NOUN NOUN_SINGULAR ) 
  bandeja ( NOUN NOUN_SINGULAR ) 
- bandejas ( NOUN NOUN_PLURAL ) lemma=`bandeja` NC  
- bandejita ( NOUN NOUN_PLURAL ) lemma=`bandeja` NC  
+ bandejas ( NOUN NOUN_PLURAL ) lemma=`bandeja` NC 
+ bandejita ( NOUN NOUN_PLURAL ) lemma=`bandeja` NC 
  bandera ( NOUN NOUN_SINGULAR ) 
- banderas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC  
- banderilla ( NOUN NOUN_PLURAL ) lemma=`bandera` NC  
- banderillas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC  
+ banderas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC 
+ banderilla ( NOUN NOUN_PLURAL ) lemma=`bandera` NC 
+ banderillas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC 
  banderillero ( NOUN NOUN_SINGULAR ) 
- banderilleros ( NOUN NOUN_PLURAL ) lemma=`banderillero` NC  
- banderita ( NOUN NOUN_PLURAL ) lemma=`bandera` NC  
- banderitas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC  
+ banderilleros ( NOUN NOUN_PLURAL ) lemma=`banderillero` NC 
+ banderita ( NOUN NOUN_PLURAL ) lemma=`bandera` NC 
+ banderitas ( NOUN NOUN_PLURAL ) lemma=`bandera` NC 
  bandidaje ( NOUN NOUN_SINGULAR ) 
- bandido ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bandido`bandido` ADJ  NC  
- bandidos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bandido`bandido` ADJ  NC  
+ bandido ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bandido`bandido` ADJ NC 
+ bandidos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bandido`bandido` ADJ NC 
  bando ( NOUN NOUN_SINGULAR ) 
  bandolero ( NOUN NOUN_SINGULAR ) 
- bandoleros ( NOUN NOUN_PLURAL ) lemma=`bandolero` NC  
- bandos ( NOUN NOUN_PLURAL ) lemma=`bando` NC  
+ bandoleros ( NOUN NOUN_PLURAL ) lemma=`bandolero` NC 
+ bandos ( NOUN NOUN_PLURAL ) lemma=`bando` NC 
  banjo ( NOUN NOUN_SINGULAR ) 
  banquero ( NOUN NOUN_SINGULAR ) 
- banqueros ( NOUN NOUN_PLURAL ) lemma=`banquero` NC  
+ banqueros ( NOUN NOUN_PLURAL ) lemma=`banquero` NC 
  banqueta ( NOUN NOUN_SINGULAR ) 
- banquetas ( NOUN NOUN_PLURAL ) lemma=`banqueta` NC  
+ banquetas ( NOUN NOUN_PLURAL ) lemma=`banqueta` NC 
  banquete ( NOUN NOUN_SINGULAR ) 
- banquetes ( NOUN NOUN_PLURAL ) lemma=`banquete` NC  
- banquillo ( NOUN NOUN_PLURAL ) lemma=`banco` NC  
- banquillos ( NOUN NOUN_PLURAL ) lemma=`banco` NC  
- banquito ( NOUN NOUN_PLURAL ) lemma=`banco` NC  
+ banquetes ( NOUN NOUN_PLURAL ) lemma=`banquete` NC 
+ banquillo ( NOUN NOUN_PLURAL ) lemma=`banco` NC 
+ banquillos ( NOUN NOUN_PLURAL ) lemma=`banco` NC 
+ banquito ( NOUN NOUN_PLURAL ) lemma=`banco` NC 
  bantam ( NOUN NOUN_SINGULAR ) 
  baqueano ( NOUN NOUN_SINGULAR ) 
  bar ( NOUN NOUN_SINGULAR ) 
- baraja ( VERB ) lemma=`barajar` VLfin  
- barajaban ( VERB ) lemma=`barajar` VLfin  
- barajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`barajar` VLadj  
- barajado ( VERB_PAST_PARTICIPLE VERB ) lemma=`barajar` VLadj  
- barajan ( VERB ) lemma=`barajar` VLfin  
- barajando ( NOUN NOUN_GERUND ) lemma=`barajar` VLger  
- barajaron ( VERB ) lemma=`barajar` VLfin  
- barajas ( VERB ) lemma=`barajar` VLfin  
- barajo ( VERB ) lemma=`barajar` VLfin  
- barajárselo ( VERB_INFINITIVE VERB ) lemma=`barajar` VCLIinf  
- barajó ( VERB ) lemma=`barajar` VLfin  
+ baraja ( VERB ) lemma=`barajar` VLfin 
+ barajaban ( VERB ) lemma=`barajar` VLfin 
+ barajadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`barajar` VLadj 
+ barajado ( VERB_PAST_PARTICIPLE VERB ) lemma=`barajar` VLadj 
+ barajan ( VERB ) lemma=`barajar` VLfin 
+ barajando ( NOUN NOUN_GERUND ) lemma=`barajar` VLger 
+ barajaron ( VERB ) lemma=`barajar` VLfin 
+ barajas ( VERB ) lemma=`barajar` VLfin 
+ barajo ( VERB ) lemma=`barajar` VLfin 
+ barajárselo ( VERB_INFINITIVE VERB ) lemma=`barajar` VCLIinf 
+ barajó ( VERB ) lemma=`barajar` VLfin 
  baranda ( NOUN NOUN_SINGULAR ) 
  barandilla ( NOUN NOUN_SINGULAR ) 
- barandillas ( NOUN NOUN_PLURAL ) lemma=`barandilla` NC  
- barata ( ADJECTIVE ) lemma=`barato` ADJ  
- baratas ( ADJECTIVE ) lemma=`barato` ADJ  
- baratillo ( ADJECTIVE ) lemma=`barato` ADJ  
- baratita ( ADJECTIVE ) lemma=`barato` ADJ  
+ barandillas ( NOUN NOUN_PLURAL ) lemma=`barandilla` NC 
+ barata ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratas ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratillo ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratita ( ADJECTIVE ) lemma=`barato` ADJ 
  barato ( ADJECTIVE ) 
- baratos ( ADJECTIVE ) lemma=`barato` ADJ  
- baratísimas ( ADJECTIVE ) lemma=`barato` ADJ  
- baratísimo ( ADJECTIVE ) lemma=`barato` ADJ  
- baratísimos ( ADJECTIVE ) lemma=`barato` ADJ  
- barba ( NOUN VERB NOUN_PLURAL ) lemma=`barba`barbar` NC  VLfin  
+ baratos ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratísimas ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratísimo ( ADJECTIVE ) lemma=`barato` ADJ 
+ baratísimos ( ADJECTIVE ) lemma=`barato` ADJ 
+ barba ( NOUN VERB NOUN_PLURAL ) lemma=`barba`barbar` NC VLfin 
  barbacoa ( NOUN NOUN_SINGULAR ) 
- barbado ( VERB_PAST_PARTICIPLE VERB ) lemma=`barbar` VLadj  
- barbados ( VERB_PAST_PARTICIPLE VERB ) lemma=`barbar` VLadj  
- barbara ( VERB ) lemma=`barbar` VLfin  
+ barbado ( VERB_PAST_PARTICIPLE VERB ) lemma=`barbar` VLadj 
+ barbados ( VERB_PAST_PARTICIPLE VERB ) lemma=`barbar` VLadj 
+ barbara ( VERB ) lemma=`barbar` VLfin 
  barbaridad ( NOUN NOUN_SINGULAR ) 
- barbaridades ( NOUN NOUN_PLURAL ) lemma=`barbaridad` NC  
+ barbaridades ( NOUN NOUN_PLURAL ) lemma=`barbaridad` NC 
  barbarie ( NOUN NOUN_SINGULAR ) 
- barbas ( NOUN VERB NOUN_PLURAL ) lemma=`barba`barbar` NC  VLfin  
+ barbas ( NOUN VERB NOUN_PLURAL ) lemma=`barba`barbar` NC VLfin 
  barbero ( NOUN NOUN_SINGULAR ) 
- barberos ( NOUN NOUN_PLURAL ) lemma=`barbero` NC  
+ barberos ( NOUN NOUN_PLURAL ) lemma=`barbero` NC 
  barbilla ( NOUN NOUN_SINGULAR ) 
- barbita ( NOUN NOUN_PLURAL ) lemma=`barba` NC  
- barbitúricos ( NOUN NOUN_PLURAL ) lemma=`barbitúrico` NC  
+ barbita ( NOUN NOUN_PLURAL ) lemma=`barba` NC 
+ barbitúricos ( NOUN NOUN_PLURAL ) lemma=`barbitúrico` NC 
  barca ( NOUN NOUN_SINGULAR ) 
- barcas ( NOUN NOUN_PLURAL ) lemma=`barca` NC  
+ barcas ( NOUN NOUN_PLURAL ) lemma=`barca` NC 
  barcaza ( NOUN NOUN_SINGULAR ) 
- barcazas ( NOUN NOUN_PLURAL ) lemma=`barcaza` NC  
- barcelonesa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ  NC  
- barceloneses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ  NC  
- barcelonista ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonista`barcelonista` ADJ  NC  
- barcelonistas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonista`barcelonista` ADJ  NC  
- barcelonés ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ  NC  
+ barcazas ( NOUN NOUN_PLURAL ) lemma=`barcaza` NC 
+ barcelonesa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ NC 
+ barceloneses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ NC 
+ barcelonista ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonista`barcelonista` ADJ NC 
+ barcelonistas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonista`barcelonista` ADJ NC 
+ barcelonés ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`barcelonés`barcelonés` ADJ NC 
  barco ( NOUN NOUN_SINGULAR ) 
- barcos ( NOUN NOUN_PLURAL ) lemma=`barco` NC  
- barda ( VERB ) lemma=`bardar` VLfin  
- bardo ( VERB ) lemma=`bardar` VLfin  
+ barcos ( NOUN NOUN_PLURAL ) lemma=`barco` NC 
+ barda ( VERB ) lemma=`bardar` VLfin 
+ bardo ( VERB ) lemma=`bardar` VLfin 
  baremo ( NOUN NOUN_SINGULAR ) 
- baremos ( NOUN NOUN_PLURAL ) lemma=`baremo` NC  
- bares ( NOUN NOUN_PLURAL ) lemma=`bar` NC  
+ baremos ( NOUN NOUN_PLURAL ) lemma=`baremo` NC 
+ bares ( NOUN NOUN_PLURAL ) lemma=`bar` NC 
  barlovento ( NOUN NOUN_SINGULAR ) 
- barnices ( NOUN VERB NOUN_PLURAL ) lemma=`barniz`barnizar` NC  VLfin  
+ barnices ( NOUN VERB NOUN_PLURAL ) lemma=`barniz`barnizar` NC VLfin 
  barniz ( NOUN NOUN_SINGULAR ) 
- barométricas ( ADJECTIVE ) lemma=`barométrico` ADJ  
- barones ( NOUN NOUN_PLURAL ) lemma=`barón` NC  
- baronesa ( NOUN NOUN_PLURAL ) lemma=`barón` NC  
+ barométricas ( ADJECTIVE ) lemma=`barométrico` ADJ 
+ barones ( NOUN NOUN_PLURAL ) lemma=`barón` NC 
+ baronesa ( NOUN NOUN_PLURAL ) lemma=`barón` NC 
  barorreceptor ( ADJECTIVE ) 
  barorreceptoro ( ADJECTIVE ) 
  barorreflejo ( NOUN NOUN_SINGULAR ) 
  barotrauma ( NOUN NOUN_SINGULAR ) 
- barqueros ( NOUN NOUN_PLURAL ) lemma=`barquero` NC  
- barquilla ( NOUN NOUN_PLURAL ) lemma=`barca` NC  
- barquitos ( NOUN NOUN_PLURAL ) lemma=`barco` NC  
+ barqueros ( NOUN NOUN_PLURAL ) lemma=`barquero` NC 
+ barquilla ( NOUN NOUN_PLURAL ) lemma=`barca` NC 
+ barquitos ( NOUN NOUN_PLURAL ) lemma=`barco` NC 
  barra ( NOUN NOUN_SINGULAR ) 
- barracas ( NOUN NOUN_PLURAL ) lemma=`barraca` NC  
+ barracas ( NOUN NOUN_PLURAL ) lemma=`barraca` NC 
  barranco ( NOUN NOUN_SINGULAR ) 
- barras ( NOUN NOUN_PLURAL ) lemma=`barra` NC  
- barre ( VERB ) lemma=`barrar|barrer` VLfin  
+ barras ( NOUN NOUN_PLURAL ) lemma=`barra` NC 
+ barre ( VERB ) lemma=`barrar|barrer` VLfin 
  barred ( ) 
- barredoras ( NOUN NOUN_PLURAL ) lemma=`barredora` NC  
- barremos ( VERB ) lemma=`barrar|barrer` VLfin  
- barren ( VERB ) lemma=`barrar|barrer` VLfin  
+ barredoras ( NOUN NOUN_PLURAL ) lemma=`barredora` NC 
+ barremos ( VERB ) lemma=`barrar|barrer` VLfin 
+ barren ( VERB ) lemma=`barrar|barrer` VLfin 
  barrer ( VERB ) 
  barrera ( NOUN NOUN_SINGULAR ) 
- barreras ( NOUN NOUN_PLURAL ) lemma=`barrera` NC  
- barrerá ( VERB ) lemma=`barrer` VLfin  
- barrerán ( VERB ) lemma=`barrer` VLfin  
+ barreras ( NOUN NOUN_PLURAL ) lemma=`barrera` NC 
+ barrerá ( VERB ) lemma=`barrer` VLfin 
+ barrerán ( VERB ) lemma=`barrer` VLfin 
  barriada ( NOUN NOUN_SINGULAR ) 
- barriadas ( NOUN NOUN_PLURAL ) lemma=`barriada` NC  
+ barriadas ( NOUN NOUN_PLURAL ) lemma=`barriada` NC 
  barricada ( NOUN NOUN_SINGULAR ) 
- barricadas ( NOUN NOUN_PLURAL ) lemma=`barricada` NC  
- barrida ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj  
- barridas ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj  
+ barricadas ( NOUN NOUN_PLURAL ) lemma=`barricada` NC 
+ barrida ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj 
+ barridas ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj 
  barrido ( NOUN NOUN_SINGULAR ) 
- barridos ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj  
- barriendo ( NOUN NOUN_GERUND ) lemma=`barrer` VLger  
- barrieron ( VERB ) lemma=`barrer` VLfin  
+ barridos ( VERB_PAST_PARTICIPLE VERB ) lemma=`barrer` VLadj 
+ barriendo ( NOUN NOUN_GERUND ) lemma=`barrer` VLger 
+ barrieron ( VERB ) lemma=`barrer` VLfin 
  barriga ( NOUN NOUN_SINGULAR ) 
- barriguilla ( NOUN NOUN_PLURAL ) lemma=`barriga` NC  
+ barriguilla ( NOUN NOUN_PLURAL ) lemma=`barriga` NC 
  barril ( NOUN NOUN_SINGULAR ) 
- barriles ( NOUN NOUN_PLURAL ) lemma=`barril` NC  
- barrilito ( NOUN NOUN_PLURAL ) lemma=`barril` NC  
+ barriles ( NOUN NOUN_PLURAL ) lemma=`barril` NC 
+ barrilito ( NOUN NOUN_PLURAL ) lemma=`barril` NC 
  barrio ( NOUN NOUN_SINGULAR ) 
  barriobajero ( ADJECTIVE ) 
- barrios ( NOUN NOUN_PLURAL ) lemma=`barrio` NC  
- barrita ( NOUN NOUN_PLURAL ) lemma=`barra` NC  
- barritas ( NOUN NOUN_PLURAL ) lemma=`barra` NC  
- barrió ( VERB ) lemma=`barrer` VLfin  
- barro ( NOUN VERB NOUN_PLURAL ) lemma=`barro`barrar|barrer` NC  VLfin  
- barroca ( ADJECTIVE ) lemma=`barroco` ADJ  
- barrocas ( ADJECTIVE ) lemma=`barroco` ADJ  
+ barrios ( NOUN NOUN_PLURAL ) lemma=`barrio` NC 
+ barrita ( NOUN NOUN_PLURAL ) lemma=`barra` NC 
+ barritas ( NOUN NOUN_PLURAL ) lemma=`barra` NC 
+ barrió ( VERB ) lemma=`barrer` VLfin 
+ barro ( NOUN VERB NOUN_PLURAL ) lemma=`barro`barrar|barrer` NC VLfin 
+ barroca ( ADJECTIVE ) lemma=`barroco` ADJ 
+ barrocas ( ADJECTIVE ) lemma=`barroco` ADJ 
  barroco ( ADJECTIVE ) 
- barrocos ( ADJECTIVE ) lemma=`barroco` ADJ  
- barros ( NOUN NOUN_PLURAL ) lemma=`barro` NC  
+ barrocos ( ADJECTIVE ) lemma=`barroco` ADJ 
+ barros ( NOUN NOUN_PLURAL ) lemma=`barro` NC 
  barrote ( NOUN NOUN_SINGULAR ) 
- barrotes ( NOUN NOUN_PLURAL ) lemma=`barrote` NC  
+ barrotes ( NOUN NOUN_PLURAL ) lemma=`barrote` NC 
  barullo ( NOUN NOUN_SINGULAR ) 
  barítono ( NOUN NOUN_SINGULAR ) 
  barómetro ( NOUN NOUN_SINGULAR ) 
  barón ( NOUN NOUN_SINGULAR ) 
- basa ( NOUN VERB NOUN_PLURAL ) lemma=`basa`basar` NC  VLfin  
- basaba ( VERB ) lemma=`basar` VLfin  
- basaban ( VERB ) lemma=`basar` VLfin  
- basada ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj  
- basadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj  
- basado ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj  
- basados ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj  
+ basa ( NOUN VERB NOUN_PLURAL ) lemma=`basa`basar` NC VLfin 
+ basaba ( VERB ) lemma=`basar` VLfin 
+ basaban ( VERB ) lemma=`basar` VLfin 
+ basada ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj 
+ basadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj 
+ basado ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj 
+ basados ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj 
  basal ( ADJECTIVE ) 
- basales ( ADJECTIVE ) lemma=`basal` ADJ  
- basamos ( VERB ) lemma=`basar` VLfin  
- basan ( VERB ) lemma=`basar` VLfin  
- basando ( NOUN NOUN_GERUND ) lemma=`basar` VLger  
+ basales ( ADJECTIVE ) lemma=`basal` ADJ 
+ basamos ( VERB ) lemma=`basar` VLfin 
+ basan ( VERB ) lemma=`basar` VLfin 
+ basando ( NOUN NOUN_GERUND ) lemma=`basar` VLger 
  basar ( VERB ) 
- basara ( VERB ) lemma=`basar` VLfin  
- basaran ( VERB ) lemma=`basar` VLfin  
- basaremos ( VERB ) lemma=`basar` VLfin  
- basarlo ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf  
- basarlos ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf  
- basarme ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf  
- basarnos ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf  
- basaron ( VERB ) lemma=`basar` VLfin  
+ basara ( VERB ) lemma=`basar` VLfin 
+ basaran ( VERB ) lemma=`basar` VLfin 
+ basaremos ( VERB ) lemma=`basar` VLfin 
+ basarlo ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf 
+ basarlos ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf 
+ basarme ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf 
+ basarnos ( VERB_INFINITIVE VERB ) lemma=`basar` VCLIinf 
+ basaron ( VERB ) lemma=`basar` VLfin 
  basarse ( VERB_INFINITIVE VERB ) 
- basará ( VERB ) lemma=`basar` VLfin  
- basarán ( VERB ) lemma=`basar` VLfin  
- basaré ( VERB ) lemma=`basar` VLfin  
- basaría ( VERB ) lemma=`basar` VLfin  
- basarían ( VERB ) lemma=`basar` VLfin  
- basase ( VERB ) lemma=`basar` VLfin  
+ basará ( VERB ) lemma=`basar` VLfin 
+ basarán ( VERB ) lemma=`basar` VLfin 
+ basaré ( VERB ) lemma=`basar` VLfin 
+ basaría ( VERB ) lemma=`basar` VLfin 
+ basarían ( VERB ) lemma=`basar` VLfin 
+ basase ( VERB ) lemma=`basar` VLfin 
  basculante ( ADJECTIVE ) 
- base ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`base`base`base`basar` ADJ  NC  PE  VLfin  
- basemos ( VERB ) lemma=`basar` VLfin  
- basen ( VERB ) lemma=`basar` VLfin  
- bases ( NOUN NOUN_PLURAL ) lemma=`base` NC  
- basic ( NOUN NOUN_PLURAL ) lemma=`basic`basic` NC  PE  
+ base ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`base`base`base`basar` ADJ NC PE VLfin 
+ basemos ( VERB ) lemma=`basar` VLfin 
+ basen ( VERB ) lemma=`basar` VLfin 
+ bases ( NOUN NOUN_PLURAL ) lemma=`base` NC 
+ basic ( NOUN NOUN_PLURAL ) lemma=`basic`basic` NC PE 
  basidiospora ( NOUN NOUN_SINGULAR ) 
  basilar ( ADJECTIVE ) 
  basis ( ) 
- baso ( VERB ) lemma=`basar` VLfin  
+ baso ( VERB ) lemma=`basar` VLfin 
  basolateral ( ADJECTIVE ) 
- basolaterales ( ADJECTIVE ) lemma=`basolateral` ADJ  
- basta ( VERB ADJECTIVE ) lemma=`basto`bastar` ADJ  VLfin  
- bastaba ( VERB ) lemma=`bastar` VLfin  
- bastaban ( VERB ) lemma=`bastar` VLfin  
- bastado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bastar` VLadj  
- bastan ( VERB ) lemma=`bastar` VLfin  
- bastando ( NOUN NOUN_GERUND ) lemma=`bastar` VLger  
- bastante ( ADJECTIVE ADVERB ) lemma=`bastante`bastante` ADJ  ADV  
- bastantes ( ADJECTIVE ) lemma=`bastante` ADJ  
+ basolaterales ( ADJECTIVE ) lemma=`basolateral` ADJ 
+ basta ( VERB ADJECTIVE ) lemma=`basto`bastar` ADJ VLfin 
+ bastaba ( VERB ) lemma=`bastar` VLfin 
+ bastaban ( VERB ) lemma=`bastar` VLfin 
+ bastado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bastar` VLadj 
+ bastan ( VERB ) lemma=`bastar` VLfin 
+ bastando ( NOUN NOUN_GERUND ) lemma=`bastar` VLger 
+ bastante ( ADJECTIVE ADVERB ) lemma=`bastante`bastante` ADJ ADV 
+ bastantes ( ADJECTIVE ) lemma=`bastante` ADJ 
  bastar ( VERB ) 
- bastara ( VERB ) lemma=`bastar` VLfin  
- bastaron ( VERB ) lemma=`bastar` VLfin  
- bastarse ( VERB ) lemma=`bastar` VLinf  
- bastará ( VERB ) lemma=`bastar` VLfin  
- bastarán ( VERB ) lemma=`bastar` VLfin  
- bastaría ( VERB ) lemma=`bastar` VLfin  
- bastarían ( VERB ) lemma=`bastar` VLfin  
- bastase ( VERB ) lemma=`bastar` VLfin  
- baste ( VERB ) lemma=`bastar` VLfin  
- basten ( VERB ) lemma=`bastar` VLfin  
- bastidores ( NOUN NOUN_PLURAL ) lemma=`bastidor` NC  
- bastiones ( NOUN NOUN_PLURAL ) lemma=`bastión` NC  
- bastito ( ADJECTIVE ) lemma=`basto` ADJ  
+ bastara ( VERB ) lemma=`bastar` VLfin 
+ bastaron ( VERB ) lemma=`bastar` VLfin 
+ bastarse ( VERB ) lemma=`bastar` VLinf 
+ bastará ( VERB ) lemma=`bastar` VLfin 
+ bastarán ( VERB ) lemma=`bastar` VLfin 
+ bastaría ( VERB ) lemma=`bastar` VLfin 
+ bastarían ( VERB ) lemma=`bastar` VLfin 
+ bastase ( VERB ) lemma=`bastar` VLfin 
+ baste ( VERB ) lemma=`bastar` VLfin 
+ basten ( VERB ) lemma=`bastar` VLfin 
+ bastidores ( NOUN NOUN_PLURAL ) lemma=`bastidor` NC 
+ bastiones ( NOUN NOUN_PLURAL ) lemma=`bastión` NC 
+ bastito ( ADJECTIVE ) lemma=`basto` ADJ 
  bastión ( NOUN NOUN_SINGULAR ) 
- basto ( VERB ADJECTIVE ) lemma=`basto`bastar` ADJ  VLfin  
- bastoncillos ( NOUN NOUN_PLURAL ) lemma=`bastón` NC  
- bastones ( NOUN NOUN_PLURAL ) lemma=`bastón` NC  
- bastos ( ADJECTIVE ) lemma=`basto` ADJ  
- bastó ( VERB ) lemma=`bastar` VLfin  
+ basto ( VERB ADJECTIVE ) lemma=`basto`bastar` ADJ VLfin 
+ bastoncillos ( NOUN NOUN_PLURAL ) lemma=`bastón` NC 
+ bastones ( NOUN NOUN_PLURAL ) lemma=`bastón` NC 
+ bastos ( ADJECTIVE ) lemma=`basto` ADJ 
+ bastó ( VERB ) lemma=`bastar` VLfin 
  bastón ( NOUN NOUN_SINGULAR ) 
  basura ( NOUN NOUN_SINGULAR ) 
- basuras ( NOUN NOUN_PLURAL ) lemma=`basura` NC  
+ basuras ( NOUN NOUN_PLURAL ) lemma=`basura` NC 
  basurear ( VERB ) 
  basurero ( NOUN NOUN_SINGULAR ) 
- basureros ( NOUN NOUN_PLURAL ) lemma=`basurero` NC  
- basábamos ( VERB ) lemma=`basar` VLfin  
- basándolo ( NOUN NOUN_GERUND ) lemma=`basar` VCLIger  
- basándome ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj  
- basándonos ( NOUN NOUN_GERUND ) lemma=`basar` VCLIger  
- basándose ( NOUN NOUN_GERUND ) lemma=`basarse` VCLIger  
+ basureros ( NOUN NOUN_PLURAL ) lemma=`basurero` NC 
+ basábamos ( VERB ) lemma=`basar` VLfin 
+ basándolo ( NOUN NOUN_GERUND ) lemma=`basar` VCLIger 
+ basándome ( VERB_PAST_PARTICIPLE VERB ) lemma=`basar` VLadj 
+ basándonos ( NOUN NOUN_GERUND ) lemma=`basar` VCLIger 
+ basándose ( NOUN NOUN_GERUND ) lemma=`basarse` VCLIger 
  basílica ( NOUN NOUN_SINGULAR ) 
- basó ( VERB ) lemma=`basar` VLfin  
- basófilos ( NOUN NOUN_PLURAL ) lemma=`basófilo` NC  
- bata ( NOUN VERB NOUN_PLURAL ) lemma=`bata`batir` NC  VLfin  
- batalla ( NOUN VERB NOUN_PLURAL ) lemma=`batalla`batallar` NC  VLfin  
- batallado ( VERB_PAST_PARTICIPLE VERB ) lemma=`batallar` VLadj  
- batallan ( VERB ) lemma=`batallar` VLfin  
- batallando ( NOUN NOUN_GERUND ) lemma=`batallar` VLger  
+ basó ( VERB ) lemma=`basar` VLfin 
+ basófilos ( NOUN NOUN_PLURAL ) lemma=`basófilo` NC 
+ bata ( NOUN VERB NOUN_PLURAL ) lemma=`bata`batir` NC VLfin 
+ batalla ( NOUN VERB NOUN_PLURAL ) lemma=`batalla`batallar` NC VLfin 
+ batallado ( VERB_PAST_PARTICIPLE VERB ) lemma=`batallar` VLadj 
+ batallan ( VERB ) lemma=`batallar` VLfin 
+ batallando ( NOUN NOUN_GERUND ) lemma=`batallar` VLger 
  batallar ( VERB ) 
- batallaron ( VERB ) lemma=`batallar` VLfin  
- batallas ( NOUN VERB NOUN_PLURAL ) lemma=`batalla`batallar` NC  VLfin  
- batallita ( NOUN NOUN_PLURAL ) lemma=`batalla` NC  
- batallitas ( NOUN NOUN_PLURAL ) lemma=`batalla` NC  
- batallones ( NOUN NOUN_PLURAL ) lemma=`batallón` NC  
- batalló ( VERB ) lemma=`batallar` VLfin  
+ batallaron ( VERB ) lemma=`batallar` VLfin 
+ batallas ( NOUN VERB NOUN_PLURAL ) lemma=`batalla`batallar` NC VLfin 
+ batallita ( NOUN NOUN_PLURAL ) lemma=`batalla` NC 
+ batallitas ( NOUN NOUN_PLURAL ) lemma=`batalla` NC 
+ batallones ( NOUN NOUN_PLURAL ) lemma=`batallón` NC 
+ batalló ( VERB ) lemma=`batallar` VLfin 
  batallón ( NOUN NOUN_SINGULAR ) 
- batarazas ( ADJECTIVE ) lemma=`batarazo` ADJ  
- batas ( NOUN VERB NOUN_PLURAL ) lemma=`bata`batir` NC  VLfin  
+ batarazas ( ADJECTIVE ) lemma=`batarazo` ADJ 
+ batas ( NOUN VERB NOUN_PLURAL ) lemma=`bata`batir` NC VLfin 
  batch ( NOUN NOUN_SINGULAR ) 
- bate ( VERB ) lemma=`batir` VLfin  
+ bate ( VERB ) lemma=`batir` VLfin 
  bateador ( NOUN NOUN_SINGULAR ) 
- bateadores ( NOUN NOUN_PLURAL ) lemma=`bateador` NC  
- baten ( VERB ) lemma=`batir` VLfin  
+ bateadores ( NOUN NOUN_PLURAL ) lemma=`bateador` NC 
+ baten ( VERB ) lemma=`batir` VLfin 
  bateo ( NOUN NOUN_SINGULAR ) 
  batería ( NOUN NOUN_SINGULAR ) 
- baterías ( NOUN NOUN_PLURAL ) lemma=`batería` NC  
- bates ( VERB ) lemma=`batir` VLfin  
- bateó ( VERB ) lemma=`batear` VLfin  
- batida ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj  
- batidas ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj  
- batido ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj  
+ baterías ( NOUN NOUN_PLURAL ) lemma=`batería` NC 
+ bates ( VERB ) lemma=`batir` VLfin 
+ bateó ( VERB ) lemma=`batear` VLfin 
+ batida ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj 
+ batidas ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj 
+ batido ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj 
  batidora ( NOUN NOUN_SINGULAR ) 
- batidos ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj  
- batiendo ( NOUN NOUN_GERUND ) lemma=`batir` VLger  
- batiera ( VERB ) lemma=`batir` VLfin  
- batieron ( VERB ) lemma=`batir` VLfin  
+ batidos ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj 
+ batiendo ( NOUN NOUN_GERUND ) lemma=`batir` VLger 
+ batiera ( VERB ) lemma=`batir` VLfin 
+ batieron ( VERB ) lemma=`batir` VLfin 
  batir ( VERB ) 
- batirles ( VERB_INFINITIVE VERB ) lemma=`batir` VCLIinf  
- batirnos ( VERB_INFINITIVE VERB ) lemma=`batir` VCLIinf  
- batirían ( VERB ) lemma=`batir` VLfin  
- batiéndole ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj  
- batió ( VERB ) lemma=`batir` VLfin  
- bato ( VERB ) lemma=`batir` VLfin  
+ batirles ( VERB_INFINITIVE VERB ) lemma=`batir` VCLIinf 
+ batirnos ( VERB_INFINITIVE VERB ) lemma=`batir` VCLIinf 
+ batirían ( VERB ) lemma=`batir` VLfin 
+ batiéndole ( VERB_PAST_PARTICIPLE VERB ) lemma=`batir` VLadj 
+ batió ( VERB ) lemma=`batir` VLfin 
+ bato ( VERB ) lemma=`batir` VLfin 
  batterie ( ) 
  batuta ( NOUN NOUN_SINGULAR ) 
- batí ( VERB ) lemma=`batir` VLfin  
+ batí ( VERB ) lemma=`batir` VLfin 
  baud ( ) 
  baudio ( NOUN NOUN_SINGULAR ) 
- baudios ( NOUN NOUN_PLURAL ) lemma=`baudio`baudio` NC  NMEA  
- baulillo ( NOUN NOUN_PLURAL ) lemma=`baúl` NC  
+ baudios ( NOUN NOUN_PLURAL ) lemma=`baudio`baudio` NC NMEA 
+ baulillo ( NOUN NOUN_PLURAL ) lemma=`baúl` NC 
  bautismo ( NOUN NOUN_SINGULAR ) 
- bautiza ( VERB ) lemma=`bautizar` VLfin  
- bautizaba ( VERB ) lemma=`bautizar` VLfin  
- bautizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj  
- bautizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj  
- bautizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj  
- bautizados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj  
+ bautiza ( VERB ) lemma=`bautizar` VLfin 
+ bautizaba ( VERB ) lemma=`bautizar` VLfin 
+ bautizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj 
+ bautizadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj 
+ bautizado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj 
+ bautizados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bautizar` VLadj 
  bautizar ( VERB ) 
- bautizaran ( VERB ) lemma=`bautizar` VLfin  
- bautizarla ( VERB_INFINITIVE VERB ) lemma=`bautizar` VCLIinf  
- bautizaron ( VERB ) lemma=`bautizar` VLfin  
- bautizo ( NOUN VERB NOUN_PLURAL ) lemma=`bautizo`bautizar` NC  VLfin  
- bautizos ( NOUN NOUN_PLURAL ) lemma=`bautizo` NC  
- bautizó ( VERB ) lemma=`bautizar` VLfin  
+ bautizaran ( VERB ) lemma=`bautizar` VLfin 
+ bautizarla ( VERB_INFINITIVE VERB ) lemma=`bautizar` VCLIinf 
+ bautizaron ( VERB ) lemma=`bautizar` VLfin 
+ bautizo ( NOUN VERB NOUN_PLURAL ) lemma=`bautizo`bautizar` NC VLfin 
+ bautizos ( NOUN NOUN_PLURAL ) lemma=`bautizo` NC 
+ bautizó ( VERB ) lemma=`bautizar` VLfin 
  bayesiano ( ADJECTIVE ) 
  bayoneta ( NOUN NOUN_SINGULAR ) 
- bayonetas ( NOUN NOUN_PLURAL ) lemma=`bayoneta` NC  
+ bayonetas ( NOUN NOUN_PLURAL ) lemma=`bayoneta` NC 
  baza ( NOUN NOUN_SINGULAR ) 
  bazar ( NOUN NOUN_SINGULAR ) 
- bazares ( NOUN NOUN_PLURAL ) lemma=`bazar` NC  
- bazas ( NOUN NOUN_PLURAL ) lemma=`baza` NC  
+ bazares ( NOUN NOUN_PLURAL ) lemma=`bazar` NC 
+ bazas ( NOUN NOUN_PLURAL ) lemma=`baza` NC 
  bazo ( NOUN NOUN_SINGULAR ) 
- baña ( VERB ) lemma=`bañar` VLfin  
- bañaba ( VERB ) lemma=`bañar` VLfin  
- bañaban ( VERB ) lemma=`bañar` VLfin  
- bañada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj  
- bañadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj  
- bañado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj  
+ baña ( VERB ) lemma=`bañar` VLfin 
+ bañaba ( VERB ) lemma=`bañar` VLfin 
+ bañaban ( VERB ) lemma=`bañar` VLfin 
+ bañada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj 
+ bañadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj 
+ bañado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj 
  bañador ( NOUN NOUN_SINGULAR ) 
- bañadores ( NOUN NOUN_PLURAL ) lemma=`bañador` NC  
- bañados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj  
- bañan ( VERB ) lemma=`bañar` VLfin  
- bañando ( NOUN NOUN_GERUND ) lemma=`bañar` VLger  
+ bañadores ( NOUN NOUN_PLURAL ) lemma=`bañador` NC 
+ bañados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bañar` VLadj 
+ bañan ( VERB ) lemma=`bañar` VLfin 
+ bañando ( NOUN NOUN_GERUND ) lemma=`bañar` VLger 
  bañar ( VERB ) 
- bañarme ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf  
- bañarnos ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf  
- bañaron ( VERB ) lemma=`bañar` VLfin  
+ bañarme ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf 
+ bañarnos ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf 
+ bañaron ( VERB ) lemma=`bañar` VLfin 
  bañarse ( VERB_INFINITIVE VERB ) 
- bañarte ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf  
+ bañarte ( VERB_INFINITIVE VERB ) lemma=`bañar` VCLIinf 
  bañera ( NOUN NOUN_SINGULAR ) 
- bañeras ( NOUN NOUN_PLURAL ) lemma=`bañera` NC  
- bañistas ( NOUN NOUN_PLURAL ) lemma=`bañista` NC  
- baño ( NOUN VERB NOUN_PLURAL ) lemma=`baño`bañar` NC  VLfin  
- baños ( NOUN NOUN_PLURAL ) lemma=`baño` NC  
- bañé ( VERB ) lemma=`bañar` VLfin  
- bañó ( VERB ) lemma=`bañar` VLfin  
+ bañeras ( NOUN NOUN_PLURAL ) lemma=`bañera` NC 
+ bañistas ( NOUN NOUN_PLURAL ) lemma=`bañista` NC 
+ baño ( NOUN VERB NOUN_PLURAL ) lemma=`baño`bañar` NC VLfin 
+ baños ( NOUN NOUN_PLURAL ) lemma=`baño` NC 
+ bañé ( VERB ) lemma=`bañar` VLfin 
+ bañó ( VERB ) lemma=`bañar` VLfin 
  baúl ( NOUN NOUN_SINGULAR ) 
- baúles ( NOUN NOUN_PLURAL ) lemma=`baúl` NC  
- beba ( VERB ) lemma=`beber` VLfin  
- bebamos ( VERB ) lemma=`beber` VLfin  
- beban ( VERB ) lemma=`beber` VLfin  
- bebe ( VERB ) lemma=`beber` VLfin  
+ baúles ( NOUN NOUN_PLURAL ) lemma=`baúl` NC 
+ beba ( VERB ) lemma=`beber` VLfin 
+ bebamos ( VERB ) lemma=`beber` VLfin 
+ beban ( VERB ) lemma=`beber` VLfin 
+ bebe ( VERB ) lemma=`beber` VLfin 
  bebedor ( NOUN NOUN_SINGULAR ) 
- bebedores ( NOUN NOUN_PLURAL ) lemma=`bebedor` NC  
- bebemos ( VERB ) lemma=`beber` VLfin  
- beben ( VERB ) lemma=`beber` VLfin  
+ bebedores ( NOUN NOUN_PLURAL ) lemma=`bebedor` NC 
+ bebemos ( VERB ) lemma=`beber` VLfin 
+ beben ( VERB ) lemma=`beber` VLfin 
  beber ( VERB ) 
- beberemos ( VERB ) lemma=`beber` VLfin  
+ beberemos ( VERB ) lemma=`beber` VLfin 
  beberse ( VERB_INFINITIVE VERB ) 
- beberá ( VERB ) lemma=`beber` VLfin  
- beberé ( VERB ) lemma=`beber` VLfin  
- bebes ( VERB ) lemma=`beber` VLfin  
- bebida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bebida`beber` NC  VLadj  
- bebidas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bebida`beber` NC  VLadj  
- bebiditas ( NOUN NOUN_PLURAL ) lemma=`bebida` NC  
- bebido ( VERB_PAST_PARTICIPLE VERB ) lemma=`beber` VLadj  
- bebiendo ( NOUN NOUN_GERUND ) lemma=`beber` VLger  
- bebieran ( VERB ) lemma=`beber` VLfin  
- bebieron ( VERB ) lemma=`beber` VLfin  
- bebiesen ( VERB ) lemma=`beber` VLfin  
- bebita ( NOUN NOUN_PLURAL ) lemma=`bebé` NC  
- bebito ( NOUN NOUN_PLURAL ) lemma=`bebé` NC  
- bebió ( VERB ) lemma=`beber` VLfin  
- bebo ( VERB ) lemma=`beber` VLfin  
+ beberá ( VERB ) lemma=`beber` VLfin 
+ beberé ( VERB ) lemma=`beber` VLfin 
+ bebes ( VERB ) lemma=`beber` VLfin 
+ bebida ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bebida`beber` NC VLadj 
+ bebidas ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bebida`beber` NC VLadj 
+ bebiditas ( NOUN NOUN_PLURAL ) lemma=`bebida` NC 
+ bebido ( VERB_PAST_PARTICIPLE VERB ) lemma=`beber` VLadj 
+ bebiendo ( NOUN NOUN_GERUND ) lemma=`beber` VLger 
+ bebieran ( VERB ) lemma=`beber` VLfin 
+ bebieron ( VERB ) lemma=`beber` VLfin 
+ bebiesen ( VERB ) lemma=`beber` VLfin 
+ bebita ( NOUN NOUN_PLURAL ) lemma=`bebé` NC 
+ bebito ( NOUN NOUN_PLURAL ) lemma=`bebé` NC 
+ bebió ( VERB ) lemma=`beber` VLfin 
+ bebo ( VERB ) lemma=`beber` VLfin 
  bebé ( NOUN NOUN_SINGULAR ) 
- bebéis ( VERB ) lemma=`beber` VLfin  
- bebés ( NOUN NOUN_PLURAL ) lemma=`bebé` NC  
- bebí ( VERB ) lemma=`beber` VLfin  
- bebía ( VERB ) lemma=`beber` VLfin  
- bebían ( VERB ) lemma=`beber` VLfin  
+ bebéis ( VERB ) lemma=`beber` VLfin 
+ bebés ( NOUN NOUN_PLURAL ) lemma=`bebé` NC 
+ bebí ( VERB ) lemma=`beber` VLfin 
+ bebía ( VERB ) lemma=`beber` VLfin 
+ bebían ( VERB ) lemma=`beber` VLfin 
  beca ( NOUN NOUN_SINGULAR ) 
- becado ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`becado`becado` ADJ  NC  
- becados ( NOUN NOUN_PLURAL ) lemma=`becado` NC  
+ becado ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`becado`becado` ADJ NC 
+ becados ( NOUN NOUN_PLURAL ) lemma=`becado` NC 
  becario ( NOUN NOUN_SINGULAR ) 
- becarios ( NOUN NOUN_PLURAL ) lemma=`becario` NC  
- becas ( NOUN NOUN_PLURAL ) lemma=`beca` NC  
- becerra ( NOUN NOUN_PLURAL ) lemma=`becerro` NC  
+ becarios ( NOUN NOUN_PLURAL ) lemma=`becario` NC 
+ becas ( NOUN NOUN_PLURAL ) lemma=`beca` NC 
+ becerra ( NOUN NOUN_PLURAL ) lemma=`becerro` NC 
  becerro ( NOUN NOUN_SINGULAR ) 
- becerros ( NOUN NOUN_PLURAL ) lemma=`becerro` NC  
+ becerros ( NOUN NOUN_PLURAL ) lemma=`becerro` NC 
  becker ( NOUN NOUN_SINGULAR ) 
  bedel ( NOUN NOUN_SINGULAR ) 
  beige ( ADJECTIVE ) 
  being ( NOUN NOUN_SINGULAR ) 
  beisbolista ( NOUN NOUN_SINGULAR ) 
- beisbolistas ( NOUN NOUN_PLURAL ) lemma=`beisbolista` NC  
- beldad ( NOUN VERB NOUN_PLURAL ) lemma=`beldad`beldar` NC  VLfin  
- belga ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`belga`belga` ADJ  NC  
- belgas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`belga`belga` ADJ  NC  
- belicosa ( ADJECTIVE ) lemma=`belicoso` ADJ  
- belicosas ( ADJECTIVE ) lemma=`belicoso` ADJ  
+ beisbolistas ( NOUN NOUN_PLURAL ) lemma=`beisbolista` NC 
+ beldad ( NOUN VERB NOUN_PLURAL ) lemma=`beldad`beldar` NC VLfin 
+ belga ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`belga`belga` ADJ NC 
+ belgas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`belga`belga` ADJ NC 
+ belicosa ( ADJECTIVE ) lemma=`belicoso` ADJ 
+ belicosas ( ADJECTIVE ) lemma=`belicoso` ADJ 
  belicoso ( ADJECTIVE ) 
- belicosos ( ADJECTIVE ) lemma=`belicoso` ADJ  
+ belicosos ( ADJECTIVE ) lemma=`belicoso` ADJ 
  beligerante ( ADJECTIVE ) 
  beligerantes ( ADJECTIVE ) 
- bella ( ADJECTIVE ) lemma=`bello` ADJ  
+ bella ( ADJECTIVE ) lemma=`bello` ADJ 
  bellaco ( ADJECTIVE ) 
- bellas ( ADJECTIVE ) lemma=`bello` ADJ  
+ bellas ( ADJECTIVE ) lemma=`bello` ADJ 
  belleza ( NOUN NOUN_SINGULAR ) 
- bellezas ( NOUN NOUN_PLURAL ) lemma=`belleza` NC  
+ bellezas ( NOUN NOUN_PLURAL ) lemma=`belleza` NC 
  bello ( ADJECTIVE ) 
- bellos ( ADJECTIVE ) lemma=`bello` ADJ  
+ bellos ( ADJECTIVE ) lemma=`bello` ADJ 
  bellota ( NOUN NOUN_SINGULAR ) 
- bellotas ( NOUN NOUN_PLURAL ) lemma=`bellota` NC  
- bellísima ( ADJECTIVE ) lemma=`bello` ADJ  
- bellísimas ( ADJECTIVE ) lemma=`bello` ADJ  
- bellísimo ( ADJECTIVE ) lemma=`bello` ADJ  
- bellísimos ( ADJECTIVE ) lemma=`bello` ADJ  
+ bellotas ( NOUN NOUN_PLURAL ) lemma=`bellota` NC 
+ bellísima ( ADJECTIVE ) lemma=`bello` ADJ 
+ bellísimas ( ADJECTIVE ) lemma=`bello` ADJ 
+ bellísimo ( ADJECTIVE ) lemma=`bello` ADJ 
+ bellísimos ( ADJECTIVE ) lemma=`bello` ADJ 
  bencina ( NOUN NOUN_SINGULAR ) 
  bendecir ( VERB ) 
- bendecía ( VERB ) lemma=`bendecir` VLfin  
- bendice ( VERB ) lemma=`bendecir` VLfin  
- bendicen ( VERB ) lemma=`bendecir` VLfin  
- bendiciendo ( NOUN NOUN_GERUND ) lemma=`bendecir` VLger  
- bendiciones ( NOUN NOUN_PLURAL ) lemma=`bendición` NC  
+ bendecía ( VERB ) lemma=`bendecir` VLfin 
+ bendice ( VERB ) lemma=`bendecir` VLfin 
+ bendicen ( VERB ) lemma=`bendecir` VLfin 
+ bendiciendo ( NOUN NOUN_GERUND ) lemma=`bendecir` VLger 
+ bendiciones ( NOUN NOUN_PLURAL ) lemma=`bendición` NC 
  bendición ( NOUN NOUN_SINGULAR ) 
- bendiga ( VERB ) lemma=`bendecir` VLfin  
- bendijo ( VERB ) lemma=`bendecir` VLfin  
- bendita ( ADJECTIVE ) lemma=`bendito` ADJ  
- benditas ( ADJECTIVE ) lemma=`bendito` ADJ  
+ bendiga ( VERB ) lemma=`bendecir` VLfin 
+ bendijo ( VERB ) lemma=`bendecir` VLfin 
+ bendita ( ADJECTIVE ) lemma=`bendito` ADJ 
+ benditas ( ADJECTIVE ) lemma=`bendito` ADJ 
  bendito ( ADJECTIVE ) 
- benditos ( ADJECTIVE ) lemma=`bendito` ADJ  
- benefactor ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`benefactor`benefactor` ADJ  NC  
+ benditos ( ADJECTIVE ) lemma=`bendito` ADJ 
+ benefactor ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`benefactor`benefactor` ADJ NC 
  beneficencia ( NOUN NOUN_SINGULAR ) 
- beneficia ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaba ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaban ( VERB ) lemma=`beneficiar` VLfin  
- beneficiada ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj  
- beneficiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj  
- beneficiado ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj  
- beneficiados ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj  
- beneficiamos ( VERB ) lemma=`beneficiar` VLfin  
- benefician ( VERB ) lemma=`beneficiar` VLfin  
- beneficiando ( NOUN NOUN_GERUND ) lemma=`beneficiar` VLger  
+ beneficia ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaba ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaban ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiada ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj 
+ beneficiadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj 
+ beneficiado ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj 
+ beneficiados ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj 
+ beneficiamos ( VERB ) lemma=`beneficiar` VLfin 
+ benefician ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiando ( NOUN NOUN_GERUND ) lemma=`beneficiar` VLger 
  beneficiar ( VERB ) 
- beneficiara ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaran ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaremos ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaria ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ  NC  
- beneficiarias ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ  NC  
- beneficiario ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ  NC  
- beneficiarios ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ  NC  
- beneficiaron ( VERB ) lemma=`beneficiar` VLfin  
+ beneficiara ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaran ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaremos ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaria ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ NC 
+ beneficiarias ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ NC 
+ beneficiario ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ NC 
+ beneficiarios ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`beneficiario`beneficiario` ADJ NC 
+ beneficiaron ( VERB ) lemma=`beneficiar` VLfin 
  beneficiarse ( VERB_INFINITIVE VERB ) 
- beneficiará ( VERB ) lemma=`beneficiar` VLfin  
- beneficiarán ( VERB ) lemma=`beneficiar` VLfin  
- beneficiaría ( VERB ) lemma=`beneficiar` VLfin  
- beneficiarían ( VERB ) lemma=`beneficiar` VLfin  
- beneficiase ( VERB ) lemma=`beneficiar` VLfin  
- beneficie ( VERB ) lemma=`beneficiar` VLfin  
- beneficien ( VERB ) lemma=`beneficiar` VLfin  
- beneficio ( NOUN VERB NOUN_PLURAL ) lemma=`beneficio`beneficiar` NC  VLfin  
- beneficios ( NOUN NOUN_PLURAL ) lemma=`beneficio` NC  
- beneficiosa ( ADJECTIVE ) lemma=`beneficioso` ADJ  
- beneficiosas ( ADJECTIVE ) lemma=`beneficioso` ADJ  
+ beneficiará ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiarán ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiaría ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiarían ( VERB ) lemma=`beneficiar` VLfin 
+ beneficiase ( VERB ) lemma=`beneficiar` VLfin 
+ beneficie ( VERB ) lemma=`beneficiar` VLfin 
+ beneficien ( VERB ) lemma=`beneficiar` VLfin 
+ beneficio ( NOUN VERB NOUN_PLURAL ) lemma=`beneficio`beneficiar` NC VLfin 
+ beneficios ( NOUN NOUN_PLURAL ) lemma=`beneficio` NC 
+ beneficiosa ( ADJECTIVE ) lemma=`beneficioso` ADJ 
+ beneficiosas ( ADJECTIVE ) lemma=`beneficioso` ADJ 
  beneficioso ( ADJECTIVE ) 
- beneficiosos ( ADJECTIVE ) lemma=`beneficioso` ADJ  
- beneficiándose ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj  
- benefició ( VERB ) lemma=`beneficiar` VLfin  
+ beneficiosos ( ADJECTIVE ) lemma=`beneficioso` ADJ 
+ beneficiándose ( VERB_PAST_PARTICIPLE VERB ) lemma=`beneficiar` VLadj 
+ benefició ( VERB ) lemma=`beneficiar` VLfin 
  beneplácito ( NOUN NOUN_SINGULAR ) 
- bengalí ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bengalí`bengalí` ADJ  NC  
- bengalíes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bengalí`bengalí` ADJ  NC  
- benigna ( ADJECTIVE ) lemma=`benigno` ADJ  
- benignas ( ADJECTIVE ) lemma=`benigno` ADJ  
+ bengalí ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bengalí`bengalí` ADJ NC 
+ bengalíes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bengalí`bengalí` ADJ NC 
+ benigna ( ADJECTIVE ) lemma=`benigno` ADJ 
+ benignas ( ADJECTIVE ) lemma=`benigno` ADJ 
  benignidad ( NOUN NOUN_SINGULAR ) 
  benigno ( ADJECTIVE ) 
- benignos ( ADJECTIVE ) lemma=`benigno` ADJ  
+ benignos ( ADJECTIVE ) lemma=`benigno` ADJ 
  bentos ( NOUN NOUN_SINGULAR ) 
- bentónica ( ADJECTIVE ) lemma=`bentónico` ADJ  
- bentónicos ( ADJECTIVE ) lemma=`bentónico` ADJ  
- benzodiacepinas ( NOUN NOUN_PLURAL ) lemma=`benzodiacepina` NC  
+ bentónica ( ADJECTIVE ) lemma=`bentónico` ADJ 
+ bentónicos ( ADJECTIVE ) lemma=`bentónico` ADJ 
+ benzodiacepinas ( NOUN NOUN_PLURAL ) lemma=`benzodiacepina` NC 
  benzopireno ( NOUN NOUN_SINGULAR ) 
- benéfica ( ADJECTIVE ) lemma=`benéfico` ADJ  
- benéficamente ( ADVERB ) lemma=`benéfico` ADV  
- benéficas ( ADJECTIVE ) lemma=`benéfico` ADJ  
+ benéfica ( ADJECTIVE ) lemma=`benéfico` ADJ 
+ benéficamente ( ADVERB ) lemma=`benéfico` ADV 
+ benéficas ( ADJECTIVE ) lemma=`benéfico` ADJ 
  benéfico ( ADJECTIVE ) 
  benéfico-docente ( ADJECTIVE ) 
  benéfico-social ( ADJECTIVE ) 
- benéficos ( ADJECTIVE ) lemma=`benéfico` ADJ  
- benévola ( ADJECTIVE ) lemma=`benévolo` ADJ  
- benévolamente ( ADVERB ) lemma=`benévolo` ADV  
- benévolas ( ADJECTIVE ) lemma=`benévolo` ADJ  
+ benéficos ( ADJECTIVE ) lemma=`benéfico` ADJ 
+ benévola ( ADJECTIVE ) lemma=`benévolo` ADJ 
+ benévolamente ( ADVERB ) lemma=`benévolo` ADV 
+ benévolas ( ADJECTIVE ) lemma=`benévolo` ADJ 
  benévolo ( ADJECTIVE ) 
- benévolos ( ADJECTIVE ) lemma=`benévolo` ADJ  
- berberechos ( NOUN NOUN_PLURAL ) lemma=`berberecho` NC  
+ benévolos ( ADJECTIVE ) lemma=`benévolo` ADJ 
+ berberechos ( NOUN NOUN_PLURAL ) lemma=`berberecho` NC 
  berenjena ( NOUN NOUN_SINGULAR ) 
- berenjenas ( NOUN NOUN_PLURAL ) lemma=`berenjena` NC  
+ berenjenas ( NOUN NOUN_PLURAL ) lemma=`berenjena` NC 
  berilio ( NOUN NOUN_SINGULAR ) 
  berlaque ( NOUN NOUN_SINGULAR ) 
  bermellón ( NOUN NOUN_SINGULAR ) 
- berros ( NOUN NOUN_PLURAL ) lemma=`berro` NC  
- besa ( VERB ) lemma=`besar` VLfin  
- besaban ( VERB ) lemma=`besar` VLfin  
- besado ( VERB_PAST_PARTICIPLE VERB ) lemma=`besar` VLadj  
- besamos ( VERB ) lemma=`besar` VLfin  
- besan ( VERB ) lemma=`besar` VLfin  
- besando ( NOUN NOUN_GERUND ) lemma=`besar` VLger  
+ berros ( NOUN NOUN_PLURAL ) lemma=`berro` NC 
+ besa ( VERB ) lemma=`besar` VLfin 
+ besaban ( VERB ) lemma=`besar` VLfin 
+ besado ( VERB_PAST_PARTICIPLE VERB ) lemma=`besar` VLadj 
+ besamos ( VERB ) lemma=`besar` VLfin 
+ besan ( VERB ) lemma=`besar` VLfin 
+ besando ( NOUN NOUN_GERUND ) lemma=`besar` VLger 
  besar ( VERB ) 
- bese ( VERB ) lemma=`besar` VLfin  
- besen ( VERB ) lemma=`besar` VLfin  
- beses ( VERB ) lemma=`besar` VLfin  
- besito ( NOUN NOUN_PLURAL ) lemma=`beso` NC  
- besitos ( NOUN NOUN_PLURAL ) lemma=`beso` NC  
- beso ( NOUN VERB NOUN_PLURAL ) lemma=`beso`besar` NC  VLfin  
- besos ( NOUN NOUN_PLURAL ) lemma=`beso` NC  
- besote ( NOUN NOUN_PLURAL ) lemma=`beso` NC  
+ bese ( VERB ) lemma=`besar` VLfin 
+ besen ( VERB ) lemma=`besar` VLfin 
+ beses ( VERB ) lemma=`besar` VLfin 
+ besito ( NOUN NOUN_PLURAL ) lemma=`beso` NC 
+ besitos ( NOUN NOUN_PLURAL ) lemma=`beso` NC 
+ beso ( NOUN VERB NOUN_PLURAL ) lemma=`beso`besar` NC VLfin 
+ besos ( NOUN NOUN_PLURAL ) lemma=`beso` NC 
+ besote ( NOUN NOUN_PLURAL ) lemma=`beso` NC 
  bestia ( NOUN NOUN_SINGULAR ) 
  bestial ( ADJECTIVE ) 
- bestiales ( ADJECTIVE ) lemma=`bestial` ADJ  
+ bestiales ( ADJECTIVE ) lemma=`bestial` ADJ 
  bestialidad ( NOUN NOUN_SINGULAR ) 
- bestias ( NOUN NOUN_PLURAL ) lemma=`bestia` NC  
+ bestias ( NOUN NOUN_PLURAL ) lemma=`bestia` NC 
  besugo ( NOUN NOUN_SINGULAR ) 
- besugos ( NOUN NOUN_PLURAL ) lemma=`besugo` NC  
- besándole ( VERB_PAST_PARTICIPLE VERB ) lemma=`besar` VLadj  
- besó ( VERB ) lemma=`besar` VLfin  
+ besugos ( NOUN NOUN_PLURAL ) lemma=`besugo` NC 
+ besándole ( VERB_PAST_PARTICIPLE VERB ) lemma=`besar` VLadj 
+ besó ( VERB ) lemma=`besar` VLfin 
  beta ( NOUN NOUN_SINGULAR ) 
  beta-adrenérgico ( ADJECTIVE ) 
  beta-agonista ( NOUN NOUN_SINGULAR ) 
@@ -940,7 +940,7 @@
  beta-globulina ( NOUN NOUN_SINGULAR ) 
  beta-lipoproteína ( NOUN NOUN_SINGULAR ) 
  beta-oxidación ( NOUN NOUN_SINGULAR ) 
- betabloqueantes ( NOUN NOUN_PLURAL ) lemma=`betabloqueante` NC  
+ betabloqueantes ( NOUN NOUN_PLURAL ) lemma=`betabloqueante` NC 
  betagalactosidasa ( NOUN NOUN_SINGULAR ) 
  betalactamasa ( NOUN NOUN_SINGULAR ) 
  between ( ) 
@@ -950,93 +950,93 @@
  bianual ( ADJECTIVE ) 
  bias ( ) 
  biblia ( NOUN NOUN_SINGULAR ) 
- biblias ( NOUN NOUN_PLURAL ) lemma=`biblia` NC  
+ biblias ( NOUN NOUN_PLURAL ) lemma=`biblia` NC 
  bibliografía ( NOUN NOUN_SINGULAR ) 
- bibliografías ( NOUN NOUN_PLURAL ) lemma=`bibliografía` NC  
- bibliográfica ( ADJECTIVE ) lemma=`bibliográfico` ADJ  
- bibliográficas ( ADJECTIVE ) lemma=`bibliográfico` ADJ  
- bibliográficos ( ADJECTIVE ) lemma=`bibliográfico` ADJ  
+ bibliografías ( NOUN NOUN_PLURAL ) lemma=`bibliografía` NC 
+ bibliográfica ( ADJECTIVE ) lemma=`bibliográfico` ADJ 
+ bibliográficas ( ADJECTIVE ) lemma=`bibliográfico` ADJ 
+ bibliográficos ( ADJECTIVE ) lemma=`bibliográfico` ADJ 
  biblioteca ( NOUN NOUN_SINGULAR ) 
- bibliotecarios ( NOUN NOUN_PLURAL ) lemma=`bibliotecario` NC  
- bibliotecas ( NOUN NOUN_PLURAL ) lemma=`biblioteca` NC  
+ bibliotecarios ( NOUN NOUN_PLURAL ) lemma=`bibliotecario` NC 
+ bibliotecas ( NOUN NOUN_PLURAL ) lemma=`biblioteca` NC 
  bibraquial ( ADJECTIVE ) 
  bicapa ( NOUN NOUN_SINGULAR ) 
- bicapas ( NOUN NOUN_PLURAL ) lemma=`bicapa` NC  
+ bicapas ( NOUN NOUN_PLURAL ) lemma=`bicapa` NC 
  bicarbonato ( NOUN NOUN_SINGULAR ) 
- bicatenaria ( ADJECTIVE ) lemma=`bicatenario` ADJ  
- bicatenarias ( ADJECTIVE ) lemma=`bicatenario` ADJ  
+ bicatenaria ( ADJECTIVE ) lemma=`bicatenario` ADJ 
+ bicatenarias ( ADJECTIVE ) lemma=`bicatenario` ADJ 
  bicatenario ( ADJECTIVE ) 
- bicatenarios ( ADJECTIVE ) lemma=`bicatenario` ADJ  
- bichito ( NOUN NOUN_PLURAL ) lemma=`bicho` NC  
+ bicatenarios ( ADJECTIVE ) lemma=`bicatenario` ADJ 
+ bichito ( NOUN NOUN_PLURAL ) lemma=`bicho` NC 
  bicho ( NOUN NOUN_SINGULAR ) 
- bichos ( NOUN NOUN_PLURAL ) lemma=`bicho` NC  
- bici ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC  
+ bichos ( NOUN NOUN_PLURAL ) lemma=`bicho` NC 
+ bici ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC 
  bicicleta ( NOUN NOUN_SINGULAR ) 
- bicicletas ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC  
- bicicletita ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC  
+ bicicletas ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC 
+ bicicletita ( NOUN NOUN_PLURAL ) lemma=`bicicleta` NC 
  bicipital ( ADJECTIVE ) 
  bidimensional ( ADJECTIVE ) 
- bidimensionales ( ADJECTIVE ) lemma=`bidimensional` ADJ  
- bidimensionalmente ( ADVERB ) lemma=`bidimensional` ADV  
+ bidimensionales ( ADJECTIVE ) lemma=`bidimensional` ADJ 
+ bidimensionalmente ( ADVERB ) lemma=`bidimensional` ADV 
  bidireccional ( ADJECTIVE ) 
- bidireccionales ( ADJECTIVE ) lemma=`bidireccional` ADJ  
- bidireccionalmente ( ADVERB ) lemma=`bidireccional` ADV  
+ bidireccionales ( ADJECTIVE ) lemma=`bidireccional` ADJ 
+ bidireccionalmente ( ADVERB ) lemma=`bidireccional` ADV 
  bidirectional ( ) 
  bidirectionnel ( ) 
- bidones ( NOUN NOUN_PLURAL ) lemma=`bidón` NC  
+ bidones ( NOUN NOUN_PLURAL ) lemma=`bidón` NC 
  bidón ( NOUN NOUN_SINGULAR ) 
- bien ( NOUN ADVERB NOUN_PLURAL ) lemma=`bien`bien` ADV  NC  
+ bien ( NOUN ADVERB NOUN_PLURAL ) lemma=`bien`bien` ADV NC 
  bienal ( ADJECTIVE ) 
- bienales ( ADJECTIVE ) lemma=`bienal` ADJ  
- bienes ( NOUN NOUN_PLURAL ) lemma=`bien` NC  
+ bienales ( ADJECTIVE ) lemma=`bienal` ADJ 
+ bienes ( NOUN NOUN_PLURAL ) lemma=`bien` NC 
  bienestar ( NOUN NOUN_SINGULAR ) 
  bienio ( NOUN NOUN_SINGULAR ) 
- bienvenida ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bienvenido`bienvenida` ADJ  NC  
- bienvenidas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bienvenido`bienvenida` ADJ  NC  
+ bienvenida ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bienvenido`bienvenida` ADJ NC 
+ bienvenidas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bienvenido`bienvenida` ADJ NC 
  bienvenido ( ADJECTIVE ) 
- bienvenidos ( ADJECTIVE ) lemma=`bienvenido` ADJ  
+ bienvenidos ( ADJECTIVE ) lemma=`bienvenido` ADJ 
  bifacial ( ADJECTIVE ) 
- bifilares ( ADJECTIVE ) lemma=`bifilar` ADJ  
+ bifilares ( ADJECTIVE ) lemma=`bifilar` ADJ 
  bifurcación ( NOUN NOUN_SINGULAR ) 
- bifásica ( ADJECTIVE ) lemma=`bifásico` ADJ  
+ bifásica ( ADJECTIVE ) lemma=`bifásico` ADJ 
  bigote ( NOUN NOUN_SINGULAR ) 
- bigotes ( NOUN NOUN_PLURAL ) lemma=`bigote` NC  
+ bigotes ( NOUN NOUN_PLURAL ) lemma=`bigote` NC 
  bilateral ( ADJECTIVE ) 
- bilaterales ( ADJECTIVE ) lemma=`bilateral` ADJ  
+ bilaterales ( ADJECTIVE ) lemma=`bilateral` ADJ 
  bilateralidad ( NOUN NOUN_SINGULAR ) 
- bilateralmente ( ADVERB ) lemma=`bilateral` ADV  
+ bilateralmente ( ADVERB ) lemma=`bilateral` ADV 
  bilatéral ( ) 
- bilbaíno ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bilbaíno`bilbaíno` ADJ  NC  
- bilbaínos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bilbaíno`bilbaíno` ADJ  NC  
+ bilbaíno ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bilbaíno`bilbaíno` ADJ NC 
+ bilbaínos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bilbaíno`bilbaíno` ADJ NC 
  biliar ( ADJECTIVE ) 
- biliares ( ADJECTIVE ) lemma=`biliar` ADJ  
+ biliares ( ADJECTIVE ) lemma=`biliar` ADJ 
  bilingüe ( ADJECTIVE ) 
- bilingües ( ADJECTIVE ) lemma=`bilingüe` ADJ  
+ bilingües ( ADJECTIVE ) lemma=`bilingüe` ADJ 
  bilirrubina ( NOUN NOUN_SINGULAR ) 
  bilirrubinato ( NOUN NOUN_SINGULAR ) 
  bilis ( NOUN NOUN_SINGULAR ) 
  billar ( NOUN NOUN_SINGULAR ) 
  billete ( NOUN NOUN_SINGULAR ) 
  billetera ( NOUN NOUN_SINGULAR ) 
- billetes ( NOUN NOUN_PLURAL ) lemma=`billete` NC  
- billetito ( NOUN NOUN_PLURAL ) lemma=`billete` NC  
- billetitos ( NOUN NOUN_PLURAL ) lemma=`billete` NC  
+ billetes ( NOUN NOUN_PLURAL ) lemma=`billete` NC 
+ billetito ( NOUN NOUN_PLURAL ) lemma=`billete` NC 
+ billetitos ( NOUN NOUN_PLURAL ) lemma=`billete` NC 
  billones ( ADJECTIVE_NUMBER NOUN_NUMBER ) 
  billón ( ADJECTIVE_NUMBER NOUN_NUMBER ) 
  bimanual ( ADJECTIVE ) 
  bimarginal ( ADJECTIVE ) 
  bimestral ( ADJECTIVE ) 
  bimestre ( ADJECTIVE ) 
- bimoleculares ( ADJECTIVE ) lemma=`bimolecular` ADJ  
+ bimoleculares ( ADJECTIVE ) lemma=`bimolecular` ADJ 
  bimotor ( NOUN NOUN_SINGULAR ) 
  binacional ( ADJECTIVE ) 
- binacionales ( ADJECTIVE ) lemma=`binacional` ADJ  
+ binacionales ( ADJECTIVE ) lemma=`binacional` ADJ 
  binaire ( ) 
  binaires ( ) 
- binaria ( ADJECTIVE ) lemma=`binario` ADJ  
- binarias ( ADJECTIVE ) lemma=`binario` ADJ  
+ binaria ( ADJECTIVE ) lemma=`binario` ADJ 
+ binarias ( ADJECTIVE ) lemma=`binario` ADJ 
  binario ( ADJECTIVE ) 
- binarios ( ADJECTIVE ) lemma=`binario` ADJ  
+ binarios ( ADJECTIVE ) lemma=`binario` ADJ 
  binary ( ) 
  binding ( NOUN NOUN_SINGULAR ) 
  binocular ( ADJECTIVE ) 
@@ -1047,44 +1047,44 @@
  biocilindro ( NOUN NOUN_SINGULAR ) 
  biodegradabilidad ( NOUN NOUN_SINGULAR ) 
  biodegradable ( ADJECTIVE ) 
- biodegradables ( ADJECTIVE ) lemma=`biodegradable` ADJ  
+ biodegradables ( ADJECTIVE ) lemma=`biodegradable` ADJ 
  biodisco ( NOUN NOUN_SINGULAR ) 
  biodiversidad ( NOUN NOUN_SINGULAR ) 
  biofiltro ( NOUN NOUN_SINGULAR ) 
- biofísicos ( ADJECTIVE ) lemma=`biofísico` ADJ  
+ biofísicos ( ADJECTIVE ) lemma=`biofísico` ADJ 
  biogeografía ( NOUN NOUN_SINGULAR ) 
  biografía ( NOUN NOUN_SINGULAR ) 
- biografías ( NOUN NOUN_PLURAL ) lemma=`biografía` NC  
- biográfica ( ADJECTIVE ) lemma=`biográfico` ADJ  
+ biografías ( NOUN NOUN_PLURAL ) lemma=`biografía` NC 
+ biográfica ( ADJECTIVE ) lemma=`biográfico` ADJ 
  biográfico ( ADJECTIVE ) 
- biográficos ( ADJECTIVE ) lemma=`biográfico` ADJ  
+ biográficos ( ADJECTIVE ) lemma=`biográfico` ADJ 
  biogénesis ( NOUN NOUN_SINGULAR ) 
  bioingeniería ( NOUN NOUN_SINGULAR ) 
  biología ( NOUN NOUN_SINGULAR ) 
- biológica ( ADJECTIVE ) lemma=`biológico` ADJ  
- biológicamente ( ADVERB ) lemma=`biológico` ADV  
- biológicas ( ADJECTIVE ) lemma=`biológico` ADJ  
+ biológica ( ADJECTIVE ) lemma=`biológico` ADJ 
+ biológicamente ( ADVERB ) lemma=`biológico` ADV 
+ biológicas ( ADJECTIVE ) lemma=`biológico` ADJ 
  biológico ( ADJECTIVE ) 
- biológicos ( ADJECTIVE ) lemma=`biológico` ADJ  
+ biológicos ( ADJECTIVE ) lemma=`biológico` ADJ 
  biomasa ( NOUN NOUN_SINGULAR ) 
- biomasas ( NOUN NOUN_PLURAL ) lemma=`biomasa` NC  
+ biomasas ( NOUN NOUN_PLURAL ) lemma=`biomasa` NC 
  biomatemático ( NOUN NOUN_SINGULAR ) 
  biombo ( NOUN NOUN_SINGULAR ) 
  biomolécula ( NOUN NOUN_SINGULAR ) 
- biomédica ( ADJECTIVE ) lemma=`biomédico` ADJ  
- biomédicas ( ADJECTIVE ) lemma=`biomédico` ADJ  
+ biomédica ( ADJECTIVE ) lemma=`biomédico` ADJ 
+ biomédicas ( ADJECTIVE ) lemma=`biomédico` ADJ 
  biomédico ( ADJECTIVE ) 
- biomédicos ( ADJECTIVE ) lemma=`biomédico` ADJ  
+ biomédicos ( ADJECTIVE ) lemma=`biomédico` ADJ 
  biopelícula ( NOUN NOUN_SINGULAR ) 
  bioprótesis ( NOUN NOUN_SINGULAR ) 
  biopsia ( NOUN NOUN_SINGULAR ) 
  biopsiar ( VERB ) 
- biopsias ( NOUN NOUN_PLURAL ) lemma=`biopsia` NC  
+ biopsias ( NOUN NOUN_PLURAL ) lemma=`biopsia` NC 
  biopsicosocial ( ADJECTIVE ) 
- bioquímica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bioquímico`bioquímica` ADJ  NC  
- bioquímicas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bioquímico`bioquímica` ADJ  NC  
+ bioquímica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bioquímico`bioquímica` ADJ NC 
+ bioquímicas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bioquímico`bioquímica` ADJ NC 
  bioquímico ( ADJECTIVE ) 
- bioquímicos ( ADJECTIVE ) lemma=`bioquímico` ADJ  
+ bioquímicos ( ADJECTIVE ) lemma=`bioquímico` ADJ 
  biorreactor ( NOUN NOUN_SINGULAR ) 
  bioseguridad ( NOUN NOUN_SINGULAR ) 
  biosensor ( NOUN NOUN_SINGULAR ) 
@@ -1094,888 +1094,888 @@
  biosistema ( NOUN NOUN_SINGULAR ) 
  biosíntesis ( NOUN NOUN_SINGULAR ) 
  biotecnología ( NOUN NOUN_SINGULAR ) 
- biotecnologías ( NOUN NOUN_PLURAL ) lemma=`biotecnología` NC  
+ biotecnologías ( NOUN NOUN_PLURAL ) lemma=`biotecnología` NC 
  biotecnológico ( ADJECTIVE ) 
  biotina ( NOUN NOUN_SINGULAR ) 
  biotinilizar ( VERB_PAST_PARTICIPLE VERB ) 
  biotipo ( NOUN NOUN_SINGULAR ) 
  biotransformación ( NOUN NOUN_SINGULAR ) 
  biparental ( ADJECTIVE ) 
- bipartita ( ADJECTIVE ) lemma=`bipartito` ADJ  
+ bipartita ( ADJECTIVE ) lemma=`bipartito` ADJ 
  bipedestación ( NOUN NOUN_SINGULAR ) 
  biperópico ( ADJECTIVE ) 
  bipolar ( ADJECTIVE ) 
- bipolares ( ADJECTIVE ) lemma=`bipolar` ADJ  
+ bipolares ( ADJECTIVE ) lemma=`bipolar` ADJ 
  bipotencialidad ( NOUN NOUN_SINGULAR ) 
  birome ( NOUN NOUN_SINGULAR ) 
  bis ( NOUN NOUN_SINGULAR ) 
- bisabuela ( NOUN NOUN_PLURAL ) lemma=`bisabuelo` NC  
+ bisabuela ( NOUN NOUN_PLURAL ) lemma=`bisabuelo` NC 
  bisabuelo ( NOUN NOUN_SINGULAR ) 
- bisabuelos ( NOUN NOUN_PLURAL ) lemma=`bisabuelo` NC  
+ bisabuelos ( NOUN NOUN_PLURAL ) lemma=`bisabuelo` NC 
  bisagra ( NOUN NOUN_SINGULAR ) 
- bisagras ( NOUN NOUN_PLURAL ) lemma=`bisagra` NC  
+ bisagras ( NOUN NOUN_PLURAL ) lemma=`bisagra` NC 
  bisexual ( ADJECTIVE ) 
  bishidroxicumarina ( NOUN NOUN_SINGULAR ) 
- bisnietos ( NOUN NOUN_PLURAL ) lemma=`bisnieto` NC  
+ bisnietos ( NOUN NOUN_PLURAL ) lemma=`bisnieto` NC 
  bisturí ( NOUN NOUN_SINGULAR ) 
  bisutería ( NOUN NOUN_SINGULAR ) 
- bit ( NOUN NOUN_PLURAL ) lemma=`bit`bit` NMEA  PE  
- bites ( NOUN NOUN_PLURAL ) lemma=`bit` NC  
- bitios ( NOUN NOUN_PLURAL ) lemma=`bit` NMEA  
+ bit ( NOUN NOUN_PLURAL ) lemma=`bit`bit` NMEA PE 
+ bites ( NOUN NOUN_PLURAL ) lemma=`bit` NC 
+ bitios ( NOUN NOUN_PLURAL ) lemma=`bit` NMEA 
  bitmap ( NOUN NOUN_SINGULAR ) 
  bitnet ( NOUN NOUN_SINGULAR ) 
  bitonal ( ADJECTIVE ) 
- bits ( NOUN NOUN_PLURAL ) lemma=`bit`bit` NMEA  PE  
- biunívoca ( ADJECTIVE ) lemma=`biunívoco` ADJ  
- biunívocamente ( ADVERB ) lemma=`biunívoco` ADV  
+ bits ( NOUN NOUN_PLURAL ) lemma=`bit`bit` NMEA PE 
+ biunívoca ( ADJECTIVE ) lemma=`biunívoco` ADJ 
+ biunívocamente ( ADVERB ) lemma=`biunívoco` ADV 
  bivalent ( ) 
  bivalente ( ADJECTIVE ) 
- bivalentes ( ADJECTIVE ) lemma=`bivalente` ADJ  
- bivalva ( ADJECTIVE ) lemma=`bivalvo` ADJ  
+ bivalentes ( ADJECTIVE ) lemma=`bivalente` ADJ 
+ bivalva ( ADJECTIVE ) lemma=`bivalvo` ADJ 
  bivocal ( ) 
- bizantina ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ  NC  
- bizantinas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ  NC  
- bizantino ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ  NC  
- bizantinos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ  NC  
- bizca ( VERB ) lemma=`bizcar` VLfin  
- bizco ( VERB ) lemma=`bizcar` VLfin  
+ bizantina ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ NC 
+ bizantinas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ NC 
+ bizantino ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ NC 
+ bizantinos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bizantino`bizantino` ADJ NC 
+ bizca ( VERB ) lemma=`bizcar` VLfin 
+ bizco ( VERB ) lemma=`bizcar` VLfin 
  biógrafo ( NOUN NOUN_SINGULAR ) 
  biólogo ( NOUN NOUN_SINGULAR ) 
- biólogos ( NOUN NOUN_PLURAL ) lemma=`biólogo` NC  
- bióticos ( ADJECTIVE ) lemma=`biótico` ADJ  
+ biólogos ( NOUN NOUN_PLURAL ) lemma=`biólogo` NC 
+ bióticos ( ADJECTIVE ) lemma=`biótico` ADJ 
  bióxido ( NOUN NOUN_SINGULAR ) 
  blah ( NOUN NOUN_PROPER_SINGULAR ) 
  blanc ( ) 
- blanca ( ADJECTIVE ) lemma=`blanco` ADJ  
- blancas ( ADJECTIVE ) lemma=`blanco` ADJ  
- blanche ( NOUN NOUN_PROPER_PLURAL ) lemma=`blanche`blanche` NP  PE  
- blanco ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ  NC  
- blancos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ  NC  
+ blanca ( ADJECTIVE ) lemma=`blanco` ADJ 
+ blancas ( ADJECTIVE ) lemma=`blanco` ADJ 
+ blanche ( NOUN NOUN_PROPER_PLURAL ) lemma=`blanche`blanche` NP PE 
+ blanco ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ NC 
+ blancos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ NC 
  blancura ( NOUN NOUN_SINGULAR ) 
- blanda ( ADJECTIVE ) lemma=`blando` ADJ  
- blandamente ( ADVERB ) lemma=`blando` ADV  
- blandas ( ADJECTIVE ) lemma=`blando` ADJ  
- blanden ( VERB ) lemma=`blandir` VLfin  
- blandido ( VERB_PAST_PARTICIPLE VERB ) lemma=`blandir` VLadj  
- blandiendo ( NOUN NOUN_GERUND ) lemma=`blandir` VLger  
+ blanda ( ADJECTIVE ) lemma=`blando` ADJ 
+ blandamente ( ADVERB ) lemma=`blando` ADV 
+ blandas ( ADJECTIVE ) lemma=`blando` ADJ 
+ blanden ( VERB ) lemma=`blandir` VLfin 
+ blandido ( VERB_PAST_PARTICIPLE VERB ) lemma=`blandir` VLadj 
+ blandiendo ( NOUN NOUN_GERUND ) lemma=`blandir` VLger 
  blandir ( VERB ) 
- blanditos ( ADJECTIVE ) lemma=`blando` ADJ  
- blandió ( VERB ) lemma=`blandir` VLfin  
+ blanditos ( ADJECTIVE ) lemma=`blando` ADJ 
+ blandió ( VERB ) lemma=`blandir` VLfin 
  blando ( ADJECTIVE ) 
- blandos ( ADJECTIVE ) lemma=`blando` ADJ  
- blandía ( VERB ) lemma=`blandir` VLfin  
- blandían ( VERB ) lemma=`blandir` VLfin  
- blanquea ( VERB ) lemma=`blanquear` VLfin  
- blanqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj  
- blanqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj  
- blanqueado ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj  
- blanqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj  
- blanquean ( VERB ) lemma=`blanquear` VLfin  
- blanqueando ( NOUN NOUN_GERUND ) lemma=`blanquear` VLger  
+ blandos ( ADJECTIVE ) lemma=`blando` ADJ 
+ blandía ( VERB ) lemma=`blandir` VLfin 
+ blandían ( VERB ) lemma=`blandir` VLfin 
+ blanquea ( VERB ) lemma=`blanquear` VLfin 
+ blanqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj 
+ blanqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj 
+ blanqueado ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj 
+ blanqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=`blanquear` VLadj 
+ blanquean ( VERB ) lemma=`blanquear` VLfin 
+ blanqueando ( NOUN NOUN_GERUND ) lemma=`blanquear` VLger 
  blanquear ( VERB ) 
- blanqueo ( VERB ) lemma=`blanquear` VLfin  
+ blanqueo ( VERB ) lemma=`blanquear` VLfin 
  blanquiazul ( ADJECTIVE ) 
- blanquiazules ( ADJECTIVE ) lemma=`blanquiazul` ADJ  
- blanquita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ  NC  
- blasfema ( ADJECTIVE ) lemma=`blasfemo` ADJ  
- blasfemas ( ADJECTIVE ) lemma=`blasfemo` ADJ  
+ blanquiazules ( ADJECTIVE ) lemma=`blanquiazul` ADJ 
+ blanquita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`blanco`blanco` ADJ NC 
+ blasfema ( ADJECTIVE ) lemma=`blasfemo` ADJ 
+ blasfemas ( ADJECTIVE ) lemma=`blasfemo` ADJ 
  blasfemia ( NOUN NOUN_SINGULAR ) 
- blasfemias ( NOUN NOUN_PLURAL ) lemma=`blasfemia` NC  
+ blasfemias ( NOUN NOUN_PLURAL ) lemma=`blasfemia` NC 
  blasfemo ( ADJECTIVE ) 
  blastema ( NOUN NOUN_SINGULAR ) 
  blastozooide ( ADJECTIVE ) 
- blastómeros ( NOUN NOUN_PLURAL ) lemma=`blastómero` NC  
+ blastómeros ( NOUN NOUN_PLURAL ) lemma=`blastómero` NC 
  blastóporo ( NOUN NOUN_SINGULAR ) 
- blinda ( VERB ) lemma=`blindar` VLfin  
- blindada ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj  
- blindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj  
- blindado ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj  
- blindados ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj  
+ blinda ( VERB ) lemma=`blindar` VLfin 
+ blindada ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj 
+ blindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj 
+ blindado ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj 
+ blindados ( VERB_PAST_PARTICIPLE VERB ) lemma=`blindar` VLadj 
  blindar ( VERB ) 
  bloc ( ) 
  block ( ) 
- bloque ( NOUN NOUN_PLURAL ) lemma=`bloque`bloque` NC  PE  
- bloquea ( VERB ) lemma=`bloquear` VLfin  
- bloqueaba ( VERB ) lemma=`bloquear` VLfin  
- bloqueaban ( VERB ) lemma=`bloquear` VLfin  
- bloqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj  
- bloqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj  
- bloqueado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj  
- bloqueadores ( NOUN NOUN_PLURAL ) lemma=`bloqueador` NC  
- bloqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj  
- bloqueamos ( VERB ) lemma=`bloquear` VLfin  
- bloquean ( VERB ) lemma=`bloquear` VLfin  
- bloqueando ( NOUN NOUN_GERUND ) lemma=`bloquear` VLger  
- bloqueantes ( ADJECTIVE ) lemma=`bloqueante` ADJ  
+ bloque ( NOUN NOUN_PLURAL ) lemma=`bloque`bloque` NC PE 
+ bloquea ( VERB ) lemma=`bloquear` VLfin 
+ bloqueaba ( VERB ) lemma=`bloquear` VLfin 
+ bloqueaban ( VERB ) lemma=`bloquear` VLfin 
+ bloqueada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj 
+ bloqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj 
+ bloqueado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj 
+ bloqueadores ( NOUN NOUN_PLURAL ) lemma=`bloqueador` NC 
+ bloqueados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bloquear` VLadj 
+ bloqueamos ( VERB ) lemma=`bloquear` VLfin 
+ bloquean ( VERB ) lemma=`bloquear` VLfin 
+ bloqueando ( NOUN NOUN_GERUND ) lemma=`bloquear` VLger 
+ bloqueantes ( ADJECTIVE ) lemma=`bloqueante` ADJ 
  bloquear ( VERB ) 
- bloquearemos ( VERB ) lemma=`bloquear` VLfin  
- bloquearon ( VERB ) lemma=`bloquear` VLfin  
+ bloquearemos ( VERB ) lemma=`bloquear` VLfin 
+ bloquearon ( VERB ) lemma=`bloquear` VLfin 
  bloquearse ( VERB_INFINITIVE VERB ) 
- bloqueará ( VERB ) lemma=`bloquear` VLfin  
- bloquearán ( VERB ) lemma=`bloquear` VLfin  
- bloquearía ( VERB ) lemma=`bloquear` VLfin  
- bloquease ( VERB ) lemma=`bloquear` VLfin  
- bloquee ( VERB ) lemma=`bloquear` VLfin  
- bloqueen ( VERB ) lemma=`bloquear` VLfin  
+ bloqueará ( VERB ) lemma=`bloquear` VLfin 
+ bloquearán ( VERB ) lemma=`bloquear` VLfin 
+ bloquearía ( VERB ) lemma=`bloquear` VLfin 
+ bloquease ( VERB ) lemma=`bloquear` VLfin 
+ bloquee ( VERB ) lemma=`bloquear` VLfin 
+ bloqueen ( VERB ) lemma=`bloquear` VLfin 
  bloqueo ( NOUN NOUN_SINGULAR ) 
- bloqueos ( NOUN NOUN_PLURAL ) lemma=`bloqueo` NC  
- bloques ( NOUN NOUN_PLURAL ) lemma=`bloque` NC  
- bloqueó ( VERB ) lemma=`bloquear` VLfin  
+ bloqueos ( NOUN NOUN_PLURAL ) lemma=`bloqueo` NC 
+ bloques ( NOUN NOUN_PLURAL ) lemma=`bloque` NC 
+ bloqueó ( VERB ) lemma=`bloquear` VLfin 
  blues ( NOUN NOUN_SINGULAR ) 
  blusa ( NOUN NOUN_SINGULAR ) 
- blusas ( NOUN NOUN_PLURAL ) lemma=`blusa` NC  
- blusitas ( NOUN NOUN_PLURAL ) lemma=`blusa` NC  
+ blusas ( NOUN NOUN_PLURAL ) lemma=`blusa` NC 
+ blusitas ( NOUN NOUN_PLURAL ) lemma=`blusa` NC 
  blástula ( NOUN NOUN_SINGULAR ) 
  boa ( NOUN NOUN_SINGULAR ) 
- boas ( NOUN NOUN_PLURAL ) lemma=`boa` NC  
- boba ( ADJECTIVE ) lemma=`bobo` ADJ  
+ boas ( NOUN NOUN_PLURAL ) lemma=`boa` NC 
+ boba ( ADJECTIVE ) lemma=`bobo` ADJ 
  bobada ( NOUN NOUN_SINGULAR ) 
- bobadas ( NOUN NOUN_PLURAL ) lemma=`bobada` NC  
- bobas ( ADJECTIVE ) lemma=`bobo` ADJ  
+ bobadas ( NOUN NOUN_PLURAL ) lemma=`bobada` NC 
+ bobas ( ADJECTIVE ) lemma=`bobo` ADJ 
  bobina ( NOUN NOUN_SINGULAR ) 
  bobinado ( NOUN NOUN_SINGULAR ) 
- bobinas ( NOUN NOUN_PLURAL ) lemma=`bobina` NC  
+ bobinas ( NOUN NOUN_PLURAL ) lemma=`bobina` NC 
  bobo ( ADJECTIVE ) 
- bobos ( ADJECTIVE ) lemma=`bobo` ADJ  
+ bobos ( ADJECTIVE ) lemma=`bobo` ADJ 
  boca ( NOUN NOUN_SINGULAR ) 
  bocadillo ( NOUN NOUN_SINGULAR ) 
- bocadillos ( NOUN NOUN_PLURAL ) lemma=`bocadillo` NC  
+ bocadillos ( NOUN NOUN_PLURAL ) lemma=`bocadillo` NC 
  bocado ( NOUN NOUN_SINGULAR ) 
  bocanada ( NOUN NOUN_SINGULAR ) 
- bocas ( NOUN NOUN_PLURAL ) lemma=`boca` NC  
- boches ( VERB ) lemma=`bochar` VLfin  
+ bocas ( NOUN NOUN_PLURAL ) lemma=`boca` NC 
+ boches ( VERB ) lemma=`bochar` VLfin 
  bocho ( NOUN NOUN_SINGULAR ) 
  bochorno ( NOUN NOUN_SINGULAR ) 
- bochornos ( NOUN NOUN_PLURAL ) lemma=`bochorno` NC  
+ bochornos ( NOUN NOUN_PLURAL ) lemma=`bochorno` NC 
  bochín ( NOUN NOUN_SINGULAR ) 
- bocina ( NOUN VERB NOUN_PLURAL ) lemma=`bocina`bocinar` NC  VLfin  
- bocinas ( NOUN VERB NOUN_PLURAL ) lemma=`bocina`bocinar` NC  VLfin  
+ bocina ( NOUN VERB NOUN_PLURAL ) lemma=`bocina`bocinar` NC VLfin 
+ bocinas ( NOUN VERB NOUN_PLURAL ) lemma=`bocina`bocinar` NC VLfin 
  bocio ( NOUN NOUN_SINGULAR ) 
- bocios ( NOUN NOUN_PLURAL ) lemma=`bocio` NC  
+ bocios ( NOUN NOUN_PLURAL ) lemma=`bocio` NC 
  boda ( NOUN NOUN_SINGULAR ) 
- bodas ( NOUN NOUN_PLURAL ) lemma=`boda` NC  
+ bodas ( NOUN NOUN_PLURAL ) lemma=`boda` NC 
  bodega ( NOUN NOUN_SINGULAR ) 
- bodegas ( NOUN NOUN_PLURAL ) lemma=`bodega` NC  
+ bodegas ( NOUN NOUN_PLURAL ) lemma=`bodega` NC 
  bodegón ( NOUN NOUN_SINGULAR ) 
  bodoncillo ( NOUN NOUN_SINGULAR ) 
  bofetada ( NOUN NOUN_SINGULAR ) 
- bofetadas ( NOUN NOUN_PLURAL ) lemma=`bofetada` NC  
- boga ( VERB ) lemma=`bogar` VLfin  
+ bofetadas ( NOUN NOUN_PLURAL ) lemma=`bofetada` NC 
+ boga ( VERB ) lemma=`bogar` VLfin 
  bogar ( VERB ) 
  bogrio ( NOUN NOUN_SINGULAR ) 
- bohemia ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bohemio`bohemia` ADJ  NC  
- bohemio ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bohemio`bohemio` ADJ  NC  
+ bohemia ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bohemio`bohemia` ADJ NC 
+ bohemio ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bohemio`bohemio` ADJ NC 
  boicot ( NOUN NOUN_SINGULAR ) 
- boicotea ( VERB ) lemma=`boicotear` VLfin  
- boicoteada ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj  
- boicoteadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj  
- boicoteado ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj  
- boicoteados ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj  
- boicotean ( VERB ) lemma=`boicotear` VLfin  
- boicoteando ( NOUN NOUN_GERUND ) lemma=`boicotear` VLger  
+ boicotea ( VERB ) lemma=`boicotear` VLfin 
+ boicoteada ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj 
+ boicoteadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj 
+ boicoteado ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj 
+ boicoteados ( VERB_PAST_PARTICIPLE VERB ) lemma=`boicotear` VLadj 
+ boicotean ( VERB ) lemma=`boicotear` VLfin 
+ boicoteando ( NOUN NOUN_GERUND ) lemma=`boicotear` VLger 
  boicotear ( VERB ) 
- boicotearon ( VERB ) lemma=`boicotear` VLfin  
- boicoteará ( VERB ) lemma=`boicotear` VLfin  
- boicotearán ( VERB ) lemma=`boicotear` VLfin  
- boicoteemos ( VERB ) lemma=`boicotear` VLfin  
- boicoteen ( VERB ) lemma=`boicotear` VLfin  
- boicoteo ( VERB ) lemma=`boicotear` VLfin  
- boicoteó ( VERB ) lemma=`boicotear` VLfin  
+ boicotearon ( VERB ) lemma=`boicotear` VLfin 
+ boicoteará ( VERB ) lemma=`boicotear` VLfin 
+ boicotearán ( VERB ) lemma=`boicotear` VLfin 
+ boicoteemos ( VERB ) lemma=`boicotear` VLfin 
+ boicoteen ( VERB ) lemma=`boicotear` VLfin 
+ boicoteo ( VERB ) lemma=`boicotear` VLfin 
+ boicoteó ( VERB ) lemma=`boicotear` VLfin 
  boina ( NOUN NOUN_SINGULAR ) 
- boinas ( NOUN NOUN_PLURAL ) lemma=`boina` NC  
+ boinas ( NOUN NOUN_PLURAL ) lemma=`boina` NC 
  bola ( NOUN NOUN_SINGULAR ) 
- bolas ( NOUN NOUN_PLURAL ) lemma=`bola` NC  
- bolchevique ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolchevique`bolchevique` ADJ  NC  
- bolcheviques ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolchevique`bolchevique` ADJ  NC  
+ bolas ( NOUN NOUN_PLURAL ) lemma=`bola` NC 
+ bolchevique ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolchevique`bolchevique` ADJ NC 
+ bolcheviques ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolchevique`bolchevique` ADJ NC 
  bolchevisto ( ADJECTIVE ) 
- bolea ( VERB ) lemma=`bolear` VLfin  
+ bolea ( VERB ) lemma=`bolear` VLfin 
  bolero ( NOUN NOUN_SINGULAR ) 
- boleros ( NOUN NOUN_PLURAL ) lemma=`bolero` NC  
- boleta ( VERB ) lemma=`boletar` VLfin  
- boletas ( VERB ) lemma=`boletar` VLfin  
- boletines ( NOUN NOUN_PLURAL ) lemma=`boletín` NC  
- boletitos ( NOUN NOUN_PLURAL ) lemma=`boleto` NC  
- boleto ( NOUN VERB NOUN_PLURAL ) lemma=`boleto`boletar` NC  VLfin  
- boletos ( NOUN NOUN_PLURAL ) lemma=`boleto` NC  
+ boleros ( NOUN NOUN_PLURAL ) lemma=`bolero` NC 
+ boleta ( VERB ) lemma=`boletar` VLfin 
+ boletas ( VERB ) lemma=`boletar` VLfin 
+ boletines ( NOUN NOUN_PLURAL ) lemma=`boletín` NC 
+ boletitos ( NOUN NOUN_PLURAL ) lemma=`boleto` NC 
+ boleto ( NOUN VERB NOUN_PLURAL ) lemma=`boleto`boletar` NC VLfin 
+ boletos ( NOUN NOUN_PLURAL ) lemma=`boleto` NC 
  boletín ( NOUN NOUN_SINGULAR ) 
  boliche ( NOUN NOUN_SINGULAR ) 
- bolillas ( NOUN NOUN_PLURAL ) lemma=`bola` NC  
- bolita ( NOUN NOUN_PLURAL ) lemma=`bola` NC  
- bolitas ( NOUN NOUN_PLURAL ) lemma=`bola` NC  
- bolivariano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolivariano`bolivariano` ADJ  NC  
- boliviana ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ  NC  
- bolivianas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ  NC  
- boliviano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ  NC  
- bolivianos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ  NC  
- bollitos ( NOUN NOUN_PLURAL ) lemma=`bollo` NC  
- bollo ( NOUN VERB NOUN_PLURAL ) lemma=`bollo`bollar` NC  VLfin  
- bollos ( NOUN NOUN_PLURAL ) lemma=`bollo` NC  
+ bolillas ( NOUN NOUN_PLURAL ) lemma=`bola` NC 
+ bolita ( NOUN NOUN_PLURAL ) lemma=`bola` NC 
+ bolitas ( NOUN NOUN_PLURAL ) lemma=`bola` NC 
+ bolivariano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bolivariano`bolivariano` ADJ NC 
+ boliviana ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ NC 
+ bolivianas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ NC 
+ boliviano ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ NC 
+ bolivianos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boliviano`boliviano` ADJ NC 
+ bollitos ( NOUN NOUN_PLURAL ) lemma=`bollo` NC 
+ bollo ( NOUN VERB NOUN_PLURAL ) lemma=`bollo`bollar` NC VLfin 
+ bollos ( NOUN NOUN_PLURAL ) lemma=`bollo` NC 
  bolo ( NOUN NOUN_SINGULAR ) 
  bolsa ( NOUN NOUN_SINGULAR ) 
- bolsas ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC  
+ bolsas ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC 
  bolsillo ( NOUN NOUN_SINGULAR ) 
- bolsillos ( NOUN NOUN_PLURAL ) lemma=`bolsillo` NC  
- bolsita ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC  
- bolsitas ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC  
+ bolsillos ( NOUN NOUN_PLURAL ) lemma=`bolsillo` NC 
+ bolsita ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC 
+ bolsitas ( NOUN NOUN_PLURAL ) lemma=`bolsa` NC 
  bolso ( NOUN NOUN_SINGULAR ) 
- bolsones ( NOUN NOUN_PLURAL ) lemma=`bolso` NC  
- bolsos ( NOUN NOUN_PLURAL ) lemma=`bolso` NC  
+ bolsones ( NOUN NOUN_PLURAL ) lemma=`bolso` NC 
+ bolsos ( NOUN NOUN_PLURAL ) lemma=`bolso` NC 
  boluda ( NOUN NOUN_SINGULAR ) 
- boludas ( ADJECTIVE ) lemma=`boludo` ADJ  
- boludeces ( NOUN NOUN_PLURAL ) lemma=`boludez` NC  
- boludo ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boludo`boludo` ADJ  NC  
- boludón ( NOUN NOUN_PLURAL ) lemma=`boludo` NC  
+ boludas ( ADJECTIVE ) lemma=`boludo` ADJ 
+ boludeces ( NOUN NOUN_PLURAL ) lemma=`boludez` NC 
+ boludo ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boludo`boludo` ADJ NC 
+ boludón ( NOUN NOUN_PLURAL ) lemma=`boludo` NC 
  bolígrafo ( NOUN NOUN_SINGULAR ) 
- bolígrafos ( NOUN NOUN_PLURAL ) lemma=`bolígrafo` NC  
- bolívares ( NOUN NOUN_PLURAL ) lemma=`bolívar` NC  
+ bolígrafos ( NOUN NOUN_PLURAL ) lemma=`bolígrafo` NC 
+ bolívares ( NOUN NOUN_PLURAL ) lemma=`bolívar` NC 
  bomba ( NOUN NOUN_SINGULAR ) 
- bombacha ( ADJECTIVE ) lemma=`bombacho` ADJ  
- bombardea ( VERB ) lemma=`bombardear` VLfin  
- bombardeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj  
- bombardeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj  
- bombardeado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj  
- bombardeados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj  
- bombardean ( VERB ) lemma=`bombardear` VLfin  
- bombardeando ( NOUN NOUN_GERUND ) lemma=`bombardear` VLger  
+ bombacha ( ADJECTIVE ) lemma=`bombacho` ADJ 
+ bombardea ( VERB ) lemma=`bombardear` VLfin 
+ bombardeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj 
+ bombardeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj 
+ bombardeado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj 
+ bombardeados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombardear` VLadj 
+ bombardean ( VERB ) lemma=`bombardear` VLfin 
+ bombardeando ( NOUN NOUN_GERUND ) lemma=`bombardear` VLger 
  bombardear ( VERB ) 
- bombardeara ( VERB ) lemma=`bombardear` VLfin  
- bombardearon ( VERB ) lemma=`bombardear` VLfin  
- bombardearía ( VERB ) lemma=`bombardear` VLfin  
- bombardeen ( VERB ) lemma=`bombardear` VLfin  
- bombardeo ( NOUN VERB NOUN_PLURAL ) lemma=`bombardeo`bombardear` NC  VLfin  
- bombardeos ( NOUN NOUN_PLURAL ) lemma=`bombardeo` NC  
+ bombardeara ( VERB ) lemma=`bombardear` VLfin 
+ bombardearon ( VERB ) lemma=`bombardear` VLfin 
+ bombardearía ( VERB ) lemma=`bombardear` VLfin 
+ bombardeen ( VERB ) lemma=`bombardear` VLfin 
+ bombardeo ( NOUN VERB NOUN_PLURAL ) lemma=`bombardeo`bombardear` NC VLfin 
+ bombardeos ( NOUN NOUN_PLURAL ) lemma=`bombardeo` NC 
  bombardero ( NOUN NOUN_SINGULAR ) 
- bombarderos ( NOUN NOUN_PLURAL ) lemma=`bombardero` NC  
- bombardeó ( VERB ) lemma=`bombardear` VLfin  
- bombas ( NOUN NOUN_PLURAL ) lemma=`bomba` NC  
+ bombarderos ( NOUN NOUN_PLURAL ) lemma=`bombardero` NC 
+ bombardeó ( VERB ) lemma=`bombardear` VLfin 
+ bombas ( NOUN NOUN_PLURAL ) lemma=`bomba` NC 
  bombazo ( NOUN NOUN_SINGULAR ) 
- bombea ( VERB ) lemma=`bombear` VLfin  
- bombeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj  
- bombeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj  
- bombeado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj  
- bombean ( VERB ) lemma=`bombear` VLfin  
- bombeando ( NOUN NOUN_GERUND ) lemma=`bombear` VLger  
+ bombea ( VERB ) lemma=`bombear` VLfin 
+ bombeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj 
+ bombeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj 
+ bombeado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bombear` VLadj 
+ bombean ( VERB ) lemma=`bombear` VLfin 
+ bombeando ( NOUN NOUN_GERUND ) lemma=`bombear` VLger 
  bombear ( VERB ) 
- bombee ( VERB ) lemma=`bombear` VLfin  
- bombeo ( NOUN VERB NOUN_PLURAL ) lemma=`bombeo`bombear` NC  VLfin  
+ bombee ( VERB ) lemma=`bombear` VLfin 
+ bombeo ( NOUN VERB NOUN_PLURAL ) lemma=`bombeo`bombear` NC VLfin 
  bombero ( NOUN NOUN_SINGULAR ) 
- bomberos ( NOUN NOUN_PLURAL ) lemma=`bombero` NC  
+ bomberos ( NOUN NOUN_PLURAL ) lemma=`bombero` NC 
  bombilla ( NOUN NOUN_SINGULAR ) 
- bombillas ( NOUN NOUN_PLURAL ) lemma=`bombilla` NC  
+ bombillas ( NOUN NOUN_PLURAL ) lemma=`bombilla` NC 
  bombo ( NOUN NOUN_SINGULAR ) 
- bombonas ( NOUN NOUN_PLURAL ) lemma=`bombona` NC  
- bombones ( NOUN NOUN_PLURAL ) lemma=`bombón` NC  
- bombos ( NOUN NOUN_PLURAL ) lemma=`bombo` NC  
+ bombonas ( NOUN NOUN_PLURAL ) lemma=`bombona` NC 
+ bombones ( NOUN NOUN_PLURAL ) lemma=`bombón` NC 
+ bombos ( NOUN NOUN_PLURAL ) lemma=`bombo` NC 
  bon ( ADJECTIVE ) 
- bona ( ADJECTIVE ) lemma=`bon` ADJ  
- bonaerense ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonaerense`bonaerense` ADJ  NC  
- bonaerenses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonaerense`bonaerense` ADJ  NC  
+ bona ( ADJECTIVE ) lemma=`bon` ADJ 
+ bonaerense ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonaerense`bonaerense` ADJ NC 
+ bonaerenses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonaerense`bonaerense` ADJ NC 
  bonanza ( NOUN NOUN_SINGULAR ) 
  bondad ( NOUN NOUN_SINGULAR ) 
- bondades ( NOUN NOUN_PLURAL ) lemma=`bondad` NC  
+ bondades ( NOUN NOUN_PLURAL ) lemma=`bondad` NC 
  bondadoso ( ADJECTIVE ) 
- bondadosos ( ADJECTIVE ) lemma=`bondadoso` ADJ  
+ bondadosos ( ADJECTIVE ) lemma=`bondadoso` ADJ 
  bonhomía ( NOUN NOUN_SINGULAR ) 
  boniato ( NOUN NOUN_SINGULAR ) 
- boniatos ( NOUN NOUN_PLURAL ) lemma=`boniato` NC  
- bonificaciones ( NOUN NOUN_PLURAL ) lemma=`bonificación` NC  
+ boniatos ( NOUN NOUN_PLURAL ) lemma=`boniato` NC 
+ bonificaciones ( NOUN NOUN_PLURAL ) lemma=`bonificación` NC 
  bonificación ( NOUN NOUN_SINGULAR ) 
  boningue ( ADJECTIVE ) 
- bonita ( ADJECTIVE ) lemma=`bonito` ADJ  
- bonitas ( ADJECTIVE ) lemma=`bonito` ADJ  
- bonito ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonito`bonito` ADJ  NC  
- bonitos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonito`bonito` ADJ  NC  
+ bonita ( ADJECTIVE ) lemma=`bonito` ADJ 
+ bonitas ( ADJECTIVE ) lemma=`bonito` ADJ 
+ bonito ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonito`bonito` ADJ NC 
+ bonitos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bonito`bonito` ADJ NC 
  bono ( NOUN NOUN_SINGULAR ) 
- bonos ( NOUN NOUN_PLURAL ) lemma=`bono` NC  
- bonsais ( NOUN NOUN_PLURAL ) lemma=`bonsai` NC  
+ bonos ( NOUN NOUN_PLURAL ) lemma=`bono` NC 
+ bonsais ( NOUN NOUN_PLURAL ) lemma=`bonsai` NC 
  bonus ( NOUN NOUN_SINGULAR ) 
- booleana ( ADJECTIVE ) lemma=`booleano` ADJ  
- booleanas ( ADJECTIVE ) lemma=`booleano` ADJ  
- booleanos ( ADJECTIVE ) lemma=`booleano` ADJ  
+ booleana ( ADJECTIVE ) lemma=`booleano` ADJ 
+ booleanas ( ADJECTIVE ) lemma=`booleano` ADJ 
+ booleanos ( ADJECTIVE ) lemma=`booleano` ADJ 
  boom ( NOUN NOUN_SINGULAR ) 
  booth ( ) 
  bootstrap ( NOUN NOUN_SINGULAR ) 
- boqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`boquear` VLadj  
- boqueo ( VERB ) lemma=`boquear` VLfin  
- boquerones ( NOUN NOUN_PLURAL ) lemma=`boquerón` NC  
+ boqueadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`boquear` VLadj 
+ boqueo ( VERB ) lemma=`boquear` VLfin 
+ boquerones ( NOUN NOUN_PLURAL ) lemma=`boquerón` NC 
  boquerón ( NOUN NOUN_SINGULAR ) 
- boquiabiertos ( ADJECTIVE ) lemma=`boquiabierto` ADJ  
+ boquiabiertos ( ADJECTIVE ) lemma=`boquiabierto` ADJ 
  boquilla ( NOUN NOUN_SINGULAR ) 
- boquita ( NOUN NOUN_PLURAL ) lemma=`boca` NC  
- borda ( VERB ) lemma=`bordar` VLfin  
- bordaba ( VERB ) lemma=`bordar` VLfin  
- bordada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordar` VLadj  
- bordadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordar` VLadj  
- bordadito ( NOUN NOUN_PLURAL ) lemma=`bordado` NC  
- bordado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bordado`bordar` NC  VLadj  
- bordados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bordado`bordar` NC  VLadj  
+ boquita ( NOUN NOUN_PLURAL ) lemma=`boca` NC 
+ borda ( VERB ) lemma=`bordar` VLfin 
+ bordaba ( VERB ) lemma=`bordar` VLfin 
+ bordada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordar` VLadj 
+ bordadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordar` VLadj 
+ bordadito ( NOUN NOUN_PLURAL ) lemma=`bordado` NC 
+ bordado ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bordado`bordar` NC VLadj 
+ bordados ( VERB_PAST_PARTICIPLE NOUN VERB NOUN_PLURAL ) lemma=`bordado`bordar` NC VLadj 
  bordar ( VERB ) 
- bordaron ( VERB ) lemma=`bordar` VLfin  
+ bordaron ( VERB ) lemma=`bordar` VLfin 
  borde ( NOUN NOUN_SINGULAR ) 
- bordea ( VERB ) lemma=`bordear` VLfin  
- bordeaban ( VERB ) lemma=`bordear` VLfin  
- bordeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj  
- bordeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj  
- bordeados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj  
- bordean ( VERB ) lemma=`bordear` VLfin  
- bordeando ( NOUN NOUN_GERUND ) lemma=`bordear` VLger  
- bordearla ( VERB_INFINITIVE VERB ) lemma=`bordear` VCLIinf  
- bordearon ( VERB ) lemma=`bordear` VLfin  
- bordes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borde`borde` ADJ  NC  
- bordeó ( VERB ) lemma=`bordear` VLfin  
- bordillos ( NOUN NOUN_PLURAL ) lemma=`borde` NC  
+ bordea ( VERB ) lemma=`bordear` VLfin 
+ bordeaban ( VERB ) lemma=`bordear` VLfin 
+ bordeada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj 
+ bordeadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj 
+ bordeados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bordear` VLadj 
+ bordean ( VERB ) lemma=`bordear` VLfin 
+ bordeando ( NOUN NOUN_GERUND ) lemma=`bordear` VLger 
+ bordearla ( VERB_INFINITIVE VERB ) lemma=`bordear` VCLIinf 
+ bordearon ( VERB ) lemma=`bordear` VLfin 
+ bordes ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borde`borde` ADJ NC 
+ bordeó ( VERB ) lemma=`bordear` VLfin 
+ bordillos ( NOUN NOUN_PLURAL ) lemma=`borde` NC 
  bordo ( NOUN NOUN_SINGULAR ) 
- bordó ( VERB ) lemma=`bordar` VLfin  
+ bordó ( VERB ) lemma=`bordar` VLfin 
  bordón ( NOUN NOUN_SINGULAR ) 
  boreal ( ADJECTIVE ) 
- boreales ( ADJECTIVE ) lemma=`boreal` ADJ  
- boricua ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boricua`boricua` ADJ  NC  
- boricuas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boricua`boricua` ADJ  NC  
- bornes ( NOUN NOUN_PLURAL ) lemma=`borne` NC  
+ boreales ( ADJECTIVE ) lemma=`boreal` ADJ 
+ boricua ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boricua`boricua` ADJ NC 
+ boricuas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`boricua`boricua` ADJ NC 
+ bornes ( NOUN NOUN_PLURAL ) lemma=`borne` NC 
  boro ( NOUN NOUN_SINGULAR ) 
- borra ( VERB ) lemma=`borrar` VLfin  
- borracha ( ADJECTIVE ) lemma=`borracho` ADJ  
+ borra ( VERB ) lemma=`borrar` VLfin 
+ borracha ( ADJECTIVE ) lemma=`borracho` ADJ 
  borrachera ( NOUN NOUN_SINGULAR ) 
- borracheras ( NOUN NOUN_PLURAL ) lemma=`borrachera` NC  
- borracho ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borracho`borracho` ADJ  NC  
- borrachos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borracho`borracho` ADJ  NC  
- borrada ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj  
- borradas ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj  
- borrado ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj  
+ borracheras ( NOUN NOUN_PLURAL ) lemma=`borrachera` NC 
+ borracho ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borracho`borracho` ADJ NC 
+ borrachos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borracho`borracho` ADJ NC 
+ borrada ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj 
+ borradas ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj 
+ borrado ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj 
  borrador ( NOUN NOUN_SINGULAR ) 
- borradores ( NOUN NOUN_PLURAL ) lemma=`borrador` NC  
- borrados ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj  
- borran ( VERB ) lemma=`borrar` VLfin  
- borrando ( NOUN NOUN_GERUND ) lemma=`borrar` VLger  
+ borradores ( NOUN NOUN_PLURAL ) lemma=`borrador` NC 
+ borrados ( VERB_PAST_PARTICIPLE VERB ) lemma=`borrar` VLadj 
+ borran ( VERB ) lemma=`borrar` VLfin 
+ borrando ( NOUN NOUN_GERUND ) lemma=`borrar` VLger 
  borrar ( VERB ) 
- borrara ( VERB ) lemma=`borrar` VLfin  
- borrarla ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf  
- borrarlo ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf  
- borrarlos ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf  
- borraron ( VERB ) lemma=`borrar` VLfin  
- borrarse ( VERB ) lemma=`borrar` VLinf  
- borrará ( VERB ) lemma=`borrar` VLfin  
- borras ( VERB ) lemma=`borrar` VLfin  
+ borrara ( VERB ) lemma=`borrar` VLfin 
+ borrarla ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf 
+ borrarlo ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf 
+ borrarlos ( VERB_INFINITIVE VERB ) lemma=`borrar` VCLIinf 
+ borraron ( VERB ) lemma=`borrar` VLfin 
+ borrarse ( VERB ) lemma=`borrar` VLinf 
+ borrará ( VERB ) lemma=`borrar` VLfin 
+ borras ( VERB ) lemma=`borrar` VLfin 
  borrasca ( NOUN NOUN_SINGULAR ) 
- borrase ( VERB ) lemma=`borrar` VLfin  
- borrasen ( VERB ) lemma=`borrar` VLfin  
- borre ( VERB ) lemma=`borrar` VLfin  
- borrego ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borrego`borrego` ADJ  NC  
- borregos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borrego`borrego` ADJ  NC  
- borren ( VERB ) lemma=`borrar` VLfin  
- borrica ( NOUN NOUN_PLURAL ) lemma=`borrico` NC  
- borrosa ( ADJECTIVE ) lemma=`borroso` ADJ  
+ borrase ( VERB ) lemma=`borrar` VLfin 
+ borrasen ( VERB ) lemma=`borrar` VLfin 
+ borre ( VERB ) lemma=`borrar` VLfin 
+ borrego ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borrego`borrego` ADJ NC 
+ borregos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`borrego`borrego` ADJ NC 
+ borren ( VERB ) lemma=`borrar` VLfin 
+ borrica ( NOUN NOUN_PLURAL ) lemma=`borrico` NC 
+ borrosa ( ADJECTIVE ) lemma=`borroso` ADJ 
  borrosidad ( NOUN NOUN_SINGULAR ) 
  borroso ( ADJECTIVE ) 
- borrosos ( ADJECTIVE ) lemma=`borroso` ADJ  
- borréis ( VERB ) lemma=`borrar` VLfin  
- borró ( VERB ) lemma=`borrar` VLfin  
+ borrosos ( ADJECTIVE ) lemma=`borroso` ADJ 
+ borréis ( VERB ) lemma=`borrar` VLfin 
+ borró ( VERB ) lemma=`borrar` VLfin 
  borrón ( NOUN NOUN_SINGULAR ) 
- bosnia ( ADJECTIVE ) lemma=`bosnio` ADJ  
- bosnias ( ADJECTIVE ) lemma=`bosnio` ADJ  
- bosnio ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bosnio`bosnio` ADJ  NC  
- bosnios ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bosnio`bosnio` ADJ  NC  
+ bosnia ( ADJECTIVE ) lemma=`bosnio` ADJ 
+ bosnias ( ADJECTIVE ) lemma=`bosnio` ADJ 
+ bosnio ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bosnio`bosnio` ADJ NC 
+ bosnios ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bosnio`bosnio` ADJ NC 
  bosque ( NOUN NOUN_SINGULAR ) 
- bosquecillo ( NOUN NOUN_PLURAL ) lemma=`bosque` NC  
- bosquecillos ( NOUN NOUN_PLURAL ) lemma=`bosque` NC  
- bosquecito ( NOUN NOUN_PLURAL ) lemma=`bosque` NC  
- bosqueja ( VERB ) lemma=`bosquejar` VLfin  
- bosquejada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj  
- bosquejadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj  
- bosquejado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj  
- bosquejan ( VERB ) lemma=`bosquejar` VLfin  
- bosquejaremos ( VERB ) lemma=`bosquejar` VLfin  
- bosquejo ( VERB ) lemma=`bosquejar` VLfin  
- bosquejó ( VERB ) lemma=`bosquejar` VLfin  
- bosques ( NOUN NOUN_PLURAL ) lemma=`bosque` NC  
+ bosquecillo ( NOUN NOUN_PLURAL ) lemma=`bosque` NC 
+ bosquecillos ( NOUN NOUN_PLURAL ) lemma=`bosque` NC 
+ bosquecito ( NOUN NOUN_PLURAL ) lemma=`bosque` NC 
+ bosqueja ( VERB ) lemma=`bosquejar` VLfin 
+ bosquejada ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj 
+ bosquejadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj 
+ bosquejado ( VERB_PAST_PARTICIPLE VERB ) lemma=`bosquejar` VLadj 
+ bosquejan ( VERB ) lemma=`bosquejar` VLfin 
+ bosquejaremos ( VERB ) lemma=`bosquejar` VLfin 
+ bosquejo ( VERB ) lemma=`bosquejar` VLfin 
+ bosquejó ( VERB ) lemma=`bosquejar` VLfin 
+ bosques ( NOUN NOUN_PLURAL ) lemma=`bosque` NC 
  bostezar ( VERB ) 
- bostezo ( NOUN VERB NOUN_PLURAL ) lemma=`bostezo`bostezar` NC  VLfin  
- bostezos ( NOUN NOUN_PLURAL ) lemma=`bostezo` NC  
- bota ( NOUN VERB NOUN_PLURAL ) lemma=`bota`botar` NC  VLfin  
- botaba ( VERB ) lemma=`botar` VLfin  
- botada ( VERB_PAST_PARTICIPLE VERB ) lemma=`botar` VLadj  
+ bostezo ( NOUN VERB NOUN_PLURAL ) lemma=`bostezo`bostezar` NC VLfin 
+ bostezos ( NOUN NOUN_PLURAL ) lemma=`bostezo` NC 
+ bota ( NOUN VERB NOUN_PLURAL ) lemma=`bota`botar` NC VLfin 
+ botaba ( VERB ) lemma=`botar` VLfin 
+ botada ( VERB_PAST_PARTICIPLE VERB ) lemma=`botar` VLadj 
  botar ( VERB ) 
- botaron ( VERB ) lemma=`botar` VLfin  
- botas ( NOUN VERB NOUN_PLURAL ) lemma=`bota`botar` NC  VLfin  
- bote ( NOUN VERB NOUN_PLURAL ) lemma=`bote`botar` NC  VLfin  
- botecito ( NOUN NOUN_PLURAL ) lemma=`bote` NC  
+ botaron ( VERB ) lemma=`botar` VLfin 
+ botas ( NOUN VERB NOUN_PLURAL ) lemma=`bota`botar` NC VLfin 
+ bote ( NOUN VERB NOUN_PLURAL ) lemma=`bote`botar` NC VLfin 
+ botecito ( NOUN NOUN_PLURAL ) lemma=`bote` NC 
  botella ( NOUN NOUN_SINGULAR ) 
- botellas ( NOUN NOUN_PLURAL ) lemma=`botella` NC  
- botellita ( NOUN NOUN_PLURAL ) lemma=`botella` NC  
- botellones ( NOUN NOUN_PLURAL ) lemma=`botellón` NC  
+ botellas ( NOUN NOUN_PLURAL ) lemma=`botella` NC 
+ botellita ( NOUN NOUN_PLURAL ) lemma=`botella` NC 
+ botellones ( NOUN NOUN_PLURAL ) lemma=`botellón` NC 
  botellón ( NOUN NOUN_SINGULAR ) 
- botes ( NOUN VERB NOUN_PLURAL ) lemma=`bote`botar` NC  VLfin  
+ botes ( NOUN VERB NOUN_PLURAL ) lemma=`bote`botar` NC VLfin 
  both ( ) 
  boticario ( NOUN NOUN_SINGULAR ) 
  botiguer ( NOUN NOUN_SINGULAR ) 
  botija ( NOUN NOUN_SINGULAR ) 
- botines ( NOUN NOUN_PLURAL ) lemma=`botín` NC  
+ botines ( NOUN NOUN_PLURAL ) lemma=`botín` NC 
  botiquín ( NOUN NOUN_SINGULAR ) 
- botita ( NOUN NOUN_PLURAL ) lemma=`bota` NC  
- botitas ( NOUN NOUN_PLURAL ) lemma=`bota` NC  
- botoncito ( NOUN NOUN_PLURAL ) lemma=`botón` NC  
- botoncitos ( NOUN NOUN_PLURAL ) lemma=`botón` NC  
- botones ( NOUN NOUN_PLURAL ) lemma=`botón` NC  
+ botita ( NOUN NOUN_PLURAL ) lemma=`bota` NC 
+ botitas ( NOUN NOUN_PLURAL ) lemma=`bota` NC 
+ botoncito ( NOUN NOUN_PLURAL ) lemma=`botón` NC 
+ botoncitos ( NOUN NOUN_PLURAL ) lemma=`botón` NC 
+ botones ( NOUN NOUN_PLURAL ) lemma=`botón` NC 
  botonoso ( ADJECTIVE ) 
  botulismo ( NOUN NOUN_SINGULAR ) 
  botulínica ( NOUN NOUN_SINGULAR ) 
- botulínicas ( NOUN NOUN_PLURAL ) lemma=`botulínica` NC  
+ botulínicas ( NOUN NOUN_PLURAL ) lemma=`botulínica` NC 
  botánico ( ADJECTIVE ) 
  botín ( NOUN NOUN_SINGULAR ) 
- botó ( VERB ) lemma=`botar` VLfin  
+ botó ( VERB ) lemma=`botar` VLfin 
  botón ( NOUN NOUN_SINGULAR ) 
  bouche ( ) 
  boucle ( ) 
  bout ( ) 
  boutique ( NOUN NOUN_SINGULAR ) 
- bovedilla ( NOUN NOUN_PLURAL ) lemma=`bóveda` NC  
- bovina ( ADJECTIVE ) lemma=`bovino` ADJ  
- boxeaban ( VERB ) lemma=`boxear` VLfin  
+ bovedilla ( NOUN NOUN_PLURAL ) lemma=`bóveda` NC 
+ bovina ( ADJECTIVE ) lemma=`bovino` ADJ 
+ boxeaban ( VERB ) lemma=`boxear` VLfin 
  boxeador ( NOUN NOUN_SINGULAR ) 
- boxeadores ( NOUN NOUN_PLURAL ) lemma=`boxeador` NC  
- boxeando ( NOUN NOUN_GERUND ) lemma=`boxear` VLger  
+ boxeadores ( NOUN NOUN_PLURAL ) lemma=`boxeador` NC 
+ boxeando ( NOUN NOUN_GERUND ) lemma=`boxear` VLger 
  boxear ( VERB ) 
- boxeo ( NOUN VERB NOUN_PLURAL ) lemma=`boxeo`boxear` NC  VLfin  
- boyas ( VERB ) lemma=`boyar` VLfin  
+ boxeo ( NOUN VERB NOUN_PLURAL ) lemma=`boxeo`boxear` NC VLfin 
+ boyas ( VERB ) lemma=`boyar` VLfin 
  bradiarritmia ( NOUN NOUN_SINGULAR ) 
  bradicardia ( NOUN NOUN_SINGULAR ) 
  bradiquinina ( NOUN NOUN_SINGULAR ) 
  bragueta ( NOUN NOUN_SINGULAR ) 
  branquial ( ADJECTIVE ) 
- branquiales ( ADJECTIVE ) lemma=`branquial` ADJ  
+ branquiales ( ADJECTIVE ) lemma=`branquial` ADJ 
  braquial ( ADJECTIVE ) 
- braquiocefálica ( ADJECTIVE ) lemma=`braquiocefálico` ADJ  
- braquiocefálicas ( ADJECTIVE ) lemma=`braquiocefálico` ADJ  
+ braquiocefálica ( ADJECTIVE ) lemma=`braquiocefálico` ADJ 
+ braquiocefálicas ( ADJECTIVE ) lemma=`braquiocefálico` ADJ 
  brasa ( NOUN NOUN_SINGULAR ) 
- brasas ( NOUN NOUN_PLURAL ) lemma=`brasa` NC  
- braserito ( NOUN NOUN_PLURAL ) lemma=`brasero` NC  
+ brasas ( NOUN NOUN_PLURAL ) lemma=`brasa` NC 
+ braserito ( NOUN NOUN_PLURAL ) lemma=`brasero` NC 
  brasero ( NOUN NOUN_SINGULAR ) 
- brasilera ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ  NC  
- brasileras ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ  NC  
- brasilero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ  NC  
- brasileña ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ  NC  
- brasileñas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ  NC  
- brasileño ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ  NC  
- brasileños ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ  NC  
- brava ( ADJECTIVE ) lemma=`bravo` ADJ  
- bravas ( ADJECTIVE ) lemma=`bravo` ADJ  
- bravo ( NOUN ADJECTIVE NOUN_PROPER_PLURAL ) lemma=`bravo`bravo` ADJ  NP  
- bravos ( ADJECTIVE ) lemma=`bravo` ADJ  
- bravucón ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bravucón`bravucón` ADJ  NC  
+ brasilera ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ NC 
+ brasileras ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ NC 
+ brasilero ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasilero`brasilero` ADJ NC 
+ brasileña ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ NC 
+ brasileñas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ NC 
+ brasileño ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ NC 
+ brasileños ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brasileño`brasileño` ADJ NC 
+ brava ( ADJECTIVE ) lemma=`bravo` ADJ 
+ bravas ( ADJECTIVE ) lemma=`bravo` ADJ 
+ bravo ( NOUN ADJECTIVE NOUN_PROPER_PLURAL ) lemma=`bravo`bravo` ADJ NP 
+ bravos ( ADJECTIVE ) lemma=`bravo` ADJ 
+ bravucón ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bravucón`bravucón` ADJ NC 
  bravío ( ADJECTIVE ) 
  brazo ( NOUN NOUN_SINGULAR ) 
  brazo-pierna ( NOUN NOUN_SINGULAR ) 
- brazos ( NOUN NOUN_PLURAL ) lemma=`brazo` NC  
- brea ( NOUN VERB NOUN_PLURAL ) lemma=`brea`brear` NC  VLfin  
+ brazos ( NOUN NOUN_PLURAL ) lemma=`brazo` NC 
+ brea ( NOUN VERB NOUN_PLURAL ) lemma=`brea`brear` NC VLfin 
  brebaje ( NOUN NOUN_SINGULAR ) 
  brecha ( NOUN NOUN_SINGULAR ) 
- brechas ( NOUN NOUN_PLURAL ) lemma=`brecha` NC  
- brega ( VERB ) lemma=`bregar` VLfin  
- bregan ( VERB ) lemma=`bregar` VLfin  
+ brechas ( NOUN NOUN_PLURAL ) lemma=`brecha` NC 
+ brega ( VERB ) lemma=`bregar` VLfin 
+ bregan ( VERB ) lemma=`bregar` VLfin 
  bregma ( NOUN NOUN_SINGULAR ) 
- bregó ( VERB ) lemma=`bregar` VLfin  
- bretona ( ADJECTIVE ) lemma=`bretón` ADJ  
- bretonas ( ADJECTIVE ) lemma=`bretón` ADJ  
- bretones ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bretón`bretón` ADJ  NC  
- bretón ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bretón`bretón` ADJ  NC  
+ bregó ( VERB ) lemma=`bregar` VLfin 
+ bretona ( ADJECTIVE ) lemma=`bretón` ADJ 
+ bretonas ( ADJECTIVE ) lemma=`bretón` ADJ 
+ bretones ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bretón`bretón` ADJ NC 
+ bretón ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bretón`bretón` ADJ NC 
  breve ( ADJECTIVE ) 
  brevedad ( NOUN NOUN_SINGULAR ) 
- brevemente ( ADVERB ) lemma=`breve` ADV  
- breves ( ADJECTIVE ) lemma=`breve` ADJ  
- brevísima ( ADJECTIVE ) lemma=`breve` ADJ  
- brevísimamente ( ADJECTIVE ) lemma=`breve` ADJ  
- brevísimas ( ADJECTIVE ) lemma=`breve` ADJ  
- brevísimo ( ADJECTIVE ) lemma=`breve` ADJ  
- brevísimos ( ADJECTIVE ) lemma=`breve` ADJ  
- brezales ( NOUN NOUN_PLURAL ) lemma=`brezal` NC  
+ brevemente ( ADVERB ) lemma=`breve` ADV 
+ breves ( ADJECTIVE ) lemma=`breve` ADJ 
+ brevísima ( ADJECTIVE ) lemma=`breve` ADJ 
+ brevísimamente ( ADJECTIVE ) lemma=`breve` ADJ 
+ brevísimas ( ADJECTIVE ) lemma=`breve` ADJ 
+ brevísimo ( ADJECTIVE ) lemma=`breve` ADJ 
+ brevísimos ( ADJECTIVE ) lemma=`breve` ADJ 
+ brezales ( NOUN NOUN_PLURAL ) lemma=`brezal` NC 
  brick ( ) 
  brida ( NOUN NOUN_SINGULAR ) 
- bridas ( NOUN NOUN_PLURAL ) lemma=`brida` NC  
+ bridas ( NOUN NOUN_PLURAL ) lemma=`brida` NC 
  bridge ( NOUN NOUN_SINGULAR ) 
- bridges ( NOUN NOUN_PLURAL ) lemma=`bridge` NC  
+ bridges ( NOUN NOUN_PLURAL ) lemma=`bridge` NC 
  brigada ( NOUN NOUN_SINGULAR ) 
- brigadas ( NOUN NOUN_PLURAL ) lemma=`brigada` NC  
- brilla ( VERB ) lemma=`brillar` VLfin  
- brillaba ( VERB ) lemma=`brillar` VLfin  
- brillaban ( VERB ) lemma=`brillar` VLfin  
- brillado ( VERB_PAST_PARTICIPLE VERB ) lemma=`brillar` VLadj  
- brillan ( VERB ) lemma=`brillar` VLfin  
- brillando ( NOUN NOUN_GERUND ) lemma=`brillar` VLger  
+ brigadas ( NOUN NOUN_PLURAL ) lemma=`brigada` NC 
+ brilla ( VERB ) lemma=`brillar` VLfin 
+ brillaba ( VERB ) lemma=`brillar` VLfin 
+ brillaban ( VERB ) lemma=`brillar` VLfin 
+ brillado ( VERB_PAST_PARTICIPLE VERB ) lemma=`brillar` VLadj 
+ brillan ( VERB ) lemma=`brillar` VLfin 
+ brillando ( NOUN NOUN_GERUND ) lemma=`brillar` VLger 
  brillante ( ADJECTIVE ) 
- brillantemente ( ADVERB ) lemma=`brillante` ADV  
- brillantes ( ADJECTIVE ) lemma=`brillante` ADJ  
+ brillantemente ( ADVERB ) lemma=`brillante` ADV 
+ brillantes ( ADJECTIVE ) lemma=`brillante` ADJ 
  brillantez ( NOUN NOUN_SINGULAR ) 
- brillantísima ( ADJECTIVE ) lemma=`brillante` ADJ  
- brillantísimo ( ADJECTIVE ) lemma=`brillante` ADJ  
+ brillantísima ( ADJECTIVE ) lemma=`brillante` ADJ 
+ brillantísimo ( ADJECTIVE ) lemma=`brillante` ADJ 
  brillar ( VERB ) 
- brillaran ( VERB ) lemma=`brillar` VLfin  
- brillaron ( VERB ) lemma=`brillar` VLfin  
- brillarían ( VERB ) lemma=`brillar` VLfin  
- brille ( VERB ) lemma=`brillar` VLfin  
- brillen ( VERB ) lemma=`brillar` VLfin  
- brillo ( NOUN VERB NOUN_PLURAL ) lemma=`brillo`brillar` NC  VLfin  
- brilló ( VERB ) lemma=`brillar` VLfin  
+ brillaran ( VERB ) lemma=`brillar` VLfin 
+ brillaron ( VERB ) lemma=`brillar` VLfin 
+ brillarían ( VERB ) lemma=`brillar` VLfin 
+ brille ( VERB ) lemma=`brillar` VLfin 
+ brillen ( VERB ) lemma=`brillar` VLfin 
+ brillo ( NOUN VERB NOUN_PLURAL ) lemma=`brillo`brillar` NC VLfin 
+ brilló ( VERB ) lemma=`brillar` VLfin 
  brincar ( VERB ) 
- brinco ( VERB ) lemma=`brincar` VLfin  
- brincó ( VERB ) lemma=`brincar` VLfin  
- brinda ( VERB ) lemma=`brindar` VLfin  
- brindaba ( VERB ) lemma=`brindar` VLfin  
- brindaban ( VERB ) lemma=`brindar` VLfin  
- brindada ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj  
- brindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj  
- brindado ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj  
- brindados ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj  
- brindamos ( VERB ) lemma=`brindar` VLfin  
- brindan ( VERB ) lemma=`brindar` VLfin  
- brindando ( NOUN NOUN_GERUND ) lemma=`brindar` VLger  
+ brinco ( VERB ) lemma=`brincar` VLfin 
+ brincó ( VERB ) lemma=`brincar` VLfin 
+ brinda ( VERB ) lemma=`brindar` VLfin 
+ brindaba ( VERB ) lemma=`brindar` VLfin 
+ brindaban ( VERB ) lemma=`brindar` VLfin 
+ brindada ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj 
+ brindadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj 
+ brindado ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj 
+ brindados ( VERB_PAST_PARTICIPLE VERB ) lemma=`brindar` VLadj 
+ brindamos ( VERB ) lemma=`brindar` VLfin 
+ brindan ( VERB ) lemma=`brindar` VLfin 
+ brindando ( NOUN NOUN_GERUND ) lemma=`brindar` VLger 
  brindar ( VERB ) 
- brindara ( VERB ) lemma=`brindar` VLfin  
- brindaran ( VERB ) lemma=`brindar` VLfin  
- brindaremos ( VERB ) lemma=`brindar` VLfin  
- brindarla ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf  
- brindarle ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf  
- brindarles ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf  
- brindarme ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf  
- brindarnos ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf  
- brindaron ( VERB ) lemma=`brindar` VLfin  
- brindará ( VERB ) lemma=`brindar` VLfin  
- brindarán ( VERB ) lemma=`brindar` VLfin  
- brindaré ( VERB ) lemma=`brindar` VLfin  
- brindaría ( VERB ) lemma=`brindar` VLfin  
- brindaríamos ( VERB ) lemma=`brindar` VLfin  
- brindarían ( VERB ) lemma=`brindar` VLfin  
- brindasen ( VERB ) lemma=`brindar` VLfin  
- brinde ( VERB ) lemma=`brindar` VLfin  
- brindemos ( VERB ) lemma=`brindar` VLfin  
- brinden ( VERB ) lemma=`brindar` VLfin  
+ brindara ( VERB ) lemma=`brindar` VLfin 
+ brindaran ( VERB ) lemma=`brindar` VLfin 
+ brindaremos ( VERB ) lemma=`brindar` VLfin 
+ brindarla ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf 
+ brindarle ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf 
+ brindarles ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf 
+ brindarme ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf 
+ brindarnos ( VERB_INFINITIVE VERB ) lemma=`brindar` VCLIinf 
+ brindaron ( VERB ) lemma=`brindar` VLfin 
+ brindará ( VERB ) lemma=`brindar` VLfin 
+ brindarán ( VERB ) lemma=`brindar` VLfin 
+ brindaré ( VERB ) lemma=`brindar` VLfin 
+ brindaría ( VERB ) lemma=`brindar` VLfin 
+ brindaríamos ( VERB ) lemma=`brindar` VLfin 
+ brindarían ( VERB ) lemma=`brindar` VLfin 
+ brindasen ( VERB ) lemma=`brindar` VLfin 
+ brinde ( VERB ) lemma=`brindar` VLfin 
+ brindemos ( VERB ) lemma=`brindar` VLfin 
+ brinden ( VERB ) lemma=`brindar` VLfin 
  brindis ( NOUN NOUN_SINGULAR ) 
- brindo ( VERB ) lemma=`brindar` VLfin  
- brindándole ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger  
- brindándoles ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger  
- brindándonos ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger  
- brindé ( VERB ) lemma=`brindar` VLfin  
- brindó ( VERB ) lemma=`brindar` VLfin  
+ brindo ( VERB ) lemma=`brindar` VLfin 
+ brindándole ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger 
+ brindándoles ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger 
+ brindándonos ( NOUN NOUN_GERUND ) lemma=`brindar` VCLIger 
+ brindé ( VERB ) lemma=`brindar` VLfin 
+ brindó ( VERB ) lemma=`brindar` VLfin 
  brisa ( NOUN NOUN_SINGULAR ) 
- brisas ( NOUN NOUN_PLURAL ) lemma=`brisa` NC  
- brisca ( VERB ) lemma=`briscar` VLfin  
- británica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ  NC  
- británicas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ  NC  
- británico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ  NC  
- británicos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ  NC  
+ brisas ( NOUN NOUN_PLURAL ) lemma=`brisa` NC 
+ brisca ( VERB ) lemma=`briscar` VLfin 
+ británica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ NC 
+ británicas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ NC 
+ británico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ NC 
+ británicos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`británico`británico` ADJ NC 
  brizna ( NOUN NOUN_SINGULAR ) 
  broadcast ( ) 
  brocha ( NOUN NOUN_SINGULAR ) 
  broche ( NOUN NOUN_SINGULAR ) 
  broglie ( NOUN NOUN_SINGULAR ) 
- broma ( NOUN VERB NOUN_PLURAL ) lemma=`broma`bromar` NC  VLfin  
- bromados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bromar` VLadj  
- bromas ( NOUN VERB NOUN_PLURAL ) lemma=`broma`bromar` NC  VLfin  
+ broma ( NOUN VERB NOUN_PLURAL ) lemma=`broma`bromar` NC VLfin 
+ bromados ( VERB_PAST_PARTICIPLE VERB ) lemma=`bromar` VLadj 
+ bromas ( NOUN VERB NOUN_PLURAL ) lemma=`broma`bromar` NC VLfin 
  bromato ( NOUN NOUN_SINGULAR ) 
- bromea ( VERB ) lemma=`bromear` VLfin  
- bromeando ( NOUN NOUN_GERUND ) lemma=`bromear` VLger  
+ bromea ( VERB ) lemma=`bromear` VLfin 
+ bromeando ( NOUN NOUN_GERUND ) lemma=`bromear` VLger 
  bromear ( VERB ) 
  bromelina ( NOUN NOUN_SINGULAR ) 
- bromeó ( VERB ) lemma=`bromear` VLfin  
- bromitas ( NOUN NOUN_PLURAL ) lemma=`broma` NC  
+ bromeó ( VERB ) lemma=`bromear` VLfin 
+ bromitas ( NOUN NOUN_PLURAL ) lemma=`broma` NC 
  bromocriptina ( NOUN NOUN_SINGULAR ) 
  bromosulftaleína ( NOUN NOUN_SINGULAR ) 
  bromuro ( NOUN NOUN_SINGULAR ) 
- bronca ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bronco`bronca` ADJ  NC  
- broncas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bronco`bronca` ADJ  NC  
+ bronca ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bronco`bronca` ADJ NC 
+ broncas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bronco`bronca` ADJ NC 
  bronce ( NOUN NOUN_SINGULAR ) 
- bronceada ( VERB_PAST_PARTICIPLE VERB ) lemma=`broncear` VLadj  
- bronceado ( VERB_PAST_PARTICIPLE VERB ) lemma=`broncear` VLadj  
+ bronceada ( VERB_PAST_PARTICIPLE VERB ) lemma=`broncear` VLadj 
+ bronceado ( VERB_PAST_PARTICIPLE VERB ) lemma=`broncear` VLadj 
  bronceador ( NOUN NOUN_SINGULAR ) 
- bronces ( NOUN NOUN_PLURAL ) lemma=`bronce` NC  
+ bronces ( NOUN NOUN_PLURAL ) lemma=`bronce` NC 
  bronco ( ADJECTIVE ) 
  broncoconstricción ( NOUN NOUN_SINGULAR ) 
  broncodilatador ( NOUN NOUN_SINGULAR ) 
  broncodilatadoro ( ADJECTIVE ) 
  broncodisplasia ( NOUN NOUN_SINGULAR ) 
  broncoespasmo ( NOUN NOUN_SINGULAR ) 
- broncoespasmos ( NOUN NOUN_PLURAL ) lemma=`broncoespasmo` NC  
+ broncoespasmos ( NOUN NOUN_PLURAL ) lemma=`broncoespasmo` NC 
  broncografía ( NOUN NOUN_SINGULAR ) 
  broncopatía ( NOUN NOUN_SINGULAR ) 
  broncopleural ( ADJECTIVE ) 
  broncopulmonar ( ADJECTIVE ) 
- broncos ( ADJECTIVE ) lemma=`bronco` ADJ  
+ broncos ( ADJECTIVE ) lemma=`bronco` ADJ 
  broncoscopio ( ADJECTIVE ) 
  bronquial ( ADJECTIVE ) 
- bronquiales ( ADJECTIVE ) lemma=`bronquial` ADJ  
+ bronquiales ( ADJECTIVE ) lemma=`bronquial` ADJ 
  bronquiectasia ( NOUN NOUN_SINGULAR ) 
  bronquio ( NOUN NOUN_SINGULAR ) 
- bronquiolos ( NOUN NOUN_PLURAL ) lemma=`bronquiolo` NC  
- bronquios ( NOUN NOUN_PLURAL ) lemma=`bronquio` NC  
+ bronquiolos ( NOUN NOUN_PLURAL ) lemma=`bronquiolo` NC 
+ bronquios ( NOUN NOUN_PLURAL ) lemma=`bronquio` NC 
  bronquitis ( NOUN NOUN_SINGULAR ) 
  bronquíolo ( NOUN NOUN_SINGULAR ) 
  bronquítico ( ADJECTIVE ) 
- brota ( VERB ) lemma=`brotar` VLfin  
- brotaba ( VERB ) lemma=`brotar` VLfin  
+ brota ( VERB ) lemma=`brotar` VLfin 
+ brotaba ( VERB ) lemma=`brotar` VLfin 
  brotar ( VERB ) 
- brotara ( VERB ) lemma=`brotar` VLfin  
- brotaron ( VERB ) lemma=`brotar` VLfin  
- brotarán ( VERB ) lemma=`brotar` VLfin  
- brotas ( VERB ) lemma=`brotar` VLfin  
- brote ( NOUN VERB NOUN_PLURAL ) lemma=`brote`brotar` NC  VLfin  
- brotes ( NOUN VERB NOUN_PLURAL ) lemma=`brote`brotar` NC  VLfin  
+ brotara ( VERB ) lemma=`brotar` VLfin 
+ brotaron ( VERB ) lemma=`brotar` VLfin 
+ brotarán ( VERB ) lemma=`brotar` VLfin 
+ brotas ( VERB ) lemma=`brotar` VLfin 
+ brote ( NOUN VERB NOUN_PLURAL ) lemma=`brote`brotar` NC VLfin 
+ brotes ( NOUN VERB NOUN_PLURAL ) lemma=`brote`brotar` NC VLfin 
  brown ( ) 
  browse ( NOUN NOUN_SINGULAR ) 
- bruja ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin  
- brujas ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin  
+ bruja ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ NC VLfin 
+ brujas ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ NC VLfin 
  brujería ( NOUN NOUN_SINGULAR ) 
- brujerías ( NOUN NOUN_PLURAL ) lemma=`brujería` NC  
- brujita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo` ADJ  NC  
- brujo ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ  NC  VLfin  
- brujos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo` ADJ  NC  
- bruma ( NOUN VERB NOUN_PLURAL ) lemma=`bruma`brumar` NC  VLfin  
- brumas ( NOUN VERB NOUN_PLURAL ) lemma=`bruma`brumar` NC  VLfin  
- brusca ( ADJECTIVE ) lemma=`brusco` ADJ  
- bruscamente ( ADVERB ) lemma=`brusco` ADV  
- bruscas ( ADJECTIVE ) lemma=`brusco` ADJ  
- brusco ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brusco`brusco` ADJ  NC  
- bruscos ( ADJECTIVE ) lemma=`brusco` ADJ  
+ brujerías ( NOUN NOUN_PLURAL ) lemma=`brujería` NC 
+ brujita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo` ADJ NC 
+ brujo ( NOUN VERB ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo`brujir` ADJ NC VLfin 
+ brujos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brujo`brujo` ADJ NC 
+ bruma ( NOUN VERB NOUN_PLURAL ) lemma=`bruma`brumar` NC VLfin 
+ brumas ( NOUN VERB NOUN_PLURAL ) lemma=`bruma`brumar` NC VLfin 
+ brusca ( ADJECTIVE ) lemma=`brusco` ADJ 
+ bruscamente ( ADVERB ) lemma=`brusco` ADV 
+ bruscas ( ADJECTIVE ) lemma=`brusco` ADJ 
+ brusco ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`brusco`brusco` ADJ NC 
+ bruscos ( ADJECTIVE ) lemma=`brusco` ADJ 
  brusquedad ( NOUN NOUN_SINGULAR ) 
- bruta ( ADJECTIVE ) lemma=`bruto` ADJ  
+ bruta ( ADJECTIVE ) lemma=`bruto` ADJ 
  brutal ( ADJECTIVE ) 
- brutales ( ADJECTIVE ) lemma=`brutal` ADJ  
+ brutales ( ADJECTIVE ) lemma=`brutal` ADJ 
  brutalidad ( NOUN NOUN_SINGULAR ) 
- brutalidades ( NOUN NOUN_PLURAL ) lemma=`brutalidad` NC  
- brutalmente ( ADVERB ) lemma=`brutal` ADV  
- brutas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ  NC  
- brutito ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ  NC  
- bruto ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ  NC  
- brutos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ  NC  
+ brutalidades ( NOUN NOUN_PLURAL ) lemma=`brutalidad` NC 
+ brutalmente ( ADVERB ) lemma=`brutal` ADV 
+ brutas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ NC 
+ brutito ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ NC 
+ bruto ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ NC 
+ brutos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bruto`bruto` ADJ NC 
  brío ( NOUN NOUN_SINGULAR ) 
- bríos ( NOUN NOUN_PLURAL ) lemma=`brío` NC  
+ bríos ( NOUN NOUN_PLURAL ) lemma=`brío` NC 
  brújula ( NOUN NOUN_SINGULAR ) 
  bu ( NOUN NOUN_PROPER_SINGULAR ) 
  buba ( NOUN NOUN_SINGULAR ) 
  bucal ( ADJECTIVE ) 
- bucales ( ADJECTIVE ) lemma=`bucal` ADJ  
- bucea ( VERB ) lemma=`bucear` VLfin  
- buceadores ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`buceador`buceador` ADJ  NC  
- buceo ( NOUN VERB NOUN_PLURAL ) lemma=`buceo`bucear` NC  VLfin  
+ bucales ( ADJECTIVE ) lemma=`bucal` ADJ 
+ bucea ( VERB ) lemma=`bucear` VLfin 
+ buceadores ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`buceador`buceador` ADJ NC 
+ buceo ( NOUN VERB NOUN_PLURAL ) lemma=`buceo`bucear` NC VLfin 
  buchito ( NOUN NOUN_SINGULAR ) 
  bucle ( NOUN NOUN_SINGULAR ) 
- bucles ( NOUN NOUN_PLURAL ) lemma=`bucle` NC  
- budista ( ADJECTIVE ) lemma=`budisto` ADJ  
- budistas ( ADJECTIVE ) lemma=`budisto` ADJ  
- buen ( ADJECTIVE ) lemma=`bueno` ADJ  
- buena ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenamente ( ADVERB ) lemma=`bueno` ADV  
- buenas ( ADJECTIVE ) lemma=`bueno` ADJ  
+ bucles ( NOUN NOUN_PLURAL ) lemma=`bucle` NC 
+ budista ( ADJECTIVE ) lemma=`budisto` ADJ 
+ budistas ( ADJECTIVE ) lemma=`budisto` ADJ 
+ buen ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buena ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenamente ( ADVERB ) lemma=`bueno` ADV 
+ buenas ( ADJECTIVE ) lemma=`bueno` ADJ 
  buenazo ( ADJECTIVE ) 
- buenecilla ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenecito ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenita ( ADJECTIVE ) lemma=`bueno` ADJ  
- bueno ( ADJECTIVE ) lemma=`bueno`bueno` ADJ  ITJN  
- buenos ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenosmozos ( NOUN NOUN_PLURAL ) lemma=`buenmozo` NC  
- buenísima ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenísimas ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenísimo ( ADJECTIVE ) lemma=`bueno` ADJ  
- buenísimos ( ADJECTIVE ) lemma=`bueno` ADJ  
+ buenecilla ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenecito ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenita ( ADJECTIVE ) lemma=`bueno` ADJ 
+ bueno ( ADJECTIVE ) lemma=`bueno`bueno` ADJ ITJN 
+ buenos ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenosmozos ( NOUN NOUN_PLURAL ) lemma=`buenmozo` NC 
+ buenísima ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenísimas ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenísimo ( ADJECTIVE ) lemma=`bueno` ADJ 
+ buenísimos ( ADJECTIVE ) lemma=`bueno` ADJ 
  buey ( NOUN NOUN_SINGULAR ) 
- bueyes ( NOUN NOUN_PLURAL ) lemma=`buey` NC  
+ bueyes ( NOUN NOUN_PLURAL ) lemma=`buey` NC 
  bufanda ( NOUN NOUN_SINGULAR ) 
- bufandas ( NOUN NOUN_PLURAL NOUN_GERUND ) lemma=`bufanda`bufar` NC  VLger  
+ bufandas ( NOUN NOUN_PLURAL NOUN_GERUND ) lemma=`bufanda`bufar` NC VLger 
  bufete ( NOUN NOUN_SINGULAR ) 
  buffer ( NOUN NOUN_SINGULAR ) 
  buitre ( NOUN NOUN_SINGULAR ) 
- buitres ( NOUN NOUN_PLURAL ) lemma=`buitre` NC  
+ buitres ( NOUN NOUN_PLURAL ) lemma=`buitre` NC 
  bujes ( NOUN NOUN_SINGULAR ) 
  bujía ( NOUN NOUN_SINGULAR ) 
- bujías ( NOUN NOUN_PLURAL ) lemma=`bujía` NC  
- bulbares ( ADJECTIVE ) lemma=`bulbar` ADJ  
+ bujías ( NOUN NOUN_PLURAL ) lemma=`bujía` NC 
+ bulbares ( ADJECTIVE ) lemma=`bulbar` ADJ 
  bulbo ( NOUN NOUN_SINGULAR ) 
  bulbocavernoso ( ADJECTIVE ) 
- bulbos ( NOUN NOUN_PLURAL ) lemma=`bulbo` NC  
+ bulbos ( NOUN NOUN_PLURAL ) lemma=`bulbo` NC 
  bulboso ( ADJECTIVE ) 
  bulboventricular ( ADJECTIVE ) 
  bulbus ( NOUN NOUN_SINGULAR ) 
  bulevar ( NOUN NOUN_SINGULAR ) 
  bulimia ( NOUN NOUN_SINGULAR ) 
  bulldozer ( NOUN NOUN_SINGULAR ) 
- bulliciosa ( ADJECTIVE ) lemma=`bullicioso` ADJ  
- bulliciosos ( ADJECTIVE ) lemma=`bullicioso` ADJ  
+ bulliciosa ( ADJECTIVE ) lemma=`bullicioso` ADJ 
+ bulliciosos ( ADJECTIVE ) lemma=`bullicioso` ADJ 
  bulto ( NOUN NOUN_SINGULAR ) 
- bultos ( NOUN NOUN_PLURAL ) lemma=`bulto` NC  
+ bultos ( NOUN NOUN_PLURAL ) lemma=`bulto` NC 
  bunched ( ) 
  buque ( NOUN NOUN_SINGULAR ) 
- buques ( NOUN NOUN_PLURAL ) lemma=`buque` NC  
+ buques ( NOUN NOUN_PLURAL ) lemma=`buque` NC 
  burbuja ( NOUN NOUN_SINGULAR ) 
- burbujas ( NOUN NOUN_PLURAL ) lemma=`burbuja` NC  
- burda ( ADJECTIVE ) lemma=`burdo` ADJ  
- burdamente ( ADVERB ) lemma=`burdo` ADV  
- burdas ( ADJECTIVE ) lemma=`burdo` ADJ  
+ burbujas ( NOUN NOUN_PLURAL ) lemma=`burbuja` NC 
+ burda ( ADJECTIVE ) lemma=`burdo` ADJ 
+ burdamente ( ADVERB ) lemma=`burdo` ADV 
+ burdas ( ADJECTIVE ) lemma=`burdo` ADJ 
  burdo ( ADJECTIVE ) 
  bureau ( NOUN NOUN_SINGULAR ) 
  bureta ( NOUN NOUN_SINGULAR ) 
- buretas ( NOUN NOUN_PLURAL ) lemma=`bureta` NC  
- burgalesa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgalés`burgalés` ADJ  NC  
- burgalés ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgalés`burgalés` ADJ  NC  
- burguesa ( ADJECTIVE ) lemma=`burgués` ADJ  
- burguesas ( ADJECTIVE ) lemma=`burgués` ADJ  
- burgueses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgués`burgués` ADJ  NC  
+ buretas ( NOUN NOUN_PLURAL ) lemma=`bureta` NC 
+ burgalesa ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgalés`burgalés` ADJ NC 
+ burgalés ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgalés`burgalés` ADJ NC 
+ burguesa ( ADJECTIVE ) lemma=`burgués` ADJ 
+ burguesas ( ADJECTIVE ) lemma=`burgués` ADJ 
+ burgueses ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgués`burgués` ADJ NC 
  burguesía ( NOUN NOUN_SINGULAR ) 
- burguesías ( NOUN NOUN_PLURAL ) lemma=`burguesía` NC  
+ burguesías ( NOUN NOUN_PLURAL ) lemma=`burguesía` NC 
  burgundio ( NOUN NOUN_SINGULAR ) 
- burgués ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgués`burgués` ADJ  NC  
- burla ( NOUN VERB NOUN_PLURAL ) lemma=`burla`burlar` NC  VLfin  
- burlada ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj  
- burlado ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj  
- burlados ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj  
- burlan ( VERB ) lemma=`burlar` VLfin  
- burlando ( NOUN NOUN_GERUND ) lemma=`burlar` VLger  
+ burgués ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burgués`burgués` ADJ NC 
+ burla ( NOUN VERB NOUN_PLURAL ) lemma=`burla`burlar` NC VLfin 
+ burlada ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj 
+ burlado ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj 
+ burlados ( VERB_PAST_PARTICIPLE VERB ) lemma=`burlar` VLadj 
+ burlan ( VERB ) lemma=`burlar` VLfin 
+ burlando ( NOUN NOUN_GERUND ) lemma=`burlar` VLger 
  burlar ( VERB ) 
- burlaron ( VERB ) lemma=`burlar` VLfin  
+ burlaron ( VERB ) lemma=`burlar` VLfin 
  burlarse ( VERB_INFINITIVE VERB ) 
- burlas ( NOUN VERB NOUN_PLURAL ) lemma=`burla`burlar` NC  VLfin  
- burle ( VERB ) lemma=`burlar` VLfin  
- burlen ( VERB ) lemma=`burlar` VLfin  
- burlescas ( ADJECTIVE ) lemma=`burlesco` ADJ  
- burlona ( ADJECTIVE ) lemma=`burlón` ADJ  
- burlándose ( NOUN NOUN_GERUND ) lemma=`burlarse` VCLIger  
- burló ( VERB ) lemma=`burlar` VLfin  
+ burlas ( NOUN VERB NOUN_PLURAL ) lemma=`burla`burlar` NC VLfin 
+ burle ( VERB ) lemma=`burlar` VLfin 
+ burlen ( VERB ) lemma=`burlar` VLfin 
+ burlescas ( ADJECTIVE ) lemma=`burlesco` ADJ 
+ burlona ( ADJECTIVE ) lemma=`burlón` ADJ 
+ burlándose ( NOUN NOUN_GERUND ) lemma=`burlarse` VCLIger 
+ burló ( VERB ) lemma=`burlar` VLfin 
  burocracia ( NOUN NOUN_SINGULAR ) 
- burocracias ( NOUN NOUN_PLURAL ) lemma=`burocracia` NC  
- burocratizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`burocratizar` VLadj  
+ burocracias ( NOUN NOUN_PLURAL ) lemma=`burocracia` NC 
+ burocratizada ( VERB_PAST_PARTICIPLE VERB ) lemma=`burocratizar` VLadj 
  burocratizar ( VERB ) 
- burocrática ( ADJECTIVE ) lemma=`burocrático` ADJ  
- burocráticamente ( ADVERB ) lemma=`burocrático` ADV  
- burocráticas ( ADJECTIVE ) lemma=`burocrático` ADJ  
+ burocrática ( ADJECTIVE ) lemma=`burocrático` ADJ 
+ burocráticamente ( ADVERB ) lemma=`burocrático` ADV 
+ burocráticas ( ADJECTIVE ) lemma=`burocrático` ADJ 
  burocrático ( ADJECTIVE ) 
- burocráticos ( ADJECTIVE ) lemma=`burocrático` ADJ  
+ burocráticos ( ADJECTIVE ) lemma=`burocrático` ADJ 
  burofax ( NOUN NOUN_SINGULAR ) 
- burra ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ  NC  
- burrita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ  NC  
- burro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ  NC  
- burros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ  NC  
+ burra ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ NC 
+ burrita ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ NC 
+ burro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ NC 
+ burros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`burro`burro` ADJ NC 
  burst ( ) 
  bursátil ( ADJECTIVE ) 
- bursátiles ( ADJECTIVE ) lemma=`bursátil` ADJ  
- buró ( NOUN NOUN_PLURAL ) lemma=`bureau` NC  
+ bursátiles ( ADJECTIVE ) lemma=`bursátil` ADJ 
+ buró ( NOUN NOUN_PLURAL ) lemma=`bureau` NC 
  burócrata ( NOUN NOUN_SINGULAR ) 
- burócratas ( NOUN NOUN_PLURAL ) lemma=`burócrata` NC  
- burós ( NOUN NOUN_PLURAL ) lemma=`buró` NC  
+ burócratas ( NOUN NOUN_PLURAL ) lemma=`burócrata` NC 
+ burós ( NOUN NOUN_PLURAL ) lemma=`buró` NC 
  bus ( ) 
- busca ( VERB ) lemma=`buscar` VLfin  
- buscaba ( VERB ) lemma=`buscar` VLfin  
- buscaban ( VERB ) lemma=`buscar` VLfin  
- buscabas ( VERB ) lemma=`buscar` VLfin  
- buscad ( VERB ) lemma=`buscar` VLfin  
- buscada ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscado ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscador ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`buscador`buscador` ADJ  NC  
- buscadores ( NOUN NOUN_PLURAL ) lemma=`buscador` NC  
- buscados ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscamos ( VERB ) lemma=`buscar` VLfin  
- buscan ( VERB ) lemma=`buscar` VLfin  
- buscando ( NOUN NOUN_GERUND ) lemma=`buscar` VLger  
+ busca ( VERB ) lemma=`buscar` VLfin 
+ buscaba ( VERB ) lemma=`buscar` VLfin 
+ buscaban ( VERB ) lemma=`buscar` VLfin 
+ buscabas ( VERB ) lemma=`buscar` VLfin 
+ buscad ( VERB ) lemma=`buscar` VLfin 
+ buscada ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscadas ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscado ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscador ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`buscador`buscador` ADJ NC 
+ buscadores ( NOUN NOUN_PLURAL ) lemma=`buscador` NC 
+ buscados ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscamos ( VERB ) lemma=`buscar` VLfin 
+ buscan ( VERB ) lemma=`buscar` VLfin 
+ buscando ( NOUN NOUN_GERUND ) lemma=`buscar` VLger 
  buscar ( VERB ) 
- buscara ( VERB ) lemma=`buscar` VLfin  
- buscarais ( VERB ) lemma=`buscar` VLfin  
- buscaran ( VERB ) lemma=`buscar` VLfin  
- buscaremos ( VERB ) lemma=`buscar` VLfin  
- buscarla ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscarle ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscarles ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscarlo ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscarlos ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscarme ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscaron ( VERB ) lemma=`buscar` VLfin  
+ buscara ( VERB ) lemma=`buscar` VLfin 
+ buscarais ( VERB ) lemma=`buscar` VLfin 
+ buscaran ( VERB ) lemma=`buscar` VLfin 
+ buscaremos ( VERB ) lemma=`buscar` VLfin 
+ buscarla ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscarle ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscarles ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscarlo ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscarlos ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscarme ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscaron ( VERB ) lemma=`buscar` VLfin 
  buscarse ( VERB_INFINITIVE VERB ) 
- buscarte ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf  
- buscará ( VERB ) lemma=`buscar` VLfin  
- buscarán ( VERB ) lemma=`buscar` VLfin  
- buscaré ( VERB ) lemma=`buscar` VLfin  
- buscaría ( VERB ) lemma=`buscar` VLfin  
- buscaríamos ( VERB ) lemma=`buscar` VLfin  
- buscarían ( VERB ) lemma=`buscar` VLfin  
- buscas ( NOUN VERB NOUN_PLURAL ) lemma=`busca`buscar` NC  VLfin  
- buscase ( VERB ) lemma=`buscar` VLfin  
- buscasen ( VERB ) lemma=`buscar` VLfin  
- busco ( VERB ) lemma=`buscar` VLfin  
- buscábamos ( VERB ) lemma=`buscar` VLfin  
- buscándola ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscándolos ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscándose ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj  
- buscó ( VERB ) lemma=`buscar` VLfin  
- buses ( NOUN NOUN_PLURAL ) lemma=`bus` NC  
+ buscarte ( VERB_INFINITIVE VERB ) lemma=`buscar` VCLIinf 
+ buscará ( VERB ) lemma=`buscar` VLfin 
+ buscarán ( VERB ) lemma=`buscar` VLfin 
+ buscaré ( VERB ) lemma=`buscar` VLfin 
+ buscaría ( VERB ) lemma=`buscar` VLfin 
+ buscaríamos ( VERB ) lemma=`buscar` VLfin 
+ buscarían ( VERB ) lemma=`buscar` VLfin 
+ buscas ( NOUN VERB NOUN_PLURAL ) lemma=`busca`buscar` NC VLfin 
+ buscase ( VERB ) lemma=`buscar` VLfin 
+ buscasen ( VERB ) lemma=`buscar` VLfin 
+ busco ( VERB ) lemma=`buscar` VLfin 
+ buscábamos ( VERB ) lemma=`buscar` VLfin 
+ buscándola ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscándolos ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscándose ( VERB_PAST_PARTICIPLE VERB ) lemma=`buscar` VLadj 
+ buscó ( VERB ) lemma=`buscar` VLfin 
+ buses ( NOUN NOUN_PLURAL ) lemma=`bus` NC 
  busesito ( NOUN NOUN_SINGULAR ) 
- busque ( VERB ) lemma=`buscar` VLfin  
- busquemos ( VERB ) lemma=`buscar` VLfin  
- busquen ( VERB ) lemma=`buscar` VLfin  
- busques ( VERB ) lemma=`buscar` VLfin  
- busqué ( VERB ) lemma=`buscar` VLfin  
+ busque ( VERB ) lemma=`buscar` VLfin 
+ busquemos ( VERB ) lemma=`buscar` VLfin 
+ busquen ( VERB ) lemma=`buscar` VLfin 
+ busques ( VERB ) lemma=`buscar` VLfin 
+ busqué ( VERB ) lemma=`buscar` VLfin 
  busto ( NOUN NOUN_SINGULAR ) 
- bustos ( NOUN NOUN_PLURAL ) lemma=`busto` NC  
+ bustos ( NOUN NOUN_PLURAL ) lemma=`busto` NC 
  busy ( ) 
  butaca ( NOUN NOUN_SINGULAR ) 
- butacas ( NOUN NOUN_PLURAL ) lemma=`butaca` NC  
+ butacas ( NOUN NOUN_PLURAL ) lemma=`butaca` NC 
  butano ( NOUN NOUN_SINGULAR ) 
- butaquita ( NOUN NOUN_PLURAL ) lemma=`butaca` NC  
+ butaquita ( NOUN NOUN_PLURAL ) lemma=`butaca` NC 
  butirato ( NOUN NOUN_SINGULAR ) 
  butírico ( ADJECTIVE ) 
- buzo ( NOUN VERB NOUN_PLURAL ) lemma=`buzo`buzar` NC  VLfin  
- buzones ( NOUN NOUN_PLURAL ) lemma=`buzón` NC  
- buzos ( NOUN NOUN_PLURAL ) lemma=`buzo` NC  
+ buzo ( NOUN VERB NOUN_PLURAL ) lemma=`buzo`buzar` NC VLfin 
+ buzones ( NOUN NOUN_PLURAL ) lemma=`buzón` NC 
+ buzos ( NOUN NOUN_PLURAL ) lemma=`buzo` NC 
  buzón ( NOUN NOUN_SINGULAR ) 
  by ( ) 
  bye ( NOUN NOUN_PROPER_SINGULAR ) 
  byte ( NOUN NOUN_SINGULAR ) 
  bytecode ( NOUN NOUN_SINGULAR ) 
- bytes ( NOUN NOUN_PLURAL ) lemma=`byte` NC  
- bájame ( ) lemma=`bajar` VCLIfin  
- bájate ( ) lemma=`bajar` VCLIfin  
- báltica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ  NC  
- bálticas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ  NC  
- báltico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ  NC  
- bálticos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ  NC  
- bárbara ( ADJECTIVE ) lemma=`bárbaro` ADJ  
- bárbaramente ( ADVERB ) lemma=`bárbaro` ADV  
- bárbaras ( ADJECTIVE ) lemma=`bárbaro` ADJ  
+ bytes ( NOUN NOUN_PLURAL ) lemma=`byte` NC 
+ bájame ( ) lemma=`bajar` VCLIfin 
+ bájate ( ) lemma=`bajar` VCLIfin 
+ báltica ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ NC 
+ bálticas ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ NC 
+ báltico ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ NC 
+ bálticos ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`báltico`báltico` ADJ NC 
+ bárbara ( ADJECTIVE ) lemma=`bárbaro` ADJ 
+ bárbaramente ( ADVERB ) lemma=`bárbaro` ADV 
+ bárbaras ( ADJECTIVE ) lemma=`bárbaro` ADJ 
  bárbaro ( ADJECTIVE ) 
- bárbaros ( ADJECTIVE ) lemma=`bárbaro` ADJ  
+ bárbaros ( ADJECTIVE ) lemma=`bárbaro` ADJ 
  báscula ( NOUN NOUN_SINGULAR ) 
- básculas ( NOUN NOUN_PLURAL ) lemma=`báscula` NC  
- básica ( ADJECTIVE ) lemma=`básico` ADJ  
- básicamente ( ADVERB ) lemma=`básico` ADV  
- básicas ( ADJECTIVE ) lemma=`básico` ADJ  
+ básculas ( NOUN NOUN_PLURAL ) lemma=`báscula` NC 
+ básica ( ADJECTIVE ) lemma=`básico` ADJ 
+ básicamente ( ADVERB ) lemma=`básico` ADV 
+ básicas ( ADJECTIVE ) lemma=`básico` ADJ 
  básico ( ADJECTIVE ) 
- básicos ( ADJECTIVE ) lemma=`básico` ADJ  
- básquetbol ( NOUN NOUN_PLURAL ) lemma=`basketball` NC  
- bávara ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ  NC  
- bávaro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ  NC  
- bávaros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ  NC  
- béisbol ( NOUN NOUN_PLURAL ) lemma=`baseball` NC  
- bélica ( ADJECTIVE ) lemma=`bélico` ADJ  
- bélicas ( ADJECTIVE ) lemma=`bélico` ADJ  
+ básicos ( ADJECTIVE ) lemma=`básico` ADJ 
+ básquetbol ( NOUN NOUN_PLURAL ) lemma=`basketball` NC 
+ bávara ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ NC 
+ bávaro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ NC 
+ bávaros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`bávaro`bávaro` ADJ NC 
+ béisbol ( NOUN NOUN_PLURAL ) lemma=`baseball` NC 
+ bélica ( ADJECTIVE ) lemma=`bélico` ADJ 
+ bélicas ( ADJECTIVE ) lemma=`bélico` ADJ 
  bélico ( ADJECTIVE ) 
- bélicos ( ADJECTIVE ) lemma=`bélico` ADJ  
- bésense ( ) lemma=`besarse` VCLIfin  
- bíblica ( ADJECTIVE ) lemma=`bíblico` ADJ  
- bíblicas ( ADJECTIVE ) lemma=`bíblico` ADJ  
+ bélicos ( ADJECTIVE ) lemma=`bélico` ADJ 
+ bésense ( ) lemma=`besarse` VCLIfin 
+ bíblica ( ADJECTIVE ) lemma=`bíblico` ADJ 
+ bíblicas ( ADJECTIVE ) lemma=`bíblico` ADJ 
  bíblico ( ADJECTIVE ) 
- bíblicos ( ADJECTIVE ) lemma=`bíblico` ADJ  
+ bíblicos ( ADJECTIVE ) lemma=`bíblico` ADJ 
  bíceps ( NOUN NOUN_SINGULAR ) 
- bífida ( ADJECTIVE ) lemma=`bífido` ADJ  
- bípedos ( NOUN NOUN_PLURAL ) lemma=`bípedo` NC  
+ bífida ( ADJECTIVE ) lemma=`bífido` ADJ 
+ bípedos ( NOUN NOUN_PLURAL ) lemma=`bípedo` NC 
  bóveda ( NOUN NOUN_SINGULAR ) 
- bóvedas ( NOUN NOUN_PLURAL ) lemma=`bóveda` NC  
- búfalo ( NOUN NOUN_PLURAL ) lemma=`búfalo`bufar` NC  VCLIfin  
- búfalos ( NOUN NOUN_PLURAL ) lemma=`búfalo`bufar` NC  VCLIfin  
+ bóvedas ( NOUN NOUN_PLURAL ) lemma=`bóveda` NC 
+ búfalo ( NOUN NOUN_PLURAL ) lemma=`búfalo`bufar` NC VCLIfin 
+ búfalos ( NOUN NOUN_PLURAL ) lemma=`búfalo`bufar` NC VCLIfin 
  búho ( NOUN NOUN_SINGULAR ) 
- búlgara ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ  NC  
- búlgaras ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ  NC  
- búlgaro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ  NC  
- búlgaros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ  NC  
- búscalo ( ) lemma=`buscar` VCLIfin  
- búscame ( ) lemma=`buscar` VCLIfin  
- búscate ( ) lemma=`buscar` VCLIfin  
+ búlgara ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ NC 
+ búlgaras ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ NC 
+ búlgaro ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ NC 
+ búlgaros ( NOUN ADJECTIVE NOUN_PLURAL ) lemma=`búlgaro`búlgaro` ADJ NC 
+ búscalo ( ) lemma=`buscar` VCLIfin 
+ búscame ( ) lemma=`buscar` VCLIfin 
+ búscate ( ) lemma=`buscar` VCLIfin 
  búsqueda ( NOUN NOUN_SINGULAR ) 
- búsquedas ( NOUN NOUN_PLURAL ) lemma=`búsqueda` NC  
- búsquese ( VERB ) lemma=`buscar` VLfin  
- Buenos_Aires ( NOUN NOUN_PROPER_PLURAL ) lemma=`Buenos~Aires` NP  
- Burkina_Faso ( NOUN NOUN_PROPER_PLURAL ) lemma=`Burkina~Faso` NP  
+ búsquedas ( NOUN NOUN_PLURAL ) lemma=`búsqueda` NC 
+ búsquese ( VERB ) lemma=`buscar` VLfin 
+ Buenos_Aires ( NOUN NOUN_PROPER_PLURAL ) lemma=`Buenos~Aires` NP 
+ Burkina_Faso ( NOUN NOUN_PROPER_PLURAL ) lemma=`Burkina~Faso` NP 

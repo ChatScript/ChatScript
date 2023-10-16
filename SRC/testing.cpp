@@ -1,14 +1,14 @@
 #include "common.h"
 #pragma warning(disable: 4068)
-
 extern int ignoreRule;
 static bool down_is = true;
 char priorLogin[ID_SIZE];
 unsigned int priortrace = 0;
 static int downcount = 0;
-static char verifybot[100];
-static char verifylanguage[100];
 static char verifylanguagelc[100];
+static char verifyeventlc1[100];
+static char verifyeventlc2[100];
+static char verifyeventlc3[100];
 static char verifybotlc[100];
 static int volleyCounter = 0;
 static int relevantVolleyCounter = 0;
@@ -3313,7 +3313,7 @@ reloop:
 	StoreWord((char*)"EX");
 	StoreWord((char*)"FW");
 	StoreWord((char*)"SYM"); // includes $
-	LockLayer(true);
+	LockLayer();
 	ambiguousWords = 0;
 
 	FILE* oldin = NULL;
@@ -7646,10 +7646,14 @@ void IngestFile(char* file, uint64 junk)
 		//FILE* x = FopenUTF8WriteAppend("LOGS/l.log");
 		//fprintf(x, "%s\r\n", is->originalbuf);
 		//FClose(x);
-
+		if (is->ingestChatCount == 130)
+		{
+			int xx = 0;
+		}
 		if (strstr(is->buffer, "testoutput")) ++ingestBotConverse;
 		PerformChat(is->user, is->bot, is->buffer, is->ip, is->actualOutBuffer);
 		++is->ingestChatCount;
+		
 		*is->actualWhy = 0;
 		char* why = strstr(is->actualOutBuffer, "why\":");
 		if (why)
@@ -7693,8 +7697,10 @@ void IngestFile(char* file, uint64 junk)
 		FreeBuffer();
 
 		if (is->ingestErrorCount)  printf("Line: %d    err: %d\r\n", is->ingestLineCount, is->ingestErrorCount);
-		else printf("%d\r\n", is->ingestLineCount);
-
+		else
+		{
+			printf("%d\r\n", is->ingestLineCount);
+		}
 		if (!(is->ingestChatCount % 100000))
 		{
 			uint64 starttime = is->starttime;
@@ -7727,26 +7733,49 @@ static void C_Simplelog(char* file)
 	*oldmonth = 0;
 	*olddate = 0;
 	int counter = 0;
+	bool startmessage = false;
 	while (ReadALine(readBuffer, in, maxBufferSize, false, false, true) >= 0) 
 	{
 		// Jun 01 15:38:07.204 2023 Respond: user:local_user bot:sage len:8 ip:127.0.0.1 (~chief_chat_en_us) 1 Hi Chief ==> [ callback=20000 ] {"transcript": "Welcome recruits to Liberty Station. I'm Chief, your new RDC or Recruit Division Commander for those of you who just joined this squad. I'm here to turn jelly into steel while you're here with me. Are you tough enough to be in my Navy?", "audio": "Chief_INTRO_LESSON_en_US", "emotion": "happy", "animation": "Chief_INTRO_LESSON_en_US", "rule": "CHIEF_INTRO_LESSON_EN_US", "input": "Hi Chief", "bot": "Chief", "language": "en_US"}   When:Jun 01 15:38:07.245 2023 41ms q 0 Why:~control_post.12.0=SHOWOOB ~chief_chat_en_us.6.0=CHIEF_INTRO_LESSON_EN_US.~control.76.0=CONTINUECHAT  JOpen:0/0 Timeout:0 pid:0
 		char word[MAX_WORD_SIZE];
 		char date[MAX_WORD_SIZE];
+		 
 		if (strstr(readBuffer, "Start:"))
 		{
+			startmessage = true;
 			fprintf(out, "%s\r\n", readBuffer);
+			continue;
 		}
-		if (!strstr(readBuffer, "Respond:")) continue;
-
-		char* input = strchr(readBuffer, ')'); 
+		if (!strstr(readBuffer, "Respond:"))
+		{
+			startmessage = false;
+			continue;
+		}
+			char* input = strchr(readBuffer, ')'); 
+		char num[100];
+		char* startinput = ReadCompiledWord(input+2, num);
+		if (startmessage && !strnicmp(startinput, "Hi Chief ", 9))
+		{
+			startmessage = false;
+			continue;
+		}
+		startmessage = false;
 		char* userinput = ReadCompiledWord(input + 1, word); // swallow volley id
 		if (!strnicmp(userinput, "[callback]", 10)) continue; // machine generated
 
-		bool gpt = strstr(readBuffer, "G_QUESTION") || strstr(readBuffer, "G_STATEMENT");
+		char* special = strstr(readBuffer, "special command");
+		if (special) // ignore api messaging
+		{
+			startmessage = false;
+			fprintf(out, "%s\r\n", special);
+			continue;
+		}
 
+		bool gpt = strstr(readBuffer, "G_QUESTION") || strstr(readBuffer, "G_STATEMENT");
 
 		char* ptr = ReadCompiledWord(readBuffer, word); // month
 		ptr = ReadCompiledWord(ptr, date); //date
+		
 		if (*olddate &&  (stricmp(date, olddate) || stricmp(word, oldmonth))) // new record zone
 		{
 			fprintf(out, "%d records for %s %s\r\n", counter,oldmonth,olddate);
@@ -14063,32 +14092,67 @@ static void C_Sap(char* file)
 static void VerifyList1(char* file, uint64 output)
 {
 	MakeLowerCase(file);
-	if (*verifylanguage && !strstr(file, verifylanguagelc)) return;
+	if (*verifylanguagelc && !strstr(file, verifylanguagelc)) return; // not correct language file - all files are named with language in lower case
 
-	FILE* out = (FILE*)output;
 	FILE* in = FopenReadOnly(file);
 	if (!in)
 	{
 		printf("not found %s\r\n", file);
 		return;
 	}
+
+	FILE* out = (FILE*)output;
+
+	bool matches = true;
 	char name[MAX_WORD_SIZE];
+	char input[MAX_WORD_SIZE];
 	while (fgets(name, MAX_WORD_SIZE, in))
 	{
-		// want only messages tied to this bot?
-		if (*verifybot && !strstr(name, verifybot) && !strstr(name, verifybotlc) &&
-			!strstr(file, verifybotlc) && !strstr(file, verifybot)) continue;
-		if (*verifylanguage && !strstr(name, verifylanguage) && !strstr(name, verifylanguagelc)
-			) continue;
 		char* start = name;
 		if (HasUTF8BOM(start)) start += 3;
 		if (!*start) continue;
+		strcpy(input, start);
 
+		char* ver = strstr(start, "VERIFY");
+		if (ver)
+		{
+			MakeLowerCase(ver);
+			char* evnt = strstr(ver, "seteventcontext(");
+			char* persona = strstr(ver, "setpersonacontext(");
+			char* language = strstr(ver, "setverifylanguagecontext(");
+			if (!language) language = strstr(ver, "setlanguagecontext(");
+			if (language)
+			{
+				if (strstr(language, "null")) matches = true; // resume ok - terminal area
+				else if (verifylanguagelc && !strstr(language, verifylanguagelc)) matches = false;
+			}
+			if (evnt)
+			{
+				if (strstr(evnt, "null")) matches = true; // resume ok - terminal area
+				else if (*verifyeventlc1 && !strstr(evnt, verifyeventlc1)) matches = false;
+			}
+			if (evnt && *verifyeventlc2 && !strstr(evnt, verifyeventlc2) && !strstr(evnt,"null")) matches = false;
+			if (evnt && *verifyeventlc3 && !strstr(evnt, verifyeventlc3) && !strstr(evnt, "null")) matches = false;
+			if (persona)
+			{
+				if (strstr(persona, "null")) matches = true; // resume ok - terminal area
+				else if (*verifybotlc && !strstr(persona, verifybotlc)) matches = false;
+			}
+		}
+			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ seteventcontext(auto_event)
+			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ setverifylanguagecontext(es_US)
+			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ setpersonacontext(Mia)
+			//~adas_es_us.3.0 = ADAS_CRUISE_OFF  #!Apague el control de crucero.
+		if (!matches) continue; // dont include these
+
+		start = input;
+	
 		// ~ai_en_us.1.0 #!Does your system need training ?
 		if (start[2] == ' ')
 			continue; // indented level
 		char* end = strstr(start, "#!");
-		if (!end) continue;
+		if (!end) continue; // lacks regression comment
+
 		if (end[2] == 'x') continue; // abstract comment
 		char* message = strchr(end, ' '); // skip any other controls on #!
 		*end = 0;
@@ -14096,17 +14160,19 @@ static void VerifyList1(char* file, uint64 output)
 		if (!nl) nl = strchr(message, '\n');
 		*nl = 0;
 		fprintf(out, "%s", message);
-		fprintf(out, "   #!!# %s\r\n", start);
+		fprintf(out, "   #!!# %s\r\n", start); // echo out test condition
 	}
 	FClose(in);
 }
 
 static void C_VerifyList(char* input) // leave * after args if no file
-{ // :verifylist  or :verifylist bot:name  or :verifylist language:xx_xx  :verifylist filename in verify
-	*verifybot = 0;
+{ // :verifylist  or :verifylist bot:name  or :verifylist language:xx_xx  :verifylist event: :verifylist filename in verify
 	*verifybotlc = 0;
-	*verifylanguage = 0;
 	*verifylanguagelc = 0;
+	*verifyeventlc1 = 0;
+	*verifyeventlc2 = 0;
+	*verifyeventlc3 = 0;
+	MakeLowerCase(input);
 	char* lang = strstr(input, "language:");
 	if (lang)
 	{
@@ -14115,8 +14181,32 @@ static void C_VerifyList(char* input) // leave * after args if no file
 		{
 			*end = 0;
 			MakeLowerCopy(verifylanguagelc, lang + 9);
-			MakeUpperCopy(verifylanguage, lang + 9);
 			memmove(lang, end + 1, strlen(end + 1) + 1);
+		}
+	}
+	char* event = strstr(input, "event:");
+	if (event)
+	{
+		char* end = strchr(event, ' ');
+		if (end)
+		{
+			*end = 0;
+			// auto_event+media_event
+			MakeLowerCopy(verifyeventlc1, event + 6);
+			memmove(event, end + 1, strlen(end + 1) + 1);
+			char* end = strchr(verifyeventlc1, '+');
+			if (end)
+			{
+				strcpy(verifyeventlc2,end + 1);
+				*end = 0;
+				end = strchr(verifyeventlc2, '+');
+				if (end)
+				{
+					strcpy(verifyeventlc2,end + 1 );
+					*end = 0;
+				}
+			}
+
 		}
 	}
 	char* bot = strstr(input, "bot:");
@@ -14126,8 +14216,7 @@ static void C_VerifyList(char* input) // leave * after args if no file
 		if (end)
 		{
 			*end = 0;
-			MakeLowerCopy(verifybot, bot + 4);
-			MakeUpperCopy(verifybotlc, bot + 4);
+			MakeLowerCopy(verifybotlc, bot + 4);
 			memmove(bot, end + 1, strlen(end + 1) + 1);
 		}
 	}
@@ -14155,6 +14244,7 @@ static void C_VerifyRun(char* junk)
 	serverLog = 1;
 	C_Source(junk);
 }
+
 static void DecomposeWhy(char* why, char* actualRuleLabel, char* actualRuleID)
 {
 	why += 4;
@@ -14164,8 +14254,8 @@ static void DecomposeWhy(char* why, char* actualRuleLabel, char* actualRuleID)
 	// find referral
 	char* dot;
 	dot = strchr(how, '.'); // primary rule now point toprule
-	dot = strchr(dot + 1, '.');// primary rule now point rejoinder
-	dot = strchr(dot + 1, '.');// referring rule?
+	if (dot) dot = strchr(dot + 1, '.');// primary rule now point rejoinder
+	if (dot) dot = strchr(dot + 1, '.');// referring rule?
 	if (dot)
 	{
 		char* x = strchr(dot, '=');
@@ -14188,8 +14278,8 @@ static void DecomposeWhy(char* why, char* actualRuleLabel, char* actualRuleID)
 	if (dot) *dot = 0; // remove caller data
 	ReadCompiledWord(why, actualRuleID);
 	char* d = strchr(actualRuleID, '.');
-	d = strchr(d + 1, '.'); // rejoinder level
-	if (d[1] != '0') // if refine level, credit top level
+	if (d) d = strchr(d + 1, '.'); // rejoinder level
+	if (d && d[1] != '0') // if refine level, credit top level
 		d[1] = '0';
 }
 
@@ -14334,7 +14424,8 @@ static void C_VerifyMatch(char* input)
 				if (strstr(why, expectedRuleID)) matched = true;
 				else if (strstr(why, expectedRuleLabel)) matched = true;
 				DecomposeWhy(why, actualRuleLabel, actualRuleID);
-
+				if (!matched && !stricmp(expectedRuleID, actualRuleID)) matched = true; // refined to subrule
+					
 				if (!matched) 
 				{
 					char* when = strstr(readBuffer, "When:");
@@ -15021,7 +15112,6 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":up",C_Up,(char*)"Display concept structure above a word"},
 	{ (char*)":fact",C_Fact,(char*)"Display information about given word's facts"},
 	{ (char*)":word",C_Word,(char*)"Display information about given word"},
-	{ (char*)":spanishword",C_ComputeSpanish,(char*)"Display information about given word"},
 	{ (char*)":mixedcase",C_MixedCase,(char*)"List words occurring in both cases, not part of WordNet"},
 	{ (char*)":dualupper",C_DualUpper,(char*)"List words occurring in multiple uppercase forms, not part of WordNet" },
 	{ (char*)":feeling",C_Feelings,(char*)"given words, list their feelings in tmp/tmp.txt and missing.txt" },
@@ -15146,6 +15236,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":verifysubstitutes",C_VerifySubstitutes,(char*)"Regress test substitutes of all kinds" },
 	{ (char*)":validatedict",C_ValidateDict,(char*)"confirms dictionary bucket wiring is correct" },
 	{ (char*)":verify",C_Verify,(char*)"Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all." },
+	{ (char*)":spanishword",C_ComputeSpanish,(char*)"Display information about given word" },
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

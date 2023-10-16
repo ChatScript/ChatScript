@@ -1,15 +1,16 @@
-# REAL_NUMBER is a word that directly represents a number, like two
 # WORD_NUMBER is a word that implies a number value, like dozen
+# ORDINAL_NUMBER is word_number and a real number that is a place number like first, second, etc
+# REAL_NUMBER is a word that directly represents a number, like two
 # FRACTION_NUMBER is a word that implies a faction value like half
 zero 0 REAL_NUMBER
 zilch 0 REAL_NUMBER
 one 1 REAL_NUMBER
-first 1 WORD_NUMBER
+first 1 ORDINAL_NUMBER
 once 1  WORD_NUMBER 
 ace 1  WORD_NUMBER 
 uno 1  WORD_NUMBER 
 two 2  REAL_NUMBER 
-second 2   WORD_NUMBER 
+second 2   ORDINAL_NUMBER 
 twice 2 WORD_NUMBER 
 couple 2 WORD_NUMBER 
 deuce 2  WORD_NUMBER  
@@ -17,51 +18,60 @@ pair 2  WORD_NUMBER
 half 2 FRACTION_NUMBER  
 halves 2 FRACTION_NUMBER  
 three 3  REAL_NUMBER 
-third 3 WORD_NUMBER 
+third 3 ORDINAL_NUMBER 
 thrice 3 WORD_NUMBER
 triple 3  WORD_NUMBER 
 trey 3  WORD_NUMBER 
 several 3  WORD_NUMBER 
 four 4  REAL_NUMBER 
+fourth 4 ORDINAL_NUMBER
 quad 4  WORD_NUMBER 
 quartet 4  WORD_NUMBER 
 quarter 4  FRACTION_NUMBER 
 five 5  REAL_NUMBER 
 quintuplet 5  WORD_NUMBER 
-fifth 5 WORD_NUMBER 
+fifth 5 ORDINAL_NUMBER 
 six 6  REAL_NUMBER 
-sixth 6 WORD_NUMBER
+sixth 6 ORDINAL_NUMBER
 seven 7  REAL_NUMBER  
-seventh 7 WORD_NUMBER
+seventh 7 ORDINAL_NUMBER
 eight 8  REAL_NUMBER 
-eighth 8 WORD_NUMBER
-eigh 8  WORD_NUMBER  
- nine 9  REAL_NUMBER  
- ninth 9 WORD_NUMBER
-nin 9  WORD_NUMBER  
- ten 10  REAL_NUMBER 
- eleven 11  REAL_NUMBER  
- twelve 12  REAL_NUMBER  
-twelf 12  WORD_NUMBER 
+eighth 8 ORDINAL_NUMBER
+nine 9  REAL_NUMBER  
+ninth 9 ORDINAL_NUMBER
+ten 10  REAL_NUMBER 
+tenth 10 ORDINAL_NUMBER
+eleven 11  REAL_NUMBER 
+eleventh 11 ORDINAL_NUMBER
+twelve 12  REAL_NUMBER  
+twelfth 12  ORDINAL_NUMBER 
 dozen 12  WORD_NUMBER 
- thirteen 13  REAL_NUMBER 
- fourteen 14  REAL_NUMBER 
- fifteen 15  REAL_NUMBER 
- sixteen 16  REAL_NUMBER 
- seventeen 17  REAL_NUMBER 
- eighteen 18  REAL_NUMBER 
- nineteen 19 REAL_NUMBER 
- twenty 20  REAL_NUMBER
+thirteen 13  REAL_NUMBER 
+thirteenth 13  ORDINAL_NUMBER 
+fourteen 14  REAL_NUMBER 
+fourteenth 14  ORDINAL_NUMBER 
+fifteen 15  REAL_NUMBER 
+fifteenth 15  ORDINAL_NUMBER 
+sixteen 16  REAL_NUMBER 
+sixteenth 16  ORDINAL_NUMBER 
+seventeen 17  REAL_NUMBER 
+seventeenth 17  ORDINAL_NUMBER 
+eighteen 18  REAL_NUMBER 
+eighteenth 18  ORDINAL_NUMBER 
+nineteen 19 REAL_NUMBER 
+nineteenth 19 ORDINAL_NUMBER 
+twenty 20  REAL_NUMBER
+twentieth 20 ORDINAL_NUMBER
 score 20  WORD_NUMBER 
- thirty 30  REAL_NUMBER 
- forty 40  REAL_NUMBER 
- fifty 50  REAL_NUMBER 
- sixty 60  REAL_NUMBER 
- seventy 70  REAL_NUMBER 
- eighty 80  REAL_NUMBER 
- ninety 90  REAL_NUMBER 
- hundred 100  REAL_NUMBER 
- gross 144  WORD_NUMBER 
- thousand 1000  REAL_NUMBER 
- million 1000000 REAL_NUMBER 
- billion 1000000000  REAL_NUMBER  
+thirty 30  REAL_NUMBER 
+forty 40  REAL_NUMBER 
+fifty 50  REAL_NUMBER 
+sixty 60  REAL_NUMBER 
+seventy 70  REAL_NUMBER 
+eighty 80  REAL_NUMBER 
+ninety 90  REAL_NUMBER 
+hundred 100  REAL_NUMBER 
+gross 144  WORD_NUMBER 
+thousand 1000  REAL_NUMBER 
+million 1000000 REAL_NUMBER 
+billion 1000000000  REAL_NUMBER  
