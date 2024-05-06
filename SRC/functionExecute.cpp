@@ -1245,7 +1245,7 @@ char* DoFunction(char* name, char* ptr, char* buffer, FunctionResult & result) /
 		ptr = UserCall(buffer, ptr, frame, result);
 	} // end user function
 
-	if (result == FAILRULE_BIT && csapicall == TEST_OUTPUT && ++testoutputbacktracecount < 5)
+	if ((result == FAILRULE_BIT || result == FAILTOPRULE_BIT) && csapicall == TEST_OUTPUT && ++testoutputbacktracecount < 5)
 	{
 		strcat(testoutputbacktrace, name);
 		strcat(testoutputbacktrace, " called by ");
@@ -2209,7 +2209,8 @@ static FunctionResult RejoinderCode(char* buffer)
 		if (trace & TRACE_TOPIC && CheckTopicTrace()) Log(USERLOG, " disabled rejoinder\r\n\r\n");
 		return NOPROBLEM_BIT; //   an earlier response handled this
 	}
-	
+	unsigned int responseCanceled = responseIndex;
+	unsigned int originalResponse = responseIndex;
 	char* tag = ARGUMENT(1);
 	if (*tag) // 
 	{
@@ -2280,14 +2281,18 @@ static FunctionResult RejoinderCode(char* buffer)
 		else if (*ptr == level) // check rejoinder
 		{
 			result = TestRule(actualRejoinder, ptr, buffer);
-			if (result == FAILMATCH_BIT) result = FAILRULE_BIT; // convert 
+			if (result == FAILMATCH_BIT || result == FAILTOPRULE_BIT) result = FAILRULE_BIT; // convert 
 			if (result == NOPROBLEM_BIT) // we found a match
 			{
 				unusedRejoinder = false;
 				break;
 			}
 			if (result & (RESTART_BIT | RETRYTOPIC_BIT | RETRYSENTENCE_BIT | FAILTOPIC_BIT | ENDTOPIC_BIT | FAILSENTENCE_BIT | ENDSENTENCE_BIT | ENDINPUT_BIT | RETRYINPUT_BIT | FAILINPUT_BIT)) break;
-			result = NOPROBLEM_BIT;
+			if (responseCanceled != responseIndex &&
+				result & FAILRULE_BIT)
+			{
+				responseCanceled = responseIndex;
+			}
 		}
 		ptr = FindNextRule(NEXTRULE, ptr, actualRejoinder); //   wrong or failed responder, swallow this subresponder whole
 	}
@@ -2308,6 +2313,9 @@ static FunctionResult RejoinderCode(char* buffer)
 	}
 	trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
 	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
+	// any fresh response generated that gets canceled means we fail
+	if (responseCanceled != originalResponse && responseCanceled == responseIndex)
+		return FAILRULE_BIT;
 	return  result;
 }
 
@@ -5883,8 +5891,9 @@ FunctionResult MemoryFreeCode(char* buffer)
 		WORDP D = FindWord(word);
 		if (!D) return FAILRULE_BIT;
 		NextInferMark();
-		unsigned int limit = 1000000;
+		unsigned int limit = jwritesize(D, 1, false) + 1000;  // bit of extra
 		copy = AllocateStack(NULL, limit);
+        NextInferMark();
 		jwrite(copy, copy, D, 1, false, limit); // it is subject field
 		json = true;
 	}
@@ -5918,6 +5927,9 @@ FunctionResult MemoryFreeCode(char* buffer)
 	uint64 variableChanges;
 	memoryVariableThreadList = UnpackHeapval(memoryVariableThreadList, variableChanges, discard, discard);
 	memoryVariableChangesThreadList = (HEAPREF)variableChanges;
+
+    ResetTokenSystem();
+    ClearHeapRef2Mark(matchedWordsList, (HEAPREF)memory);
 
 	if (copy && *copy)
 	{

@@ -769,7 +769,8 @@ char* ReadSystemToken(char* ptr, char* word, bool separateUnderscore) //   how w
             }
             else if (!IsDigit(word[1]) && word[1] != '!') //treat rest as a comment line (except if has number after it, which is user text OR internal arg reference for function
             {
-                if (IsAlphaUTF8(word[1]))
+				if (!stricmp(word, "#Tokens:")) { ; }
+                else if (IsAlphaUTF8(word[1]))
                     BADSCRIPT((char*)"Bad numeric # constant %s\r\n",word)
                     *ptr = 0;
                 *word = 0;
@@ -2104,7 +2105,8 @@ static char* ReadCall(char* name, char* ptr, FILE* in, char* &data,bool call, bo
             priorLine = currentFileLine;
         }
         if (!*word) break;
-		if (*word == '#' && word[1] == '!') BADSCRIPT((char*)"#! sample input seen during a call. Probably missing a closing )\r\n");
+		if (*word == '#' && word[1] == '!') 
+			BADSCRIPT((char*)"#! sample input seen during a call to %s. Probably missing a closing )\r\n",name);
 	
 		// closing paren stuck onto token like _) - break it off 
 		size_t len = strlen(word);
@@ -2446,9 +2448,9 @@ static void TestSubstitute(char* word,char* message)
 		currentLineColumn -= len;
 		if (E->word[1] && E->word[0] != '~' && E->word[0] != '(')	// concept changes of words will be considered interjections and pattern match form is accepted
 		{
-			WARNSCRIPT((char*)"%s changes %s to %s %s ", which, word, E->word, message)
+			WARNSCRIPT((char*)"%s changes %s to %s %s\r\n", which, word, E->word, message)
 		}
-		else if (!E->word[1])  WARNSCRIPT((char*)"%s erases %s %s ", which, word, message)
+		else if (!E->word[1])  WARNSCRIPT((char*)"%s erases %s %s\r\n", which, word, message)
 		currentLineColumn += len;
 	}
 }
@@ -5832,7 +5834,7 @@ static char* ReadTopic(char* ptr, FILE* in,unsigned int build)
 			strcpy(currentTopicName,word);
     		Log(USERLOG,"Reading topic %s\r\n",currentTopicName);
 			topicName = FindWord(currentTopicName);
-			if (topicName && !(topicName->internalBits & TOPIC))
+			if (topicName && (topicName->internalBits & CONCEPT))
 				WARNSCRIPT((char*)"TOPIC-1 Concept already defined with this topic name %s\r\n", currentTopicName)
 			if (!IsLegalName(currentTopicName)) BADSCRIPT((char*)"TOPIC-2 Illegal characters in topic name %s\r\n", currentTopicName)
 			topicName = StoreWord(currentTopicName);
@@ -6540,6 +6542,8 @@ static char* ReadConcept(char* ptr, FILE* in,unsigned int build)
 			MakeLowerCopy(conceptName,word);
 			if (!IsLegalName(conceptName)) BADSCRIPT((char*)"CONCEPT-2 Illegal characters in concept name %s\r\n",conceptName)
 			D = StoreWord(conceptName,AS_IS); 
+			D->internalBits |= CONCEPT;
+
 			// note we have seen definition
 			char cumulate[MAX_WORD_SIZE];
 			strcpy(cumulate, conceptName);
@@ -6883,9 +6887,10 @@ static void DoubleCheckReuse()
 		}
 		ptr = ReadCompiledWord(ptr, bothead);				// from file
         MakeUpperCase(bothead);
-        ptr = ReadCompiledWord(ptr,tmpWord);				// from file
+        ptr = ReadCompiledWord(ptr,tmpWord); // filename				// from file
+		while (!strstr(tmpWord,".top")) ptr = ReadCompiledWord(ptr, tmpWord); // extra bot names
 		int line;
-		ptr = ReadInt(ptr,line);	
+		ptr = ReadInt(ptr,line); // line number	
         // from line
         char labelx[MAX_WORD_SIZE];
         sprintf(labelx, "%s-%s", label, bothead);

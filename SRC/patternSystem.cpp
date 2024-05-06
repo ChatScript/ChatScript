@@ -50,7 +50,7 @@ HEAPREF heapPatternThread = NULL;
 char xword[MAX_WORD_SIZE]; // used by Match, saves on stack space
 int patternDepth = 0;
 int indentBasis = 1;
-bool nopatterndata = false;
+bool nopatterndata = false; // speedup by not saving matching info
 bool patternRetry = false;
 static char kindprior[100];
 static int bilimit = 0;
@@ -1450,6 +1450,16 @@ bool Match(char* ptr, int depth,MARKDATA& hitdata, int rebindable, unsigned int 
                         strcat(val, "`");
                         strcat(lhscopy, val);
                     }
+                    else if (*lhs == '%') // show value
+                    {
+                        char val[MAX_WORD_SIZE];
+                        strcpy(val, "`");
+                        strcpy(val + 1, SystemVariable(lhs, NULL));
+                        strcpy(val + 16, "...");
+                        strcat(val, "`");
+                        strcat(lhscopy, val);
+                    }
+
                     sprintf(word, (char*)"%s%s%s", lhscopy, op, rhs); //rephrase for trace later
                 }
                 if (*lhs == '^') DecodeFNRef(lhs); // local function arg indirect ^$ var or _ as LHS

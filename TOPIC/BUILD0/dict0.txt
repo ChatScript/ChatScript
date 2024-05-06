@@ -1158,26 +1158,9 @@
 ^ `2-letter`   x00000000   20004000      @     @   0   ``  
 ^ `unfazed`   @     x20000800   00000000      @   0   ``  
 ^ `Volkswagen`   @     x20000800   00000000      @   0   ``  
-^ `$rbet_db`   0     0     x00800808   0   ``  
-^ `$cs_analyzelimitlog`   0     0     x00800802   0   ``  
-^ `$testpatternpretopic`   0     0     x00000808   0   ``  
-^ `$rbet_delay_minutes`   0     0     x00800808   0   ``  
-^ `$legalpivotlandlordtenantspecialtysize10`   0     0     x00000808   0   ``  
-^ `$legalpivotlandlordtenantspecialtysize20`   0     0     x00000808   0   ``  
-^ `$legalpivotlandlordtenantspecialtyunlimitedsize`   0     0     x00000808   0   ``  
-^ `$legalthemeconfidence`   0     0     x00000808   0   ``  
-^ `$legalpivotspecialtysize10`   0     0     x00000808   0   ``  
-^ `$legalpivotspecialtysize20`   0     0     x00000808   0   ``  
-^ `$legalpivotspecialtyunlimitedsize`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotlandlordtenantspecialtysize10`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotlandlordtenantspecialtysize20`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotlandlordtenantspecialtyunlimitedsize`   0     0     x00000808   0   ``  
-^ `$pearllegalthemeconfidence`   0     0     x00000808   0   ``  
-^ `$pearllegalcombothemeconfidence`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotspecialtysize10`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotspecialtysize20`   0     0     x00000808   0   ``  
-^ `$pearllegalpivotspecialtyunlimitedsize`   0     0     x00000808   0   ``  
-^ `$forced_random`   0     0     x00800808   0   ``  
+^ `$cs_directfromoob`   0     0     x00800802   0   ``  
+^ `$compilenomixedcase`   0     0     x00000808   0   ``  
+^ `$compilenowarndupconcept`   0     0     x00000808   0   ``  
 ^ `~internal_concepts`   0     0     x00800804   0   ``  
 ^ `~internal_concepts$`   0     0     x00800800   0   ``  
 ^ `~timeadjmodifier`   0     0     x00000804   0   ``  
@@ -4742,6 +4725,34 @@
 ^ `~weak_med$`   0     0     x00800800   0   ``  
 ^ `habitutation`   0     P     x00000800   0   ``  
 ^ `~weak_lo$`   0     0     x00800800   0   ``  
+^ `~politicswords`   0     0     x00000804   0   ``  
+^ `~politicswords$`   0     0     x00000800   0   ``  
+^ `Trump`   0     0     x00002800   0   ``  
+^ `Biden`   0     P     x00002800   0   ``  
+^ `~role_political_member`   0     x00000800   80000000      x00800804   0   ``  
+^ `~politcal_parties`   0     P     x00800800   0   ``  
+^ `~warwords`   0     0     x00000804   0   ``  
+^ `~warwords$`   0     0     x00000800   0   ``  
+^ `~military_groups`   0     P     x00800804   0   ``  
+^ `~armed_services`   0     P     x00800804   0   ``  
+^ `~crimewords`   0     0     x00000804   0   ``  
+^ `~crimewords$`   0     0     x00000800   0   ``  
+^ `Jeffrey_Epstein`   0     P     x00802800   0   ``  
+^ `waterboard`   0     P     x00000800   0   ``  
+^ `waterboarding`   0     P     x00000800   0   ``  
+^ `lady_of_the_night`   0     P     x00800800   0   ``  
+^ `~religious_writing`   0     P     x00800804   0   ``  
+^ `~religious_writing$`   0     0     x00800800   0   ``  
+^ `Qur'an`   0     P     x00002800   0   ``  
+^ `Tripitaka`   0     P     x00002800   0   ``  
+^ `~religionwords`   0     0     x00000804   0   ``  
+^ `~religionwords$`   0     0     x00000800   0   ``  
+^ `~role_religious_member`   0     x00000800   80000000      x00800804   0   ``  
+^ `~religious_kind`   0     P     x00800800   0   ``  
+^ `~religious_buildings`   0     P     x00800804   0   ``  
+^ `~terrorismwords`   0     0     x00000804   0   ``  
+^ `~terrorismwords$`   0     0     x00000800   0   ``  
+^ `self-mutilation`   0     P     x00000800   0   ``  
 ^ `~coronavirus`   0     P     x00000804   0   ``  
 ^ `~coronavirus$`   0     0     x00000800   0   ``  
 ^ `~diseases`   0     0     x00000804   0   ``  
@@ -5015,7 +5026,6 @@
 ^ `the_concept_of`   0     P     x00800800   0   ``  
 ^ `the_field_of`   0     P     x00800800   0   ``  
 ^ `the_study_of`   0     P     x00800800   0   ``  
-^ `~armed_services`   0     0     x00800804   0   ``  
 ^ `~armed_services$`   0     0     x00800800   0   ``  
 ^ `Coast_Guard`   0     P     x00802800   0   ``  
 ^ `~art_gallery`   0     P     x00800804   0   ``  
@@ -5334,7 +5344,6 @@
 ^ `Mozilla`   0     P     x00002800   0   ``  
 ^ `Safari`   0     0     x00002800   0   ``  
 ^ `~building$`   0     0     x00000800   0   ``  
-^ `~religious_buildings`   0     P     x00800804   0   ``  
 ^ `~shelter`   0     P     x00000804   0   ``  
 ^ `boat_house`   0     P     x00800800   0   ``  
 ^ `club_house`   0     P     x00800800   0   ``  
@@ -6210,7 +6219,6 @@
 ^ `gaywad`   0     P     x00000800   0   ``  
 ^ `gooch`   0     P     x00000800   0   ``  
 ^ `guido`   0     P     x00000800   0   ``  
-^ `hard_on`   0     P     x00800800   0   ``  
 ^ `heeb`   0     P     x00000800   0   ``  
 ^ `ho`   0     P     x00000800   0   ``  
 ^ `hoebag`   0     P     x00000800   0   ``  
@@ -7248,6 +7256,8 @@
 ^ `~holiday`   0     0     x00000804   0   ``  
 ^ `~holiday$`   0     0     x00000800   0   ``  
 ^ `~new_years_words`   0     P     x00800804   0   ``  
+^ `Earth_Day`   0     P     x00802800   0   ``  
+^ `President_'s_Day`   0     P     x00802800   0   ``  
 ^ `~hospital`   0     P     x00000804   0   ``  
 ^ `~hospital$`   0     0     x00000800   0   ``  
 ^ `~hotel`   0     P     x00000804   0   ``  
@@ -7595,7 +7605,6 @@
 ^ `~microlife$`   0     0     x00000800   0   ``  
 ^ `~monera`   0     x00000800   00000001      x00000804   0   ``  
 ^ `~protista`   0     x00000800   00000001      x00000804   0   ``  
-^ `~military_groups`   0     0     x00800804   0   ``  
 ^ `~military_groups$`   0     0     x00800800   0   ``  
 ^ `~military_man`   0     0     x00800804   0   ``  
 ^ `~military_man$`   0     0     x00800800   0   ``  
@@ -8325,7 +8334,6 @@
 ^ `~politician`   0     0     x00000804   0   ``  
 ^ `~politician$`   0     0     x00000800   0   ``  
 ^ `~president`   0     P     x00000804   0   ``  
-^ `Biden`   0     P     x00002800   0   ``  
 ^ `Bill_Bradley`   0     P     x00802800   0   ``  
 ^ `Chelsea_Clinton`   0     P     x00802800   0   ``  
 ^ `Chirac`   0     P     x00002800   0   ``  
@@ -8546,8 +8554,6 @@
 ^ `~role_medical$`   0     0     x00800800   0   ``  
 ^ `~role_member$`   0     0     x00800800   0   ``  
 ^ `~role_nationality_member`   0     x00000800   80000000      x00800804   0   ``  
-^ `~role_political_member`   0     x00000800   80000000      x00800804   0   ``  
-^ `~role_religious_member`   0     x00000800   80000000      x00800804   0   ``  
 ^ `~role_misc$`   0     0     x00800800   0   ``  
 ^ `~role_nationality_member$`   0     0     x00800800   0   ``  
 ^ `Andorrian`   0     P     x00002800   0   ``  
@@ -8749,8 +8755,8 @@
 ^ `~make_love`   0     P     x00800804   0   ``  
 ^ `adult_bookstore`   0     P     x00800800   0   ``  
 ^ `adult_news`   0     P     x00800800   0   ``  
+^ `hard_on`   0     P     x00800800   0   ``  
 ^ `Kama_Sutra`   0     P     x00802800   0   ``  
-^ `lady_of_the_night`   0     P     x00800800   0   ``  
 ^ `MILF`   0     P     x00002800   0   ``  
 ^ `petit_mort`   0     P     x00800800   0   ``  
 ^ `porno_magazine`   0     P     x00800800   0   ``  
@@ -8802,6 +8808,7 @@
 ^ `chains`   0     P     x00000800   0   ``  
 ^ `gang_bang`   0     P     x00800800   0   ``  
 ^ `golden_shower`   0     P     x00800800   0   ``  
+^ `pedo`   0     P     x00000800   0   ``  
 ^ `lick_my`   0     P     x00800800   0   ``  
 ^ `roped`   0     P     x00000800   0   ``  
 ^ `s_and_m`   0     P     x00800800   0   ``  

@@ -335,9 +335,25 @@ void NoBlankStart(char* ptr, char* where)
 	while (where[len - 1] == ' ') where[--len] = 0;
 }
 
+static bool GetSourceFile(char* ptr)
+{
+	char file[SMALL_WORD_SIZE];
+	ReadCompiledWord(ptr, file);
+	sourceFile = fopen(file, (char*)"rb");
+	if (!sourceFile)
+	{
+		sourceFile = stdin;
+		printf("No such source file %s\r\n", file);
+		return false;
+	}
+	else return true;
+
+}
+
 void Client(char* login)// test client for a server
 {
 #ifndef DISCARDSERVER
+	InitStackHeap();
 	sourceFile = stdin;
 	char word[MAX_WORD_SIZE];
 	if (!trace) echo = false;
@@ -404,6 +420,7 @@ restart: // start with user
 	bool jaconverse = false;
 	bool jamonologue = false;
 	bool jastarts = false;
+	bool source = false;
 	bool raw = false;
 	bool botturn = false;
 	bool converse = false;
@@ -414,14 +431,7 @@ restart: // start with user
 	{
 
 	SOURCE:
-		if (!strnicmp(ptr, (char*)":source ", 8))
-		{
-			char file[SMALL_WORD_SIZE];
-			ReadCompiledWord(ptr + 8, file);
-			sourceFile = fopen(file, (char*)"rb");
-			ReadALine(ptr, sourceFile, fullInputLimit + maxBufferSize - 100);
-		}
-		else if (!strnicmp(ptr, (char*)":converse ", 9))
+		if (!strnicmp(ptr, (char*)":converse ", 9))
 		{
 			char file[SMALL_WORD_SIZE];
 			ReadCompiledWord(ptr + 8, file);
@@ -501,7 +511,22 @@ restart: // start with user
 		while (ALWAYS)
 		{
 			if ((++n % 100) == 0)  (*printer)((char*)"On Line %d\r\n", n);
-			if (converse) // do a conversation of multiple lines each tagged with user until done, not JA style
+			if (!strnicmp(ptr, (char*)":source ", 8))
+			{
+				source = GetSourceFile(ptr + 8);
+			}
+			if (source)
+			{
+				int ans = ReadALine(ptr, sourceFile, fullInputLimit + maxBufferSize - 100);
+				if (ans <= 0)
+				{
+					source = false;
+					sourceFile = stdin;
+					ans = ReadALine(ptr, sourceFile, fullInputLimit + maxBufferSize - 100);
+					continue;
+				}
+			}
+			else if (converse) // do a conversation of multiple lines each tagged with user until done, not JA style
 			{
 				ptr = data;
 				if (Myfgets(ptr, 100000 - 100, sourceFile) == NULL) break;
@@ -733,7 +758,7 @@ restart: // start with user
 			*data = 0;
 
 			// we say that  until :exit
-			if (!converse && !jastarts && !raw)
+			if (!converse && !jastarts && !raw && !source)
 			{
 				(*printer)((char*)"%s", response);
 				(*printer)((char*)"%s", (char*)"\r\n>    ");
@@ -744,7 +769,7 @@ restart: // start with user
 			}
 			else if (jastarts || raw) {}
 			else Log(USERLOG, "%s %s %s\r\n", user, bot, response);
-			if (!converse && !jastarts && !jaconverse && !raw)
+			if (!converse && !jastarts && !jaconverse && !raw && !source)
 			{
 				if (*data) {}
 				else if (ReadALine(data, sourceFile, 100000 - 100) < 0) break; // next thing we want to send
@@ -1264,6 +1289,7 @@ static void* AcceptSockets(void*) // accepts incoming connections from users
 
 static void* Done(TCPSocket * sock, char* memory)
 {
+	--userQueue;
 	try {
 		char* output = memory + SERVERTRANSERSIZE;
 		size_t len = strlen(output);
@@ -1372,6 +1398,15 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 			return Done(sock, memory);
 		}
 
+		++userQueue;
+		if (pendingUserLimit && userQueue >= pendingUserLimit)
+		{
+			sock->send(overflowMessage, overflowLen);
+			char* output = memory + SERVERTRANSERSIZE;
+			*output = 0;
+			return Done(sock, memory);
+		}
+
 		strcpy(userName, user);
 
 		// Request load of user data
@@ -1425,7 +1460,7 @@ static void* HandleTCPClient(void *sock1)  // individual client, data on STACK..
 	catch (...) {
 		(*printer)((char*)"%s", (char*)"client socket fail\r\n");
 	}
-
+	--userQueue;
 	delete sock;
 
 	// do not delete memory til after server would have given up

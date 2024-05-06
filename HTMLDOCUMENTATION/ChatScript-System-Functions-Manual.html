@@ -178,37 +178,37 @@ Manual</h1>
 www.brilligunderstanding.com <br>Revision 6/13/2022 cs13.2</p>
 <ul>
 <li><a
-href="ChatScript-System-Functions-Manual.html#topic-functions">Topic
+href="ChatScript-System-Functions-Manual.md#topic-functions">Topic
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#marking-functions">Marking
+href="ChatScript-System-Functions-Manual.md#marking-functions">Marking
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#input-functions">Input
+href="ChatScript-System-Functions-Manual.md#input-functions">Input
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#number-functions">Number
+href="ChatScript-System-Functions-Manual.md#number-functions">Number
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#output-functions">Output
+href="ChatScript-System-Functions-Manual.md#output-functions">Output
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#control-flow-functions">Control
+href="ChatScript-System-Functions-Manual.md#control-flow-functions">Control
 Flow Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#external-access-functions">External
+href="ChatScript-System-Functions-Manual.md#external-access-functions">External
 Access Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#json-functions">JSON
+<li><a href="ChatScript-System-Functions-Manual.md#json-functions">JSON
 Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#word-manipulation-functions">Word
+href="ChatScript-System-Functions-Manual.md#word-manipulation-functions">Word
 Manipulation Functions</a></li>
 <li><a
-href="ChatScript-System-Functions-Manual.html#multipurpose-functions">Multipurpose
+href="ChatScript-System-Functions-Manual.md#multipurpose-functions">Multipurpose
 Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#fact-functions">Facts
+<li><a href="ChatScript-System-Functions-Manual.md#fact-functions">Facts
 Functions</a></li>
-<li><a href="ChatScript-System-Functions-Manual.html#Misc-functions">Misc
+<li><a href="ChatScript-System-Functions-Manual.md#Misc-functions">Misc
 Functions</a></li>
 </ul>
 <p>System functions are predefined and can be intermixed with direct
@@ -417,6 +417,8 @@ id="reuse-rule-label-optional-enable-optional-fail"><code>^reuse ( rule label op
 simple rule label within the current topic, or it can be a dotted pair
 of a topic name and a label within that topic or it can be a rule
 tag.</p>
+<p>Beware: calling ^reuse does NOT set any rejoinders on the reused
+rules.</p>
 <p><code>^reuse</code> stops at the first correctly labeled rule it can
 find and issues a RULE fail if it cannot find one. Assuming nothing
 fails, it will return 0 regardless of whether or not any output was

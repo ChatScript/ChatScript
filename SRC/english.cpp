@@ -1837,7 +1837,7 @@ uint64 GetPosData(unsigned  int at, char* original, WORDP& revise, WORDP& entry,
 	// adjective noun?
 	if (!compiling && properties & NOUN_BITS && at > 0)
 	{
-		if (*wordStarts[at + 1] == '\'') properties |= ADJECTIVE_NOUN;
+		if (wordStarts[at + 1] && *wordStarts[at + 1] == '\'') properties |= ADJECTIVE_NOUN;
 	}
 	return properties;
 }

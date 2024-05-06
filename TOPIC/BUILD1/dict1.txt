@@ -3,7 +3,7 @@
 ^ `seconds`   @     x20000800   00000000      @   0   ``  
 ^ `makes`   @     x20000800   00000000      @   0   `` 2 
 ^ `says`   @     x20000800   00000000      @   0   ``  
-^ `$cs_analyzelimitlog`   @     @     x00800802   0   ``  
+^ `$cs_directfromoob`   @     @     x00800802   0   ``  
 ^ `~childhood`   0     0     x00000840   0   ``  
 ^ `~childhood$`   0     0     x00000800   0   ``  
 ^ `~CHILDHOOD.RUNAWAY-*`   0     0     x00006800   0   ``  

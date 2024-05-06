@@ -829,6 +829,8 @@ outputmacro: ^heforgot(^test) [^test You forgot?] ^test = 1
     u: ( where * you * live ) ^reuse(HOUSE)
 ```
 
+Beware: calling ^reuse does NOT set any
+rejoinders on the reused rules.
 
 
 # Esoterica and Fine Detail

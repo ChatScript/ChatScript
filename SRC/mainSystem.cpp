@@ -1,7 +1,10 @@
 #include "common.h" 
 #include "evserver.h"
-
-char* version = "13.4";
+int pendingUserLimit = 0;
+std::atomic<int> userQueue(0);
+char* version = "14.1";
+char overflowMessage[400];
+int overflowLen = 0;
 const char* buildString = "compiled " __DATE__ ", " __TIME__ ".";
 char sourceInput[200];
 int cs_qsize = 0;
@@ -13,7 +16,7 @@ bool integrationTest = false;
 char websocketclient[200];
 bool nophrases = false;
 char* repairat = NULL;
-static char baseLanguage[50];
+char baseLanguage[50];
 static char* retryInput;
 char* tracebuffer; // preallocated buffer for possible api tracing
 int volleyFile = 0;
@@ -64,6 +67,7 @@ int traceUniversal;
 int debugLevel = 0;
 PRINTER printer = printf;
 uint64 startNLTime;
+bool retrycheat;
 unsigned int idetrace = (unsigned int)-1;
 int outputlevel = 0;
 uint64 timedeployed = 0;
@@ -950,6 +954,15 @@ static void ProcessArgument(char* arg)
 		exit(0);
 	}
 #endif
+	if (!strnicmp(arg, "userLimit=", 10))
+		pendingUserLimit = atoi(arg + 10);
+	if (!strnicmp(arg, "overflowMessage=",16))
+	{
+		strcpy(overflowMessage, arg + 17); // skip quote
+		char* end = strchr(overflowMessage, '"');
+		if (end) *end = 0;
+		overflowLen = strlen(overflowMessage);
+	}
 	else if (!stricmp(arg, (char*)"nouserlog")) userLog = 0;
 	else if (!strnicmp(arg, "userlogging=", 12))
 	{
@@ -2639,12 +2652,23 @@ static void LimitUserInput(char* at)
 
 int PerformChat(char* user, char* usee, char* incomingmessage, char* ip, char* output) // returns volleycount or 0 if command done or -1 PENDING_RESTART
 { //   primary entrypoint for chatbot -- null incoming treated as conversation start.
-  
 	if (HasUTF8BOM(incomingmessage)) incomingmessage += 3; // skip UTF8 BOM (from file)
 	incomingmessage = SkipWhitespace(incomingmessage);
 	currentRuleOutputBase = currentOutputBase = ourMainOutputBuffer = output;
 	output[0] = 0;
-
+	ClearSupplementalInput();
+	retrycheat = false;
+	if (!strnicmp(incomingmessage, "cheat retry ", 12))
+	{
+		memmove(incomingmessage, "     :", 6);
+		retrycheat = true;
+	}
+	else if (!strnicmp(incomingmessage, "cheat rever ", 12))
+	{
+		memmove(incomingmessage, ":retry      ", 12);
+		retrycheat = true;
+	}
+	
 	http_response = 0;
 	// dont start immediately if requested after a crash
 	if (crashBack && autorestartdelay) 
@@ -3167,8 +3191,10 @@ int ProcessInput()
 	at = SkipOOB(at);
 	if (at && *at == ':' && IsAlphaUTF8(at[1]) && IsAlphaUTF8(at[2]) && !documentMode && !readingDocument) // avoid reacting to :P and other texting idioms
 	{
+		char alternate[1000];
+		strcpy(alternate, at);
 		bool reset = false;
-		if (!strnicmp(at, ":reset", 6))
+		if (!strnicmp(alternate, ":reset", 6))
 		{
 			reset = true;
 			char* intercept = GetUserVariable("$cs_beforereset", false);
@@ -3180,7 +3206,7 @@ int ProcessInput()
 		// reset rejoinders to ignore this interruption
 		outputRejoinderRuleID = inputRejoinderRuleID;
 		outputRejoinderTopic = inputRejoinderTopic;
-		if (!strnicmp(at, (char*)":retry", 6) || !strnicmp(at, (char*)":redo", 5))
+		if (!strnicmp(alternate, (char*)":retry", 6) || !strnicmp(at, (char*)":redo", 5))
 		{
 			outputRejoinderTopic = outputRejoinderRuleID = NO_REJOINDER; // but a redo must ignore pending
 			AddInput(originalUserInput, 0, true);  // bug!
@@ -3214,7 +3240,9 @@ int ProcessInput()
 		else if (commanded == COMMANDED)
 		{
 			ResetToPreUser(); // back to empty state before any user
-			return false;
+			// normally we are done
+			// But if user input is a retry sentence, we patched the input to continue
+			if (!retrycheat) return false;
 		}
 		else if (commanded == OUTPUTASGIVEN)
 			return true;
@@ -3257,6 +3285,8 @@ loopback:
 
 	while ((((input = GetNextInput()) && input && *input) || startConversation) && (volleyFile || sentenceloopcount < sentenceLimit)) // loop on user input sentences
 	{
+		if (input && *input == '#' && input[1] == '!') 
+			break; // testing label
 		sentenceOverflow = !volleyFile && (sentenceloopcount + 1) >= sentenceLimit; // is this the last one we will do
 		topicIndex = currentTopicID = 0; // precaution
 		FunctionResult result = DoOneSentence(input, prepassTopic, sentenceloopcount >= (sentenceLimit - 1));
@@ -3986,8 +4016,8 @@ void PrepareSentence(char* input, bool mark, bool user, bool analyze, bool oobst
     char* xy = ptr;
     if (!oobstart) while ((xy = strchr(ptr, '`'))) *xy = ' '; // get rid of internal reserved use
     uint64 start_time_tokenize = ElapsedMilliseconds();
-    ptr = Tokenize(ptr, wordCount, wordStarts, separators, false, oobstart);
-    diff = (int)(ElapsedMilliseconds() - start_time_tokenize);
+	ptr = Tokenize(ptr, wordCount, wordStarts, separators, false, oobstart);
+	diff = (int)(ElapsedMilliseconds() - start_time_tokenize);
     TrackTime((char*)"Tokenize",diff);
     loading = false;
     SetContinuationInput(ptr);

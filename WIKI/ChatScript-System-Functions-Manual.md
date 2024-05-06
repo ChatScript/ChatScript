@@ -254,6 +254,9 @@ Uses the output script of another rule.
 The label can either be a simple rule label within the current topic, or it can be a
 dotted pair of a topic name and a label within that topic or it can be a rule tag. 
 
+Beware: calling ^reuse does NOT set any
+rejoinders on the reused rules.
+
 `^reuse` stops at the first correctly labeled rule it can find and issues a RULE fail 
 if it cannot find one. Assuming nothing fails, it will return 0 regardless of whether 
 or not any output was generated.

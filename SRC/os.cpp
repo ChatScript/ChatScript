@@ -956,7 +956,7 @@ bool PreallocateHeap(size_t len) // do we have the space
 	char* used = heapFree - len;
 	if (used <= ((char*)stackFree + 2000)) 
 	{
-		ReportBug("Heap preallocation fails");
+		ReportBug("Heap preallocation fails for %d bytes", len);
 		return false;
 	}
 	return true;
@@ -2402,9 +2402,9 @@ void PrepIndent()
 		{
 			if (n == 0)
 			{
-				if (i == 0) strcpy(at, "    ");
-				else sprintf(at, "%2d  ", i);
-				at += 4;
+				if (i == 0) strcpy(at, "     ");
+				else sprintf(at, " %2d  ", i);
+				at += 5;
 			}
 			else *at++ = ' ';
 		}

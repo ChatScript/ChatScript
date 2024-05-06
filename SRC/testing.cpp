@@ -2,6 +2,8 @@
 #pragma warning(disable: 4068)
 extern int ignoreRule;
 static bool down_is = true;
+static int readID;
+static int listcount;
 char priorLogin[ID_SIZE];
 unsigned int priortrace = 0;
 static int downcount = 0;
@@ -34,6 +36,37 @@ void InitStats()
 	modifiedTrace = false;
 	modifiedTimingVal = 0;
 	modifiedTiming = false;
+}
+
+static void DoTokenize(char* input)
+{
+	AddInput(input, 0, true);
+	char* ptr = ourMainOutputBuffer;
+	if (!*input) prepareMode = (prepareMode == TOKENIZE_MODE) ? NO_MODE : TOKENIZE_MODE;
+	else
+	{
+		unsigned int oldtrace = trace;
+		unsigned int oldtiming = timing;
+		bool oobstart = (*GetNextInput() == '[');
+		while ((input = GetNextInput()))
+		{
+			prepareMode = TOKENIZE_MODE;
+			PrepareSentence(input, true, true, false, oobstart);
+			oobstart = false;
+			prepareMode = NO_MODE;
+			for (unsigned int i = 1; i <= wordCount; ++i)
+			{
+				strcpy(ptr, wordStarts[i]);
+				ptr += strlen(ptr);
+				*ptr++ = ' ';
+			}
+			*ptr = 0;
+			if (GetNextInput()) strcpy(ptr++, "|");
+		}
+		trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
+		timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
+	}
+	Log(USERLOG, "Canonical: %s\r\n", ourMainOutputBuffer);
 }
 
 bool VerifyAuthorization(FILE* in) //   is he allowed to use :commands
@@ -99,6 +132,7 @@ static int inDepth = 0;
 static unsigned int filesSeen;
 static 	char directory[MAX_WORD_SIZE];
 static char* abstractBuffer;
+static char* abstractPendingBuffer;
 static int longLines;
 static uint64 verifyToken;
 static bool isTracing = false;
@@ -593,33 +627,7 @@ static void C_Tokenize(char* input)
 			tokenControl = val64;
 		}
 	}
-	AddInput(input, 0, true);
-	char* ptr = ourMainOutputBuffer;
-	if (!*input) prepareMode = (prepareMode == TOKENIZE_MODE) ? NO_MODE : TOKENIZE_MODE;
-	else
-	{
-		unsigned int oldtrace = trace;
-		unsigned int oldtiming = timing;
-		bool oobstart = (*GetNextInput() == '[');
-		while ((input = GetNextInput()))
-		{
-			prepareMode = TOKENIZE_MODE;
-			PrepareSentence(input, true, true, false, oobstart);
-			oobstart = false;
-			prepareMode = NO_MODE;
-			for (unsigned int i = 1; i <= wordCount; ++i)
-			{
-				strcpy(ptr, wordStarts[i]);
-				ptr += strlen(ptr);
-				*ptr++ = ' ';
-			}
-			*ptr = 0;
-			if (GetNextInput()) strcpy(ptr++, "|");
-		}
-		trace = (modifiedTrace) ? modifiedTraceVal : oldtrace;
-		timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
-	}
-	Log(USERLOG, "Canonical: %s\r\n", ourMainOutputBuffer);
+	DoTokenize(input);
 	tokenControl = oldToken;
 }
 
@@ -1137,6 +1145,7 @@ static void C_Source(char* input)
 	sourceStart = ElapsedMilliseconds();
 	sourceTokens = 0;
 	sourceLines = 0;
+	stopUserWrite = true; // dont update user
 }
 
 static void C_JAIntegration(char* input)
@@ -1881,6 +1890,7 @@ static void C_TestTopic(char* input)
 
 static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove patterns match comment example, kind is o for outside, r for rule, t for topic, s for samples
 {
+
 	bool testKeyword = kind == 'k';
 	bool testPattern = kind == 'p';
 	bool testBlocking = kind == 'b';
@@ -1939,7 +1949,10 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
 	// process verification data
 	while (ReadALine(readBuffer, in) >= 0)
 	{
+		if (strstr(readBuffer, "VERIFY")) continue;
 		if (bufferIndex > 6) return;
+		char* tokens = strstr(readBuffer, "#Tokens:");
+		if (tokens) *tokens = 0;
 
 		if (!strnicmp(readBuffer, (char*)":trace", 6))
 		{
@@ -2009,6 +2022,7 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
 		ResetToPreUser(true);
 		KillShare();
 		ReadUserData();
+
 		if (verifyToken != 0) tokenControl = verifyToken;
 		volleyCount = 1;
 		if (testSample) OnceCode((char*)"$cs_control_pre");
@@ -2073,10 +2087,10 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
 				SetContext(false);
 			}
 			bool unexpected = (!result && !wantFailMatch) || (result && wantFailMatch);
+			char label[MAX_WORD_SIZE];
+			GetLabel(rule, label);
 			if (unexpected)
 			{
-				char label[MAX_WORD_SIZE];
-				GetLabel(rule, label);
 				if (wantFailMatch) Log(USERLOG, "Pattern matched inappropriately %d %s.%d.%d: %s => %c: %s %s\r\n    Adjusted Input: ", ++err, topic, TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), test, *rule, label, pattern);
 				else Log(USERLOG, "Pattern failed to match %d %s.%d.%d: %s => %c: %s %s\r\n    Adjusted Input: ", ++err, topic, TOPLEVELID(verifyRuleID), REJOINDERID(verifyRuleID), test, *rule, label, pattern);
 				for (unsigned int i = 1; i <= wordCount; ++i) Log(USERLOG, "%s ", wordStarts[i]);
@@ -2337,6 +2351,255 @@ static void VerifyAccess(char* topic, char kind, char* prepassTopic) // prove pa
 	timing = (modifiedTiming) ? modifiedTimingVal : oldtiming;
 }
 
+static void MakePattern(char* line, char* pattern)
+{
+	*pattern = 0;
+	char* tokens = strstr(line, "Tokens: ");
+	if (tokens)
+	{
+		strcpy(pattern, "    ( << "  );
+		char token[1000];
+		char* tbase = tokens + 8;
+		while ((tbase = ReadCompiledWord(tbase, token)))
+		{
+			if (!*token) break;  
+			char* sep = strchr(token, '|');
+			if (sep && sep[1] == ' ')
+			{
+				*sep = 0;
+				sep = NULL;
+			}
+			if (sep) memmove(token, sep + 1, strlen(sep));
+			strcat(pattern, token);
+			strcat(pattern, " ");
+		}
+		strcat(pattern, ">> )\r\n");
+	}
+}
+
+static void AutoPatternFile(char* filename, uint64 flag)
+{
+	char* at = strstr(filename, "topics/");
+	if (!at) return;
+	at += 7;
+	char* endit = strchr(at, '/');
+	char language[100];
+	*endit = 0;
+	strcpy(language, at);
+	*endit = '/';
+
+	FILE* in = FopenReadOnly(filename);
+	char oname[200];
+	char* after = strstr(filename, language);
+	sprintf(oname, "tmp/%s", after);
+	MakeDirectoryPath(oname);
+	printf("doing %s\r\n", oname);
+	char inbuffer[80000];
+	FILE* out = FopenUTF8Write(oname);
+	char patterns[10000];
+	char pattern[10000];
+	*patterns = 0;
+	char kind[10000];
+	char* pstart;
+	char name[10000];
+
+	while (fgets(inbuffer, 80000, in))
+	{
+		char* at = SkipWhitespace(inbuffer);
+		char* before = at;
+		int depth = 0;
+
+		// build pattern from sample
+		if (*at == '#' && at[1] == '!' && !strstr(at,"VERIFY"))
+		{
+			if (!*patterns)
+			{
+				strcpy(patterns, "[\r\n");
+			}
+			MakePattern(at, pattern);
+			strcat(patterns, pattern);
+		} // end of build pattern from sample input
+
+		// handle rule w pattern
+		at = ReadCompiledWord(before, kind);
+		bool isrule = false;
+		if (*kind && (TopLevelRule(kind) || Rejoinder(kind)))
+		{
+			isrule = true;
+		}
+		if (TopLevelGambit(kind)) // may or may not have pattern
+		{
+			at = ReadCompiledWord(at, name);
+			// is it a name
+			at = SkipWhitespace(at);
+			if (*at != '(') isrule = false; // not pattern
+		}
+
+		// a rule with a pattern?
+		if (isrule)
+		{
+			if (*patterns) strcat(patterns, "  ])\r\n"); // close multi
+			pstart = strchr(before, '(');
+			depth = 1;
+			*pstart = 0; // break into before and after
+
+			at = ReadCompiledWord(at, name);
+			if (*name != '(') 
+			{
+				printf("rule %s\r\n", name);
+			}
+			fprintf(out, "%s(", inbuffer); // print before pattern
+			at = pstart + 1; // rest
+		}
+		else // non rule line
+		{
+			fprintf(out, "%s",inbuffer); // entire line
+			continue;
+		}
+
+		bool revise = *patterns;
+		char* end = strrchr(at, ')');
+		if (end) // does pattern use variables
+		{
+			char* d = strchr(at, '$'); // var assign
+			if (d && d < end)
+			{
+				revise = false;
+				*patterns = 0;
+			}
+		}
+
+		// this now shows or eradicates pattern
+		while (depth) // run to close of patern
+		{
+			char* pre = at;
+			char* comment = strchr(pre, '#');
+			if (comment && comment[1] == ' ') *comment = 0;
+			// now absorbing pattern til complete
+			// not prepared for within ""
+			char* open = strchr(at, '(');
+			char* close = strchr(at, ')');
+			if (open && (open < close || !close))
+			{
+				++depth;
+				*open = 0;
+				at = open + 1;
+				if (!revise)
+				{
+					strcat(patterns, pre);
+					strcat(patterns, "(");
+				}
+			}
+			else if (close && (close < open || !open))
+			{
+				--depth;
+				*close = 0;
+				at = close + 1;
+				if (!revise)
+				{
+					strcat(patterns, pre);
+					strcat(patterns, ")");
+				}
+				if (comment && comment[1] == ' ') *comment = '#';
+				if (depth == 0) // close pattern
+				{
+					fprintf(out, "%s",patterns); // show pattern
+					fprintf(out, "%s", close+1); // rest of line 
+					*patterns = 0;
+				}
+			}
+			else if (!open && !close) // find more pattern
+			{
+				if (comment && comment[1] == ' ') *comment = '#';
+				if (!revise) strcat(patterns, pre);
+				fgets(inbuffer, 80000, in);
+				at = inbuffer;
+			}
+		} // run to end of pattern
+	}
+	fclose(in);
+	fclose(out);
+}
+
+static void TokenizeSampleFile(char* name,uint64 flag)
+{
+	FILE* in = FopenReadOnly(name);
+	char oname[200];
+	char* after = strstr(name, current_language);
+	sprintf(oname, "tmp/%s", after);
+	MakeDirectoryPath(oname);
+	printf("doing %s\r\n", oname);
+	
+	char inbuffer[20000];
+	char copy[20000];
+	FILE* out = FopenUTF8Write(oname);
+	while (fgets(inbuffer, 20000, in))
+	{
+		char* eol = strchr(inbuffer, '\r');
+		if (eol) *eol = 0;
+		strcpy(copy, inbuffer); // tokenize damages inbuffer
+		size_t len = strlen(inbuffer);
+
+		// look for sample input, pos it
+		char* start = SkipWhitespace(inbuffer);
+		if (*start == '#' && start[1] == '!')
+		{
+			start = strchr(start, ' '); // avoid special notations
+			char* alreadyposed = strchr(start + 1, '#');
+			if (alreadyposed) *alreadyposed = 0;
+			if (strstr(start, "VERIFY")) alreadyposed = "ignore";
+			if (!alreadyposed || !*alreadyposed)
+			{
+				char* cr = strchr(inbuffer, '\r');
+				if (cr) *cr = 0;
+				MemoryMarkCode(NULL);
+				DoTokenize(start);
+				strcat(copy, "  #Tokens: ");
+				for (unsigned int i = 1; i <= wordCount; ++i)
+				{
+					strcat(copy, wordStarts[i]);
+					bool canon = true;
+					if (!strcmp(wordStarts[i],wordCanonical[i])) 
+						canon = false;
+					if (!stricmp(wordCanonical[i], "unknown-word"))
+					{
+						canon = false;
+					}
+					if (false && canon)
+					{
+						strcat(copy, "|");
+						strcat(copy, wordCanonical[i]);
+					}
+
+					strcat(copy, "  ");
+				}
+				strcat(copy, "\r\n");
+				InternalCall("^MemoryFreeCode", MemoryFreeCode, (char*)" ", NULL, NULL, " ");
+			}
+		}
+		strcat(copy, "\r\n");
+		fwrite(copy, 1, strlen(copy), out);
+	}
+
+	fclose(out);
+	fclose(in);
+}
+
+static void C_TokenizeSamples(char* name)
+{ //:possamples c:/ddrive/sage/topics/JAPANESE
+	char* at = strstr(name, "topics/");
+	if (!at) return;
+	char* endit = strrchr(name, '/');
+	SetLanguage(endit + 1);
+	
+	WalkDirectory(name, TokenizeSampleFile, 0, true);
+}
+
+static void C_AutoPattern(char* name)
+{ //:autopattern c:/ddrive/sage/topics/JAPANESE
+	WalkDirectory(name, AutoPatternFile, 0, true);
+}
+
 static void VerifyAllTopics(char kind, char* prepassTopic, char* topic)
 {
 	size_t len = 0;
@@ -2362,6 +2625,7 @@ static void AllGambitTests(char* topic)
 		GambitTestTopic(GetTopicName(i));
 	}
 }
+
 
 static void C_Verify(char* input)
 {
@@ -5097,6 +5361,8 @@ static void C_Build(char* input)
 			if (conditionalCompiledIndex == MAX_CONDITIONALS)  conditionalCompiledIndex--;
 		}
 	}
+	ClearSupplementalInput();
+
 	size_t len = strlen(file);
 	if (!*file) Log(USERLOG, "missing build label");
 	else
@@ -7669,7 +7935,11 @@ void IngestFile(char* file, uint64 junk)
 
 		is->expectedOutput = CleanLogEntry(is, is->expectedOutput,true);
 		is->actualOutput = CleanLogEntry(is, is->actualOutBuffer,false);
-		
+		if (!is->expectedOutput)
+		{
+			int xx = 0;
+			continue;
+		}
 		if (!is->actualOutput) is->actualOutput = "";
 		char* output1 = strstr(is->expectedOutput, "\"output\"");
 		if (!output1) output1 = strstr(is->expectedOutput, "\"transcript\""); // not json output
@@ -7736,7 +8006,7 @@ static void C_Simplelog(char* file)
 	bool startmessage = false;
 	while (ReadALine(readBuffer, in, maxBufferSize, false, false, true) >= 0) 
 	{
-		// Jun 01 15:38:07.204 2023 Respond: user:local_user bot:sage len:8 ip:127.0.0.1 (~chief_chat_en_us) 1 Hi Chief ==> [ callback=20000 ] {"transcript": "Welcome recruits to Liberty Station. I'm Chief, your new RDC or Recruit Division Commander for those of you who just joined this squad. I'm here to turn jelly into steel while you're here with me. Are you tough enough to be in my Navy?", "audio": "Chief_INTRO_LESSON_en_US", "emotion": "happy", "animation": "Chief_INTRO_LESSON_en_US", "rule": "CHIEF_INTRO_LESSON_EN_US", "input": "Hi Chief", "bot": "Chief", "language": "en_US"}   When:Jun 01 15:38:07.245 2023 41ms q 0 Why:~control_post.12.0=SHOWOOB ~chief_chat_en_us.6.0=CHIEF_INTRO_LESSON_EN_US.~control.76.0=CONTINUECHAT  JOpen:0/0 Timeout:0 pid:0
+		// Jun 01 15:38:07.204 2023 Respond: user:local_user bot:sage len:8 ip:127.0.0.1 (~chief_chat_en_US) 1 Hi Chief ==> [ callback=20000 ] {"transcript": "Welcome recruits to Liberty Station. I'm Chief, your new RDC or Recruit Division Commander for those of you who just joined this squad. I'm here to turn jelly into steel while you're here with me. Are you tough enough to be in my Navy?", "audio": "Chief_INTRO_LESSON_en_US", "emotion": "happy", "animation": "Chief_INTRO_LESSON_en_US", "rule": "CHIEF_INTRO_LESSON_en_US", "input": "Hi Chief", "bot": "Chief", "language": "en_US"}   When:Jun 01 15:38:07.245 2023 41ms q 0 Why:~control_post.12.0=SHOWOOB ~chief_chat_en_US.6.0=CHIEF_INTRO_LESSON_en_US.~control.76.0=CONTINUECHAT  JOpen:0/0 Timeout:0 pid:0
 		char word[MAX_WORD_SIZE];
 		char date[MAX_WORD_SIZE];
 		 
@@ -7835,6 +8105,27 @@ static void C_Simplelog(char* file)
 	fclose(in);
 	fclose(out);
 	printf("done\r\n");
+}
+
+static void C_RenewLog(char* input)
+{
+	FILE* out = FopenUTF8Write("tmp/newlog.txt");
+	FILE* in = FopenReadOnly(input);
+	// ip:54.185.31.13 (~social_media_ja_jp) 544 この車のタイプは ==>
+	while (ReadALine(readBuffer, in) >= 0)
+	{
+		char* end = strstr(readBuffer, "==>");
+		if (!end) continue;
+		*end = 0;
+		char* start = strstr(readBuffer, "ip:");
+		start = strchr(start, ')');
+		start = strchr(start + 2, ' ');
+		strcat(start, "\r\n");
+		fwrite(start, 1, strlen(start), out);
+	}
+	
+	fclose(in);
+	fclose(out);
 }
 
 static void C_Ingestlog(char* input)
@@ -8931,7 +9222,7 @@ static void C_SplitLog(char* input)
 
 	while (fgets(buffer, maxBufferSize, in))
 	{
-		// Jul 11 19:28:31.040 2022 Respond: user:website bot:sage len:0 ip:54.185.31.13 (~introductions) 1 special command: set the persona  ==> {"transcript": "I'm Mia and I'm here in your vehicle for your climate and navigation needs. For example, I can help you if you say \"Please make the car colder\", or \"Play some jazz for me.\"", "audio": "\"\"", "image": "\"\"", "emotion": "\"happy\"", "animation": "\"\"", "input": "special command: set the persona to mia.", "rule": "STARTCONVERSATION"}   When:Jul 11 19:28:31.234 2022 194ms 1qq 0 Why:~intro_en_us.1.0=STARTCONVERSATION.~introductions.0.0  JOpen:191/1 Timeout:0 
+		// Jul 11 19:28:31.040 2022 Respond: user:website bot:sage len:0 ip:54.185.31.13 (~introductions) 1 special command: set the persona  ==> {"transcript": "I'm Mia and I'm here in your vehicle for your climate and navigation needs. For example, I can help you if you say \"Please make the car colder\", or \"Play some jazz for me.\"", "audio": "\"\"", "image": "\"\"", "emotion": "\"happy\"", "animation": "\"\"", "input": "special command: set the persona to mia.", "rule": "STARTCONVERSATION"}   When:Jul 11 19:28:31.234 2022 194ms 1qq 0 Why:~intro_en_US.1.0=STARTCONVERSATION.~introductions.0.0  JOpen:191/1 Timeout:0 
 		char* why = strstr(buffer, "Why:");
 		char whyname[1000];
 		*whyname = 0;
@@ -9076,7 +9367,7 @@ static void C_Comparelog(char* input)
 		while (*--x == ' ') *x = 0; // trim trailing blanks
 		answer1 += 4;
 		char* start1 = strchr(buffer1, '[');  // only with oob will it work
-		if (!start1) continue;
+		// if (!start1) continue;
 		x = strstr(answer1, "When:");
 		if (!x)
 		{
@@ -9098,7 +9389,7 @@ static void C_Comparelog(char* input)
 		while (*--x == ' ') *x = 0; // trim trailing blanks
 		answer2 += 4;
 		char* start2 = strchr(buffer2, '[');  // only with oob will it work
-		if (!start2) continue;
+		//if (!start2) continue;
 		x = strstr(answer2, "When:");
 		if (!x)
 		{
@@ -10939,6 +11230,16 @@ static void C_AllDict(char* input)
 	FClose(out);
 	printf("%d done\r\n", (int)(dictionaryFree - dictionaryBase));
 }
+static void C_ShowFact(char* input)
+{
+	char word[MAX_WORD_SIZE];
+	char* ptr = ReadCompiledWord(input, word);
+	int index = atoi(word);
+	FACT* F = index + factBase;
+	char buffer[1000];
+	char* fact = WriteFact(F, false, buffer, false, false);
+	printf("%s\r\n", fact);
+}
 
 static void C_Facts(char* input)
 {
@@ -12667,7 +12968,32 @@ static char* Indenter(char c)
 	else return  "                             ";
 }
 
-static void DoHeader(int count, char* basic, FILE* in, int id, unsigned int spelling, int ruleid, int rejoinderid, int topicID)
+// keep a 1 level back as appropriate
+int ReadAbstractLine(char* buffer, FILE* in)
+{
+	if (*abstractPendingBuffer)
+	{
+		strcpy(buffer, abstractPendingBuffer);
+		*abstractPendingBuffer = 0;
+		char* dot = strchr(abstractBuffer, '.');
+		char* dot1 = strchr(dot + 1, '.');
+		readID = MAKE_REJOINDERID(atoi(dot1 + 1)) + atoi(dot + 1); // the id pending
+		return 1;
+	}
+	while (1)
+	{
+		if (ReadALine(buffer, in) < 0) break;
+		if (!strstr(abstractBuffer, "VERIFY")) break;
+	}
+	char* tokens = strstr(abstractBuffer, "#Tokens: ");
+	if (tokens) *tokens = 0; // ignore token data
+	char* dot = strchr(buffer, '.');
+	char* dot1 = strchr(dot + 1, '.');
+	readID = MAKE_REJOINDERID(atoi(dot1 + 1)) + atoi(dot + 1); // the id pending
+	return readID;
+}
+
+static void DoHeader(int count, char* basic, FILE* in, int id, unsigned int spelling, int ruleid, int rejoinderid, int topicID, char* output, char* rule)
 {
 	if (*abstractBuffer == 0) 	// no more verification data for this topic
 	{
@@ -12679,39 +13005,116 @@ static void DoHeader(int count, char* basic, FILE* in, int id, unsigned int spel
 			sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID), ruleid, rejoinderid);
 			WORDP D = StoreWord(label, AS_IS);
 			if (D) Log(USERLOG, "(%d) ", statistics[D->word]);
-			Log(USERLOG, "%s", basic);
-			fprintf(abstractFile, "%s\t-\t",basic);
+			Log(USERLOG, "%s\t-\t", basic);
+			fprintf(abstractFile, "%s\t-\t", basic);
 		}
 		return;
 	}
 
+	// comment we last found is for a later rule
+	unsigned int topread = TOPLEVELID(readID);
+	unsigned int topid = TOPLEVELID(id);
+	unsigned int readrejoinder = REJOINDERID(readID);
+	unsigned int idrejoinder = REJOINDERID(id);
+	if (readID == -1){ ; }
+	else if (topread > topid || (topid == topread && readrejoinder > idrejoinder))
+	{
+		char* eq = strchr(basic, '(');
+		if (eq) *eq = 0;
+		Log(USERLOG, "%s%s\t*\t", Indenter(*basic), basic);
+		fprintf(abstractFile, "%s%s\t*\t", Indenter(*basic), basic);
+		if (eq) *eq = '(';
+		return;
+	}
+
 	// get verification matching input -- ~abortion.0.0 #! I am against abortion.
-	static int readID = 0;
+	char* topicName = GetTopicName(topicID);
 	static char* test = NULL;
 	static char type = 0;
 	if ((unsigned char)*abstractBuffer == 1) readID = -1; // read 1st line of topic data
 retry:
-	while (readID == -1 || TOPLEVELID(id) > TOPLEVELID(readID) || (TOPLEVELID(id) == TOPLEVELID(readID) && REJOINDERID(id) > REJOINDERID(readID))) // flush reads until get 1st good one
+	// hunt for first abstract matching the rule
+	// ~adas_de_de.9.0=ADAS_WHAT  #! Worauf ist der Tempomat eingestellt?
+	while (readID == -1 || TOPLEVELID(id) > TOPLEVELID(readID) || (TOPLEVELID(id) == TOPLEVELID(readID) && REJOINDERID(id) > REJOINDERID(readID)))
 	{
-		if (ReadALine(abstractBuffer, in) < 0) break;	// no more verifcation data
-		if (strstr(abstractBuffer, "VERIFY")) continue;
-		char* dot = strchr(abstractBuffer, '.');
-		char* dot1 = strchr(dot + 1, '.');
-		readID = MAKE_REJOINDERID(atoi(dot1 + 1)) + atoi(dot + 1); // the id pending
+		if (ReadAbstractLine(abstractBuffer, in) >= 0)
+		char* tokens = strstr(abstractBuffer, "#Tokens: ");
+
 		test = strchr(abstractBuffer, '#');
-		type = test[2];
-		if (!(spelling & ABSTRACT_PRETTY)) test += 2;
+		if (!test) return; // end of data
+		char* namePeriod = strchr(abstractBuffer, '.');
+		if (namePeriod)
+		{
+			*namePeriod = 0;
+			char* start = strchr(abstractBuffer, '~');
+			bool match = !strcmp(start, topicName);
+			*namePeriod = '.';
+			if (!match) // future topic, hold it
+			{
+				strcpy(abstractPendingBuffer, abstractBuffer);
+				return;
+			}
+		}
+	}
+
+	// does not match rule
+	test = strchr(abstractBuffer, '#');
+	type = (test) ? test[2] : 0;
+	if (id == readID && (type == 'x' || type == 'X'))
+	{
+		Log(USERLOG, "\r\n%s\r\n\r\n", test + 3);
+		fprintf(abstractFile, "\r\n%s\r\n\r\n", test + 3);
+		readID = -1;
+		*abstractPendingBuffer = 0;
+		goto retry;
+
+	}
+	if (TOPLEVELID(id) != TOPLEVELID(readID) || (TOPLEVELID(id) == TOPLEVELID(readID) && REJOINDERID(id) != REJOINDERID(readID)))
+	{
+		// global comment separator
 		if ((type == 'x' || type == 'X') && *test != ' ' && ((TOPLEVELID(id) > TOPLEVELID(readID)) || (TOPLEVELID(id) == TOPLEVELID(readID) && REJOINDERID(id) > REJOINDERID(readID)))) // global topic comment, dump it immediately and keep going
 		{
-			Log(USERLOG, "\r\n%s\r\n", test + 1);
+			Log(USERLOG, "\r\n%s\r\n", test + 3);
+			fprintf(abstractFile, "\r\n%s\r\n", test + 3);
 			readID = -1;
+			goto retry;
 		}
+		strcpy(abstractPendingBuffer, abstractBuffer);
+		return; // hold up for later rule
+	}
+	test = strchr(abstractBuffer, '#');
+	type = (test) ? test[2] : 0;
+
+	// abstractbuffer holds primary line matching our rule
+	// Test for more samples inputs on same line
+	// are current 2 tests for same rule
+	while (1) // handle duplicate tests
+	{
+		ReadALine(abstractPendingBuffer, in); 
+		char* eq0 = strchr(abstractPendingBuffer, '=');
+		char* eq1 = strchr(abstractBuffer, '=');
+		if (eq0 && eq1 && !strncmp(abstractPendingBuffer, abstractBuffer, eq1 - abstractBuffer))
+		{
+			char* testx = strchr(abstractPendingBuffer, '#');
+			Log(USERLOG,"*\t%s%s\t*\t\r\n", Indenter(*basic), testx+2);
+			fprintf(abstractFile, "*\t%s%s\t*\t\r\n", Indenter(*basic), testx+2);
+			continue; // check again
+		}
+		break;
+	}
+
+	if (!(spelling & ABSTRACT_PRETTY)) test += 2;
+	if ((type == 'x' || type == 'X') && *test != ' ' && ((TOPLEVELID(id) > TOPLEVELID(readID)) || (TOPLEVELID(id) == TOPLEVELID(readID) && REJOINDERID(id) > REJOINDERID(readID)))) // global topic comment, dump it immediately and keep going
+	{
+		Log(USERLOG, "\r\n%s\r\n", test + 3);
+		fprintf(abstractFile, "\r\n%s\r\n", test + 3);
+		readID = -1;
 	}
 
 	if (test && (type == 'x' || type == 'X') && *test != ' ' && readID == id) // global topic comment for current match
 	{
-		Log(USERLOG, "\r\n%s\r\n", test + 1);
-		fprintf(abstractFile, "\r\n%s\r\n", test + 1);
+		Log(USERLOG, "\r\n%s\r\n", test + 3);
+		fprintf(abstractFile, "\r\n%s\r\n", test + 3);
 		readID = -1;
 		goto retry;
 	}
@@ -12740,7 +13143,7 @@ retry:
 		sprintf(label, (char*)"R-%s-%s.%d.%d", computerID, GetTopicName(topicID), ruleid, rejoinderid);
 		WORDP D = StoreWord(label, AS_IS);
 		// BUG if (D) Log(USERLOG, "(%d) ", statistics[D->word]);
-		Log(USERLOG, "%s", basic);
+		Log(USERLOG, "%s%s\t", Indenter(*basic), basic);
 		fprintf(abstractFile, "%s%s\t", Indenter(*basic),basic);
 		if (*basic == 't' || *basic == 'v' || usingpattern) fprintf(abstractFile, "-\t"); // no user input
 	}
@@ -12748,7 +13151,7 @@ retry:
 	// display verify as pattern
 	if (id == readID && !lineLimit && !(spelling & ABSTRACT_PRETTY))
 	{
-		Log(USERLOG, " %s =>   ", test);
+		Log(USERLOG, " %s%s =>   ", Indenter(*basic),test);
 		fprintf(abstractFile, "%s%s\t", Indenter(*basic),test);
 	}
 }
@@ -12848,6 +13251,8 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 	char* pattern = AllocateBuffer();
 	char* basic = AllocateBuffer();
 	int id = 0;
+	*abstractPendingBuffer = 0;
+	readID = 0;
 	char bodyKind[100];
 	int ruleid = 0;
 	int rejoinderid = 0;
@@ -13143,6 +13548,10 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 					char* hold = output;
 					output -= strlen(word) + 1;
 					end = strchr(output, ')');
+					if (!end)
+					{
+						int xx = 0;
+					}
 					char c = end[1];
 					end[1] = 0;
 					strncpy(outputPtr, output, strlen(output));
@@ -13284,7 +13693,7 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 
 		if (headit && !(spelling & ABSTRACT_RESTRICTIONS))
 		{
-			DoHeader(indent, basic, in, id, spelling, ruleid, rejoinderid, topicID);
+			DoHeader(indent, basic, in, id, spelling, ruleid, rejoinderid, topicID,buffer,rule);
 			if (lineLimit) // check for sections between \n that are too long.
 			{
 				char* esc;
@@ -13333,7 +13742,7 @@ static void DisplayTopic(char* name, int topicID, int spelling)
 					memmove(lf + 2 + gap, lf + 2, strlen(lf + 2) + 1);
 					for (unsigned int i = 0; i < gap; ++i) lf[2 + i] = ' ';
 				}
-				Log(USERLOG, "%s\r\n", buffer);
+				Log(USERLOG, "%s%s\r\n", Indenter(*basic), buffer);
 				fprintf(abstractFile, "%s%s\r\n", Indenter(*basic),buffer);
 			}
 		}
@@ -13461,7 +13870,8 @@ static void C_Abstract(char* input)
 {
 	abstractFile = FopenUTF8Write("tmp/abstract.csv");
 	fprintf(abstractFile, "RuleLabel\tUser Input\tBot Output\r\n");
-
+	fprintf(abstractFile, "If output is *, look below for shared output.\r\n");
+	readID = -1;
 	int spelling = 0;
 	volleyCounter = 0;
 	relevantVolleyCounter = 0;
@@ -13509,6 +13919,7 @@ static void C_Abstract(char* input)
 		Log(USERLOG, "Volleys processed: %d Relevant: %d \r\n", volleyCounter, relevantVolleyCounter);
 	}
 	abstractBuffer = AllocateBuffer();
+	abstractPendingBuffer = AllocateBuffer();
 
 	size_t len = 0;
 	char* x = strchr(input, '*');
@@ -13560,6 +13971,7 @@ static void C_Abstract(char* input)
 		}
 		DisplayTables((char*)"*");
 	}
+	FreeBuffer();
 	FreeBuffer();
 	FClose(abstractFile);
 	if (lineLimit) Log(USERLOG, "%d lines were over length %d\r\n", longLines, lineLimit);
@@ -14111,13 +14523,18 @@ static void VerifyList1(char* file, uint64 output)
 		char* start = name;
 		if (HasUTF8BOM(start)) start += 3;
 		if (!*start) continue;
-		strcpy(input, start);
 
+		char* tokens = strstr(start, "#Tokens: ");
+		if (tokens) 
+			*tokens = 0; // ignore token data
+		strcpy(input, start);
 		char* ver = strstr(start, "VERIFY");
+		if (!ver) ver = strstr(start, "verify");
 		if (ver)
 		{
 			MakeLowerCase(ver);
 			char* evnt = strstr(ver, "seteventcontext(");
+			if (!evnt) evnt = strstr(ver, "setverifyeventcontext(");
 			char* persona = strstr(ver, "setpersonacontext(");
 			char* language = strstr(ver, "setverifylanguagecontext(");
 			if (!language) language = strstr(ver, "setlanguagecontext(");
@@ -14139,15 +14556,18 @@ static void VerifyList1(char* file, uint64 output)
 				else if (*verifybotlc && !strstr(persona, verifybotlc)) matches = false;
 			}
 		}
-			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ seteventcontext(auto_event)
-			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ setverifylanguagecontext(es_US)
-			//~adas_es_us.0.0 = STARTCONTEXT  #!VERIFY ^ setpersonacontext(Mia)
-			//~adas_es_us.3.0 = ADAS_CRUISE_OFF  #!Apague el control de crucero.
-		if (!matches) continue; // dont include these
-
+			//~adas_en_Us.0.0 = STARTCONTEXT  #!VERIFY ^ seteventcontext(auto_event)
+			//~adas_en_Us.0.0 = STARTCONTEXT  #!VERIFY ^ setverifylanguagecontext(es_US)
+			//~adas_en_Us.0.0 = STARTCONTEXT  #!VERIFY ^ setpersonacontext(Mia)
+			//~adas_en_Us.3.0 = ADAS_CRUISE_OFF  #!Apague el control de crucero.
+		if (!matches)
+		{
+			fclose(in);
+			return; // dont include these
+		}
 		start = input;
 	
-		// ~ai_en_us.1.0 #!Does your system need training ?
+		// ~ai_en_US.1.0 #!Does your system need training ?
 		if (start[2] == ' ')
 			continue; // indented level
 		char* end = strstr(start, "#!");
@@ -14158,16 +14578,56 @@ static void VerifyList1(char* file, uint64 output)
 		*end = 0;
 		char* nl = strchr(message, '\r');
 		if (!nl) nl = strchr(message, '\n');
-		*nl = 0;
+		if (nl) *nl = 0;
+		++listcount;
 		fprintf(out, "%s", message);
 		fprintf(out, "   #!!# %s\r\n", start); // echo out test condition
 	}
 	FClose(in);
 }
 
+static void C_MapLabels(char* input)
+{ // :maplabels topicname
+	char name[MAX_WORD_SIZE];
+	sprintf(name, "%s/tmp.txt", tmpfolder);
+	FILE* out = FopenUTF8Write(name);
+	sprintf(name, "VERIFY/%s-b1.txt",input);
+	FILE* in = FopenReadOnly(name);
+	if (!in) return;
+	char word[4000];
+	char priorlabel[200];
+	*priorlabel = 0;
+
+	while (fgets(word, maxBufferSize, in))
+	{
+		if (strstr(word, "VERIFY")) continue;
+		//~adas_fr_fr.3.0=ADAS_CRUISE_OFF  #! Éteignez le régulateur de vitesse.
+		char* equal = strchr(word, '=');
+		if (!equal) continue;
+		char* sample = strchr(word, '#');
+		*(sample - 2) = 0;
+
+		char* dot = strchr(word, '.');
+		dot[1] = 0; // isolates the topic
+
+		char label[200];
+		ReadCompiledWord(equal + 1, label);
+		if (!strcmp(priorlabel, label)) continue; // only 1 meaning needed
+		strcpy(priorlabel, label);
+
+		char* end = strchr(sample, '\r');
+		*end = 0;
+		fprintf(out,"%s%s: '%s',\r\n",word, label, sample + 3);
+	}
+	FClose(in);
+	FClose(out);
+	printf("done\r\n");
+}
+
 static void C_VerifyList(char* input) // leave * after args if no file
 { // :verifylist  or :verifylist bot:name  or :verifylist language:xx_xx  :verifylist event: :verifylist filename in verify
 	*verifybotlc = 0;
+	listcount = 0;
 	*verifylanguagelc = 0;
 	*verifyeventlc1 = 0;
 	*verifyeventlc2 = 0;
@@ -14227,9 +14687,14 @@ static void C_VerifyList(char* input) // leave * after args if no file
 	FILE* out = FopenUTF8Write(name);
 	fprintf(out, "VERIFY ^gambit(~cs_verifyrun) #!!# ~verifyrun.0.0=STARTCONTEXT\r\n");
 	if (!*input) WalkDirectory("VERIFY", VerifyList1, (uint64)out, false);
-	else VerifyList1(input, (uint64)out);
+	else
+	{
+		char name[400];
+		sprintf(name, "VERIFY/%s-b1.txt", input);
+		VerifyList1(name, (uint64)out);
+	}
 	FClose(out);
-	printf("done\r\n");
+	printf("%d done\r\n",listcount);
 }
 
 static void C_VerifyRun(char* junk)
@@ -14319,7 +14784,7 @@ static void C_VerifyMatch(char* input)
 
 	while (fgets(readBuffer, MAX_WORD_SIZE, in))
 	{
-		//Jun 17 14:11 : 59.900 2022 Respond : user : dt bot : sage len : 65 ip : (~ai_en_us) 1 Does your system need training ? #  AI_TRAINING = ~ai_en_us.1.0 ==> {"transcript": "{\"transcript\": \"\\\"No, and that's why we don't need to harvest user data.\\\"\", \"audio\": \"\\\"\\\"\", \"image\": \"\\\"\\\"\", \"emotion\": \"\\\"happy\\\"\", \"animation\": \"\\\"\\\"\", \"rule\": \"AI TRAINING\"}", "audio" : "\"\"", "image" : "\"\"", "emotion" : "\"happy\"", "animation" : "\"\"", "rule" : "AI_TRAINING"}   When:Jun 17 14 : 11 : 59.908 2022 8ms q 0 Why : ~ai_en_us.1.0 = AI_TRAINING.~control.35.0 = KEYWORDED  JOpen : 0 / 0 Timeout : 0
+		//Jun 17 14:11 : 59.900 2022 Respond : user : dt bot : sage len : 65 ip : (~ai_en_US) 1 Does your system need training ? #  AI_TRAINING = ~ai_en_US.1.0 ==> {"transcript": "{\"transcript\": \"\\\"No, and that's why we don't need to harvest user data.\\\"\", \"audio\": \"\\\"\\\"\", \"image\": \"\\\"\\\"\", \"emotion\": \"\\\"happy\\\"\", \"animation\": \"\\\"\\\"\", \"rule\": \"AI TRAINING\"}", "audio" : "\"\"", "image" : "\"\"", "emotion" : "\"happy\"", "animation" : "\"\"", "rule" : "AI_TRAINING"}   When:Jun 17 14 : 11 : 59.908 2022 8ms q 0 Why : ~ai_en_US.1.0 = AI_TRAINING.~control.35.0 = KEYWORDED  JOpen : 0 / 0 Timeout : 0
 		char expectedRuleID[MAX_WORD_SIZE];
 		char expectedRuleLabel[MAX_WORD_SIZE];
 		char actualRuleLabel[MAX_WORD_SIZE];
@@ -14416,7 +14881,7 @@ static void C_VerifyMatch(char* input)
 				continue;
 			if (*namebot && !*botname) continue;
 
-			// Why: ~ai_en_us.1.0 = AI_TRAINING.~control.35.0
+			// Why: ~ai_en_US.1.0 = AI_TRAINING.~control.35.0
 			char* why = strstr(readBuffer, "Why:");
 			if (why)
 			{
@@ -15071,6 +15536,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)"\r\n---- Fact info",0,(char*)""},
 	{ (char*)":allfacts",C_AllFacts,(char*)"Write all facts to TMP/facts.tmp"},
 	{ (char*)":facts",C_Facts,(char*)"Display all facts with given word or meaning or fact set"},
+	{ (char*)":fact",C_ShowFact,(char*)"Display fact with given index"},
 	{ (char*)":userfacts",C_UserFacts,(char*)"Display current user facts"},
 	{ (char*)":alldict",C_AllDict,(char*)"Write all words to TMP/dict.tmp" },
 
@@ -15176,6 +15642,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":allmembers",C_AllMembers,(char*)"show all members recursive, excluding when members of named concepts" },
 	{ (char*)":compiledp",C_CompileDP,(char*)"compile dp bot" },
 	{ (char*)":simplelog",C_Simplelog,(char*)"display log file simply into tmp/log.txt" },
+	{ (char*)":renewlog",C_RenewLog,(char*)"display log file simply into tmp/log.txt" },
 	{ (char*)":comparelog",C_Comparelog,(char*)"diff 2 log files" },
 	{ (char*)":comparefiles",C_CompareFiles,(char*)"diff 2  files" },
 	{ (char*)":dedupe",C_Dedupe,(char*)"echo input file to TMP/tmp.txt without duplicate lines)" },
@@ -15228,6 +15695,7 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)"\r\n---- Regression testing",0,(char*)"" },
 	{ (char*)":testspanish",C_JaUnittest,(char*)"run spanish unit tests" },
 	{ (char*)":ingestlog",C_Ingestlog,(char*)"execute a log file as source" },
+	{ (char*)":maplabels",C_MapLabels,(char*)"put labels and sample input into tmp.txt" },
 	{ (char*)":verifylist",C_VerifyList,(char*)"put verify tests into tmp.txt" },
 	{ (char*)":verifyrun",C_VerifyRun,(char*)"execute verify test file" },
 	{ (char*)":verifymatch",C_VerifyMatch,(char*)"does userlog match verify data on why" },
@@ -15237,6 +15705,9 @@ CommandInfo commandSet[] = // NEW
 	{ (char*)":validatedict",C_ValidateDict,(char*)"confirms dictionary bucket wiring is correct" },
 	{ (char*)":verify",C_Verify,(char*)"Given test type & topic, test that rules are accessible. Tests: pattern (default), blocking(default), keyword(default), sample, gambit, all." },
 	{ (char*)":spanishword",C_ComputeSpanish,(char*)"Display information about given word" },
+	{ (char*)":tokenizesamples",C_TokenizeSamples,(char*)"Given directory name,replicate files in tmp with samples annotated with tokenizer data." },
+	{ (char*)":autopattern",C_AutoPattern,(char*)"Given directory name,replicate files in tmp with patterns enhanced by tokenized sample data." },
+
 
 #ifdef PRIVATE_CODE
 #include "../privatecode/privatetestingtable.cpp"

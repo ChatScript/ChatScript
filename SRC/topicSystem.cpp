@@ -1528,7 +1528,7 @@ static FunctionResult FindLinearRule(char type, char* buffer, unsigned int& id, 
 		else if (type == GAMBIT || (*ptr == type || *ptr == STATEMENT_QUESTION)) // is this the next unit we want to consider?
 		{
 			result = TestRule(ruleID, ptr, buffer);
-			if (result & (FAILRULE_BIT | ENDRULE_BIT)) oldResponseIndex = responseIndex; // update in case he issued answer AND claimed failure
+			if (result & (FAILTOPRULE_BIT | FAILRULE_BIT | ENDRULE_BIT)) oldResponseIndex = responseIndex; // update in case he issued answer AND claimed failure
 			else if (result & ENDCODES || responseIndex > oldResponseIndex) break; // wants to end or got answer
 		}
 		result = NOPROBLEM_BIT;
@@ -2767,12 +2767,17 @@ void InitKeywords(const char* fname, const char* layer, unsigned int build, bool
 			endOnly = false;
 			// get the main concept name
 			ptr = ReadToken(ptr, word); //   leaves ptr on next good word or bot/lang data
-			if (*word == 'T') memmove(word, word + 1, strlen(word)); // remove T
+			unsigned int typ = CONCEPT;
+			if (*word == 'T')
+			{
+				typ = TOPIC;
+				memmove(word, word + 1, strlen(word)); // remove T
+			}
 			strcpy(name, word);
 			T = ReadMeaning(name, true, true);
 			set = Meaning2Word(T);
 			AddWordItem(set, dictionaryBuild);
-			AddInternalFlag(set, (unsigned int)build);// sets and concepts are both sets. Topics get extra labelled on script load
+			AddInternalFlag(set, typ | (unsigned int)build);// sets and concepts are both sets. Topics get extra labelled on script load
 			if (dictionaryBuild)
 			{
 				AddSystemFlag(set, MARKED_WORD);

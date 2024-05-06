@@ -1,3 +1,11 @@
+# Version 14.1 May 6, 2024
+
+1. Normally :retry cannot be executed by a running script, it requires
+it come from user input. There is however, an input cheat that will allow it.
+"cheat retry xxx" given to the system will change the input to 
+"retry xxx" and then proceed along the debug path.
+For Spanish you can say "cheat rever xxx".
+
 # Version 13.4 October 15, 2023
 
 1. For users who have the TreeTagger add-in, the latest code supports reading a file which enumerates

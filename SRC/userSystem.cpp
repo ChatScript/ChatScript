@@ -721,6 +721,7 @@ void WriteUserData(time_t curr, bool nobackup)
 		userDataBase = GetFileBuffer(); // cannot fail if we got to here
 		strcpy(userDataBase, filename);
 
+		// we write backup JUST BEFORE we save new state
 #ifndef DISCARDTESTING
 		if (!noretrybackup && filesystemOverride == NORMALFILES && (!server || serverRetryOK) && !documentMode && !callback)
 		{

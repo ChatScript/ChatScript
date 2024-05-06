@@ -2154,6 +2154,100 @@ static bool NotPlain(char* word)
 	return false;
 }
 
+unsigned int jwritesize(WORDP D, int subject, bool plain, unsigned int size)
+{// subject is 1 (starting json object) or flags (internal json indicating type and subject/object)
+    size_t len = D->length;
+    int index = 0;
+    unsigned int limit = 10000;
+
+    if (!(subject & (JSON_OBJECT_VALUE | JSON_ARRAY_VALUE)) && subject & JSON_FLAGS)
+    { // this is json primitive or string
+        if (subject & JSON_STRING_VALUE)
+        {
+            if (!stricmp(D->word, (char*)"null"))
+            {
+                size += 6;
+            }
+            else
+            {
+                bool usequote = !plain || !NotPlain(D->word);
+                if (usequote) size += 2;
+                char* buffer = AllocateStack(NULL, limit);
+                char* end = AddEscapes(buffer, D->word, true, limit, false, true);
+                size += strlen(buffer);
+                ReleaseStack(buffer);
+            }
+        }
+        else // true/false/number/null
+        {
+            size += len;
+        }
+        return size;
+    }
+
+    // CS (not JSON) can have recursive structures. Protect against this
+    if (D->inferMark == inferMark)
+    {
+        return size + len;
+    }
+    D->inferMark = inferMark;
+
+    ++size; // json array/object
+	size_t textsize = 0;
+    bool invert = false;
+    int indexsize = 0;
+    FACT* F = GetSubjectNondeadHead(D);
+    char* xlimit;
+    FACT** stack = (FACT**)InfiniteStack(xlimit, "jwrite");
+    if (F && F->flags & JSON_ARRAY_FACT)
+    {
+        indexsize = orderJsonArrayMembers(D, stack, textsize); // tests for illegal delete
+    }
+    else
+    {
+        invert = true;
+        while (F) // stack them
+        {
+            if (F->flags & JSON_OBJECT_FACT) // no collision with possible outside weird words
+            {
+                stack[index++] = F;
+                ++indexsize;
+            }
+            F = GetSubjectNondeadNext(F);
+        }
+    }
+    CompleteBindStack64(indexsize, (char*)stack);
+    for (int i = 0; i < indexsize; ++i)
+    {
+        unsigned int itemIndex = (invert) ? (indexsize - i - 1) : i;
+        F = stack[itemIndex];
+        if (!F) continue;
+        else if (F->flags & JSON_ARRAY_FACT) { ; } // write out its elements
+        else if (F->flags & JSON_OBJECT_FACT)
+        {
+            WORDP D = Meaning2Word(F->verb);
+
+            bool usequote = !plain || !NotPlain(D->word);
+            char* buffer = AllocateStack(NULL, limit);
+            char* end = AddEscapes(buffer, D->word, true, limit, false, true);
+            size += strlen(buffer);
+            ReleaseStack(buffer);
+            size += (usequote ? 4 : 2);
+        }
+        else continue;     // not a json fact, an accident of something else that matched
+
+        size = jwritesize(Meaning2Word(F->object), F->flags & JSON_FLAGS, plain, size);
+        if (i < (indexsize - 1))
+        {
+            size += 2;
+        }
+    }
+    // close the composite
+    size += 2;
+
+    return size;
+}
+
 char* jwrite(char* start, char* buffer, WORDP D, int subject, bool plain,unsigned int limit)
 {// subject is 1 (starting json object) or flags (internal json indicating type and subject/object)
 	size_t len = WORDLENGTH(D);
@@ -2345,7 +2439,7 @@ static MEANING MergeObject(bool keyonly, int sum, MEANING obj1, MEANING obj2)
 		if (kind) // add primitive
 		{
             // if we already have this field, we win, ignore other
-			if (!obj1F && sum != 2) CreateFact(M, obj2G->verb, obj2G->object, kind | JSON_OBJECT_FACT);
+			if (!obj1F && sum != 2) CreateFact(M, obj2G->verb, obj2G->object, kind | JSON_OBJECT_FACT | jsonPermanent);
             else if (sum && obj1F)
             {
                 // unless summing them together
@@ -2376,7 +2470,7 @@ static MEANING MergeObject(bool keyonly, int sum, MEANING obj1, MEANING obj2)
 		{
 			if (!obj1F) // add new field to our object
 			{
-				CreateFact(M, obj2G->verb, jcopy(obj2G->object), JSON_OBJECT_FACT | JSON_OBJECT_VALUE);
+				CreateFact(M, obj2G->verb, jcopy(obj2G->object), JSON_OBJECT_FACT | JSON_OBJECT_VALUE | jsonPermanent);
 			}
 		}
 		else return 0; // we dont do array field
@@ -2420,7 +2514,7 @@ static MEANING MergeArray(bool keyonly,MEANING ar1, MEANING ar2)
 			{
 				char counter[20];
 				sprintf(counter, "%d", index);
-				CreateFact(M, MakeMeaning(StoreWord(counter, AS_IS)), ar2G->object, flags | JSON_ARRAY_FACT);
+				CreateFact(M, MakeMeaning(StoreWord(counter, AS_IS)), ar2G->object, flags | JSON_ARRAY_FACT | jsonPermanent);
 			}
 		}
 		else if (ar2G->flags & JSON_OBJECT_VALUE)
@@ -2445,7 +2539,7 @@ static MEANING MergeArray(bool keyonly,MEANING ar1, MEANING ar2)
 				MEANING X = jcopy(ar2G->object);
 				char counter[20];
 				sprintf(counter, "%d", index++);
-				CreateFact(M, MakeMeaning(StoreWord(counter, AS_IS)), X, JSON_OBJECT_VALUE | JSON_ARRAY_FACT);
+				CreateFact(M, MakeMeaning(StoreWord(counter, AS_IS)), X, JSON_OBJECT_VALUE | JSON_ARRAY_FACT | jsonPermanent);
 			}
 			// otherwise since we have object of same name, the old is irrelevant
 		}

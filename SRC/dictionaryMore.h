@@ -50,7 +50,7 @@ bool SUPERCEDED(WORDP D);
 #define SETIGNORE	 FUNCTION_NAME
 
 //		0x00000020 # DO_SPELLING
-//#define CONCEPT								0x00000020	// all ~words are concepts (and may be topics)
+#define CONCEPT								0x00000020	// all ~words are concepts (and may be topics)
 																					// This flag used during compilation to see if concept is being redefined
 
 //		0x00000040 # DO_TEXTING

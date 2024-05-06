@@ -653,8 +653,8 @@ static char* ResetOutputPtr(char* start, char* buffer)
     if (!at) return start;
     size_t len = strlen(at + 1);
     memmove(start, at + 1, len + 1);	// shift new data back to start
-    if (currentOutputBase != start && start[len - 1] == ' ')
-        --len;	// output ended with a space, remove it
+    if (currentOutputBase != start && start[len - 1] == ' ') --len;	// output ended with a space, remove it
+    else if (len == 1 && start[0] == ' ') len = 0;	// output ended with a space, remove it
     start[len] = 0;
     return start + len; // resume back at original buffer location
 }

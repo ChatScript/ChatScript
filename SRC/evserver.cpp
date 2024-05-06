@@ -1,6 +1,6 @@
 #ifdef INFORMATION
 Copyright (C) 2011-2012 by Outfit7
-Further modifed by Bruce Wilcox 2014-2023
+Further modifed by Bruce Wilcox 2014-2024
 
 Released under Bruce Wilcox License as follows:
 
@@ -75,7 +75,6 @@ int srv_socket_g = -1;
 struct ev_loop *l_g = 0;
 ev_io ev_accept_r_g;
 ev_timer tt_g;
-static int ev_pending = 0;
 static int ev_max = 0;
 
 #ifdef EVSERVER_FORK
@@ -121,7 +120,7 @@ struct Client_t
 
     void Qdown()
     {
-        --ev_pending;
+        --userQueue;
         delete this;
     }
 
@@ -558,10 +557,15 @@ static void evsrv_accept(EV_P_ ev_io *w, int revents)
         }
 
         if (setnonblocking(fd) == -1 || setnonblocking(fd) == -1)  return;
-
-        new Client_t(fd, l_g, ++qsize);
-        ++ev_pending;
-        if (ev_pending > ev_max) ev_max = ev_pending;
+        ++userQueue;
+        if (pendingUserLimit && userQueue >= pendingUserLimit)
+        {
+            --userQueue;
+            int r = send(fd, overflowMessage, overflowLen, 0);
+            close(fd);
+        }
+        else new Client_t(fd, l_g, ++qsize);
+        if (userQueue > ev_max) ev_max = userQueue;
     }
 }
 

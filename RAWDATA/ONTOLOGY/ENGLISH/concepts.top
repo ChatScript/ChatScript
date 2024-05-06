@@ -1207,10 +1207,10 @@ concept: ~mobility_words (anchored immobile immovable mobile movable portable qu
 concept: ~moisture_words (damp dampness dehydrated desicated dried dry flooded humid moist muggy soaked soaking wet wetness ) 
 concept: ~monera   ANIMATE_BEING (bacteria bacteria_family~1 Filoviridae~1 germ microbe probiotic_microflora~1 true_bacteria~1 virus ) 
 concept: ~money_container (alms_box coin_purse donation_box money_belt money_box moneybag penny_bank piggy_bank poor_box ) 
-concept: ~month_names (Apr April Aug August Dec December Feb February Jan January Jul July Jun June Mar March 'May 'may Nov November Oct October Sep Sept September ) 
-concept: ~month_names_index DUPLICATE (3 3 7 7 11 11 1 1 0 0 6 6 5 5 2 2 4 4 10 10 9 9 8 8 8  ) 
+concept: ~month_names_en (Apr April Aug August Dec December Feb February Jan January Jul July Jun June Mar March 'May 'may Nov November Oct October Sep Sept September ) 
+concept: ~month_names_index_en DUPLICATE (3 3 7 7 11 11 1 1 0 0 6 6 5 5 2 2 4 4 10 10 9 9 8 8 8  ) 
 concept: ~daysinmonth DUPLICATE (30 30 31 31 31 31 28 28 31 31 31 31 30 30 31 31 31 31 30 30 31 31 30 30  30)  # 0-based
-concept: ~month_proper_names DUPLICATE (April April August August December December February February January January July July June June March March May May November November October October September September September ) 
+concept: ~month_proper_names_en DUPLICATE (April April August August December December February February January January July July June June March March May May November November October October September September September ) 
 
 concept: ~more (again another continue do_it_again further go_on more other repeat resume what_else ) 
 concept: ~morningthings (~groom arise awake breakfast dawn daylight dress get_up go_to_the_office go_to_work morning shave shower wake ) 
@@ -1847,7 +1847,7 @@ concept: ~time_reference (a.d. a.m. ad afternoon age annual April August autumn 
           Sunday sunset supper term this_month this_week this_year Thursday today tomorrow triennial triennium trimester trimonthly triweekly Tuesday twilight twinight Wednesday week 
           weekend winter wintertime year year_end years yesterday ) 
 concept: ~time_unit (century day decade hour millennium minute month quarter season second semester term week year ) 
-concept: ~timebasedreference (~actual_time ~dayname ~month_names ~positiveinteger day hour midnight midweek minute month noon second today tomorrow week year yesterday ) 
+concept: ~timebasedreference (~actual_time ~dayname ~month_names_en ~positiveinteger day hour midnight midweek minute month noon second today tomorrow week year yesterday ) 
 concept: ~timeearlier (ago anon back back_when before beforehand earlier last previous previously prior ) 
 concept: ~timelater (after afterward ere follow from hence later next post since subsequent subsequently ) 
 concept: ~timenopreposition (all any every last next this ) 

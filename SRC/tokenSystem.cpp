@@ -74,6 +74,8 @@ void DumpTokenControls(uint64 val)
 	if ((val & DO_PARSE) == DO_PARSE) Log(USERLOG,"DO_PARSE ");
 	else if (val & DO_POSTAG) Log(USERLOG,"DO_POSTAG ");
 	
+	if ( val & JSON_DIRECT_FROM_OOB) Log(USERLOG, "JSON_DIRECT_FROM_OOB ");
+
 	if (val & NO_IMPERATIVE) Log(USERLOG,"NO_IMPERATIVE ");
 	if (val & NO_WITHIN) Log(USERLOG,"NO_WITHIN ");
 	if (val & NO_SENTENCE_END) Log(USERLOG,"NO_SENTENCE_END ");
@@ -1522,7 +1524,9 @@ char* TokenizeJapanese(char* input, unsigned int& count, char** words, char* sep
 	// find sentence end if there is one, break off
 	char* period = find_closest_jp_period(input);
 	char* exclaim = strstr(input, "！");
+	if (!exclaim) exclaim = strstr(input, "!");
 	char* question = strstr(input, "？");
+	if (!question) question = strstr(input, "?");
 	char* end = period;
 	if ((end && exclaim && exclaim < end) || !end) end = exclaim;
 	if ((end && question && question < end) || !end) end = question;

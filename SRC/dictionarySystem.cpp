@@ -2182,7 +2182,7 @@ static void Write8(unsigned int val, FILE * out)
 
 bool IsQuery(WORDP D)
 {
-	return (D->internalBits & QUERY_KIND && *D->word != '@' && *D->word != '#' && *D->word != '_');
+	return (D && D->internalBits & QUERY_KIND && *D->word != '@' && *D->word != '#' && *D->word != '_');
 }
 
 bool IsRename(WORDP D)
@@ -5290,7 +5290,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	{
 		if (F->verb != Mmember)
 		{
-			Log(USERLOG, "    %s", WriteFact(F, false, buffer, false, true));
+			Log(USERLOG, "  %d  %s",  F - factBase, WriteFact(F, false, buffer, false, true));
 			F = GetSubjectNext(F);
 			if (++count >= limit && F)
 			{
@@ -5305,7 +5305,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	count = 0;
 	while (F)
 	{
-		Log(USERLOG, "    %s", WriteFact(F, false, buffer, false, true));
+		Log(USERLOG, "  %d  %s",  F - factBase,WriteFact(F, false, buffer, false, true));
 		F = GetVerbNext(F);
 		if (++count >= limit && F)
 		{
@@ -5318,7 +5318,7 @@ void DumpDictionaryEntry(char* word, unsigned int limit)
 	count = 0;
 	while (F)
 	{
-		Log(USERLOG, "    %s", WriteFact(F, false, buffer, false, true));
+		Log(USERLOG, "  %d  %s", F - factBase, WriteFact(F, false, buffer, false, true));
 		F = GetObjectNext(F);
 		if (++count >= limit && F)
 		{

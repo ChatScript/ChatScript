@@ -1,3 +1,4 @@
+﻿
 #include "common.h"
 
 #ifdef INFORMATION
@@ -1413,12 +1414,12 @@ int FindEarliestMember(WORDP concept, char* word)
 		F = GetObjectNondeadNext(F);
 	}
 	ReleaseInfiniteStack();
-
-	unsigned int count = index - 1;
 	MEANING M = MakeMeaning(FindWord(word, 0, PRIMARY_CASE_ALLOWED));
-	while (--index >= 0)
+	unsigned int count = index - 1;
+	while (index--)
 	{
 		F = stack[index];
+		char* name = Meaning2Word(F->subject)->word;
 		if (F->verb == Mmember && (F->subject & MEANING_BASE) == M)
 			return count - index;
 	}
@@ -1447,10 +1448,8 @@ WORDP NthEarliestMember(WORDP concept, int n)
 	int index = 0;
 	while (F) // stack object key data
 	{
-		if (F->verb == Mmember)
-		{
-			stack[index++] = F;
-		}
+		char* word = Meaning2Word(F->subject)->word;
+		if (F->verb == Mmember) stack[index++] = F;
 		F = GetObjectNondeadNext(F);
 	}
 	ReleaseInfiniteStack();
@@ -1604,7 +1603,6 @@ FACT* CreateFastFact(FACTOID_OR_MEANING subject, FACTOID_OR_MEANING verb, FACTOI
 	}
 
 	//   init the basics
-
 	memset(currentFact,0,sizeof(FACT));
 	currentFact->subject = subject;
 	currentFact->verb = verb; 

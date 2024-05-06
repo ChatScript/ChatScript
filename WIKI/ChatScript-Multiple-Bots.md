@@ -171,6 +171,9 @@ This sets both the botid and the bot name, which controls what restrictions fact
 The botid goes beyond controlling facts. It also controls ownership of outputmacro definitions. You can define different
 copies of functions with the same name, different arguments, different code, by making the botid be different.
 
+The bot id can be a union. And the names of the bots can be a union. 
+E.g., bot: 5 Anna, Jack   is both bots 1 and 4.
+
 You can change to a bot owner without naming any bots, in which case topics created will be usuable
 by any bot but facts and functions will be restricted by bot owner.
 ```

@@ -2620,6 +2620,8 @@ bool AddInput(char* buffer, int kind, bool clear)
 	buffer = SkipWhitespace(buffer);
 	if (!*buffer) buffer = (char*)" ";
 	char* item = AllocateHeap(buffer);
+	char* comment = strstr(item, "#!");
+	if (comment) *comment = 0;
 	startSupplementalInput = AllocateHeapval(HV1_STRING|HV2_STRING,startSupplementalInput, (uint64)item, kind);  // 1 == internal input
 	MoreToCome();
 	return true;
@@ -3411,13 +3413,48 @@ static void PurifyHTML(char c, char*& read, char*& write, bool withinquote)
 {
 	if (read[1] == '#')
 	{
-		int n = atoi(read + 2);
+        int n = 0;
+        int offset = 0;
+        if (read[2] == 'x' || read[2] == 'X')
+        {
+            uint64 val;
+            char* ptr = ReadHex(read+2, val);
+            if (*(--ptr) == ';' && val > 0)
+            {
+                n = (int)val;
+                offset = (ptr - read);
+            }
+        }
+        else
+        {
+            if (IsDigit(read[2]) && IsDigit(read[3]) && read[4] == ';') //eg &#32;
+            {
+                n = atoi(read + 2);
+                offset = 4;
+            }
+            else if (IsDigit(read[2]) && IsDigit(read[3]) && IsDigit(read[4]) && IsDigit(read[5]) && read[6] == ';') //eg &#8216;
+            {
+                n = atoi(read + 2);
+                offset = 6;
+            }
+        }
 		// convert normal ascii characters out of html, except
 		// underscore leave alone because this gets around cs output purify on target=&#95;blank 
-		if (IsDigit(read[2]) && IsDigit(read[3]) && read[4] == ';'  && n != 95) //eg &#32;
+		if (n > 0 && n != 95)
 		{
-			*write++ = (char)n; // normal ascii value
-			read += 4;
+            // some numeric codes for double quotes need to be escaped
+            if (n == 34 || n == 171 || n == 187 || n == 8216 || n == 8217 || n == 8220 || n == 8221 || n == 8222)
+            {
+                if (withinquote) *write++ = '\\';
+                *write++ = '"';
+                read += offset;
+            }
+            else if (n < 256)
+            {
+                *write++ = (char)n; // normal ascii value
+                read += offset;
+            }
+            else *write++ = c;
 		}
 		else *write++ = c;
 	}
